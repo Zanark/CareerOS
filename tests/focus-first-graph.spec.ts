@@ -17,6 +17,8 @@ async function prepare(page: Page, completed = false) {
     state.missions.fabric.mode = 'background';
     state.evidence[0].createdAt = '2026-10-07T12:00:00.000Z';
   }
+  state.updatedAt = '2026-10-07T18:28:00.000Z';
+  state.events = state.events.map(event => ({ ...event, createdAt: state.updatedAt }));
   state.plans['2026-10-07'] = [];
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.clock.install({ time: new Date('2026-10-07T18:28:00Z') });
