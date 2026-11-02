@@ -1,0 +1,48 @@
+.repository-sync { display: grid; gap: 24px; min-width: 0; }
+.repository-sync .page-heading { margin-bottom: 0; }
+.repository-sync .panel { min-width: 0; }
+.repository-sync p, .repository-sync li, .repository-sync code { overflow-wrap: anywhere; }
+.repository-boundary { display: flex; align-items: flex-start; gap: 18px; }
+.repository-boundary > svg { flex: 0 0 auto; color: var(--dsf-accent); margin-top: 5px; }
+.repository-boundary h2 { margin: 0 0 12px; }
+.repository-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.repository-stats > div { display: grid; gap: 8px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); min-width: 0; }
+.repository-stats strong { color: var(--dsf-heading); font-size: 1.1rem; overflow-wrap: anywhere; }
+.repository-stats span { color: var(--muted); font-size: .75rem; }
+.repository-toolbar { flex-wrap: wrap; }
+.repository-unlock .stack-form { max-width: 720px; }
+.repository-sync input, .repository-sync textarea { width: 100%; max-width: 100%; min-width: 0; }
+.repository-sync input[type="checkbox"] { width: auto; flex: 0 0 auto; }
+.repository-sync label { display: grid; gap: 10px; }
+.repository-sync .checkbox-label { display: flex; align-items: flex-start; margin: 18px 0; }
+.repository-sync details { min-width: 0; }
+.repository-sync summary { cursor: pointer; color: var(--dsf-heading); font-weight: 650; }
+.repository-sync details[open] > summary { margin-bottom: 18px; }
+.repository-sync .button-row { gap: 12px; flex-wrap: wrap; margin-block: 18px; }
+.repository-sync .button { max-width: 100%; white-space: normal; }
+.repository-sync .button svg { flex: 0 0 auto; }
+.repository-snapshots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.repository-snapshot { border: 1px solid var(--line); border-radius: 12px; padding: 18px; min-width: 0; }
+.repository-snapshot h3 { margin-top: 0; }
+.repository-snapshot dl { display: grid; gap: 10px; }
+.repository-snapshot dl > div { display: flex; justify-content: space-between; gap: 16px; }
+.repository-snapshot dd { margin: 0; }
+.repository-sync pre { max-height: 320px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .7rem; }
+.repository-output textarea, .repository-file textarea { font-family: var(--font-mono, monospace); font-size: .7rem; overflow-wrap: anywhere; }
+.repository-sync .repository-file > label { margin-block: 18px; }
+.repository-instructions ol { padding-left: 1.5em; display: grid; gap: 14px; }
+.repository-sync-entry { grid-column: 1 / -1; }
+.repository-sync-prompt { align-items: center; flex-wrap: wrap; }
+.repository-sync-prompt a { margin-left: auto; }
+@media (max-width: 1000px) {
+  .repository-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 650px) {
+  .repository-sync { gap: 18px; }
+  .repository-stats, .repository-snapshots { grid-template-columns: minmax(0, 1fr); }
+  .repository-boundary { display: block; }
+  .repository-boundary > svg { margin-bottom: 12px; }
+  .repository-sync .button-row .button { width: 100%; justify-content: center; }
+  .repository-sync .repository-snapshot { padding: 14px; }
+  .repository-sync-prompt a { margin-left: 0; }
+}

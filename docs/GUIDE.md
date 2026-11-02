@@ -695,6 +695,84 @@ on the destination. Moving from the local preview to GitHub Pages also requires 
 they are different origins. Clearing site data or deleting a browser profile can
 remove local progress. Export regularly; import replaces the destination after confirmation.
 
+### Optional encrypted repository sync
+
+**Settings & data -> Open repository sync** is an additional workflow, not a replacement
+for ordinary saving, JSON backups, imports, reset, tutorial practice, or completion criteria.
+The website still has no server account and cannot commit or push for you.
+
+On the first device:
+
+1. Keep a normal private backup, then open Repository sync and create a journal with a
+   strong, unique passphrase of at least 12 characters. Store the passphrase in a password
+   manager; there is no password reset.
+2. The browser encrypts a starting snapshot of the current workspace. Use **Copy encrypted
+   updates** or **Download encrypted updates**.
+3. Append the **entire block**, including its header on the first export, to
+   `public\careeros-progress.jsonl`. The shipped file is deliberately empty. Do not put an
+   ordinary plaintext backup in this file, remove old lines, or manually edit encrypted records.
+4. Commit and push, wait for the Pages deployment to succeed, then **Check published updates**.
+   The export becomes confirmed only when this browser reads its batches from the deployed site.
+
+On a phone or another browser, open Repository sync, **Check published updates**, and enter
+the same passphrase. The first connection previews both the current browser and incoming
+workspace. Back up anything needed and explicitly choose which complete workspace to keep.
+It does not guess whether a different browser's existing records belong to the same history.
+
+Record work using the existing pages. Returning to Repository sync during that open workspace
+does not require another unlock. **Prepare encrypted updates** exports the new differences and
+any earlier unconfirmed batches. Transfer the downloaded file or copied text to your laptop,
+append it to the same repository file, commit and push. Repeating an identical exported batch
+is safe: it is replayed only once. An export is a snapshot of changes at preparation time;
+later local work remains pending until another export includes it.
+
+The passphrase-derived, non-extractable key stays in memory only. Reloading, **Lock journal**,
+or entering tutorial practice discards it. Existing browser progress remains usable while
+the repository journal is locked; the ordinary local workspace is still unencrypted.
+Unlocking a connected browser also checks the deployed journal. Compatible new published
+changes combine with unpublished local work; nothing is uploaded automatically.
+
+Conflicts are explicit:
+
+- Mission progress, each dated plan, each record, and each setting are compared against the
+  shared journal baseline. Different edits to the same section require review. Existing record
+  IDs are not silently rewritten, so two offline devices creating different records with the same
+  sequential ID also conflict. Coupled evidence/progress rules are revalidated after a merge.
+- A conflict preserves both complete snapshots for inspection and private backup. A whole-workspace
+  choice requires acknowledgement and does not publish by itself. Keeping the browser version can
+  create removals in the next export; inspect the added/changed/removed summary.
+- If two devices export branches from the same old head, do not append both branches. Publish
+  one, load that deployment on the other browser, review/rebase, discard older copied blocks,
+  then prepare a fresh export. A branched journal is rejected, not resolved by file order.
+- A missing or modified previously confirmed prefix is rejected on a connected browser. A fresh
+  device has no earlier trusted head and cannot independently prove that a valid file is the newest.
+
+**Review a full journal file or pasted journal** validates/decrypts a combined file locally
+before committing or for offline transfer. It does not confirm publication. **Download encrypted
+cache** retains staged batches. **Disconnect repository sync** removes only this browser's
+sync cache, not its workspace or the repository file; download the cache before disconnecting.
+Normal backups do not contain the sync cache or key, and normal backup import/reset do not
+silently disconnect it. Their resulting workspace changes remain eligible for a later explicit
+journal export.
+
+The journal has a 24 MiB / 2,000-batch limit, while each workspace retains its existing 5 MiB
+portable-backup limit and domain record limits. Browser storage can fill before those limits;
+failed writes are reported, never claimed published. If a reviewed workspace saves but the
+separate sync-cache write fails, the error says so and no publication is acknowledged: keep a
+private backup and retry the journal connection/check.
+
+Only the ciphertext journal is intended for Git. It uses browser Web Crypto, AES-256-GCM and
+PBKDF2-SHA-256 (600,000 iterations), with random salt and per-batch IVs and authenticated journal/
+batch/parent metadata. File size, record count and Git history remain public. A weak passphrase
+can be guessed offline. Encryption does not protect an unlocked browser, compromised same-origin
+scripts, or an already-leaked plaintext backup. Do not enter credentials or confidential employer
+material. Ordinary backups remain plaintext and private.
+
+The existing validation suite checks the committed journal's envelope, chain and duplicate IDs.
+It cannot decrypt your personal journal in CI because the passphrase is intentionally absent.
+Use the browser's full-file review before publication; damaged ciphertext is rejected at unlock
+without replacing local work.
+
 ## Develop and verify
 
 Use a current Node.js LTS release and npm.

@@ -17,4 +17,7 @@ playwright-report/
 *.pdf
 careerhq-backup-*.json
 careerhq-tutorial-example-*.json
+careeros-encrypted-updates-*.jsonl
+careeros-encrypted-cache-*.jsonl
+careeros-sync-recovery-*.json
 private/

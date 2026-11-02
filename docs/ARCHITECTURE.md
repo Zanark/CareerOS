@@ -30,6 +30,7 @@ plan as proof of capability.
 | `src/domain/focusSession.ts`, focus operations in `engine.ts` | Optional, bounded focus-session event records, strict chronology/state/ID validation and conditional ownership checks before appending reports. |
 | `src/focus/*` | One tab-local controller shared by compact/fullscreen timers, immediately persisted self-reports, retained history, and an inert calm-profile 3D backdrop. |
 | `src/workspaceFile.ts` — `serializeWorkspace` | Identical compact JSON encoding for saved and exported state, with a shared 5 MiB UTF-8 limit also used by import. |
+| `src/repositorySync/*` | Optional encrypted append-only journal, pure change/reconciliation model, local encrypted outbox, session-only key, explicit review and same-origin static-file loading. Existing browser/backup APIs are retained. |
 | `src/App.tsx`, `src/pages.tsx`, `src/dialogs.tsx` | Hash navigation, views, accessible forms, and user-confirmed commands. |
 | `src/SourcePanel.tsx` — `OperationSourcesPage` | Native Modal for reviewing all pending roadmap versions before one confirmed commit; per-mission adoption stays separate. |
 | `vite.config.ts` | `/CareerOS/` asset base matching the renamed repository; Vite emits the static deployment into `dist`. |
@@ -201,6 +202,54 @@ across the active tracker and archives; other upgrades do not guess a mapping.
 System and the seven expanded workbook editions therefore archive v1/v2 on explicit
 adoption and start detailed modules unconfirmed. Case references are deliberately outside checkpoint identity,
 completion counts and evidence validation.
+
+### Optional encrypted repository journal
+
+`RepositorySyncPage` is a separate hash route linked from Settings. The saved-workspace
+`useRepositorySync` hook retains a key while navigating pages; practice gets an isolated,
+disabled instance. No workspace schema field, credential API, backend or external request is
+added. The only journal URL is the fixed same-origin Vite-base-relative
+`careeros-progress.jsonl`, served from `public`. Requests omit credentials, refuse redirects,
+bypass the browser cache, time out and enforce a bounded response size.
+
+`journalFormat.ts` defines strict version-one JSONL envelopes. The first record is a public
+KDF/cipher header; the first encrypted batch is a complete validated baseline. Later encrypted
+batches contain old/new values at allowlisted workspace cells, not appended ordinary backups.
+Header + batch ID + parent are GCM additional authenticated data. Random 16-byte salt,
+600,000-iteration PBKDF2-SHA-256 and random 12-byte per-batch IVs produce non-extractable
+AES-256-GCM keys. Parameters, payload sizes, IDs, count limits and replay parents are validated.
+Identical repeated header/batch records are deduplicated; changed duplicate IDs and branching
+parents are errors. Replay uses bounded current-state memory, not one full snapshot per batch.
+
+`workspaceChanges.ts` uses locale-independent canonical value comparison. Mission progress
+and dated plans are atomic cells; independent records are keyed by existing IDs. Archives
+retain exact mission/version identities. Events are ordered chronologically before strict
+`parseState` validation. Optional collections retain presence, and all normal domain/5 MiB
+constraints still apply. IDs and checkpoint evidence are never invented or renamed to hide
+collisions. Structurally independent but semantically incompatible merges fail explicitly.
+
+`journalCache.ts` compares the common prefix with the last acknowledged count. The encrypted
+local outbox includes unconfirmed exports, which are re-exported with stable batch IDs.
+Only a deployment fetch acknowledges publication, never export or local-file review. Safe
+incoming changes are three-way merged against the common base; unpublished local chains may
+be rebased, invalidating previously copied blocks. Incompatible values/record-ID collisions
+require an explicit whole-workspace decision, with both private backup downloads available.
+A new device has no shared local baseline and therefore always reviews its first connection.
+
+The hook checks sidecar freshness, main-workspace freshness and the exact reviewed snapshot.
+Workspace application uses the existing guarded `commit`; no artificial learning/history
+event is awarded for sync. The encrypted cache is written only after that succeeds. These
+are separate localStorage writes, not an atomic multi-key transaction: a later cache failure
+is reported as a saved workspace with an unsaved journal checkpoint, with no acknowledged
+publication and an explicit retry path. A stale/failed review never overwrites newer local work.
+Lock/practice/unmount invalidate in-flight operations so late decryption cannot restore a key
+or apply data after cancellation.
+
+Normal backup/reset/import, theme state, timer storage, roadmap adoption and tutorial lessons
+retain their original behavior. A later explicit journal export can represent changes made
+by ordinary backup import/reset, including removals; the UI reports that fact. The public
+file ships empty. A unit gate validates its encrypted envelope/chain without a CI secret;
+full-file browser review validates authentication and domain semantics locally.
 
 ### Reviewed bulk adoption
 

@@ -15,6 +15,9 @@ that an agent currently reads, grades, or updates the workspace.
    evidence, effect, and scope before requesting approval.
 4. Backup import and reset replace state only after clear confirmation. Preserve existing
    data on validation/storage failure, and recommend a private export before replacement.
+5. Optional repository sync is manual, user-controlled publication. Never commit a plaintext
+   workspace or passphrase, infer publication from an export, or bypass a conflicted/stale
+   journal review. First connections and whole-workspace choices require explicit confirmation.
 
 ## Evidence, not invented progress
 

@@ -13,6 +13,14 @@ or automatic upload. Hosting providers still receive normal page/asset requests.
 Opening an external artifact, job or research-source link leaves the app and uses that destination's
 privacy rules. “No app upload” is not a promise that web hosting has no access logs.
 
+**Optional repository sync** is a separate, explicitly enabled encrypted export. The browser
+can encrypt your complete starting workspace and subsequent changes for you to append manually
+to `public\careeros-progress.jsonl`, commit and publish. Only that ciphertext is intended to
+be public; ordinary backups, raw personal-history files and source PDFs remain private.
+The app never commits, pushes or uploads progress for you, and it stores no GitHub credentials.
+Opening Repository sync may fetch that one same-origin journal file; it sends no workspace or
+passphrase in the request.
+
 **Keep going** reads personal history and saved work from the visible workspace only.
 Past accomplishments are never bundled in the public source or sent to a remote service.
 A personal-history file is read locally, previewed, and added only after confirmation.
@@ -72,8 +80,28 @@ A distinct storage key avoids accidental collisions; it is not access control.
 
 Do not store passwords, tokens, credentials, confidential employer material, or
 sensitive personal information. Prefer synthetic examples and non-sensitive summaries.
-There is no multi-device sync, account recovery, or server backup. Clearing site data,
+There is no automatic cloud sync, account recovery, or automatic server backup. Clearing site data,
 using private browsing, browser cleanup, or storage failure can lose local work.
+
+The optional repository journal adds **manual cross-device publication**, not a cloud-sync
+service. It does not change the default storage or existing recovery tools. Its separately
+stored cache (`careerhq.repository-journal.v1`) contains encrypted batches and a publication
+checkpoint, never the passphrase or decrypted key. Normal backups do not include that cache.
+The decrypted workspace still uses the existing unencrypted browser storage.
+
+Journal keys are derived locally with PBKDF2-SHA-256 and used with AES-256-GCM, fresh random
+salt/IVs and authenticated batch/parent metadata. The key is non-extractable and remains in
+memory only while unlocked; locking/reloading or entering tutorial practice discards it.
+This does not make the browser a vault or protect against malicious same-origin JavaScript.
+Anyone may download ciphertext and try guessing its passphrase offline. Public file sizes,
+batch counts and repository history are not hidden; deleting a file does not erase older Git
+revisions. Keep a strong unique passphrase and private recovery backup: there is no password reset.
+
+Compatible incoming updates retain local pending work; ambiguous edits and colliding record IDs
+require explicit review. First connections and whole-workspace conflict choices require
+confirmation. Exporting/copying/downloading is not publication; only a deployed-file check can
+acknowledge a batch. File-only review cannot do so. An old or damaged journal never justifies
+silently clearing the browser workspace.
 
 Normal UI updates at the same origin preserve compatible saved data; a new browser,
 device, scheme/domain/port or hosted-versus-local address is a separate storage location.

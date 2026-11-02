@@ -40,6 +40,8 @@ import FocusRoom from './focus/FocusRoom';
 import type { FocusRoomHandle } from './focus/focusTypes';
 import { missionAccentStyle, missionColor } from './missionVisuals';
 import { MissionWorkStreak } from './MissionWorkStreak';
+import { useRepositorySync } from './repositorySync/useRepositorySync';
+import { RepositorySyncPage } from './repositorySync/RepositorySyncPage';
 
 type Commit = (transform: (current: AppState) => AppState) => boolean;
 const mainNav = [
@@ -104,6 +106,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
   onStartTutorial: () => void; onExitTutorial: () => void;
 }) {
   const { commit, date } = workspace;
+  const repositorySync = useRepositorySync(workspace, practice);
   const missions = getMissions(state);
   const [route, setRoute] = useState(routeNow);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -123,7 +126,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
   const selected = missions.find(mission => mission.id === route.split('/')[1]);
   const todayPlan = state.plans[date] ?? [];
   const active = missions.filter(mission => state.missions[mission.id].mode === 'active' && state.missions[mission.id].status !== 'completed');
-  const pageInfo = [...mainNav, ...extraNav, { id: 'settings', label: 'Settings & data', color: 'blue' }, { id: 'guide', label: 'Help & glossary', color: 'sand' }, { id: 'sources', label: 'Operation documents', color: 'violet' }, { id: 'dsa', label: 'DSA practice library', color: 'sage' }, { id: 'system-concepts', label: 'System Design concepts', color: 'blue' }, { id: 'system-practice', label: 'System Design problems', color: 'blue' }, { id: 'practice', label: 'Practice libraries', color: 'violet' }].find(item => item.id === page);
+  const pageInfo = [...mainNav, ...extraNav, { id: 'settings', label: 'Settings & data', color: 'blue' }, { id: 'repository-sync', label: 'Repository sync', color: 'blue' }, { id: 'guide', label: 'Help & glossary', color: 'sand' }, { id: 'sources', label: 'Operation documents', color: 'violet' }, { id: 'dsa', label: 'DSA practice library', color: 'sage' }, { id: 'system-concepts', label: 'System Design concepts', color: 'blue' }, { id: 'system-practice', label: 'System Design problems', color: 'blue' }, { id: 'practice', label: 'Practice libraries', color: 'violet' }].find(item => item.id === page);
   const title = pageInfo?.label ?? selected?.name ?? 'Not found';
   const navigateTutorial = useCallback((target: string) => {
     focusRoom.current?.close();
@@ -246,6 +249,8 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
       </header>
       <main id="main-content" className={`page-content ${selected?.color ?? pageInfo?.color ?? 'teal'}${page === 'home' ? ' career-graph-content' : ''}`} style={selected ? missionAccentStyle(selected.id) : undefined} ref={headingRef} tabIndex={-1}>
         {appearance.notice && <div className="alert" role="status"><span>{appearance.notice}</span><button className="icon-button" aria-label="Dismiss theme notice" onClick={appearance.dismissNotice}><X size={17} /></button></div>}
+        {!practice && repositorySync.connected && !repositorySync.unlocked && page !== 'repository-sync' &&
+          <div className="alert repository-sync-prompt" role="status"><span>Your optional repository journal is locked. Browser saving still works; unlock to load published progress.</span><a className="text-link" href="#/repository-sync">Unlock journal<ArrowRight size={15} /></a></div>}
         {workspace.conflict && <div className="alert error" role="alert"><span>This workspace changed in another tab. Reload to avoid overwriting newer work.</span><button onClick={() => location.reload()} className="button secondary">Reload</button></div>}
         {workspace.error && <div className="alert error" role="alert"><span>{workspace.error}</span><button className="icon-button" aria-label="Dismiss error" onClick={() => workspace.setError('')}><X size={17} /></button></div>}
         {practice && <div className="tutorial-practice-banner"><strong>Practice tutorial</strong><span>Temporary data. Your real progress is untouched.</span><button onClick={onExitTutorial}>Exit tutorial</button></div>}
@@ -280,8 +285,9 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {page === 'recall' && <RecallPage state={state} commit={commit} practice={practice} />}
         {page === 'sources' && <OperationSourcesPage key={selected?.id ?? 'pattern'} initialSelection={selected?.id} state={state} commit={commit} />}
         {page === 'settings' && <DataPage state={state} commit={commit} onExport={exportBackup} onReplace={next => workspace.replace(next)} notify={setToast} practice={practice} onImported={() => setImportCount(count => count + 1)} />}
+        {page === 'repository-sync' && <RepositorySyncPage sync={repositorySync} />}
         {page === 'guide' && <GuidePage onStartTutorial={onStartTutorial} />}
-        {(!['home', 'perspective', 'dsa', 'system-concepts', 'system-practice', 'practice', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
+        {(!['home', 'perspective', 'dsa', 'system-concepts', 'system-practice', 'practice', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
         {page !== 'home' && <footer className="page-footer"><a href="#/guide">Help & glossary</a><a href="#/settings">Data & backups</a></footer>}
       </main>
     </div>
