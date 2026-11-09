@@ -45,6 +45,7 @@ import { RepositorySyncPage } from './repositorySync/RepositorySyncPage';
 import DiscoveryPage from './discovery/DiscoveryPage';
 import { DiscoveryNotice } from './discovery/DiscoveryNotice';
 import { getDiscoverySnapshot } from './discovery/model';
+import type { WayfinderRun } from './discovery/model';
 import { createDiscoveryPracticeState } from './discovery/practice';
 
 type Commit = (transform: (current: AppState) => AppState) => boolean;
@@ -121,6 +122,9 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
   const [opportunityDialog, setOpportunityDialog] = useState(false);
   const [fullRoadmapOpen, setFullRoadmapOpen] = useState(false);
   const [discoveryId, setDiscoveryId] = useState<string | null>(null);
+  const [wayfinderRequest, setWayfinderRequest] = useState<WayfinderRun | null>(null);
+  const wayfinderRequestId = useRef(0);
+  const clearWayfinderRequest = useCallback(() => setWayfinderRequest(null), []);
   const [discoveryExampleCount, setDiscoveryExampleCount] = useState(0);
   const discovery = useMemo(() => getDiscoverySnapshot(state), [state, date]);
   const focusRoom = useRef<FocusRoomHandle>(null);
@@ -268,6 +272,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {page === 'home' && <CareerGraphPage ref={careerGraph} state={state} practice={practice} date={date} onRecord={id => openEvidence(id)} />}
         {page === 'perspective' && <Perspective state={state} practice={practice} commit={commit} />}
         {page === 'discoveries' && <DiscoveryPage state={state} snapshot={discovery} practice={practice}
+          levelUp={wayfinderRequest} onLevelUpViewed={clearWayfinderRequest}
           selectedId={discoveryId} onSelect={setDiscoveryId} onLoadExample={() => {
             if (!practice) { workspace.setError('Discovery examples are available only in the isolated tutorial.'); return; }
             focusSession.discard();
@@ -315,7 +320,10 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
     {opportunityDialog && <OpportunityDialog practice={practice} onClose={() => setOpportunityDialog(false)} onSave={opportunity => change('Opportunity added', current => ({ ...current, opportunities: [...current.opportunities, opportunity] }), 'escape')} />}
     {fullRoadmapOpen && page === 'mission' && selected && <FullMissionRoadmap key={`${selected.id}-${selected.roadmapVersion}`} mission={selected} state={state} onClose={closeFullRoadmap} />}
     <FocusRoom ref={focusRoom} state={state} date={date} session={focusSession} practice={practice} />
-    <DiscoveryNotice snapshot={discovery} />
+    <DiscoveryNotice snapshot={discovery} onViewLevelUp={(from, to) => {
+      setWayfinderRequest({ id: `recorded-${++wayfinderRequestId.current}`, from, to });
+      navigate('discoveries');
+    }} />
     {practice && <Tutorial state={state} route={route} signals={{ evidenceOpen: !!evidenceDialog, opportunityOpen: opportunityDialog, fullRoadmapOpen, focusRunning: focusSession.running, exportCount, importCount, discoveryExampleCount, searchQuery: query, theme: appearance.theme }} onNavigate={navigateTutorial} onCommand={commandTutorial} onExit={onExitTutorial} onRestart={onStartTutorial} />}
   </div>;
 }

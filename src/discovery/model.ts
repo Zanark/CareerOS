@@ -90,14 +90,25 @@ export interface DiscoverySnapshot {
 }
 
 export const wayfinderStages = [
-  { at: 0, title: 'First light', description: 'A new explorer, a blank chart. Your first honest learning record can begin the collection.' },
-  { at: 1, title: 'Trail scout', description: 'A gold scarf marks the first discoveries. There is no timer on the rest of the journey.' },
-  { at: 3, title: 'Chart keeper', description: 'A field pack joins the kit. The records behind your discoveries are the real treasure.' },
-  { at: 6, title: 'Deep explorer', description: 'A seafoam cloak marks another chapter of the collection. Keep the actual work in charge.' },
-  { at: 10, title: 'Signal bearer', description: 'A lantern joins the explorer. Revisit what you learned, not just what you finished.' },
-  { at: 16, title: 'Wayfinder', description: 'A field chart joins the kit. The remaining discoveries can wait for work worth doing.' },
-  { at: 24, title: 'Atlas keeper', description: 'The final constellation crest is yours. A complete collection is still not the end of learning.' },
+  { at: 0, title: 'First light', realm: 'Tidebound Harbor', effect: 'departure', form: 'Harbor cloak', relic: 'The blank chart', chapter: 'A chart with no borders',
+    description: 'The harbor is quiet. A blank chart, an old cloak, and somewhere worth going.' },
+  { at: 1, title: 'Trail scout', realm: 'Windward Reach', effect: 'compass', form: 'Windrunner scarf', relic: 'Tide compass', chapter: 'A direction of your own',
+    description: 'The compass wakes. Beyond the harbor, a trail of gold runs along the water.' },
+  { at: 3, title: 'Chart keeper', realm: 'The Chart Archive', effect: 'chart', form: 'Cartographer coat', relic: 'Living field map', chapter: 'The walls remember',
+    description: 'A folded map opens into a room of forgotten routes. Some of them are yours now.' },
+  { at: 6, title: 'Deep explorer', realm: 'The Drowned Gate', effect: 'dive', form: 'Abyss diving suit', relic: 'Pressure crystal', chapter: 'Below the familiar',
+    description: 'The diving seal closes. Far below the surface, something answers the crystal.' },
+  { at: 10, title: 'Signal bearer', realm: 'The Beacon Spire', effect: 'beacon', form: 'Beaconkeeper mantle', relic: 'Sunfire lantern', chapter: 'A light across the distance',
+    description: 'The lantern catches. One beam reaches from the spire to the edge of the sea.' },
+  { at: 16, title: 'Wayfinder', realm: 'The Skybridge', effect: 'glider', form: 'Stormsail glider', relic: 'Aether pennant', chapter: 'No road required',
+    description: 'The stormsilk unfolds. The bridge ends here; the journey does not.' },
+  { at: 24, title: 'Atlas keeper', realm: 'The Astral Observatory', effect: 'constellation', form: 'Astral regalia', relic: 'Constellation crown', chapter: 'The sky you brought with you',
+    description: 'Every signal has a place. A little star-manta arrives to keep the completed atlas company.' },
 ] as const;
+
+export const wayfinderXpPerDiscovery = 100;
+export type WayfinderStage = typeof wayfinderStages[number];
+export interface WayfinderRun { id: string; from: number; to: number; replay?: boolean }
 
 export function getWayfinderProgress(earned: number) {
   if (!Number.isInteger(earned) || earned < 0 || earned > discoveryCatalogue.length) {
@@ -108,10 +119,19 @@ export function getWayfinderProgress(earned: number) {
   const stage = wayfinderStages[index];
   const nextAt = wayfinderStages[index + 1]?.at ?? null;
   return {
-    level: index + 1, title: stage.title, description: stage.description, startsAt: stage.at, nextAt,
+    level: index + 1, title: stage.title, description: stage.description, stage, startsAt: stage.at, nextAt,
+    xp: earned * wayfinderXpPerDiscovery, startsAtXp: stage.at * wayfinderXpPerDiscovery,
+    nextAtXp: nextAt === null ? null : nextAt * wayfinderXpPerDiscovery,
     remaining: nextAt === null ? 0 : nextAt - earned,
     percent: nextAt === null ? 100 : (earned - stage.at) / (nextAt - stage.at) * 100,
   };
+}
+
+export function getWayfinderCrossings(from: number, to: number) {
+  const before = getWayfinderProgress(from);
+  const after = getWayfinderProgress(to);
+  return wayfinderStages.map((stage, index) => ({ ...stage, level: index + 1 }))
+    .slice(before.level, Math.max(before.level, after.level));
 }
 
 type LearningRecord = { kind: 'evidence'; record: Evidence } | { kind: 'recall'; record: RecallEntry };

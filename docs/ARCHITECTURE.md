@@ -16,6 +16,7 @@ plan as proof of capability.
 | `src/domain/missionActivity.ts` — `getMissionActivity`; `src/MissionWorkStreak.tsx` | Read-only local-calendar work days from evidence/recalls across editions, shown separately from mastery. |
 | `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discovery projection over validated evidence/recall: canonical identities, chronological first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
 | `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed SVG/CSS collection, inspectable source receipts, keyboard activity ribbon and non-focus-stealing notices for newly visible discoveries. No WebGL or render loop. |
+| `src/discovery/Wayfinder.tsx`, `WayfinderViewer.tsx`, `wayfinderGeometry.ts` | Source-derived collection EXP, bounded reward timeline and an event-driven low-resolution PS1-style 3D avatar with cumulative equipment; transient camera/chapter choices only. |
 | `src/missionVisuals.ts` | Shared nine-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
@@ -388,7 +389,7 @@ Highlights follow actual controls, with state-derived Next gates and optional sk
 No real-workspace achievement is recorded to make a step pass. Exported practice files
 are explicitly labeled examples. Practice state itself is not saved across reloads.
 
-The 164-step, 29-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
+The 170-step, 29-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
 bulk-update lesson opens the real review Modal and **cancels**, so the later individual
 adoption and archive exercise remains meaningful. Checkpoints lessons gate on the actual
 View checkbox in both directions; the work-streak lesson expands its actual explanation
@@ -396,7 +397,7 @@ after saving practice evidence without completion. Tutorial target lookup can po
 to the closed View panel's opener, then to Checkpoints, or to the native bulk dialog's
 Cancel button. These lessons do not need new app commands or automatic adoption.
 
-The original 150 steps remain in order. Fourteen final Discovery Atlas lessons
+The original 150 steps remain in order. Twenty final Discovery Atlas lessons
 exercise the actual family filter, mystery/reveal controls, normal evidence form,
 source receipt and local-day detail. `discovery/practice.ts` creates a clearly
 fictional historical example only on an explicit practice-only button. The current
@@ -414,13 +415,37 @@ and 28 activity tiles regardless of record count. Provenance is bounded, with ex
 continuation for larger first-qualified receipts. No new persistence is required:
 the existing backup and encrypted journal already carry its source records.
 
-`getWayfinderProgress` derives seven fictional character levels from that finite
-collection count, not professional capability or a new XP ledger. `Wayfinder.tsx`
-draws an original SVG explorer whose equipment follows the derived level. Entrance,
-breathing, blink and spark animations have finite iteration counts and use transform/
-opacity; replay changes only local presentation state. Reduced motion disables all
-character animation, including level-up notices. There is no new WebGL context,
-animation-frame loop, external avatar service or persisted character profile.
+`getWayfinderProgress` derives seven fictional character levels and cosmetic
+collection EXP (100 per discovery) without a new ledger or workspace field.
+`getWayfinderCrossings` retains every crossed chapter for catch-up presentations.
+`Wayfinder.tsx` owns a bounded, skippable threshold/reward timeline and transient
+unlocked-chapter inspection. The canvas remains mounted across phases and chapter
+changes, preserving the user's camera and avoiding repeated context creation.
+
+`wayfinderGeometry.ts` authors the original low-poly traveler, six cumulative
+equipment bundles and seven real chapter dioramas. Each equipment bundle is one
+vertex-coloured mesh; the entire terrain/props of a chapter are batched into
+one additional mesh sharing the same unlit material. Face shading is baked
+into vertex colours; there are no textures, lights, shadow maps, model downloads,
+postprocessing or new dependencies.
+`WayfinderViewer.tsx` reuses the installed Three.js/OrbitControls and starts with
+an orthographic isometric camera. Orbit moves the viewpoint around character
+and scenery together. Move mode, right drag and Shift+arrows pan the view;
+reset restores angle, target, zoom and default rotation mode. Internal width
+is capped at 384 pixels and total buffer area at 82,944 pixels, with DPR 1.
+The viewer is lazy-loaded only
+when the avatar is mounted, not for notifications or non-3D routes. Render invalidation coalesces
+input, resize and equipment updates; there is no idle requestAnimationFrame loop.
+Only a finite 650ms new-equipment flourish requests consecutive frames. Offscreen,
+hidden-tab, reduced-motion and disposal boundaries settle or stop that work.
+Geometry/materials, observers, input handlers, controls and the owned WebGL context
+are disposed on unmount. An explicit initialization/context-loss message never
+masquerades a still SVG as working 3D. Manual camera input remains available under
+reduced motion. Small SVG/CSS effects accompany only the finite reward sequence;
+the scenery itself is real depth-bearing geometry in the same context.
+The discovery chapter observes its view-state attributes explicitly, so a
+post-frame camera reset can satisfy its action gate independently of click
+timing or unrelated DOM changes.
 
 Tutorial cues share that portal: an animated opacity halo traces the current target,
 and a transform-animated pointing hand indicates buttons. They track scroll/resize

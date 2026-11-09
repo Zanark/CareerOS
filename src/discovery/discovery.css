@@ -195,7 +195,7 @@
 .discovery-more-proof > summary { cursor: pointer; }
 .discovery-detail-actions { display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--dsf-separator); margin-top: 21px; padding-top: 20px; }
 .discovery-detail-actions .button { white-space: normal; }
-.discovery-notice { position: fixed; top: 82px; right: 24px; z-index: 96; display: flex; align-items: center; gap: 13px; padding: 17px 14px 17px 17px; border: 1px solid color-mix(in srgb, #d6b66e 70%, var(--dsf-border)); border-radius: 13px; background: var(--dsf-paper); box-shadow: 0 12px 35px var(--dsf-shadow); max-width: min(420px, calc(100vw - 32px)); animation: discovery-arrive .35s ease-out both; }
+.discovery-notice { position: fixed; bottom: 24px; right: 24px; z-index: 96; display: flex; align-items: center; gap: 13px; padding: 17px 14px 17px 17px; border: 1px solid color-mix(in srgb, #d6b66e 70%, var(--dsf-border)); border-radius: 13px; background: var(--dsf-paper); box-shadow: 0 12px 35px var(--dsf-shadow); max-width: min(420px, calc(100vw - 32px)); animation: discovery-arrive .35s ease-out both; }
 .discovery-notice-icon { display: grid; place-items: center; width: 43px; height: 48px; color: #d6b66e; background: color-mix(in srgb, #d6b66e 11%, var(--dsf-paper)); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); flex-shrink: 0; }
 :root[data-theme="light"] .discovery-notice-icon { color: #876622; }
 .discovery-notice > div { min-width: 0; }

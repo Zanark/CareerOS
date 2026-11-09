@@ -69,6 +69,10 @@ viewing analytics, and makes no external requests. Discovery receipts show only
 source records already in this browser. Normal backups and the optional encrypted
 journal carry those records; confirmed replacement/reset recalculates the collection.
 Collection completion is not independently assessed ability or current retention.
+The fictional 3D character and collection EXP are derived from that same count.
+Camera, chapter previews and level-up replay are temporary view state, not new
+localStorage fields, exports or analytics. Character geometry and the licensed
+display font are bundled locally; no avatar, model or font service receives data.
 
 These personal activity records travel in ordinary unencrypted workspace exports.
 Resetting the timer preserves them; explicitly replacing/resetting the whole workspace

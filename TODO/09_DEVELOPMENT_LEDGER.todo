@@ -17,6 +17,32 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-09 - Replaced the avatar's flat backdrop with seven real isometric
+    low-poly dioramas. Orthographic orbit/pan/zoom and reset share one context
+    with cumulative equipment. Full level-seven scene: 1,292 triangles/eight
+    calls/332x248; zero additional idle/offscreen frames in bounded local probes.
+    Fifty-two warm CPU submission samples: 0.4ms median/0.5ms p95, not GPU latency.
+    Types/689 units, build and 24 affected browser cases pass, including the
+    complete 170-step tour and both backup workflows. Two chapter cases caught
+    a real reset-observation race; observing actual post-frame discovery
+    attributes fixed it. Frozen-clock reveal captures now wait for a real new
+    WebGL paint. Actual chapter/reveal/orbit/mobile sheets were reviewed;
+    human aesthetic acceptance and exact-source Pages publication stay separate.
+  2026-11-09 - The revised Wayfinder is a real, freely rotatable PS1-style
+    3D traveler with cumulative equipment, seven authored chapter scenes and
+    distinct reward reveals. Existing Three.js, unlit low-poly meshes, a capped
+    buffer and invalidation-driven rendering avoid an idle loop. The maximal
+    model submits 1,028 triangles/eight draw calls; a bounded local probe found
+    zero idle/offscreen frames and 0.3ms median/0.5ms p95 warm CPU submission,
+    not universal GPU/device performance. Current gates: TypeScript/688 units,
+    22 tracking cases, build, 24 affected browser cases and actual visual review.
+    The tour has 169 steps, with its original 150 intact. Exact-source
+    publication remains pending; user aesthetic acceptance is unrecorded.
+  2026-11-09 - Reopened Discovery Atlas after rejection of the first character
+    presentation. The pushed prototype abcbabd remains historical source, not an
+    accepted design. Its Pages run 42598017993 was intentionally cancelled before
+    publication. Research and a distinct payoff on every level precede revised
+    implementation/qualification; existing evidence and board identities remain.
   2026-11-09 - Discovery Atlas and its original evolving character are locally
     qualified. Read-only canonical evidence/recall projection preserves existing
     progress and exports. New final tutorial brings the tour to 164 steps across

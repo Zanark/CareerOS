@@ -19,14 +19,56 @@ export const discoverySteps: TutorialStep[] = [
   },
   {
     id: 'discovery-character', chapter: 'discovery', kind: 'explain',
-    targets: ['wayfinder-panel'], title: 'Your character can grow without pretending to grade you',
-    body: 'Meet your Wayfinder: an original fictional sea explorer. Seven collection levels reveal a scarf, pack, cloak, lantern, chart and final crest. Levels come only from the same finite discoveries, not clicks, time or application volume. This is your character’s journey, not a rating of your career, seniority or readiness.',
+    targets: ['wayfinder-panel'], title: 'A little RPG, built around your actual records',
+    body: 'Your low-poly Wayfinder lives on a real isometric 3D diorama. Seven collection levels bring distinct scenery, equipment, relics and chapters. Earned equipment stays on the character. Every discovery supplies 100 cosmetic collection EXP; clicking, replaying and leaving the page open supply none. These are fictional character levels, never a rating of your career or readiness.',
+  },
+  {
+    id: 'discovery-character-orbit', chapter: 'discovery', kind: 'action',
+    targets: ['wayfinder-viewer'], title: 'Turn the whole diorama',
+    body: 'Drag to orbit the character and its actual 3D surroundings together. On a keyboard, focus the canvas and press an arrow key. Scroll, pinch or use plus/minus to zoom. Rotate away from the starting isometric angle to continue. The viewer stays still when you stop. If 3D is unavailable, read the explicit notice and use Skip step.',
+    checkUi: root => Number(root.querySelector('[data-tour="wayfinder-viewer"]')?.getAttribute('data-orbit-offset') ?? '0') > .01,
+  },
+  {
+    id: 'discovery-diorama-move', chapter: 'discovery', kind: 'action',
+    targets: ['wayfinder-pan-mode', 'wayfinder-viewer'], title: 'Move the diorama without rotating it',
+    body: 'Click Move diorama, the four-arrow button. Now a one-finger or left-mouse drag moves the whole view instead of rotating. On the focused canvas, Shift plus an arrow key moves it too; right-mouse drag also works. Move away from the initial position to continue. These are camera choices only, never progress or saved workspace data.',
+    checkUi: root => root.querySelector('[data-tour="wayfinder-viewer"]')?.getAttribute('data-control-mode') === 'move' &&
+      Number(root.querySelector('[data-tour="wayfinder-viewer"]')?.getAttribute('data-pan-offset') ?? '0') > .02,
+  },
+  {
+    id: 'discovery-character-reset', chapter: 'discovery', kind: 'action',
+    targets: ['wayfinder-reset-view'], title: 'Return to the original view',
+    body: 'Click Reset diorama view, the circular-arrow button inside the scene. Home on the focused canvas works too. This restores the isometric camera, position, zoom and rotation mode, not EXP, equipment, discoveries or real progress. Manual controls remain available with reduced motion.',
+    checkUi: root => Number(root.querySelector('[data-tour="wayfinder-viewer"]')?.getAttribute('data-reset-count') ?? '0') > 0 &&
+      root.querySelector('[data-tour="wayfinder-viewer"]')?.getAttribute('data-view-default') === 'true',
   },
   {
     id: 'discovery-character-play', chapter: 'discovery', kind: 'action',
-    targets: ['wayfinder-replay'], title: 'Try the character animation',
-    body: 'Click Replay arrival. Its short entrance, a little movement and a blink finish rather than running forever. Reduced motion keeps the character still, including during replay. This button is just for enjoying the character: it never adds a discovery or changes a level. New level crossings can also produce a brief character notice after actual records are saved.',
+    targets: ['wayfinder-replay'], title: 'Replay a proper level-up',
+    body: 'Click Replay level-up. The old EXP bar fills, the threshold announces the next level, new equipment appears on the 3D character, and the chapter rewards are revealed. Every level has a different visual payoff. This is a replay of an unlocked chapter, not more EXP. Real new discoveries offer View level-up without interrupting evidence recording.',
     checkUi: root => Number(root.querySelector('[data-tour="wayfinder-panel"]')?.getAttribute('data-replay-count') ?? '0') > 0,
+  },
+  {
+    id: 'discovery-character-skip', chapter: 'discovery', kind: 'action',
+    targets: ['wayfinder-sequence'], title: 'Keep the rewards, skip the animation',
+    body: 'Click Skip animation if it is still playing. The complete reward summary stays available. With reduced motion, it is already shown without automatic movement. Multi-level arrivals keep every crossed chapter, even when skipped. No save waits for an animation to finish and nothing must be claimed before you can leave.',
+    checkUi: root => root.querySelector('[data-tour="wayfinder-sequence"]')?.getAttribute('data-phase') === 'complete',
+  },
+  {
+    id: 'discovery-character-memory', chapter: 'discovery', kind: 'action',
+    targets: ['wayfinder-chapters'], title: 'Revisit an earlier chapter',
+    body: 'Click the unlocked LV 01 chapter. Its earlier outfit and harbor appear, while the actual collection level and EXP stay unchanged. Future artwork remains hidden until earned. Exploring a chapter is view-only; you can return to it whenever you want.',
+    checkUi: root => root.querySelector('[data-tour="wayfinder-panel"]')?.getAttribute('data-view-level') === '1',
+  },
+  {
+    id: 'discovery-character-current', chapter: 'discovery', kind: 'action',
+    targets: ['wayfinder-current'], title: 'Return to your current chapter',
+    body: 'Click Current chapter. Your current cumulative equipment returns without resetting the camera or changing a record. The stats below EXP are your actual recorded days, practiced checkpoints and revisited checkpoints, not invented combat attributes or independently measured skills.',
+    checkUi: root => {
+      const panel = root.querySelector('[data-tour="wayfinder-panel"]');
+      return !!panel && panel.getAttribute('data-view-level') === panel.getAttribute('data-level') &&
+        !root.querySelector('[data-tour="wayfinder-current"]');
+    },
   },
   {
     id: 'discovery-family', chapter: 'discovery', kind: 'action',

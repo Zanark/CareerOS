@@ -1,52 +1,167 @@
-.wayfinder-panel { --dsf-heading: var(--dsf-hero-text); display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 1.3fr); gap: 25px; padding: 18px 34px 18px 18px; border: 1px solid #45656a; border-radius: 16px; background: radial-gradient(ellipse at 18% 55%, #104048 0, transparent 45%), var(--dsf-hero-bg); color: var(--dsf-hero-text); margin: -13px 0 36px; overflow: hidden; }
-.wayfinder-scene { position: relative; display: grid; justify-items: center; align-content: center; min-width: 0; padding: 20px 10px 24px; }
-.wayfinder-scene::before { content: ""; position: absolute; width: 220px; max-width: 100%; aspect-ratio: 1; border: 1px solid #7e9f8c30; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.wayfinder-scene-label, .wayfinder-scene-coordinates { color: #a7b9b1; font: .43rem/1.7 Consolas, monospace; letter-spacing: .13em; z-index: 1; }
-.wayfinder-scene-label { position: absolute; top: 5px; left: 10px; }
-.wayfinder-scene-coordinates { position: absolute; bottom: 0; }
-.wayfinder-art { display: block; width: 230px; max-width: 100%; height: auto; overflow: visible; }
-.wayfinder-arrival { transform-box: view-box; transform-origin: 50% 88%; animation: wayfinder-land .7s ease-out both; }
-.wayfinder-character { transform-box: view-box; transform-origin: 50% 85%; animation: wayfinder-breathe 3s .7s ease-in-out 2; }
-.wayfinder-eyes { transform-box: fill-box; transform-origin: center; animation: wayfinder-blink 4s 1.1s 1; }
-.wayfinder-sparks { transform-box: view-box; transform-origin: center; animation: wayfinder-spark 1.2s ease-out both; }
-.wayfinder-copy { align-self: center; min-width: 0; padding: 12px 0; }
-.wayfinder-copy > .eyebrow { color: #b7c5b8; font-size: .45rem; letter-spacing: .12em; }
-.wayfinder-heading { display: flex; align-items: center; gap: 17px; margin: 20px 0 14px; }
-.wayfinder-level { display: flex; align-items: baseline; gap: 5px; color: #e5c78b; font: 1.9rem/1 Consolas, monospace; letter-spacing: -.08em; }
-.wayfinder-level small { color: #a9b9b1; font-size: .45rem; letter-spacing: .04em; }
-.wayfinder-heading > div { min-width: 0; border-left: 1px solid #8da78f44; padding-left: 17px; }
-.wayfinder-heading h2 { font-size: 1.12rem; font-weight: 450; letter-spacing: -.03em; }
-.wayfinder-heading p { color: #b1c0b9; font-size: .56rem; margin-top: 6px; }
-.wayfinder-description { font-size: .66rem; line-height: 1.9; color: #bbcabf; max-width: 53ch; }
-.wayfinder-progress-copy { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin: 20px 0 9px; }
-.wayfinder-progress-copy strong { font-size: .6rem; font-weight: 500; color: #dfc995; }
-.wayfinder-progress-copy > span { color: #b2c2b9; font: .52rem/1.7 Consolas, monospace; }
-.wayfinder-progress { height: 4px; background: #759a8a35; border-radius: 4px; overflow: hidden; }
-.wayfinder-progress > i { height: 100%; display: block; background: #d6b66e; border-radius: 4px; }
-.wayfinder-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 17px; }
-.wayfinder-actions > button { display: inline-flex; align-items: center; gap: 7px; color: #dfc995; padding: 8px 11px; border: 1px solid #d6b66e77; border-radius: 6px; font-size: .53rem; line-height: 1.7; }
-.wayfinder-actions > button:hover { border-color: #e5d6af; background: #d6b66e0f; }
-.wayfinder-actions > span { display: inline-flex; align-items: center; gap: 6px; color: #a4b9ae; font-size: .45rem; line-height: 1.8; }
-.wayfinder-boundary { color: #a6b8af; font-size: .49rem; line-height: 1.9; border-top: 1px solid #8da78f30; padding-top: 12px; margin-top: 17px; }
-.discovery-notice .wayfinder-art { width: 60px; flex-shrink: 0; margin: -12px -4px -11px -7px; }
-.discovery-notice[data-level-up="true"] { border-color: #d6b66e; box-shadow: 0 12px 35px var(--dsf-shadow), inset 0 0 0 2px #d6b66e15; }
-.discovery-notice .wayfinder-notice-level { color: var(--dsf-muted); font: .48rem/1.7 Consolas, monospace; margin: 2px 0; display: block; }
-@keyframes wayfinder-land { 0% { opacity: 0; transform: translateY(13px) scale(.94); } 65% { opacity: 1; transform: translateY(-3px) scale(1.015); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes wayfinder-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-@keyframes wayfinder-blink { 0%, 88%, 96%, 100% { transform: scaleY(1); } 92% { transform: scaleY(.1); } }
-@keyframes wayfinder-spark { 0% { opacity: 0; transform: scale(.8); } 45% { opacity: 1; transform: scale(1.02); } 100% { opacity: .7; transform: scale(1); } }
-@media (max-width: 1050px) {
-  .wayfinder-panel { grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr); padding-right: 22px; gap: 15px; }
-  .wayfinder-art { width: 210px; }
+@font-face { font-family: Silkscreen; src: url("../assets/fonts/Silkscreen-Regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+
+.wayfinder-panel { --dsf-heading: #eee8d5; --game-ink: #eee8d5; --game-muted: #b4c4bd; --game-gold: #dfc58c; --game-rule: #547578; color: var(--game-ink); background: #001e26; border: 2px solid var(--game-rule); box-shadow: 0 4px 0 #000f13, inset 0 0 0 3px #000f13; padding: 5px; margin: 0 0 30px; min-width: 0; }
+.wayfinder-panel-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 15px; border-bottom: 1px solid #54757888; background: #0a2931; }
+.wayfinder-panel-head > span { display: flex; align-items: center; gap: 7px; color: #b9c9bd; font: .46rem/1.7 Consolas, monospace; letter-spacing: .06em; }
+.wayfinder-panel-head > strong { font: .78rem/1.5 Silkscreen, Consolas, monospace; color: #dfc58c; letter-spacing: .02em; }
+.wayfinder-save-light { width: 5px; height: 5px; background: #69b5d1; box-shadow: 0 0 0 2px #69b5d122; }
+.wayfinder-console { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 25px; padding: 18px; align-items: start; }
+.wayfinder-screen-column { min-width: 0; border: 2px solid #203f47; box-shadow: 0 0 0 1px #000f13; background: #061c28; }
+.wayfinder-scene { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: radial-gradient(ellipse at 50% 45%, #244551, #0b2433 75%); contain: paint; isolation: isolate; }
+.wayfinder-scene[data-scene="glider"], .wayfinder-scene[data-scene="constellation"] { background: radial-gradient(ellipse at 50% 45%, #34395c, #142237 75%); }
+.wayfinder-scene::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, #000f1310 0 1px, transparent 1px 4px); pointer-events: none; }
+.wayfinder-scene-effects { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.wayfinder-player { position: absolute; top: 43%; left: 37.5%; width: 25%; }
+.wayfinder-viewer { position: absolute; inset: 0; }
+.wayfinder-viewer-viewport { position: absolute; inset: 0; }
+.wayfinder-viewer canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; touch-action: none; cursor: grab; outline-offset: -3px; }
+.wayfinder-viewer[data-dragging="true"] canvas { cursor: grabbing; }
+.wayfinder-viewer-tools { position: absolute; left: 8px; right: 8px; bottom: 30px; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 7px; pointer-events: none; }
+.wayfinder-viewer-tools > span { color: #d3ddc9; font: .35rem/1.7 Consolas, monospace; background: #001e26cc; padding: 3px 5px; }
+.wayfinder-viewer-tools > div { display: flex; gap: 4px; pointer-events: auto; }
+.wayfinder-viewer-tools button { display: grid; place-items: center; width: 29px; height: 29px; color: #d3ddc9; background: #001e26e6; border: 1px solid #789591; }
+.wayfinder-viewer-tools button:enabled:hover { color: #f0d496; border-color: #dfc58c; }
+.wayfinder-viewer-tools button:disabled { opacity: .55; cursor: default; }
+.wayfinder-viewer-tools button[aria-pressed="true"] { color: #f0d496; border-color: #dfc58c; background: #355158; }
+.wayfinder-viewer-fallback { position: absolute; left: 37.5%; top: 43%; width: 25%; }
+.wayfinder-viewer-fallback * { animation: none !important; transition: none !important; }
+.wayfinder-viewer-message { position: absolute; left: 8px; right: 8px; top: 8px; color: #f0dfb5; font-size: .43rem; line-height: 1.7; background: #001e26ed; padding: 7px; }
+.wayfinder-viewer-loading { position: absolute; inset: 45% 12px auto; color: #d3ddc9; font-size: .48rem; line-height: 1.8; text-align: center; }
+.wayfinder-viewer-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.wayfinder-art { display: block; width: 100%; height: auto; overflow: visible; image-rendering: pixelated; }
+.wayfinder-scene-marker { position: absolute; bottom: 8px; left: 8px; max-width: calc(100% - 45px); color: #d3ddc9; background: #001e26e6; padding: 3px 5px; font: .38rem/1.5 Consolas, monospace; letter-spacing: .02em; }
+.wayfinder-scene-corner { position: absolute; top: 9px; right: 9px; color: #c4cfbc; font: .4rem/1.5 Consolas, monospace; opacity: .7; }
+.wayfinder-scene-caption { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 20px 14px; background: #0a2632; border-top: 1px solid #54757888; }
+.wayfinder-scene-caption > span { font: .43rem/1.5 Consolas, monospace; color: #b1c2bb; letter-spacing: .1em; }
+.wayfinder-scene-caption > strong { font: .7rem/1.8 Silkscreen, Consolas, monospace; color: #dfc58c; }
+.wayfinder-copy { min-width: 0; padding: 2px 0 0; }
+.wayfinder-overline { font: .43rem/1.8 Consolas, monospace; letter-spacing: .14em; color: #b7c8bd; }
+.wayfinder-heading { display: flex; align-items: center; gap: 17px; margin: 15px 0 17px; }
+.wayfinder-level { color: #dfc58c; display: flex; flex-direction: column; gap: 4px; font: 1.7rem/1 Silkscreen, Consolas, monospace; }
+.wayfinder-level > small { color: #afc1b8; font: .42rem/1.5 Consolas, monospace; letter-spacing: .16em; }
+.wayfinder-heading h2 { font: 1rem/1.6 Silkscreen, Consolas, monospace; letter-spacing: -.03em; overflow-wrap: anywhere; }
+.wayfinder-description { color: #bdcec3; font-size: .64rem; line-height: 1.9; margin: 0 0 17px; }
+.wayfinder-loadout { display: grid; gap: 8px; border-top: 1px solid #54757866; border-bottom: 1px solid #54757866; padding: 13px 0; margin: 0 0 18px; }
+.wayfinder-loadout > div { display: grid; grid-template-columns: 90px minmax(0, 1fr); align-items: start; gap: 12px; }
+.wayfinder-loadout dt { display: flex; gap: 7px; align-items: center; color: #b2c2b9; font: .43rem/1.8 Consolas, monospace; padding-top: 2px; }
+.wayfinder-loadout dd { color: #e2d4b0; font-size: .58rem; line-height: 1.8; margin: 0; }
+.wayfinder-relic { width: 24px; height: 24px; flex-shrink: 0; }
+.wayfinder-loadout .wayfinder-relic { width: 14px; height: 14px; }
+.wayfinder-progress-copy { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+.wayfinder-progress-copy > strong { color: #dfc58c; font: .77rem/1.7 Silkscreen, Consolas, monospace; }
+.wayfinder-progress-copy strong > small { font: .4rem/1.8 Consolas, monospace; color: #b5c5b9; }
+.wayfinder-progress-copy > span { font: .43rem/1.7 Consolas, monospace; color: #c0cbb9; white-space: nowrap; }
+.wayfinder-exp-track { height: 12px; padding: 2px; background: #061b27; border: 1px solid #668487; box-shadow: inset 0 1px 0 #000f13; overflow: hidden; }
+.wayfinder-exp-track > i { height: 100%; display: block; background: repeating-linear-gradient(90deg, transparent 0 13px, #00212a77 13px 15px), linear-gradient(#e9d495 0 35%, #b49a5d 35%); }
+.wayfinder-next-level { color: #bbcbbd; font-size: .52rem; line-height: 1.8; margin: 9px 0 17px; }
+.wayfinder-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.wayfinder-actions > button { display: inline-flex; gap: 7px; align-items: center; padding: 9px 12px; color: #e3d3a6; border: 1px solid #b49a5d; box-shadow: 2px 2px 0 #071a25; background: #16363d; font-size: .54rem; line-height: 1.7; }
+.wayfinder-actions > button:hover { background: #264a4c; border-color: #e5ce99; }
+.wayfinder-actions .wayfinder-return { border-color: #547578; color: #b7d0c4; background: transparent; box-shadow: none; }
+.wayfinder-source-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 18px; margin-top: 17px; border-top: 1px solid #54757866; }
+.wayfinder-source-stats strong { display: block; color: #a0c6c7; font: .85rem/1.6 Silkscreen, Consolas, monospace; }
+.wayfinder-source-stats span { display: block; color: #b4c6bc; font-size: .46rem; line-height: 1.8; margin-top: 2px; }
+.wayfinder-chapters { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; padding: 0 18px 16px; }
+.wayfinder-chapters > button { display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 0; padding: 11px 5px; border: 1px solid #365660; background: #0b2a34; color: #b4c6bc; }
+.wayfinder-chapters > button:enabled:hover { background: #1c3e45; border-color: #dfc58c; }
+.wayfinder-chapters > button[aria-pressed="true"] { border-color: #dfc58c; color: #e1cc94; box-shadow: inset 0 -3px #d6b66e; background: #193941; }
+.wayfinder-chapters > button:disabled { opacity: 1; background: #081f2b; color: #8caaa8; cursor: default; }
+.wayfinder-chapters > button > span:first-child { font: .47rem/1.6 Silkscreen, Consolas, monospace; }
+.wayfinder-chapters small { color: inherit; font-size: .44rem; line-height: 1.7; text-align: center; overflow-wrap: anywhere; }
+.wayfinder-chapter-exp { font: .38rem/1.7 Consolas, monospace; color: #a4bbb2; }
+.wayfinder-boundary { color: #adc1b6; font-size: .46rem; line-height: 1.9; margin: 0 18px; padding: 12px 0 11px; border-top: 1px solid #54757866; }
+
+.wayfinder-sequence { min-width: 0; background: #0a2632; }
+.wayfinder-sequence-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #d9c18a; border-bottom: 1px solid #54757866; padding: 8px 11px; font: .42rem/1.7 Consolas, monospace; letter-spacing: .1em; }
+.wayfinder-sequence-label[hidden] { display: none; }
+.wayfinder-sequence-label button { display: grid; place-items: center; padding: 3px; color: #bbcec5; }
+.wayfinder-sequence-screen { position: relative; }
+.wayfinder-levelup-banner { position: absolute; inset: 12px 20px auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px; pointer-events: none; }
+.wayfinder-levelup-banner > span { font: .42rem/1.6 Consolas, monospace; color: #efe3be; background: #061b28dc; padding: 2px 6px; }
+.wayfinder-levelup-banner > strong { font: 1.1rem/1.4 Silkscreen, Consolas, monospace; color: #f0d496; text-shadow: 2px 2px #071a25, -2px -2px #071a25, 2px -2px #071a25, -2px 2px #071a25; }
+.wayfinder-sequence[data-phase="ready"] .wayfinder-levelup-banner > strong, .wayfinder-sequence[data-phase="fill"] .wayfinder-levelup-banner > strong { font-size: .65rem; }
+.wayfinder-sequence[data-phase="threshold"] .wayfinder-levelup-banner > strong { animation: wayfinder-level-impact .35s steps(4, end) both; }
+.wayfinder-sequence-meter { padding: 11px 13px; border-top: 1px solid #54757866; }
+.wayfinder-sequence-meter > div:first-child { display: flex; justify-content: space-between; align-items: baseline; gap: 9px; color: #d9ccaa; font: .6rem/1.8 Silkscreen, Consolas, monospace; margin-bottom: 7px; }
+.wayfinder-sequence-meter small { font: .38rem/1.7 Consolas, monospace; color: #b6c8bc; }
+.wayfinder-sequence-meter .wayfinder-exp-track > i { transition: none; }
+.wayfinder-sequence[data-phase="fill"] .wayfinder-exp-track > i { transition: width .56s cubic-bezier(.15, .55, .4, 1); }
+.wayfinder-sequence-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 1px 13px 12px; }
+.wayfinder-sequence-controls > button { display: inline-flex; align-items: center; gap: 6px; color: #e7d4a0; border: 1px solid #78918a; padding: 6px 8px; font-size: .46rem; white-space: nowrap; }
+.wayfinder-sequence-controls > span:last-child { color: #b2c5bc; font-size: .43rem; line-height: 1.8; }
+.wayfinder-sequence-complete { display: inline-flex; align-items: center; gap: 6px; font: .43rem/1.7 Consolas, monospace; color: #d9c491; }
+.wayfinder-sequence-rewards { min-height: 100px; padding: 13px; border-top: 1px solid #54757866; display: grid; gap: 10px; }
+.wayfinder-sequence-rewards > p { align-self: center; color: #b4c8bd; font-size: .52rem; line-height: 1.9; text-align: center; }
+.wayfinder-reward-row { display: flex; align-items: center; gap: 12px; padding: 9px; background: #14353e; border-left: 2px solid #dfc58c; color: #dfc58c; }
+.wayfinder-reward-row > div { min-width: 0; }
+.wayfinder-reward-row span { display: block; font: .38rem/1.7 Consolas, monospace; color: #b6c8bd; }
+.wayfinder-reward-row strong { display: block; font-size: .52rem; line-height: 1.8; color: #e3d3aa; font-weight: 500; margin: 3px 0; }
+.wayfinder-reward-row i { font-style: normal; padding: 0 3px; color: #8fb7af; }
+.wayfinder-reward-row small { display: block; font-size: .45rem; line-height: 1.7; color: #b5cbc0; }
+
+.wayfinder-effect { opacity: .22; }
+.wayfinder-star-manta { opacity: 1; }
+.wayfinder-compass-rose { transform-origin: 160px 86px; }
+.wayfinder-map-pages { transform-origin: 160px 86px; }
+.wayfinder-beacon-ray { transform-origin: 264px 31px; }
+.wayfinder-sprite { transform-origin: 32px 64px; }
+.wayfinder-scene[data-phase="threshold"] .wayfinder-sprite { transform: scaleY(.93); }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"]) .wayfinder-sprite { animation: wayfinder-pose-reveal .6s steps(4, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"]) .wayfinder-effect { opacity: .8; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="departure"] .wayfinder-wake { animation: wayfinder-trail .9s steps(6, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="compass"] .wayfinder-compass-rose { animation: wayfinder-compass .95s steps(8, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="chart"] .wayfinder-map-pages { animation: wayfinder-map-unfold .9s steps(6, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="dive"] .wayfinder-bubbles > rect { animation: wayfinder-bubble-rise 1s calc(var(--particle) * .035s) steps(6, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="beacon"] .wayfinder-beacon-ray { animation: wayfinder-beacon-light 1s steps(8, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="glider"] .wayfinder-wings { transform-origin: 32px 14px; animation: wayfinder-sail-open 1s steps(5, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="glider"] .wayfinder-wind { animation: wayfinder-wind-travel 1s steps(7, end) both; }
+.wayfinder-scene:is([data-phase="ascend"], [data-phase="reward"])[data-scene="constellation"] .wayfinder-star-manta { animation: wayfinder-manta-arrive 1s steps(8, end) both; }
+@keyframes wayfinder-level-impact { from { transform: scale(.85); } 65% { transform: scale(1.05); } to { transform: scale(1); } }
+@keyframes wayfinder-pose-reveal { from { transform: translateY(3px) scaleY(.92); } 55% { transform: translateY(-2px); } to { transform: none; } }
+@keyframes wayfinder-trail { from { transform: translateX(-8px); opacity: 0; } to { transform: none; opacity: .8; } }
+@keyframes wayfinder-compass { from { transform: scale(.3) rotate(-90deg); opacity: 0; } to { transform: scale(1) rotate(0); opacity: .8; } }
+@keyframes wayfinder-map-unfold { from { transform: scaleX(.05) translateY(7px); opacity: 0; } to { transform: none; opacity: .8; } }
+@keyframes wayfinder-bubble-rise { from { transform: translateY(15px); opacity: 0; } 30% { opacity: .85; } to { transform: translateY(-12px); opacity: .35; } }
+@keyframes wayfinder-beacon-light { from { transform: scaleX(.05) rotate(-7deg); opacity: 0; } to { transform: none; opacity: .8; } }
+@keyframes wayfinder-sail-open { from { transform: scaleX(.12) scaleY(.4); } 70% { transform: scaleX(1.04); } to { transform: none; } }
+@keyframes wayfinder-wind-travel { from { transform: translateX(-15px); opacity: 0; } to { transform: none; opacity: .8; } }
+@keyframes wayfinder-manta-arrive { from { transform: translate(43px, 10px); opacity: 0; } 65% { transform: translate(-3px, -2px); opacity: 1; } to { transform: none; opacity: 1; } }
+.discovery-notice .wayfinder-art { width: 42px; flex-shrink: 0; align-self: center; }
+.discovery-notice[data-level-up="true"] { border-color: #bda36d; }
+.discovery-notice .wayfinder-notice-level { color: var(--dsf-muted); font: .48rem/1.7 Consolas, monospace; margin: 3px 0; display: block; }
+.wayfinder-notice-actions { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; }
+.wayfinder-notice-actions > button { color: var(--dsf-heading); font-size: .54rem; line-height: 1.8; border-bottom: 1px solid #bda36d; }
+@media (max-width: 1100px) {
+  .wayfinder-console { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .wayfinder-screen-column { width: 100%; }
+  .wayfinder-chapters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .wayfinder-heading h2 { overflow-wrap: normal; font-size: 1.15rem; }
 }
-@media (max-width: 900px) {
-  .wayfinder-panel { grid-template-columns: minmax(0, 1fr); gap: 5px; padding: 15px 22px 22px; }
-  .wayfinder-scene { padding-top: 24px; }
-  .wayfinder-art { width: 220px; }
-  .wayfinder-copy { padding-top: 8px; }
-  .wayfinder-heading { margin-top: 17px; }
-  .wayfinder-heading h2 { font-size: 1.05rem; }
+@media (max-width: 600px) {
+  .wayfinder-panel-head { gap: 8px; padding: 10px; }
+  .wayfinder-panel-head > strong { order: -1; width: 100%; font-size: .85rem; }
+  .wayfinder-panel-head > span { font-size: .4rem; }
+  .wayfinder-console { padding: 12px; gap: 20px; }
+  .wayfinder-level { font-size: 1.5rem; }
+  .wayfinder-heading { gap: 14px; }
+  .wayfinder-heading h2 { font-size: .88rem; line-height: 1.8; overflow-wrap: anywhere; }
+  .wayfinder-loadout > div { grid-template-columns: 76px minmax(0, 1fr); gap: 8px; }
+  .wayfinder-progress-copy { flex-wrap: wrap; }
+  .wayfinder-source-stats { gap: 8px; }
+  .wayfinder-chapters { padding: 0 12px 12px; gap: 4px; }
+  .wayfinder-chapters > button { padding: 10px 3px; }
+  .wayfinder-chapters small { font-size: .4rem; }
+  .wayfinder-boundary { margin: 0 12px; }
+  .wayfinder-scene-caption > strong { font-size: .58rem; }
+  .wayfinder-levelup-banner { inset: 7px 4px auto; gap: 3px; }
+  .wayfinder-levelup-banner > strong { font-size: .78rem; }
+  .wayfinder-levelup-banner > span { font-size: .32rem; }
+  .wayfinder-sequence-meter > div:first-child { flex-wrap: wrap; font-size: .5rem; }
+  .wayfinder-sequence-controls { align-items: flex-start; flex-direction: column; }
+  .wayfinder-scene-marker { font-size: .3rem; bottom: 5px; left: 5px; }
+  .wayfinder-viewer-tools { bottom: 25px; left: 5px; right: 5px; }
+  .wayfinder-viewer-tools > span { font-size: .3rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wayfinder-art, .wayfinder-art * { animation: none !important; transition: none !important; }
+  .wayfinder-panel *, .wayfinder-panel *::before, .wayfinder-panel *::after { animation: none !important; transition: none !important; }
 }

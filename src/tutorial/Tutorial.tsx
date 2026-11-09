@@ -299,7 +299,12 @@ export function Tutorial({ state, route, signals, onNavigate, onCommand, onExit,
     };
     const mutation = new MutationObserver(() => schedule());
     mutation.observe(document.body, { childList: true, subtree: true, attributes: true,
-      attributeFilter: ['open', 'class', 'hidden', 'aria-pressed', ...(step.uiAction ? ['data-view-revision', 'data-scene-state'] : [])] });
+      attributeFilter: ['open', 'class', 'hidden', 'aria-pressed',
+        ...(step.chapter === 'discovery' ? [
+          'data-orbit-offset', 'data-pan-offset', 'data-control-mode', 'data-reset-count',
+          'data-view-default', 'data-replay-count', 'data-phase', 'data-view-level',
+        ] : []),
+        ...(step.uiAction ? ['data-view-revision', 'data-scene-state'] : [])] });
     window.addEventListener('resize', schedule);
     window.addEventListener('scroll', schedule, true);
     document.addEventListener('input', schedule, true);

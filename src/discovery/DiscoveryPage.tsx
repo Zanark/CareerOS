@@ -7,7 +7,7 @@ import { getMission } from '../domain/catalog';
 import { getSaveState } from '../domain/engine';
 import type { AppState } from '../domain/types';
 import { Modal } from '../components';
-import type { Discovery, DiscoveryDay, DiscoverySnapshot, DiscoverySource, DiscoveryTrack } from './model';
+import type { Discovery, DiscoveryDay, DiscoverySnapshot, DiscoverySource, DiscoveryTrack, WayfinderRun } from './model';
 import { discoveryTracks } from './model';
 import { DiscoverySeal } from './DiscoverySeal';
 import { Wayfinder } from './Wayfinder';
@@ -128,9 +128,10 @@ function ActivityRibbon({ snapshot }: { snapshot: DiscoverySnapshot }) {
   </section>;
 }
 
-export default function DiscoveryPage({ state, snapshot, practice, onLoadExample, selectedId, onSelect }: {
+export default function DiscoveryPage({ state, snapshot, practice, onLoadExample, selectedId, onSelect, levelUp, onLevelUpViewed }: {
   state: AppState; snapshot: DiscoverySnapshot; practice: boolean; onLoadExample: () => void;
   selectedId: string | null; onSelect: (id: string | null) => void;
+  levelUp: WayfinderRun | null; onLevelUpViewed: () => void;
 }) {
   const [track, setTrack] = useState<DiscoveryTrack | 'all'>('all');
   const [filter, setFilter] = useState<'all' | 'earned' | 'hidden'>('all');
@@ -150,6 +151,7 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
 
   return <div className="discovery-page">
     <div className="discovery-masthead"><span><Compass size={17} />DISCOVERY ATLAS</span><span>COLLECTION 01 <i /> {snapshot.total} FINITE DISCOVERIES</span></div>
+    <Wayfinder snapshot={snapshot} request={levelUp} onRequestViewed={onLevelUpViewed} />
     <section className="discovery-hero" data-tour="discovery-intro">
       <div className="discovery-hero-copy"><span className="discovery-overline"><span />YOUR WORK LEAVES A SIGNAL</span>
         <h1>Small steps.<br /><em>Lasting signals.</em></h1>
@@ -169,7 +171,6 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
           onClick={() => chooseTrack(track === family.id ? 'all' : family.id)}><span className="discovery-family-number">0{index + 1}</span><div><strong>{family.title}</strong><small>{family.subtitle}</small></div><span className="discovery-family-count">{count}<small>/{items.length}</small></span><span className="discovery-family-line"><i style={{ width: `${count / items.length * 100}%` }} /></span></button>;
       })}
     </div>
-    <Wayfinder snapshot={snapshot} />
     <section className="discovery-collection" ref={collection} data-tour="discovery-collection">
       <div className="discovery-section-heading"><div><span className="eyebrow">THE COLLECTION</span><h2>{track === 'all' ? 'There is more beneath the surface.' : discoveryTracks.find(item => item.id === track)!.title}</h2></div><span className="discovery-collection-count">{snapshot.earned} / {snapshot.total} discovered</span></div>
       <div className="discovery-filters" data-tour="discovery-filters"><div role="group" aria-label="Discovery status">{([['all', 'All signals'], ['earned', 'Discovered'], ['hidden', 'Undiscovered']] as const).map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div>

@@ -495,7 +495,7 @@ With the handle focused, arrow keys move it, Shift moves farther, and Home reset
 Escape cancels an active drag. The compact full-roadmap bars remain docked to keep
 the map canvas clear. Position is not written to your workspace or backup.
 
-The tutorial has **164 steps across 29 chapters**, covering actual controls with temporary data. Its files are named
+The tutorial has **170 steps across 29 chapters**, covering actual controls with temporary data. Its files are named
 `careerhq-tutorial-example-*`, not real backups. It teaches the interface, not the
 mission subjects. A deliberately older **practice** Service Fabric tracker lets you
 preview, adopt and inspect an archived roadmap without changing your real version.
@@ -525,7 +525,7 @@ Use the **Chapter** menu to work on one area at a time:
 | Opportunities | Optional application fields, saving a lead, moving its stage and finding the saved metadata |
 | Freelance research | A ten-lead fictional research set, filters, selecting five rows and copying a review brief |
 | Settings & backup / How data is stored | Example export/import, replacement warnings, and the real hosted-site device-transfer routine |
-| Discovery Atlas / final chapter | A fictional collection, meaningful stars and families, an evolving animated character, hidden clues and explicit reveal, a genuine form-driven discovery, source receipts, recorded days and private portability |
+| Discovery Atlas / final chapter | A fictional collection, meaningful stars and families, a rotatable/movable isometric PS1 diorama, cumulative character equipment, staged/skippable level-ups and chapter replay, hidden clues, source receipts and private portability |
 
 Practice-only example buttons make independent chapter visits usable. They add labeled
 fictional records only when you click them. They do not create real applications, verify
@@ -582,17 +582,40 @@ No separate collection data is stored: normal backup/import and optional encrypt
 journal publication carry the existing source records. Confirmed replacement/reset
 recalculates the collection from those records. In the final tutorial, **Load discovery
 example** replaces only temporary examples and discards the practice timer; nothing
-is copied to your real workspace. The atlas uses data-bearing SVG/CSS, not another
-WebGL scene, external asset service or continuous animation loop.
+is copied to your real workspace. The atlas map and ribbon use data-bearing SVG/CSS;
+the requested avatar and its isometric diorama share one small 3D view. There is no external asset
+service or continuous idle animation loop.
 
-Your original fictional **Wayfinder** character has seven collection levels.
-Equipment and the next-form meter depend only on discovered cards, never replay
-clicks, timer use or self-rated readiness. These are character levels, not career
-levels or assessments. **Replay arrival** plays a bounded entrance, brief movement
-and blink; it earns nothing. Reduced motion keeps all character motion still,
-including the short notice when saved records cross a level boundary. The final
-form is attainable within one learning mission; no job offer, paid credential or
-completion of every roadmap is required.
+Your original fictional **Wayfinder** has seven collection levels, each with a
+different chapter, realm, equipment bundle and relic. The minimal PS1-style
+**3D character** keeps its earned equipment: turn it around to see the pack,
+rolled map and later additions. Its background is a real low-poly **isometric
+diorama**, not a flat image. Drag or use arrow keys on the focused canvas to
+orbit the whole world; scroll, pinch or use plus/minus to zoom. **Move diorama**
+switches a one-finger/left drag to pan. Right-drag or Shift plus arrow keys also
+moves the view. **Reset diorama view** or Home restores the isometric angle,
+position, zoom and rotation mode, not any saved progress.
+
+Each discovered card supplies **100 collection EXP**, purely a cosmetic display
+of the same collection count. It is not a career level, independently assessed
+ability, currency or a separate saved score. New records can offer **View level-up**
+without stealing focus. The sequence fills the old bar, crosses the threshold,
+reveals the equipment and keeps a reward summary. Every crossed level is retained
+in a multi-level arrival. **Skip animation** shows all rewards immediately;
+**Replay level-up** and **Play prologue** never earn anything.
+
+Click an unlocked chapter to revisit its outfit and scene; **Current chapter**
+returns to the actual level. Future artwork stays hidden. Reduced motion removes
+automatic effects while leaving deliberate manual orbit available. The viewer
+has no idle animation loop and pauses rendering offscreen. Small texture-free
+geometry and a capped 82,944-pixel internal buffer minimize cost; no promise of zero
+GPU cost or universal device performance is made. If WebGL cannot initialize,
+an explicit notice distinguishes the still fallback from real 3D.
+
+The final form is attainable within one learning mission; no job offer, paid
+credential or completion of every roadmap is required. The original 150 lessons
+remain in order; twenty appended lessons bring the tour to 170 steps.
+See [the scoped design and research basis](DISCOVERY-DESIGN.md).
 
 ### A normal working session
 

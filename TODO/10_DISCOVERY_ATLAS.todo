@@ -14,8 +14,13 @@ Tasks:
   [x] Add responsive themed visual exploration, provenance and useful next actions.
   [x] Preserve normal backups, encrypted journal, criteria and tutorial isolation.
   [x] Append hands-on tutorial lessons and focused guide/architecture references.
-  [x] Add the requested evolving character with bounded, reduced-motion-safe animation.
-  [x] Verify domain cases, real browser flows, accessibility and both themes.
+  [x] Replace the rejected character presentation after game-progression research.
+  [x] Give every collection level distinct artwork, rewards and a real level-up sequence.
+  [x] Add the requested freely rotatable minimal PS1-style 3D avatar with cumulative equipment.
+  [x] Bound geometry, draw calls and render resolution; verify idle/offscreen suspension and disposal.
+  [x] Update the final tutorial and qualify revised motion, accessibility and both themes.
+  [x] Replace the flat backdrop with an orbitable, movable isometric 3D diorama.
+  [x] Requalify all chapter scenes, camera controls, tutorial and graphics budgets.
   [ ] Synchronize this workstream, publish authorized commits and verify Pages.
 
 Acceptance criteria:
@@ -24,20 +29,57 @@ Acceptance criteria:
   Unrelated roadmap editions stay distinct; verified append lineage counts once.
   Existing workspace schema, storage keys, evidence gates and exports coexist.
   No new network service, automatic publication, leaderboard or punitive expiry.
-  Visuals communicate actual collection/activity data without a render loop.
+  Collection visuals communicate actual data; avatar renders only on interaction,
+    resize, equipment changes or a bounded level-up, never an idle animation loop.
+  The original low-poly 3D avatar supports mouse, touch and keyboard orbit/zoom.
+  Real chapter terrain shares the camera; pan mode works with mouse and touch,
+    and reset restores the isometric angle, target, zoom and rotation mode.
+  Earned equipment is added cumulatively, including visible back/side details.
+  Use the existing Three.js dependency without textures, shadows or postprocessing.
+  Record actual performance evidence and limits; do not promise zero GPU cost.
   Seven fictional character levels reflect discoveries, not measured capability.
-  Character motion ends; replay is view-only and reduced motion remains still.
+  Every level has a distinct visual payoff, not the same idle animation recoloured.
+  Level-ups explain the threshold crossed and what changed; replay awards nothing.
+  Automatic motion ends and can be skipped; reduced motion keeps effects still,
+    while deliberate manual camera controls remain available.
   Keyboard, mobile, light/dark and reduced-motion behavior are exercised.
   New tutorial content is appended; every earlier lesson remains available.
   Synthetic examples never enter the real workspace or public progress journal.
   Technical completion, user acceptance and actual deployment remain separate.
 
 Completion evidence:
-  Read-only collection, semantic SVG/CSS, source receipts and tutorial implemented.
-  Fresh TypeScript and 685 unit cases passed; tracking behavior suite: 22 passed.
+  Current isometric diorama: seven real batched chapter environments, shared
+    orthographic camera, deliberate orbit/pan/zoom, cumulative earned equipment.
+  Current TypeScript/689 unit cases and production build pass; the unchanged
+    tracking runtime retains its 22-case qualification.
+  Final 24-case local browser gate passes: all collection/avatar cases, complete
+    170-step tour at 1440px, final chapter at 320px, both backup workflows and
+    tutorial isolation from the actual encrypted journal.
+  Native mouse/keyboard orbit/pan, touch drag/pinch/pan, zoom/reset, chapter replay,
+    every crossed reward, reduced motion and unavailable-WebGL messaging pass.
+  Seven chapter/reveal sheets, four real 3D angles and dark/light phone views
+    were inspected. A focused seven-chapter rerun additionally confirms actual
+    new WebGL paints before frozen-clock reveal captures. No approval is inferred.
+  Level-seven terrain plus equipment: 1,292 triangles, eight draw calls,
+    332x248 buffer; all seven scenes fit the tested geometry/pixel budgets.
+  The local Edge probe observed zero extra frames over one second idle and
+    one second offscreen. Fifty-two warm CPU render-submission samples had
+    median 0.4ms and p95 0.5ms; this excludes GPU completion/startup and is not
+    an actual-phone or universal-FPS guarantee.
+  The new reset lesson exposed a real asynchronous observation race: camera
+    reset completed but the coach had checked before its WebGL frame. Observing
+    the relevant discovery attributes fixes the gate without timers or relaxed tests.
+  Lazy loading avoids avatar renderer requests from ordinary non-3D routes.
+  Earlier avatar-only evidence: 688 units, 169-step tour, 24 browser cases,
+    1,028 triangles/eight calls/384x216; superseded by the full-diorama figures.
+  Complete evidence, source limits and publication status:
+    docs/tracking/2026-11-09-discovery-delivery.md; docs/DISCOVERY-DESIGN.md.
+  Prototype source abcbabdeb71bb8788f36adb8efdbdc377edb734d was committed/pushed.
+  Its character presentation was rejected; the qualification above supersedes it.
+  Prototype TypeScript and 685 unit cases passed; tracking suite: 22 passed.
   The earlier 56-case affected browser gate passed, including the complete tour
   at 1440/390/320px and normal/encrypted backup coexistence.
-  Character follow-up adds two lessons (164 total, 29 chapters). The final
+  The prototype character follow-up added two lessons (164 total, 29 chapters). Its
   13-case browser pass covers all twelve discovery cases and the complete 164-step
   tour at 1440px; the appended chapter also passes at 320px.
   Actual dark/light desktop/tablet/phone captures and final character form reviewed.
@@ -45,8 +87,9 @@ Completion evidence:
   Full evidence and limits: docs/tracking/2026-11-09-discovery-delivery.md.
   An accidentally nested browser-test registration was caught and moved to
   module scope; no product validation or assertions were weakened.
-  Human acceptance: not inferred or required before the authorized implementation.
-  Publication: commit, push and Pages deployment explicitly authorized; pending.
+  Human acceptance: original character presentation rejected; revised acceptance unrecorded.
+  Superseded Pages run 42598017993 was intentionally cancelled before deployment.
+  Publication: a corrective commit, push and exact-source Pages verification remain authorized.
   Prior local tracking adoption files remain preserved for reviewed publication.
 
 Completion log:
@@ -59,3 +102,24 @@ Completion log:
     motion, replay and reduced-motion behavior passed final qualification.
   2026-11-09 - Local technical and visual gates complete; advanced to IN_REVIEW.
     Exact-source Pages publication remains pending, separately from user approval.
+  2026-11-09 - Reopened to IN_PROGRESS after the character presentation was rejected.
+    Research actual game progression and reward presentation before redesigning;
+    every level should introduce distinct content. Cancelled superseded Pages run
+    42598017993; no successful deployment of that prototype is claimed.
+  2026-11-09 - Owner now explicitly requests a minimal PS1-style 3D avatar with
+    free rotation and earned equipment added on top. This supersedes the earlier
+    no-extra-WebGL character proposal. Preserve the staged level-ups and finite
+    source-derived collection; qualify the new viewer before publication.
+  2026-11-09 - Revised game progression and original PS1 avatar are locally
+    qualified. Cumulative equipment, finite unique rewards, source-only EXP,
+    manual orbit and resource lifecycle preserve the existing tracker.
+    Added five final lessons, retaining the original 150; 169 total.
+    Advanced the same workstream to IN_REVIEW for authorized exact-source
+    commit/push/Pages verification, separate from human aesthetic acceptance.
+  2026-11-09 - Reopened for the owner's requested movable isometric diorama.
+    Keep the lightweight single viewer and cumulative equipment; replace the
+    flat background with real low-poly scenery and deliberate orbit/pan/zoom.
+  2026-11-09 - Full diorama is locally qualified, including all 170 tutorial
+    steps and the actual asynchronous reset gate. Seven distinct batched scenes
+    share one small event-driven context. Advanced to IN_REVIEW for the already
+    authorized corrective commit/push and exact-source Pages verification.

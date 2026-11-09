@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createInitialState, parseState, recallSummary, recordChange, recordEvidence, recordRecall, upgradeRoadmap } from '../domain/engine';
 import type { AppState, EvidenceInput, RecallEntry } from '../domain/types';
 import { serializeWorkspace } from '../workspaceFile';
-import { getDiscoverySnapshot, getWayfinderProgress } from './model';
+import { getDiscoverySnapshot, getWayfinderCrossings, getWayfinderProgress } from './model';
 import { createDiscoveryPracticeState } from './practice';
 import { createCompleteDiscoveryFixture } from '../../tests/discovery-fixture';
 
@@ -33,6 +33,16 @@ beforeEach(() => {
 afterEach(() => vi.useRealTimers());
 
 describe('record-derived discoveries', () => {
+  it('carries cosmetic EXP across thresholds and retains every crossed chapter on a multi-level arrival', () => {
+    expect(getWayfinderProgress(2)).toMatchObject({ level: 2, xp: 200, startsAtXp: 100, nextAtXp: 300, percent: 50 });
+    expect(getWayfinderCrossings(0, 17).map(stage => stage.level)).toEqual([2, 3, 4, 5, 6]);
+    expect(getWayfinderCrossings(17, 24).map(stage => stage.level)).toEqual([7]);
+    expect(getWayfinderCrossings(17, 17)).toEqual([]);
+    expect(getWayfinderCrossings(24, 0)).toEqual([]);
+    expect(getWayfinderProgress(24)).toMatchObject({ level: 7, xp: 2400, nextAtXp: null, percent: 100 });
+    expect(() => getWayfinderCrossings(0, 25)).toThrow('valid');
+  });
+
   it('levels the fictional character only from actual discoveries and permits a complete collection in one mission', () => {
     let state = createInitialState(false);
     expect(getWayfinderProgress(getDiscoverySnapshot(state).earned).level).toBe(1);

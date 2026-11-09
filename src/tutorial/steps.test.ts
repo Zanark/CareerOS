@@ -12,7 +12,7 @@ const gate = (id: string, root: Document) => steps.find(step => step.id === id)!
 
 describe('current tutorial curriculum', () => {
   it('has unique steps, valid chapters, and actual gates for required actions', () => {
-    expect(steps).toHaveLength(164);
+    expect(steps).toHaveLength(170);
     expect(chapters).toHaveLength(29);
     expect(new Set(steps.map(step => step.id)).size).toBe(steps.length);
     expect(new Set(chapters.map(chapter => chapter.id)).size).toBe(chapters.length);

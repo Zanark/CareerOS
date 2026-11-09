@@ -581,6 +581,27 @@ for (const width of [1440, 390, 320]) {
         case 'discovery-character-play':
           await page.locator('[data-tour="wayfinder-replay"]').click();
           break;
+        case 'discovery-character-orbit':
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').focus();
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').press('ArrowRight');
+          break;
+        case 'discovery-character-reset':
+          await page.locator('[data-tour="wayfinder-reset-view"]').click();
+          break;
+        case 'discovery-diorama-move':
+          await page.locator('[data-tour="wayfinder-pan-mode"]').click();
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').focus();
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').press('Shift+ArrowRight');
+          break;
+        case 'discovery-character-skip':
+          if (await page.locator('[data-tour="wayfinder-skip"]').isVisible()) await page.locator('[data-tour="wayfinder-skip"]').click();
+          break;
+        case 'discovery-character-memory':
+          await page.locator('[data-tour="wayfinder-first-chapter"]').click();
+          break;
+        case 'discovery-character-current':
+          await page.locator('[data-tour="wayfinder-current"]').click();
+          break;
         case 'discovery-inspect':
           await page.locator('[data-tour="discovery-all-families"]').click();
           await page.locator('[data-tour="discovery-code-card"]').click();

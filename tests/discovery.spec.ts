@@ -30,7 +30,8 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Small steps.Lasting signals.');
   await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');
   await expect(page.locator('.discovery-card')).toHaveCount(24);
-  await expect(page.locator('canvas')).toHaveCount(0);
+  await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-viewer-state', 'ready');
+  await expect(page.locator('canvas')).toHaveCount(1);
   await expect(page.locator('[data-tour="discovery-example"]')).toHaveCount(0);
   const before = await storage(page);
   const card = page.locator('[data-tour="discovery-code-card"]');
@@ -126,7 +127,9 @@ for (const [width, theme] of [[1440, 'dark'], [1440, 'light'], [1024, 'dark'], [
     expect(centered.y).toBeLessThan(1);
     await expect(page.locator('.discovery-card[data-earned="true"]')).toHaveCount(expected.earned);
     await expect(page.locator('.discovery-day')).toHaveCount(28);
-    await expect(page.locator('canvas')).toHaveCount(0);
+    await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-viewer-state', 'ready');
+    await expect(page.locator('canvas')).toHaveCount(1);
+    await page.evaluate(() => document.fonts.ready);
     const before = await storage(page);
     const hero = testInfo.outputPath(`discovery-${width}-${theme}-hero.png`);
     await page.screenshot({ path: hero, animations: 'disabled' });
@@ -176,6 +179,25 @@ for (const width of [1440, 320]) {
         case 'discovery-example': await page.locator('[data-tour="discovery-example"]').click(); break;
         case 'discovery-family': await page.locator('[data-tour="discovery-memory-family"]').click(); break;
         case 'discovery-character-play': await page.locator('[data-tour="wayfinder-replay"]').click(); break;
+        case 'discovery-character-orbit':
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').focus();
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').press('ArrowRight');
+          break;
+        case 'discovery-character-reset':
+          await page.locator('[data-tour="wayfinder-reset-view"]').click();
+          await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-view-default', 'true');
+          await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-control-mode', 'rotate');
+          break;
+        case 'discovery-diorama-move':
+          await page.locator('[data-tour="wayfinder-pan-mode"]').click();
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').focus();
+          await page.locator('[data-tour="wayfinder-viewer"] canvas').press('Shift+ArrowRight');
+          break;
+        case 'discovery-character-skip':
+          if (await page.locator('[data-tour="wayfinder-skip"]').isVisible()) await page.locator('[data-tour="wayfinder-skip"]').click();
+          break;
+        case 'discovery-character-memory': await page.locator('[data-tour="wayfinder-first-chapter"]').click(); break;
+        case 'discovery-character-current': await page.locator('[data-tour="wayfinder-current"]').click(); break;
         case 'discovery-inspect':
           await page.locator('[data-tour="discovery-all-families"]').click();
           await page.locator('[data-tour="discovery-code-card"]').click();
@@ -207,24 +229,23 @@ for (const width of [1440, 320]) {
   });
 }
 
-test('character animations are bounded and replay cannot level up; reduced motion stays still', async ({ page }) => {
+test('prologue and level-up replay cannot earn EXP, and reduced motion settles immediately', async ({ page }) => {
   await seed(page, createInitialState(false));
   await page.goto('./#/discoveries');
   const before = await storage(page);
   const panel = page.locator('[data-tour="wayfinder-panel"]');
   await expect(panel).toHaveAttribute('data-level', '1');
-  await panel.getByRole('button', { name: 'Replay arrival' }).click();
+  await panel.getByRole('button', { name: 'Play prologue' }).click();
   await expect(panel).toHaveAttribute('data-replay-count', '1');
-  const animations = await panel.locator('.wayfinder-art').evaluate(node => node.getAnimations({ subtree: true }).map(animation => ({
-    name: animation instanceof CSSAnimation ? animation.animationName : '',
-    iterations: animation.effect!.getTiming().iterations,
-  })));
-  expect(animations.map(animation => animation.name)).toContain('wayfinder-land');
-  expect(animations.every(animation => Number.isFinite(animation.iterations))).toBe(true);
+  await expect(panel.locator('[data-tour="wayfinder-sequence"]')).toHaveAttribute('data-sequence-kind', 'prologue');
+  await panel.locator('[data-tour="wayfinder-skip"]').click();
+  await expect(panel.locator('[data-tour="wayfinder-sequence"]')).toHaveAttribute('data-phase', 'complete');
+  await expect(panel.locator('.wayfinder-sequence-meter .wayfinder-exp-track > i')).toHaveCSS('width', '0px');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await panel.getByRole('button', { name: 'Replay arrival' }).click();
+  await panel.getByRole('button', { name: 'Play prologue' }).click();
   await expect(panel).toHaveAttribute('data-replay-count', '2');
-  expect(await panel.locator('.wayfinder-art').evaluate(node => node.getAnimations({ subtree: true }).length)).toBe(0);
+  await expect(panel.locator('[data-tour="wayfinder-sequence"]')).toHaveAttribute('data-phase', 'complete');
+  expect(await panel.evaluate(node => node.getAnimations({ subtree: true }).length)).toBe(0);
   await expect(panel).toHaveAttribute('data-level', '1');
   await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');
   expect(await storage(page)).toEqual(before);
@@ -240,8 +261,9 @@ test('the full collection has an earned final character form, not a career-readi
   await expect(panel).toContainText('Every form discovered');
   await expect(panel).toContainText('not your career');
   await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuemin', '0');
-  await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuemax', '24');
-  await expect(panel.locator('.wayfinder-art')).toHaveAttribute('data-character-level', '7');
+  await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuemax', '2400');
+  await expect(panel.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-model-level', '7');
+  await expect(panel.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-equipment', /astral-crown-and-star-manta/);
   const screenshot = testInfo.outputPath('wayfinder-complete-synthetic.png');
   await panel.screenshot({ path: screenshot, animations: 'disabled' });
   await testInfo.attach('Final form / fully synthetic qualifying records', { path: screenshot, contentType: 'image/png' });
