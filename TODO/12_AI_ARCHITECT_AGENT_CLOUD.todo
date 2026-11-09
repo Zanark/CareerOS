@@ -1,6 +1,6 @@
 Workstream ID: ai-architect-agent-cloud
 Title: Agent-native cloud specialization for the AI Architect roadmap
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Extend Neural Edge with bounded, verifiable agent-cloud architecture
 Dependencies: versioned-roadmaps, career-graph, discovery-atlas
 GitHub issue: https://github.com/Zanark/CareerOS/issues/11
@@ -19,8 +19,8 @@ Tasks:
   [x] Qualify compatibility and real isolated desktop/phone workflows.
   [x] Preview, apply and independently read back the same issue/Project mapping.
   [x] Commit and push the reviewed public-safe source with verified attribution.
-  [ ] Qualify the exact GitHub Pages run, artifact and actual hosted extension.
-  [ ] Reconcile final publication evidence on this same issue and Project item.
+  [x] Qualify the exact GitHub Pages run, artifact and actual hosted extension.
+  [x] Reconcile final publication evidence on this same issue and Project item.
 
 Acceptance criteria:
   Neural Edge retains its original 28 checkpoints and adds 12 research checkpoints.
@@ -60,9 +60,16 @@ Completion evidence:
     issue 11 and original Project 4 item PVTI_lAHOAe2wCs4BqeZyzhHRivE.
     Final closed/completed/Done read-back is retained separately in the completion
     apply/no-op receipts under docs/tracking. Preserve these identities.
-  Publication: separately authorized November 10. Feature source
-    15480375585fecb72a93014b2fc272a31d8ee318 is committed/pushed; Pages qualification
-    and hosted verification remain pending, not implied by earlier local checks.
+  Publication: verified source 5960bd35edbbe11e2fa90506afa627c9e4b1651a is deployed
+    by successful Pages 42696296742, after feature1548037 and test-only fixes.
+    Full CI passes 712 unit and 462 browser cases. Five selected actual hosted
+    asset hashes match its artifact; all ten hosted preservation/source/map/
+    Atlas/tutorial/backup checks pass in disposable synthetic contexts.
+    Actual desktop-dark/320px-light source frames reviewed. Public-safe proof:
+    docs/tracking/2026-11-10-agent-cloud-publication.json.
+  Publication tracking: completion retains issue11/Project4/original item through
+    the documented preview/apply/read-back and no-op cycle, separate from user
+    acceptance and from the deployed application-source identity.
   Publication correction: four old graph cases still asserted a 545-node latest
     curriculum while the real app correctly reports 557. A native clipboard
     failure reproduces this; all four affected cases pass after deriving the
@@ -73,6 +80,11 @@ Completion evidence:
     normalization/recall/backup case passes under UTC-host/Kolkata-browser setup.
 
 Completion log:
+  2026-11-10 - Exact corrected source5960bd3 successfully deployed by
+    Pages42696296742. Full 712-unit/462-browser gate and all ten real hosted
+    checks pass; entry/styles/original workbook/new teaching/font license match
+    five exact artifact hashes, public journal remains empty. Two actual source
+    frames inspected. Prior canceled builds remain historical, not deployments.
   2026-11-10 - Retained canceled first-run logs exposed a separate FDE date
     fixture mismatch after Kolkata midnight. Reproduced under UTC, then kept
     every equality/recall/backup assertion by seeding its browser-local plan day.

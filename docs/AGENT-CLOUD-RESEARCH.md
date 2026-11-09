@@ -120,8 +120,10 @@ The [local qualification receipt](tracking/2026-11-10-agent-cloud-local-qualific
 separates the initial fixture failures, corrective pass and scoped visual review
 from a full browser/hosted release.
 The initial delivery was local-only. On November 10 the owner separately
-authorized source push and GitHub Pages deployment; exact publication evidence
-belongs in the same workstream after the actual run and hosted checks.
+authorized source push and GitHub Pages deployment. Source `5960bd3` is deployed
+by successful run `42696296742`; the [publication receipt](tracking/2026-11-10-agent-cloud-publication.json)
+records full CI and actual hosted artifact/behavior checks. The [live lesson](https://zanark.github.io/CareerOS/#/practice/neural/neural-agent-control)
+is freely browsable before adoption.
 The private research report, original PDFs, real workspace and passphrases are
 not publication inputs. Source publication does not authorize cloud execution
 or imply human acceptance of the curriculum.

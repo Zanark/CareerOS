@@ -149,11 +149,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/11",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHRivE",
       "baseline": {
-        "managed": "3b9efe4e026d0542ddca108d1f612f953758dbb386f71bc1993c5490462013cb",
+        "managed": "225d85dfee76db1bdf80e02aff111c9590b644f362c87fa9db1bb100b0577e1f",
         "title": "Agent-native cloud specialization for the AI Architect roadmap",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

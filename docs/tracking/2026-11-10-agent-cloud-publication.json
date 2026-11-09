@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "workstream": "ai-architect-agent-cloud",
+  "repository": "Zanark/CareerOS",
+  "featureCommit": "15480375585fecb72a93014b2fc272a31d8ee318",
+  "deployedSource": "5960bd35edbbe11e2fa90506afa627c9e4b1651a",
+  "testOnlyCorrections": [
+    "55f6efc932cb4243c281235cbf4a0476e3c2ed08",
+    "5960bd35edbbe11e2fa90506afa627c9e4b1651a"
+  ],
+  "run": {
+    "id": 42696296742,
+    "url": "https://github.com/Zanark/CareerOS/actions/runs/42696296742",
+    "conclusion": "success",
+    "build": "success",
+    "deploy": "success",
+    "startedAt": "2026-11-09T20:47:25Z",
+    "updatedAt": "2026-11-09T21:21:24Z",
+    "unitCases": 712,
+    "unitFiles": 49,
+    "browserSummary": "462 passed (31.4m)"
+  },
+  "artifactSha256": "021e093fa48a52bf2e58d79472c2b6d13ec023efdee1233eaec76b7f6dee2bb4",
+  "hosted": {
+    "url": "https://zanark.github.io/CareerOS/#/practice/neural/neural-agent-control",
+    "observedAt": "2026-11-09T21:23:16.595Z",
+    "result": "passed",
+    "selectedActualAssetMatches": [
+      {
+        "path": "/CareerOS/assets/index-UxlY6Of0.js",
+        "sha256": "518fc1a74151af697d999f26cdc0c50f659e23dff2a18e5edc80a43e0506b8f8"
+      },
+      {
+        "path": "/CareerOS/assets/index-BLpCgnk_.css",
+        "sha256": "b9433e3e1a27e919e69d170e0f11c85c26176743fb2bc810c8d59f661c508ea1"
+      },
+      {
+        "path": "/CareerOS/assets/content-j52bBp24.js",
+        "sha256": "63e8092a10fdae51c764e219691f9dcc0452f380054555fb1afc029735830140"
+      },
+      {
+        "path": "/CareerOS/assets/neural-GeZIzQSS.js",
+        "sha256": "f97750eb82721e403aa92311d79ad081468e2eabb5f118f5efd6d68c5dafaece"
+      },
+      {
+        "path": "/CareerOS/licenses/Silkscreen-OFL.txt",
+        "sha256": "0c0defe44c565904cdd3037f41254b55cb93e5999d4ff13c6c682f69d4c1c0a4"
+      }
+    ],
+    "publicJournalBytes": 0,
+    "checks": {
+      "exactArtifactAndEmptyPublicJournal": true,
+      "mixedSourcesAndOptionalCasesDoNotAdopt": true,
+      "latestMapAndFrozenSavedView": true,
+      "explicitAppendPreservesRecordsAndAtlasOnce": true,
+      "citedCrossMissionTransfer": true,
+      "actualLightPhoneLesson": true,
+      "realTutorialControlsAreStorageIsolated": true,
+      "completedV3ResumesAtUnconfirmedNewWork": true,
+      "actualV4BackupExportReplacementImportAndReload": true,
+      "noObservedBrowserErrorsOrExternalRequests": true
+    },
+    "visualReview": "Actual desktop-dark and 320px-light hosted source frames inspected together; no horizontal clipping observed in those frames."
+  },
+  "supersededRuns": [
+    {
+      "id": 42690573626,
+      "conclusion": "cancelled",
+      "deploymentCompleted": false,
+      "note": "Normal main-push concurrency superseded this build; retained partial logs show four stale graph-total cases and one UTC-host/Kolkata-browser date fixture failure."
+    },
+    {
+      "id": 42694712481,
+      "conclusion": "cancelled",
+      "deploymentCompleted": false,
+      "note": "Superseded by the verified date-fixture correction under unchanged workflow concurrency."
+    }
+  ],
+  "tracking": {
+    "issue": "https://github.com/Zanark/CareerOS/issues/11",
+    "projectNumber": 4,
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHRivE",
+    "independentIssueState": "CLOSED",
+    "independentStateReason": "COMPLETED",
+    "independentProjectStatus": "Done",
+    "managedBodyAndDeploymentEvidence": true,
+    "backlink": "verified",
+    "managedSha256": "225d85dfee76db1bdf80e02aff111c9590b644f362c87fa9db1bb100b0577e1f",
+    "repeatActions": [],
+    "repeatCreated": 0,
+    "recoveryFileBytesUnchanged": true
+  },
+  "preserved": [
+    "Exact original Neural v3 prefix and source workbook; explicit adoption and canonical saved records.",
+    "Workspace schema/storage keys, ordinary backups, optional encrypted journal and existing recall scope.",
+    "Approved README, packages/workflow, private research PDFs and intentionally empty public journal.",
+    "Existing issue 11, Project 4 and original item identity."
+  ],
+  "limits": [
+    "Hosted tests use disposable contexts and labelled synthetic source-derived fixtures, not a real user profile.",
+    "Source publication and technical qualification do not establish human acceptance or learning outcomes.",
+    "No cloud-agent execution, paid-account experiment, production benchmark or private PDF upload.",
+    "An evidence-only follow-up commit is separate from the deployed application source."
+  ]
+}
