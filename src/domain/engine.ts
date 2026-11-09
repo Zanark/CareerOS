@@ -6,7 +6,8 @@ import {
 import {
   dateSchema, idSchema, parseLegacyV1, migrateLegacyToLatest, text, timestampSchema, urlSchema,
 } from './legacyState';
-import { freelanceVerdicts, missionIds, opportunityStages, readinessKeys } from './types';
+import { freelanceVerdicts, missionIds, opportunityStages, readinessKeys, recallMissionIds } from './types';
+import { createFdeProgress } from './forwardDeployed/mission';
 import { personalProofListSchema } from './personalProofSchema';
 import { focusDurationSchema, focusEventInputSchema, focusRecordSignature, FocusRecordReplacedError, focusSessionsSchema } from './focusSession';
 import type {
@@ -125,7 +126,7 @@ const stateSchema = z.object({
   missions: z.object({
     pattern: progressSchema, system: progressSchema, escape: progressSchema,
     fabric: progressSchema, blueprint: progressSchema, credential: progressSchema,
-    neural: progressSchema, algorithm: progressSchema, income: progressSchema,
+    neural: progressSchema, algorithm: progressSchema, income: progressSchema, fde: progressSchema,
   }).strict(),
   plans: z.record(dateSchema, z.array(actionSchema).max(3))
     .refine((plans) => Object.keys(plans).length <= MAX_PLAN_DAYS, 'Too many saved plan dates'),
@@ -156,7 +157,7 @@ const evidenceInputSchema = z.object({
 }).strict();
 
 const recallInputSchema = z.object({
-  missionId: z.enum(['pattern', 'system']),
+  missionId: z.enum(recallMissionIds),
   roadmapVersion: roadmapVersionSchema,
   checkpointId: idSchema,
   outcome: outcomeSchema,
@@ -350,8 +351,8 @@ function validateV2Relations(state: AppState): AppState {
 
   for (const recall of state.recalls) {
     unique(recall.id);
-    ensure(recall.missionId === 'pattern' || recall.missionId === 'system',
-      `Recall is only supported for pattern or system: ${recall.missionId}`);
+    ensure(recallMissionIds.some(id => id === recall.missionId),
+      `Recall is only supported for pattern, system or fde: ${recall.missionId}`);
     const mission = findMissionVersion(recall.missionId, recall.roadmapVersion);
     ensure(mission, `Recall references an unknown roadmap version: ${recall.missionId} ${recall.roadmapVersion}`);
     const checkpoint = mission.checkpoints.find((candidate) => candidate.id === recall.checkpointId);
@@ -363,7 +364,7 @@ function validateV2Relations(state: AppState): AppState {
       `Recall requires prior learning evidence: ${recall.checkpointId}`);
     if (recall.outcome === 'independent') {
       ensure(recall.checks.explanation && recall.checks.exercise &&
-        (recall.missionId !== 'system' || recall.checks.diagram),
+        (recall.missionId === 'pattern' || recall.checks.diagram),
       'Independent recall is missing its required self-checks');
     }
   }
@@ -383,6 +384,10 @@ function parseV2Schema(value: unknown): AppState {
 export function parseState(value: unknown): AppState {
   if (isRecord(value) && value.schemaVersion === 1) {
     return validateV2Relations(parseV2Schema(migrateLegacyToLatest(parseLegacyV1(value))));
+  }
+  if (isRecord(value) && value.schemaVersion === 2 && isRecord(value.missions) &&
+      !Object.hasOwn(value.missions, 'fde')) {
+    value = { ...value, missions: { ...value.missions, fde: createFdeProgress() } };
   }
   return validateV2Relations(parseV2Schema(value));
 }
@@ -450,6 +455,7 @@ function sampleSummary(mission: Mission, checkpoint: Checkpoint): string {
 
 export function createInitialState(sampleData = true, version?: RoadmapVersion): AppState {
   const missionProgress = (id: MissionId): MissionProgress => {
+    if (id === 'fde') return createFdeProgress();
     const mission = version === undefined || version === '3.0.0' ? getLatestMission(id)
       : getMissionVersion(id, id === 'income' ? '2.0.0' : version);
     return {
@@ -839,7 +845,8 @@ export function recordRecall(state: AppState, input: Omit<RecallEntry, 'id' | 'c
     if (data.missionId === 'pattern') {
       ensure(data.checks.explanation && data.checks.exercise, 'Independent pattern recall requires explanation and exercise checks');
     } else {
-      ensure(data.checks.explanation && data.checks.diagram && data.checks.exercise, 'Independent system recall requires all three checks');
+      ensure(data.checks.explanation && data.checks.diagram && data.checks.exercise,
+        `Independent ${data.missionId === 'fde' ? 'FDE' : 'system'} recall requires all three checks`);
     }
   }
   const createdAt = nextTimestamp(next);

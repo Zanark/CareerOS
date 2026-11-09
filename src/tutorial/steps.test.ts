@@ -12,8 +12,8 @@ const gate = (id: string, root: Document) => steps.find(step => step.id === id)!
 
 describe('current tutorial curriculum', () => {
   it('has unique steps, valid chapters, and actual gates for required actions', () => {
-    expect(steps).toHaveLength(170);
-    expect(chapters).toHaveLength(29);
+    expect(steps).toHaveLength(177);
+    expect(chapters).toHaveLength(30);
     expect(new Set(steps.map(step => step.id)).size).toBe(steps.length);
     expect(new Set(chapters.map(chapter => chapter.id)).size).toBe(chapters.length);
     for (const chapter of chapters) expect(steps.some(step => step.chapter === chapter.id)).toBe(true);
@@ -128,11 +128,15 @@ describe('current tutorial curriculum', () => {
   it('appends real discovery interactions after the original tour and fails closed on missing controls', () => {
     const originalFinish = steps.findIndex(step => step.id === 'finish');
     expect(originalFinish).toBe(149);
-    expect(steps.slice(originalFinish + 1).every(step => step.chapter === 'discovery')).toBe(true);
+    expect(steps.slice(originalFinish + 1, 170).every(step => step.chapter === 'discovery')).toBe(true);
+    expect(steps.slice(170).every(step => step.chapter === 'fde')).toBe(true);
     for (const step of steps.filter(step => step.chapter === 'discovery' && step.checkUi)) {
       expect(step.checkUi!(ui()), step.id).toBe(false);
     }
-    expect(steps.at(-1)?.id).toBe('discovery-finish');
+    for (const step of steps.filter(step => step.chapter === 'fde' && step.checkUi)) {
+      expect(step.checkUi!(ui()), step.id).toBe(false);
+    }
+    expect(steps.at(-1)?.id).toBe('fde-finish');
   });
 
   it('requires hiding and restoring Checkpoints, not a different layer checkbox', () => {

@@ -218,11 +218,13 @@ for (const width of [1440, 320]) {
 
       expect(await storage(page), step.id).toEqual(before);
       await noOverflow(page);
-      const next = coach.getByRole('button', { name: step.id === 'discovery-finish' ? 'Finish tutorial' : 'Next', exact: true });
+      const next = coach.getByRole('button', { name: 'Next', exact: true });
       await expect(next).toBeEnabled();
       await expect(next).toBeInViewport();
       await next.click();
     }
+    await expect(page.locator('.tutorial-panel')).toHaveAttribute('data-step', 'fde-intro');
+    await page.locator('.tutorial-panel').getByRole('button', { name: 'Exit tutorial', exact: true }).click();
     await expect(page.locator('.app')).toHaveAttribute('data-workspace', 'saved');
     await expect(page).toHaveURL(/#\/settings$/);
     expect(await storage(page)).toEqual(before);

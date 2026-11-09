@@ -108,7 +108,7 @@ test('overview stays bounded when all configured missions are active', async ({ 
   await page.goto('./#/hq');
   await expect(page.locator('.overview-checkpoint')).toHaveCount(3);
   await expect(page.locator('.overview-checkpoint').first()).toContainText('AI');
-  await expect(page.getByRole('link', { name: '6 more active missions' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '7 more active missions' })).toBeVisible();
 });
 
 for (const width of [1440, 390, 320]) {
@@ -574,6 +574,22 @@ for (const width of [1440, 390, 320]) {
           break;
         case 'discovery-example':
           await page.locator('[data-tour="discovery-example"]').click();
+          break;
+        case 'fde-library':
+          await page.locator('[data-tour="pack-unit-select"]').selectOption('fde-lab-ontology');
+          break;
+        case 'fde-sources':
+          await page.locator('[data-tour="pack-unit-sources"] > summary').click();
+          break;
+        case 'fde-work':
+          await page.locator('[data-tour="record-evidence"]').click();
+          await page.locator('[data-tour="evidence-example"]').click();
+          await expect(page.locator('[data-tour="checkpoint-complete"]')).not.toBeChecked();
+          await page.locator('[data-tour="evidence-submit"]').click();
+          await expect(page.locator('dialog[open]')).toHaveCount(0);
+          break;
+        case 'fde-recall':
+          await page.getByLabel('Filter by mission', { exact: true }).selectOption('fde');
           break;
         case 'discovery-family':
           await page.locator('[data-tour="discovery-memory-family"]').click();

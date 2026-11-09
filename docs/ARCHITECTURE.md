@@ -8,7 +8,7 @@ plan as proof of capability.
 
 | Layer | Responsibility |
 | --- | --- |
-| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2 references, DSA v3 append, System v3 modules and seven independently adopted expanded v3 workbooks. Saved versions never silently change. |
+| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2 references, DSA v3 append, System v3 modules, seven independently adopted v3 workbooks and latest-only Fieldcraft. Existing saved versions never silently change. |
 | `src/domain/types.ts` — `AppState` | Versioned runtime shape: progress, plans, evidence, history, readiness, opportunities. |
 | `src/domain/engine.ts` — `parseState` | Schema and cross-reference validation before accepting persisted or imported state. |
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
@@ -17,7 +17,7 @@ plan as proof of capability.
 | `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discovery projection over validated evidence/recall: canonical identities, chronological first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
 | `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed SVG/CSS collection, inspectable source receipts, keyboard activity ribbon and non-focus-stealing notices for newly visible discoveries. No WebGL or render loop. |
 | `src/discovery/Wayfinder.tsx`, `WayfinderViewer.tsx`, `wayfinderGeometry.ts` | Source-derived collection EXP, bounded reward timeline and an event-driven low-resolution PS1-style 3D avatar with cumulative equipment; transient camera/chapter choices only. |
-| `src/missionVisuals.ts` | Shared nine-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
+| `src/missionVisuals.ts` | Shared ten-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
 | `src/tutorial/*` | Guided steps, state-derived completion gates, real-control highlighting and dialog-aware coaching. |
@@ -27,9 +27,10 @@ plan as proof of capability.
 | `src/system/*` | The supplied System Design concept tree and readable/searchable browser, separate from versioned checkpoint progress. Source reading-route and grouping edges are not prerequisite gates. |
 | `operations/systemPractice*`, `src/system/SystemPractice.tsx` | The 72-module System v3 source progression, 15 read-only cases, complete practice prompts and diagnostics. Context links connect the separate concepts source without inventing case prerequisites. |
 | `src/domain/roadmapPacks/*`, `src/practice/*` | Typed outlines generate 377 new-edition checkpoints; seven lazy study chunks preserve 806 source units and 5,944 exercise occurrences. Reference/practice roles stay outside required checkpoint identity. |
+| `src/domain/forwardDeployed/*` | Original web-source research registry, latest-only 48-checkpoint mission, eight independent labs and 112 exercises. Outline metadata is shared; full teaching prose is a lazy chunk. No fictitious PDF provenance. |
 | `src/roadmaps/useMapViewport.ts` | Shared fit/zoom, pointer panning, focus/centering, resize measurement and lifecycle cleanup for both tracked and concept maps. |
 | `src/graph/*` | Read-only career graph model, stable 3D positions and Three.js rendering. Mission/collection identities remain distinct; green is reserved for completed checkpoints, including archived ones. |
-| `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Fifteen derived data views: exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
+| `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Sixteen derived data views: ten exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
 | `src/domain/focusSession.ts`, focus operations in `engine.ts` | Optional, bounded focus-session event records, strict chronology/state/ID validation and conditional ownership checks before appending reports. |
 | `src/focus/*` | One tab-local controller shared by compact/fullscreen timers, immediately persisted self-reports, retained history, and an inert calm-profile 3D backdrop. |
 | `src/workspaceFile.ts` — `serializeWorkspace` | Identical compact JSON encoding for saved and exported state, with a shared 5 MiB UTF-8 limit also used by import. |
@@ -112,7 +113,7 @@ node/orbit arrays and edges with two visible endpoints are filtered.
 `getDefaultHiddenCareerRingIds` initializes hidden ring choices from non-active missions
 and non-mission identities. Active mission rings and all real nodes remain chosen.
 Explicit per-ring selection/reveal changes this local set; workspace saves do not
-reapply defaults. Select all items can restore nine mission rings, not collection rings.
+reapply defaults. Select all items can restore ten mission rings, not collection rings.
 The focus room applies the same ring defaults once when taking its snapshot, retaining
 the full node/edge data and its existing independent presentation settings.
 `getCareerFocusVisibility` derives detailed mission IDs from saved active modes plus
@@ -166,8 +167,8 @@ No standalone luminous wave ring is drawn. It never creates graph records
 or focus events. Focus framing targets the core; the main graph retains its camera.
 
 There is no backend, authentication layer, remote database, agent execution service,
-or model call. All nine latest missions now have documented tracking units, totaling
-497 checkpoints. Historical forecast-only definitions remain frozen. A cross-mission link expresses a related
+or model call. All ten latest missions have documented tracking units, totaling
+545 checkpoints. Historical forecast-only definitions remain frozen. A cross-mission link expresses a related
 capability, not a lock.
 Prerequisites within a mission control availability. Unspecified relationships follow the
 documented order; explicit source branches can expose more than one available checkpoint,
@@ -205,6 +206,43 @@ across the active tracker and archives; other upgrades do not guess a mapping.
 System and the seven expanded workbook editions therefore archive v1/v2 on explicit
 adoption and start detailed modules unconfirmed. Case references are deliberately outside checkpoint identity,
 completion counts and evidence validation.
+
+### Fieldcraft identity and additive compatibility
+
+FDE exists only at v3; no v1/v2 definition is fabricated. `createFdeProgress`
+supplies its canonical unstarted background position for new workspaces and the
+strict legacy migration. `parseState` adds it to schema-two data only when the
+mission property is absent. An explicit null, undefined, malformed progress,
+unknown version or unsupported checkpoint fails normal validation. All other
+mission values, records, focus settings and dates are preserved; normal
+load-time generation of a missing current-day plan remains separate.
+
+The journal normalizes its old authenticated baseline before projecting change
+cells. Thus an old nine-mission chain replays without rewriting ciphertext and
+can accept later FDE changes. `workspaceChanges.assemble` requires every mission
+cell before parsing: an incremental deletion cannot masquerade as an old backup
+and silently reset FDE. Unknown archive/version combinations still fail relational
+validation. Existing whole-workspace import remains explicitly confirmed replacement.
+
+`SourceReference.url` and pack `sourceKind/webSources/reviewedAt/sourceIds`
+distinguish research citations from physical PDF references. The original seven
+workbooks retain their page-based data and source checks. FDE lessons have no
+invented page numbers; full prose remains lazy-loaded.
+
+FDE is explicitly added to native recall after prior evidence, requiring all
+three independent self-checks. The original DSA/System rules and retention
+computation remain intact. Discovery Atlas, mission activity, ordinary backups
+and the encrypted journal consume the actual records through their existing
+shared paths; no separate score or new persisted achievement fields exist.
+Thirteen new exact-checkpoint transfer comparisons touch the original nine
+missions. `RelatedPractice` exposes the same curated explanations as the graph;
+neither view awards equivalence or deduplicates all semantic overlap.
+
+The new mission also extends the finite orbit-plane inventory and label coverage.
+Original ring seeds/speeds remain fixed. A smaller inter-fan gap recovers room
+for the denser mixed-version catalog; unchanged fitted-spacing and dense-import
+requirements guard readability rather than increasing the containing scene alone.
+See [research and source limits](FDE-RESEARCH.md).
 
 ### Optional encrypted repository journal
 
@@ -389,7 +427,7 @@ Highlights follow actual controls, with state-derived Next gates and optional sk
 No real-workspace achievement is recorded to make a step pass. Exported practice files
 are explicitly labeled examples. Practice state itself is not saved across reloads.
 
-The 170-step, 29-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
+The 177-step, 30-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
 bulk-update lesson opens the real review Modal and **cancels**, so the later individual
 adoption and archive exercise remains meaningful. Checkpoints lessons gate on the actual
 View checkbox in both directions; the work-streak lesson expands its actual explanation
@@ -397,12 +435,16 @@ after saving practice evidence without completion. Tutorial target lookup can po
 to the closed View panel's opener, then to Checkpoints, or to the native bulk dialog's
 Cancel button. These lessons do not need new app commands or automatic adoption.
 
-The original 150 steps remain in order. Twenty final Discovery Atlas lessons
+The original 150 steps remain in order. Twenty Discovery Atlas lessons
 exercise the actual family filter, mystery/reveal controls, normal evidence form,
 source receipt and local-day detail. `discovery/practice.ts` creates a clearly
 fictional historical example only on an explicit practice-only button. The current
 practice timer is discarded before that temporary replacement; the real model and
 timer remain separate. Viewing a clue never changes evidence or completion.
+Seven appended Fieldcraft lessons use the real source disclosure, optional-unit
+selector, background evidence form and recall filter. They use the existing
+in-memory workspace; no real records, theme preference or journal are copied
+into practice or written by those lessons.
 
 `getDiscoverySnapshot` sorts eligible evidence/recall chronologically and updates
 small indexed metrics. It reuses `checkpointIdentity`, including only verified DSA

@@ -47,8 +47,8 @@ for (const width of [1440, 1024, 390, 320]) {
     await page.goto('./#/roadmap');
     await expect(page.getByRole('heading', { name: 'Roadmap', level: 1, exact: true })).toBeVisible();
     const before = await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'));
-    await expect(page.locator('.tree-mission')).toHaveCount(9);
-    await expect(page.locator('.roadmap-tree .diagram-edge')).toHaveCount(12);
+    await expect(page.locator('.tree-mission')).toHaveCount(10);
+    await expect(page.locator('.roadmap-tree .diagram-edge')).toHaveCount(13);
     await expectVerticalFlow(page);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
     const screenshot = testInfo.outputPath(`roadmap-flowchart-${width}.png`);
@@ -97,7 +97,7 @@ test('an empty focus branch remains usable without stale connectors', async ({ p
   await expect(page.locator('.roadmap-selected')).toHaveCount(0);
   await expect(page.getByText('No missions are in focus. Clear the filter to see all missions.', { exact: true })).toBeVisible();
   await page.getByRole('checkbox', { name: 'In-focus missions only' }).uncheck();
-  await expect(page.locator('.tree-mission')).toHaveCount(9);
+  await expect(page.locator('.tree-mission')).toHaveCount(10);
   await expectVerticalFlow(page);
   expect(await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'))).toBe(before);
 });

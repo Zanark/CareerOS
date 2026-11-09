@@ -106,7 +106,7 @@ for (const everything of [false, true]) test(`Frame all visibly separates missio
   const raw = await page.evaluate(key => localStorage.getItem(key), key);
   const source = buildCareerGraph(JSON.parse(raw!), { includeAllRecords: everything });
   if (everything) await setGraphCheckbox(page, 'Show everything', true);
-  await expect(scene).toHaveAttribute('data-orbit-count', everything ? '9' : '3');
+  await expect(scene).toHaveAttribute('data-orbit-count', everything ? '10' : '3');
   const readings = [];
   const frames: Buffer[] = [];
   let original: number[][] = [];
@@ -157,11 +157,11 @@ for (const everything of [false, true]) test(`Frame all visibly separates missio
   expect(changed).toBeGreaterThan(5000);
   await setGraphCheckbox(page, 'Show everything', true);
   await captureFittedSpatialProjection(page);
-  await expect(scene).toHaveAttribute('data-orbit-count', '9');
+  await expect(scene).toHaveAttribute('data-orbit-count', '10');
   const bounds = await scene.locator('canvas').boundingBox();
   if (!bounds) throw new Error('Expected the fitted outer-ring canvas.');
   const anchors = scene.locator('.career-graph-scene__orbit-diagnostic');
-  await expect(anchors).toHaveCount(9);
+  await expect(anchors).toHaveCount(10);
   for (const anchor of await anchors.all()) {
     await expect(anchor).toHaveAttribute('data-screen-visible', 'true');
     const x = Number(await anchor.getAttribute('data-screen-x')), y = Number(await anchor.getAttribute('data-screen-y'));

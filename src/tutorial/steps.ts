@@ -3,6 +3,7 @@ import type { TutorialCommand, TutorialSignals } from './types';
 import { fullMapSteps, packPracticeSteps, sourceSteps } from './featureSteps';
 import { graphSteps } from './graphSteps';
 import { discoverySteps } from './discoverySteps';
+import { fdeSteps } from './fdeSteps';
 import type { Theme } from '../useTheme';
 
 export interface CheckContext {
@@ -85,7 +86,8 @@ export const chapters: TutorialChapter[] = [
   { id: 'persistence', title: 'How data is stored' },
   { id: 'tools', title: 'Search, theme & help' },
   { id: 'finish', title: 'Finish' },
-  { id: 'discovery', title: 'Discovery Atlas / final chapter' },
+  { id: 'discovery', title: 'Discovery Atlas' },
+  { id: 'fde', title: 'Fieldcraft / new background mission' },
 ];
 
 export const steps: TutorialStep[] = [
@@ -179,7 +181,7 @@ export const steps: TutorialStep[] = [
     id: 'mission-list', chapter: 'mission', kind: 'explain', route: 'missions',
     targets: ['mission-list'],
     title: 'Find all learning areas',
-    body: 'Missions lists every area using the same mission hues as the graph rings. Use In focus, Background, or Planned to filter it, then open a card for its checkpoint and recorded-work streak. All nine latest curricula are available; Planned can contain older forecast-only trackers until their updates are adopted.',
+    body: 'Missions lists every area using the same mission hues as the graph rings. Use In focus, Background, or Planned to filter it, then open a card for its checkpoint and recorded-work streak. All ten latest curricula are available; Planned can contain older forecast-only trackers until their updates are adopted.',
   },
   // Evidence
   {
@@ -578,7 +580,8 @@ export const steps: TutorialStep[] = [
   {
     id: 'finish', chapter: 'finish', kind: 'explain',
     title: 'Back to your real workspace',
-    body: 'You have covered the original tracking tools, document adoption, full maps, recall, application details, research briefs, and backup transfer. Continue to the final Discovery Atlas chapter, or Exit to return to your real workspace. Practice examples are discarded; no real checkpoint, application, or machine transfer was completed by this tutorial.',
+    body: 'You have covered the original tracking tools, document adoption, full maps, recall, application details, research briefs, and backup transfer. Continue to Discovery Atlas and Fieldcraft, or Exit to return to your real workspace. Practice examples are discarded; no real checkpoint, application, or machine transfer was completed by this tutorial.',
   },
   ...discoverySteps,
+  ...fdeSteps,
 ];

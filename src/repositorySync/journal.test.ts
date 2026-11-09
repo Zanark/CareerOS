@@ -7,6 +7,7 @@ import { appendWorkspace, createJournal, deriveJournalKey, unlockJournal } from 
 import { journalText, parseJournal, unpublishedText } from './journalFormat';
 import { makeJournalCache, parseJournalCache, reviewJournal } from './journalCache';
 import { applyWorkspaceChanges, canonicalJson, mergeWorkspaces, workspaceChanges } from './workspaceChanges';
+import type { JournalFile } from './journalFormat';
 
 const phrase = 'A synthetic test phrase, never a real secret';
 
@@ -23,6 +24,42 @@ function fixture() {
 }
 
 describe('encrypted append-only repository journal', () => {
+  it('replays a genuine nine-mission wire baseline and old batch before appending FDE work to the same encrypted chain', async () => {
+    const base = fixture();
+    const created = await createJournal(base, phrase);
+    const { fde: _fde, ...oldMissions } = base.missions;
+    const old = { ...base, missions: oldMissions };
+    const changed = recordChange({ ...base, objective: 'Synthetic old-client direction' }, 'Synthetic old-client change');
+    const file: JournalFile = { header: created.journal.file.header, batches: [] };
+    for (const payload of [
+      { kind: 'baseline', state: old, at: base.updatedAt },
+      { kind: 'changes', changes: workspaceChanges(base, changed), updatedAt: changed.updatedAt, at: changed.updatedAt },
+    ]) {
+      const metadata = { id: crypto.randomUUID(), parent: file.batches.at(-1)?.id ?? null };
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const encrypted = await crypto.subtle.encrypt({
+        name: 'AES-GCM', iv, tagLength: 128,
+        additionalData: new TextEncoder().encode(JSON.stringify({ header: file.header, ...metadata })),
+      }, created.key, new TextEncoder().encode(JSON.stringify(payload)));
+      file.batches.push({ type: 'encrypted-batch', ...metadata,
+        iv: Buffer.from(iv).toString('base64'), ciphertext: Buffer.from(encrypted).toString('base64') });
+    }
+    const original = journalText(file);
+    const unlocked = await unlockJournal(parseJournal(original)!, created.key);
+    expect(unlocked.state).toEqual(changed);
+    const fde = recordEvidence(unlocked.state, {
+      missionId: 'fde', checkpointId: unlocked.state.missions.fde.checkpointId,
+      title: 'Synthetic background fieldwork', summary: 'Synthetic first Fieldcraft attempt after an older encrypted journal replay.',
+      kind: 'code', url: '', advance: false, criteriaConfirmed: false,
+    });
+    const appended = await appendWorkspace(unlocked, fde, created.key);
+    expect(journalText(appended.file).startsWith(original)).toBe(true);
+    expect((await unlockJournal(appended.file, created.key)).state).toEqual(fde);
+    const review = await reviewJournal(unlocked, 2, appended, changed, 'published', created.key);
+    expect(review.merge?.state).toEqual(fde);
+    expect(fde.focusMissionId).toBe(base.focusMissionId);
+    expect(fde.missions.fde.mode).toBe('background');
+  });
   it('encrypts the full baseline and incremental changes, with duplicate-safe append and unchanged input', async () => {
     const state = fixture(), original = JSON.stringify(state);
     const created = await createJournal(state, phrase);
@@ -125,6 +162,17 @@ describe('encrypted append-only repository journal', () => {
 });
 
 describe('workspace journal reconciliation', () => {
+  it('rejects mission deletion instead of silently resetting FDE through old-backup normalization', () => {
+    const state = createInitialState(false);
+    expect(() => applyWorkspaceChanges(state, [{
+      key: 'mission/fde', before: canonicalJson(state.missions.fde), after: null,
+    }], state.updatedAt)).toThrow('missing required mission: fde');
+    expect(() => applyWorkspaceChanges(state, [{
+      key: 'mission/fde', before: canonicalJson(state.missions.fde),
+      after: canonicalJson({ ...state.missions.fde, roadmapVersion: '2.0.0' }),
+    }], state.updatedAt)).toThrow('Unknown roadmap version');
+    expect(state.missions.fde.checkpointId).toBe('fde-v3-fde-01');
+  });
   it('preserves all versioned records and optional collections through a diff roundtrip', () => {
     const base = createInitialState(false), changed = fixture();
     expect(applyWorkspaceChanges(base, workspaceChanges(base, changed), changed.updatedAt)).toEqual(changed);

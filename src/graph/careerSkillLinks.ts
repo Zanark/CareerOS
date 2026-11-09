@@ -21,6 +21,71 @@ const anchor = (missionId: MissionId, checkpointId: string): CareerSkillAnchor =
 // Editorial transfer opportunities, not prerequisites, completion equivalence or inferred experience.
 // Each endpoint is an explicit checkpoint in the public v3 curriculum; citations live in its definition.
 export const careerSkillLinks: readonly CareerSkillLink[] = [
+  {
+    id: 'keyed-state-to-fieldcraft-debugging', concept: 'Identity before deduplication',
+    reason: 'Pattern HashMap reasoning helps Fieldcraft distinguish repeated input from legitimate updates when debugging a customer importer; the FDE attempt must still prove the customer-specific identity semantics.',
+    source: anchor('pattern', 'pattern-v3-section-05'), target: anchor('fde', 'fde-v3-fde-42'),
+  },
+  {
+    id: 'contest-keyed-lookup-to-fieldcraft-code', concept: 'Bounded lookup with explicit complexity',
+    reason: 'Algorithm Arena Two Sum practice provides a concrete keyed-lookup and complexity defense that transfers to Fieldcraft live coding; customer data correctness remains a separate requirement.',
+    source: anchor('algorithm', 'algorithm-v3-algorithm-module-17'), target: anchor('fde', 'fde-v3-fde-42'),
+  },
+  {
+    id: 'system-request-signals-to-fieldcraft-telemetry', concept: 'Trace a user-visible failure',
+    reason: 'System request-observability practice supplies diagnostic logs, metrics and spans; Fieldcraft extends that reasoning across the customer UI, API, job and dependency with explicit privacy and handoff limits.',
+    source: anchor('system', 'system-v3-module-64'), target: anchor('fde', 'fde-v3-fde-30'),
+  },
+  {
+    id: 'latency-distribution-to-fieldcraft-budget', concept: 'Measure the workload before tuning',
+    reason: 'System latency-versus-throughput reasoning supports Fieldcraft quality/latency/cost comparisons, which must disclose the actual workload and avoid presenting local stub behavior as production performance.',
+    source: anchor('system', 'system-v3-module-03'), target: anchor('fde', 'fde-v3-fde-32'),
+  },
+  {
+    id: 'architecture-adr-to-fieldcraft-constraints', concept: 'Decisions tied to customer constraints',
+    reason: 'Blueprint alternatives and reconsideration triggers transfer to Fieldcraft architecture under network, data and ownership restrictions; related architecture study does not satisfy the new customer-specific decision record.',
+    source: anchor('blueprint', 'blueprint-v3-blueprint-s9-1'), target: anchor('fde', 'fde-v3-fde-20'),
+  },
+  {
+    id: 'schema-evolution-to-fieldcraft-compatibility', concept: 'Preserve old callers and records',
+    reason: 'Blueprint mixed-version schema reasoning supports Fieldcraft migration rehearsals that replay old records and updates without fabricating missing history or silently resetting invalid data.',
+    source: anchor('blueprint', 'blueprint-v3-blueprint-s6-5'), target: anchor('fde', 'fde-v3-fde-38'),
+  },
+  {
+    id: 'fabric-trust-to-fieldcraft-access', concept: 'Trust boundaries are not interchangeable',
+    reason: 'Fabric credential-owner and permission mapping helps Fieldcraft identify actors and resources; certificate/TLS knowledge is not equivalent to application authorization or tenant isolation, which need their own tests.',
+    source: anchor('fabric', 'fabric-v3-fabric-4-6'), target: anchor('fde', 'fde-v3-fde-17'),
+  },
+  {
+    id: 'artifact-promotion-to-fieldcraft-release', concept: 'A release is an observed artifact transition',
+    reason: 'Credential promotion, health validation and rollback provide controls for the Fieldcraft local rollout drill, whose running artifact and data compatibility must actually be observed.',
+    source: anchor('credential', 'credential-v3-credential-3-6'), target: anchor('fde', 'fde-v3-fde-29'),
+  },
+  {
+    id: 'neural-retrieval-to-fieldcraft-evidence', concept: 'Retrieval relevance with permission boundaries',
+    reason: 'Neural hybrid-retrieval choices inform Fieldcraft retrieval evaluation; Fieldcraft adds tenant-scoped eligibility, source freshness and explicit abstention rather than assuming a relevant document may be disclosed.',
+    source: anchor('neural', 'neural-v3-neural-2-2'), target: anchor('fde', 'fde-v3-fde-23'),
+  },
+  {
+    id: 'neural-json-to-fieldcraft-proposals', concept: 'Structured shape is not business correctness',
+    reason: 'Neural JSON extraction and validation support Fieldcraft structured proposals, which additionally require business invariants and permission checks before any accepted state change.',
+    source: anchor('neural', 'neural-v3-neural-0-3'), target: anchor('fde', 'fde-v3-fde-24'),
+  },
+  {
+    id: 'income-problem-to-fieldcraft-discovery', concept: 'Understand the task before proposing software',
+    reason: 'Income problem statements connect symptoms and business impact; Fieldcraft discovery develops those assumptions through neutral interviews and observed workflow examples, clearly distinguishing role-play from customer research.',
+    source: anchor('income', 'income-v3-income-1-2'), target: anchor('fde', 'fde-v3-fde-05'),
+  },
+  {
+    id: 'client-runbook-to-fieldcraft-handoff', concept: 'Another operator can carry the work',
+    reason: 'Income handoff documentation supplies limitations, recovery and verification evidence; Fieldcraft tests that packet through an actual peer or explicitly labelled clean-room self-check.',
+    source: anchor('income', 'income-v3-income-4-7'), target: anchor('fde', 'fde-v3-fde-36'),
+  },
+  {
+    id: 'escape-claim-defense-to-fieldcraft-portfolio', concept: 'Defend only the contribution you can support',
+    reason: 'Escape ownership/mechanism/impact follow-ups support Fieldcraft portfolio narratives, which must separate synthetic practice, actual execution and unverified customer or production impact.',
+    source: anchor('escape', 'escape-v3-escape-3-1'), target: anchor('fde', 'fde-v3-fde-41'),
+  },
   // Algorithmic state and proof, transferred into the contest curriculum.
   {
     id: 'array-regions-to-contest-state',

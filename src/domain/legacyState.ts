@@ -5,18 +5,20 @@
 // engine.ts. Nothing in this file ever mutates or re-interprets existing evidence,
 // events, plans, or opportunities values - it only adds the new, empty v2 collections
 // and stamps `roadmapVersion: '1.0.0'` onto the eight original mission progress records.
+// Later missions receive empty canonical lanes, never fabricated historical definitions.
 import { z } from 'zod';
 import { legacyMissions } from './legacyCatalog';
 import { getMissionVersion, LATEST_ROADMAP_VERSION } from './catalog';
 import { missionIds, opportunityStages, readinessKeys } from './types';
 import type { AppState, MissionId, MissionProgress } from './types';
+import { createFdeProgress } from './forwardDeployed/mission';
 
 export const LEGACY_ROADMAP_VERSION = '1.0.0' as const;
 const LEGACY_MAX_RECORDS = 5000;
 const LEGACY_MAX_PLAN_DAYS = 3660;
 const LEGACY_MAX_COMPLETED = 5;
 
-export type LegacyMissionId = Exclude<MissionId, 'income'>;
+export type LegacyMissionId = Exclude<MissionId, 'income' | 'fde'>;
 export const legacyMissionIds = legacyMissions.map((mission) => mission.id) as LegacyMissionId[];
 
 export function isDate(value: string): boolean {
@@ -229,9 +231,9 @@ export function parseLegacyV1(value: unknown): LegacyV1State {
 /**
  * Safely lift a validated schemaVersion 1 workspace into the current schemaVersion 2
  * shape: the eight original missions keep their exact progress plus a stamped
- * `roadmapVersion: '1.0.0'`, `income` is added fresh on the latest canonical roadmap
- * (background, not started - nothing about income ever existed pre-migration so there is
- * nothing to infer), and the new v2-only collections start empty. Every existing
+ * `roadmapVersion: '1.0.0'`, income retains its original v2 starting lane, and
+ * FDE starts fresh on its only existing v3 definition. Both are background and
+ * unstarted; the v2-only collections start empty. Every existing
  * evidence, event, plan, and opportunity value is carried over completely unchanged: no
  * migration event is appended, no record gains a retroactive roadmapVersion, and
  * `updatedAt` is preserved rather than bumped.
@@ -239,6 +241,7 @@ export function parseLegacyV1(value: unknown): LegacyV1State {
 export function migrateLegacyToLatest(legacy: LegacyV1State): AppState {
   const incomeMission = getMissionVersion('income', LATEST_ROADMAP_VERSION);
   const missions = Object.fromEntries(missionIds.map((id): [MissionId, MissionProgress] => {
+    if (id === 'fde') return [id, createFdeProgress()];
     if (id === 'income') {
       return [id, {
         roadmapVersion: LATEST_ROADMAP_VERSION,

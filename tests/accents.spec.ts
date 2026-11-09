@@ -55,9 +55,9 @@ for (const theme of ['dark', 'light']) {
 
     await page.getByRole('link', { name: /^Missions/, exact: false }).click();
     await expect(page.getByRole('heading', { name: 'Missions', exact: true, level: 1 })).toBeVisible();
-    await expect(page.locator('.mission-card')).toHaveCount(9);
+    await expect(page.locator('.mission-card')).toHaveCount(10);
     const cardColors = await page.locator('.mission-card').evaluateAll(elements => elements.map(element => getComputedStyle(element).borderTopColor));
-    expect(new Set(cardColors).size).toBe(9);
+    expect(new Set(cardColors).size).toBe(10);
     for (const [id, color] of Object.entries(MISSION_COLORS)) {
       const rgb = [1, 3, 5].map(offset => parseInt(color.slice(offset, offset + 2), 16));
       await expect(page.locator(`.mission-card[data-mission-id="${id}"]`)).toHaveCSS('border-top-color', `rgb(${rgb.join(', ')})`);

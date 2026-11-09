@@ -18,6 +18,7 @@ DONE - 07_ENCRYPTED_PROGRESS_JOURNAL.todo (encrypted-progress-journal)
 DONE - 08_GITHUB_TRACKING_ADOPTION.todo (github-tracking-adoption)
 PERPETUAL - 09_DEVELOPMENT_LEDGER.todo (excluded from ordinary feature issues)
 DONE - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
+IN_REVIEW - 11_FORWARD_DEPLOYED_ENGINEERING.todo (forward-deployed-engineering)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

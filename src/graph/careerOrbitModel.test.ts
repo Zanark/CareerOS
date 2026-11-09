@@ -100,25 +100,25 @@ function expectExactMembership(graph: CareerGraph) {
 }
 
 describe('Career orbits: stable read-only graph views', () => {
-  it.each(versions)('always returns nine saved missions and six collections with stable identities for v%s', version => {
+  it.each(versions)('always returns every saved mission and six collections with stable identities for v%s', version => {
     const state = createInitialState(false, version);
     state.missions = Object.fromEntries(Object.entries(state.missions).reverse()) as AppState['missions'];
     const graph = buildCareerGraph(state);
-    expect(graph.orbits).toHaveLength(15);
-    expect(graph.orbits.map(item => item.index)).toEqual(Array.from({ length: 15 }, (_, index) => index));
+    expect(graph.orbits).toHaveLength(missionIds.length + 6);
+    expect(graph.orbits.map(item => item.index)).toEqual(Array.from({ length: missionIds.length + 6 }, (_, index) => index));
     expect(graph.orbits.map(item => item.kind)).toEqual([...missionIds.map(() => 'mission'), ...collectionKinds]);
     expect(graph.orbits.map(item => item.id)).toEqual([
       ...missionIds.map(id => `orbit:mission:${id}`), ...collectionKinds.map(kind => `orbit:${kind}`),
     ]);
-    expect(graph.orbits.slice(0, 9).map(item => item.missionId)).toEqual([...missionIds]);
-    expect(graph.orbits.slice(9).map(item => item.label)).toEqual([
+    expect(graph.orbits.slice(0, missionIds.length).map(item => item.missionId)).toEqual([...missionIds]);
+    expect(graph.orbits.slice(missionIds.length).map(item => item.label)).toEqual([
       'Daily work', 'Saved evidence', 'Applications', 'Freelance leads', 'Past accomplishments', 'Untracked curriculum',
     ]);
     for (const item of graph.orbits) expect(item.color).toMatch(/^#[0-9A-F]{6}$/);
-    expect(graph.orbits.slice(0, 9).map(item => item.color)).toEqual(missionIds.map(missionColor));
-    expect(new Set(graph.orbits.map(item => item.color)).size).toBe(15);
-    expect(graph.orbits.slice(0, 9).map(item => item.missionMode)).toEqual(missionIds.map(id => state.missions[id].mode));
-    expect(graph.orbits.slice(9).every(item => item.missionMode === undefined)).toBe(true);
+    expect(graph.orbits.slice(0, missionIds.length).map(item => item.color)).toEqual(missionIds.map(missionColor));
+    expect(new Set(graph.orbits.map(item => item.color)).size).toBe(missionIds.length + 6);
+    expect(graph.orbits.slice(0, missionIds.length).map(item => item.missionMode)).toEqual(missionIds.map(id => state.missions[id].mode));
+    expect(graph.orbits.slice(missionIds.length).every(item => item.missionMode === undefined)).toBe(true);
     expectExactMembership(graph);
   });
 
@@ -134,7 +134,7 @@ describe('Career orbits: stable read-only graph views', () => {
       expect(graph.stats).toEqual(before.stats);
       expect(graph.nodes.map(node => ({ id: node.id, position: node.position, status: node.status })))
         .toEqual(before.nodes.map(node => ({ id: node.id, position: node.position, status: node.status })));
-      expect(graph.orbits.slice(9)).toEqual(before.orbits.slice(9));
+      expect(graph.orbits.slice(missionIds.length)).toEqual(before.orbits.slice(missionIds.length));
       for (const id of missionIds) {
         const item = orbit(graph, 'mission', id);
         const original = orbit(before, 'mission', id);
@@ -220,7 +220,7 @@ describe('Career orbits: stable read-only graph views', () => {
 
   it('has no invented activity or progress for empty records and a saved forecast-only mission', () => {
     const fresh = buildCareerGraph(createInitialState(false));
-    for (const item of fresh.orbits.slice(9)) {
+    for (const item of fresh.orbits.slice(missionIds.length)) {
       expect(item.memberIds).toEqual([]);
       expect(item.segments).toEqual([]);
       expect(item.summary).toBe(item.kind === 'curriculum' ? 'No untracked curriculum' : 'No records');

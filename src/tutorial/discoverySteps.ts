@@ -3,8 +3,8 @@ import type { TutorialStep } from './steps';
 export const discoverySteps: TutorialStep[] = [
   {
     id: 'discovery-intro', chapter: 'discovery', kind: 'explain', route: 'discoveries', command: 'close-dialogs',
-    targets: ['discovery-intro'], title: 'A final chapter: your Discovery Atlas',
-    body: 'This optional collection reveals hidden discoveries from evidence and recall you actually save. It is not a career level or a measure of mastery. Your earlier tools and completion criteria are unchanged. Everything in this tutorial remains temporary; use Chapter to return directly to this final section later.',
+    targets: ['discovery-intro'], title: 'Your Discovery Atlas',
+    body: 'This optional collection reveals hidden discoveries from evidence and recall you actually save. It is not a career level or a measure of mastery. Your earlier tools and completion criteria are unchanged. Everything in this tutorial remains temporary; use Chapter to return directly to this section later.',
   },
   {
     id: 'discovery-example', chapter: 'discovery', kind: 'action',

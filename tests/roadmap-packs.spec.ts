@@ -20,7 +20,7 @@ async function rawState(page: Page) {
   return page.evaluate(key => localStorage.getItem(key), key);
 }
 
-for (const id of packMissionIds) {
+for (const id of packMissionIds.filter(id => id !== 'fde')) {
   test(`${id}: all source units are browsable and deep links preserve the old tracker`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));

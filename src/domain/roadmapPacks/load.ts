@@ -8,6 +8,7 @@ const loaders: Record<PackMissionId, () => Promise<{ default: RoadmapPack }>> = 
   fabric: () => import('./data/fabric'),
   income: () => import('./data/income'),
   neural: () => import('./data/neural'),
+  fde: () => import('../forwardDeployed/content'),
 };
 
 export async function loadRoadmapPack(missionId: PackMissionId): Promise<RoadmapPack> {

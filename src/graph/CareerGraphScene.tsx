@@ -581,7 +581,7 @@ class CareerScene implements CareerGraphSceneHandle {
     this.hoveredOrbit = null;
     this.labelId = null;
     this.missionLabelLayer.replaceChildren();
-    this.missionLabels = graph.nodes.filter(node => this.visualProfile === 'career' && node.kind === 'mission').slice(0, 9).map(node => {
+    this.missionLabels = graph.nodes.filter(node => this.visualProfile === 'career' && node.kind === 'mission').map(node => {
       const element = document.createElement('span');
       element.className = 'career-graph-scene__mission-label';
       element.dataset.nodeId = node.id;

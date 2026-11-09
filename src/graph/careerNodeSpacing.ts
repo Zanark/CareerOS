@@ -148,7 +148,7 @@ function unfoldNeighborhoods(graph: CareerGraph, core: CareerGraphNode, spread: 
   for (let groupIndex = 0; groupIndex < groups.length; groupIndex++) {
     const group = groups[groupIndex];
     const width = Math.PI * 2 * angles[groupIndex] / total;
-    const margin = width * (0.04 + spread * 0.04);
+    const margin = width * (0.02 + spread * 0.02);
     let cells: [number, number][] = [];
     const definitionNodes = group.filter(node => priority(node) < 2);
     // Saved records do not consume catalogue slots or shuffle its checkpoints.

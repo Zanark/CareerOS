@@ -155,12 +155,12 @@ describe('exact catalog versions and verified append identity', () => {
     const serialized = JSON.stringify(old);
     expect(getMission('pattern')).toBe(latest);
     expect(getMission('pattern', old)).toBe(previous);
-    expect(getMissions(old)).toEqual(v2Missions);
+    expect(getMissions(old)).toEqual([...v2Missions, getLatestMission('fde')]);
     expect(hasRoadmapUpdate('pattern', old)).toBe(true);
     expect(hasRoadmapUpdate('system', old)).toBe(true);
     expect(JSON.stringify(roundTrip(old))).toBe(serialized);
     const legacy = createInitialState(false, '1.0.0');
-    for (const id of missionIds) expect(legacy.missions[id].roadmapVersion).toBe(id === 'income' ? '2.0.0' : '1.0.0');
+    for (const id of missionIds) expect(legacy.missions[id].roadmapVersion).toBe(id === 'fde' ? '3.0.0' : id === 'income' ? '2.0.0' : '1.0.0');
   });
 });
 

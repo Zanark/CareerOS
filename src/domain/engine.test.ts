@@ -51,7 +51,7 @@ afterEach(() => {
 
 describe('v2 catalog and initial workspace', () => {
   it('provides nine canonical missions - the original eight plus income - with algorithm still planned', () => {
-    expect(v2Missions.map((mission) => mission.id)).toEqual([...missionIds]);
+    expect(v2Missions.map((mission) => mission.id)).toEqual(missionIds.filter(id => id !== 'fde'));
     expect(v2Missions.filter((mission) => mission.planned).map((mission) => mission.id)).toEqual(['algorithm']);
     const checkpointIds = new Set<string>();
     for (const mission of v2Missions.filter((entry) => !entry.planned)) {
@@ -315,7 +315,7 @@ describe('local dates and deterministic daily plans', () => {
   it('uses getMissions(state) so a per-mission roadmap version change is reflected in planning', () => {
     const state = createInitialState(false, '2.0.0');
     expect(getMissions(state).map((mission) => mission.roadmapVersion)).toEqual(
-      missionIds.map(() => '2.0.0'),
+      missionIds.map(id => id === 'fde' ? '3.0.0' : '2.0.0'),
     );
   });
 });

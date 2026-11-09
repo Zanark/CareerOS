@@ -14,6 +14,7 @@ export const MISSION_COLORS: Readonly<Record<MissionId, string>> = Object.freeze
   neural: '#28B7C9',
   algorithm: '#A989D8',
   income: '#C89459',
+  fde: '#E8AC83',
 });
 
 export const COLLECTION_COLORS: Readonly<Record<Exclude<CareerOrbitKind, 'mission'>, string>> = Object.freeze({

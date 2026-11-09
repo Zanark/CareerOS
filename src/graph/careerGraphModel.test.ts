@@ -63,14 +63,14 @@ function freeze<T>(value: T): T {
 }
 
 describe('Career OS graph: real saved progress', () => {
-  it('starts with all nine actual mission hubs, zero achievements and only real tracked checkpoints', () => {
+  it('starts with every actual mission hub, zero achievements and only real tracked checkpoints', () => {
     const state = createInitialState(false);
     const graph = buildCareerGraph(state);
     const total = getMissions(state).reduce((sum, mission) => sum + mission.checkpoints.length, 0);
     expect(graph.stats).toEqual({ trackedTotal: total, trackedCompleted: 0, archivedCompleted: 0, pastWorkRecords: 0 });
     expect(graph.updates).toEqual([]);
     expect(graph.nodes).toHaveLength(total + missionIds.length + 1);
-    expect(graph.orbits).toHaveLength(15);
+    expect(graph.orbits).toHaveLength(missionIds.length + 6);
     expect(graph.orbits.reduce((sum, orbit) => sum + (orbit.progress?.total ?? 0), 0)).toBe(total);
     expect(graph.nodes.some(item => item.id.startsWith('orbit:'))).toBe(false);
     expect(node(graph, 'core:careerhq')).toMatchObject({
@@ -203,8 +203,8 @@ describe('Career OS graph: real saved progress', () => {
   it('shows all unadopted latest identities only as curriculum references, never new unfinished work', () => {
     const state = createInitialState(false, '2.0.0');
     const graph = buildCareerGraph(state);
-    expect(graph.updates).toEqual([...missionIds]);
-    expect(graph.stats).toEqual({ trackedTotal: 87, trackedCompleted: 0, archivedCompleted: 0, pastWorkRecords: 0 });
+    expect(graph.updates).toEqual(missionIds.filter(id => id !== 'fde'));
+    expect(graph.stats).toEqual({ trackedTotal: 135, trackedCompleted: 0, archivedCompleted: 0, pastWorkRecords: 0 });
     const references = graph.nodes.filter(item => item.kind === 'curriculum');
     const expectedPattern = getLatestMission('pattern').checkpoints.length - getMission('pattern', state).checkpoints.length;
     expect(references.filter(item => item.missionId === 'pattern')).toHaveLength(expectedPattern);
@@ -215,7 +215,7 @@ describe('Career OS graph: real saved progress', () => {
       expect(reference.detail).toContain('no progress credit');
       expect(reference.roadmapVersion).toBe('3.0.0');
     }
-    expect(checkpoints(graph)).toHaveLength(87);
+    expect(checkpoints(graph)).toHaveLength(135);
     expect(buildCareerGraph(state)).toEqual(graph);
   });
 

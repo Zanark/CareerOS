@@ -79,7 +79,7 @@ test('documented phases, optional references and the expanded contest curriculum
   await page.goto('./#/sources');
   await expect(page.getByRole('heading', { name: 'Operation documents', level: 1, exact: true })).toBeVisible();
   const selector = page.locator('.source-selector select');
-  await expect(selector.locator('option')).toHaveCount(9);
+  await expect(selector.locator('option')).toHaveCount(10);
   await selector.selectOption('fabric');
   await expect(page.locator('.source-counts')).toContainText('32 tracked nodes');
   await expect(page.getByRole('combobox', { name: 'Roadmap stage' })).toHaveCount(1);

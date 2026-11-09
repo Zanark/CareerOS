@@ -358,17 +358,17 @@ describe('semantic career orbit geometry', () => {
     visuals.dispose();
   });
 
-  it('preserves all fifteen unique palette identities, including the small quiet rings, without green ring geometry', () => {
+  it('preserves all mission and collection palette identities, including the small quiet rings, without green ring geometry', () => {
     const missions = Object.entries(MISSION_COLORS).map(([, color], index) => ({
       ...orbit(index), color, missionMode: index < 3 ? 'active' as const : 'background' as const,
     }));
     const collections = Object.entries(COLLECTION_COLORS).map(([kind, color], index) => ({
-      ...orbit(index + 9), kind: kind as Exclude<CareerOrbit['kind'], 'mission'>, color, missionMode: undefined,
+      ...orbit(index + missions.length), kind: kind as Exclude<CareerOrbit['kind'], 'mission'>, color, missionMode: undefined,
     }));
     const visuals = new CareerOrbitVisuals(), data = [...missions, ...collections];
     visuals.setData(data, nodes(), new Vector3(), 60);
     const anchors = visuals.anchors.geometry.getAttribute('color'), green = new Color(CHECKPOINT_COMPLETE_COLOR);
-    expect(new Set(data.map(item => item.color)).size).toBe(15);
+    expect(new Set(data.map(item => item.color)).size).toBe(data.length);
     data.forEach((item, index) => {
       expect([anchors.getX(index), anchors.getY(index), anchors.getZ(index)]).toEqual(new Color(item.color).toArray().map(Math.fround));
     });
@@ -399,8 +399,8 @@ describe('semantic career orbit geometry', () => {
   });
 
   it('uses fixed identity planes and exactly two deterministic speed boosts, not filtered order', () => {
-    expect(CAREER_ORBIT_PLANES.map(item => item.multiplier).sort()).toEqual([...Array<number>(13).fill(1), 1.5, 2]);
-    expect(new Set(CAREER_ORBIT_PLANES.map(item => item.speed)).size).toBe(15);
+    expect(CAREER_ORBIT_PLANES.map(item => item.multiplier).sort()).toEqual([...Array<number>(CAREER_ORBIT_PLANES.length - 2).fill(1), 1.5, 2]);
+    expect(new Set(CAREER_ORBIT_PLANES.map(item => item.speed)).size).toBe(CAREER_ORBIT_PLANES.length);
     expect(CAREER_ORBIT_PLANES.some(item => item.speed < 0)).toBe(true);
     const first = new CareerOrbitVisuals();
     const second = new CareerOrbitVisuals();
@@ -985,7 +985,7 @@ describe('semantic career orbit geometry', () => {
     const data = orbit(4);
     data.segments.push({ id: 'empty', label: 'No records', summary: 'No records', detail: '', members: [] });
     const visuals = new CareerOrbitVisuals();
-    visuals.setData([data, data, orbit(-1), orbit(15), orbit(1.5)], nodes(), new Vector3(), 0);
+    visuals.setData([data, data, orbit(-1), orbit(CAREER_ORBIT_PLANES.length), orbit(1.5)], nodes(), new Vector3(), 0);
     expect(visuals.orbitCount).toBe(1);
     visuals.setSelection({ orbitId: data.id, segmentId: 'empty' });
     expect(visuals.tetherCount).toBe(1);

@@ -19,7 +19,10 @@ function validKey(key: string) {
   if (group === 'readiness') return readinessKeys.some(value => value === id);
   if (group === 'plan') return isDate(id);
   if (group === 'present') return optionalCollections.some(value => value === id);
-  if (group === 'archive') return /^(pattern|system|escape|fabric|blueprint|credential|neural|algorithm|income):(1|2|3)\.0\.0$/.test(id);
+  if (group === 'archive') {
+    const [missionId, version, trailing] = id.split(':');
+    return trailing === undefined && missionIds.some(value => value === missionId) && /^(1|2|3)\.0\.0$/.test(version ?? '');
+  }
   return collections.some(value => value === group) && recordId.test(id);
 }
 
@@ -65,6 +68,9 @@ function timestamp(item: unknown): number {
 }
 
 function assemble(cells: ReadonlyMap<string, string>, updatedAt: string): AppState {
+  for (const id of missionIds) {
+    if (!cells.has(`mission/${id}`)) throw new Error(`Journal is missing required mission: ${id}.`);
+  }
   const get = (key: string): unknown => {
     const value = cells.get(key);
     return value === undefined ? undefined : JSON.parse(value);

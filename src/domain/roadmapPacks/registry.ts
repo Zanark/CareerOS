@@ -1,10 +1,11 @@
 import type { Checkpoint } from '../types';
-import { roadmapPackOutlines } from './outlines';
+import { roadmapPackOutlines as sourceBookOutlines } from './outlines';
+import { fdeOutline } from '../forwardDeployed/outline';
 import { packMissionIds } from './types';
 import type { PackMissionId } from './types';
 
 export const PACK_ROADMAP_VERSION = '3.0.0' as const;
-export { roadmapPackOutlines };
+export const roadmapPackOutlines = [...sourceBookOutlines, fdeOutline];
 
 export function isPackMissionId(value: string | undefined): value is PackMissionId {
   return packMissionIds.some(id => id === value);

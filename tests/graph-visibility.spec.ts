@@ -126,7 +126,7 @@ test('item hiding preserves remaining geometry and zoom, removes incident edges,
   await panel.getByRole('button', { name: 'Select all items', exact: true }).click();
   await expect(scene).toHaveAttribute('data-node-count', String(graph.nodes.length));
   await expect(scene).toHaveAttribute('data-edge-count', String(graph.edges.length));
-  await expect(scene).toHaveAttribute('data-orbit-count', '9');
+  await expect(scene).toHaveAttribute('data-orbit-count', '10');
   const core = panel.getByRole('checkbox', { name: 'Show CareerOS core group', exact: true });
   await core.uncheck();
   await expect(scene).toHaveAttribute('data-node-count', String(graph.nodes.length - 1));

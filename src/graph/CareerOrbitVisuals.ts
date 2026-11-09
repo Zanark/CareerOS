@@ -379,7 +379,7 @@ export class CareerOrbitVisuals {
       this.ranges.push({ start, end: positions.length / 3, selection });
     };
     for (const orbit of orbits) {
-      if (!Number.isInteger(orbit.index) || orbit.index < 0 || orbit.index >= 15 || this.byId.has(orbit.id)) continue;
+      if (!Number.isInteger(orbit.index) || orbit.index < 0 || orbit.index >= CAREER_ORBIT_PLANES.length || this.byId.has(orbit.id)) continue;
       const entry: OrbitEntry = {
         orbit, motion: careerOrbitMotion(orbit), activity: activityPresentation(orbit, this.activityDate),
         start: positions.length / 3, end: 0, segmentAngles: new Map(),

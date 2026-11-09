@@ -12,7 +12,7 @@ loading problem. Different browsers/devices still need a private backup transfer
 [Website](https://zanark.github.io/CareerOS/) ·
 [Overview](../README.md) · [Architecture](ARCHITECTURE.md) · [Themes](THEMES.md) · [Privacy](PRIVACY.md) ·
 [Agent contract](AGENT_CONTRACT.md) · [Operation sources](OPERATION-SOURCES.md) ·
-[Contributor workflow](DEVELOPMENT.md)
+[Contributor workflow](DEVELOPMENT.md) · [FDE research](FDE-RESEARCH.md)
 
 ## What this prototype does
 
@@ -39,7 +39,9 @@ loading problem. Different browsers/devices still need a private backup transfer
 - Uses **DeepSeaFoam** dark and **Harbor Daylight** light palettes. The header switch
   animates sunrise/sunset, remembers your choice, and respects reduced motion.
 
-The supplied operation documents define nine missions. Tracking granularity is explicit:
+The supplied operation documents define the original nine missions. Research-backed
+**Fieldcraft** adds Forward Deployed Engineering as an unstarted background mission
+without changing your primary focus or existing progress. Tracking granularity is explicit:
 
 | Mission | Documented tracking |
 | --- | --- |
@@ -52,8 +54,10 @@ The supplied operation documents define nine missions. Tracking granularity is e
 | Neural Edge | 28 modules across 7 source phases, plus cases, transfer drills and portfolio choices |
 | Algorithm Forge | 34 checkpoints across the complete 6-stage contest curriculum; older forecast versions remain available |
 | Side Income | 104 modules across 13 stages, with cases, templates and the separate private freelance ledger |
+| Forward Deployed Engineering / Fieldcraft | 48 checkpoints across 12 phases, eight optional specialization labs and 112 authored exercises informed by 24 reviewed primary sources |
 
-The latest editions contain **497 tracked checkpoints**. The seven expanded mission workbooks
+The latest editions contain **545 tracked checkpoints**, including Fieldcraft's 48.
+The original seven expanded mission workbooks
 also provide **806 browsable source units and 5,944 practice, transfer and diagnostic prompts**.
 Repeated source exercise contexts are retained; this is not a claim of 5,944 distinct autograded problems.
 Study material and tracking definitions are not imported personal achievements.
@@ -61,6 +65,41 @@ The original PDFs and private progress/biographical sections are not published. 
 for conflicts, granularity choices and unverified certification availability.
 There is no actual AI agent, cloud workspace, authentication, or multi-device sync.
 The AI-engineering mission is a learning roadmap, not a connected AI service.
+
+### Fieldcraft: customer problem to operable system
+
+Open **Missions → Forward Deployed Engineering** or
+[`#/mission/fde`](https://zanark.github.io/CareerOS/#/mission/fde).
+It stays background unless you explicitly bring it into focus. You can save
+standalone evidence or complete a criteria-checked current checkpoint without
+activating it; Daily plan still uses only in-focus missions.
+
+The route covers role/skill diagnostics, customer discovery, full-stack delivery,
+SQL/data quality, enterprise integration, responsible AI evaluation, bounded
+tools/approvals, release/observability, adoption, handoff, reusable product
+patterns and truthful portfolio/interview practice. Four final checkpoints
+integrate those artifacts into one synthetic customer engagement.
+
+**Open practice library** provides 56 units, mental models, worked scenarios,
+applied and changed-constraint exercises, recovery guidance and each lesson's
+reviewed sources. The web-source scope disclosures replace PDF page labels;
+the sequence and criteria are authored learning design, not employer mandates.
+Foundry, inference infrastructure and six other terrain labs are optional.
+All units have a local/free synthetic route; real customer access, paid APIs
+and production changes require separate permission.
+
+**Connected learning** and Career graph **Connections** explain thirteen
+specific comparisons spanning all nine earlier missions. Transfer your
+understanding, but demonstrate the new FDE criteria separately: links do not
+grant equivalent completion or create extra prerequisite gates.
+
+FDE evidence appears in Saved work, history, activity and the same Discovery
+Atlas source receipts/Wayfinder levels. **Recall practice** includes FDE after
+prior evidence; independent recall needs explanation, diagram and a changed
+exercise. Normal backups and the optional encrypted journal retain those
+records. The appended **Fieldcraft** tutorial chapter demonstrates the real
+controls on isolated examples. Read [the research and its limits](FDE-RESEARCH.md)
+before interpreting completion as career readiness.
 
 ## Start using it
 
@@ -95,7 +134,7 @@ tags on mission hubs, ring dots and hovered/selected nodes. It does not hide nod
 change picking or close the inspector. The named **Work** list remains available.
 
 **View → Show everything** temporarily includes every available graph node and connection:
-all nine mission rings, unfinished and completed checkpoints, untracked curriculum,
+all ten mission rings, unfinished and completed checkpoints, untracked curriculum,
 archived completions, evidence, applications at every stage, freelance leads and past work.
 It also includes all saved daily actions, even unfinished older actions and future saved
 plans. It bypasses focus, mission scope, layer filters and individual hiding without
@@ -145,10 +184,10 @@ Saving unfinished practice or a recall still counts for the work streak, but doe
 the normal mission page without first bringing it into focus; blocked or reference-only
 missions remain unavailable.
 
-All nine missions remain in **Rings**. To show an inactive ring without activating
+All ten missions remain in **Rings**. To show an inactive ring without activating
 the mission, inspect it and choose **Reveal orbit and members**, or check its ring in
 **Nodes → Individual nodes and rings → Ring views**. **Select all items** can show all
-nine mission rings, never collection rings. These choices last for the current graph page.
+ten mission rings, never collection rings. These choices last for the current graph page.
 Daily work, evidence, applications, freelance leads, past accomplishments and untracked
 curriculum no longer have rings. Their records remain on their existing pages, in named
 node inspection and relevant checkpoint connections; nothing is deleted or reclassified.
@@ -158,7 +197,7 @@ not inflate that progress.
 
 Only **active missions** have revolving outer rings. **Background** and
 **planned** missions, when explicitly shown, retain smaller stationary rings,
-in their own mission color. The nine mission hues match the **Missions** interface.
+in their own mission color. The ten mission hues match the **Missions** interface.
 This follows **Bring into focus / Move to background**, not just the single
 **Make primary mission** choice. Their saved checkpoints, completion and evidence
 remain intact and inspectable.
@@ -495,7 +534,7 @@ With the handle focused, arrow keys move it, Shift moves farther, and Home reset
 Escape cancels an active drag. The compact full-roadmap bars remain docked to keep
 the map canvas clear. Position is not written to your workspace or backup.
 
-The tutorial has **170 steps across 29 chapters**, covering actual controls with temporary data. Its files are named
+The tutorial has **177 steps across 30 chapters**, covering actual controls with temporary data. Its files are named
 `careerhq-tutorial-example-*`, not real backups. It teaches the interface, not the
 mission subjects. A deliberately older **practice** Service Fabric tracker lets you
 preview, adopt and inspect an archived roadmap without changing your real version.
@@ -517,6 +556,7 @@ Use the **Chapter** menu to work on one area at a time:
 | System Design problems | Module practice sets, changing constraints, source gates, diagnostics and independently selectable case studies |
 | PDFs & roadmap updates | Bulk preview-and-cancel, then source selection, individual confirmed adoption, archives, stages, criteria and supporting references |
 | Complete practice workbooks | Detailed source units, independent practice, exercise checks, shared learning guidance and evidence boundaries |
+| Fieldcraft / new background mission | Research sources, optional terrain, background evidence, native recall, connected learning and the existing Atlas |
 | Focus room & distractions | Frosted fullscreen room, shared countdown, immediate self-reported distraction records and exported history |
 | Full mission roadmap | Opening all stages, zooming, read-only inspection, the glowing current step, panning, Fit all and closing |
 | Review & roadmap | Saved-work filtering, recall preparation, partial and independent self-checks, and the mission tree |
@@ -525,7 +565,7 @@ Use the **Chapter** menu to work on one area at a time:
 | Opportunities | Optional application fields, saving a lead, moving its stage and finding the saved metadata |
 | Freelance research | A ten-lead fictional research set, filters, selecting five rows and copying a review brief |
 | Settings & backup / How data is stored | Example export/import, replacement warnings, and the real hosted-site device-transfer routine |
-| Discovery Atlas / final chapter | A fictional collection, meaningful stars and families, a rotatable/movable isometric PS1 diorama, cumulative character equipment, staged/skippable level-ups and chapter replay, hidden clues, source receipts and private portability |
+| Discovery Atlas | A fictional collection, meaningful stars and families, a rotatable/movable isometric PS1 diorama, cumulative character equipment, staged/skippable level-ups and chapter replay, hidden clues, source receipts and private portability |
 
 Practice-only example buttons make independent chapter visits usable. They add labeled
 fictional records only when you click them. They do not create real applications, verify
@@ -552,7 +592,7 @@ preserves that old completion in the archive while new v3 work starts unconfirme
 
 ### Discover useful signals without changing the tracker
 
-Open **Discovery Atlas** under Career, or choose **Discovery Atlas / final chapter**
+Open **Discovery Atlas** under Career, or choose **Discovery Atlas**
 in the tutorial. The collection has 24 discoveries across tangible work, depth,
 recall and recorded days. Its percentage describes only this finite collection,
 not the percentage of your career, mastery or interview readiness.
@@ -614,7 +654,8 @@ an explicit notice distinguishes the still fallback from real 3D.
 
 The final form is attainable within one learning mission; no job offer, paid
 credential or completion of every roadmap is required. The original 150 lessons
-remain in order; twenty appended lessons bring the tour to 170 steps.
+remain in order; twenty Discovery Atlas lessons and seven later Fieldcraft lessons
+bring the current tour to 177 steps.
 See [the scoped design and research basis](DISCOVERY-DESIGN.md).
 
 ### A normal working session
@@ -694,9 +735,9 @@ Implementation references: [`getMissionActivity`](../src/domain/missionActivity.
 | DSA practice library | Browse all 50 expanded DSA sections and curated problem links | No automatic solve tracking, completion credit, or requirement to clear every listed problem |
 | System Design concepts | Browse or search the attached one-page roadmap and its repeated pattern contexts | No automatic mastery claims, new required checkpoint gates, or changes to the saved System Forge tracker |
 | System Design problems | Work through the 72-module source progression and browse 15 cases, prompts, transfer tasks and diagnostics | No AI assessment, automatic adoption, or mandatory case-to-case completion chain |
-| Practice libraries | Browse the seven expanded workbooks, search full study content and open individual modules, labs or references | No automatic completion, execution of source instructions, exam booking or guaranteed outcomes |
+| Practice libraries | Browse seven expanded workbooks and the research-backed Fieldcraft guide; search study content and open modules, labs or references | No automatic completion, execution of source instructions, exam booking or guaranteed outcomes |
 | Roadmap | Browse the goal, mission tree and stage flowcharts | Clicking a diagram does not complete work |
-| Recall practice | Revisit saved DSA/System Design work from memory | No AI grading or automatic insertion into Daily plan |
+| Recall practice | Revisit saved DSA/System Design/FDE work from memory | No AI grading or automatic insertion into Daily plan |
 | Discovery Atlas | Explore optional discoveries and the saved records behind them | No career score, independently assessed mastery, record mutation or separate export |
 | Opportunities | Record roles, application stages and optional effort/resume details | No job search, application submission or resume evaluation |
 | Freelance ledger | Research ten leads, classify them, select five and copy a review brief | Adding leads does not complete the Side Income checkpoints |
@@ -711,7 +752,7 @@ definitions remain valid for their saved versions and archives.
 
 ### A small first review
 
-Start with **one mission**, not all nine. Review its first action and criteria for
+Start with **one mission**, not all ten. Review its first action and criteria for
 clarity and suitability, try saving practice in the tutorial, then locate the result
 in Saved work. Also check whether the source page shows the roadmap version you expected.
 
@@ -737,10 +778,11 @@ lists specific content gaps, including narrowed Service Fabric requirements, mis
 hands-on obligations and phase reviews that are not next-lesson instructions.
 
 There is no normal edit/delete interface for saved evidence or lead details; opportunity
-stages and freelance verdicts can be changed. Evidence can be added only to an active,
-unblocked mission's current unfinished checkpoint. After a documented track is complete,
+stages and freelance verdicts can be changed. Standalone evidence can be added to an active
+or background, unblocked mission's current unfinished checkpoint; linked daily-plan
+actions still require active mode. After a documented track is complete,
 its ordinary evidence workflow cannot record more practice. Recall remains available
-for eligible previous DSA/System Design work.
+for eligible previous DSA/System Design/FDE work.
 
 Recall is self-reported. A failed review flags **Needs review**, but the present algorithm
 can reuse older spaced successes when a subsequent independent review restores

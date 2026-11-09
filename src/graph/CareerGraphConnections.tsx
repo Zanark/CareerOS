@@ -47,6 +47,7 @@ export function CareerGraphConnections({ selectedId, edges, nodes, visibleIds, i
               {reason.sources.map(source => <p key={source.nodeId}>
                 <b>{nodes.get(source.nodeId)!.label}</b>
                 <span>{source.reference.document} · {source.reference.section}{source.reference.page !== undefined && ` · p. ${source.reference.page}`}</span>
+                {source.reference.url && <a href={source.reference.url} target="_blank" rel="noopener noreferrer">Read the research basis</a>}
               </p>)}
             </details>
           </div>) : <p>{connectionNotes[edge.kind]}</p>}

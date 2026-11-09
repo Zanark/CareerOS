@@ -17,7 +17,7 @@ const pages: Record<string, number> = {
 
 describe('operation-document catalog', () => {
   it('includes every supplied operation without inventing a competitive-coding curriculum', () => {
-    expect(missions.map(mission => mission.id)).toEqual([...missionIds]);
+    expect(missions.map(mission => mission.id)).toEqual(missionIds.filter(id => id !== 'fde'));
     expect(Object.fromEntries(missions.map(mission => [mission.id, mission.checkpoints.length]))).toEqual({
       pattern: 5, system: 28, escape: 1, fabric: 32, blueprint: 5, credential: 6, neural: 7, algorithm: 0, income: 3,
     });

@@ -40,6 +40,6 @@ describe('complete graph record coverage', () => {
     expect(full.nodes.filter(node => node.kind === 'freelance')).toHaveLength(1);
     expect(full.nodes.filter(node => node.kind === 'history')).toHaveLength(1);
     expect(full.stats.trackedCompleted).toBe(0);
-    expect(full.orbits.filter(orbit => orbit.kind === 'mission')).toHaveLength(9);
+    expect(full.orbits.filter(orbit => orbit.kind === 'mission')).toHaveLength(10);
   });
 });

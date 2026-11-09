@@ -1,5 +1,6 @@
-export const missionIds = ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income'] as const;
+export const missionIds = ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income', 'fde'] as const;
 export type MissionId = typeof missionIds[number];
+export const recallMissionIds = ['pattern', 'system', 'fde'] as const;
 export type RoadmapVersion = '1.0.0' | '2.0.0' | '3.0.0';
 export type Capacity = 'gentle' | 'steady' | 'deep';
 export type MissionMode = 'active' | 'background' | 'planned';
@@ -31,6 +32,7 @@ export interface SourceReference {
   document: string;
   section: string;
   page?: number;
+  url?: string;
 }
 
 export interface RoadmapStage {

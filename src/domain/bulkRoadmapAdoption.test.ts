@@ -58,7 +58,7 @@ describe('bulk roadmap preview', () => {
     const state = mixedState();
     const before = JSON.stringify(state);
     const preview = previewRoadmapUpgrades(state);
-    expect(preview.upgrades).toEqual(missionIds.filter(id => !['escape', 'income'].includes(id)).map(missionId => ({
+    expect(preview.upgrades).toEqual(missionIds.filter(id => !['escape', 'income', 'fde'].includes(id)).map(missionId => ({
       missionId, name: getLatestMission(missionId).name,
       fromVersion: state.missions[missionId].roadmapVersion,
       toVersion: getLatestMission(missionId).roadmapVersion,

@@ -27,7 +27,7 @@ describe('focus-first graph details', () => {
     const eligibility = getCareerFocusVisibility(state, localDate());
     expect([...eligibility.activeMissionIds]).toEqual(['pattern', 'system', 'escape']);
     const view = focusCareerGraph(graph, eligibility.detailedMissionIds);
-    expect(view.nodes.filter(node => node.kind === 'mission')).toHaveLength(9);
+    expect(view.nodes.filter(node => node.kind === 'mission')).toHaveLength(10);
     expect(view.nodes.filter(node => node.missionId === 'fabric').map(node => node.kind)).toEqual(['mission']);
     expect(view.nodes.some(node => node.kind === 'history')).toBe(false);
     const visibleIds = new Set(view.nodes.map(node => node.id));
@@ -35,7 +35,7 @@ describe('focus-first graph details', () => {
       expect(visibleIds.has(edge.source) && visibleIds.has(edge.target)).toBe(true);
       expect(view.disconnectedNodeIds?.has(edge.source) || view.disconnectedNodeIds?.has(edge.target)).toBe(false);
     }
-    expect(view.disconnectedNodeIds?.size).toBe(6);
+    expect(view.disconnectedNodeIds?.size).toBe(7);
     expect(view.stats).toBe(graph.stats);
     expect(JSON.stringify(graph)).toBe(source);
     expect(JSON.stringify(state)).toBe(raw);

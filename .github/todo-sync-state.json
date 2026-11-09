@@ -128,6 +128,20 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "forward-deployed-engineering": {
+      "issueNumber": 10,
+      "issueId": "I_kwDOU6lJns8AAAABdsY16w",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/10",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHNYmY",
+      "baseline": {
+        "managed": "a3c9fb5c85b4814995d4926f015ddf2f1d45a54b3d3c82945f67847a412984ca",
+        "title": "Research-backed Forward Deployed Engineering background mission",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
     }
   }
 }

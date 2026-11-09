@@ -36,7 +36,8 @@
     { "id": "tutorial-and-help", "path": "TODO/06_TUTORIAL_AND_HELP.todo", "publicSafe": true },
     { "id": "encrypted-progress-journal", "path": "TODO/07_ENCRYPTED_PROGRESS_JOURNAL.todo", "publicSafe": true },
     { "id": "github-tracking-adoption", "path": "TODO/08_GITHUB_TRACKING_ADOPTION.todo", "publicSafe": true },
-    { "id": "discovery-atlas", "path": "TODO/10_DISCOVERY_ATLAS.todo", "publicSafe": true }
+    { "id": "discovery-atlas", "path": "TODO/10_DISCOVERY_ATLAS.todo", "publicSafe": true },
+    { "id": "forward-deployed-engineering", "path": "TODO/11_FORWARD_DEPLOYED_ENGINEERING.todo", "publicSafe": true }
   ],
   "excluded": [
     { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },

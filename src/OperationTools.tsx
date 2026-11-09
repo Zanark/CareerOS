@@ -6,7 +6,7 @@ import { recordChange, recordEvidence, recordRecall, recallSummary } from './dom
 import type {
   AppState, FreelanceOpportunity, MissionId, RecallEntry, RoadmapVersion,
 } from './domain/types';
-import { freelanceVerdicts } from './domain/types';
+import { freelanceVerdicts, recallMissionIds } from './domain/types';
 import { Badge, Empty, Modal, PageHeading, SectionTitle } from './components';
 import './operation-tools.css';
 
@@ -209,7 +209,7 @@ const recallStatusLabels: Record<string, string> = {
 };
 
 function requiredChecksMet(missionId: MissionId, checks: { explanation: boolean; diagram: boolean; exercise: boolean }): boolean {
-  return missionId === 'system' ? checks.explanation && checks.diagram && checks.exercise : checks.explanation && checks.exercise;
+  return checks.explanation && checks.exercise && (missionId === 'pattern' || checks.diagram);
 }
 
 function RecordRecallModal({ item, history, onSave, onClose }: {
@@ -240,7 +240,7 @@ function RecordRecallModal({ item, history, onSave, onClose }: {
       <div className="form-context"><span className="eyebrow">CHECKPOINT</span><strong>{item.checkpointTitle}</strong><small>Roadmap v{item.roadmapVersion}{item.archived ? ' (archived)' : ''}</small></div>
       <fieldset className="recall-checks" data-tour="recall-checks"><legend>Self-check from memory, not from notes</legend>
         <label className="checkbox-label"><input type="checkbox" data-required="true" checked={explanation} onChange={event => setExplanation(event.target.checked)} /><span>Explain from memory</span></label>
-        <label className="checkbox-label"><input type="checkbox" data-required={item.missionId === 'system'} checked={diagram} onChange={event => setDiagram(event.target.checked)} /><span>Draw from memory{item.missionId === 'system' ? '' : ' (optional for this mission)'}</span></label>
+        <label className="checkbox-label"><input type="checkbox" data-required={item.missionId !== 'pattern'} checked={diagram} onChange={event => setDiagram(event.target.checked)} /><span>Draw from memory{item.missionId === 'pattern' ? ' (optional for this mission)' : ''}</span></label>
         <label className="checkbox-label"><input type="checkbox" data-required="true" checked={exercise} onChange={event => setExercise(event.target.checked)} /><span>Complete exercise</span></label>
       </fieldset>
       <fieldset className="recall-outcome" data-tour="recall-outcome"><legend>Outcome</legend>
@@ -260,7 +260,7 @@ function RecordRecallModal({ item, history, onSave, onClose }: {
 }
 
 export function RecallPage({ state, commit, practice = false }: { state: AppState; commit: Commit; practice?: boolean }) {
-  const [missionFilter, setMissionFilter] = useState<'all' | 'pattern' | 'system'>('all');
+  const [missionFilter, setMissionFilter] = useState<'all' | typeof recallMissionIds[number]>('all');
   const [statusFilter, setStatusFilter] = useState('all');
   const [activeItem, setActiveItem] = useState<RecallWorkItem | null>(null);
   const [expanded, setExpanded] = useState<string[]>([]);
@@ -272,7 +272,7 @@ export function RecallPage({ state, commit, practice = false }: { state: AppStat
   const items = useMemo(() => {
     const map = new Map<string, RecallWorkItem>();
     for (const evidence of state.evidence) {
-      if (evidence.missionId !== 'pattern' && evidence.missionId !== 'system') continue;
+      if (!recallMissionIds.some(id => id === evidence.missionId)) continue;
       const version = recordRoadmapVersion(evidence);
       const key = `${evidence.missionId}:${version}:${evidence.checkpointId}`;
       if (map.has(key)) continue;
@@ -305,7 +305,7 @@ export function RecallPage({ state, commit, practice = false }: { state: AppStat
   }
 
   return <>
-    <PageHeading eyebrow="PATTERN & SYSTEM FORGE" title="Spaced recall" description="Check in on what you can still retrieve from memory. This is self-reported, not a new assessment." />
+    <PageHeading eyebrow="PATTERN / SYSTEM / FIELDCRAFT" title="Spaced recall" description="Check in on what you can still retrieve from memory. This is self-reported, not a new assessment." />
     {practice && !items.length && <div className="panel">
       <p className="muted small">This chapter needs saved work. Add a fictional practice note without completing a checkpoint.</p>
       <button className="button secondary" data-tour="recall-example" disabled={!exampleMission} onClick={() => {
@@ -318,11 +318,12 @@ export function RecallPage({ state, commit, practice = false }: { state: AppStat
       {!exampleMission && <p className="muted small">Bring an unblocked DSA or System Design mission into focus first.</p>}
     </div>}
     <div className="operation-tools-note"><Info size={16} /><p>Rough rhythm: a first review around 24 hours after practice, a second about 4&ndash;5 days later. Two appropriately spaced independent reviews move a checkpoint toward Retained. A later review that doesn't go well simply flags it as Needs review &mdash; it does not delete your checkpoint completion or undo the roadmap. There is no backlog to feel behind on; only checkpoints with saved work appear here.</p></div>
-    <div className="recall-filters">
+    <div className="recall-filters" data-tour="recall-filters">
       <select aria-label="Filter by mission" value={missionFilter} onChange={event => setMissionFilter(event.target.value as typeof missionFilter)}>
         <option value="all">All missions</option>
         <option value="pattern">Pattern Forge</option>
         <option value="system">System Forge</option>
+        <option value="fde">Forward Deployed Engineering</option>
       </select>
       <select aria-label="Filter by status" value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
         <option value="all">All statuses</option>
@@ -355,7 +356,7 @@ export function RecallPage({ state, commit, practice = false }: { state: AppStat
         {isOpen && history.length > 0 && <div className="recall-history">{history.map(entry => <div className="recall-history-row" key={entry.id}><time dateTime={entry.createdAt}>{new Date(entry.createdAt).toLocaleDateString()}</time><span>{entry.outcome}</span>{entry.notes && <span>&mdash; {entry.notes}</span>}</div>)}</div>}
       </article>;
     })}</div>
-      : <Empty title="No recall work yet." icon="book">Saved work for Pattern Forge or System Forge checkpoints will appear here for review.</Empty>}
+      : <Empty title="No recall work yet." icon="book">Saved work for Pattern Forge, System Forge or Forward Deployed Engineering checkpoints will appear here for review.</Empty>}
     {activeItem && <RecordRecallModal item={activeItem} history={historyFor(activeItem)}
       onSave={(outcome, checks, notes) => saveRecall(activeItem, outcome, checks, notes)}
       onClose={() => setActiveItem(null)} />}

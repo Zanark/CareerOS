@@ -24,7 +24,7 @@ async function open(page: Page, state = createInitialState(false)) {
   await page.goto('./#/home');
   await expect(page.locator('.career-graph-scene')).toHaveAttribute('data-scene-state', 'unavailable');
   await openGraphPanel(page, 'rings');
-  await expect(page.locator('.career-orbit-list > button')).toHaveCount(9);
+  await expect(page.locator('.career-orbit-list > button')).toHaveCount(10);
   return { raw, graph: buildCareerGraph(canonical) };
 }
 

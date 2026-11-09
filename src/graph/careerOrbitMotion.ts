@@ -1,5 +1,6 @@
 import { Euler, Quaternion, Vector3 } from 'three';
 import type { CareerOrbit } from './careerOrbitTypes';
+import { missionIds } from '../domain/types';
 
 function seededRandom(seed: number): () => number {
   return () => {
@@ -15,7 +16,7 @@ const fastest = (faster + 1 + Math.floor(pick() * 14)) % 15;
 const speedRandom = seededRandom(0x43485131);
 
 /** Fixed identity, independent of filtered array order or current membership. */
-export const CAREER_ORBIT_PLANES = Array.from({ length: 15 }, (_, index) => {
+export const CAREER_ORBIT_PLANES = Array.from({ length: missionIds.length + 6 }, (_, index) => {
   const rotation = new Quaternion().setFromEuler(new Euler(0.28 + index * 0.213, index * 0.41, -0.6 + index * 0.19));
   const multiplier = index === faster ? 1.5 : index === fastest ? 2 : 1;
   // Retain each original ring's first speed, consuming the old four-arc seed.

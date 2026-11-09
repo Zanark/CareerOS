@@ -6,6 +6,7 @@ import { executionMissions } from './operations/execution';
 import { dsaExpandedMission } from './operations/dsaExpanded';
 import { systemPracticeMission } from './operations/systemPractice';
 import { documentedPackMission } from './roadmapPacks/mission';
+import { fdeMission } from './forwardDeployed/mission';
 
 // The workspace envelope stays at v2; individual missions have independent versions.
 export const LATEST_ROADMAP_VERSION = '2.0.0' as const;
@@ -23,8 +24,11 @@ export const v2Missions: Mission[] = freeze([
 ].sort((a, b) => ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income'].indexOf(a.id) -
   ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income'].indexOf(b.id)));
 
-export const missions: Mission[] = freeze(v2Missions.map(mission =>
-  mission.id === 'pattern' ? dsaExpandedMission : mission.id === 'system' ? systemPracticeMission : documentedPackMission(mission)));
+export const missions: Mission[] = freeze([
+  ...v2Missions.map(mission => mission.id === 'pattern' ? dsaExpandedMission
+    : mission.id === 'system' ? systemPracticeMission : documentedPackMission(mission)),
+  fdeMission,
+]);
 
 export function getMissionVersion(id: MissionId, version: RoadmapVersion): Mission {
   const mission = [...legacyMissions, ...v2Missions, ...missions]

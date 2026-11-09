@@ -149,6 +149,10 @@ describe('safe schemaVersion 1 -> 2 normalization: no invented history, no bulk 
     }
     expect(migrated.missions.income.roadmapVersion).toBe('2.0.0');
     expect(migrated.missions.income.completedCheckpointIds).toEqual([]);
+    expect(migrated.missions.fde).toMatchObject({
+      roadmapVersion: '3.0.0', checkpointId: 'fde-v3-fde-01', status: 'not-started',
+      mode: 'background', completedCheckpointIds: [], blocker: '',
+    });
     expect(migrated.missions.income.status).toBe('not-started');
     expect(['background', 'planned']).toContain(migrated.missions.income.mode);
     expect(migrated.archives).toEqual([]);

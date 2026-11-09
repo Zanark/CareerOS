@@ -24,7 +24,10 @@ describe('Curated career skill connections', () => {
         const checkpoint = getCheckpoint(anchor.missionId, anchor.checkpointId, anchor.roadmapVersion);
         expect(checkpoint.source?.document).toBeTruthy();
         expect(checkpoint.source?.section).toBeTruthy();
-        expect(checkpoint.source?.page).toBeGreaterThan(0);
+        if (anchor.missionId === 'fde') {
+          expect(checkpoint.source?.page).toBeUndefined();
+          expect(checkpoint.source?.url).toMatch(/^https:\/\//);
+        } else expect(checkpoint.source?.page).toBeGreaterThan(0);
         expect(getMissionVersion(anchor.missionId, anchor.roadmapVersion).checkpoints).toContain(checkpoint);
       }
     }
@@ -57,7 +60,10 @@ describe('Curated career skill connections', () => {
     const nodes = new Map(graph.nodes.map(node => [node.id, node]));
     for (const edge of graph.edges.filter(edge => edge.kind === 'shared-skill')) {
       for (const id of [edge.source, edge.target]) {
-        expect(nodes.get(id)).toMatchObject({ kind: 'curriculum', status: 'reference', roadmapVersion: '3.0.0', archived: false });
+        const node = nodes.get(id)!;
+        expect(node).toMatchObject(node.missionId === 'fde'
+          ? { kind: 'checkpoint', status: 'incomplete', roadmapVersion: '3.0.0', archived: false }
+          : { kind: 'curriculum', status: 'reference', roadmapVersion: '3.0.0', archived: false });
       }
     }
     expect(graph.stats.trackedCompleted).toBe(0);
@@ -72,7 +78,7 @@ describe('Curated career skill connections', () => {
       kind: 'exercise', url: '', advance: true, criteriaConfirmed: true,
     });
     const before = shared(state);
-    for (const missionId of missionIds) state = upgradeRoadmap(state, missionId);
+    for (const missionId of missionIds.filter(id => id !== 'fde')) state = upgradeRoadmap(state, missionId);
     const graph = buildCareerGraph(state);
     expect(shared(state)).toEqual(before);
     const archived = new Set(graph.nodes.filter(node => node.archived).map(node => node.id));

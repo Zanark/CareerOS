@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, FileText, RefreshCw } from 'lucide-react';
-import { Badge, Empty, MissionIcon, PageHeading } from '../components';
-import { getLatestMission, getMission } from '../domain/catalog';
+import { Badge, Empty, ExternalLink, MissionIcon, PageHeading } from '../components';
+import { getCheckpoint, getLatestMission, getMission } from '../domain/catalog';
 import type { AppState, Checkpoint, Mission } from '../domain/types';
 import { loadRoadmapPack } from '../domain/roadmapPacks/load';
 import {
@@ -10,6 +10,7 @@ import {
 } from '../domain/roadmapPacks/registry';
 import type { PackMissionId, PackSection, PackUnit, RoadmapPack } from '../domain/roadmapPacks/types';
 import { missionAccentStyle } from '../missionVisuals';
+import { careerSkillLinks } from '../graph/careerSkillLinks';
 import './pack-practice.css';
 
 export function PackPracticeLink({ mission, checkpoint }: { mission: Mission; checkpoint?: Checkpoint }) {
@@ -39,6 +40,26 @@ function searchableUnit(unit: PackUnit) {
   ].join(' ').toLowerCase();
 }
 
+function RelatedPractice({ missionId, unit }: { missionId: PackMissionId; unit: PackUnit }) {
+  const checkpointId = packCheckpointId(missionId, unit.id);
+  const links = careerSkillLinks.filter(link =>
+    link.source.missionId === missionId && link.source.checkpointId === checkpointId ||
+    link.target.missionId === missionId && link.target.checkpointId === checkpointId);
+  if (!links.length) return null;
+  return <details className="pack-study-section" data-tour="pack-related-practice">
+    <summary>Connected learning in other missions ({links.length})</summary>
+    <p>Curated transfer opportunities, not extra prerequisites or equivalent completion. Reuse understanding, then demonstrate this checkpoint with its own evidence.</p>
+    <ul>{links.map(link => {
+      const peer = link.source.missionId === missionId ? link.target : link.source;
+      const checkpoint = getCheckpoint(peer.missionId, peer.checkpointId, peer.roadmapVersion);
+      const peerUnit = packUnitForCheckpoint(peer.missionId, checkpoint);
+      return <li key={link.id}><strong>{link.concept}</strong><p>{link.reason}</p>
+        <a className="text-link" href={peerUnit ? packUnitHref(peer.missionId, peerUnit.id) : `#/mission/${peer.missionId}`}>
+          {getLatestMission(peer.missionId).name}: {checkpoint.title}<ArrowRight size={14} /></a></li>;
+    })}</ul>
+  </details>;
+}
+
 function PracticeIndex() {
   return <div className="pack-practice-page">
     <PageHeading eyebrow="SOURCE-BASED PRACTICE" title="Practice libraries"
@@ -49,7 +70,7 @@ function PracticeIndex() {
         return <a key={pack.missionId} href={packUnitHref(pack.missionId)} className={`pack-library-card ${mission.color}`} style={missionAccentStyle(mission.id)}>
           <MissionIcon mission={mission} /><h2>{mission.name}</h2><p>{pack.title}</p>
           <span>{pack.units.filter(unit => unit.role === 'checkpoint').length} checkpoints / {pack.exerciseCount} exercises</span>
-          <span>{pack.pageCount}-page source<ArrowRight size={16} /></span>
+          <span>{pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources` : `${pack.pageCount}-page source`}<ArrowRight size={16} /></span>
         </a>;
       })}
       <a href="#/dsa/1" className="pack-library-card sage"><BookOpen /><h2>DSA</h2><p>The retained complete LeetCode roadmap.</p><span>50 sections / 939 problem appearances<ArrowRight size={16} /></span></a>
@@ -68,6 +89,7 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
   const mission = getLatestMission(missionId);
   const active = getMission(missionId, state);
   const outline = getPackOutline(missionId);
+  const research = outline?.sourceKind === 'web-research';
   const [pack, setPack] = useState<RoadmapPack | null>(null);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
@@ -105,7 +127,7 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
     <div className="pack-source-notice">
       <p><strong>{outline?.units.filter(candidate => candidate.role === 'checkpoint').length} curriculum checkpoints / {outline?.exerciseCount} exercises.</strong>
         {' '}Practice banks and references are also included, without extra completion credit.</p>
-      <p><span className="pack-source-name">{outline?.document}</span> / {outline?.pageCount} pages.
+      <p><span className="pack-source-name">{outline?.document}</span> / {research ? `${outline?.webSources?.length} primary sources; original research synthesis, not a PDF.` : `${outline?.pageCount} pages.`}
         {' '}Your saved tracker is v{active.roadmapVersion}. Reading ahead does not adopt the new edition or advance your checkpoint.</p>
       <div className="button-row"><a className="text-link" href="#/practice">All practice libraries</a>
         <a className="text-link" href={`#/sources/${missionId}`}>Source notes and tracker update</a></div>
@@ -145,14 +167,21 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
         {current && current.id !== unit?.id && <a className="text-link" href={packUnitHref(missionId, current.id)}>Current checkpoint's practice<ArrowRight size={15} /></a>}
       </div>
       {!unit ? <p className="pack-missing" role="alert">That source unit was not found. Choose a module or reference from the roadmap above.</p> : <section className="pack-study-unit" data-tour="pack-study-unit" aria-labelledby="pack-unit-title">
-        <div className="pack-unit-meta"><span className="eyebrow"><FileText size={16} />{unit.sourceId} / PDF PAGES {formatPackPages(unit.pages)}</span>
+        <div className="pack-unit-meta"><span className="eyebrow"><FileText size={16} />{unit.sourceId} / {research ? 'RESEARCH-BACKED FIELDWORK' : `PDF PAGES ${formatPackPages(unit.pages)}`}</span>
           <Badge>{unit.role === 'checkpoint' ? currentCheckpoint ? 'Your saved checkpoint' : 'Curriculum checkpoint' : 'Practice / reference only'}</Badge></div>
         <h2 id="pack-unit-title">{unit.title}</h2><p>{unit.summary}</p>
+        {research && <details className="pack-study-section" data-tour="pack-unit-sources">
+          <summary>Reviewed sources for this lesson ({unit.sourceIds?.length ?? 0})</summary>
+          <p>These sources inform the original teaching design; exercises and criteria are authored here, not quotations or official employer requirements. Reviewed {pack.reviewedAt}.</p>
+          <ul>{pack.webSources?.filter(source => unit.sourceIds?.includes(source.id)).map(source =>
+            <li key={source.id}><ExternalLink href={source.url}>{source.title}</ExternalLink><p>{source.scope}</p></li>)}</ul>
+        </details>}
         {unit.role !== 'checkpoint' && <p className="pack-reference-note">Independently browsable material, not an additional required checkpoint. Opening it records no result.</p>}
         <div className="pack-start"><h3>A starting task</h3><p>{unit.action}</p>
           <span>{unit.minutes} minutes is a starting-session estimate, not a mastery deadline.</span></div>
         {unit.concepts.length > 0 && <div className="pack-concepts"><h3>Concepts and variations</h3><ul>{unit.concepts.map((concept, index) => <li key={index}>{concept}</li>)}</ul></div>}
         <div className="pack-unit-guidance" data-tour="pack-unit-guidance">{unit.sections.map((section, index) => <StudySection key={index} section={section} />)}</div>
+        <RelatedPractice missionId={missionId} unit={unit} />
         {unit.exercises.length > 0 && <section className="pack-exercises" data-tour="pack-exercises">
           <h3>Practice and transfer exercises <span>{unit.exercises.length}</span></h3>
           <p>Attempt the task before reviewing the evidence check. A check describes the source expectation, not an automatically graded result.</p>
@@ -160,7 +189,7 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
             <div className="pack-exercise-heading"><h4>{exercise.title}</h4>{exercise.level && <Badge>{exercise.level}</Badge>}</div>
             <p>{exercise.task}</p>
             {exercise.check && <details><summary>Evidence / diagnostic check</summary><p>{exercise.check}</p></details>}
-            <small>Source p.{exercise.page}</small>
+            <small>{exercise.page !== undefined ? `Source p.${exercise.page}` : `Authored fieldwork / reviewed ${pack.reviewedAt}`}</small>
           </li>)}</ol>
         </section>}
         {(unit.criteria.length > 0 || unit.recovery) && <section className="pack-mastery" data-tour="pack-mastery">
@@ -178,6 +207,8 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
         <ul>{pack.sourceNotes.map((note, index) => <li key={index}>{note}</li>)}</ul>
       </details>
     </>}
-    <p className="pack-public-note">Study material is authored from the supplied roadmap, not a solved-answer bank. The original PDF and private baseline information are not published.</p>
+    <p className="pack-public-note">{research
+      ? 'Original learning design informed by reviewed public sources, not an official employer syllabus or a solved-answer bank. No customer data, paid account or production access is required.'
+      : 'Study material is authored from the supplied roadmap, not a solved-answer bank. The original PDF and private baseline information are not published.'}</p>
   </div>;
 }

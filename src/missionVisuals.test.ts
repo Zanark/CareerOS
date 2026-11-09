@@ -5,8 +5,8 @@ import { CHECKPOINT_COMPLETE_COLOR, COLLECTION_COLORS, MISSION_COLORS, missionAc
 describe('shared mission and ring identities', () => {
   it('assigns every mission and collection a different non-green identity', () => {
     const colors = [...Object.values(MISSION_COLORS), ...Object.values(COLLECTION_COLORS)];
-    expect(colors).toHaveLength(15);
-    expect(new Set(colors).size).toBe(15);
+    expect(colors).toHaveLength(missionIds.length + 6);
+    expect(new Set(colors).size).toBe(missionIds.length + 6);
     expect(colors).not.toContain(CHECKPOINT_COMPLETE_COLOR);
     for (const color of colors) {
       expect(color).toMatch(/^#[0-9A-F]{6}$/);

@@ -3,6 +3,7 @@ import { ArrowRight, FileText, History, RefreshCw } from 'lucide-react';
 import { getCheckpoint, getLatestMission, getMission, getMissionVersion, missions } from './domain/catalog';
 import { previewRoadmapUpgrades, upgradeAllRoadmaps, upgradeRoadmap, type RoadmapUpgradePreview } from './domain/engine';
 import type { AppState, Mission, MissionId } from './domain/types';
+import { recallMissionIds } from './domain/types';
 import { Badge, Modal, PageHeading } from './components';
 import { MissionFlowchart } from './roadmaps/MissionFlowchart';
 import { SYSTEM_CONCEPT_SOURCE } from './system/concepts';
@@ -45,12 +46,14 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
       <a className="text-link" href="#/system-practice">Open System Design problems and case studies<ArrowRight size={14} /></a></div>
     </div>}
     {pack && <div className="system-concept-entry">
-      <p><strong>The expanded workbook is available:</strong> {pack.pageCount} source pages, {latest.checkpoints.length} curriculum checkpoints and {pack.exerciseCount} exercises, plus supporting cases and references. Full roadmap shows the complete edition; your saved tracker stays separate until confirmed adoption.</p>
+      <p><strong>{pack.sourceKind === 'web-research' ? 'The research-backed field guide is available:' : 'The expanded workbook is available:'}</strong>{' '}
+        {pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources` : `${pack.pageCount} source pages`}, {latest.checkpoints.length} curriculum checkpoints and {pack.exerciseCount} exercises, plus supporting cases and references.{' '}
+        {pack.sourceKind === 'web-research' ? 'Fieldcraft starts in the background without changing your other missions. Its sequence and criteria are authored learning design, not employer hiring requirements.' : 'Full roadmap shows the complete edition; your saved tracker stays separate until confirmed adoption.'}</p>
       <a className="text-link" data-tour="pack-library-open" href={packUnitHref(missionId)}>Open the complete practice library<ArrowRight size={14} /></a>
     </div>}
     {notice && <p className="source-notice" role="status">{notice}</p>}
     {missionId === 'income' && <p className="source-notice"><a className="text-link" href="#/freelance">Open freelance opportunity ledger<ArrowRight size={14} /></a></p>}
-    {['pattern', 'system'].includes(missionId) && <p className="source-notice"><a className="text-link" href="#/recall">Review saved work in recall practice<ArrowRight size={14} /></a></p>}
+    {recallMissionIds.some(id => id === missionId) && <p className="source-notice"><a className="text-link" href="#/recall">Review saved work in recall practice<ArrowRight size={14} /></a></p>}
     <details className="source-details" data-tour="source-material" open={expanded}>
       <summary>Sources, scope and supporting material</summary>
       <div className="source-counts"><span>{latest.stages?.length ?? 0} {pack ? 'curriculum / reference groups' : 'documented stages'}</span><span>{latest.checkpoints.length} tracked nodes</span><span>Personal progress not imported</span></div>
@@ -58,8 +61,10 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
       {latest.referenceGroups?.map(group => <section className="source-reference-group" data-tour={group.kind === 'projects' ? 'source-projects' : undefined} key={group.title}><h4>{group.title}<Badge>{group.kind}</Badge></h4><dl>{group.items.map(item => <div key={item.title}><dt>{item.href ? <a href={item.href}>{item.title}</a> : item.title}</dt><dd>{item.detail}</dd></div>)}</dl></section>)}
       {latest.resources?.length ? <div className="source-resources">{latest.resources.map(resource => <a key={resource.url} href={resource.url} target="_blank" rel="noopener noreferrer">{resource.label}<ArrowRight size={12} /></a>)}</div> : null}
       <h4 className="source-citations-heading">Source references</h4>
-      <ul className="source-citations">{latest.sources?.map((source, index) => <li key={`${source.document}-${index}`}><strong>{source.document}</strong><span>{source.section}{source.page ? ` · page ${source.page}` : ''}</span></li>)}</ul>
-      <p className="source-privacy">The original PDFs contain private material and are not bundled with the public site. Only reusable roadmap structure is shown here.</p>
+      <ul className="source-citations">{latest.sources?.map((source, index) => <li key={`${source.document}-${index}`}><strong>{source.url ? <a href={source.url} target="_blank" rel="noopener noreferrer">{source.document}</a> : source.document}</strong><span>{source.section}{source.page ? ` · page ${source.page}` : ''}</span></li>)}</ul>
+      <p className="source-privacy">{pack?.sourceKind === 'web-research'
+        ? 'Original public-source synthesis. Review scopes and uncertainties are explicit; no private customer records or invented PDF pages are included.'
+        : 'The original PDFs contain private material and are not bundled with the public site. Only reusable roadmap structure is shown here.'}</p>
     </details>
     {pending && <details className="source-details" data-tour="source-preview"><summary>Preview documented roadmap before adopting</summary><MissionFlowchart mission={latest} state={state} tutorialTarget={false} /></details>}
     {archives.map(archive => {

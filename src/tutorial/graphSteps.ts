@@ -52,7 +52,7 @@ export const graphSteps: TutorialStep[] = [
   {
     id: 'graph-everything-on', chapter: 'graph-view', kind: 'action', ...view,
     targets: ['graph-everything'], title: 'Temporarily show the whole workspace',
-    body: 'Check Show everything. All nine mission rings, current/reference/archived-complete nodes and stored work appear, including unfinished past and future planned actions. Collections are still not rings. Focus, item hides, layers and Labels are overridden and locked; spacing, camera, motion and spark amount remain yours. No mode or status changes.',
+    body: 'Check Show everything. All mission rings, current/reference/archived-complete nodes and stored work appear, including Fieldcraft and unfinished past and future planned actions. Collections are still not rings. Focus, item hides, layers and Labels are overridden and locked; spacing, camera, motion and spark amount remain yours. No mode or status changes.',
     checkUi: root => toggleIs(root, 'Show everything', true) &&
       graphToggle(root, 'Node labels')?.checked === true && graphToggle(root, 'Node labels')?.disabled === true,
   },
@@ -138,7 +138,7 @@ export const graphSteps: TutorialStep[] = [
   {
     id: 'graph-ring-select', chapter: 'graph-rings', kind: 'action', route: 'home', command: 'open-graph-rings',
     targets: ['graph-ring-select'], title: 'Inspect a mission ring without changing focus',
-    body: 'Choose DSA in Rings. All nine missions are listed, including hidden rings; there are no collection rings. Each mission has its own hue matching Missions. The dot border brightens for recorded work today, not automatic mastery.',
+    body: 'Choose DSA in Rings. Every mission is listed, including hidden rings and Fieldcraft; there are no collection rings. Each mission has its own hue matching Missions. The dot border brightens for recorded work today, not automatic mastery.',
     checkUi: root => !!root.querySelector('.career-orbit-inspector[data-orbit-id="orbit:mission:pattern"]'),
   },
   {
@@ -239,7 +239,7 @@ export const graphSteps: TutorialStep[] = [
   {
     id: 'graph-select-all', chapter: 'graph-nodes', kind: 'action', route: 'home', command: 'open-graph-visibility',
     targets: ['graph-select-all'], title: 'Select all is not Show everything',
-    body: 'Click Select all items. This restores item choices—including all nine mission rings—but still obeys focus, mission scope and layers. It does not reveal all background checkpoints. Only View → Show everything temporarily overrides all those filters; turning it off restores the previous choices.',
+    body: 'Click Select all items. This restores item choices—including every mission ring—but still obeys focus, mission scope and layers. It does not reveal all background checkpoints. Only View → Show everything temporarily overrides all those filters; turning it off restores the previous choices.',
     uiAction: { selector: '.career-visibility-actions button:first-child', event: 'click' },
     checkUi: (root, observation) => observation?.interacted === true &&
       [...root.querySelectorAll<HTMLInputElement>('.career-visibility-groups input')].every(input => input.disabled || (input.checked && !input.indeterminate)) &&

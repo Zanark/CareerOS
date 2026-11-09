@@ -1,5 +1,30 @@
 # Operation-document integration
 
+## Fieldcraft / Forward Deployed Engineering: November 9
+
+The tenth mission is **original web-source research synthesis**, not an
+additional supplied PDF. [The research receipt](FDE-RESEARCH.md) records five
+progressive analytical lenses, employer-role differences, all 24 reviewed primary
+references, exact reading limits and the authored curriculum/source matrix.
+The shared typed source registry also powers the website's per-lesson disclosures.
+
+Fieldcraft has **48 tracked checkpoints**, twelve core phases, eight independent
+specialization labs and **112 authored applied/transfer exercises** across 56
+browsable units. Full-stack, data, integration, responsible AI, operations,
+adoption, product feedback and customer communication meet in one capstone.
+Role-specific tools/seniority are not universal entry gates; no paid account,
+actual customer records or production access is mandatory.
+
+FDE is latest-only v3 and starts background/unstarted on new and compatible
+older workspaces. Frozen source editions and real records are not reclassified.
+Thirteen curated transfer comparisons connect it to all nine previous missions,
+without granting equivalent completion. Native recall and existing Atlas
+receipts support its evidence, while all original 24 discoveries/seven levels
+remain unchanged. Current combined total: **545 tracked checkpoints**.
+
+Historical PDF corpus counts below remain their dated source-edition evidence;
+Fieldcraft's web sources do not inflate those page/unit/exercise counts.
+
 ## NotebookLM sourcebook companion: reference only
 
 `Operation_Pattern_Forge_90_Day_DSA_Sourcebook.pdf` was reviewed directly from the
@@ -46,8 +71,9 @@ and physical pages preserve provenance. Body descriptions and prompts are author
 paraphrases, not publication of the original PDFs or their private baseline material.
 
 The new definitions are v3 and remain separate from frozen v1/v2. DSA's 48-node
-append and System's 72-module curriculum are unchanged, giving **497 latest tracked
-checkpoints** overall. Existing user data does not silently adopt any new edition.
+append and System's 72-module curriculum were unchanged, giving **497 tracked
+checkpoints** at the October 5 integration. Fieldcraft later adds 48; existing
+user data does not silently adopt different editions of its original missions.
 
 ### Interpretation boundaries
 
@@ -178,8 +204,9 @@ Later specific handoffs take precedence over conflicting older visual taxonomy.
 | Escape Velocity | Complete 103-page roadmap | v3 has 34 modules plus independent cases, diagnostics, capstones and 45 labs. The old outcome workflow remains available in its own version. |
 | Algorithm Forge | Complete 120-page roadmap | v3 supplies 34 checkpoints across six stages. The older four-phase forecast is preserved, not silently converted into progress. |
 | Side Income | Complete 162-page roadmap | v3 supplies 104 modules across 13 stages. The older starting sprint remains archived/resolvable; no income or client outcome is assumed. |
+| Fieldcraft | [Reviewed primary web sources and authored synthesis](FDE-RESEARCH.md) | Latest-only v3: 48 checkpoints, eight optional labs, 112 exercises; no PDF pages or invented historical definition. |
 
-There are 497 tracked nodes across the latest missions (87 in the frozen v2 catalog).
+There are 545 tracked nodes across the latest missions (87 in the unchanged frozen v2 catalog).
 Topic-group and phase-level milestones
 are labeled as such. Their evidence prompts adapt the source's explain/build/draw/review
 requirements; they are not claims that every source supplied a complete exercise rubric.

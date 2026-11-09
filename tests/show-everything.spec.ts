@@ -61,7 +61,7 @@ test('Show everything includes all graph data and restores the complete previous
   await everything(page, true);
   await expect(scene).toHaveAttribute('data-node-count', String(full.nodes.length));
   await expect(scene).toHaveAttribute('data-edge-count', String(full.edges.length));
-  await expect(scene).toHaveAttribute('data-orbit-count', '9');
+  await expect(scene).toHaveAttribute('data-orbit-count', '10');
   await expect(scene).toHaveAttribute('data-animation-state', 'paused');
   await expect(scene).toHaveAttribute('data-spark-density', '10');
   await expect(scene).toHaveAttribute('data-rings-visible', 'true');
@@ -92,7 +92,7 @@ test('inactive mission checkpoints and closed applications are inspectable witho
   const { scene, raw } = await open(page);
   await everything(page, true);
   await openGraphPanel(page, 'rings');
-  await expect(page.locator('.career-orbit-list > button')).toHaveCount(9);
+  await expect(page.locator('.career-orbit-list > button')).toHaveCount(10);
   await page.locator('.career-orbit-list > button[data-orbit-id="orbit:mission:fabric"]').click();
   const orbit = page.getByRole('complementary', { name: 'Selected career orbit', exact: true });
   await expect(orbit).not.toContainText('Outside focus:');
@@ -145,7 +145,7 @@ test('new saved background work appears while full view remains on without activ
   await form.getByRole('button', { name: 'Save evidence', exact: true }).click();
   await expect(page.locator('.career-graph-page')).toHaveAttribute('data-show-everything', 'true');
   await expect(scene).toHaveAttribute('data-node-count', String(full.nodes.length + 1));
-  await expect(scene).toHaveAttribute('data-orbit-count', '9');
+  await expect(scene).toHaveAttribute('data-orbit-count', '10');
   const saved = JSON.parse((await page.evaluate(key => localStorage.getItem(key), key))!);
   expect(saved.missions.fabric.mode).toBe('background');
   expect(saved.missions.fabric.completedCheckpointIds).toEqual([]);

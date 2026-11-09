@@ -31,7 +31,7 @@ describe('saved mission orbit motion policy', () => {
         careerOrbitFrameRadius(dataRadius, target.distanceTo(center)) / Math.sin(fov));
       camera.lookAt(target);
       camera.updateMatrixWorld();
-      for (let index = 0; index < 15; index++) for (let step = 0; step < 90; step++) {
+      for (let index = 0; index < CAREER_ORBIT_PLANES.length; index++) for (let step = 0; step < 90; step++) {
         const point = orbitPoint(index, step / 90 * Math.PI * 2, 7, center, dataRadius, new Vector3(), 0.012);
         point.addScaledVector(point.clone().sub(center).normalize(), dataRadius * 0.04).project(camera);
         expect(Math.max(Math.abs(point.x), Math.abs(point.y))).toBeLessThan(0.94);
@@ -41,7 +41,7 @@ describe('saved mission orbit motion policy', () => {
 
   it.each(['background', 'planned', undefined] as const)('treats %s mission mode as quiet, with stable distinct inner spacing', missionMode => {
     const radii = [];
-    for (let index = 0; index < 15; index++) {
+    for (let index = 0; index < CAREER_ORBIT_PLANES.length; index++) {
       const motion = careerOrbitMotion({ kind: 'mission', missionMode, index });
       const center = new Vector3(8, 3, -4);
       const initial = orbitPoint(index, 0.7, 0, center, 60, new Vector3(), 0, false, motion);
@@ -54,6 +54,6 @@ describe('saved mission orbit motion policy', () => {
       expect(motion.normalizedRadius).toBeLessThanOrEqual(0.65);
       radii.push(motion.normalizedRadius);
     }
-    expect(new Set(radii).size).toBe(15);
+    expect(new Set(radii).size).toBe(CAREER_ORBIT_PLANES.length);
   });
 });
