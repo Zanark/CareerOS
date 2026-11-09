@@ -11,6 +11,7 @@ export interface TutorialSignals {
   focusRunning: boolean;
   exportCount: number;
   importCount: number;
+  discoveryExampleCount: number;
   searchQuery: string;
   theme: Theme;
 }

@@ -1,0 +1,35 @@
+CareerOS development workstreams
+
+Status: Active index; not a feature workstream.
+Purpose: Canonical navigation for numbered workstreams and their GitHub mapping.
+
+Adopted 2026-11-06. Files 01-07 are newly authored retrospective milestone groups
+from published source and maintained product documentation, not original historical
+TODOs. File 08 tracks this migration. Historical evidence is not a new test run.
+Detailed contracts/evidence live in each workstream, not a duplicate checklist here.
+
+DONE - 01_TRACKER_FOUNDATION.todo (tracker-foundation)
+DONE - 02_APPEARANCE_AND_IDENTITY.todo (appearance-and-identity)
+DONE - 03_VERSIONED_ROADMAPS.todo (versioned-roadmaps)
+DONE - 04_CAREER_GRAPH.todo (career-graph)
+DONE - 05_FOCUS_ROOM.todo (focus-room)
+DONE - 06_TUTORIAL_AND_HELP.todo (tutorial-and-help)
+DONE - 07_ENCRYPTED_PROGRESS_JOURNAL.todo (encrypted-progress-journal)
+DONE - 08_GITHUB_TRACKING_ADOPTION.todo (github-tracking-adoption)
+PERPETUAL - 09_DEVELOPMENT_LEDGER.todo (excluded from ordinary feature issues)
+IN_REVIEW - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
+
+Tracking configuration: .github/todo-sync.json
+Persistent recovery/baselines: .github/todo-sync-state.json
+Contributor workflow: docs/DEVELOPMENT.md
+Pre-write inventory: docs/tracking/2026-11-06-inventory.md
+
+Identity and status rules:
+  Keep Workstream ID stable through file/title/repository renames.
+  Keep Status, Milestone, Dependencies, Purpose, Tasks, Acceptance criteria,
+  Completion evidence and Completion log in every actual workstream.
+  Use exact statuses, not composite prose. Blocked work names its blocker/stage.
+  Each actual workstream has one issue and the same issue in the adopted Project.
+  Indexes and this perpetual ledger are explicitly excluded.
+  New files require an explicit public-safe configuration entry and preview.
+  No automatic commits, pushes, board-to-file writes or background service.

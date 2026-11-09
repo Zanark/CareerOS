@@ -1,0 +1,49 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "9b2903b0f1362e2318e9f8a81da379bc557f1309",
+  "observedAt": "2026-11-09T10:00:26.638Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "discovery-atlas",
+      "path": "TODO/10_DISCOVERY_ATLAS.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/9",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In review",
+      "managedSha256": "9ef70cf1e826bf8dce7e2a71f1367b1994cf6d50d9b86a94566b06849e3c050e",
+      "actions": [
+        "update managed description",
+        "set Project In review"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHIza0",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 9,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

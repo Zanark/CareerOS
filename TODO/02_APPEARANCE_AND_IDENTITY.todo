@@ -1,0 +1,40 @@
+Workstream ID: appearance-and-identity
+Title: DeepSeaFoam appearance, animated daylight and CareerOS presentation
+Status: DONE
+Milestone: A readable, responsive and consistently branded career workspace
+Dependencies: tracker-foundation
+GitHub issue: https://github.com/Zanark/CareerOS/issues/2
+Purpose: Record the implemented dark/light visual system, accessible motion
+  boundaries, larger typography and original public-facing product artwork.
+
+Tasks:
+  [x] Apply DeepSeaFoam and Harbor Daylight with separate saved theme preference.
+  [x] Animate sunrise east/sunset west, clouds and a nonblocking palette veil.
+  [x] Honor reduced motion and keep preference outside workspace backups.
+  [x] Enlarge typography and adapt compact navigation/search instead of page zoom.
+  [x] Publish original illustrated README artwork and CareerOS orbital identity.
+  [x] Retain the renamed /CareerOS/ base without changing existing storage keys.
+
+Acceptance criteria:
+  Both themes remain usable without changing career progress or history.
+  Repeated toggle requests retarget motion without accumulating spins.
+  Motion suppression and compact navigation retain accessible controls.
+  Existing approved README presentation is preserved by this migration.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Public revisions: 187a43c, 737efcc, fb8cecf, e0bcc60, c087544, c9a461d,
+    a5b9a10, 6943781 and 0c4beb9 (2026-10-04 through 2026-10-05).
+  Current explanation: docs/THEMES.md and docs/GUIDE.md.
+  Original public artwork: docs/images; shared mark: src/assets/careerhq-mark.svg.
+  Historical successful validation/build/browser/deploy:
+    https://github.com/Zanark/CareerOS/actions/runs/41529974393 at 9b2903b.
+  Human acceptance: no new aesthetic approval inferred from technical checks.
+  Publication: product changes already public; tracking migration local only.
+  Limitations: no new screenshots, visual audit or application tests in this task.
+
+Completion log:
+  2026-10-04 - Published theme, motion, typography and original README revisions.
+  2026-10-05 - Published CareerOS rename/base correction; preserved browser keys.
+  2026-11-06 - Grouped related public revisions as a retrospective milestone;
+    preserved source history instead of claiming these files existed earlier.

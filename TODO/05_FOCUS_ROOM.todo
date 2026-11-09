@@ -1,0 +1,39 @@
+Workstream ID: focus-room
+Title: Fullscreen focus room and persistent distraction reports
+Status: DONE
+Milestone: Optional focused sessions with portable self-reported activity
+Dependencies: career-graph
+GitHub issue: https://github.com/Zanark/CareerOS/issues/5
+Purpose: Record the optional tab-local focus timer and persistent distraction
+  events, preserving the distinction between time spent, self-report and mastery.
+
+Tasks:
+  [x] Share one tab-local timer controller across compact/fullscreen views.
+  [x] Persist distraction presses immediately through guarded workspace updates.
+  [x] Retain reports after timer reset/reload and include them in normal backups.
+  [x] Snapshot the actual graph with independent, reduced-motion-aware ambience.
+  [x] Isolate practice records and reject stale/same-ID replaced session writes.
+
+Acceptance criteria:
+  Closing/resetting the timer does not erase existing reports.
+  Imported records do not become an inferred running countdown.
+  Timer pause does not silently disable independently selected graph ambience.
+  Reports and elapsed time never grant checkpoint credit.
+  Practice cannot change the real timer or saved personal sessions.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Public revisions: 9b22994, fdfb477, 558e4bd, 581cbe8, 091d751 and 2c3e4e7.
+  Current source contract: docs/ARCHITECTURE.md; src/domain/focusSession.ts;
+    src/focus; focus-room explanation in docs/GUIDE.md.
+  Historical gate:
+    https://github.com/Zanark/CareerOS/actions/runs/41529974393 at 9b2903b.
+  Human acceptance: actual focus habits or user session outcomes not inspected.
+  Publication: implementation already public; no focus feature edits here.
+  Limitations: no live user session, foreground window or private browser accessed.
+
+Completion log:
+  2026-10-05 - Published optional focus room and portable saved distraction events.
+  2026-10-06 - Published centered focus framing and mesh-ripple ambience refinement.
+  2026-10-07 - Published clearer focus backdrop while retaining report semantics.
+  2026-11-06 - Authored evidence-backed retrospective; no new focus session created.

@@ -63,6 +63,13 @@ button report, not an automatically detected onset. Elapsed milliseconds describ
 running timer, not measured attention. No keystrokes, applications, browsing activity,
 distraction causes or inferred mental-health scores are collected.
 
+Discovery Atlas reads existing evidence and recall to derive its optional collection
+and recent-day ribbon. It stores no extra profile, score, achievement ledger or
+viewing analytics, and makes no external requests. Discovery receipts show only
+source records already in this browser. Normal backups and the optional encrypted
+journal carry those records; confirmed replacement/reset recalculates the collection.
+Collection completion is not independently assessed ability or current retention.
+
 These personal activity records travel in ordinary unencrypted workspace exports.
 Resetting the timer preserves them; explicitly replacing/resetting the whole workspace
 can remove them, with the same backup warnings as other records. A missing ending

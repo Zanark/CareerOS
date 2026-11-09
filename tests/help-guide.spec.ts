@@ -7,7 +7,7 @@ for (const width of [1440, 320]) {
     await page.goto('./#/guide');
     const guide = page.locator('[data-tour="help-guide"]');
     const raw = await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'));
-    await expect(guide.locator('.help-topic')).toHaveCount(19);
+    await expect(guide.locator('.help-topic')).toHaveCount(20);
     const search = guide.getByRole('searchbox', { name: 'Find an answer', exact: true });
     await search.fill('streak');
     const streak = guide.locator('.help-topic').filter({ has: page.getByRole('heading', { name: 'Recorded-work streak and today’s dot border', exact: true }) });
@@ -21,7 +21,7 @@ for (const width of [1440, 320]) {
     await search.fill('no-matching-help-topic');
     await expect(guide).toContainText('No matching topic');
     await guide.getByRole('button', { name: 'Clear search', exact: true }).click();
-    await expect(guide.locator('.help-topic')).toHaveCount(19);
+    await expect(guide.locator('.help-topic')).toHaveCount(20);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await guide.getByRole('link', { name: 'Review roadmap updates', exact: true }).click();
     await expect(page).toHaveURL(/#\/sources$/);
@@ -40,5 +40,19 @@ test('Help launches isolated practice and returns without changing real data', a
   await page.locator('.tutorial-panel').getByRole('button', { name: 'Exit tutorial', exact: true }).click();
   await expect(page.locator('.app')).toHaveAttribute('data-workspace', 'saved');
   await expect(page).toHaveURL(/#\/guide$/);
+  expect(await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'))).toBe(before);
+});
+
+test('Help makes the new discovery collection searchable and opens it without recording work', async ({ page }) => {
+  await page.goto('./#/guide');
+  const before = await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'));
+  await page.getByRole('searchbox', { name: 'Find an answer', exact: true }).fill('hidden achievements');
+  const topic = page.locator('.help-topic');
+  await expect(topic).toHaveCount(1);
+  await topic.locator('summary').click();
+  await expect(topic).toContainText('not a career score');
+  await topic.getByRole('link', { name: 'Explore Discovery Atlas' }).click();
+  await expect(page).toHaveURL(/#\/discoveries$/);
+  await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');
   expect(await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'))).toBe(before);
 });

@@ -1,0 +1,44 @@
+Workstream ID: career-graph
+Title: Genuine 3D career graph, focus-first visibility and view controls
+Status: DONE
+Milestone: Inspect real saved relationships without inventing work or clutter
+Dependencies: tracker-foundation
+GitHub issue: https://github.com/Zanark/CareerOS/issues/4
+Purpose: Record the implemented Three.js graph and its final mission-only,
+  focus-first behavior. Earlier superseded visual experiments remain source history,
+  not separate claims that rejected behavior is still the target.
+
+Tasks:
+  [x] Render real nodes/relationships with actual 3D camera, picking and inspection.
+  [x] Keep mission rings separate from work totals and collection metadata.
+  [x] Show inactive isolated hubs; actual completion today reveals that mission.
+  [x] Add reversible Show everything without changing focus/progress.
+  [x] Redistribute crowded mission/stage fans with effective node spacing.
+  [x] Provide individual ring speeds, Labels and independent dot/line spark amounts.
+  [x] Keep heartbeat deformation, reduced motion and lifecycle cleanup consistent.
+
+Acceptance criteria:
+  Connections represent documented relationships, never keyword-invented prerequisites.
+  Quiet hubs have no incident connections or checkpoint clouds by default.
+  Today's background-completion reveal expires without activating a mission.
+  View controls are presentation-only; both spark percentages default to 10.
+  Per-ring speed is phase-continuous; quiet/global motion rules still apply.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Public revisions: 8cf0889, efdc7e6, 091d751, 4011304, dc639cc, 71cc430,
+    2c3e4e7, 78e0732 and fixture-only e42528e/9b2903b.
+  Current behavior: docs/GUIDE.md, docs/ARCHITECTURE.md and docs/THEMES.md.
+  Historical successful gate:
+    https://github.com/Zanark/CareerOS/actions/runs/41529974393 at 9b2903b.
+  Human acceptance: latest aesthetic acceptance not inferred.
+  Publication: implementation already published; no new graph code in migration.
+  Limitations: no assertion that every 3D camera angle is overlap-free.
+
+Completion log:
+  2026-10-05 - Published genuine graph, interactive orbits and cursor behavior.
+  2026-10-06 - Replaced the standalone heartbeat ring with travelling mesh ripple.
+  2026-10-07 - Published focus-first mission graph, real spatial redistribution,
+    full-visibility exception and independent view controls.
+  2026-11-03 - Fixture-only calendar correction preserved runtime visibility rules.
+  2026-11-06 - Recorded the final behavior, without reviving superseded designs.

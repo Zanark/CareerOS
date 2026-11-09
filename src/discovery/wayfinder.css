@@ -1,0 +1,52 @@
+.wayfinder-panel { --dsf-heading: var(--dsf-hero-text); display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 1.3fr); gap: 25px; padding: 18px 34px 18px 18px; border: 1px solid #45656a; border-radius: 16px; background: radial-gradient(ellipse at 18% 55%, #104048 0, transparent 45%), var(--dsf-hero-bg); color: var(--dsf-hero-text); margin: -13px 0 36px; overflow: hidden; }
+.wayfinder-scene { position: relative; display: grid; justify-items: center; align-content: center; min-width: 0; padding: 20px 10px 24px; }
+.wayfinder-scene::before { content: ""; position: absolute; width: 220px; max-width: 100%; aspect-ratio: 1; border: 1px solid #7e9f8c30; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.wayfinder-scene-label, .wayfinder-scene-coordinates { color: #a7b9b1; font: .43rem/1.7 Consolas, monospace; letter-spacing: .13em; z-index: 1; }
+.wayfinder-scene-label { position: absolute; top: 5px; left: 10px; }
+.wayfinder-scene-coordinates { position: absolute; bottom: 0; }
+.wayfinder-art { display: block; width: 230px; max-width: 100%; height: auto; overflow: visible; }
+.wayfinder-arrival { transform-box: view-box; transform-origin: 50% 88%; animation: wayfinder-land .7s ease-out both; }
+.wayfinder-character { transform-box: view-box; transform-origin: 50% 85%; animation: wayfinder-breathe 3s .7s ease-in-out 2; }
+.wayfinder-eyes { transform-box: fill-box; transform-origin: center; animation: wayfinder-blink 4s 1.1s 1; }
+.wayfinder-sparks { transform-box: view-box; transform-origin: center; animation: wayfinder-spark 1.2s ease-out both; }
+.wayfinder-copy { align-self: center; min-width: 0; padding: 12px 0; }
+.wayfinder-copy > .eyebrow { color: #b7c5b8; font-size: .45rem; letter-spacing: .12em; }
+.wayfinder-heading { display: flex; align-items: center; gap: 17px; margin: 20px 0 14px; }
+.wayfinder-level { display: flex; align-items: baseline; gap: 5px; color: #e5c78b; font: 1.9rem/1 Consolas, monospace; letter-spacing: -.08em; }
+.wayfinder-level small { color: #a9b9b1; font-size: .45rem; letter-spacing: .04em; }
+.wayfinder-heading > div { min-width: 0; border-left: 1px solid #8da78f44; padding-left: 17px; }
+.wayfinder-heading h2 { font-size: 1.12rem; font-weight: 450; letter-spacing: -.03em; }
+.wayfinder-heading p { color: #b1c0b9; font-size: .56rem; margin-top: 6px; }
+.wayfinder-description { font-size: .66rem; line-height: 1.9; color: #bbcabf; max-width: 53ch; }
+.wayfinder-progress-copy { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin: 20px 0 9px; }
+.wayfinder-progress-copy strong { font-size: .6rem; font-weight: 500; color: #dfc995; }
+.wayfinder-progress-copy > span { color: #b2c2b9; font: .52rem/1.7 Consolas, monospace; }
+.wayfinder-progress { height: 4px; background: #759a8a35; border-radius: 4px; overflow: hidden; }
+.wayfinder-progress > i { height: 100%; display: block; background: #d6b66e; border-radius: 4px; }
+.wayfinder-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 17px; }
+.wayfinder-actions > button { display: inline-flex; align-items: center; gap: 7px; color: #dfc995; padding: 8px 11px; border: 1px solid #d6b66e77; border-radius: 6px; font-size: .53rem; line-height: 1.7; }
+.wayfinder-actions > button:hover { border-color: #e5d6af; background: #d6b66e0f; }
+.wayfinder-actions > span { display: inline-flex; align-items: center; gap: 6px; color: #a4b9ae; font-size: .45rem; line-height: 1.8; }
+.wayfinder-boundary { color: #a6b8af; font-size: .49rem; line-height: 1.9; border-top: 1px solid #8da78f30; padding-top: 12px; margin-top: 17px; }
+.discovery-notice .wayfinder-art { width: 60px; flex-shrink: 0; margin: -12px -4px -11px -7px; }
+.discovery-notice[data-level-up="true"] { border-color: #d6b66e; box-shadow: 0 12px 35px var(--dsf-shadow), inset 0 0 0 2px #d6b66e15; }
+.discovery-notice .wayfinder-notice-level { color: var(--dsf-muted); font: .48rem/1.7 Consolas, monospace; margin: 2px 0; display: block; }
+@keyframes wayfinder-land { 0% { opacity: 0; transform: translateY(13px) scale(.94); } 65% { opacity: 1; transform: translateY(-3px) scale(1.015); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes wayfinder-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes wayfinder-blink { 0%, 88%, 96%, 100% { transform: scaleY(1); } 92% { transform: scaleY(.1); } }
+@keyframes wayfinder-spark { 0% { opacity: 0; transform: scale(.8); } 45% { opacity: 1; transform: scale(1.02); } 100% { opacity: .7; transform: scale(1); } }
+@media (max-width: 1050px) {
+  .wayfinder-panel { grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr); padding-right: 22px; gap: 15px; }
+  .wayfinder-art { width: 210px; }
+}
+@media (max-width: 900px) {
+  .wayfinder-panel { grid-template-columns: minmax(0, 1fr); gap: 5px; padding: 15px 22px 22px; }
+  .wayfinder-scene { padding-top: 24px; }
+  .wayfinder-art { width: 220px; }
+  .wayfinder-copy { padding-top: 8px; }
+  .wayfinder-heading { margin-top: 17px; }
+  .wayfinder-heading h2 { font-size: 1.05rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wayfinder-art, .wayfinder-art * { animation: none !important; transition: none !important; }
+}

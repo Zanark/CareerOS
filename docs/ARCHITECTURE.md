@@ -14,6 +14,8 @@ plan as proof of capability.
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
 | `src/domain/engine.ts` — `previewRoadmapUpgrades`, `upgradeAllRoadmaps` | Exact-workspace confirmation preview and all-or-none adoption through the existing single-mission rules. |
 | `src/domain/missionActivity.ts` — `getMissionActivity`; `src/MissionWorkStreak.tsx` | Read-only local-calendar work days from evidence/recalls across editions, shown separately from mastery. |
+| `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discovery projection over validated evidence/recall: canonical identities, chronological first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
+| `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed SVG/CSS collection, inspectable source receipts, keyboard activity ribbon and non-focus-stealing notices for newly visible discoveries. No WebGL or render loop. |
 | `src/missionVisuals.ts` | Shared nine-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
@@ -383,16 +385,42 @@ dialogs and drafts cannot accidentally carry into a real save.
 
 Coaching portals into an open native dialog so controls remain usable in the top layer.
 Highlights follow actual controls, with state-derived Next gates and optional skips.
-No artificial user achievement is recorded to make a step pass. Exported practice files
+No real-workspace achievement is recorded to make a step pass. Exported practice files
 are explicitly labeled examples. Practice state itself is not saved across reloads.
 
-The 150-step, 28-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
+The 164-step, 29-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
 bulk-update lesson opens the real review Modal and **cancels**, so the later individual
 adoption and archive exercise remains meaningful. Checkpoints lessons gate on the actual
 View checkbox in both directions; the work-streak lesson expands its actual explanation
 after saving practice evidence without completion. Tutorial target lookup can point first
 to the closed View panel's opener, then to Checkpoints, or to the native bulk dialog's
 Cancel button. These lessons do not need new app commands or automatic adoption.
+
+The original 150 steps remain in order. Fourteen final Discovery Atlas lessons
+exercise the actual family filter, mystery/reveal controls, normal evidence form,
+source receipt and local-day detail. `discovery/practice.ts` creates a clearly
+fictional historical example only on an explicit practice-only button. The current
+practice timer is discarded before that temporary replacement; the real model and
+timer remain separate. Viewing a clue never changes evidence or completion.
+
+`getDiscoverySnapshot` sorts eligible evidence/recall chronologically and updates
+small indexed metrics. It reuses `checkpointIdentity`, including only verified DSA
+append lineage, and captures the actual source set on the first qualifying event.
+One local day counts once; later calendar days are excluded as in mission activity.
+Spacing uses elapsed hours between the relevant records, not the current time merely
+passing. Historical recognition never overrides `recallSummary` or readiness.
+The projection is memoized on the workspace and local day; the chart has 24 stars
+and 28 activity tiles regardless of record count. Provenance is bounded, with explicit
+continuation for larger first-qualified receipts. No new persistence is required:
+the existing backup and encrypted journal already carry its source records.
+
+`getWayfinderProgress` derives seven fictional character levels from that finite
+collection count, not professional capability or a new XP ledger. `Wayfinder.tsx`
+draws an original SVG explorer whose equipment follows the derived level. Entrance,
+breathing, blink and spark animations have finite iteration counts and use transform/
+opacity; replay changes only local presentation state. Reduced motion disables all
+character animation, including level-up notices. There is no new WebGL context,
+animation-frame loop, external avatar service or persisted character profile.
 
 Tutorial cues share that portal: an animated opacity halo traces the current target,
 and a transform-animated pointing hand indicates buttons. They track scroll/resize

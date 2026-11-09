@@ -11,7 +11,8 @@ loading problem. Different browsers/devices still need a private backup transfer
 
 [Website](https://zanark.github.io/CareerOS/) ·
 [Overview](../README.md) · [Architecture](ARCHITECTURE.md) · [Themes](THEMES.md) · [Privacy](PRIVACY.md) ·
-[Agent contract](AGENT_CONTRACT.md) · [Operation sources](OPERATION-SOURCES.md)
+[Agent contract](AGENT_CONTRACT.md) · [Operation sources](OPERATION-SOURCES.md) ·
+[Contributor workflow](DEVELOPMENT.md)
 
 ## What this prototype does
 
@@ -26,6 +27,8 @@ loading problem. Different browsers/devices still need a private backup transfer
   an opportunity pipeline, and self-assessed interview readiness.
 - Saves browser-local state and supports private JSON backup/export and replacement import.
 - Tracks freelance research and spaced recall separately from checkpoint completion.
+- Offers an optional Discovery Atlas: a finite hidden collection derived from saved
+  evidence and recall, with source receipts rather than a career or mastery score.
 - Preserves previous roadmap versions and requires confirmation before adopting new definitions.
 - Shows each mission's recorded-work streak from saved evidence/progress or any recall result,
   including work that does not complete a checkpoint.
@@ -492,7 +495,7 @@ With the handle focused, arrow keys move it, Shift moves farther, and Home reset
 Escape cancels an active drag. The compact full-roadmap bars remain docked to keep
 the map canvas clear. Position is not written to your workspace or backup.
 
-The tutorial has **150 steps across 28 chapters**, covering actual controls with temporary data. Its files are named
+The tutorial has **164 steps across 29 chapters**, covering actual controls with temporary data. Its files are named
 `careerhq-tutorial-example-*`, not real backups. It teaches the interface, not the
 mission subjects. A deliberately older **practice** Service Fabric tracker lets you
 preview, adopt and inspect an archived roadmap without changing your real version.
@@ -522,6 +525,7 @@ Use the **Chapter** menu to work on one area at a time:
 | Opportunities | Optional application fields, saving a lead, moving its stage and finding the saved metadata |
 | Freelance research | A ten-lead fictional research set, filters, selecting five rows and copying a review brief |
 | Settings & backup / How data is stored | Example export/import, replacement warnings, and the real hosted-site device-transfer routine |
+| Discovery Atlas / final chapter | A fictional collection, meaningful stars and families, an evolving animated character, hidden clues and explicit reveal, a genuine form-driven discovery, source receipts, recorded days and private portability |
 
 Practice-only example buttons make independent chapter visits usable. They add labeled
 fictional records only when you click them. They do not create real applications, verify
@@ -545,6 +549,50 @@ The background-work exercise deliberately saves two fictional Fabric records: an
 note and a criteria-confirmed v1 checkpoint completion. Only the latter reveals its full graph
 for the current local day; both count toward recorded-work activity. Later confirmed adoption
 preserves that old completion in the archive while new v3 work starts unconfirmed.
+
+### Discover useful signals without changing the tracker
+
+Open **Discovery Atlas** under Career, or choose **Discovery Atlas / final chapter**
+in the tutorial. The collection has 24 discoveries across tangible work, depth,
+recall and recorded days. Its percentage describes only this finite collection,
+not the percentage of your career, mastery or interview readiness.
+
+Hidden cards offer a clue. Open one and optionally choose **Reveal the trail**
+to see its name, exact requirement and current progress. Looking and filtering
+never earn anything. A discovered card includes its first qualifying date and
+the actual supporting records, with links to Saved work or Recall practice.
+Old records can reveal discoveries immediately; a reload does not announce them
+as newly earned work.
+
+Repeated notes cannot multiply distinct-checkpoint or same-day milestones.
+Only the verified unchanged DSA v2/v3 append shares checkpoint identity; other
+editions stay separate. Rhythm discoveries use different local-calendar days,
+not a continuous streak. The 28-day ribbon shows recent evidence/recall, while
+its all-history count is cumulative. Inspect a day or use arrow keys, Home and End.
+A blank tile means no saved learning record, not no work.
+
+Recall discoveries recognise recorded attempts and explicitly spaced independent
+self-checks; they are not current retention assessments. A later **Needs review**
+still matters in Recall practice and does not erase the earlier event. No currency,
+leaderboard, countdown, lost points, automatic readiness or completion was added.
+The next-step panel opens your existing primary checkpoint or saved work; it never
+changes focus, makes a new plan or bypasses a blocker.
+
+No separate collection data is stored: normal backup/import and optional encrypted
+journal publication carry the existing source records. Confirmed replacement/reset
+recalculates the collection from those records. In the final tutorial, **Load discovery
+example** replaces only temporary examples and discards the practice timer; nothing
+is copied to your real workspace. The atlas uses data-bearing SVG/CSS, not another
+WebGL scene, external asset service or continuous animation loop.
+
+Your original fictional **Wayfinder** character has seven collection levels.
+Equipment and the next-form meter depend only on discovered cards, never replay
+clicks, timer use or self-rated readiness. These are character levels, not career
+levels or assessments. **Replay arrival** plays a bounded entrance, brief movement
+and blink; it earns nothing. Reduced motion keeps all character motion still,
+including the short notice when saved records cross a level boundary. The final
+form is attainable within one learning mission; no job offer, paid credential or
+completion of every roadmap is required.
 
 ### A normal working session
 
@@ -626,6 +674,7 @@ Implementation references: [`getMissionActivity`](../src/domain/missionActivity.
 | Practice libraries | Browse the seven expanded workbooks, search full study content and open individual modules, labs or references | No automatic completion, execution of source instructions, exam booking or guaranteed outcomes |
 | Roadmap | Browse the goal, mission tree and stage flowcharts | Clicking a diagram does not complete work |
 | Recall practice | Revisit saved DSA/System Design work from memory | No AI grading or automatic insertion into Daily plan |
+| Discovery Atlas | Explore optional discoveries and the saved records behind them | No career score, independently assessed mastery, record mutation or separate export |
 | Opportunities | Record roles, application stages and optional effort/resume details | No job search, application submission or resume evaluation |
 | Freelance ledger | Research ten leads, classify them, select five and copy a review brief | Adding leads does not complete the Side Income checkpoints |
 | Interview readiness | Self-assess five interview skill areas | Ratings are not computed from evidence or completion |

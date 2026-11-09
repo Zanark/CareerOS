@@ -572,6 +572,36 @@ for (const width of [1440, 390, 320]) {
         case 'tools-theme':
           await page.getByRole('switch', { name: 'Dark theme' }).click();
           break;
+        case 'discovery-example':
+          await page.locator('[data-tour="discovery-example"]').click();
+          break;
+        case 'discovery-family':
+          await page.locator('[data-tour="discovery-memory-family"]').click();
+          break;
+        case 'discovery-character-play':
+          await page.locator('[data-tour="wayfinder-replay"]').click();
+          break;
+        case 'discovery-inspect':
+          await page.locator('[data-tour="discovery-all-families"]').click();
+          await page.locator('[data-tour="discovery-code-card"]').click();
+          break;
+        case 'discovery-reveal':
+          await page.locator('[data-tour="discovery-reveal"]').click();
+          break;
+        case 'discovery-work':
+          await page.locator('[data-tour="evidence-example"]').click();
+          await expect(page.locator('[data-tour="checkpoint-complete"]')).not.toBeChecked();
+          await page.locator('[data-tour="evidence-submit"]').click();
+          break;
+        case 'discovery-proof':
+          await page.locator('[data-tour="discovery-code-card"]').click();
+          break;
+        case 'discovery-activity':
+          await page.locator('[data-tour="discovery-today"]').click();
+          break;
+        case 'discovery-rules':
+          await page.locator('[data-tour="discovery-rules"] > summary').click();
+          break;
       }
       const observed = await page.evaluate(() => ({
         storage: Object.fromEntries(Object.keys(localStorage).sort().map(name => [name, localStorage.getItem(name)])),
@@ -579,7 +609,7 @@ for (const width of [1440, 390, 320]) {
       }));
       expect(observed.storage, `Real storage must not change during ${step.id}`).toEqual(before);
       expect(observed.overflow).toBeLessThanOrEqual(0);
-      const next = coach.getByRole('button', { name: step.id === 'finish' ? 'Finish tutorial' : 'Next', exact: true });
+      const next = coach.getByRole('button', { name: step.id === steps.at(-1)!.id ? 'Finish tutorial' : 'Next', exact: true });
       await expect(next).toBeEnabled();
       if (['evidence-save', 'settings-export', 'tools-help'].includes(step.id)) {
         const path = testInfo.outputPath(`tutorial-${width}-${step.id}.png`);

@@ -1,0 +1,43 @@
+Workstream ID: versioned-roadmaps
+Title: Versioned roadmaps, complete workbooks and explicit adoption
+Status: DONE
+Milestone: Source-attributed learning references without invented progress
+Dependencies: tracker-foundation
+GitHub issue: https://github.com/Zanark/CareerOS/issues/3
+Purpose: Record versioned mission definitions, complete browsable practice
+  references and guarded adoption while retaining older evidence and editions.
+  Curriculum records are not software TODOs and will not be mirrored as issues.
+
+Tasks:
+  [x] Keep frozen roadmap editions and exact-version saved record references.
+  [x] Add full DSA practice and System concepts/module/case references.
+  [x] Integrate the seven expanded mission books as authored public-safe material.
+  [x] Separate checkpoints from practice, case studies and reference groups.
+  [x] Require explicit adoption; retain archives and only verified prefix credit.
+  [x] Provide confirmed all-or-none bulk adoption and read-only full maps.
+
+Acceptance criteria:
+  Nine latest missions contain 497 tracked checkpoints, with other references
+    excluded from required completion.
+  Existing saved editions never silently adopt or reset.
+  Only the verified unchanged DSA prefix carries equivalent credit.
+  Source ambiguities, optional study/exam distinctions and provenance stay visible.
+  Original private PDFs, biographical sections and actual progress stay unpublished.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Public revisions: ec43468, b879cc4, b2e41eb, 9ade200, 8cf0889 and 71cc430.
+  Source interpretation and counts: docs/OPERATION-SOURCES.md.
+  Maintained contracts: docs/GUIDE.md and docs/ARCHITECTURE.md.
+  Historical gate at 9b2903b:
+    https://github.com/Zanark/CareerOS/actions/runs/41529974393 (successful).
+  Human acceptance/learning: no mastery, adoption or user study outcome inferred.
+  Publication: authored implementation public; original documents not imported here.
+  Limitations: no new PDF ingestion, roadmap change or curriculum validation run.
+
+Completion log:
+  2026-10-04 - Published operation pack and verified DSA append with preserved prefix.
+  2026-10-05 - Published System references and expanded workbooks.
+  2026-10-06 - Published confirmed bulk adoption and retained edition boundaries.
+  2026-11-06 - Authored retrospective from public source register; no learning
+    checkpoints converted into software issues and no private source copied.

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "repository": "Zanark/CareerOS",
+  "repositoryId": 1403603358,
+  "repositoryNodeId": "R_kgDOU6lJng",
+  "account": "Zanark",
+  "todoDirectory": "TODO",
+  "project": {
+    "owner": "Zanark",
+    "number": 4,
+    "id": "PVT_kwHOAe2wCs4BqeZy",
+    "url": "https://github.com/users/Zanark/projects/4",
+    "view": {
+      "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+      "number": 1,
+      "name": "Kanban",
+      "layout": "BOARD_LAYOUT",
+      "url": "https://github.com/users/Zanark/projects/4/views/1"
+    },
+    "statusFieldId": "PVTSSF_lAHOAe2wCs4BqeZyzho1YK8",
+    "options": {
+      "Backlog": "cd890021",
+      "Ready": "1da0031a",
+      "In Progress": "47fc9ee4",
+      "In review": "a7bd2df9",
+      "Done": "98236657",
+      "Not planned": "ade32430"
+    }
+  },
+  "workstreams": [
+    { "id": "tracker-foundation", "path": "TODO/01_TRACKER_FOUNDATION.todo", "publicSafe": true },
+    { "id": "appearance-and-identity", "path": "TODO/02_APPEARANCE_AND_IDENTITY.todo", "publicSafe": true },
+    { "id": "versioned-roadmaps", "path": "TODO/03_VERSIONED_ROADMAPS.todo", "publicSafe": true },
+    { "id": "career-graph", "path": "TODO/04_CAREER_GRAPH.todo", "publicSafe": true },
+    { "id": "focus-room", "path": "TODO/05_FOCUS_ROOM.todo", "publicSafe": true },
+    { "id": "tutorial-and-help", "path": "TODO/06_TUTORIAL_AND_HELP.todo", "publicSafe": true },
+    { "id": "encrypted-progress-journal", "path": "TODO/07_ENCRYPTED_PROGRESS_JOURNAL.todo", "publicSafe": true },
+    { "id": "github-tracking-adoption", "path": "TODO/08_GITHUB_TRACKING_ADOPTION.todo", "publicSafe": true },
+    { "id": "discovery-atlas", "path": "TODO/10_DISCOVERY_ATLAS.todo", "publicSafe": true }
+  ],
+  "excluded": [
+    { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },
+    { "path": "TODO/09_DEVELOPMENT_LEDGER.todo", "reason": "Perpetual development history, not a feature issue." }
+  ]
+}

@@ -51,3 +51,11 @@ Current implementation anchors: `src/domain/types.ts` (`AppState`, `EvidenceInpu
 `recordChange`, `parseState`), `src/useWorkspace.ts` (`commit`, `replace`),
 and `src/dialogs.tsx` (`EvidenceDialog`). Future integrations must retain these
 boundaries rather than bypassing the user-facing workflow.
+
+## Maintainer development tracking
+
+Repository TODO-to-issue/Project synchronization is separate from browser career
+progress and the optional encrypted journal. Follow [the contributor contract](../AGENTS.md)
+and [development adoption guide](DEVELOPMENT.md) for its explicit public-safe scope,
+credential runner, conflict recovery and verification. It never grants access
+to a user's actual workspace or permission to commit/push/deploy automatically.

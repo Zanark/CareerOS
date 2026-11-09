@@ -1,0 +1,151 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "9b2903b0f1362e2318e9f8a81da379bc557f1309",
+  "observedAt": "2026-11-06T13:18:18.048Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "tracker-foundation",
+      "path": "TODO/01_TRACKER_FOUNDATION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/1",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "fcae9c1566d80d359f9cc6ab5587b709c1ca8bbcddd85d154532c91a7240b456",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkE30",
+      "backlink": "verified"
+    },
+    {
+      "id": "appearance-and-identity",
+      "path": "TODO/02_APPEARANCE_AND_IDENTITY.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/2",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "f91c6e5daf07fe4dbdd7a9d0a82ca222b2386f4c49a7a9d62d9dfeac02689531",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkIbY",
+      "backlink": "verified"
+    },
+    {
+      "id": "versioned-roadmaps",
+      "path": "TODO/03_VERSIONED_ROADMAPS.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/3",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "3de67801739c0e4d5ab6d21dd9996f790782e3c81bc67acbad64a3187d9008c1",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkIik",
+      "backlink": "verified"
+    },
+    {
+      "id": "career-graph",
+      "path": "TODO/04_CAREER_GRAPH.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/4",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "b228e80ab262efa731822392189c4beff158165b968dd66ed580e42c7b22612a",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkIuk",
+      "backlink": "verified"
+    },
+    {
+      "id": "focus-room",
+      "path": "TODO/05_FOCUS_ROOM.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/5",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "22b336b4b34a0db6dea9bbec5ddcad49f582c02b7c6dcc742157b7e44127beb1",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkI3w",
+      "backlink": "verified"
+    },
+    {
+      "id": "tutorial-and-help",
+      "path": "TODO/06_TUTORIAL_AND_HELP.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/6",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "641b8edbe6c3de38163e5a77ca783356962d9c33953171c54555269c009f2afb",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkJBE",
+      "backlink": "verified"
+    },
+    {
+      "id": "encrypted-progress-journal",
+      "path": "TODO/07_ENCRYPTED_PROGRESS_JOURNAL.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/7",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "f6f8127f73cec8bdbc9ff977ef697e5f08839e38324b7ddb7cad42a274864c9a",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkJGs",
+      "backlink": "verified"
+    },
+    {
+      "id": "github-tracking-adoption",
+      "path": "TODO/08_GITHUB_TRACKING_ADOPTION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/8",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "c6fe12e9bacdccfe3c54360da03c995d08dc0c433eb449e5bc07e23d69b480ff",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkJNA",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 8,
+    "selected": 8,
+    "excluded": 2,
+    "created": 0,
+    "reused": 8,
+    "verified": 8,
+    "open": 0,
+    "closed": 8,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "repositoryId": 1403603358,
+  "projectId": "PVT_kwHOAe2wCs4BqeZy",
+  "workstreams": {
+    "tracker-foundation": {
+      "issueNumber": 1,
+      "issueId": "I_kwDOU6lJns8AAAABdBuxDw",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/1",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkE30",
+      "baseline": {
+        "managed": "fcae9c1566d80d359f9cc6ab5587b709c1ca8bbcddd85d154532c91a7240b456",
+        "title": "Local-first tracker foundation and portable backups",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "appearance-and-identity": {
+      "issueNumber": 2,
+      "issueId": "I_kwDOU6lJns8AAAABdBytUw",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/2",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkIbY",
+      "baseline": {
+        "managed": "f91c6e5daf07fe4dbdd7a9d0a82ca222b2386f4c49a7a9d62d9dfeac02689531",
+        "title": "DeepSeaFoam appearance, animated daylight and CareerOS presentation",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "versioned-roadmaps": {
+      "issueNumber": 3,
+      "issueId": "I_kwDOU6lJns8AAAABdBy3DA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/3",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkIik",
+      "baseline": {
+        "managed": "3de67801739c0e4d5ab6d21dd9996f790782e3c81bc67acbad64a3187d9008c1",
+        "title": "Versioned roadmaps, complete workbooks and explicit adoption",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "career-graph": {
+      "issueNumber": 4,
+      "issueId": "I_kwDOU6lJns8AAAABdBzBiA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/4",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkIuk",
+      "baseline": {
+        "managed": "b228e80ab262efa731822392189c4beff158165b968dd66ed580e42c7b22612a",
+        "title": "Genuine 3D career graph, focus-first visibility and view controls",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "focus-room": {
+      "issueNumber": 5,
+      "issueId": "I_kwDOU6lJns8AAAABdBzKSg",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/5",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkI3w",
+      "baseline": {
+        "managed": "22b336b4b34a0db6dea9bbec5ddcad49f582c02b7c6dcc742157b7e44127beb1",
+        "title": "Fullscreen focus room and persistent distraction reports",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "tutorial-and-help": {
+      "issueNumber": 6,
+      "issueId": "I_kwDOU6lJns8AAAABdBzULA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/6",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkJBE",
+      "baseline": {
+        "managed": "641b8edbe6c3de38163e5a77ca783356962d9c33953171c54555269c009f2afb",
+        "title": "Isolated interactive tutorial and usable Help reference",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "encrypted-progress-journal": {
+      "issueNumber": 7,
+      "issueId": "I_kwDOU6lJns8AAAABdBzcJg",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/7",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkJGs",
+      "baseline": {
+        "managed": "f6f8127f73cec8bdbc9ff977ef697e5f08839e38324b7ddb7cad42a274864c9a",
+        "title": "Optional encrypted append-only repository progress journal",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "github-tracking-adoption": {
+      "issueNumber": 8,
+      "issueId": "I_kwDOU6lJns8AAAABdBzmCw",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/8",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhGkJNA",
+      "baseline": {
+        "managed": "c6fe12e9bacdccfe3c54360da03c995d08dc0c433eb449e5bc07e23d69b480ff",
+        "title": "Adopt numbered workstreams and verified GitHub issue/Project tracking",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "discovery-atlas": {
+      "issueNumber": 9,
+      "issueId": "I_kwDOU6lJns8AAAABdoEXUQ",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/9",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHIza0",
+      "baseline": {
+        "managed": "9ef70cf1e826bf8dce7e2a71f1367b1994cf6d50d9b86a94566b06849e3c050e",
+        "title": "Evidence-based discovery collection and final tutorial chapter",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+Workstream ID: tutorial-and-help
+Title: Isolated interactive tutorial and usable Help reference
+Status: DONE
+Milestone: Learn every implemented workflow without changing real progress
+Dependencies: tracker-foundation, versioned-roadmaps, career-graph
+GitHub issue: https://github.com/Zanark/CareerOS/issues/6
+Purpose: Record comprehensive guided practice and searchable reference, distinct
+  from running a user's actual mission, importing history or granting learning credit.
+
+Tasks:
+  [x] Use isolated in-memory practice with real controls and state-derived gates.
+  [x] Add clear highlights, moving hand cues and movable accessible coaching.
+  [x] Cover full maps, evidence, backups, adoption, focus and graph controls.
+  [x] Preserve compact/landscape instruction visibility and manual map collapse.
+  [x] Provide 19 expandable searchable Help topics with useful navigation links.
+  [x] Keep real workspace, preference and focus-session ownership separate.
+
+Acceptance criteria:
+  Tutorial contains 150 lessons across 28 chapters covering implemented workflows.
+  Exit/restart discards practice rather than restoring an old personal snapshot.
+  Help headings actually expand and links navigate without recording progress.
+  New encrypted journal remains disabled in practice and uses its separate guide.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Public revisions: b7ae40d, dad930d, adafb54, 9fe0cfd, 78e0732 and e42528e.
+  Maintained behavior: docs/GUIDE.md, docs/ARCHITECTURE.md; src/tutorial.
+  Historical successful browser gate:
+    https://github.com/Zanark/CareerOS/actions/runs/41529974393 at 9b2903b.
+  Human acceptance: user learning or tutorial completion is not inferred.
+  Publication: implementation public; no tutorial/source edits in this migration.
+  Limitations: historical browser qualification, not a tutorial run performed today.
+
+Completion log:
+  2026-10-04 - Published isolated practice, visual guidance and movable coach.
+  2026-10-07 - Published expanded graph guidance and functional Help reference.
+  2026-11-03 - Encrypted journal addition preserved tutorial isolation.
+  2026-11-06 - Recorded public behavior/evidence without manufacturing user progress.

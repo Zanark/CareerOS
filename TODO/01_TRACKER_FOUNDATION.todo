@@ -1,0 +1,40 @@
+Workstream ID: tracker-foundation
+Title: Local-first tracker foundation and portable backups
+Status: DONE
+Milestone: Resumable, evidence-based career tracking in a static browser app
+Dependencies: None
+GitHub issue: https://github.com/Zanark/CareerOS/issues/1
+Purpose: Preserve the implemented browser-local tracker, guarded evidence-based
+  progression, capacity-bounded daily actions and portable explicit backup/import.
+  This retrospective describes product behavior, never a person's achievements.
+
+Tasks:
+  [x] Implement mission focus, current checkpoints, readiness and daily planning.
+  [x] Separate practice evidence from explicitly criteria-confirmed completion.
+  [x] Validate saved/imported workspace schemas and references before replacement.
+  [x] Handle recovery, storage failures, midnight drafts and stale browser tabs.
+  [x] Document local privacy boundaries and explicit backup/import/reset.
+
+Acceptance criteria:
+  The static app can resume validated browser work without an account/backend.
+  Activity, timers and plans never automatically grant checkpoint completion.
+  Imports require confirmation; validation/storage failures preserve saved work.
+  No private workspace, source PDF or actual progress is published by this record.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Published source: commits 4a05f8a and c96b0b0 (2026-10-04).
+  Maintained contracts: docs/GUIDE.md, docs/ARCHITECTURE.md, docs/PRIVACY.md,
+    docs/AGENT_CONTRACT.md; src/useWorkspace.ts and src/workspaceFile.ts.
+  Historical gate: https://github.com/Zanark/CareerOS/actions/runs/41529974393
+    succeeded at 9b2903b0f1362e2318e9f8a81da379bc557f1309; metadata read back
+    2026-11-06. Existing validation/build/browser jobs passed in that release.
+  Human acceptance: not inferred. Real user data and personal outcomes unobserved.
+  Publication: implementation already in public source; new tracking files local.
+  Limitations: no new application execution or deployment during this migration.
+
+Completion log:
+  2026-10-04 - Published prototype and browser recovery/portability follow-up in
+    4a05f8a/c96b0b0; dates are source history, not backdated GitHub issue metadata.
+  2026-11-06 - Defined retrospective boundary from public source and current docs;
+    no implementation changes, private-data import or new approval claim.

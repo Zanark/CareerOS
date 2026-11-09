@@ -12,8 +12,8 @@ const gate = (id: string, root: Document) => steps.find(step => step.id === id)!
 
 describe('current tutorial curriculum', () => {
   it('has unique steps, valid chapters, and actual gates for required actions', () => {
-    expect(steps).toHaveLength(150);
-    expect(chapters).toHaveLength(28);
+    expect(steps).toHaveLength(164);
+    expect(chapters).toHaveLength(29);
     expect(new Set(steps.map(step => step.id)).size).toBe(steps.length);
     expect(new Set(chapters.map(chapter => chapter.id)).size).toBe(chapters.length);
     for (const chapter of chapters) expect(steps.some(step => step.chapter === chapter.id)).toBe(true);
@@ -123,6 +123,16 @@ describe('current tutorial curriculum', () => {
       'career-graph-checkpoints-hide', 'career-graph-checkpoints-show',
       'source-bulk-preview', 'source-bulk-cancel', 'evidence-activity',
     ]) expect(gate(id, ui()), id).toBe(false);
+  });
+
+  it('appends real discovery interactions after the original tour and fails closed on missing controls', () => {
+    const originalFinish = steps.findIndex(step => step.id === 'finish');
+    expect(originalFinish).toBe(149);
+    expect(steps.slice(originalFinish + 1).every(step => step.chapter === 'discovery')).toBe(true);
+    for (const step of steps.filter(step => step.chapter === 'discovery' && step.checkUi)) {
+      expect(step.checkUi!(ui()), step.id).toBe(false);
+    }
+    expect(steps.at(-1)?.id).toBe('discovery-finish');
   });
 
   it('requires hiding and restoring Checkpoints, not a different layer checkbox', () => {

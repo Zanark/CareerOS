@@ -1,0 +1,61 @@
+Workstream ID: discovery-atlas
+Title: Evidence-based discovery collection and final tutorial chapter
+Status: IN_REVIEW
+Milestone: Make useful recorded practice rewarding without inventing career progress
+Dependencies: tracker-foundation, appearance-and-identity, versioned-roadmaps, tutorial-and-help
+GitHub issue: https://github.com/Zanark/CareerOS/issues/9
+Purpose: Add an optional, visually rich discovery collection derived from existing
+  evidence and recall records. Preserve every existing workflow and teach the
+  addition in a final isolated tutorial chapter.
+
+Tasks:
+  [x] Derive a finite collection from meaningful saved work, not clicks or timers.
+  [x] Deduplicate verified roadmap lineage and exclude future calendar days.
+  [x] Add responsive themed visual exploration, provenance and useful next actions.
+  [x] Preserve normal backups, encrypted journal, criteria and tutorial isolation.
+  [x] Append hands-on tutorial lessons and focused guide/architecture references.
+  [x] Add the requested evolving character with bounded, reduced-motion-safe animation.
+  [x] Verify domain cases, real browser flows, accessibility and both themes.
+  [ ] Synchronize this workstream, publish authorized commits and verify Pages.
+
+Acceptance criteria:
+  Collection recognizes recorded work, not independently assessed ability.
+  Repeated records cannot farm distinct-checkpoint or same-day milestones.
+  Unrelated roadmap editions stay distinct; verified append lineage counts once.
+  Existing workspace schema, storage keys, evidence gates and exports coexist.
+  No new network service, automatic publication, leaderboard or punitive expiry.
+  Visuals communicate actual collection/activity data without a render loop.
+  Seven fictional character levels reflect discoveries, not measured capability.
+  Character motion ends; replay is view-only and reduced motion remains still.
+  Keyboard, mobile, light/dark and reduced-motion behavior are exercised.
+  New tutorial content is appended; every earlier lesson remains available.
+  Synthetic examples never enter the real workspace or public progress journal.
+  Technical completion, user acceptance and actual deployment remain separate.
+
+Completion evidence:
+  Read-only collection, semantic SVG/CSS, source receipts and tutorial implemented.
+  Fresh TypeScript and 685 unit cases passed; tracking behavior suite: 22 passed.
+  The earlier 56-case affected browser gate passed, including the complete tour
+  at 1440/390/320px and normal/encrypted backup coexistence.
+  Character follow-up adds two lessons (164 total, 29 chapters). The final
+  13-case browser pass covers all twelve discovery cases and the complete 164-step
+  tour at 1440px; the appended chapter also passes at 320px.
+  Actual dark/light desktop/tablet/phone captures and final character form reviewed.
+  Normal evidence recording stays operable while a level-up notice is visible.
+  Full evidence and limits: docs/tracking/2026-11-09-discovery-delivery.md.
+  An accidentally nested browser-test registration was caught and moved to
+  module scope; no product validation or assertions were weakened.
+  Human acceptance: not inferred or required before the authorized implementation.
+  Publication: commit, push and Pages deployment explicitly authorized; pending.
+  Prior local tracking adoption files remain preserved for reviewed publication.
+
+Completion log:
+  2026-11-09 - Created the bounded workstream after research and explicit end-to-end
+    implementation/publication authorization. No user browser progress inspected.
+  2026-11-09 - Initial preview rejected a missing pending backlink field before
+    any write. Added the required field; stable identity is unchanged.
+  2026-11-09 - Added the requested original character and seven collection levels.
+    No schema, currency or professional ranking was introduced. Bounded SVG/CSS
+    motion, replay and reduced-motion behavior passed final qualification.
+  2026-11-09 - Local technical and visual gates complete; advanced to IN_REVIEW.
+    Exact-source Pages publication remains pending, separately from user approval.

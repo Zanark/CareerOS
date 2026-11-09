@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowDownToLine, ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Check,
   ChevronRight, CircleCheck, Clock3, Compass, FileCheck2, Flag, FolderOpen,
-  GitBranch, History, House, Info, LayoutGrid, ListChecks, LockKeyhole, Menu, CircleHelp,
+  Gem, GitBranch, History, House, Info, LayoutGrid, ListChecks, LockKeyhole, Menu, CircleHelp,
   Pause, Play, Plus, RotateCcw, Search, Settings2, ShieldCheck, Target, X, BrainCircuit, FileText, Maximize2, Network,
 } from 'lucide-react';
 import { getMissions, getMission, getMissionVersion, recordRoadmapVersion, prerequisitesFor } from './domain/catalog';
@@ -42,6 +42,10 @@ import { missionAccentStyle, missionColor } from './missionVisuals';
 import { MissionWorkStreak } from './MissionWorkStreak';
 import { useRepositorySync } from './repositorySync/useRepositorySync';
 import { RepositorySyncPage } from './repositorySync/RepositorySyncPage';
+import DiscoveryPage from './discovery/DiscoveryPage';
+import { DiscoveryNotice } from './discovery/DiscoveryNotice';
+import { getDiscoverySnapshot } from './discovery/model';
+import { createDiscoveryPracticeState } from './discovery/practice';
 
 type Commit = (transform: (current: AppState) => AppState) => boolean;
 const mainNav = [
@@ -56,6 +60,7 @@ const mainNav = [
   { id: 'recall', label: 'Recall practice', icon: BrainCircuit, color: 'violet' },
 ];
 const extraNav = [
+  { id: 'discoveries', label: 'Discovery Atlas', icon: Gem, color: 'amber' },
   { id: 'pipeline', label: 'Opportunities', icon: BriefcaseBusiness, color: 'amber' },
   { id: 'readiness', label: 'Interview readiness', icon: Target, color: 'rose' },
   { id: 'freelance', label: 'Freelance ledger', icon: BriefcaseBusiness, color: 'teal' },
@@ -115,6 +120,9 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
   const [evidenceDialog, setEvidenceDialog] = useState<{ missionId: MissionId; action?: DailyAction } | null>(null);
   const [opportunityDialog, setOpportunityDialog] = useState(false);
   const [fullRoadmapOpen, setFullRoadmapOpen] = useState(false);
+  const [discoveryId, setDiscoveryId] = useState<string | null>(null);
+  const [discoveryExampleCount, setDiscoveryExampleCount] = useState(0);
+  const discovery = useMemo(() => getDiscoverySnapshot(state), [state, date]);
   const focusRoom = useRef<FocusRoomHandle>(null);
   const careerGraph = useRef<CareerGraphPageHandle>(null);
   const closeFullRoadmap = useCallback(() => setFullRoadmapOpen(false), []);
@@ -134,12 +142,14 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
     setEvidenceDialog(null);
     setOpportunityDialog(false);
     setFullRoadmapOpen(false);
+    setDiscoveryId(null);
     setMenuOpen(false);
     setQuery('');
     navigate(target);
   }, []);
   const commandTutorial = useCallback((command: TutorialCommand) => {
     focusRoom.current?.close();
+    setDiscoveryId(null);
     if (command === 'open-graph-search') careerGraph.current?.openPanel('work');
     else if (command === 'open-graph-view') careerGraph.current?.openPanel('view');
     else if (command === 'open-graph-rings') careerGraph.current?.openPanel('rings');
@@ -152,7 +162,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
   }, []);
 
   useEffect(() => {
-    const onHash = () => { focusRoom.current?.close(); setRoute(routeNow()); setMenuOpen(false); setQuery(''); setFullRoadmapOpen(false); window.scrollTo(0, 0); };
+    const onHash = () => { focusRoom.current?.close(); setRoute(routeNow()); setMenuOpen(false); setQuery(''); setFullRoadmapOpen(false); setDiscoveryId(null); window.scrollTo(0, 0); };
     const onKey = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); searchRef.current?.focus(); }
       if (event.key === 'Escape') { setMenuOpen(false); setQuery(''); searchRef.current?.blur(); }
@@ -257,6 +267,15 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {state.sampleData && !practice && <div className="sample-banner"><span>Includes example data.</span><a href="#/settings">Start fresh <ArrowRight size={14} /></a></div>}
         {page === 'home' && <CareerGraphPage ref={careerGraph} state={state} practice={practice} date={date} onRecord={id => openEvidence(id)} />}
         {page === 'perspective' && <Perspective state={state} practice={practice} commit={commit} />}
+        {page === 'discoveries' && <DiscoveryPage state={state} snapshot={discovery} practice={practice}
+          selectedId={discoveryId} onSelect={setDiscoveryId} onLoadExample={() => {
+            if (!practice) { workspace.setError('Discovery examples are available only in the isolated tutorial.'); return; }
+            focusSession.discard();
+            if (commit(() => createDiscoveryPracticeState())) {
+              setDiscoveryExampleCount(count => count + 1);
+              setToast('Fictional discovery examples loaded in this tutorial only.');
+            }
+          }} />}
         {page === 'dsa' && <DsaLibrary key={route} state={state} sectionNumber={route.split('/')[1]} />}
         {page === 'system-concepts' && <SystemConceptsPage key={route} groupId={route.split('/')[1]} />}
         {page === 'system-practice' && <SystemPracticePage key={route} state={state}
@@ -287,7 +306,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {page === 'settings' && <DataPage state={state} commit={commit} onExport={exportBackup} onReplace={next => workspace.replace(next)} notify={setToast} practice={practice} onImported={() => setImportCount(count => count + 1)} />}
         {page === 'repository-sync' && <RepositorySyncPage sync={repositorySync} />}
         {page === 'guide' && <GuidePage onStartTutorial={onStartTutorial} />}
-        {(!['home', 'perspective', 'dsa', 'system-concepts', 'system-practice', 'practice', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
+        {(!['home', 'perspective', 'discoveries', 'dsa', 'system-concepts', 'system-practice', 'practice', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
         {page !== 'home' && <footer className="page-footer"><a href="#/guide">Help & glossary</a><a href="#/settings">Data & backups</a></footer>}
       </main>
     </div>
@@ -296,7 +315,8 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
     {opportunityDialog && <OpportunityDialog practice={practice} onClose={() => setOpportunityDialog(false)} onSave={opportunity => change('Opportunity added', current => ({ ...current, opportunities: [...current.opportunities, opportunity] }), 'escape')} />}
     {fullRoadmapOpen && page === 'mission' && selected && <FullMissionRoadmap key={`${selected.id}-${selected.roadmapVersion}`} mission={selected} state={state} onClose={closeFullRoadmap} />}
     <FocusRoom ref={focusRoom} state={state} date={date} session={focusSession} practice={practice} />
-    {practice && <Tutorial state={state} route={route} signals={{ evidenceOpen: !!evidenceDialog, opportunityOpen: opportunityDialog, fullRoadmapOpen, focusRunning: focusSession.running, exportCount, importCount, searchQuery: query, theme: appearance.theme }} onNavigate={navigateTutorial} onCommand={commandTutorial} onExit={onExitTutorial} onRestart={onStartTutorial} />}
+    <DiscoveryNotice snapshot={discovery} />
+    {practice && <Tutorial state={state} route={route} signals={{ evidenceOpen: !!evidenceDialog, opportunityOpen: opportunityDialog, fullRoadmapOpen, focusRunning: focusSession.running, exportCount, importCount, discoveryExampleCount, searchQuery: query, theme: appearance.theme }} onNavigate={navigateTutorial} onCommand={commandTutorial} onExit={onExitTutorial} onRestart={onStartTutorial} />}
   </div>;
 }
 

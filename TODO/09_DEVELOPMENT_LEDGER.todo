@@ -1,0 +1,68 @@
+Status: PERPETUAL
+Milestone: Maintain a causal, public-safe development history
+Dependencies: None
+Purpose: Explain verified development outcomes and decisions across workstreams.
+  This is perpetual history, not an ordinary feature issue.
+
+Tasks:
+  [ ] Append meaningful workstream outcomes, failures and supersession as they occur.
+  [ ] Keep historical tests, fresh checks, human acceptance and publication distinct.
+
+Acceptance criteria:
+  Entries explain action, effect, rationale, mechanism, evidence and limitations.
+  No transcripts, private continuity, credentials or actual career records copied.
+
+Completion evidence:
+  This perpetual ledger has no final completion or GitHub feature-issue mapping.
+  Historical implementation evidence lives in retrospective workstreams 01-07.
+
+Completion log:
+  2026-11-09 - Discovery Atlas and its original evolving character are locally
+    qualified. Read-only canonical evidence/recall projection preserves existing
+    progress and exports. New final tutorial brings the tour to 164 steps across
+    29 chapters. Fresh gates: TypeScript/685 units, 22 tracking cases, earlier
+    56-case workflow regression and final 13-case browser qualification. Actual
+    synthetic dark/light desktop/tablet/phone frames and the final character form
+    were inspected. Human visual acceptance and exact Pages publication remain
+    separate; the latter is authorized and pending.
+  2026-11-09 - Began the optional evidence-derived discovery layer and appended
+    tutorial chapter. The bounded workstream preserves existing criteria,
+    browser-only data and both export paths. End-to-end commit/push/Pages
+    publication is explicitly authorized, including reviewed prior local tracking
+    adoption. Existing issue/Project identities and unrelated source stay intact.
+  2026-11-06 - Owner requested Kanban for the Project. Converted existing view 1
+    to Board layout and renamed it Kanban, retaining Project 4 and its eight
+    issue-containing items/statuses. Config and contributor guidance now record
+    the actual view; no board/item deletion, workflow or product changes.
+  2026-11-06 - Added two failing-then-passing delayed-visibility regressions.
+    Successful-but-uncertain creation must not be retried just because a later
+    inventory is temporarily empty. Persisted create/add intent now stops that
+    ambiguous retry, and recovery resumes the original discovered identity.
+    Final focused suite: 22 passed. This was fixture-only; no live duplicates.
+  2026-11-06 - Dedicated owner Project 4 and explicit Node/gh synchronization are
+    implemented. Pilot issue 1/item/backlink verified; second apply had zero
+    actions and unchanged issue updated_at/recovery-state hash. Historical
+    backfill created seven additional issues. Issue 8's immediate read-back
+    briefly mismatched; its exact later state matched and recovery reused it
+    without new remote writes, completing the missing local backlink/baseline.
+  2026-11-06 - All 20 credential-free tracking behavior cases passed, including
+    partial/uncertain operations, human edits, reopening/cancellation, local
+    races, renames and complete pagination. Existing TypeScript/672-test gate
+    passed. Initial drive-path guard's HTTPS false positive was fixed before
+    live issue creation, without weakening actual private-path/secret checks.
+  2026-11-06 - Eight actual workstreams now have issues/items/backlinks. Adoption
+    is complete within its local-file/remote-tracking scope; completion-state
+    JSON receipts and docs/tracking/2026-11-06-adoption.md retain reconciliation.
+    Contributor guidance is durable but uncommitted. No application/README or
+    workflow changes, global identity edits, commits, pushes, deployments,
+    secrets, schedules or unattended synchronization.
+  2026-11-06 - Tracking adoption began at clean public source 9b2903b. No original
+    TODO directory existed. Seven retrospective milestone groups were authored
+    from public revisions/docs, rather than inventing original TODO history or
+    creating an issue for every learning checkpoint/commit.
+  2026-11-06 - Required external credential runner authenticated safely. Full
+    issue inventory was empty. Existing owner Projects belong to other products;
+    a dedicated CareerOS Project is appropriate. Direct GraphQL succeeded after
+    gh project list failed, preserving an explicit failure rather than assuming
+    no boards existed. Local-only Zanark attribution verified. No product edits,
+    global identity change, commits, pushes or automation activation.

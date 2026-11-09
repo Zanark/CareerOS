@@ -1,0 +1,42 @@
+Workstream ID: encrypted-progress-journal
+Title: Optional encrypted append-only repository progress journal
+Status: DONE
+Milestone: Manual cross-browser progress publication on GitHub static Pages
+Dependencies: tracker-foundation
+GitHub issue: https://github.com/Zanark/CareerOS/issues/7
+Purpose: Record the separate browser-encrypted export/publication workflow while
+  preserving ordinary backups, imports, reset, schemas and all existing features.
+  This feature is unrelated to development TODO-to-GitHub tracking.
+
+Tasks:
+  [x] Add separate Settings entry and repository-sync route.
+  [x] Encrypt baseline/deltas with a session-only key and authenticated metadata.
+  [x] Validate append chains, duplicate IDs, size limits and rollback boundaries.
+  [x] Keep an encrypted local outbox and require actual deployed-file acknowledgment.
+  [x] Review first connections/incompatible changes instead of silently overwriting.
+  [x] Preserve original browser saving, backups, tutorial isolation and recovery.
+  [x] Add focused unit/browser coverage and document privacy/passphrase limitations.
+
+Acceptance criteria:
+  Entirely static: no backend, embedded GitHub credential or automatic publication.
+  Only a successful same-origin deployed-file load acknowledges publication.
+  Local unpublished work, conflicts and non-atomic storage failures are explicit.
+  The public journal ships empty; no actual workspace/passphrase is published.
+  Original plaintext full backups remain available as a separate existing feature.
+
+Completion evidence:
+  Retrospective authored: 2026-11-06.
+  Feature source: fb5b1a3a5b14dbea84a344f49fd443142f527171.
+  Fixture-only release repair: 9b2903b0f1362e2318e9f8a81da379bc557f1309.
+  Historical gate: https://github.com/Zanark/CareerOS/actions/runs/41529974393
+    succeeded in validation/build/browser/deploy; read back 2026-11-06.
+  Current docs: optional journal sections in GUIDE/ARCHITECTURE/PRIVACY.
+  Human acceptance: actual owner setup/progress publication not established.
+  Publication: implementation already public; no real journal data touched here.
+  Limitations: this migration does not decrypt, initialize or publish a journal.
+
+Completion log:
+  2026-11-03 - Published additive encrypted journal feature and precise test-only
+    frozen-calendar repair, without replacing existing backup/persistence flows.
+  2026-11-06 - Authored retrospective from public code/contracts and successful
+    historical run metadata; no user passphrase requested or retained.

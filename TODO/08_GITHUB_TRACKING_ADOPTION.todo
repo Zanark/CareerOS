@@ -1,0 +1,94 @@
+Workstream ID: github-tracking-adoption
+Title: Adopt numbered workstreams and verified GitHub issue/Project tracking
+Status: DONE
+Milestone: Durable agent-invoked development tracking with historical backfill
+Dependencies: None
+GitHub issue: https://github.com/Zanark/CareerOS/issues/8
+Purpose: Adopt the current development/documentation manual and one public-safe
+  workstream to one issue to one Project item, without product feature changes.
+  Scope includes local files, identity, live tracking mutations and verification;
+  commits, pushes, activation, deployment and unattended automation are excluded.
+
+Tasks:
+  [x] Read current manual, tracking guide, local contracts and actual source state.
+  [x] Verify canonical public repository, credential-runner account and permissions.
+  [x] Inventory all existing issues/Projects and publish a pre-write scope receipt.
+  [x] Set only repository-local Git attribution and verify effective identities.
+  [x] Define public-source retrospective workstreams without private data import.
+  [x] Configure the repository-specific owner Project without disturbing others.
+  [x] Implement/test explicit preview/apply, stable identities and conflict recovery.
+  [x] Verify one bounded live pilot and a mutation-free idempotent rerun.
+  [x] Backfill remaining unambiguous work and reconcile all three surfaces.
+  [x] Document adoption, future invocation, limits and actual outcomes.
+  [x] Convert the primary Project view to Kanban per the owner's follow-up.
+
+Acceptance criteria:
+  Every included workstream has one issue and that issue as one Project item.
+  Managed content, issue state/reason, Project status and local backlink read back.
+  Reruns avoid duplicate creates and unnecessary content churn.
+  Human edits/conflicts and partial/uncertain operations are preserved explicitly.
+  Index/ledger/private material is excluded; product behavior is unchanged.
+  Contributor guidance records exact commands and separate commit authority.
+
+Completion evidence:
+  Source baseline: 9b2903b0f1362e2318e9f8a81da379bc557f1309, clean at entry.
+  Pre-write inventory: docs/tracking/2026-11-06-inventory.md.
+  Account/repository: required runner verified owner/admin and project capability.
+  Local attribution: effective author and committer use requested Zanark identity.
+  Dedicated private Project: https://github.com/users/Zanark/projects/4,
+    linked to CareerOS with discovered status IDs and preserved default option IDs.
+  Primary view: https://github.com/users/Zanark/projects/4/views/1,
+    named Kanban with API-verified BOARD_LAYOUT; existing eight items preserved.
+  Live pilot: https://github.com/Zanark/CareerOS/issues/1, closed/completed,
+    Project item PVTI_lAHOAe2wCs4BqeZyzhGkE30 Done and local backlink verified.
+  Pilot rerun: zero actions/creates; issue updated_at and mapping hash unchanged.
+  Focused tooling: npm run test:tracking passed 22 isolated behavioral cases.
+  Receipts: docs/tracking/2026-11-06-initial-preview.json,
+    docs/tracking/2026-11-06-pilot.json and 2026-11-06-pilot-rerun.json.
+  Backfill/recovery: eight distinct issues and items have been read back, with
+    persistent backlinks. No pre-existing issues were reused for this migration.
+  Application preservation: npm run validate -- --maxWorkers=2 passed TypeScript
+    and all 672 tests; no application, README, test or workflow source changed.
+  Tool syntax and tracked-change whitespace checks passed.
+  Backfill and recovery receipts: docs/tracking/2026-11-06-backfill.json,
+    2026-11-06-recovery-preview.json and 2026-11-06-recovery.json.
+  Completion-state verification: docs/tracking/2026-11-06-final-apply.json and
+    2026-11-06-final-rerun.json record the actual live state of this status change.
+  Consolidated scope/outcomes: docs/tracking/2026-11-06-adoption.md.
+  Human acceptance: not requested as an additional migration gate.
+  Publication: issue/Project writes authorized; local changes remain uncommitted.
+  Limitations: no hosted/background synchronization is authorized.
+
+Completion log:
+  2026-11-06 - Inventory found no original TODOs/issues/synchronizer and no
+    repository-specific Project. Explicit GraphQL resolved gh project list's
+    unknown-owner-type failure; no failed read became an empty baseline.
+  2026-11-06 - Authored seven clearly retrospective product milestone groups and
+    this current workstream; navigation and perpetual history excluded.
+  2026-11-06 - Created owner Project 4 and implemented repository-local explicit
+    synchronization with external credentials, managed-body boundaries, expected
+    mutation targets, conflict checks, atomic persistence and verified backlinks.
+  2026-11-06 - Initial guard incorrectly matched the final letter of HTTPS URLs
+    as a drive path. Fixed the boundary, retained real private-path rejection,
+    and passed all 20 behavior/recovery cases before live issue creation.
+  2026-11-06 - Pilot and rerun verified the same closed issue/Done item/backlink
+    with no unnecessary mutation. Contributor contract and adoption guide authored;
+    no application code, workflow, commit or push changed.
+  2026-11-06 - Historical backfill created the seven remaining issues, retaining
+    all successful steps when the open adoption item's immediate read-back did not
+    converge within the bounded window. A subsequent read-only diagnosis matched
+    every intended dimension; preview/apply reused issue 8/item identity, wrote
+    only its missing backlink/baseline and created nothing.
+  2026-11-06 - All substantive migration gates and focused/current application
+    checks complete. Marked this bounded local/remote tracking adoption DONE;
+    no commit, push or unattended execution is part of its acceptance boundary.
+  2026-11-06 - Two additional synthetic regressions exposed unsafe retry when
+    an uncertain successful create/add was temporarily absent from inventory.
+    Added persisted operation-intent flags before those writes: unresolved
+    invisible outcomes now block another create/add, while discovered identities
+    recover and definitive HTTP rejections remain retryable. All 22 cases pass.
+    No live duplicate was created; final no-op reconciliation is repeated.
+  2026-11-06 - Owner requested Kanban and allowed updating/replacing the earlier
+    Project. Updated existing primary view 1 from TABLE_LAYOUT to BOARD_LAYOUT
+    and named it Kanban. Retained Project 4, every issue/item ID and all eight
+    closed/Done statuses; no deletion or duplicate Project was necessary.

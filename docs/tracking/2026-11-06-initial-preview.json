@@ -1,0 +1,182 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "9b2903b0f1362e2318e9f8a81da379bc557f1309",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "tracker-foundation",
+      "path": "TODO/01_TRACKER_FOUNDATION.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "appearance-and-identity",
+      "path": "TODO/02_APPEARANCE_AND_IDENTITY.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "versioned-roadmaps",
+      "path": "TODO/03_VERSIONED_ROADMAPS.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "career-graph",
+      "path": "TODO/04_CAREER_GRAPH.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "focus-room",
+      "path": "TODO/05_FOCUS_ROOM.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "tutorial-and-help",
+      "path": "TODO/06_TUTORIAL_AND_HELP.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "encrypted-progress-journal",
+      "path": "TODO/07_ENCRYPTED_PROGRESS_JOURNAL.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "actions": [
+        "create issue",
+        "set issue closed/completed",
+        "add issue to Project",
+        "set Project Done",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    },
+    {
+      "id": "github-tracking-adoption",
+      "path": "TODO/08_GITHUB_TRACKING_ADOPTION.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": false,
+      "issue": null,
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "actions": [
+        "create issue",
+        "set issue open/-",
+        "add issue to Project",
+        "set Project In Progress",
+        "write backlink",
+        "verify all surfaces"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 8,
+    "selected": 8,
+    "excluded": 2,
+    "created": 0,
+    "reused": 0,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}
