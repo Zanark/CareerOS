@@ -196,12 +196,13 @@ for (const width of [1440, 320]) {
         await page.locator('[data-tour="evidence-submit"]').click();
       }
       if (step.id === 'fde-recall') await page.getByLabel('Filter by mission', { exact: true }).selectOption('fde');
-      const next = coach.getByRole('button', { name: step.id === 'fde-finish' ? 'Finish tutorial' : 'Next', exact: true });
+      const next = coach.getByRole('button', { name: 'Next', exact: true });
       await expect(next).toBeEnabled();
       await noOverflow(page);
       expect(await allStorage(page)).toEqual(before);
       await next.click();
     }
+    await page.locator('.tutorial-panel').getByRole('button', { name: 'Exit tutorial', exact: true }).click();
     await expect(page.locator('.app')).toHaveAttribute('data-workspace', 'saved');
     expect(await allStorage(page)).toEqual(before);
   });

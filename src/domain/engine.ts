@@ -22,7 +22,7 @@ const MAX_COMPLETED = 250;
 const HOUR_MS = 60 * 60 * 1000;
 
 const missionIdSchema = z.enum(missionIds);
-const roadmapVersionSchema = z.enum(['1.0.0', '2.0.0', '3.0.0']);
+const roadmapVersionSchema = z.enum(['1.0.0', '2.0.0', '3.0.0', '4.0.0']);
 const kindSchema = z.enum(['code', 'diagram', 'explanation', 'exercise', 'project', 'application', 'interview', 'note']);
 const statusSchema = z.enum(['not-started', 'in-progress', 'completed']);
 const readinessSchema = z.enum(['unassessed', 'building', 'ready']);
@@ -456,7 +456,7 @@ function sampleSummary(mission: Mission, checkpoint: Checkpoint): string {
 export function createInitialState(sampleData = true, version?: RoadmapVersion): AppState {
   const missionProgress = (id: MissionId): MissionProgress => {
     if (id === 'fde') return createFdeProgress();
-    const mission = version === undefined || version === '3.0.0' ? getLatestMission(id)
+    const mission = version === undefined || version === '3.0.0' || version === '4.0.0' ? getLatestMission(id)
       : getMissionVersion(id, id === 'income' ? '2.0.0' : version);
     return {
       roadmapVersion: mission.roadmapVersion,
@@ -792,7 +792,7 @@ export interface RoadmapUpgradePreview {
   readonly workspaceSignature: string;
 }
 
-/** Read-only preview; only the catalog's verified DSA append may retain current progress. */
+/** Read-only preview; only the catalog's allowlisted verified appends retain progress. */
 export function previewRoadmapUpgrades(state: AppState): RoadmapUpgradePreview {
   const current = parseState(state);
   return {

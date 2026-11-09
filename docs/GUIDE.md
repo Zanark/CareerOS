@@ -51,12 +51,12 @@ without changing your primary focus or existing progress. Tracking granularity i
 | Fabric Core | 32 canonical checkpoints across 5 stages, with detailed study material and 20 additional lab playbooks |
 | Blueprint | 91 numbered modules plus Day 0; supplemental AI/SF practice and eight capstones stay outside the required chain |
 | Credential Forge | 53 core study modules; the Data learning branch is optional and paid exams are separate decisions |
-| Neural Edge | 28 modules across 7 source phases, plus cases, transfer drills and portfolio choices |
+| Neural Edge | 40 checkpoints: the unchanged 28 across 7 source phases, then 12 agent-cloud checkpoints; four new cases remain optional |
 | Algorithm Forge | 34 checkpoints across the complete 6-stage contest curriculum; older forecast versions remain available |
 | Side Income | 104 modules across 13 stages, with cases, templates and the separate private freelance ledger |
 | Forward Deployed Engineering / Fieldcraft | 48 checkpoints across 12 phases, eight optional specialization labs and 112 authored exercises informed by 24 reviewed primary sources |
 
-The latest editions contain **545 tracked checkpoints**, including Fieldcraft's 48.
+The latest editions contain **557 tracked checkpoints**, including Fieldcraft's 48.
 The original seven expanded mission workbooks
 also provide **806 browsable source units and 5,944 practice, transfer and diagnostic prompts**.
 Repeated source exercise contexts are retained; this is not a claim of 5,944 distinct autograded problems.
@@ -65,6 +65,26 @@ The original PDFs and private progress/biographical sections are not published. 
 for conflicts, granularity choices and unverified certification availability.
 There is no actual AI agent, cloud workspace, authentication, or multi-device sync.
 The AI-engineering mission is a learning roadmap, not a connected AI service.
+
+### AI Architect: agent-native cloud extension
+
+Open **Neural Edge** and its practice library to browse Phases 7-9: cloud for
+agents, governed engineering/operations with agents, and independently measured
+performance/economics. Twelve checkpoints and four optional cases add 60
+exercises informed by 30 reviewed primary sources. The original workbook is
+unchanged; Neural's complete library now has 88 units and 869 exercises.
+
+Existing v3 trackers stay on their saved edition. In **PDFs & sources**, select
+Neural Edge and confirm **Append expanded roadmap** to adopt v4. Its verified
+identical 28-checkpoint prefix preserves your actual progress, position, blocker
+and records once, with an exact old archive. A completed v3 track resumes at
+unconfirmed 7.1. Earlier incompatible versions archive without guessed credit.
+Browsing or adoption earns no Atlas discovery or EXP.
+
+New lessons disclose actual web sources; original lessons keep physical PDF
+pages. Case laboratories and connected learning are practice, not extra unlock
+gates. Use invented local fixtures; no production account or model call is
+required. See [the curriculum, evidence and limitations](AGENT-CLOUD-RESEARCH.md).
 
 ### Fieldcraft: customer problem to operable system
 
@@ -450,7 +470,7 @@ are deepened when an exercise needs them.
 4. Compare **Documented roadmap** with **Active tracker**. If the active tracker is
    older than the documented edition, export a backup, review the new definition, then select **Adopt documented
    roadmap** only when you want to switch. Old progress is archived, not guessed into
-   different topics. The verified DSA v2→v3 **Append expanded roadmap** is the exception
+   different topics. Verified DSA v2→v3 and Neural v3→v4 **Append expanded roadmap** are the exceptions
    described above. If the versions match, no adoption is needed.
 5. Select **Open current tracker** to work on that mission.
 
@@ -465,7 +485,8 @@ anything. Export a private backup in **Settings** first; no backup is downloaded
 - **Confirm all roadmaps** applies every reviewed pending update in one workspace save.
   Already-current missions are unchanged. DSA v2→v3 carries only its verified unchanged
   HashMap prefix, retaining genuine progress, evidence and blocker; a completed prefix
-  continues at the first new topic. Other older versions, including DSA v1, archive
+  continues at the first new topic. Neural v3→v4 likewise preserves its verified
+  28-checkpoint prefix. Other older versions, including DSA v1, archive
   the exact previous position and start the new tracker unconfirmed, without guessed credit.
 - Evidence, recalls, prior plans, history, personal accomplishments and focus records
   stay intact. Primary focus and active/background modes are preserved; a previously
@@ -534,7 +555,7 @@ With the handle focused, arrow keys move it, Shift moves farther, and Home reset
 Escape cancels an active drag. The compact full-roadmap bars remain docked to keep
 the map canvas clear. Position is not written to your workspace or backup.
 
-The tutorial has **177 steps across 30 chapters**, covering actual controls with temporary data. Its files are named
+The tutorial has **182 steps across 31 chapters**, covering actual controls with temporary data. Its files are named
 `careerhq-tutorial-example-*`, not real backups. It teaches the interface, not the
 mission subjects. A deliberately older **practice** Service Fabric tracker lets you
 preview, adopt and inspect an archived roadmap without changing your real version.
@@ -557,6 +578,7 @@ Use the **Chapter** menu to work on one area at a time:
 | PDFs & roadmap updates | Bulk preview-and-cancel, then source selection, individual confirmed adoption, archives, stages, criteria and supporting references |
 | Complete practice workbooks | Detailed source units, independent practice, exercise checks, shared learning guidance and evidence boundaries |
 | Fieldcraft / new background mission | Research sources, optional terrain, background evidence, native recall, connected learning and the existing Atlas |
+| AI Architect / agent-native cloud | Explicit preserved-prefix adoption, actual web citations, optional cases, connected learning and no credit for browsing |
 | Focus room & distractions | Frosted fullscreen room, shared countdown, immediate self-reported distraction records and exported history |
 | Full mission roadmap | Opening all stages, zooming, read-only inspection, the glowing current step, panning, Fit all and closing |
 | Review & roadmap | Saved-work filtering, recall preparation, partial and independent self-checks, and the mission tree |
@@ -654,8 +676,8 @@ an explicit notice distinguishes the still fallback from real 3D.
 
 The final form is attainable within one learning mission; no job offer, paid
 credential or completion of every roadmap is required. The original 150 lessons
-remain in order; twenty Discovery Atlas lessons and seven later Fieldcraft lessons
-bring the current tour to 177 steps.
+remain in order; twenty Discovery Atlas lessons, seven later Fieldcraft lessons
+and five agent-cloud lessons bring the current tour to 182 steps.
 See [the scoped design and research basis](DISCOVERY-DESIGN.md).
 
 ### A normal working session
@@ -800,7 +822,7 @@ plans and history. The storage key remains compatible with existing installation
 
 Adopting a documented roadmap is a separate, confirmed action on its mission or Operation
 documents page. It archives the previous position and starts the new definition without
-inventing completion credit, except for the verified unchanged DSA append prefix.
+inventing completion credit, except for the verified unchanged DSA and Neural append prefixes.
 Saved work remains visible by its original version. Future
 schema or roadmap changes require explicit migrations, not silent resets.
 

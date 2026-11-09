@@ -213,7 +213,7 @@ describe('Career OS graph: real saved progress', () => {
     for (const reference of references) {
       expect(reference.detail).toContain('has not been adopted');
       expect(reference.detail).toContain('no progress credit');
-      expect(reference.roadmapVersion).toBe('3.0.0');
+      expect(reference.roadmapVersion).toBe(getLatestMission(reference.missionId!).roadmapVersion);
     }
     expect(checkpoints(graph)).toHaveLength(135);
     expect(buildCareerGraph(state)).toEqual(graph);

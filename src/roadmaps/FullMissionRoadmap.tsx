@@ -32,7 +32,7 @@ export function FullMissionRoadmap({ mission, state, onClose }: {
   const displayed = preview ? latest : mission;
   const groupCount = roadmapGroups(displayed).length;
   const subtitle = concepts ? `${systemConceptGroups.length} sections · ${systemConcepts.length} concept nodes`
-    : `${groupCount} ${displayed.roadmapVersion === '3.0.0' && getPackOutline(displayed.id) ? 'curriculum groups' : 'stages'} · ${displayed.checkpoints.length} ${preview ? 'checkpoints' : 'tracked checkpoints'} · ${preview ? 'Preview' : 'Tracker'} v${displayed.roadmapVersion}`;
+    : `${groupCount} ${['3.0.0', '4.0.0'].includes(displayed.roadmapVersion) && getPackOutline(displayed.id) ? 'curriculum groups' : 'stages'} · ${displayed.checkpoints.length} ${preview ? 'checkpoints' : 'tracked checkpoints'} · ${preview ? 'Preview' : 'Tracker'} v${displayed.roadmapVersion}`;
 
   return <Modal title={`${mission.name} full roadmap`} subtitle={subtitle}
     eyebrow={mission.operation} className={`full-roadmap-modal ${preview || concepts ? 'full-roadmap-preview' : ''}`} onClose={onClose} restoreFocus>
@@ -86,12 +86,13 @@ function RoadmapCanvas({ mission, savedMission, preview, state, onClose, inspect
   const [selectedId, setSelectedId] = useState<string | undefined>(current?.id ?? mission.checkpoints[0]?.id);
   const [selectedReferenceId, setSelectedReferenceId] = useState<string | null>(null);
   const references = useMemo(() => {
-    if (mission.roadmapVersion !== '3.0.0') return [];
+    if (!['3.0.0', '4.0.0'].includes(mission.roadmapVersion)) return [];
     if (mission.id === 'system') return systemPracticeCases.map(unit => ({
       id: unit.id, title: unit.title, summary: unit.summary, sourceId: `Case ${unit.letter}`,
       stageId: 'system-practice-i', href: `#/system-practice/${unit.id}`,
     }));
-    return getPackOutline(mission.id)?.units.filter(unit => unit.role !== 'checkpoint').map(unit => ({
+    return getPackOutline(mission.id)?.units.filter(unit => unit.role !== 'checkpoint' &&
+      mission.stages?.some(stage => stage.id === `${mission.id}-pack-${unit.phaseId}`)).map(unit => ({
       id: unit.id, title: unit.title, summary: unit.summary, sourceId: unit.sourceId,
       stageId: `${mission.id}-pack-${unit.phaseId}`, href: packUnitHref(mission.id, unit.id),
     })) ?? [];

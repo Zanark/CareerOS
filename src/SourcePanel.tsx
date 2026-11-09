@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight, FileText, History, RefreshCw } from 'lucide-react';
-import { getCheckpoint, getLatestMission, getMission, getMissionVersion, missions } from './domain/catalog';
+import { getCheckpoint, getLatestMission, getMission, getMissionVersion, isVerifiedAppend, missions } from './domain/catalog';
 import { previewRoadmapUpgrades, upgradeAllRoadmaps, upgradeRoadmap, type RoadmapUpgradePreview } from './domain/engine';
 import type { AppState, Mission, MissionId } from './domain/types';
 import { recallMissionIds } from './domain/types';
@@ -21,22 +21,26 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
   const pack = getPackOutline(missionId);
   const [notice, setNotice] = useState('');
   const pending = active.roadmapVersion !== latest.roadmapVersion;
-  const append = pending && latest.appendFrom === active.roadmapVersion;
+  const append = pending && isVerifiedAppend(latest, active);
+  const retained = missionId === 'pattern' ? 'HashMap' : active.name;
   const archives = state.archives.filter(archive => archive.missionId === missionId);
 
   function adopt() {
     const change = append
-      ? 'Your existing HashMap checkpoints, completion evidence, current position and blocker are retained. Only new topic checkpoints start unconfirmed. The previous tracker is also archived; completed work is counted once.'
+      ? `Your existing ${retained} checkpoints, completion evidence, current position and blocker are retained. Only new topic checkpoints start unconfirmed. The previous tracker is also archived; completed work is counted once.`
       : 'Your previous checkpoint, blocker and completion record will be archived. All saved work and history stay available. New checkpoints start unconfirmed; old progress is not credited to different topics.';
     if (!window.confirm(`${append ? 'Append the expanded' : 'Adopt the documented'} ${latest.operation} roadmap?\n\n${change}\n\nYour existing daily plan will be preserved. Refresh an untouched plan to use the new checkpoint.`)) return;
     const ok = commit(current => upgradeRoadmap(current, missionId));
-    setNotice(ok ? append ? 'Expanded roadmap appended. Existing HashMap progress is retained; new topics start unconfirmed. Refresh an untouched daily plan when ready.' : 'Documented roadmap adopted. Previous progress is preserved below; refresh an untouched daily plan when ready.' : 'Roadmap was not changed. Check the workspace warning.');
+    setNotice(ok ? append ? `Expanded roadmap appended. Existing ${retained} progress is retained; new topics start unconfirmed. Refresh an untouched daily plan when ready.` : 'Documented roadmap adopted. Previous progress is preserved below; refresh an untouched daily plan when ready.' : 'Roadmap was not changed. Check the workspace warning.');
   }
 
   return <section className={`source-panel ${latest.color}`} style={missionAccentStyle(latest.id)} data-tour="operation-source">
     <div className="source-heading"><FileText size={18} /><div><h3>Operation documents</h3><p>Documented roadmap v{latest.roadmapVersion} · Active tracker v{active.roadmapVersion}</p></div><Badge>{latest.coverage ?? 'documented'}</Badge></div>
     {pending && <div className="source-upgrade">
-      <p>{append ? 'Full roadmap shows the complete expanded DSA curriculum, including BFS, DFS and DP. Append it to your saved HashMap tracker when ready; your current position and genuine completions stay.' : missionId === 'pattern' ? `Full roadmap shows all ${latest.checkpoints.length} checkpoints from the expanded PDF, including BFS, DFS and DP. Your saved tracker is still v${active.roadmapVersion}. Browsing the complete map does not change it; adoption is a separate confirmed action.` : 'Your saved position still uses the previous roadmap. Review the documented content before switching; no existing work will be silently reclassified.'}</p>
+      <p>{append ? missionId === 'pattern'
+        ? 'Full roadmap shows the complete expanded DSA curriculum, including BFS, DFS and DP. Append it to your saved HashMap tracker when ready; your current position and genuine completions stay.'
+        : `The agent-cloud extension adds 12 checkpoints after the unchanged 28. Your saved v${active.roadmapVersion} position, blocker and evidence stay until confirmed adoption; original prefix work then carries once, with new topics unconfirmed.`
+        : missionId === 'pattern' ? `Full roadmap shows all ${latest.checkpoints.length} checkpoints from the expanded PDF, including BFS, DFS and DP. Your saved tracker is still v${active.roadmapVersion}. Browsing the complete map does not change it; adoption is a separate confirmed action.` : 'Your saved position still uses the previous roadmap. Review the documented content before switching; no existing work will be silently reclassified.'}</p>
       <button className="button primary" data-tour="source-adopt" onClick={adopt}><RefreshCw size={15} />{append ? 'Append expanded roadmap' : 'Adopt documented roadmap'}</button>
     </div>}
     {missionId === 'pattern' && <p className="source-notice"><a className="text-link" data-tour="dsa-library-open" href="#/dsa/1">Browse all 50 DSA sections and problem sets<ArrowRight size={14} /></a></p>}
@@ -47,8 +51,12 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
     </div>}
     {pack && <div className="system-concept-entry">
       <p><strong>{pack.sourceKind === 'web-research' ? 'The research-backed field guide is available:' : 'The expanded workbook is available:'}</strong>{' '}
-        {pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources` : `${pack.pageCount} source pages`}, {latest.checkpoints.length} curriculum checkpoints and {pack.exerciseCount} exercises, plus supporting cases and references.{' '}
-        {pack.sourceKind === 'web-research' ? 'Fieldcraft starts in the background without changing your other missions. Its sequence and criteria are authored learning design, not employer hiring requirements.' : 'Full roadmap shows the complete edition; your saved tracker stays separate until confirmed adoption.'}</p>
+        {pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources`
+          : pack.sourceKind === 'mixed' ? `${pack.pageCount} original source pages plus ${pack.webSources?.length} reviewed public extension sources`
+            : `${pack.pageCount} source pages`}, {latest.checkpoints.length} curriculum checkpoints and {pack.exerciseCount} exercises, plus supporting cases and references.{' '}
+        {pack.sourceKind === 'web-research' ? 'Fieldcraft starts in the background without changing your other missions. Its sequence and criteria are authored learning design, not employer hiring requirements.'
+          : pack.sourceKind === 'mixed' ? 'The original workbook is unchanged. Agent-cloud lessons are new authored learning design, not additional PDF pages or a claim of autonomous production capability.'
+            : 'Full roadmap shows the complete edition; your saved tracker stays separate until confirmed adoption.'}</p>
       <a className="text-link" data-tour="pack-library-open" href={packUnitHref(missionId)}>Open the complete practice library<ArrowRight size={14} /></a>
     </div>}
     {notice && <p className="source-notice" role="status">{notice}</p>}
@@ -62,7 +70,9 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
       {latest.resources?.length ? <div className="source-resources">{latest.resources.map(resource => <a key={resource.url} href={resource.url} target="_blank" rel="noopener noreferrer">{resource.label}<ArrowRight size={12} /></a>)}</div> : null}
       <h4 className="source-citations-heading">Source references</h4>
       <ul className="source-citations">{latest.sources?.map((source, index) => <li key={`${source.document}-${index}`}><strong>{source.url ? <a href={source.url} target="_blank" rel="noopener noreferrer">{source.document}</a> : source.document}</strong><span>{source.section}{source.page ? ` · page ${source.page}` : ''}</span></li>)}</ul>
-      <p className="source-privacy">{pack?.sourceKind === 'web-research'
+      <p className="source-privacy">{pack?.sourceKind === 'mixed'
+        ? 'The original PDF remains private and unchanged. Extension citations are public sources with explicit reviewed scope; no private report or invented PDF page is published.'
+        : pack?.sourceKind === 'web-research'
         ? 'Original public-source synthesis. Review scopes and uncertainties are explicit; no private customer records or invented PDF pages are included.'
         : 'The original PDFs contain private material and are not bundled with the public site. Only reusable roadmap structure is shown here.'}</p>
     </details>
@@ -114,7 +124,9 @@ export function OperationSourcesPage({ state, commit, initialSelection = 'patter
           <h3>{upgrade.name}</h3>
           <p className="bulk-roadmap-versions">v{upgrade.fromVersion} → v{upgrade.toVersion}</p>
           <p>{upgrade.preservesProgress
-            ? 'Verified DSA append: retain HashMap progress, evidence and blocker; archive the previous tracker. Keep the current position, or continue at the first new topic if the old track is complete. New topics start unconfirmed.'
+            ? upgrade.missionId === 'pattern'
+              ? 'Verified DSA append: retain HashMap progress, evidence and blocker; archive the previous tracker. Keep the current position, or continue at the first new topic if the old track is complete. New topics start unconfirmed.'
+              : 'Verified AI Architect append: retain the original 28-checkpoint progress, evidence and blocker; archive the previous tracker. Keep the current position, or continue at the first new topic if complete. New topics start unconfirmed.'
             : 'Archive previous progress and start the new tracker unconfirmed. No old completion is credited to different topics.'}</p>
         </li>)}</ul>
         <p>Daily plans, evidence, recalls, history, personal accomplishments and focus-session records stay intact. Your primary focus and active/background modes stay the same; a previously planned mission becomes background when its roadmap is available.</p>

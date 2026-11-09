@@ -4,6 +4,7 @@ import { fullMapSteps, packPracticeSteps, sourceSteps } from './featureSteps';
 import { graphSteps } from './graphSteps';
 import { discoverySteps } from './discoverySteps';
 import { fdeSteps } from './fdeSteps';
+import { agentCloudSteps } from './agentCloudSteps';
 import type { Theme } from '../useTheme';
 
 export interface CheckContext {
@@ -88,6 +89,7 @@ export const chapters: TutorialChapter[] = [
   { id: 'finish', title: 'Finish' },
   { id: 'discovery', title: 'Discovery Atlas' },
   { id: 'fde', title: 'Fieldcraft / new background mission' },
+  { id: 'agent-cloud', title: 'AI Architect / agent-native cloud' },
 ];
 
 export const steps: TutorialStep[] = [
@@ -584,4 +586,5 @@ export const steps: TutorialStep[] = [
   },
   ...discoverySteps,
   ...fdeSteps,
+  ...agentCloudSteps,
 ];

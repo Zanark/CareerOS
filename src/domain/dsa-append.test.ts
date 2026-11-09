@@ -83,7 +83,7 @@ describe('exact catalog versions and verified append identity', () => {
     expect(latest.stages?.slice(0, 2)).toEqual(previous.stages);
     expect(missions.map(mission => mission.id)).toEqual([...missionIds]);
     for (const mission of v2Missions.filter(mission => !['pattern', 'system'].includes(mission.id))) {
-      expect(getLatestMission(mission.id).roadmapVersion).toBe('3.0.0');
+      expect(getLatestMission(mission.id).roadmapVersion).toBe(mission.id === 'neural' ? '4.0.0' : '3.0.0');
       expect(getMissionVersion(mission.id, '2.0.0')).toBe(mission);
     }
     expect(isVerifiedAppend(latest, previous)).toBe(true);
@@ -517,7 +517,7 @@ describe('append lineage keeps import and recall validation strict', () => {
   it('rejects unsupported versions in recall records', () => {
     const state = createInitialState(false);
     state.recalls.push({
-      id: 'unknown-version-recall', missionId: 'system', roadmapVersion: '4.0.0' as RoadmapVersion,
+      id: 'unknown-version-recall', missionId: 'system', roadmapVersion: '9.0.0' as RoadmapVersion,
       checkpointId: getLatestMission('system').checkpoints[0].id, outcome: 'partial',
       checks: { explanation: true, diagram: false, exercise: false }, notes: '', createdAt: state.updatedAt,
     });

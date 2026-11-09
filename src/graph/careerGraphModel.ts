@@ -235,8 +235,10 @@ export function buildCareerGraph(state: AppState, options: { includeAllRecords?:
     if (!checkpoint.source) throw new Error(`Shared skill anchor ${anchor.checkpointId} has no source citation.`);
     const id = checkpointNodeId(getMissionVersion(anchor.missionId, anchor.roadmapVersion), checkpoint.id);
     const node = nodes.get(id);
-    // An archived or different-version node is not a substitute for this curated definition.
-    if (!node || node.archived || node.roadmapVersion !== anchor.roadmapVersion) return undefined;
+    // Only a verified unchanged prefix can stand for this pinned definition in a later edition.
+    if (!node || node.archived || !node.roadmapVersion ||
+      checkpointIdentity(anchor.missionId, checkpoint.id, node.roadmapVersion) !==
+      checkpointIdentity(anchor.missionId, checkpoint.id, anchor.roadmapVersion)) return undefined;
     return { nodeId: id, reference: checkpoint.source };
   }
 

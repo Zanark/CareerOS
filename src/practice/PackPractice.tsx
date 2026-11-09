@@ -70,7 +70,9 @@ function PracticeIndex() {
         return <a key={pack.missionId} href={packUnitHref(pack.missionId)} className={`pack-library-card ${mission.color}`} style={missionAccentStyle(mission.id)}>
           <MissionIcon mission={mission} /><h2>{mission.name}</h2><p>{pack.title}</p>
           <span>{pack.units.filter(unit => unit.role === 'checkpoint').length} checkpoints / {pack.exerciseCount} exercises</span>
-          <span>{pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources` : `${pack.pageCount}-page source`}<ArrowRight size={16} /></span>
+          <span>{pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources`
+            : pack.sourceKind === 'mixed' ? `${pack.pageCount}-page source + ${pack.webSources?.length} public references`
+              : `${pack.pageCount}-page source`}<ArrowRight size={16} /></span>
         </a>;
       })}
       <a href="#/dsa/1" className="pack-library-card sage"><BookOpen /><h2>DSA</h2><p>The retained complete LeetCode roadmap.</p><span>50 sections / 939 problem appearances<ArrowRight size={16} /></span></a>
@@ -90,6 +92,7 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
   const active = getMission(missionId, state);
   const outline = getPackOutline(missionId);
   const research = outline?.sourceKind === 'web-research';
+  const mixed = outline?.sourceKind === 'mixed';
   const [pack, setPack] = useState<RoadmapPack | null>(null);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
@@ -116,8 +119,9 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
   const position = unit ? pack?.units.findIndex(candidate => candidate.id === unit.id) ?? -1 : -1;
   const previous = position > 0 ? pack?.units[position - 1] : undefined;
   const next = position >= 0 ? pack?.units[position + 1] : undefined;
-  const currentCheckpoint = unit?.role === 'checkpoint' && active.roadmapVersion === '3.0.0' &&
+  const currentCheckpoint = unit?.role === 'checkpoint' &&
     state.missions[missionId].checkpointId === packCheckpointId(missionId, unit.id);
+  const unitResearch = research || Boolean(unit?.sourceIds?.length);
 
   return <div className={`pack-practice-page ${mission.color}`} style={missionAccentStyle(mission.id)} data-tour="pack-library">
     <PageHeading eyebrow={`${mission.operation.toUpperCase()} / COMPLETE PRACTICE`} title={`${mission.name} practice`}
@@ -127,7 +131,9 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
     <div className="pack-source-notice">
       <p><strong>{outline?.units.filter(candidate => candidate.role === 'checkpoint').length} curriculum checkpoints / {outline?.exerciseCount} exercises.</strong>
         {' '}Practice banks and references are also included, without extra completion credit.</p>
-      <p><span className="pack-source-name">{outline?.document}</span> / {research ? `${outline?.webSources?.length} primary sources; original research synthesis, not a PDF.` : `${outline?.pageCount} pages.`}
+      <p><span className="pack-source-name">{outline?.document}</span> / {research ? `${outline?.webSources?.length} primary sources; original research synthesis, not a PDF.`
+        : mixed ? `${outline?.pageCount} original pages plus ${outline?.webSources?.length} public extension sources; web lessons have no invented PDF pages.`
+          : `${outline?.pageCount} pages.`}
         {' '}Your saved tracker is v{active.roadmapVersion}. Reading ahead does not adopt the new edition or advance your checkpoint.</p>
       <div className="button-row"><a className="text-link" href="#/practice">All practice libraries</a>
         <a className="text-link" href={`#/sources/${missionId}`}>Source notes and tracker update</a></div>
@@ -167,10 +173,10 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
         {current && current.id !== unit?.id && <a className="text-link" href={packUnitHref(missionId, current.id)}>Current checkpoint's practice<ArrowRight size={15} /></a>}
       </div>
       {!unit ? <p className="pack-missing" role="alert">That source unit was not found. Choose a module or reference from the roadmap above.</p> : <section className="pack-study-unit" data-tour="pack-study-unit" aria-labelledby="pack-unit-title">
-        <div className="pack-unit-meta"><span className="eyebrow"><FileText size={16} />{unit.sourceId} / {research ? 'RESEARCH-BACKED FIELDWORK' : `PDF PAGES ${formatPackPages(unit.pages)}`}</span>
+        <div className="pack-unit-meta"><span className="eyebrow"><FileText size={16} />{unit.sourceId} / {unitResearch ? 'RESEARCH-BACKED FIELDWORK' : `PDF PAGES ${formatPackPages(unit.pages)}`}</span>
           <Badge>{unit.role === 'checkpoint' ? currentCheckpoint ? 'Your saved checkpoint' : 'Curriculum checkpoint' : 'Practice / reference only'}</Badge></div>
         <h2 id="pack-unit-title">{unit.title}</h2><p>{unit.summary}</p>
-        {research && <details className="pack-study-section" data-tour="pack-unit-sources">
+        {unitResearch && <details className="pack-study-section" data-tour="pack-unit-sources">
           <summary>Reviewed sources for this lesson ({unit.sourceIds?.length ?? 0})</summary>
           <p>These sources inform the original teaching design; exercises and criteria are authored here, not quotations or official employer requirements. Reviewed {pack.reviewedAt}.</p>
           <ul>{pack.webSources?.filter(source => unit.sourceIds?.includes(source.id)).map(source =>
@@ -207,7 +213,9 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
         <ul>{pack.sourceNotes.map((note, index) => <li key={index}>{note}</li>)}</ul>
       </details>
     </>}
-    <p className="pack-public-note">{research
+    <p className="pack-public-note">{mixed
+      ? 'The original private PDF is unchanged and unpublished. The agent-cloud extension is original learning design from reviewed public sources; local synthetic practice is not a production deployment or automatic mastery.'
+      : research
       ? 'Original learning design informed by reviewed public sources, not an official employer syllabus or a solved-answer bank. No customer data, paid account or production access is required.'
       : 'Study material is authored from the supplied roadmap, not a solved-answer bank. The original PDF and private baseline information are not published.'}</p>
   </div>;

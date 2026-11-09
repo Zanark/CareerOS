@@ -1,11 +1,19 @@
 import type { Checkpoint } from '../types';
 import { roadmapPackOutlines as sourceBookOutlines } from './outlines';
 import { fdeOutline } from '../forwardDeployed/outline';
+import { agentCloudUnits, extendNeuralOutline } from '../agentCloud/outline';
 import { packMissionIds } from './types';
 import type { PackMissionId } from './types';
 
 export const PACK_ROADMAP_VERSION = '3.0.0' as const;
-export const roadmapPackOutlines = [...sourceBookOutlines, fdeOutline];
+export const roadmapPackOutlines = [
+  ...sourceBookOutlines.map(pack => pack.missionId === 'neural' ? extendNeuralOutline(pack) : pack),
+  fdeOutline,
+];
+
+export function getSourcePackOutline(missionId: string) {
+  return sourceBookOutlines.find(pack => pack.missionId === missionId);
+}
 
 export function isPackMissionId(value: string | undefined): value is PackMissionId {
   return packMissionIds.some(id => id === value);
@@ -16,7 +24,8 @@ export function getPackOutline(missionId: string) {
 }
 
 export function packCheckpointId(missionId: string, unitId: string) {
-  return `${missionId}-v3-${unitId}`;
+  const version = missionId === 'neural' && agentCloudUnits.some(unit => unit.id === unitId) ? 4 : 3;
+  return `${missionId}-v${version}-${unitId}`;
 }
 
 export function packUnitForCheckpoint(missionId: string, checkpoint?: Checkpoint) {

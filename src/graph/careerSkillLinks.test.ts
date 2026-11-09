@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkpointIdentity, getCheckpoint, getMissionVersion } from '../domain/catalog';
+import { checkpointIdentity, getCheckpoint, getLatestMission, getMissionVersion } from '../domain/catalog';
 import { createInitialState, recordEvidence, upgradeRoadmap } from '../domain/engine';
 import { missionIds } from '../domain/types';
 import { buildCareerGraph } from './careerGraphModel';
@@ -12,7 +12,7 @@ const shared = (state = createInitialState(false)) =>
   buildCareerGraph(state).edges.filter(edge => edge.kind === 'shared-skill');
 
 describe('Curated career skill connections', () => {
-  it('resolves every explicit anchor to a cited v3 checkpoint, never a title guess or private record', () => {
+  it('resolves every explicit anchor to its cited edition, never a title guess or private record', () => {
     expect(careerSkillLinks.length).toBeGreaterThan(0);
     expect(new Set(careerSkillLinks.map(link => link.id)).size).toBe(careerSkillLinks.length);
     for (const link of careerSkillLinks) {
@@ -20,11 +20,11 @@ describe('Curated career skill connections', () => {
       expect(link.concept.trim().length).toBeGreaterThan(0);
       expect(link.reason.trim().length).toBeGreaterThan(30);
       for (const anchor of [link.source, link.target]) {
-        expect(anchor.roadmapVersion).toBe('3.0.0');
+        expect(anchor.roadmapVersion).toBe(anchor.checkpointId.startsWith('neural-v4-') ? '4.0.0' : '3.0.0');
         const checkpoint = getCheckpoint(anchor.missionId, anchor.checkpointId, anchor.roadmapVersion);
         expect(checkpoint.source?.document).toBeTruthy();
         expect(checkpoint.source?.section).toBeTruthy();
-        if (anchor.missionId === 'fde') {
+        if (anchor.missionId === 'fde' || anchor.roadmapVersion === '4.0.0') {
           expect(checkpoint.source?.page).toBeUndefined();
           expect(checkpoint.source?.url).toMatch(/^https:\/\//);
         } else expect(checkpoint.source?.page).toBeGreaterThan(0);
@@ -63,7 +63,7 @@ describe('Curated career skill connections', () => {
         const node = nodes.get(id)!;
         expect(node).toMatchObject(node.missionId === 'fde'
           ? { kind: 'checkpoint', status: 'incomplete', roadmapVersion: '3.0.0', archived: false }
-          : { kind: 'curriculum', status: 'reference', roadmapVersion: '3.0.0', archived: false });
+          : { kind: 'curriculum', status: 'reference', roadmapVersion: getLatestMission(node.missionId!).roadmapVersion, archived: false });
       }
     }
     expect(graph.stats.trackedCompleted).toBe(0);

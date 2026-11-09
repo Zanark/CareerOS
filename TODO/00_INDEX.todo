@@ -19,6 +19,7 @@ DONE - 08_GITHUB_TRACKING_ADOPTION.todo (github-tracking-adoption)
 PERPETUAL - 09_DEVELOPMENT_LEDGER.todo (excluded from ordinary feature issues)
 DONE - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
 DONE - 11_FORWARD_DEPLOYED_ENGINEERING.todo (forward-deployed-engineering)
+IN_PROGRESS - 12_AI_ARCHITECT_AGENT_CLOUD.todo (ai-architect-agent-cloud)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

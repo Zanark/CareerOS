@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { getLatestMission, getMissionVersion, missions, prerequisitesFor, v2Missions } from '../catalog';
+import { getLatestMission, getMissionVersion, missions, prerequisitesFor, v2Missions, v3Missions } from '../catalog';
 import { createInitialState, generatePlan, localDate, parseState, recordEvidence, recordRecall, upgradeRoadmap } from '../engine';
 import { buildCareerGraph } from '../../graph/careerGraphModel';
-import { loadRoadmapPack } from './load';
-import { formatPackPages, getPackOutline, packCheckpointId, packUnitForCheckpoint, searchRoadmapPacks } from './registry';
+import { loadRoadmapPack, loadSourceRoadmapPack } from './load';
+import { formatPackPages, getPackOutline, getSourcePackOutline, packCheckpointId, packUnitForCheckpoint, searchRoadmapPacks } from './registry';
 import { packMissionIds } from './types';
 
 const expected = {
@@ -19,9 +19,9 @@ const sourceBookIds = packMissionIds.filter(id => id !== 'fde');
 
 describe('the complete seven-book roadmap pack', () => {
   it.each(sourceBookIds)('preserves every reviewed %s unit, exercise and physical-page citation', async id => {
-    const pack = await loadRoadmapPack(id);
-    const outline = getPackOutline(id)!;
-    const mission = getLatestMission(id);
+    const pack = await loadSourceRoadmapPack(id);
+    const outline = getSourcePackOutline(id)!;
+    const mission = getMissionVersion(id, '3.0.0');
     expect(pack.pageCount).toBe(expected[id].pages);
     expect(pack.units).toHaveLength(expected[id].units);
     expect(pack.units.reduce((sum, unit) => sum + unit.exercises.length, 0)).toBe(expected[id].exercises);
@@ -76,18 +76,18 @@ describe('the complete seven-book roadmap pack', () => {
   it('retains the frozen nine-mission catalog while adding Fieldcraft only to the latest curriculum', () => {
     expect(v2Missions.reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(87);
     expect(getMissionVersion('algorithm', '2.0.0').planned).toBe(true);
-    expect(missions.filter(mission => mission.id !== 'fde').reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(497);
-    expect(missions.reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(545);
+    expect(v3Missions.filter(mission => mission.id !== 'fde').reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(497);
+    expect(missions.reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(557);
     const state = createInitialState(false);
     expect(parseState(state)).toEqual(state);
     expect(state.schemaVersion).toBe(2);
     expect(state.roadmapVersion).toBe('2.0.0');
-    for (const progress of Object.values(state.missions)) {
-      expect(progress.roadmapVersion).toBe('3.0.0');
+    for (const [id, progress] of Object.entries(state.missions)) {
+      expect(progress.roadmapVersion).toBe(id === 'neural' ? '4.0.0' : '3.0.0');
       expect(progress.completedCheckpointIds).toEqual([]);
       expect(progress.status).toBe('not-started');
     }
-    expect(buildCareerGraph(state).stats).toMatchObject({ trackedTotal: 545, trackedCompleted: 0 });
+    expect(buildCareerGraph(state).stats).toMatchObject({ trackedTotal: 557, trackedCompleted: 0 });
   });
 
   it.each(sourceBookIds)('archives %s v2 without changing recorded work or inventing v3 credit', id => {
@@ -122,7 +122,7 @@ describe('the complete seven-book roadmap pack', () => {
     expect(next.evidence).toEqual(state.evidence);
     expect(next.recalls).toEqual(state.recalls);
     expect(next.plans).toEqual(state.plans);
-    expect(next.missions[id].roadmapVersion).toBe('3.0.0');
+    expect(next.missions[id].roadmapVersion).toBe(getLatestMission(id).roadmapVersion);
     expect(next.missions[id].checkpointId).toBe(getLatestMission(id).checkpoints[0].id);
     expect(next.missions[id].completedCheckpointIds).toEqual([]);
     expect(next.missions[id].status).toBe('not-started');
@@ -134,7 +134,7 @@ describe('the complete seven-book roadmap pack', () => {
     const graph = buildCareerGraph(state);
     for (const id of sourceBookIds) {
       const nodes = graph.nodes.filter(node => node.missionId === id && node.kind === 'curriculum');
-      expect(nodes).toHaveLength(expected[id].checkpoints);
+      expect(nodes).toHaveLength(getLatestMission(id).checkpoints.length);
       expect(nodes.every(node => node.status === 'reference' && !node.current)).toBe(true);
     }
     expect(graph.stats.trackedTotal).toBe(87 + getLatestMission('fde').checkpoints.length);

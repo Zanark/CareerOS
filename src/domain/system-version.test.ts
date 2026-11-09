@@ -79,7 +79,7 @@ describe('independently versioned System problem curriculum', () => {
     expect(missions.map(mission => mission.id)).toEqual([...missionIds]);
     for (const mission of v2Missions.filter(mission => !['pattern', 'system'].includes(mission.id))) {
       expect(getMissionVersion(mission.id, '2.0.0')).toBe(mission);
-      expect(getLatestMission(mission.id).roadmapVersion).toBe('3.0.0');
+      expect(getLatestMission(mission.id).roadmapVersion).toBe(mission.id === 'neural' ? '4.0.0' : '3.0.0');
     }
   });
 
@@ -337,7 +337,7 @@ describe('strict System evidence and version references', () => {
     let state = withRetainedRecall(oldState('2.0.0'));
     state.plans[localDate()] = generatePlan(state);
     state = upgradeRoadmap(state, 'system');
-    const unknown = '4.0.0' as RoadmapVersion;
+    const unknown = '9.0.0' as RoadmapVersion;
     if (kind === 'active') state.missions.system.roadmapVersion = unknown;
     if (kind === 'archive') state.archives[0].progress.roadmapVersion = unknown;
     if (kind === 'evidence') state.evidence[0].roadmapVersion = unknown;

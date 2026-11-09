@@ -1,0 +1,53 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "9368b329b8a8474ca0852fd5ad9943db71da2177",
+  "observedAt": "2026-11-09T18:11:26.568Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "ai-architect-agent-cloud",
+      "path": "TODO/12_AI_ARCHITECT_AGENT_CLOUD.todo",
+      "outcome": "verified",
+      "created": true,
+      "reused": false,
+      "issue": "https://github.com/Zanark/CareerOS/issues/11",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "881313ebbccd6ba97d2686b53680af698a6f19d2f0f5fea38d835559f1175c20",
+      "actions": [
+        "create issue",
+        "set issue open/-",
+        "add issue to Project",
+        "set Project In Progress",
+        "write backlink",
+        "verify all surfaces"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHRivE",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 11,
+    "selected": 1,
+    "excluded": 2,
+    "created": 1,
+    "reused": 0,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

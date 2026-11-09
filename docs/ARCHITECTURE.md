@@ -8,7 +8,7 @@ plan as proof of capability.
 
 | Layer | Responsibility |
 | --- | --- |
-| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2 references, DSA v3 append, System v3 modules, seven independently adopted v3 workbooks and latest-only Fieldcraft. Existing saved versions never silently change. |
+| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `agentCloud/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2/v3 references, verified DSA and Neural appends, System v3 modules, seven independently adopted workbooks and latest-only Fieldcraft. Existing saved versions never silently change. |
 | `src/domain/types.ts` — `AppState` | Versioned runtime shape: progress, plans, evidence, history, readiness, opportunities. |
 | `src/domain/engine.ts` — `parseState` | Schema and cross-reference validation before accepting persisted or imported state. |
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
@@ -28,6 +28,7 @@ plan as proof of capability.
 | `operations/systemPractice*`, `src/system/SystemPractice.tsx` | The 72-module System v3 source progression, 15 read-only cases, complete practice prompts and diagnostics. Context links connect the separate concepts source without inventing case prerequisites. |
 | `src/domain/roadmapPacks/*`, `src/practice/*` | Typed outlines generate 377 new-edition checkpoints; seven lazy study chunks preserve 806 source units and 5,944 exercise occurrences. Reference/practice roles stay outside required checkpoint identity. |
 | `src/domain/forwardDeployed/*` | Original web-source research registry, latest-only 48-checkpoint mission, eight independent labs and 112 exercises. Outline metadata is shared; full teaching prose is a lazy chunk. No fictitious PDF provenance. |
+| `src/domain/agentCloud/*` | Original public-source Neural v4 extension: exact v3 prefix plus 12 checkpoints/four optional cases/60 exercises. Mixed PDF/web library, 30 source receipts and a separate lazy teaching chunk; no new workspace schema or model integration. |
 | `src/roadmaps/useMapViewport.ts` | Shared fit/zoom, pointer panning, focus/centering, resize measurement and lifecycle cleanup for both tracked and concept maps. |
 | `src/graph/*` | Read-only career graph model, stable 3D positions and Three.js rendering. Mission/collection identities remain distinct; green is reserved for completed checkpoints, including archived ones. |
 | `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Sixteen derived data views: ten exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
@@ -53,6 +54,9 @@ and both checkpoint citations on each shared-skill edge. It never reads private 
 changes the domain prerequisites, awards progress or substitutes an archived definition.
 Multiple reasons for the same unordered pair share one edge. View filters may hide
 lines, but the collapsible connection inspector retains reasons and explicit reveal actions.
+Pinned connection endpoints may resolve a later edition only through verified
+identical-prefix `checkpointIdentity`; archived or unrelated definitions never
+masquerade as current nodes.
 
 `CareerGraph.orbits` is a read-only projection shared by home and the focus snapshot.
 The graph page uses a graph-only viewport flex layout, leaving other routes unchanged.
@@ -168,7 +172,7 @@ or focus events. Focus framing targets the core; the main graph retains its came
 
 There is no backend, authentication layer, remote database, agent execution service,
 or model call. All ten latest missions have documented tracking units, totaling
-545 checkpoints. Historical forecast-only definitions remain frozen. A cross-mission link expresses a related
+557 checkpoints. Historical forecast-only definitions remain frozen. A cross-mission link expresses a related
 capability, not a lock.
 Prerequisites within a mission control availability. Unspecified relationships follow the
 documented order; explicit source branches can expose more than one available checkpoint,
@@ -203,6 +207,10 @@ checkpoints can share evidence identity through that append lineage. Explicit
 v2→v3 adoption preserves original records and carries genuine progress, while
 new topics start unconfirmed. Completion totals deduplicate shared identities
 across the active tracker and archives; other upgrades do not guess a mapping.
+Neural v4 similarly declares and verifies its entire 28-checkpoint v3 prefix;
+the twelve new checkpoint identities stay v4-only. `v3Missions` and the original
+source outlines/loaders remain separately resolvable. Workspace schema/catalog
+stays 2; accepting per-record v4 never makes unsupported System v4 valid.
 System and the seven expanded workbook editions therefore archive v1/v2 on explicit
 adoption and start detailed modules unconfirmed. Case references are deliberately outside checkpoint identity,
 completion counts and evidence validation.
@@ -314,7 +322,7 @@ stale-storage check, full validation and 5 MiB serialization check before its si
 failure also leaves no partially adopted set. This is application-level all-or-none
 behavior, not a new localStorage multi-writer transaction.
 
-Only the verified unchanged DSA v2→v3 prefix carries real progress; all other older
+Only verified unchanged DSA v2→v3 and Neural v3→v4 prefixes carry real progress; all other older
 definitions archive/reset without guessed equivalence. Already-current missions are
 untouched. Existing evidence, recalls, plans, history, personal proof and focus sessions
 retain their original records. Primary focus and active/background modes remain;
@@ -427,7 +435,7 @@ Highlights follow actual controls, with state-derived Next gates and optional sk
 No real-workspace achievement is recorded to make a step pass. Exported practice files
 are explicitly labeled examples. Practice state itself is not saved across reloads.
 
-The 177-step, 30-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
+The 182-step, 31-chapter walkthrough keeps Fabric deliberately on v1 initially. Its
 bulk-update lesson opens the real review Modal and **cancels**, so the later individual
 adoption and archive exercise remains meaningful. Checkpoints lessons gate on the actual
 View checkbox in both directions; the work-streak lesson expands its actual explanation
@@ -445,10 +453,13 @@ Seven appended Fieldcraft lessons use the real source disclosure, optional-unit
 selector, background evidence form and recall filter. They use the existing
 in-memory workspace; no real records, theme preference or journal are copied
 into practice or written by those lessons.
+Five further agent-cloud lessons keep the previous 177 in order, use the actual
+mixed-source library/case controls, and explain explicit append and unchanged
+Atlas evidence rules without adding tutorial commands.
 
 `getDiscoverySnapshot` sorts eligible evidence/recall chronologically and updates
 small indexed metrics. It reuses `checkpointIdentity`, including only verified DSA
-append lineage, and captures the actual source set on the first qualifying event.
+and Neural append lineage, and captures the actual source set on the first qualifying event.
 One local day counts once; later calendar days are excluded as in mission activity.
 Spacing uses elapsed hours between the relevant records, not the current time merely
 passing. Historical recognition never overrides `recallSummary` or readiness.

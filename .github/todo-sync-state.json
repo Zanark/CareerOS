@@ -142,6 +142,20 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "ai-architect-agent-cloud": {
+      "issueNumber": 11,
+      "issueId": "I_kwDOU6lJns8AAAABdwboSg",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/11",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHRivE",
+      "baseline": {
+        "managed": "c2d8f903228faf2666f52d808063ec00193cee73b8ed57b27a32934c681728fc",
+        "title": "Agent-native cloud specialization for the AI Architect roadmap",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

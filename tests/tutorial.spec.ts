@@ -579,7 +579,11 @@ for (const width of [1440, 390, 320]) {
           await page.locator('[data-tour="pack-unit-select"]').selectOption('fde-lab-ontology');
           break;
         case 'fde-sources':
+        case 'agent-cloud-sources':
           await page.locator('[data-tour="pack-unit-sources"] > summary').click();
+          break;
+        case 'agent-cloud-cases':
+          await page.locator('[data-tour="pack-unit-select"]').selectOption('neural-agent-case-race');
           break;
         case 'fde-work':
           await page.locator('[data-tour="record-evidence"]').click();

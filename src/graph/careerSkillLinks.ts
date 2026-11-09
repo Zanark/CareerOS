@@ -1,9 +1,9 @@
-import type { MissionId } from '../domain/types';
+import type { MissionId, RoadmapVersion } from '../domain/types';
 
 export interface CareerSkillAnchor {
   missionId: MissionId;
   checkpointId: string;
-  roadmapVersion: '3.0.0';
+  roadmapVersion: RoadmapVersion;
 }
 
 export interface CareerSkillLink {
@@ -14,12 +14,35 @@ export interface CareerSkillLink {
   target: CareerSkillAnchor;
 }
 
-const anchor = (missionId: MissionId, checkpointId: string): CareerSkillAnchor => ({
-  missionId, checkpointId, roadmapVersion: '3.0.0',
+const anchor = (missionId: MissionId, checkpointId: string, roadmapVersion: RoadmapVersion = '3.0.0'): CareerSkillAnchor => ({
+  missionId, checkpointId, roadmapVersion,
 });
 
 // Editorial transfer opportunities, not prerequisites, completion equivalence or inferred experience.
-// Each endpoint is an explicit checkpoint in the public v3 curriculum; citations live in its definition.
+// Each endpoint pins a documented version; citations live in its checkpoint definition.
+const agentCloudSkillLinks: readonly CareerSkillLink[] = [
+  {
+    id: 'agent-runtime-to-fabric-trust', concept: 'Isolation is not resource authority',
+    reason: 'Fabric credential-owner reasoning helps Neural distinguish a runtime sandbox from downstream permission, session ownership and delegated identity; each cloud task still needs its own tested boundaries.',
+    source: anchor('neural', 'neural-v4-neural-agent-authority', '4.0.0'), target: anchor('fabric', 'fabric-v3-fabric-4-6'),
+  },
+  {
+    id: 'agent-state-to-blueprint-compatibility', concept: 'Recoverable versioned state',
+    reason: 'Blueprint compatibility reasoning transfers to Neural durable workflows: changing an agent or schema cannot erase uncertain external effects or justify replaying a non-idempotent action.',
+    source: anchor('neural', 'neural-v4-neural-agent-durability', '4.0.0'), target: anchor('blueprint', 'blueprint-v3-blueprint-s6-5'),
+  },
+  {
+    id: 'agent-performance-to-system-critical-path', concept: 'Optimize the actual bottleneck',
+    reason: 'System latency/throughput reasoning helps Neural distinguish cached prefill and compact schemas from complete task latency, including tools, human review, coordination and verification.',
+    source: anchor('neural', 'neural-v4-neural-agent-performance', '4.0.0'), target: anchor('system', 'system-v3-module-03'),
+  },
+  {
+    id: 'agent-devbox-to-fieldcraft-reproducibility', concept: 'A repeatable engineering environment',
+    reason: 'Fieldcraft local vertical-slice practice supports the Neural engineering-worker pipeline, whose admitted changes require reproducible fixtures, deterministic checks and a reviewable artifact rather than production authority.',
+    source: anchor('neural', 'neural-v4-neural-agent-development', '4.0.0'), target: anchor('fde', 'fde-v3-fde-02'),
+  },
+];
+
 export const careerSkillLinks: readonly CareerSkillLink[] = [
   {
     id: 'keyed-state-to-fieldcraft-debugging', concept: 'Identity before deduplication',
@@ -677,4 +700,5 @@ export const careerSkillLinks: readonly CareerSkillLink[] = [
     reason: 'System multi-tenancy requires fair shared-resource access as well as data separation; Neural per-tenant queue and concurrency limits test that resource boundary for slow, expensive or bursty AI work.',
     source: anchor('system', 'system-v3-module-69'), target: anchor('neural', 'neural-v3-neural-4-2'),
   },
+  ...agentCloudSkillLinks,
 ];

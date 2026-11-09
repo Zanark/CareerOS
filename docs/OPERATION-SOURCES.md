@@ -1,5 +1,25 @@
 # Operation-document integration
 
+## Neural Edge / agent-native cloud: November 9
+
+The existing AI Architect mission has a verified v3-to-v4 append, not a new
+mission or replacement workbook. Its exact original 28 checkpoints/72 units/
+809 exercises and 144 physical source pages remain frozen. Twelve authored
+checkpoints in Phases 7-9, four independent case laboratories and 60 exercises
+produce a latest 40-checkpoint/88-unit/869-exercise library.
+
+[The public research matrix](AGENT-CLOUD-RESEARCH.md) records the curriculum,
+source roles and limits. Thirty primary-source receipts power actual web
+citations; no extension lesson invents PDF pages. Existing v3 progress carries
+only after confirmed verified append and counts once. Earlier incompatible
+editions archive without assumed credit. New material is freely browsable before
+adoption; paid accounts, real customer data and production access are not required.
+
+The latest ten missions now total **557 tracked checkpoints**. Original PDF
+corpus counts below remain their dated evidence, not counts inflated by either
+web-source extension. Atlas, normal backups and the optional encrypted journal
+reuse existing records; no score ledger, native Neural recall or live agent is added.
+
 ## Fieldcraft / Forward Deployed Engineering: November 9
 
 The tenth mission is **original web-source research synthesis**, not an
@@ -20,7 +40,8 @@ older workspaces. Frozen source editions and real records are not reclassified.
 Thirteen curated transfer comparisons connect it to all nine previous missions,
 without granting equivalent completion. Native recall and existing Atlas
 receipts support its evidence, while all original 24 discoveries/seven levels
-remain unchanged. Current combined total: **545 tracked checkpoints**.
+remain unchanged. Its initial combined total was **545 tracked checkpoints**;
+the later Neural append above adds twelve.
 
 Historical PDF corpus counts below remain their dated source-edition evidence;
 Fieldcraft's web sources do not inflate those page/unit/exercise counts.
@@ -200,13 +221,13 @@ Later specific handoffs take precedence over conflicting older visual taxonomy.
 | Fabric Core | Complete 112-page roadmap; retained handoff/OS references | v3 preserves the 32 canonical checkpoint identities as source labels and adds full study, practice and lab references. Old technical IDs remain version-specific. |
 | Blueprint | Complete 168-page Architect roadmap | v3 tracks 91 numbered modules plus Day 0; later extensions and capstone choices are independent practice. |
 | Credential Forge | Complete 156-page roadmap | v3 has 53 core study modules, optional Data study and separately chosen examinations. Earlier v2 optionality remains part of that frozen definition only. |
-| Neural Edge | Complete 144-page AI Architect roadmap | v3 follows seven phases and 28 modules, including credential study, with case/portfolio references. |
+| Neural Edge | Complete 144-page AI Architect roadmap plus [public-source extension](AGENT-CLOUD-RESEARCH.md) | Frozen v3 follows seven phases/28 modules. Confirmed v4 retains that exact prefix and adds 12 agent-cloud checkpoints/four optional cases. |
 | Escape Velocity | Complete 103-page roadmap | v3 has 34 modules plus independent cases, diagnostics, capstones and 45 labs. The old outcome workflow remains available in its own version. |
 | Algorithm Forge | Complete 120-page roadmap | v3 supplies 34 checkpoints across six stages. The older four-phase forecast is preserved, not silently converted into progress. |
 | Side Income | Complete 162-page roadmap | v3 supplies 104 modules across 13 stages. The older starting sprint remains archived/resolvable; no income or client outcome is assumed. |
 | Fieldcraft | [Reviewed primary web sources and authored synthesis](FDE-RESEARCH.md) | Latest-only v3: 48 checkpoints, eight optional labs, 112 exercises; no PDF pages or invented historical definition. |
 
-There are 545 tracked nodes across the latest missions (87 in the unchanged frozen v2 catalog).
+There are 557 tracked nodes across the latest missions (87 in the unchanged frozen v2 catalog).
 Topic-group and phase-level milestones
 are labeled as such. Their evidence prompts adapt the source's explain/build/draw/review
 requirements; they are not claims that every source supplied a complete exercise rubric.
@@ -244,6 +265,12 @@ or fabricated. The old snapshot remains archived; shared completions count once.
 A completed five-node track continues at the first added topic. Loaded v2 data is
 not silently switched; the user confirms **Append expanded roadmap**. v1 adoption
 does not guess a mapping from its different older curriculum.
+
+Neural v3→v4 verifies the exact 28-checkpoint prefix under the same fail-closed
+append mechanism. Original checkpoint/stage definitions and old records remain
+unchanged. A finished v3 tracker resumes at unconfirmed 7.1; Neural v1/v2 adoption
+does not guess equivalence. Mixed web/PDF provenance is per lesson, not a new
+source-book edition.
 
 The outer data format remains schema 2/catalog 2.0.0, while mission definitions
 resolve their own exact versions. Unknown mission/version combinations are rejected.

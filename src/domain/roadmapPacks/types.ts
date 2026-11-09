@@ -58,7 +58,7 @@ export interface RoadmapPack {
   phases: PackPhase[];
   units: PackUnit[];
   commonSections: PackSection[];
-  sourceKind?: 'web-research';
+  sourceKind?: 'web-research' | 'mixed';
   reviewedAt?: string;
   webSources?: WebStudySource[];
 }

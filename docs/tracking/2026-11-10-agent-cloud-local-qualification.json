@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "workstream": "ai-architect-agent-cloud",
+  "qualifiedOn": "2026-11-10",
+  "sourceReviewDate": "2026-11-09",
+  "sourceBase": "9368b329b8a8474ca0852fd5ad9943db71da2177",
+  "sourceStatus": "Local uncommitted implementation, not a published feature commit.",
+  "curriculum": {
+    "mission": "neural",
+    "latestVersion": "4.0.0",
+    "frozenPrefixVersion": "3.0.0",
+    "frozenPrefixCheckpoints": 28,
+    "addedCheckpoints": 12,
+    "optionalCases": 4,
+    "addedExercises": 60,
+    "publicSourceReceipts": 30,
+    "latestCheckpoints": 40,
+    "latestLibraryUnits": 88,
+    "latestExercises": 869,
+    "allLatestMissionCheckpoints": 557
+  },
+  "qualification": {
+    "typescript": "passed",
+    "unitCases": 712,
+    "unitFiles": 49,
+    "trackingCases": 22,
+    "productionBuild": "passed",
+    "browser": "Local Edge, one worker, separate loopback origin and disposable contexts.",
+    "initialBrowserRun": {
+      "startTime": "2026-11-09T18:20:56.898Z",
+      "passed": 58,
+      "failed": 5,
+      "cause": "Three new fixtures omitted the normal pre-existing daily plan; two Fieldcraft chapter exits used an ambiguous page-wide selector.",
+      "correction": "Seed the existing plan and scope Exit tutorial to its coach. No product behavior, assertion, retry or deadline was relaxed."
+    },
+    "correctiveBrowserRun": {
+      "startTime": "2026-11-09T18:33:53.001Z",
+      "passed": 8,
+      "failed": 0,
+      "includesEveryInitialFailure": true,
+      "includesActualV4BackupExportAndReplacementImport": true
+    },
+    "uniqueBrowserCasesAcrossRuns": 63,
+    "remainingFailures": 0,
+    "fullTutorial": "All 182 steps passed at 1440, 390 and 320 pixels.",
+    "visualReview": "Two actual lesson-source frames, desktop dark and 320px light, inspected together. No horizontal clipping observed in those frames."
+  },
+  "preserved": [
+    "Exact original Neural v3 checkpoint and stage prefix, source outlines and workbook content.",
+    "Workspace schema 2, catalog envelope 2.0.0, storage keys, original evidence and old saved positions.",
+    "Explicit append, exact archive, normal backup and authenticated encrypted-journal replay/append.",
+    "Atlas canonical receipts with no adoption credit or duplicate prefix nodes.",
+    "Original 177 tutorial lessons, existing native recall scope, approved README and empty public journal.",
+    "User-facing development preview; disposable qualification server was stopped by its runner."
+  ],
+  "limits": [
+    "This is scoped local qualification, not the complete browser suite or a new hosted/CI deployment.",
+    "No real profile, passphrase, cloud experiment, benchmark execution, paid account or production write.",
+    "Visual review is bounded; human acceptance and universal device/performance claims are unestablished.",
+    "The production build still reports its large-chunk warning.",
+    "No commit, push or deployment was performed for this workstream."
+  ]
+}

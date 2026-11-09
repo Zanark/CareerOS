@@ -11,7 +11,14 @@ const loaders: Record<PackMissionId, () => Promise<{ default: RoadmapPack }>> = 
   fde: () => import('../forwardDeployed/content'),
 };
 
-export async function loadRoadmapPack(missionId: PackMissionId): Promise<RoadmapPack> {
+export async function loadSourceRoadmapPack(missionId: PackMissionId): Promise<RoadmapPack> {
   const module = await loaders[missionId]();
   return module.default;
+}
+
+export async function loadRoadmapPack(missionId: PackMissionId): Promise<RoadmapPack> {
+  const base = await loadSourceRoadmapPack(missionId);
+  if (missionId !== 'neural') return base;
+  const { extendNeuralPack } = await import('../agentCloud/content');
+  return extendNeuralPack(base);
 }

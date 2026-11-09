@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-11-10",
+  "workstream": "ai-architect-agent-cloud",
+  "repository": "Zanark/CareerOS",
+  "issue": "https://github.com/Zanark/CareerOS/issues/11",
+  "projectNumber": 4,
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHRivE",
+  "independentGraphQLRead": {
+    "issueState": "CLOSED",
+    "stateReason": "COMPLETED",
+    "projectStatus": "Done",
+    "managedBodyContainsDoneSource": true,
+    "sameOriginalItem": true
+  },
+  "synchronizerReadBack": {
+    "verified": 1,
+    "created": 0,
+    "conflicts": 0,
+    "failed": 0,
+    "backlink": "verified",
+    "managedSha256": "fbd75acf9edd706ad60fa63fad98e5ac2499b3f54bb950d2584503bff5ec1c11"
+  },
+  "repeat": {
+    "verified": 1,
+    "actions": [],
+    "created": 0,
+    "recoveryFileBytesUnchanged": true
+  },
+  "receipts": [
+    "2026-11-10-agent-cloud-completion-preview.json",
+    "2026-11-10-agent-cloud-completion-apply.json",
+    "2026-11-10-agent-cloud-completion-noop.json",
+    "2026-11-10-agent-cloud-local-qualification.json"
+  ],
+  "scope": "Technical local completion and same-identity GitHub tracking. Human acceptance and source publication are separate; no commit, push or deployment."
+}

@@ -8,6 +8,7 @@ import { journalText, parseJournal, unpublishedText } from './journalFormat';
 import { makeJournalCache, parseJournalCache, reviewJournal } from './journalCache';
 import { applyWorkspaceChanges, canonicalJson, mergeWorkspaces, workspaceChanges } from './workspaceChanges';
 import type { JournalFile } from './journalFormat';
+import { getMissionVersion } from '../domain/catalog';
 
 const phrase = 'A synthetic test phrase, never a real secret';
 
@@ -26,6 +27,8 @@ function fixture() {
 describe('encrypted append-only repository journal', () => {
   it('replays a genuine nine-mission wire baseline and old batch before appending FDE work to the same encrypted chain', async () => {
     const base = fixture();
+    base.missions.neural = { ...base.missions.neural, roadmapVersion: '3.0.0',
+      checkpointId: getMissionVersion('neural', '3.0.0').checkpoints[0].id };
     const created = await createJournal(base, phrase);
     const { fde: _fde, ...oldMissions } = base.missions;
     const old = { ...base, missions: oldMissions };

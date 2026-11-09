@@ -7,6 +7,7 @@ import { dsaExpandedMission } from './operations/dsaExpanded';
 import { systemPracticeMission } from './operations/systemPractice';
 import { documentedPackMission } from './roadmapPacks/mission';
 import { fdeMission } from './forwardDeployed/mission';
+import { appendAgentCloudMission } from './agentCloud/mission';
 
 // The workspace envelope stays at v2; individual missions have independent versions.
 export const LATEST_ROADMAP_VERSION = '2.0.0' as const;
@@ -24,14 +25,17 @@ export const v2Missions: Mission[] = freeze([
 ].sort((a, b) => ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income'].indexOf(a.id) -
   ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income'].indexOf(b.id)));
 
-export const missions: Mission[] = freeze([
+export const v3Missions: Mission[] = freeze([
   ...v2Missions.map(mission => mission.id === 'pattern' ? dsaExpandedMission
     : mission.id === 'system' ? systemPracticeMission : documentedPackMission(mission)),
   fdeMission,
 ]);
 
+export const missions: Mission[] = freeze(v3Missions.map(mission =>
+  mission.id === 'neural' ? appendAgentCloudMission(mission) : mission));
+
 export function getMissionVersion(id: MissionId, version: RoadmapVersion): Mission {
-  const mission = [...legacyMissions, ...v2Missions, ...missions]
+  const mission = [...legacyMissions, ...v2Missions, ...v3Missions, ...missions]
     .find(candidate => candidate.id === id && candidate.roadmapVersion === version);
   if (!mission) throw new Error(`No ${version} roadmap exists for mission ${id}`);
   return mission;
@@ -76,10 +80,12 @@ export function prerequisitesFor(mission: Mission, checkpoint: Checkpoint): stri
   return index > 0 ? [mission.checkpoints[index - 1].id] : [];
 }
 
-/** Only the explicitly declared, unchanged DSA v2 prefix can inherit evidence. */
+/** Only explicitly allowlisted, byte-equivalent checkpoint/stage prefixes inherit evidence. */
 export function isVerifiedAppend(mission: Mission, previous: Mission): boolean {
-  return mission.id === 'pattern' && previous.id === 'pattern' &&
-    mission.roadmapVersion === '3.0.0' && previous.roadmapVersion === '2.0.0' &&
+  const declared = mission.id === 'pattern'
+    ? mission.roadmapVersion === '3.0.0' && previous.roadmapVersion === '2.0.0'
+    : mission.id === 'neural' && mission.roadmapVersion === '4.0.0' && previous.roadmapVersion === '3.0.0';
+  return declared && mission.id === previous.id &&
     mission.appendFrom === previous.roadmapVersion && !mission.planned && !previous.planned &&
     previous.checkpoints.length > 0 && mission.checkpoints.length > previous.checkpoints.length &&
     new Set(mission.checkpoints.map(checkpoint => checkpoint.id)).size === mission.checkpoints.length &&
@@ -94,9 +100,15 @@ const preservedPatternIds = new Set(
     ? getMissionVersion('pattern', '2.0.0').checkpoints.map(checkpoint => checkpoint.id) : [],
 );
 
+const preservedNeuralIds = new Set(
+  isVerifiedAppend(getLatestMission('neural'), getMissionVersion('neural', '3.0.0'))
+    ? getMissionVersion('neural', '3.0.0').checkpoints.map(checkpoint => checkpoint.id) : [],
+);
+
 export function checkpointEvidenceVersion(id: MissionId, checkpointId: string, version: RoadmapVersion): RoadmapVersion {
   getCheckpoint(id, checkpointId, version);
-  return id === 'pattern' && version === '3.0.0' && preservedPatternIds.has(checkpointId) ? '2.0.0' : version;
+  if (id === 'pattern' && version === '3.0.0' && preservedPatternIds.has(checkpointId)) return '2.0.0';
+  return id === 'neural' && version === '4.0.0' && preservedNeuralIds.has(checkpointId) ? '3.0.0' : version;
 }
 
 export function checkpointIdentity(id: MissionId, checkpointId: string, version: RoadmapVersion): string {

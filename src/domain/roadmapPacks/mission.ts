@@ -1,11 +1,11 @@
 import { defineOperation } from '../operationBuilder';
 import type { Mission, ReferenceGroup } from '../types';
-import { getPackOutline, isPackMissionId, PACK_ROADMAP_VERSION, formatPackPages, packUnitHref } from './registry';
+import { getSourcePackOutline, isPackMissionId, PACK_ROADMAP_VERSION, formatPackPages, packUnitHref } from './registry';
 import type { PackUnitOutline } from './types';
 
 export function documentedPackMission(original: Mission): Mission {
   if (!isPackMissionId(original.id)) return original;
-  const pack = getPackOutline(original.id);
+  const pack = getSourcePackOutline(original.id);
   if (!pack) throw new Error(`The complete roadmap pack is missing for ${original.id}.`);
   const checkpoints = pack.units.filter(unit => unit.role === 'checkpoint');
   if (!checkpoints.length) throw new Error(`The ${original.id} roadmap pack has no defined checkpoints.`);
