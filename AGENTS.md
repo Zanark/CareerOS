@@ -6,6 +6,14 @@ work, browser records, frozen roadmap editions and the approved illustrated READ
 
 ## Development and documentation
 
+Keep a live local CareerOS preview running whenever developing the website, and
+share its actual URL so the user can watch changes. Verify readiness and current
+source before calling it available. Reuse a verified existing preview; otherwise
+start the documented development command and leave it running for the user.
+Keep temporary test servers separate, never stop an unrelated process to reclaim
+a port, and never inspect/reset/import the user's browser data to prepare a preview.
+See `docs/DEVELOPMENT.md` for the established loopback URL and command.
+
 Use the current `development-documentation-manual` skill and its supporting
 GitHub tracking guide. Preserve the existing focused guide/architecture/source
 register conventions; do not generate a book or implement deferred features

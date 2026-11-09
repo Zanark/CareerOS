@@ -8,6 +8,35 @@ progress or the optional encrypted progress journal.
 [Pre-write inventory](tracking/2026-11-06-inventory.md) ·
 [Adoption receipt](tracking/2026-11-06-adoption.md)
 
+## Live local development preview
+
+The user wants to monitor development. At the start of website work, verify
+the current live preview or start it and share its URL. Keep that user-facing
+server running during development and available afterward unless the user asks
+to stop it; do not treat it as a disposable qualification server.
+
+From the repository root:
+
+```powershell
+npm run dev -- --port 4468 --strictPort
+```
+
+Established URL: **http://127.0.0.1:4468/CareerOS/**. The existing script binds
+to loopback and Vite updates the preview as source changes. Verify both an HTTP
+response and actual current application content. A surviving terminal/process
+alone is not readiness. Use a persistent background process when returning
+control, rather than a helper terminated at the end of one check.
+
+Reuse an existing server only after confirming it is this current application.
+If another process owns the port, choose an available port and report the actual
+URL; never stop an unrelated shared-machine process. Keep browser qualification
+on its separate configured port. No scheduler, machine startup service, LAN
+exposure or firewall change is implied.
+
+The local origin is a development preview, not the GitHub Pages workspace or a
+second sync target. Do not copy, reset or inspect the user's real browser
+records merely to make a preview work. Qualification uses disposable contexts.
+
 ## Adopted repository and board
 
 - Canonical public repository: `Zanark/CareerOS`, ID `1403603358`,

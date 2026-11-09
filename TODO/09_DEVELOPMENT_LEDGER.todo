@@ -17,6 +17,10 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-09 - Made user-visible local hosting a development contract. A stopped
+    preview was restarted on its established loopback port; actual current
+    Fieldcraft content and browser rendering were verified. Keep that server
+    available for the user and separate from disposable qualification servers.
   2026-11-09 - Fieldcraft is locally qualified and IN_REVIEW: 24 reviewed primary
     references, 48 core checkpoints, 8 optional labs, 112 applied/transfer exercises
     and 13 cited comparisons spanning the earlier nine missions. All 702 domain/
