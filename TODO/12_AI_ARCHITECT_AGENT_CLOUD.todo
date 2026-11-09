@@ -18,7 +18,7 @@ Tasks:
   [x] Add a final tutorial explanation and focused usage/research documentation.
   [x] Qualify compatibility and real isolated desktop/phone workflows.
   [x] Preview, apply and independently read back the same issue/Project mapping.
-  [ ] Commit and push the reviewed public-safe source with verified attribution.
+  [x] Commit and push the reviewed public-safe source with verified attribution.
   [ ] Qualify the exact GitHub Pages run, artifact and actual hosted extension.
   [ ] Reconcile final publication evidence on this same issue and Project item.
 
@@ -60,10 +60,21 @@ Completion evidence:
     issue 11 and original Project 4 item PVTI_lAHOAe2wCs4BqeZyzhHRivE.
     Final closed/completed/Done read-back is retained separately in the completion
     apply/no-op receipts under docs/tracking. Preserve these identities.
-  Publication: separately authorized November 10; source commit/push, exact Pages
-    gate and hosted verification are pending, not implied by earlier local checks.
+  Publication: separately authorized November 10. Feature source
+    15480375585fecb72a93014b2fc272a31d8ee318 is committed/pushed; Pages qualification
+    and hosted verification remain pending, not implied by earlier local checks.
+  Publication correction: four old graph cases still asserted a 545-node latest
+    curriculum while the real app correctly reports 557. A native clipboard
+    failure reproduces this; all four affected cases pass after deriving the
+    expected total from the latest catalog. Runtime/assertion strength unchanged.
 
 Completion log:
+  2026-11-10 - During exact Pages qualification, reproduced a stale graph-total
+    assertion against the production build: expected 545, actual correct 557.
+    Corrected five assertions in four cases to use the latest catalog. All four
+    affected native cases pass; no product behavior, retry or deadline changed.
+    Corrective source publication replaces the still-running predecessor under
+    the existing workflow concurrency policy; retain its actual final outcome.
   2026-11-10 - Owner separately requests push and deployment. Reopened the same
     workstream for reviewed source publication, exact-run qualification and
     hosted read-back; prior local technical completion remains valid history.

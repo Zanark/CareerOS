@@ -17,6 +17,12 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-10 - Publication audit reproduced an overlooked old native fixture:
+    the AI clipboard brief correctly reports 0/557, while its test expected
+    0/545. Five static totals in four graph cases now derive from the latest
+    catalog; the failing diagnostic and four-case passing correction are retained.
+    Runtime code and validation strength are unchanged. The corrective push
+    supersedes the earlier ongoing build, not a verified deployment.
   2026-11-10 - Owner separately authorizes pushing/deploying the locally qualified
     Neural extension. Publication reuses workstream12/issue11/original Project4
     item rather than creating a second feature. Exact main-branch CI, Pages

@@ -1,10 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate, recordEvidence } from '../src/domain/engine';
+import { missions } from '../src/domain/catalog';
 import type { AppState } from '../src/domain/types';
 import { graphCheckbox, openGraphPanel, searchGraphNodes, setGraphCheckbox, setGraphScope } from './graph-ui';
 
 test.use({ launchOptions: { args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] } });
 const key = 'careerhq.workspace.v1';
+const latestCheckpointTotal = missions.reduce((total, mission) => total + mission.checkpoints.length, 0);
 
 async function ready(page: Page) {
   await expect(page.locator('.career-graph-scene')).toHaveAttribute('data-scene-state', 'ready', { timeout: 20_000 });
@@ -46,7 +48,7 @@ test('home is a genuine WebGL2 career network with default orange work, and Over
   expect(gl.webgl2).toBe(true);
   expect(gl.version).toContain('WebGL 2');
   expect(gl.width).toBeGreaterThan(300);
-  await expect(page.locator('.career-graph-summary')).toContainText('0 / 545');
+  await expect(page.locator('.career-graph-summary')).toContainText(`0 / ${latestCheckpointTotal}`);
   await selectNamedNode(page, 'HashMap Fundamentals');
   await expect(page.locator('.career-graph-inspector .graph-status-tag')).toHaveText('Not marked complete');
   await expect(page.locator('.career-graph-node-list .graph-status-incomplete')).not.toHaveCount(0);
@@ -119,13 +121,13 @@ test('recorded completion becomes green while proof records do not invent checkp
   const raw = await seed(page, state);
   await page.goto('./');
   await ready(page);
-  await expect(page.locator('.career-graph-summary')).toContainText('1 / 545');
+  await expect(page.locator('.career-graph-summary')).toContainText(`1 / ${latestCheckpointTotal}`);
   const complete = await selectNamedNode(page, 'HashMap Fundamentals');
   await expect(complete.locator('.graph-status-complete')).toHaveCount(1);
   await expect(page.locator('.career-graph-inspector .graph-status-tag')).toHaveText('Recorded done');
   await selectNamedNode(page, 'Synthetic completed HashMap work');
   await expect(page.locator('.career-graph-inspector .graph-status-tag')).toHaveText('Reference');
-  await expect(page.locator('.career-graph-summary')).toContainText('1 / 545');
+  await expect(page.locator('.career-graph-summary')).toContainText(`1 / ${latestCheckpointTotal}`);
   await page.getByRole('complementary', { name: 'Main navigation' }).getByRole('link', { name: 'Keep going', exact: true }).click();
   await expect(page.getByText('Built a fictional parser', { exact: true })).toBeVisible();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(raw);
@@ -148,7 +150,7 @@ test('finishing real checkpoint controls changes its graph node from orange to g
   await ready(page);
   await selectNamedNode(page, 'HashMap Fundamentals');
   await expect(page.locator('.career-graph-inspector .graph-status-tag')).toHaveText('Recorded done');
-  await expect(page.locator('.career-graph-summary')).toContainText('1 / 545');
+  await expect(page.locator('.career-graph-summary')).toContainText(`1 / ${latestCheckpointTotal}`);
 });
 
 test('mission and reference filters preserve actual progress and keep all visible graph edges valid', async ({ page }) => {
@@ -276,7 +278,7 @@ test('AI briefs require a click, use only the clipboard, and report clipboard de
   await expect(page.locator('html')).not.toHaveAttribute('data-graph-copied');
   await openGraphPanel(page, 'view');
   await page.getByRole('button', { name: 'Copy brief for AI', exact: true }).click();
-  expect(await page.locator('html').getAttribute('data-graph-copied')).toContain('Current saved checkpoints: 0/545');
+  expect(await page.locator('html').getAttribute('data-graph-copied')).toContain(`Current saved checkpoints: 0/${latestCheckpointTotal}`);
   await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', {
     configurable: true, value: { writeText: async () => { throw new DOMException('Synthetic denial', 'NotAllowedError'); } },
   }));
