@@ -1,0 +1,50 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "d5044c0a2509f05a50ac357fd303d0c70beb0ab2",
+  "observedAt": "2026-11-09T16:29:17.448Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "forward-deployed-engineering",
+      "path": "TODO/11_FORWARD_DEPLOYED_ENGINEERING.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/10",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "a52466d72a658bc590e0656e8b634826eba1febd12287fb697d9d0ac2ee7bb04",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHNYmY",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 10,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 0,
+    "closed": 1,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

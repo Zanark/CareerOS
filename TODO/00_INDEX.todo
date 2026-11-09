@@ -18,12 +18,13 @@ DONE - 07_ENCRYPTED_PROGRESS_JOURNAL.todo (encrypted-progress-journal)
 DONE - 08_GITHUB_TRACKING_ADOPTION.todo (github-tracking-adoption)
 PERPETUAL - 09_DEVELOPMENT_LEDGER.todo (excluded from ordinary feature issues)
 DONE - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
-IN_REVIEW - 11_FORWARD_DEPLOYED_ENGINEERING.todo (forward-deployed-engineering)
+DONE - 11_FORWARD_DEPLOYED_ENGINEERING.todo (forward-deployed-engineering)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json
 Contributor workflow: docs/DEVELOPMENT.md
 Pre-write inventory: docs/tracking/2026-11-06-inventory.md
+Fieldcraft publication proof: docs/tracking/2026-11-09-fde-publication.json
 
 Identity and status rules:
   Keep Workstream ID stable through file/title/repository renames.

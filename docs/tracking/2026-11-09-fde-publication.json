@@ -1,0 +1,114 @@
+{
+  "repository": "Zanark/CareerOS",
+  "workstreamId": "forward-deployed-engineering",
+  "issue": "https://github.com/Zanark/CareerOS/issues/10",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "projectItemId": "PVTI_lAHOAe2wCs4BqeZyzhHNYmY",
+  "trackingVerification": {
+    "issueState": "closed",
+    "issueStateReason": "completed",
+    "projectStatus": "Done",
+    "originalIssueAndItemPreserved": true,
+    "independentIssueAndProjectReads": true,
+    "backlink": "verified",
+    "repeatedApplyActions": 0,
+    "repeatedApplyCreates": 0,
+    "recoveryStateByteUnchangedOnRepeat": true
+  },
+  "featureRevision": "4fe2f93eb493a694c710b32582d129a24d511519",
+  "sourceRevision": "d5044c0a2509f05a50ac357fd303d0c70beb0ab2",
+  "workflowRunId": 42648712307,
+  "workflowRunUrl": "https://github.com/Zanark/CareerOS/actions/runs/42648712307",
+  "buildConclusion": "success",
+  "deploymentConclusion": "success",
+  "publicUrl": "https://zanark.github.io/CareerOS/#/mission/fde",
+  "hostedObservedAt": "2026-11-09T16:24:20.597Z",
+  "validation": {
+    "unitCasesPassed": 702,
+    "browserCasesPassed": 456,
+    "correctiveLocalBrowserCasesPassed": 20,
+    "originalTutorialOrderPreserved": true,
+    "currentTutorialSteps": 177,
+    "currentTutorialChapters": 30
+  },
+  "firstFailedGate": {
+    "workflowRunId": 42641371787,
+    "sourceRevision": "af82c192142624c05622e1b010a635324e249092",
+    "unitCasesPassed": 702,
+    "browserCasesPassed": 447,
+    "browserCasesFailed": 5,
+    "deploymentRan": false,
+    "cause": "Stale Help topic counts and an array-first fixture assuming a PDF-to-PDF unadopted reference.",
+    "correction": "Retain the original PDF/reference assertions using a stable pair ID, update Help to 21 topics, and separately exercise responsive PDF/web citations and Fieldcraft Help navigation.",
+    "runtimeOrDeadlineRelaxed": false
+  },
+  "assetScope": "Seven selected production assets were independently SHA-256 matched to the downloaded artifact from the exact successful run. The public index references its module entry.",
+  "assets": [
+    {
+      "path": "/CareerOS/assets/index-_rpjRBVf.js",
+      "sha256": "5f90186f4254aa4bb6a7cfd81e1e5d72abb0ceae1d32044c0319a12db8c80a37",
+      "bytes": 783197
+    },
+    {
+      "path": "/CareerOS/assets/index-BLpCgnk_.css",
+      "sha256": "b9433e3e1a27e919e69d170e0f11c85c26176743fb2bc810c8d59f661c508ea1",
+      "bytes": 223636
+    },
+    {
+      "path": "/CareerOS/assets/content-Bn4r9AL-.js",
+      "sha256": "da4d44a19a48f196bd6cb0b2f6a77643f5c0ebd071261ade1dd4324c1295ddf9",
+      "bytes": 51559
+    },
+    {
+      "path": "/CareerOS/assets/WayfinderViewer-SrfOu5QG.js",
+      "sha256": "a90ec6743c8dc182c0e51ab8038e0e2b3db5ff02d14a3110bbaa0e1c5a6d96d1",
+      "bytes": 18345
+    },
+    {
+      "path": "/CareerOS/assets/career-3d-DfBp6M2W.js",
+      "sha256": "23cca696e8d05bc83f5cae8f868755550da3cccbf0844548d2230066e669969c",
+      "bytes": 597425
+    },
+    {
+      "path": "/CareerOS/assets/Silkscreen-Regular-CXGsBV3a.ttf",
+      "sha256": "734e6faa40fb5566327330d5b9b6e52fcc5d52ee91f0da1fe696ca33c5f7d258",
+      "bytes": 31320
+    },
+    {
+      "path": "/CareerOS/licenses/Silkscreen-OFL.txt",
+      "sha256": "0c0defe44c565904cdd3037f41254b55cb93e5999d4ff13c6c682f69d4c1c0a4",
+      "bytes": 4393
+    }
+  ],
+  "hostedChecks": {
+    "exactHostedArtifactAndEmptyPublicJournal": true,
+    "newMissionBackgroundWithoutAssumedProgress": true,
+    "realNineMissionWireNormalizationPreservesRecordsAndDates": true,
+    "backgroundEvidenceAndAtlasSourceReceipt": true,
+    "globalLevelUpAndActualWayfinder": true,
+    "backgroundCompletionRevealsActualGraphWithoutActivation": true,
+    "nativeRecallGuardAndUnchangedOriginalMissionRecords": true,
+    "actualOrdinaryBackupImportAndReload": true,
+    "lazyResearchLibraryAndCompleteReadOnlyMap": true,
+    "primarySourceScopesAndCrossMissionTransfer": true,
+    "actualLightPhoneResearchLayout": true,
+    "realFinalTutorialOnDesktopAndPhoneIsStorageIsolated": true,
+    "noExternalRequestsOrBrowserErrors": true
+  },
+  "visualReview": {
+    "actualHostedFramesInspected": 2,
+    "viewports": [1440, 320],
+    "themes": ["dark", "light"],
+    "observation": "The inspected research/source disclosure frames were readable with no clipping observed.",
+    "humanAcceptance": "not recorded"
+  },
+  "boundaries": {
+    "browserContexts": "New disposable contexts and explicitly synthetic records only.",
+    "actualUserWorkspaceOrPassphraseAccessed": false,
+    "publicJournalBytes": 0,
+    "approvedReadmeAndFrozenRoadmapsPreserved": true,
+    "newDependenciesOrWorkflowChanges": false,
+    "hiringLearningOrUniversalPerformanceGuarantee": false,
+    "followUpPolicy": "Tracking/evidence-only follow-ups do not imply another deployed application source revision."
+  }
+}

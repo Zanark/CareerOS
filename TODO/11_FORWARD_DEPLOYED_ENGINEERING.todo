@@ -1,6 +1,6 @@
 Workstream ID: forward-deployed-engineering
 Title: Research-backed Forward Deployed Engineering background mission
-Status: IN_REVIEW
+Status: DONE
 Milestone: Add an evidence-based customer-to-production engineering roadmap
 Dependencies: tracker-foundation, versioned-roadmaps, career-graph, encrypted-progress-journal, discovery-atlas
 GitHub issue: https://github.com/Zanark/CareerOS/issues/10
@@ -19,8 +19,8 @@ Tasks:
   [x] Update focused research/source/usage/architecture references and tutorial.
   [x] Qualify domain, compatibility and actual responsive browser workflows.
   [x] Keep a separate live development preview available for user monitoring.
-  [ ] Publish authorized source and verify exact successful Pages artifacts/live behavior.
-  [ ] Settle this issue, original Kanban item, evidence and owned continuity.
+  [x] Publish authorized source and verify exact successful Pages artifacts/live behavior.
+  [x] Settle this issue, original Kanban item, evidence and owned continuity.
 
 Acceptance criteria:
   The new mission is background and unstarted on new and compatible old workspaces;
@@ -64,10 +64,25 @@ Completion evidence:
   Corrective production-build browser gate: 20 PASS, including original PDF/reference
     assertions and new desktop/phone mixed-source and Fieldcraft Help navigation.
     Fixtures select stable identities; runtime, deadlines and retry policy unchanged.
-  Source publication, full hosted gate and exact live-artifact verification remain
-    pending. No human acceptance or user progress access is claimed.
+  Exact deployed source: d5044c0a2509f05a50ac357fd303d0c70beb0ab2, successful
+    Pages 42648712307. Both jobs pass, including all 702 units and 456 browser cases.
+  Seven actual hosted asset hashes match that exact artifact: entry, stylesheet,
+    lazy Fieldcraft lessons, Wayfinder, shared 3D runtime, font and license.
+  All 13 actual hosted checks pass: new/old-wire background defaults, original
+    records/dates/focus, evidence/Atlas receipts, global level-up, graph reveal,
+    recall guards, ordinary backup/import/reload, library/map/source/transfer,
+    light phone, final desktop/phone tutorial isolation and no external errors.
+  Two actual hosted desktop/dark and phone/light research frames reviewed without
+    clipping seen. Public journal remains empty. No human acceptance, career
+    outcome or real user workspace/passphrase access is claimed.
+  Public-safe exact-source receipt: docs/tracking/2026-11-09-fde-publication.json.
 
 Completion log:
+  2026-11-09 - Exact corrected source d5044c0 passed the full 702-unit/456-browser
+    gate and deployed via Pages 42648712307. Downloaded its exact artifact,
+    independently matched seven live assets and passed all 13 hosted behaviors.
+    Preserve the same issue and original Project item for completed/Done closure;
+    tracking/evidence follow-up is separate from the deployed runtime identity.
   2026-11-09 - Full CI exposed five missed test assumptions. Preserved the failed
     run, pinned the original PDF pair instead of array order, updated Help to 21
     topics and added explicit web-research/help integration cases. All 20 affected
