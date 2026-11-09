@@ -17,6 +17,12 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-09 - First full Fieldcraft gate passed 447/452 browser cases and all702
+    units, but five tests had overlooked the new Help topic and web-only source
+    kind. A first-array-entry fixture accidentally selected a different semantic
+    case. Stable explicit pair selection preserves the original PDF/reference
+    checks; separate desktop/phone cases verify the real mixed citation and Help
+    navigation. The corrective20-case gate passes with no product/deadline change.
   2026-11-09 - Made user-visible local hosting a development contract. A stopped
     preview was restarted on its established loopback port; actual current
     Fieldcraft content and browser rendering were verified. Keep that server

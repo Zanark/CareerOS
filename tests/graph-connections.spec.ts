@@ -8,7 +8,8 @@ import { graphCheckbox, searchGraphNodes, setGraphCheckbox, setGraphScope } from
 
 test.use({ launchOptions: { args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] } });
 const key = 'careerhq.workspace.v1';
-const link = careerSkillLinks[0];
+const link = careerSkillLinks.find(item => item.id === 'array-regions-to-contest-state');
+if (!link) throw new Error('Missing PDF-to-PDF shared-skill fixture.');
 const source = getCheckpoint(link.source.missionId, link.source.checkpointId, link.source.roadmapVersion);
 const target = getCheckpoint(link.target.missionId, link.target.checkpointId, link.target.roadmapVersion);
 
@@ -22,11 +23,11 @@ async function openGraph(page: Page, state = createInitialState(false)) {
   return raw;
 }
 
-async function inspectSource(page: Page) {
-  await searchGraphNodes(page, source.title);
-  await page.locator('.career-graph-node-list > button').filter({ hasText: source.title }).first().click();
+async function inspectSource(page: Page, checkpoint = source) {
+  await searchGraphNodes(page, checkpoint.title);
+  await page.locator('.career-graph-node-list > button').filter({ hasText: checkpoint.title }).first().click();
   const inspector = page.getByRole('complementary', { name: 'Selected career node' });
-  await expect(inspector.getByRole('heading', { level: 2 })).toHaveText(source.title);
+  await expect(inspector.getByRole('heading', { level: 2 })).toHaveText(checkpoint.title);
   await inspector.locator('.career-graph-connections > summary').click();
   return inspector;
 }
@@ -69,6 +70,29 @@ for (const width of [1440, 320]) {
     await expect(inspector).toContainText('Details only: this mission is outside focus');
     await expect(page.getByRole('button', { name: 'Focus node', exact: true })).toBeDisabled();
     await expect(page.locator('.career-graph-stage canvas')).toHaveAttribute('data-selected-node-id', '');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(raw);
+  });
+
+  test(`Fieldcraft connections disclose web research alongside PDF pages at ${width}px without changing progress`, async ({ page }) => {
+    const fieldcraftLink = careerSkillLinks.find(item => item.id === 'keyed-state-to-fieldcraft-debugging');
+    if (!fieldcraftLink) throw new Error('Missing PDF-to-Fieldcraft shared-skill fixture.');
+    const pdfCheckpoint = getCheckpoint(fieldcraftLink.source.missionId, fieldcraftLink.source.checkpointId, fieldcraftLink.source.roadmapVersion);
+    const researchCheckpoint = getCheckpoint(fieldcraftLink.target.missionId, fieldcraftLink.target.checkpointId, fieldcraftLink.target.roadmapVersion);
+    await page.setViewportSize({ width, height: 1000 });
+    const raw = await openGraph(page);
+    const inspector = await inspectSource(page, pdfCheckpoint);
+    const entry = inspector.locator('li[data-connection-kind="shared-skill"]').filter({ has: page.getByText(fieldcraftLink.reason, { exact: true }) });
+    await entry.getByText('Curriculum basis', { exact: true }).click();
+    await expect(entry).toContainText(pdfCheckpoint.source!.document);
+    await expect(entry).toContainText(`p. ${pdfCheckpoint.source!.page}`);
+    await expect(entry).toContainText(researchCheckpoint.source!.document);
+    await expect(entry).toContainText(researchCheckpoint.source!.section);
+    await expect(entry).not.toContainText('p. undefined');
+    await expect(entry.getByRole('link', { name: 'Read the research basis', exact: true }))
+      .toHaveAttribute('href', 'https://github.com/Zanark/CareerOS/blob/main/docs/FDE-RESEARCH.md');
+    await entry.getByRole('button', { name: `Reveal and inspect ${researchCheckpoint.title}`, exact: true }).click();
+    await expect(inspector.getByRole('heading', { level: 2 })).toHaveText(researchCheckpoint.title);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(raw);
   });

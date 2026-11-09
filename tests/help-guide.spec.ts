@@ -7,7 +7,7 @@ for (const width of [1440, 320]) {
     await page.goto('./#/guide');
     const guide = page.locator('[data-tour="help-guide"]');
     const raw = await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'));
-    await expect(guide.locator('.help-topic')).toHaveCount(20);
+    await expect(guide.locator('.help-topic')).toHaveCount(21);
     const search = guide.getByRole('searchbox', { name: 'Find an answer', exact: true });
     await search.fill('streak');
     const streak = guide.locator('.help-topic').filter({ has: page.getByRole('heading', { name: 'Recorded-work streak and today’s dot border', exact: true }) });
@@ -21,12 +21,31 @@ for (const width of [1440, 320]) {
     await search.fill('no-matching-help-topic');
     await expect(guide).toContainText('No matching topic');
     await guide.getByRole('button', { name: 'Clear search', exact: true }).click();
-    await expect(guide.locator('.help-topic')).toHaveCount(20);
+    await expect(guide.locator('.help-topic')).toHaveCount(21);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await guide.getByRole('link', { name: 'Review roadmap updates', exact: true }).click();
     await expect(page).toHaveURL(/#\/sources$/);
     await expect(page.getByRole('heading', { name: 'Operation documents', exact: true, level: 1 })).toBeVisible();
     expect(await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'))).toBe(raw);
+  });
+
+  test(`Help finds and opens background Fieldcraft at ${width}px without changing progress`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('./#/guide');
+    await expect(page.getByRole('heading', { name: 'Help & glossary', exact: true })).toBeVisible();
+    const before = await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'));
+    await page.getByRole('searchbox', { name: 'Find an answer', exact: true }).fill('customer discovery');
+    const topic = page.locator('.help-topic');
+    await expect(topic).toHaveCount(1);
+    await topic.locator('summary').click();
+    await expect(topic).toContainText('No paid account or real customer access is required');
+    await topic.getByRole('link', { name: 'Open Fieldcraft', exact: true }).click();
+    await expect(page).toHaveURL(/#\/mission\/fde$/);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Forward Deployed Engineering');
+    await expect(page.getByRole('button', { name: 'Bring into focus', exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => localStorage.getItem('careerhq.workspace.v1'))).toBe(before);
   });
 }
 

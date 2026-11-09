@@ -58,10 +58,20 @@ Completion evidence:
   Three actual responsive/theme lesson captures reviewed without clipping seen.
   User preview serves current source with live updates on loopback port 4468;
     HTTP and actual Fieldcraft rendering verified in a disposable browser.
+  First full Pages gate 42641371787 passed 702 units and 447 of 452 browser cases.
+    Five stale expectations assumed 20 Help topics and a PDF/reference-only first
+    curated pair. Actual research citations were correct; deployment did not run.
+  Corrective production-build browser gate: 20 PASS, including original PDF/reference
+    assertions and new desktop/phone mixed-source and Fieldcraft Help navigation.
+    Fixtures select stable identities; runtime, deadlines and retry policy unchanged.
   Source publication, full hosted gate and exact live-artifact verification remain
     pending. No human acceptance or user progress access is claimed.
 
 Completion log:
+  2026-11-09 - Full CI exposed five missed test assumptions. Preserved the failed
+    run, pinned the original PDF pair instead of array order, updated Help to 21
+    topics and added explicit web-research/help integration cases. All 20 affected
+    browser cases pass together; a new exact-source full Pages gate is still required.
   2026-11-09 - Implemented the bounded mission, all supporting shared surfaces,
     research disclosures and 7 appended tutorial lessons. A real denser mixed-version
     graph-spacing regression was fixed by recovering fan-wedge room in one line;
