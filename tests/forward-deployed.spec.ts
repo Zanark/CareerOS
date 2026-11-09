@@ -85,7 +85,8 @@ test('a real old-wire workspace gains only background FDE, then retains its reco
   state.missions.fabric.mode = 'active';
   state.missions.pattern.mode = 'background';
   state.missions.escape.blocker = 'Synthetic existing approval blocker';
-  state.plans[localDate()] = generatePlan(state);
+  const browserDate = await page.evaluate(localDate, undefined);
+  state.plans[browserDate] = generatePlan(state, browserDate);
   const { fde, ...oldMissions } = state.missions;
   await seed(page, { ...state, missions: oldMissions });
   await page.goto('./#/mission/fde');

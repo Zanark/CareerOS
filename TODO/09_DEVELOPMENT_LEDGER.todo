@@ -17,6 +17,11 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-10 - The canceled predecessor's retained logs also exposed an old-wire
+    fixture using the Node host calendar instead of its Kolkata browser day.
+    A UTC-host reproduction showed the valid extra day plan. Browser-context
+    date seeding through the existing helper preserves all normalization,
+    recall and backup assertions; the affected case passes without runtime edits.
   2026-11-10 - Publication audit reproduced an overlooked old native fixture:
     the AI clipboard brief correctly reports 0/557, while its test expected
     0/545. Five static totals in four graph cases now derive from the latest

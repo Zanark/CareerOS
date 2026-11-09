@@ -67,8 +67,16 @@ Completion evidence:
     curriculum while the real app correctly reports 557. A native clipboard
     failure reproduces this; all four affected cases pass after deriving the
     expected total from the latest catalog. Runtime/assertion strength unchanged.
+  Cross-timezone correction: the old-wire FDE fixture seeded a UTC-host day while
+    its browser uses Kolkata. Reproduced the extra legitimate browser-day plan;
+    seed through the existing date helper in that browser instead. The full
+    normalization/recall/backup case passes under UTC-host/Kolkata-browser setup.
 
 Completion log:
+  2026-11-10 - Retained canceled first-run logs exposed a separate FDE date
+    fixture mismatch after Kolkata midnight. Reproduced under UTC, then kept
+    every equality/recall/backup assertion by seeding its browser-local plan day.
+    Type checking and the complete affected native case pass; runtime unchanged.
   2026-11-10 - During exact Pages qualification, reproduced a stale graph-total
     assertion against the production build: expected 545, actual correct 557.
     Corrected five assertions in four cases to use the latest catalog. All four
