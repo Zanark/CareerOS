@@ -17,7 +17,7 @@ DONE - 06_TUTORIAL_AND_HELP.todo (tutorial-and-help)
 DONE - 07_ENCRYPTED_PROGRESS_JOURNAL.todo (encrypted-progress-journal)
 DONE - 08_GITHUB_TRACKING_ADOPTION.todo (github-tracking-adoption)
 PERPETUAL - 09_DEVELOPMENT_LEDGER.todo (excluded from ordinary feature issues)
-IN_REVIEW - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
+DONE - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

@@ -1,0 +1,61 @@
+{
+  "repository": "Zanark/CareerOS",
+  "sourceRevision": "347a8e89d2789c6f837bdb80ddbf704545940d30",
+  "runId": 42611659259,
+  "runUrl": "https://github.com/Zanark/CareerOS/actions/runs/42611659259",
+  "siteUrl": "https://zanark.github.io/CareerOS/#/discoveries",
+  "verifiedAt": "2026-11-09T12:14:40.408Z",
+  "ci": {
+    "conclusion": "success",
+    "unitCasesPassed": 689,
+    "browserCasesPassed": 444,
+    "build": "success",
+    "deployment": "success"
+  },
+  "journalArtifactBytes": 0,
+  "hostedAssets": [
+    {
+      "url": "https://zanark.github.io/CareerOS/assets/index-kWqP1plD.js",
+      "sha256": "bfd45c93555754bb1b20e474c943c4889d193816181ecc977f3162e3f6c1055a"
+    },
+    {
+      "url": "https://zanark.github.io/CareerOS/assets/index-BLpCgnk_.css",
+      "sha256": "b9433e3e1a27e919e69d170e0f11c85c26176743fb2bc810c8d59f661c508ea1"
+    },
+    {
+      "url": "https://zanark.github.io/CareerOS/assets/WayfinderViewer-CiuYF5G1.js",
+      "sha256": "a699e798aeb5b88467ee57430631e7d62621afc378557041c289fce80ae606fd"
+    },
+    {
+      "url": "https://zanark.github.io/CareerOS/assets/career-3d-DfBp6M2W.js",
+      "sha256": "23cca696e8d05bc83f5cae8f868755550da3cccbf0844548d2230066e669969c"
+    },
+    {
+      "url": "https://zanark.github.io/CareerOS/assets/Silkscreen-Regular-CXGsBV3a.ttf",
+      "sha256": "734e6faa40fb5566327330d5b9b6e52fcc5d52ee91f0da1fe696ca33c5f7d258"
+    },
+    {
+      "url": "https://zanark.github.io/CareerOS/licenses/Silkscreen-OFL.txt",
+      "sha256": "0c0defe44c565904cdd3037f41254b55cb93e5999d4ff13c6c682f69d4c1c0a4"
+    }
+  ],
+  "hostedChecks": {
+    "exactHostedEntryAndStyles": true,
+    "realIsometricOrbitPanZoomResetAndIdleSuspension": true,
+    "inspectionIsReadOnly": true,
+    "hostedLevelUpAndExpCarryover": true,
+    "realEvidenceWithoutCheckpointCredit": true,
+    "reloadPreservesCollectionWithoutReannouncingHistory": true,
+    "ordinaryBackupStillCarriesOnlyExistingSourceData": true,
+    "hostedTutorialObservesActualDioramaReset": true,
+    "appendedHostedTutorialIsIsolated": true,
+    "hostedLightThemeReducedMotionAndMobileLayout": true,
+    "noExternalRequestsOrBrowserErrors": true
+  },
+  "limits": [
+    "Disposable synthetic records only; no real user workspace or passphrase accessed.",
+    "Technical publication is not human aesthetic approval or evidence of improved career outcomes.",
+    "Local CPU render-submission measurements do not establish GPU latency or universal device performance.",
+    "Later tracking/evidence-only commits do not change the deployed runtime source identified here."
+  ]
+}

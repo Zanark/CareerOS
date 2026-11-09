@@ -1,6 +1,6 @@
 Workstream ID: discovery-atlas
 Title: Evidence-based discovery collection and final tutorial chapter
-Status: IN_REVIEW
+Status: DONE
 Milestone: Make useful recorded practice rewarding without inventing career progress
 Dependencies: tracker-foundation, appearance-and-identity, versioned-roadmaps, tutorial-and-help
 GitHub issue: https://github.com/Zanark/CareerOS/issues/9
@@ -21,7 +21,7 @@ Tasks:
   [x] Update the final tutorial and qualify revised motion, accessibility and both themes.
   [x] Replace the flat backdrop with an orbitable, movable isometric 3D diorama.
   [x] Requalify all chapter scenes, camera controls, tutorial and graphics budgets.
-  [ ] Synchronize this workstream, publish authorized commits and verify Pages.
+  [x] Synchronize this workstream, publish authorized commits and verify Pages.
 
 Acceptance criteria:
   Collection recognizes recorded work, not independently assessed ability.
@@ -48,6 +48,16 @@ Acceptance criteria:
   Technical completion, user acceptance and actual deployment remain separate.
 
 Completion evidence:
+  Published source: 347a8e89d2789c6f837bdb80ddbf704545940d30.
+  Exact Pages run 42611659259 succeeded: 689 unit cases, all 444 browser cases,
+    production build and actual deployment. Hosted entry/styles/renderer/font/
+    license bytes match that run's artifact; its public journal remains empty.
+  Actual hosted browser checks pass for isometric orbit/pan/zoom/reset, no idle
+    frames, source-only level-up, ordinary backup, final-tutorial reset/isolation,
+    light/mobile layout and no external requests/browser errors.
+  Public-safe exact-source receipt:
+    docs/tracking/2026-11-09-discovery-publication.json.
+  Technical publication is complete; revised aesthetic acceptance is unrecorded.
   Current isometric diorama: seven real batched chapter environments, shared
     orthographic camera, deliberate orbit/pan/zoom, cumulative earned equipment.
   Current TypeScript/689 unit cases and production build pass; the unchanged
@@ -89,7 +99,7 @@ Completion evidence:
   module scope; no product validation or assertions were weakened.
   Human acceptance: original character presentation rejected; revised acceptance unrecorded.
   Superseded Pages run 42598017993 was intentionally cancelled before deployment.
-  Publication: a corrective commit, push and exact-source Pages verification remain authorized.
+  Publication: corrective commit/push and exact-source Pages verification are complete.
   Prior local tracking adoption files remain preserved for reviewed publication.
 
 Completion log:
@@ -123,3 +133,8 @@ Completion log:
     steps and the actual asynchronous reset gate. Seven distinct batched scenes
     share one small event-driven context. Advanced to IN_REVIEW for the already
     authorized corrective commit/push and exact-source Pages verification.
+  2026-11-09 - Published corrective source347a8e8 through exact successful
+    Pages42611659259. All444 hosted-run browser cases pass. Actual live assets
+    and controls/source-data boundaries were independently checked against the
+    successful artifact. Advanced the same workstream to DONE; no aesthetic
+    approval or personal career outcome is inferred.

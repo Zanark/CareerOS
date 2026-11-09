@@ -21,7 +21,7 @@ content at every level, followed by the owner's explicit PS1-style 3D request. P
 [42598017993](https://github.com/Zanark/CareerOS/actions/runs/42598017993)
 was intentionally cancelled before deployment. The prototype checks retained
 below do not establish aesthetic acceptance. The replacement's separate local
-qualification follows; exact-source publication is authorized and pending.
+qualification and successful exact-source publication follow.
 
 ## Revised result and local qualification
 
@@ -142,5 +142,21 @@ Technical qualification is not user visual approval or evidence of improved
 career outcomes. No real user workspace, private PDF or passphrase was accessed.
 All browser verification used isolated synthetic records.
 
-Replacement publication is authorized and pending. The successful source revision, exact
-Pages run and hosted read-back will be recorded here after they exist.
+Replacement source
+[`347a8e89d2789c6f837bdb80ddbf704545940d30`](https://github.com/Zanark/CareerOS/commit/347a8e89d2789c6f837bdb80ddbf704545940d30)
+was committed with the verified repository attribution and pushed normally.
+Exact [Pages run 42611659259](https://github.com/Zanark/CareerOS/actions/runs/42611659259)
+passed **689 unit cases and all 444 browser cases**, built and deployed.
+
+The actual hosted entry, stylesheet, lazy avatar renderer, shared 3D runtime,
+font and complete license match that successful run's artifact by SHA-256.
+The artifact's public progress journal is zero bytes. A new disposable hosted
+browser exercised real isometric orbit/pan/zoom/reset and idle suspension,
+source-derived level-up/EXP carryover, reload, ordinary backup, the final
+tutorial's actual reset gate and workspace isolation, light/mobile layouts,
+and absence of external requests/browser errors.
+
+The [public-safe publication receipt](2026-11-09-discovery-publication.json)
+records exact asset identities and verified checks without private browser
+records, captures or machine paths. Tracking/evidence-only follow-through does
+not change the deployed runtime source above or imply another app deployment.

@@ -121,11 +121,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/9",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHIza0",
       "baseline": {
-        "managed": "d3d0d5fd5bbe75fa3c78280c1ea1dbed55bf60f86141d0f5755c17aeac132568",
+        "managed": "d87736f1b55507578a504da31415018e8f207c4ad331b5f76961739a4b100098",
         "title": "Evidence-based discovery collection and final tutorial chapter",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }
