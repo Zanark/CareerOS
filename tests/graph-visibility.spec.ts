@@ -1,7 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate, parseState } from '../src/domain/engine';
 import { focusedGraphForState } from './mission-ring-policy';
-import type { RoadmapVersion } from '../src/domain/types';
+import { missionIds, type RoadmapVersion } from '../src/domain/types';
 import { closeGraphPanels, graphCheckbox, openGraphPanel, searchGraphNodes, setGraphCheckbox } from './graph-ui';
 import { chooseMissionRings } from './mission-ring-policy';
 
@@ -126,7 +126,7 @@ test('item hiding preserves remaining geometry and zoom, removes incident edges,
   await panel.getByRole('button', { name: 'Select all items', exact: true }).click();
   await expect(scene).toHaveAttribute('data-node-count', String(graph.nodes.length));
   await expect(scene).toHaveAttribute('data-edge-count', String(graph.edges.length));
-  await expect(scene).toHaveAttribute('data-orbit-count', '10');
+  await expect(scene).toHaveAttribute('data-orbit-count', String(missionIds.length));
   const core = panel.getByRole('checkbox', { name: 'Show CareerOS core group', exact: true });
   await core.uncheck();
   await expect(scene).toHaveAttribute('data-node-count', String(graph.nodes.length - 1));

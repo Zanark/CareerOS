@@ -2,7 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate, recordEvidence } from '../src/domain/engine';
 import { getLatestMission, getMissionVersion } from '../src/domain/catalog';
 import { legacyMissionIds } from '../src/domain/legacyState';
-import type { AppState } from '../src/domain/types';
+import { missionIds, type AppState } from '../src/domain/types';
 
 const key = 'careerhq.workspace.v1';
 
@@ -79,7 +79,7 @@ test('documented phases, optional references and the expanded contest curriculum
   await page.goto('./#/sources');
   await expect(page.getByRole('heading', { name: 'Operation documents', level: 1, exact: true })).toBeVisible();
   const selector = page.locator('.source-selector select');
-  await expect(selector.locator('option')).toHaveCount(10);
+  await expect(selector.locator('option')).toHaveCount(missionIds.length);
   await selector.selectOption('fabric');
   await expect(page.locator('.source-counts')).toContainText('32 tracked nodes');
   await expect(page.getByRole('combobox', { name: 'Roadmap stage' })).toHaveCount(1);

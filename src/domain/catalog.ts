@@ -8,6 +8,7 @@ import { systemPracticeMission } from './operations/systemPractice';
 import { documentedPackMission } from './roadmapPacks/mission';
 import { fdeMission } from './forwardDeployed/mission';
 import { appendAgentCloudMission } from './agentCloud/mission';
+import { omscsMission } from './omscs/mission';
 
 // The workspace envelope stays at v2; individual missions have independent versions.
 export const LATEST_ROADMAP_VERSION = '2.0.0' as const;
@@ -31,8 +32,10 @@ export const v3Missions: Mission[] = freeze([
   fdeMission,
 ]);
 
-export const missions: Mission[] = freeze(v3Missions.map(mission =>
-  mission.id === 'neural' ? appendAgentCloudMission(mission) : mission));
+export const missions: Mission[] = freeze([
+  ...v3Missions.map(mission => mission.id === 'neural' ? appendAgentCloudMission(mission) : mission),
+  omscsMission,
+]);
 
 export function getMissionVersion(id: MissionId, version: RoadmapVersion): Mission {
   const mission = [...legacyMissions, ...v2Missions, ...v3Missions, ...missions]

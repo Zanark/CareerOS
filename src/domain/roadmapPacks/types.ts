@@ -1,6 +1,6 @@
 import type { MissionId } from '../types';
 
-export const packMissionIds = ['escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income', 'fde'] as const;
+export const packMissionIds = ['escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income', 'fde', 'omscs'] as const;
 export type PackMissionId = typeof packMissionIds[number];
 
 export interface WebStudySource {

@@ -73,7 +73,7 @@ for (const width of [1440, 320]) {
     expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(raw);
   });
 
-  test(`final agent-cloud tutorial uses real controls without changing storage at ${width}px`, async ({ page }) => {
+  test(`agent-cloud tutorial chapter uses real controls without changing storage at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     await seed(page, prior());
     await page.goto('./#/settings');
@@ -85,11 +85,13 @@ for (const width of [1440, 320]) {
       await expect(coach).toHaveAttribute('data-step', step.id);
       if (step.id === 'agent-cloud-sources') await page.locator('[data-tour="pack-unit-sources"] > summary').click();
       if (step.id === 'agent-cloud-cases') await page.locator('[data-tour="pack-unit-select"]').selectOption('neural-agent-case-race');
-      const next = coach.getByRole('button', { name: step.id === 'agent-cloud-finish' ? 'Finish tutorial' : 'Next', exact: true });
+      const next = coach.getByRole('button', { name: 'Next', exact: true });
       await expect(next).toBeEnabled();
       expect(await allStorage(page)).toEqual(before);
       await next.click();
     }
+    await expect(page.locator('.tutorial-panel')).toHaveAttribute('data-step', 'omscs-intro');
+    await page.locator('.tutorial-panel').getByRole('button', { name: 'Exit tutorial', exact: true }).click();
     await expect(page.locator('.app')).toHaveAttribute('data-workspace', 'saved');
     expect(await allStorage(page)).toEqual(before);
   });

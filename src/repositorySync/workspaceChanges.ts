@@ -5,7 +5,7 @@ import { missionIds, readinessKeys } from '../domain/types';
 import { isDate } from '../domain/legacyState';
 import { serializeWorkspace } from '../workspaceFile';
 
-const settings = ['sampleData', 'objective', 'focusMissionId', 'capacity', 'interviewMode'] as const;
+const settings = ['sampleData', 'objective', 'focusMissionId', 'capacity', 'interviewMode', 'omscsPlan'] as const;
 const collections = ['evidence', 'events', 'opportunities', 'freelanceOpportunities', 'recalls',
   'personalProof', 'focusSessions'] as const;
 const optionalCollections = ['personalProof', 'focusSessions'] as const;
@@ -48,7 +48,7 @@ export function canonicalJson(value: unknown): string {
 function project(state: AppState): Map<string, string> {
   const cells = new Map<string, string>();
   const add = (key: string, value: unknown) => cells.set(key, canonicalJson(value));
-  for (const key of settings) add(`setting/${key}`, state[key]);
+  for (const key of settings) if (state[key] !== undefined) add(`setting/${key}`, state[key]);
   for (const id of missionIds) add(`mission/${id}`, state.missions[id]);
   for (const key of readinessKeys) add(`readiness/${key}`, state.readiness[key]);
   for (const [date, actions] of Object.entries(state.plans)) add(`plan/${date}`, actions);
@@ -79,7 +79,7 @@ function assemble(cells: ReadonlyMap<string, string>, updatedAt: string): AppSta
     .filter(([key]) => key.startsWith(`${prefix}/`)).map(([, value]): unknown => JSON.parse(value));
   const value: Record<string, unknown> = {
     schemaVersion: 2, roadmapVersion: '2.0.0', updatedAt,
-    ...Object.fromEntries(settings.map(key => [key, get(`setting/${key}`)])),
+    ...Object.fromEntries(settings.filter(key => cells.has(`setting/${key}`)).map(key => [key, get(`setting/${key}`)])),
     missions: Object.fromEntries(missionIds.map(id => [id, get(`mission/${id}`)])),
     readiness: Object.fromEntries(readinessKeys.map(key => [key, get(`readiness/${key}`)])),
     plans: Object.fromEntries([...cells.keys()].filter(key => key.startsWith('plan/'))

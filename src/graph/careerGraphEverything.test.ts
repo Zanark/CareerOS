@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createInitialState, generatePlan, parseState } from '../domain/engine';
 import { buildCareerGraph } from './careerGraphModel';
-import { opportunityStages } from '../domain/types';
+import { missionIds, opportunityStages } from '../domain/types';
 
 beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(new Date(2026, 9, 7, 12)); });
 afterEach(() => vi.useRealTimers());
@@ -40,6 +40,6 @@ describe('complete graph record coverage', () => {
     expect(full.nodes.filter(node => node.kind === 'freelance')).toHaveLength(1);
     expect(full.nodes.filter(node => node.kind === 'history')).toHaveLength(1);
     expect(full.stats.trackedCompleted).toBe(0);
-    expect(full.orbits.filter(orbit => orbit.kind === 'mission')).toHaveLength(10);
+    expect(full.orbits.filter(orbit => orbit.kind === 'mission')).toHaveLength(missionIds.length);
   });
 });

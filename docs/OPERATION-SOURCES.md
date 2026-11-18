@@ -1,5 +1,27 @@
 # Operation-document integration
 
+## GeoJack OMSCS: November 19
+
+The eleventh mission is an **unofficial public-source academic learning
+companion**, not an additional supplied PDF, university integration or automatic
+degree audit. [The research and allocation notes](OMSCS-RESEARCH.md) explain the
+selected ten-course AI route, dated public-syllabus differences and alternatives.
+The website's 37-source registry retains exact review scopes.
+
+GeoJack provides **24 learning checkpoints**, five independent references/practice
+units and **58 original exercises** across 29 browsable units. Its semester page
+also covers all ten selected courses with preparation, tools, syllabus topics,
+career transfer and dated assessment snapshots. Those academic courses are not
+the 24 checkpoint identities. The three foundation guides presume no actual
+completion, grade or term.
+
+It is latest-only v3 and starts unconfirmed in the background. Optional
+`omscsPlan` appears only after an explicit browser save, survives ordinary backups
+and encrypted journal changes, and never grants learning/Atlas credit. Existing
+mission editions and the original source books are unchanged. Six curated
+comparisons are transfer opportunities, not equivalence or hidden prerequisites.
+All eleven latest missions total **581 tracked checkpoints**.
+
 ## Neural Edge / agent-native cloud: November 9
 
 The existing AI Architect mission has a verified v3-to-v4 append, not a new
@@ -15,7 +37,7 @@ only after confirmed verified append and counts once. Earlier incompatible
 editions archive without assumed credit. New material is freely browsable before
 adoption; paid accounts, real customer data and production access are not required.
 
-The latest ten missions now total **557 tracked checkpoints**. Original PDF
+At that integration, the ten latest missions totaled **557 tracked checkpoints**. Original PDF
 corpus counts below remain their dated evidence, not counts inflated by either
 web-source extension. Atlas, normal backups and the optional encrypted journal
 reuse existing records; no score ledger, native Neural recall or live agent is added.

@@ -156,6 +156,20 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "geojack-omscs": {
+      "issueNumber": 12,
+      "issueId": "I_kwDOU6lJns8AAAABgh07bg",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/12",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhJ-hyA",
+      "baseline": {
+        "managed": "6d14d2e474a431e8de08923933e7fb6ba37f015092fd14e2480c70383bec3a60",
+        "title": "GeoJack OMSCS semester and learning companion",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

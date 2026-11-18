@@ -2,6 +2,7 @@ import { test as base, expect, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate } from '../src/domain/engine';
 import { steps } from '../src/tutorial/steps';
 import { graphSkillCheckpointTitle } from '../src/tutorial/graphControls';
+import { missionIds } from '../src/domain/types';
 
 const key = 'careerhq.workspace.v1';
 const themeKey = 'careerhq.theme.v1';
@@ -108,7 +109,7 @@ test('overview stays bounded when all configured missions are active', async ({ 
   await page.goto('./#/hq');
   await expect(page.locator('.overview-checkpoint')).toHaveCount(3);
   await expect(page.locator('.overview-checkpoint').first()).toContainText('AI');
-  await expect(page.getByRole('link', { name: '7 more active missions' })).toBeVisible();
+  await expect(page.getByRole('link', { name: `${missionIds.length - 3} more active missions` })).toBeVisible();
 });
 
 for (const width of [1440, 390, 320]) {
@@ -580,7 +581,19 @@ for (const width of [1440, 390, 320]) {
           break;
         case 'fde-sources':
         case 'agent-cloud-sources':
+        case 'omscs-sources':
           await page.locator('[data-tour="pack-unit-sources"] > summary').click();
+          break;
+        case 'omscs-plan':
+          await page.locator('[data-tour="omscs-plan-save"]').click();
+          break;
+        case 'omscs-guide':
+          await page.locator('[data-tour="omscs-course-select"]').selectOption('cs7295');
+          break;
+        case 'omscs-entry':
+          await page.locator('[data-tour="omscs-record-cs7637"]').click();
+          await page.locator('[data-tour="omscs-course-example"]').click();
+          await page.locator('[data-tour="omscs-course-save"]').click();
           break;
         case 'agent-cloud-cases':
           await page.locator('[data-tour="pack-unit-select"]').selectOption('neural-agent-case-race');

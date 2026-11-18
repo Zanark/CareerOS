@@ -5,6 +5,7 @@ import { graphSteps } from './graphSteps';
 import { discoverySteps } from './discoverySteps';
 import { fdeSteps } from './fdeSteps';
 import { agentCloudSteps } from './agentCloudSteps';
+import { omscsSteps } from './omscsSteps';
 import type { Theme } from '../useTheme';
 
 export interface CheckContext {
@@ -90,6 +91,7 @@ export const chapters: TutorialChapter[] = [
   { id: 'discovery', title: 'Discovery Atlas' },
   { id: 'fde', title: 'Fieldcraft / new background mission' },
   { id: 'agent-cloud', title: 'AI Architect / agent-native cloud' },
+  { id: 'omscs', title: 'GeoJack / OMSCS semester companion' },
 ];
 
 export const steps: TutorialStep[] = [
@@ -587,4 +589,5 @@ export const steps: TutorialStep[] = [
   ...discoverySteps,
   ...fdeSteps,
   ...agentCloudSteps,
+  ...omscsSteps,
 ];

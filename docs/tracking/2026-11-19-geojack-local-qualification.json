@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-19",
+  "workstreamId": "geojack-omscs",
+  "scope": "Local technical implementation and qualification; not source publication or human acceptance.",
+  "baseCommit": "489b5c00861df5fd0c3ce31e0e23504f1a0fe66b",
+  "changedRuntimeFileCount": 27,
+  "runtimeManifestSha256": "90bf9636d953c9c9143b4b50b25b38c51ced78a33362c49ebe537f6dbd11db0d",
+  "curriculum": {
+    "missionId": "omscs",
+    "supportedEdition": "3.0.0",
+    "initialMode": "background",
+    "learningCheckpoints": 24,
+    "libraryUnits": 29,
+    "independentExercises": 58,
+    "selectedCourseGuides": 10,
+    "reviewedPublicSources": 37,
+    "newTransferComparisons": 6,
+    "latestMissionCount": 11,
+    "latestCheckpointTotal": 581,
+    "previousTenMissionCheckpointTotal": 557,
+    "tutorialSteps": 188,
+    "tutorialChapters": 32,
+    "helpTopics": 22
+  },
+  "checks": {
+    "typescript": "passed",
+    "domainTests": { "passed": 729, "files": 50 },
+    "trackingTests": { "passed": 22 },
+    "productionBuild": "passed through the final isolated browser gate",
+    "browser": {
+      "environment": "Local Microsoft Edge on Windows; one worker, separate loopback preview and disposable contexts.",
+      "uniqueQualifiedCases": 159,
+      "unresolvedFailures": 0,
+      "retriesOrDeadlinesRelaxed": false,
+      "retainedGates": [
+        { "name": "initial GeoJack", "passed": 6, "failed": 6 },
+        { "name": "role-name corrective", "passed": 6, "failed": 0 },
+        { "name": "affected regressions", "passed": 145, "failed": 1 },
+        { "name": "calendar, backup and full narrow tutorial", "passed": 15, "failed": 0 },
+        { "name": "final checkbox, entry and isolated tutorial", "passed": 6, "failed": 0 }
+      ],
+      "coverage": [
+        "All ten course guides and actual source URLs; 1440 dark, 390 dark and 320 light layouts.",
+        "Explicit academic entry, unknown/B/C/F grade rules, exact cancel, route changes and ordinary backup replacement.",
+        "Real stale-tab rejection, rejected storage writes and missing-only ten-mission normalization.",
+        "Independent background evidence, cross-page level-up and actual mission graph reveal without degree credit.",
+        "Native encrypted academic change export/decryption and existing encrypted-journal regressions.",
+        "Mission/source/library/map/search/Help/palette/ring/spacing integration and frozen-source regressions.",
+        "Complete 188-step tutorial at 1440,390,320; final narrow rerun and isolated GeoJack lessons."
+      ]
+    },
+    "visualReview": "Actual planner/guide matrix, desktop/narrow semester cards and course-entry frames inspected. Final narrow confirmation is compact and its header and actions remain reachable.",
+    "diffWhitespace": "passed",
+    "documentationRelativeFileTargets": "passed",
+    "protectedFiles": "Approved README, packages/lockfile, workflow, original definitions/books and empty public journal unchanged."
+  },
+  "corrections": [
+    "Initial catalog/ring/tutorial fixture assumptions were updated without changing frozen source counts or weakening validation.",
+    "Native exact-label selectors included implicit option text; accessible role/name selectors preserve the intended assertions.",
+    "An old backup test compared an already-identical workspace before asynchronous import finished. A real changed value and restored notification now prove replacement completion.",
+    "The unsaved default could propose summer while regular-only planning was selected. It now chooses the next regular term; explicit summer starts remain deliberate choices.",
+    "Actual visual review found a global column/full-width checkbox cascade. Scoped row and native-control sizing fix it; real geometry is guarded."
+  ],
+  "boundaries": {
+    "actualStudentRecordsPrefilled": false,
+    "officialDegreeOrGpaVerified": false,
+    "futureOfferingsOrSeatsVerified": false,
+    "academicEntriesAwardLearningOrAtlasCredit": false,
+    "universityOrModelServiceConnected": false,
+    "realBrowserProfileUsed": false,
+    "commitPushOrDeploymentPerformed": false,
+    "humanAcceptanceRecorded": false,
+    "fullRemoteCiOrHostedQualificationClaimed": false
+  }
+}

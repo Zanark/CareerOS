@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate, parseState, recordEvidence } from '../src/domain/engine';
 import { getMission } from '../src/domain/catalog';
-import type { AppState } from '../src/domain/types';
+import { missionIds, type AppState } from '../src/domain/types';
 import { buildCareerGraph } from '../src/graph/careerGraphModel';
 import type { CareerOrbit } from '../src/graph/careerOrbitTypes';
 import { graphCheckbox, openGraphPanel, searchGraphNodes, setGraphCheckbox, setGraphScope } from './graph-ui';
@@ -24,7 +24,7 @@ async function open(page: Page, state = createInitialState(false)) {
   await page.goto('./#/home');
   await expect(page.locator('.career-graph-scene')).toHaveAttribute('data-scene-state', 'unavailable');
   await openGraphPanel(page, 'rings');
-  await expect(page.locator('.career-orbit-list > button')).toHaveCount(10);
+  await expect(page.locator('.career-orbit-list > button')).toHaveCount(missionIds.length);
   return { raw, graph: buildCareerGraph(canonical) };
 }
 

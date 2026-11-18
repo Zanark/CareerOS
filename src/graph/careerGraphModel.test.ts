@@ -203,8 +203,8 @@ describe('Career OS graph: real saved progress', () => {
   it('shows all unadopted latest identities only as curriculum references, never new unfinished work', () => {
     const state = createInitialState(false, '2.0.0');
     const graph = buildCareerGraph(state);
-    expect(graph.updates).toEqual(missionIds.filter(id => id !== 'fde'));
-    expect(graph.stats).toEqual({ trackedTotal: 135, trackedCompleted: 0, archivedCompleted: 0, pastWorkRecords: 0 });
+    expect(graph.updates).toEqual(missionIds.filter(id => id !== 'fde' && id !== 'omscs'));
+    expect(graph.stats).toEqual({ trackedTotal: 135 + getLatestMission('omscs').checkpoints.length, trackedCompleted: 0, archivedCompleted: 0, pastWorkRecords: 0 });
     const references = graph.nodes.filter(item => item.kind === 'curriculum');
     const expectedPattern = getLatestMission('pattern').checkpoints.length - getMission('pattern', state).checkpoints.length;
     expect(references.filter(item => item.missionId === 'pattern')).toHaveLength(expectedPattern);
@@ -215,7 +215,7 @@ describe('Career OS graph: real saved progress', () => {
       expect(reference.detail).toContain('no progress credit');
       expect(reference.roadmapVersion).toBe(getLatestMission(reference.missionId!).roadmapVersion);
     }
-    expect(checkpoints(graph)).toHaveLength(135);
+    expect(checkpoints(graph)).toHaveLength(135 + getLatestMission('omscs').checkpoints.length);
     expect(buildCareerGraph(state)).toEqual(graph);
   });
 

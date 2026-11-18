@@ -8,6 +8,8 @@ import {
 } from './legacyState';
 import { freelanceVerdicts, missionIds, opportunityStages, readinessKeys, recallMissionIds } from './types';
 import { createFdeProgress } from './forwardDeployed/mission';
+import { createOmscsProgress } from './omscs/mission';
+import { omscsPlanSchema } from './omscs/model';
 import { personalProofListSchema } from './personalProofSchema';
 import { focusDurationSchema, focusEventInputSchema, focusRecordSignature, FocusRecordReplacedError, focusSessionsSchema } from './focusSession';
 import type {
@@ -126,7 +128,7 @@ const stateSchema = z.object({
   missions: z.object({
     pattern: progressSchema, system: progressSchema, escape: progressSchema,
     fabric: progressSchema, blueprint: progressSchema, credential: progressSchema,
-    neural: progressSchema, algorithm: progressSchema, income: progressSchema, fde: progressSchema,
+    neural: progressSchema, algorithm: progressSchema, income: progressSchema, fde: progressSchema, omscs: progressSchema,
   }).strict(),
   plans: z.record(dateSchema, z.array(actionSchema).max(3))
     .refine((plans) => Object.keys(plans).length <= MAX_PLAN_DAYS, 'Too many saved plan dates'),
@@ -142,6 +144,7 @@ const stateSchema = z.object({
   recalls: z.array(recallSchema).max(MAX_RECORDS),
   personalProof: personalProofListSchema.optional(),
   focusSessions: focusSessionsSchema.optional(),
+  omscsPlan: omscsPlanSchema.optional(),
 }).strict();
 
 const evidenceInputSchema = z.object({
@@ -385,9 +388,12 @@ export function parseState(value: unknown): AppState {
   if (isRecord(value) && value.schemaVersion === 1) {
     return validateV2Relations(parseV2Schema(migrateLegacyToLatest(parseLegacyV1(value))));
   }
-  if (isRecord(value) && value.schemaVersion === 2 && isRecord(value.missions) &&
-      !Object.hasOwn(value.missions, 'fde')) {
-    value = { ...value, missions: { ...value.missions, fde: createFdeProgress() } };
+  if (isRecord(value) && value.schemaVersion === 2 && isRecord(value.missions)) {
+    const additions = {
+      ...(!Object.hasOwn(value.missions, 'fde') ? { fde: createFdeProgress() } : {}),
+      ...(!Object.hasOwn(value.missions, 'omscs') ? { omscs: createOmscsProgress() } : {}),
+    };
+    if (Object.keys(additions).length) value = { ...value, missions: { ...value.missions, ...additions } };
   }
   return validateV2Relations(parseV2Schema(value));
 }
@@ -456,6 +462,7 @@ function sampleSummary(mission: Mission, checkpoint: Checkpoint): string {
 export function createInitialState(sampleData = true, version?: RoadmapVersion): AppState {
   const missionProgress = (id: MissionId): MissionProgress => {
     if (id === 'fde') return createFdeProgress();
+    if (id === 'omscs') return createOmscsProgress();
     const mission = version === undefined || version === '3.0.0' || version === '4.0.0' ? getLatestMission(id)
       : getMissionVersion(id, id === 'income' ? '2.0.0' : version);
     return {

@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createInitialState, parseState, recordEvidence, upgradeRoadmap } from '../src/domain/engine';
-import type { AppState } from '../src/domain/types';
+import { missionIds, type AppState } from '../src/domain/types';
 import { MISSION_COLORS, CHECKPOINT_COMPLETE_COLOR } from '../src/missionVisuals';
 import { openGraphPanel, closeGraphPanels, setGraphCheckbox, searchGraphNodes } from './graph-ui';
 import { focusedGraphForState } from './mission-ring-policy';
@@ -40,7 +40,7 @@ async function ready(page: Page) {
   return page.locator('.career-graph-scene');
 }
 
-test('all ten selectable mission ring hues are unique and match Missions exactly', async ({ page }) => {
+test('all configured mission ring hues are unique and match Missions exactly', async ({ page }) => {
   await seed(page, recordedState([]));
   await page.goto('./#/missions');
   const raw = await page.evaluate(key => localStorage.getItem(key), key);
@@ -58,8 +58,8 @@ test('all ten selectable mission ring hues are unique and match Missions exactly
   await page.clock.runFor(100);
   const identities = await scene.locator('.career-graph-scene__orbit-diagnostic').evaluateAll(elements =>
     elements.map(element => ({ id: element.getAttribute('data-orbit-id')!, color: element.getAttribute('data-orbit-color')! })));
-  expect(identities).toHaveLength(10);
-  expect(new Set(identities.map(item => item.color)).size).toBe(10);
+  expect(identities).toHaveLength(missionIds.length);
+  expect(new Set(identities.map(item => item.color)).size).toBe(missionIds.length);
   expect(identities.every(item => item.id.startsWith('orbit:mission:'))).toBe(true);
   expect(identities.map(item => item.color)).not.toContain(CHECKPOINT_COMPLETE_COLOR);
   for (const [id, color] of Object.entries(MISSION_COLORS)) {

@@ -1,0 +1,182 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "489b5c00861df5fd0c3ce31e0e23504f1a0fe66b",
+  "observedAt": "2026-11-18T22:13:05.806Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "tracker-foundation",
+      "path": "TODO/01_TRACKER_FOUNDATION.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/1",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "fcae9c1566d80d359f9cc6ab5587b709c1ca8bbcddd85d154532c91a7240b456",
+      "actions": []
+    },
+    {
+      "id": "appearance-and-identity",
+      "path": "TODO/02_APPEARANCE_AND_IDENTITY.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/2",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "f91c6e5daf07fe4dbdd7a9d0a82ca222b2386f4c49a7a9d62d9dfeac02689531",
+      "actions": []
+    },
+    {
+      "id": "versioned-roadmaps",
+      "path": "TODO/03_VERSIONED_ROADMAPS.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/3",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "3de67801739c0e4d5ab6d21dd9996f790782e3c81bc67acbad64a3187d9008c1",
+      "actions": []
+    },
+    {
+      "id": "career-graph",
+      "path": "TODO/04_CAREER_GRAPH.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/4",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "b228e80ab262efa731822392189c4beff158165b968dd66ed580e42c7b22612a",
+      "actions": []
+    },
+    {
+      "id": "focus-room",
+      "path": "TODO/05_FOCUS_ROOM.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/5",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "22b336b4b34a0db6dea9bbec5ddcad49f582c02b7c6dcc742157b7e44127beb1",
+      "actions": []
+    },
+    {
+      "id": "tutorial-and-help",
+      "path": "TODO/06_TUTORIAL_AND_HELP.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/6",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "641b8edbe6c3de38163e5a77ca783356962d9c33953171c54555269c009f2afb",
+      "actions": []
+    },
+    {
+      "id": "encrypted-progress-journal",
+      "path": "TODO/07_ENCRYPTED_PROGRESS_JOURNAL.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/7",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "f6f8127f73cec8bdbc9ff977ef697e5f08839e38324b7ddb7cad42a274864c9a",
+      "actions": []
+    },
+    {
+      "id": "github-tracking-adoption",
+      "path": "TODO/08_GITHUB_TRACKING_ADOPTION.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/8",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "c6fe12e9bacdccfe3c54360da03c995d08dc0c433eb449e5bc07e23d69b480ff",
+      "actions": []
+    },
+    {
+      "id": "discovery-atlas",
+      "path": "TODO/10_DISCOVERY_ATLAS.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/9",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "d87736f1b55507578a504da31415018e8f207c4ad331b5f76961739a4b100098",
+      "actions": []
+    },
+    {
+      "id": "forward-deployed-engineering",
+      "path": "TODO/11_FORWARD_DEPLOYED_ENGINEERING.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/10",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "a52466d72a658bc590e0656e8b634826eba1febd12287fb697d9d0ac2ee7bb04",
+      "actions": []
+    },
+    {
+      "id": "ai-architect-agent-cloud",
+      "path": "TODO/12_AI_ARCHITECT_AGENT_CLOUD.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/11",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "225d85dfee76db1bdf80e02aff111c9590b644f362c87fa9db1bb100b0577e1f",
+      "actions": []
+    },
+    {
+      "id": "geojack-omscs",
+      "path": "TODO/13_GEOJACK_OMSCS.todo",
+      "outcome": "failed",
+      "created": false,
+      "reused": false,
+      "error": "Missing/duplicate GitHub issue field."
+    }
+  ],
+  "counts": {
+    "included": 12,
+    "selected": 12,
+    "excluded": 2,
+    "created": 0,
+    "reused": 11,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 1
+  }
+}

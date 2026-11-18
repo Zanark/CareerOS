@@ -15,6 +15,7 @@ export const MISSION_COLORS: Readonly<Record<MissionId, string>> = Object.freeze
   algorithm: '#A989D8',
   income: '#C89459',
   fde: '#E8AC83',
+  omscs: '#D9AE32',
 });
 
 export const COLLECTION_COLORS: Readonly<Record<Exclude<CareerOrbitKind, 'mission'>, string>> = Object.freeze({

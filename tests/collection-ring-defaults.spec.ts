@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate, parseState, recordEvidence } from '../src/domain/engine';
 import { buildCareerGraph } from '../src/graph/careerGraphModel';
+import { missionIds } from '../src/domain/types';
 import { closeGraphPanels, openGraphPanel, setGraphCheckbox, setGraphScope } from './graph-ui';
 import { focusedGraphForState } from './mission-ring-policy';
 
@@ -47,16 +48,16 @@ test('only active mission details start shown; all six record types remain saved
   await setGraphCheckbox(page, 'Sparks', false);
   await openGraphPanel(page, 'rings');
   const cards = page.locator('.career-orbit-list > button');
-  await expect(cards).toHaveCount(10);
-  await expect(cards.filter({ hasText: 'Hidden in this view' })).toHaveCount(7);
+  await expect(cards).toHaveCount(missionIds.length);
+  await expect(cards.filter({ hasText: 'Hidden in this view' })).toHaveCount(missionIds.length - 3);
   for (const kind of collections) await expect(page.locator(`.career-orbit-list > button[data-orbit-id="${ring(kind)}"]`)).toHaveCount(0);
   await openGraphPanel(page, 'visibility');
   const panel = page.locator('[data-graph-panel="visibility"]');
   await expect(panel.locator('.career-visibility-counts')).toContainText(`${view.nodes.length - 1} work nodes · 3 rings`);
-  await expect(panel.locator('.career-visibility-counts')).toContainText(`${graph.nodes.length + 3}/${graph.nodes.length + 10} chosen`);
+  await expect(panel.locator('.career-visibility-counts')).toContainText(`${graph.nodes.length + 3}/${graph.nodes.length + missionIds.length} chosen`);
   await panel.locator('.career-visibility-items > summary').click();
   await panel.getByLabel('Filter visibility item types', { exact: true }).selectOption('orbit');
-  await expect(panel.locator('.career-visibility-items li')).toHaveCount(10);
+  await expect(panel.locator('.career-visibility-items li')).toHaveCount(missionIds.length);
   for (const orbit of graph.orbits.filter(orbit => orbit.kind === 'mission')) {
     const choice = panel.locator(`[data-visibility-item="${orbit.id}"]`).getByRole('checkbox');
     if (orbit.missionMode === 'active') await expect(choice).toBeChecked();
@@ -112,11 +113,11 @@ test('inspecting an inactive mission does not enable it; explicit reveal changes
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(raw);
 });
 
-test('Select all enables all ten missions while focus and reopening independently restore three saved active defaults', async ({ page }) => {
+test('Select all enables every configured mission while focus and reopening independently restore three saved active defaults', async ({ page }) => {
   const { scene, view, raw } = await open(page);
   await openGraphPanel(page, 'visibility');
   await page.getByRole('button', { name: 'Select all items', exact: true }).click();
-  await expect(scene).toHaveAttribute('data-orbit-count', '10');
+  await expect(scene).toHaveAttribute('data-orbit-count', String(missionIds.length));
   for (const kind of collections) {
     await expect(scene.locator(`.career-graph-scene__orbit-diagnostic[data-orbit-id="${ring(kind)}"]`)).toHaveCount(0);
   }

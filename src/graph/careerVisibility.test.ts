@@ -71,12 +71,12 @@ describe('mission-only ring defaults', () => {
     const graph = freeze(buildCareerGraph(fixture(version)));
     const before = JSON.stringify(graph);
     const hidden = getDefaultHiddenCareerRingIds(graph);
-    expect(hidden.size).toBe(13);
+    expect(hidden.size).toBe(missionIds.length + 3);
     expect(graph.orbits.filter(orbit => !hidden.has(orbit.id)).map(orbit => orbit.missionId)).toEqual(['pattern', 'system', 'escape']);
     expect(graph.orbits.filter(orbit => orbit.kind !== 'mission').every(orbit => hidden.has(orbit.id))).toBe(true);
     expect(graph.nodes.every(node => !hidden.has(node.id))).toBe(true);
     expect(getCareerVisibilitySelection(getCareerVisibilityItemIds(graph), hidden)).toMatchObject({
-      chosen: graph.nodes.length + 3, total: graph.nodes.length + 10,
+      chosen: graph.nodes.length + 3, total: graph.nodes.length + missionIds.length,
     });
     expect(JSON.stringify(graph)).toBe(before);
     expect(getDefaultHiddenCareerRingIds(graph)).not.toBe(hidden);
@@ -86,14 +86,14 @@ describe('mission-only ring defaults', () => {
     const graph = buildCareerGraph(fixture());
     const defaults = getDefaultHiddenCareerRingIds(graph);
     const shown = setCareerItemsVisible(defaults, ['orbit:mission:fabric'], true);
-    expect(shown.size).toBe(12);
+    expect(shown.size).toBe(missionIds.length + 2);
     expect(shown.has('orbit:mission:fabric')).toBe(false);
     expect(graph.orbits.find(orbit => orbit.missionId === 'fabric')?.missionMode).toBe('background');
-    expect(defaults.size).toBe(13);
+    expect(defaults.size).toBe(missionIds.length + 3);
     expect(getDefaultHiddenCareerRingIds(graph)).toEqual(defaults);
     const all = setCareerItemsVisible(shown, getCareerVisibilityItemIds(graph), true);
     expect(all.size).toBe(6);
-    expect(graph.orbits.filter(orbit => !all.has(orbit.id))).toHaveLength(10);
+    expect(graph.orbits.filter(orbit => !all.has(orbit.id))).toHaveLength(missionIds.length);
     expect(graph.orbits.filter(orbit => !all.has(orbit.id)).every(orbit => orbit.kind === 'mission')).toBe(true);
   });
 
@@ -230,9 +230,9 @@ describe('Career visibility: complete source membership', () => {
     const collection = group(graph, 'collection:action');
     expect(actions).toHaveLength(10_500);
     expect(collection.itemIds).toHaveLength(10_500);
-    const missionIds = new Set(mission.itemIds);
-    expect(actions.every(node => missionIds.has(node.id))).toBe(true);
-    expect(universe).toHaveLength(graph.nodes.length + 10);
+    const missionMemberIds = new Set(mission.itemIds);
+    expect(actions.every(node => missionMemberIds.has(node.id))).toBe(true);
+    expect(universe).toHaveLength(graph.nodes.length + missionIds.length);
     expect(new Set(createCareerVisibilityGroups(graph).flatMap(item => item.itemIds))).toEqual(new Set(universe));
     const hidden = setCareerItemsVisible(new Set(), collection.itemIds, false);
     expect(getCareerVisibilitySelection(collection.itemIds, hidden)).toEqual({

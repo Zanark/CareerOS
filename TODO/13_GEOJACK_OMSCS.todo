@@ -1,0 +1,95 @@
+Workstream ID: geojack-omscs
+Title: GeoJack OMSCS semester and learning companion
+Status: IN_PROGRESS
+Milestone: Add an unofficial source-backed AI degree-planning mission
+Dependencies: tracker-foundation, versioned-roadmaps, career-graph, encrypted-progress-journal, discovery-atlas
+GitHub issue: https://github.com/Zanark/CareerOS/issues/12
+Purpose: Add a Georgia Tech OMSCS AI study mission with a proposed semester
+  route, complete selected-course guides, readiness and independent practice.
+  Keep academic self-reports, learning evidence and official degree verification
+  distinct. Preserve all existing mission editions and browser records.
+
+Tasks:
+  [x] Review current public program rules, course pages and dated sample syllabi.
+  [x] Trace mission/version, source-library, storage, journal and tutorial contracts.
+  [x] Establish a responsive current-source local development preview.
+  [x] Add a background mission and original source-linked study curriculum.
+  [x] Add an editable proposed semester route and explicit course-status entry.
+  [x] Keep conditional degree-credit accounting separate from checkpoint credit.
+  [x] Integrate libraries, maps, graph links, search, Help and Discovery Atlas.
+  [x] Preserve old workspaces, manual backups, encrypted replay and tutorial isolation.
+  [x] Qualify domain, actual browser workflows and responsive theme layouts.
+  [x] Update focused documentation, evidence and this same issue/Project mapping.
+  [ ] Commit and push the reviewed source through the verified Zanark transport.
+  [ ] Monitor the exact Pages run and qualify its artifact and hosted workflows.
+  [ ] Record publication and verify completion on this same issue/Project item.
+
+Acceptance criteria:
+  GeoJack is an unofficial learning companion, not Georgia Tech advising, a
+    registrar integration, an automated tutor or a guaranteed future timetable.
+  The new mission starts unconfirmed in the background without changing old
+    focus, modes, positions, blockers, dates, records or frozen definitions.
+  The selected ten-course route and semester proposal expose source/date limits,
+    preparation, syllabus topics, tools, assessment snapshots and practice.
+  Course/semester changes require explicit browser actions and standard stale-
+    workspace validation; no actual student record is embedded in public source.
+  Recorded status/grades remain self-reported. Conditional specialization/free
+    credit totals follow the reviewed rules and never imply transcript approval.
+  Academic records and browsing grant no learning checkpoint, Atlas credit or
+    inferred mastery. Learning evidence uses existing criteria and save guards.
+  Optional academic data survives backup and encrypted change/replay/merge,
+    while absent historical data remains absent. Invalid explicit input rejects.
+  All mission-supporting views recognize the stable identity. Related learning
+    is cited transfer, not automatic completion equivalence or hidden prerequisites.
+  New tutorial lessons exercise real controls only on isolated practice state;
+    all existing lessons remain in order. Dark/light and narrow views stay usable.
+  Local technical completion, human acceptance and publication are separate.
+    The November19follow-up authorizes coherent commits, normal pushes, a new
+    CareerOS deployment and monitoring. Reuse the unchanged main-push Pages
+    workflow and verify its exact source, artifact and hosted behavior.
+    Enrollment-account access, student-record publication, unrelated cloud
+    writes and inferred human acceptance remain outside authorization.
+
+Completion evidence:
+  Source-backed background mission:24learning checkpoints,29library units,
+    58independent exercises, ten selected-course guides,37public sources and
+    six cited transfer comparisons. The earlier ten latest missions retain557
+    checkpoints; all eleven now581. Original editions/books are unchanged.
+  TypeScript/729domain cases and22tracking cases pass. Retained native reports
+    cover159unique qualified cases:145initial broad passes, the corrected
+    remaining backup case, all13GeoJack workflows and directly affected repeats.
+    All188tutorial steps pass at three widths; final narrow and isolated
+    chapters retain exact real-storage isolation.
+  Actual planner/guide, semester and entry frames reviewed, including320light.
+    Final checkbox geometry and reachable modal header/actions are guarded.
+    Source: docs/tracking/2026-11-19-geojack-local-qualification.json.
+  Focused GUIDE/ARCHITECTURE/OPERATION-SOURCES and OMSCS-RESEARCH explain source
+    differences, conditional credit rules, unknowns, privacy and optional-plan
+    backup/journal compatibility. The public journal remains empty.
+  Local technical review is complete. At that milestone source was uncommitted
+    and no deployment was performed. Publication is now explicitly authorized
+    and in progress; no human acceptance, actual student record, GPA or degree
+    approval is claimed. Private research and actual profiles remain untouched.
+
+Completion log:
+  2026-11-19 - Owner authorizes frequent coherent commits, pushing the changes,
+    a new CareerOS deployment and monitoring. Reopen this same issue/item for
+    exact main-branch CI, Pages artifact and actual hosted qualification.
+    Verified local/remote main489b5c0, Zanark API identity/ADMIN and both
+    effective repository-local Git identities. Existing workflow is unchanged.
+  2026-11-19 - Completed local technical review. Final runtime fingerprint
+    still matches qualified source; actual current preview is responsive and
+    the public journal remains empty. Human acceptance and source publication
+    are not inferred. Retain issue12/original Project item; independent completion
+    receipt: docs/tracking/2026-11-19-geojack-completion-verification.json.
+  2026-11-19 - Qualified the local companion and completed focused source notes.
+    Preserved six initial native selector failures and one old same-state
+    backup-fixture race; corrected their actual causes without relaxing gates.
+    A focused failing calendar assertion exposed an unrequested summer default;
+    regular-term selection now passes. Actual visual review exposed the
+    inherited column/full-width checkbox styling; scoped geometry is corrected.
+    Final six-case layout/entry/tutorial gate passes. Same issue12/Project item
+    proceeds through local technical review, not source publication.
+  2026-11-19 - Created the bounded local implementation workstream. Reuse the
+    configured CareerOS Project and one stable issue/item mapping. Current-source
+    preview is responsive on loopback4468; real browser data remains untouched.

@@ -1,0 +1,57 @@
+.omscs-page { display: grid; gap: 1.4rem; }
+.omscs-page .page-heading { margin-bottom: 0; }
+.omscs-intro { display: flex; align-items: flex-start; gap: 1rem; }
+.omscs-intro > svg { flex: 0 0 auto; color: var(--accent); }
+.omscs-intro h2 { margin-top: 0; }
+.omscs-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.omscs-stats > div { padding: 1rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--paper); display: grid; gap: .6rem; }
+.omscs-stats strong { font-size: 1.65rem; line-height: 1.2; }
+.omscs-stats small { font-size: .85rem; font-weight: 400; }
+.omscs-stats span { font-size: .8rem; line-height: 1.5; }
+.omscs-next h2, .omscs-guide h2 { margin-top: 0; }
+.omscs-allocation, .omscs-foundations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.omscs-allocation > div { padding: .8rem; border-left: 2px solid var(--accent); }
+.omscs-allocation h3 { font-size: .95rem; }
+.omscs-allocation small { line-height: 1.6; display: block; }
+.omscs-plan-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: 1rem; }
+.omscs-plan-form label, .omscs-guide > label { display: grid; gap: .5rem; min-width: 0; }
+.omscs-page input, .omscs-page select, .omscs-entry-form input, .omscs-entry-form select { min-width: 0; max-width: 100%; }
+.omscs-page .omscs-check, .omscs-entry-form .omscs-check { display: flex; flex-direction: row; gap: .65rem; align-items: flex-start; line-height: 1.5; }
+.omscs-check input[type="checkbox"] { width: 1rem; height: 1rem; min-height: 0; padding: 0; flex: 0 0 auto; margin-top: .2rem; }
+.omscs-semesters { display: grid; gap: 1.5rem; border-left: 2px solid var(--accent); margin-left: .5rem; padding-left: 1.25rem; }
+.omscs-semester > h2 { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; font-size: 1.15rem; }
+.omscs-course-card { padding: 1.2rem; background: var(--paper); border: 1px solid var(--line); border-radius: .75rem; min-width: 0; }
+.omscs-course-heading { display: flex; align-items: center; justify-content: space-between; gap: .6rem; flex-wrap: wrap; }
+.omscs-course-card h3 { margin: .7rem 0; }
+.omscs-record-status { font-weight: 600; }
+.omscs-course-card .button-row { gap: .75rem; align-items: center; }
+.omscs-course-card .button { white-space: normal; text-align: left; }
+.omscs-guide { scroll-margin-top: 2rem; }
+.omscs-guide > label { margin-bottom: 1.5rem; }
+.omscs-guide .eyebrow { display: block; margin: 1rem 0 .6rem; }
+.omscs-syllabus { padding-left: 1.5rem; }
+.omscs-syllabus > li { padding: .7rem 0 1.1rem .25rem; border-bottom: 1px solid var(--line); }
+.omscs-syllabus h4 { margin: .4rem 0; }
+.omscs-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.omscs-guide-grid li, .omscs-warnings li { margin-bottom: .6rem; line-height: 1.65; }
+.omscs-warnings { padding: 1rem 1rem 1rem 2rem; border: 1px solid var(--accent); border-radius: 10px; }
+.omscs-entry-modal[open] { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.omscs-entry-modal .modal-header { flex: 0 0 auto; padding: 1.15rem; margin: 0; border-bottom: 1px solid var(--line); }
+.omscs-entry-modal .modal-header > div { min-width: 0; }
+.omscs-entry-modal .modal-header h2 { font-size: 1.125rem; line-height: 1.3; overflow-wrap: anywhere; }
+.omscs-entry-form { padding: 1.15rem; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.omscs-entry-form .omscs-check { font-size: .85rem; }
+@media (max-width: 1100px) {
+  .omscs-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .omscs-allocation, .omscs-foundations { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .omscs-plan-form, .omscs-guide-grid { grid-template-columns: 1fr; }
+  .omscs-intro { display: block; }
+  .omscs-stats > div { padding: .8rem; }
+  .omscs-stats strong { font-size: 1.35rem; }
+  .omscs-semesters { padding-left: .75rem; }
+  .omscs-course-card { padding: .85rem; }
+  .omscs-course-card .button-row { align-items: stretch; flex-direction: column; }
+  .omscs-entry-form { padding: 1rem; }
+}

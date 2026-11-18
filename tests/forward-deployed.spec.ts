@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate, recordEvidence } from '../src/domain/engine';
-import type { AppState } from '../src/domain/types';
+import { missionIds, type AppState } from '../src/domain/types';
 import { getPackOutline } from '../src/domain/roadmapPacks/registry';
 import { fdeSteps } from '../src/tutorial/fdeSteps';
 import { openGraphPanel, setGraphCheckbox } from './graph-ui';
@@ -132,11 +132,15 @@ test('a real old-wire workspace gains only background FDE, then retains its reco
   for await (const chunk of stream!) chunks.push(Buffer.from(chunk));
   const backup = Buffer.concat(chunks);
   expect(JSON.parse(backup.toString())).toEqual(saved);
+  await page.getByLabel('What are you working toward?').fill('Synthetic changed direction after the Fieldcraft export.');
+  await page.getByRole('button', { name: 'Save direction', exact: true }).click();
+  expect((await stored(page)).objective).not.toBe(saved.objective);
   const chooser = page.waitForEvent('filechooser');
   await page.locator('[data-tour="backup-import"]').click();
   page.once('dialog', dialog => dialog.accept());
   await (await chooser).setFiles({ name: 'synthetic-fde-backup.json', mimeType: 'application/json', buffer: backup });
   await expect.poll(() => stored(page)).toEqual(saved);
+  await expect(page.getByText('Backup restored.', { exact: true })).toBeVisible();
   await page.reload();
   await page.goto('./#/mission/fde');
   await expect(page.locator('[data-tour="save-state"]')).toContainText('0 / 48 complete');
@@ -171,7 +175,7 @@ test('background FDE completion offers a cross-page level-up and reveals only it
   await expect(page.locator('.career-orbit-inspector')).toHaveAttribute('data-mission-mode', 'background');
   await expect(page.locator('.career-orbit-inspector')).toContainText('Revealed for today after checkpoint completion');
   await setGraphCheckbox(page, 'Show everything', true);
-  await expect(scene).toHaveAttribute('data-orbit-count', '10');
+  await expect(scene).toHaveAttribute('data-orbit-count', String(missionIds.length));
   const saved = await stored(page);
   expect(saved.focusMissionId).toBe('pattern');
   expect(saved.missions.fde).toMatchObject({ mode: 'background', checkpointId: 'fde-v3-fde-02' });

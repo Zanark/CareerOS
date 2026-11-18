@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate } from '../src/domain/engine';
+import { missionIds } from '../src/domain/types';
 import { MISSION_COLORS } from '../src/missionVisuals';
 
 const key = 'careerhq.workspace.v1';
@@ -55,9 +56,9 @@ for (const theme of ['dark', 'light']) {
 
     await page.getByRole('link', { name: /^Missions/, exact: false }).click();
     await expect(page.getByRole('heading', { name: 'Missions', exact: true, level: 1 })).toBeVisible();
-    await expect(page.locator('.mission-card')).toHaveCount(10);
+    await expect(page.locator('.mission-card')).toHaveCount(missionIds.length);
     const cardColors = await page.locator('.mission-card').evaluateAll(elements => elements.map(element => getComputedStyle(element).borderTopColor));
-    expect(new Set(cardColors).size).toBe(10);
+    expect(new Set(cardColors).size).toBe(missionIds.length);
     for (const [id, color] of Object.entries(MISSION_COLORS)) {
       const rgb = [1, 3, 5].map(offset => parseInt(color.slice(offset, offset + 2), 16));
       await expect(page.locator(`.mission-card[data-mission-id="${id}"]`)).toHaveCSS('border-top-color', `rgb(${rgb.join(', ')})`);

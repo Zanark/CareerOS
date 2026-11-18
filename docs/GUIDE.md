@@ -12,7 +12,8 @@ loading problem. Different browsers/devices still need a private backup transfer
 [Website](https://zanark.github.io/CareerOS/) ·
 [Overview](../README.md) · [Architecture](ARCHITECTURE.md) · [Themes](THEMES.md) · [Privacy](PRIVACY.md) ·
 [Agent contract](AGENT_CONTRACT.md) · [Operation sources](OPERATION-SOURCES.md) ·
-[Contributor workflow](DEVELOPMENT.md) · [FDE research](FDE-RESEARCH.md)
+[Contributor workflow](DEVELOPMENT.md) · [FDE research](FDE-RESEARCH.md) ·
+[GeoJack OMSCS](OMSCS-RESEARCH.md)
 
 ## What this prototype does
 
@@ -27,6 +28,8 @@ loading problem. Different browsers/devices still need a private backup transfer
   an opportunity pipeline, and self-assessed interview readiness.
 - Saves browser-local state and supports private JSON backup/export and replacement import.
 - Tracks freelance research and spaced recall separately from checkpoint completion.
+- Offers GeoJack OMSCS: proposed semesters, ten selected-course guides and optional
+  academic self-reports, separate from learning evidence and official degree verification.
 - Offers an optional Discovery Atlas: a finite hidden collection derived from saved
   evidence and recall, with source receipts rather than a career or mastery score.
 - Preserves previous roadmap versions and requires confirmation before adopting new definitions.
@@ -40,8 +43,8 @@ loading problem. Different browsers/devices still need a private backup transfer
   animates sunrise/sunset, remembers your choice, and respects reduced motion.
 
 The supplied operation documents define the original nine missions. Research-backed
-**Fieldcraft** adds Forward Deployed Engineering as an unstarted background mission
-without changing your primary focus or existing progress. Tracking granularity is explicit:
+**Fieldcraft** and **GeoJack OMSCS** add unstarted background missions without changing
+your primary focus or existing progress. Tracking granularity is explicit:
 
 | Mission | Documented tracking |
 | --- | --- |
@@ -55,8 +58,10 @@ without changing your primary focus or existing progress. Tracking granularity i
 | Algorithm Forge | 34 checkpoints across the complete 6-stage contest curriculum; older forecast versions remain available |
 | Side Income | 104 modules across 13 stages, with cases, templates and the separate private freelance ledger |
 | Forward Deployed Engineering / Fieldcraft | 48 checkpoints across 12 phases, eight optional specialization labs and 112 authored exercises informed by 24 reviewed primary sources |
+| Georgia Tech OMSCS / GeoJack | 24 learning checkpoints, five independent reference/practice units and 58 exercises; ten academic course guides and an editable semester proposal are separate from degree credits |
 
-The latest editions contain **557 tracked checkpoints**, including Fieldcraft's 48.
+The eleven latest editions contain **581 tracked checkpoints**; the earlier ten
+retain their original 557.
 The original seven expanded mission workbooks
 also provide **806 browsable source units and 5,944 practice, transfer and diagnostic prompts**.
 Repeated source exercise contexts are retained; this is not a claim of 5,944 distinct autograded problems.
@@ -65,6 +70,44 @@ The original PDFs and private progress/biographical sections are not published. 
 for conflicts, granularity choices and unverified certification availability.
 There is no actual AI agent, cloud workspace, authentication, or multi-device sync.
 The AI-engineering mission is a learning roadmap, not a connected AI service.
+
+### GeoJack OMSCS: semesters, course guides and independent learning
+
+Open **GeoJack OMSCS** in the Career navigation, or `#/omscs`. The unofficial
+AI-specialization template selects ten courses / 30 credits. Seven courses have
+a proposed learning order: ML, GIOS, Graduate Algorithms, Deep Learning, NLP,
+Distributed Computing and GPU Hardware and Software. KBAI, Game AI and Video
+Game Design have foundation guides, not prefilled completion records.
+
+The default proposes one course per regular term. **Save semester proposal**
+stores your chosen start and optional summers; it does not register you. **Record
+course** accepts a planned, taking or completed self-report, an optional term and,
+for completed entries only, an optional final grade. Nothing is stored until you
+save. Cancel leaves the previous record intact. Entered course terms survive
+route changes, and reporting a completion does not silently compress other terms.
+Preparation/load warnings are guidance, not registration permission.
+The unsaved default skips summer. An explicitly chosen summer start stays;
+the summer checkbox controls later summers in the sequence.
+
+Each course guide explains syllabus topics, preparation, tools, a dated assessment
+snapshot, AI-engineering/architecture relevance and official sources. The
+**Practice library** has 29 units with original explanations, worked reasoning
+and 58 independent exercises. **My learning tracker** keeps the usual single
+current checkpoint; its 24 checkpoints are learning tasks, not university courses
+or credits. Six cited cross-mission comparisons support transfer without awarding
+equivalent completion.
+
+Academic totals use only explicit entries. Unknown grades cannot qualify a slot;
+specialization slots need B or better, free electives C or better. The app does
+not know your actual cumulative GPA, six-year window or official applicability.
+Academic entries, proposals and browsing award no learning checkpoint, recorded-work
+streak or Atlas EXP. Genuine study evidence uses the existing criteria/Atlas flow.
+
+Private backups and the optional encrypted journal retain academic entries;
+no university account or model is connected. The final **GeoJack OMSCS** tutorial
+chapter tries real controls on isolated fictional data and discards its grade on
+exit. Alternate course routes are comparisons, not automatic substitutions.
+Read [the allocation, source differences and limitations](OMSCS-RESEARCH.md).
 
 ### AI Architect: agent-native cloud extension
 
@@ -108,8 +151,9 @@ Foundry, inference infrastructure and six other terrain labs are optional.
 All units have a local/free synthetic route; real customer access, paid APIs
 and production changes require separate permission.
 
-**Connected learning** and Career graph **Connections** explain thirteen
-specific comparisons spanning all nine earlier missions. Transfer your
+**Connected learning** and Career graph **Connections** retain Fieldcraft's thirteen
+original comparisons spanning all nine earlier missions; GeoJack adds a separate
+ML-evaluation comparison. Transfer your
 understanding, but demonstrate the new FDE criteria separately: links do not
 grant equivalent completion or create extra prerequisite gates.
 
@@ -154,7 +198,7 @@ tags on mission hubs, ring dots and hovered/selected nodes. It does not hide nod
 change picking or close the inspector. The named **Work** list remains available.
 
 **View → Show everything** temporarily includes every available graph node and connection:
-all ten mission rings, unfinished and completed checkpoints, untracked curriculum,
+all eleven mission rings, unfinished and completed checkpoints, untracked curriculum,
 archived completions, evidence, applications at every stage, freelance leads and past work.
 It also includes all saved daily actions, even unfinished older actions and future saved
 plans. It bypasses focus, mission scope, layer filters and individual hiding without
@@ -204,10 +248,10 @@ Saving unfinished practice or a recall still counts for the work streak, but doe
 the normal mission page without first bringing it into focus; blocked or reference-only
 missions remain unavailable.
 
-All ten missions remain in **Rings**. To show an inactive ring without activating
+All configured missions remain in **Rings**. To show an inactive ring without activating
 the mission, inspect it and choose **Reveal orbit and members**, or check its ring in
 **Nodes → Individual nodes and rings → Ring views**. **Select all items** can show all
-ten mission rings, never collection rings. These choices last for the current graph page.
+eleven mission rings, never collection rings. These choices last for the current graph page.
 Daily work, evidence, applications, freelance leads, past accomplishments and untracked
 curriculum no longer have rings. Their records remain on their existing pages, in named
 node inspection and relevant checkpoint connections; nothing is deleted or reclassified.

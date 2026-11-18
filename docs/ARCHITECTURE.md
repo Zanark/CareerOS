@@ -8,7 +8,7 @@ plan as proof of capability.
 
 | Layer | Responsibility |
 | --- | --- |
-| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `agentCloud/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2/v3 references, verified DSA and Neural appends, System v3 modules, seven independently adopted workbooks and latest-only Fieldcraft. Existing saved versions never silently change. |
+| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `agentCloud/*`, `omscs/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2/v3 references, verified DSA and Neural appends, System v3 modules, seven independently adopted workbooks and latest-only Fieldcraft/GeoJack. Existing saved versions never silently change. |
 | `src/domain/types.ts` — `AppState` | Versioned runtime shape: progress, plans, evidence, history, readiness, opportunities. |
 | `src/domain/engine.ts` — `parseState` | Schema and cross-reference validation before accepting persisted or imported state. |
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
@@ -17,7 +17,7 @@ plan as proof of capability.
 | `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discovery projection over validated evidence/recall: canonical identities, chronological first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
 | `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed SVG/CSS collection, inspectable source receipts, keyboard activity ribbon and non-focus-stealing notices for newly visible discoveries. No WebGL or render loop. |
 | `src/discovery/Wayfinder.tsx`, `WayfinderViewer.tsx`, `wayfinderGeometry.ts` | Source-derived collection EXP, bounded reward timeline and an event-driven low-resolution PS1-style 3D avatar with cumulative equipment; transient camera/chapter choices only. |
-| `src/missionVisuals.ts` | Shared ten-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
+| `src/missionVisuals.ts` | Shared eleven-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
 | `src/tutorial/*` | Guided steps, state-derived completion gates, real-control highlighting and dialog-aware coaching. |
@@ -29,9 +29,10 @@ plan as proof of capability.
 | `src/domain/roadmapPacks/*`, `src/practice/*` | Typed outlines generate 377 new-edition checkpoints; seven lazy study chunks preserve 806 source units and 5,944 exercise occurrences. Reference/practice roles stay outside required checkpoint identity. |
 | `src/domain/forwardDeployed/*` | Original web-source research registry, latest-only 48-checkpoint mission, eight independent labs and 112 exercises. Outline metadata is shared; full teaching prose is a lazy chunk. No fictitious PDF provenance. |
 | `src/domain/agentCloud/*` | Original public-source Neural v4 extension: exact v3 prefix plus 12 checkpoints/four optional cases/60 exercises. Mixed PDF/web library, 30 source receipts and a separate lazy teaching chunk; no new workspace schema or model integration. |
+| `src/domain/omscs/*`, `src/omscs/OmscsPage.tsx` | Latest-only GeoJack learning curriculum and ten course guides; pure semester/conditional-credit projections and explicit optional academic entries. Full teaching prose is lazy. Academic status never changes learning evidence or official degree state. |
 | `src/roadmaps/useMapViewport.ts` | Shared fit/zoom, pointer panning, focus/centering, resize measurement and lifecycle cleanup for both tracked and concept maps. |
 | `src/graph/*` | Read-only career graph model, stable 3D positions and Three.js rendering. Mission/collection identities remain distinct; green is reserved for completed checkpoints, including archived ones. |
-| `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Sixteen derived data views: ten exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
+| `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Seventeen derived data views: eleven exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
 | `src/domain/focusSession.ts`, focus operations in `engine.ts` | Optional, bounded focus-session event records, strict chronology/state/ID validation and conditional ownership checks before appending reports. |
 | `src/focus/*` | One tab-local controller shared by compact/fullscreen timers, immediately persisted self-reports, retained history, and an inert calm-profile 3D backdrop. |
 | `src/workspaceFile.ts` — `serializeWorkspace` | Identical compact JSON encoding for saved and exported state, with a shared 5 MiB UTF-8 limit also used by import. |
@@ -117,7 +118,7 @@ node/orbit arrays and edges with two visible endpoints are filtered.
 `getDefaultHiddenCareerRingIds` initializes hidden ring choices from non-active missions
 and non-mission identities. Active mission rings and all real nodes remain chosen.
 Explicit per-ring selection/reveal changes this local set; workspace saves do not
-reapply defaults. Select all items can restore ten mission rings, not collection rings.
+reapply defaults. Select all items can restore eleven mission rings, not collection rings.
 The focus room applies the same ring defaults once when taking its snapshot, retaining
 the full node/edge data and its existing independent presentation settings.
 `getCareerFocusVisibility` derives detailed mission IDs from saved active modes plus
@@ -171,8 +172,8 @@ No standalone luminous wave ring is drawn. It never creates graph records
 or focus events. Focus framing targets the core; the main graph retains its camera.
 
 There is no backend, authentication layer, remote database, agent execution service,
-or model call. All ten latest missions have documented tracking units, totaling
-557 checkpoints. Historical forecast-only definitions remain frozen. A cross-mission link expresses a related
+or model call. All eleven latest missions have documented tracking units, totaling
+581 checkpoints. Historical forecast-only definitions remain frozen. A cross-mission link expresses a related
 capability, not a lock.
 Prerequisites within a mission control availability. Unspecified relationships follow the
 documented order; explicit source branches can expose more than one available checkpoint,
@@ -251,6 +252,46 @@ Original ring seeds/speeds remain fixed. A smaller inter-fan gap recovers room
 for the denser mixed-version catalog; unchanged fitted-spacing and dense-import
 requirements guard readability rather than increasing the containing scene alone.
 See [research and source limits](FDE-RESEARCH.md).
+
+### GeoJack academic planning is not learning progress
+
+`omscsMission` exists only at v3 and is appended after the existing ten missions,
+without rewriting `v3Missions` or fabricating older GeoJack definitions.
+`createOmscsProgress` supplies an empty background lane. Genuine legacy migration
+and missing-only schema-two normalization add that lane while preserving prior
+records, modes, positions and dates. Explicit malformed values reject.
+
+`OmscsPage` renders a ten-course allocation, proposed terms and course-specific
+guides. `getOmscsSchedule` preserves entered terms and does not compress the route
+after a completion; `getOmscsScheduleWarnings` discloses preparation-order/load
+conflicts without enforcing imaginary registration prerequisites.
+`getOmscsSummary` separates reported completed credits from grade-eligible slots:
+B or better for specialization and C or better for free electives, with unknown
+grades explicitly unqualified. It never calculates a purported official GPA.
+
+Optional `AppState.omscsPlan` is absent until an explicit route/course save.
+Strict schemas validate term bounds, unique selected-course identities and
+grade/status combinations. Both forms use normal `commit`/`recordChange`; the
+course dialog also captures its original entry signature to reject a changed
+record. Standard cross-tab/storage errors retain previous data and show failure.
+These history updates create no evidence, recall or completion. Mission activity
+and Atlas therefore grant no rewards for academic entry.
+
+`workspaceChanges` projects a present plan as the atomic `setting/omscsPlan`
+cell and omits it when absent. Assembly preserves absence; competing academic
+edits conflict conservatively rather than silently combining a grade, status
+and schedule from different snapshots. Authenticated old ten-mission baselines
+replay before new academic batches without rewriting old ciphertext. Required
+mission-cell deletion still fails rather than invoking missing-lane normalization.
+Ordinary backup replacement retains its existing explicit confirmation.
+
+The library has 24 checkpoints and five independent reference/practice units,
+with 58 exercises and 37 public-source receipts. `courses.ts` keeps lightweight
+outlines; full original model/example teaching is loaded through `teaching.ts`.
+Six exact-version transfer links reuse the existing graph/library registry,
+not shared completion identity. Native recall is intentionally unchanged.
+Six lessons append to the existing 182-step tutorial, now 188 steps / 32 chapters,
+using only isolated practice data. See [the source and route notes](OMSCS-RESEARCH.md).
 
 ### Optional encrypted repository journal
 

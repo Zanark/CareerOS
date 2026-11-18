@@ -1,6 +1,7 @@
 import type { Checkpoint } from '../types';
 import { roadmapPackOutlines as sourceBookOutlines } from './outlines';
 import { fdeOutline } from '../forwardDeployed/outline';
+import { omscsOutline } from '../omscs/outline';
 import { agentCloudUnits, extendNeuralOutline } from '../agentCloud/outline';
 import { packMissionIds } from './types';
 import type { PackMissionId } from './types';
@@ -9,6 +10,7 @@ export const PACK_ROADMAP_VERSION = '3.0.0' as const;
 export const roadmapPackOutlines = [
   ...sourceBookOutlines.map(pack => pack.missionId === 'neural' ? extendNeuralOutline(pack) : pack),
   fdeOutline,
+  omscsOutline,
 ];
 
 export function getSourcePackOutline(missionId: string) {

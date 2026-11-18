@@ -701,4 +701,34 @@ export const careerSkillLinks: readonly CareerSkillLink[] = [
     source: anchor('system', 'system-v3-module-69'), target: anchor('neural', 'neural-v3-neural-4-2'),
   },
   ...agentCloudSkillLinks,
+  {
+    id: 'geojack-algorithm-identity', concept: 'Represent the query before choosing an algorithm',
+    reason: 'Pattern keyed-state practice helps GeoJack defend a representation and its complexity. The academic or study record is not equivalent to solving the changed-case task.',
+    source: anchor('pattern', 'pattern-v3-section-05'), target: anchor('omscs', 'omscs-v3-omscs-cs6515-paradigms'),
+  },
+  {
+    id: 'geojack-os-budget', concept: 'Resource ownership before adding concurrency',
+    reason: 'System latency/throughput reasoning transfers to GeoJack OS experiments with queue limits, waits and contention. A completed course entry alone does not demonstrate the experiment.',
+    source: anchor('system', 'system-v3-module-03'), target: anchor('omscs', 'omscs-v3-omscs-cs6200-resources'),
+  },
+  {
+    id: 'geojack-nlp-retrieval', concept: 'Retrieval and answer quality are separate layers',
+    reason: 'GeoJack language/retrieval experiments support Neural hybrid-search choices, while permissions, source freshness and actual task evidence still need their own checks.',
+    source: anchor('omscs', 'omscs-v3-omscs-cs7650-retrieval'), target: anchor('neural', 'neural-v3-neural-2-2'),
+  },
+  {
+    id: 'geojack-fieldcraft-evaluation', concept: 'A credible baseline before a model claim',
+    reason: 'GeoJack experimental analysis supports Fieldcraft simplest-sufficient AI decisions. The new applied workflow must still demonstrate its own benefit, failure cases and limitations.',
+    source: anchor('omscs', 'omscs-v3-omscs-cs7641-defense'), target: anchor('fde', 'fde-v3-fde-21'),
+  },
+  {
+    id: 'geojack-durable-protocol', concept: 'Stable intent under uncertain acknowledgement',
+    reason: 'GeoJack retry/replication reasoning supports Neural durable workflows, but an educational RPC protocol cannot by itself establish exactly-once external effects or production recovery.',
+    source: anchor('omscs', 'omscs-v3-omscs-cs7210-protocols'), target: anchor('neural', 'neural-v4-neural-agent-durability', '4.0.0'),
+  },
+  {
+    id: 'geojack-compute-critical-path', concept: 'A kernel speedup is not an application speedup',
+    reason: 'GeoJack GPU experiments include transfer and numerical correctness; Neural task-performance reasoning additionally includes tools, coordination, review and verification.',
+    source: anchor('omscs', 'omscs-v3-omscs-cs7295-performance'), target: anchor('neural', 'neural-v4-neural-agent-performance', '4.0.0'),
+  },
 ];

@@ -1,0 +1,50 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "489b5c00861df5fd0c3ce31e0e23504f1a0fe66b",
+  "observedAt": "2026-11-18T23:44:25.008Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "geojack-omscs",
+      "path": "TODO/13_GEOJACK_OMSCS.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/12",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "6d14d2e474a431e8de08923933e7fb6ba37f015092fd14e2480c70383bec3a60",
+      "actions": [
+        "update managed description",
+        "set issue open/-",
+        "set Project In Progress"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhJ-hyA",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 12,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

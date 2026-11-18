@@ -15,7 +15,7 @@ const expected = {
   algorithm: { pages: 120, checkpoints: 34, units: 104, exercises: 740 },
   income: { pages: 162, checkpoints: 104, units: 129, exercises: 1056 },
 };
-const sourceBookIds = packMissionIds.filter(id => id !== 'fde');
+const sourceBookIds = packMissionIds.filter(id => id !== 'fde' && id !== 'omscs');
 
 describe('the complete seven-book roadmap pack', () => {
   it.each(sourceBookIds)('preserves every reviewed %s unit, exercise and physical-page citation', async id => {
@@ -73,11 +73,12 @@ describe('the complete seven-book roadmap pack', () => {
     expect(extensions.every(unit => unit.role !== 'checkpoint')).toBe(true);
   });
 
-  it('retains the frozen nine-mission catalog while adding Fieldcraft only to the latest curriculum', () => {
+  it('retains frozen source catalogs while later public-source missions use only supported editions', () => {
     expect(v2Missions.reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(87);
     expect(getMissionVersion('algorithm', '2.0.0').planned).toBe(true);
     expect(v3Missions.filter(mission => mission.id !== 'fde').reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(497);
-    expect(missions.reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(557);
+    expect(missions.filter(mission => mission.id !== 'omscs').reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(557);
+    expect(missions.reduce((sum, mission) => sum + mission.checkpoints.length, 0)).toBe(581);
     const state = createInitialState(false);
     expect(parseState(state)).toEqual(state);
     expect(state.schemaVersion).toBe(2);
@@ -87,7 +88,7 @@ describe('the complete seven-book roadmap pack', () => {
       expect(progress.completedCheckpointIds).toEqual([]);
       expect(progress.status).toBe('not-started');
     }
-    expect(buildCareerGraph(state).stats).toMatchObject({ trackedTotal: 557, trackedCompleted: 0 });
+    expect(buildCareerGraph(state).stats).toMatchObject({ trackedTotal: 581, trackedCompleted: 0 });
   });
 
   it.each(sourceBookIds)('archives %s v2 without changing recorded work or inventing v3 credit', id => {
@@ -137,7 +138,7 @@ describe('the complete seven-book roadmap pack', () => {
       expect(nodes).toHaveLength(getLatestMission(id).checkpoints.length);
       expect(nodes.every(node => node.status === 'reference' && !node.current)).toBe(true);
     }
-    expect(graph.stats.trackedTotal).toBe(87 + getLatestMission('fde').checkpoints.length);
+    expect(graph.stats.trackedTotal).toBe(87 + getLatestMission('fde').checkpoints.length + getLatestMission('omscs').checkpoints.length);
     expect(JSON.stringify(state)).toBe(before);
   });
 

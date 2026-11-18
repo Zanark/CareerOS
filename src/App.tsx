@@ -47,6 +47,7 @@ import { DiscoveryNotice } from './discovery/DiscoveryNotice';
 import { getDiscoverySnapshot } from './discovery/model';
 import type { WayfinderRun } from './discovery/model';
 import { createDiscoveryPracticeState } from './discovery/practice';
+import OmscsPage from './omscs/OmscsPage';
 
 type Commit = (transform: (current: AppState) => AppState) => boolean;
 const mainNav = [
@@ -61,6 +62,7 @@ const mainNav = [
   { id: 'recall', label: 'Recall practice', icon: BrainCircuit, color: 'violet' },
 ];
 const extraNav = [
+  { id: 'omscs', label: 'GeoJack OMSCS', icon: BookOpen, color: 'amber' },
   { id: 'discoveries', label: 'Discovery Atlas', icon: Gem, color: 'amber' },
   { id: 'pipeline', label: 'Opportunities', icon: BriefcaseBusiness, color: 'amber' },
   { id: 'readiness', label: 'Interview readiness', icon: Target, color: 'rose' },
@@ -287,6 +289,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
           entryId={route.split('/')[1] === 'concept' ? route.split('/')[3] : route.split('/')[1]}
           conceptGroupId={route.split('/')[1] === 'concept' ? route.split('/')[2] : undefined} />}
         {page === 'practice' && <PackPracticePage state={state} missionId={route.split('/')[1]} entryId={route.split('/')[2]} />}
+        {page === 'omscs' && <OmscsPage state={state} commit={commit} practice={practice} />}
         {page === 'hq' && <Overview state={state} date={date} practice={practice} onEvidence={openEvidence} onResume={resume} onExport={exportBackup} />}
         {page === 'missions' && <MissionsPage state={state} onResume={resume} />}
         {page === 'mission' && selected && <MissionPage mission={selected} state={state} commit={commit} onEvidence={() => openEvidence(selected.id)} onResume={resume} notify={setToast} onFullRoadmap={() => setFullRoadmapOpen(true)} />}
@@ -311,7 +314,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {page === 'settings' && <DataPage state={state} commit={commit} onExport={exportBackup} onReplace={next => workspace.replace(next)} notify={setToast} practice={practice} onImported={() => setImportCount(count => count + 1)} />}
         {page === 'repository-sync' && <RepositorySyncPage sync={repositorySync} />}
         {page === 'guide' && <GuidePage onStartTutorial={onStartTutorial} />}
-        {(!['home', 'perspective', 'discoveries', 'dsa', 'system-concepts', 'system-practice', 'practice', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
+        {(!['home', 'perspective', 'discoveries', 'dsa', 'system-concepts', 'system-practice', 'practice', 'omscs', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
         {page !== 'home' && <footer className="page-footer"><a href="#/guide">Help & glossary</a><a href="#/settings">Data & backups</a></footer>}
       </main>
     </div>
