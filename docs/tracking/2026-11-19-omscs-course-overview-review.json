@@ -1,0 +1,479 @@
+{
+  "reviewedAt": "2026-11-19",
+  "scope": "All78official public course overviews read for authored qualitative career/roadmap guidance. Not a complete review of all syllabi, readiness, tools, assessments or future offerings. Existing detailed course receipts retain their separate scope.",
+  "courseCount": 78,
+  "sources": [
+    {
+      "courseId": "cs6035",
+      "url": "https://omscs.gatech.edu/cs-6035-introduction-information-security",
+      "sha256": "684e1ad61aa478b178aa01fa155f2f3ffd22c652ab87d2101020b5256063c716",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6150",
+      "url": "https://omscs.gatech.edu/cs-6150-computing-good",
+      "sha256": "5e97efa1e4c0305ecb892ce1ee51004d5e3a7f8f099652f32a478ba298387dc2",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6200",
+      "url": "https://omscs.gatech.edu/cs-6200-introduction-operating-systems",
+      "sha256": "d98b2a836501da7cc1718f0989814c235767ad73e6bf8471d95d2158eb53c4bc",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6210",
+      "url": "https://omscs.gatech.edu/cs-6210-advanced-operating-systems",
+      "sha256": "ea39de6908c136a793c2f12cc2c356b70c2c2f0fb119825c84be766619625638",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6211",
+      "url": "https://omscs.gatech.edu/cs-6211-system-design-cloud-computing",
+      "sha256": "8fde043f7f58c3433dba25947bb0c5c1608bb4985282ff4b7a737999f597bc7d",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6238",
+      "url": "https://omscs.gatech.edu/cs-6238-secure-computer-systems",
+      "sha256": "435812ab37cfb4dab84e01278232f30cb86aa319ddaac31bf12d978d45dadd93",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6250",
+      "url": "https://omscs.gatech.edu/cs-6250-computer-networks",
+      "sha256": "e9da842c2d0c496b53865f26682e1bebdde9a82de9737cdeda88942ac397c389",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6260",
+      "url": "https://omscs.gatech.edu/cs-6260-applied-cryptography",
+      "sha256": "9690656980700be463ebab9cf2df786512dccbd36c5c8c769060c79701fa7076",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6261",
+      "url": "https://omscs.gatech.edu/cs-6261-security-operations-and-incident-response",
+      "sha256": "5c2c743392a6a95c8985f687804b2f73ee67d065023a7b540b45225a2d69d70b",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6262",
+      "url": "https://omscs.gatech.edu/cs-6262-network-security",
+      "sha256": "8ce2ab260cb35e6b279dfad78e7c219844721241468fdccfa87d104a6d88d117",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6263",
+      "url": "https://omscs.gatech.edu/cs-6263-intro-cyber-physical-systems-security",
+      "sha256": "b4b232dd41de1e8072e010df20fe93506f08ffc10f3cabf40dc99b84576715bb",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6264",
+      "url": "https://omscs.gatech.edu/cs-6264-information-security-lab-system-and-network-defenses",
+      "sha256": "c74d3c03d140bfd4b8c0188deeca3ed1b4f280dfeba59668753788abf9968285",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6265",
+      "url": "https://omscs.gatech.edu/cs-6265-information-security-lab",
+      "sha256": "58e007f2cec853cc44fbe8937c22b70e32d55a35cf860f9e5d861c327aa412e2",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6271",
+      "url": "https://omscs.gatech.edu/cs-6271-cybersecurity-drones",
+      "sha256": "20eafcc7c887ae807fcc1432836977db2148dd784b4a2f2cda30e425dd3e37f8",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6290",
+      "url": "https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture",
+      "sha256": "4075fb8dba34fd0504ae3e81003b259cc85a3999605be847f294c3e846609f74",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6291",
+      "url": "https://omscs.gatech.edu/cs-6291-embedded-systems-optimization",
+      "sha256": "c7145a876f8e9218cdc5dd719137213b11635c618c18a4469ffda86b08384a31",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6300",
+      "url": "https://omscs.gatech.edu/cs-6300-software-development-process",
+      "sha256": "64caf32f113f6be52ea1cd51097777e77de008ba31b0089f89f6fbc79c4b960d",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6310",
+      "url": "https://omscs.gatech.edu/cs-6310-software-architecture-and-design",
+      "sha256": "88dc287cd3b3a5abbf3f4f2242cfbb108d2fc8a06935d965ba0c7fe1369e2c4f",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6340",
+      "url": "https://omscs.gatech.edu/cs-6340-software-analysis",
+      "sha256": "09cd512d99a3301f33dd95385f0d853093c56a4902f271c1f7378028be84b656",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6400",
+      "url": "https://omscs.gatech.edu/cs-6400-database-systems-concepts-and-design",
+      "sha256": "89b7c84adb7d27899916f3ecb515f6cd9009835b7e3754ee50086d7f9d24ecff",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6422",
+      "url": "https://omscs.gatech.edu/cs-6422-database-system-implementation",
+      "sha256": "18a237a4ab98c6f4c0702d2be482c7378e540006ba31b92f17105383d98f4b3a",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6435",
+      "url": "https://omscs.gatech.edu/cs-6435-digital-health-equity",
+      "sha256": "ca8fa9007d446c8eac86ba35e9f4231af42a1384c940367f68b0da48dfaece60",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6440",
+      "url": "https://omscs.gatech.edu/cs-6440-intro-health-informatics",
+      "sha256": "33c554a04112f5a9ed65b608735dfc9ee622d5671c4ede0002157ada0d5e0b04",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6457",
+      "url": "https://omscs.gatech.edu/cs-6457-video-game-design",
+      "sha256": "d20266f17976c56cb80412028e03ad01d4d27b1e521ac0727b9a4d710f15a23f",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6460",
+      "url": "https://omscs.gatech.edu/cs-6460-educational-technology",
+      "sha256": "822937f84a14a2c1f244991252b26a68abc734476e2ff85a3644cf20f7fde92a",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6475",
+      "url": "https://omscs.gatech.edu/cs-6475-computational-photography",
+      "sha256": "654f9f96ed87c2f3dcb9180a8c7d412eb4a580c0ecd9dac695602427021ff540",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6476",
+      "url": "https://omscs.gatech.edu/cs-6476-computer-vision",
+      "sha256": "a1b7c631c3197c8261a74366f9145a7607731de6ff2bfcd09f707bbeb07e9963",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6491",
+      "url": "https://omscs.gatech.edu/cs-6491-foundations-computer-graphics",
+      "sha256": "7b8fe235ffeb67f97407850c32678544033a3ed4f8cf5e8025e9eb5b22222de1",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6515",
+      "url": "https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms",
+      "sha256": "36db78d7ea5f1d3f1a85d8d56c91d522bd6cade879107a094dbe9e245d43edd7",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6601",
+      "url": "https://omscs.gatech.edu/cs-6601-artificial-intelligence",
+      "sha256": "311d08ffc9f016eadeb20e0558f746682d26844217d0db6feda427edf4b16edd",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6603",
+      "url": "https://omscs.gatech.edu/cs-6603-ai-ethics-and-society",
+      "sha256": "f2aa32de6f5d08a51a17969a8a37d65d671101e026aea8e5e183e58f2af77d30",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6675",
+      "url": "https://omscs.gatech.edu/cs-6675-advanced-internet-systems-and-applications",
+      "sha256": "16fa13bc3ea0e7d9e331df986176c1ad80b48a9ce1a7e8a68d327b424ce2bfcb",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6747",
+      "url": "https://omscs.gatech.edu/cs-6747-advanced-malware-analysis",
+      "sha256": "cbfe0caa32d715b912e91283ec307e2701aaad7183c2fcc0c008256e6e9b06c8",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6750",
+      "url": "https://omscs.gatech.edu/cs-6750-human-computer-interaction",
+      "sha256": "7e02d58e22069333c9c6e2c87b5c384debe88ae2b746d6047fb0d3469086c0fb",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs6795",
+      "url": "https://omscs.gatech.edu/cs-6795-introduction-cognitive-science",
+      "sha256": "69d47d368d1a650c8d01bca1b6a986d8bcfa993c308266c4d351864383ca16fc",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7210",
+      "url": "https://omscs.gatech.edu/cs-7210-distributed-computing",
+      "sha256": "8613e4384343d659419be582c9bba75aff5e6036665b6a3f5ba97b0711e5fde7",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7240",
+      "url": "https://omscs.gatech.edu/cs-7240-modern-internet-research-methods",
+      "sha256": "07345a68281796bffdff49ea37e733b264efbcacdef8b84741c13ac3b8991a58",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7280",
+      "url": "https://omscs.gatech.edu/cs-7280-network-science",
+      "sha256": "ebef87b8c6ccb11286ef9fb261df781adef40c48e933ec7776b2265b4747d6e8",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7295",
+      "url": "https://omscs.gatech.edu/cs-7295-gpu-hardware-and-software",
+      "sha256": "7d31b8bf2d97aebe66d6af76e8af58082d57d036fcb3003b6e127986044afa22",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7400",
+      "url": "https://omscs.gatech.edu/cs-7400-intro-quantum-computing",
+      "sha256": "d54a1533690005e4625a4f42cc72cc3778243ceba3d336d2eedaab67f99ed332",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7470",
+      "url": "https://omscs.gatech.edu/cs-7470-mobile-ubiquitous-computing",
+      "sha256": "5f7c04e738208419d0c0851c0e9dc0d7d12caf6ad19cdf309f83f32152a1cf84",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7496",
+      "url": "https://omscs.gatech.edu/cs-7496-computer-animation",
+      "sha256": "7a931ea3fde2ee2ad250af65d5aa5b9470940b2b64510879e300b131107cf261",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7632",
+      "url": "https://omscs.gatech.edu/cs-7632-game-ai",
+      "sha256": "65559989b4506687818559e2fefd13337c1feaca9becffe26d4af72ea1cc8328",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7637",
+      "url": "https://omscs.gatech.edu/cs-7637-knowledge-based-ai",
+      "sha256": "8ce99c75880d36fc183f76b335dffb0f171506e4a9825bec238546f210bd9e97",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7638",
+      "url": "https://omscs.gatech.edu/cs-7638-robotics-ai-techniques",
+      "sha256": "6034cb1d1a99e9aa1bb744179540715b5a405fcc7bfc47f5b486d58814004b49",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7639",
+      "url": "https://omscs.gatech.edu/cs-7639-cyber-physical-design-and-analysis",
+      "sha256": "d05d3fecd2470cbd9951b38536b8fe3108c97d10ee23908c0e07460cf36786f6",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7641",
+      "url": "https://omscs.gatech.edu/cs-7641-machine-learning",
+      "sha256": "2c233ef9687ae52244597d41787c3292845ae74e7fd4a8ba58a2838f220605d9",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7642",
+      "url": "https://omscs.gatech.edu/cs-7642-reinforcement-learning",
+      "sha256": "b959c9d03af85dc29dfa42428b658c25b800f212f162af73f009267471b51580",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7643",
+      "url": "https://omscs.gatech.edu/cs-7643-deep-learning",
+      "sha256": "67fe261322f8c4d2d954fdf29eb3230e90e1d4f26db89d3e540bd802ff70424a",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7646",
+      "url": "https://omscs.gatech.edu/cs-7646-machine-learning-trading",
+      "sha256": "7fce57b4aff173275c88000acb31746b59858aff4e4c8eaabc481cd2e589fcf9",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7650",
+      "url": "https://omscs.gatech.edu/cs-7650-natural-language",
+      "sha256": "89985845a2d42a131d0be920e9e597ed20043251615ac4c4d56253b266a97412",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs7711",
+      "url": "https://omscs.gatech.edu/cs-7711-health-sensing-and-interventions",
+      "sha256": "b58bc9e5190fe8898fac272ab2131a0c578ddec68ea37c94633386c23f57427a",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o08",
+      "url": "https://omscs.gatech.edu/cs-8803-o08-compilers-theory-and-practice",
+      "sha256": "dc8c21d0714e8989514e64174712427c51fcc3e6aed69c7bafb066071bc95df3",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o15",
+      "url": "https://omscs.gatech.edu/cs-8803-o15-introduction-computer-law",
+      "sha256": "e4121b97c901228f532d45e052eb8925748da64fcd3a17ded2a76ed722080f62",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o17",
+      "url": "https://omscs.gatech.edu/cs-8803-o17-global-entrepreneurship",
+      "sha256": "7c35ec5ad506ba119e1a2f4f06af7a394bf1a57a3e0b504c17d92b20806c7740",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o20",
+      "url": "https://omscs.gatech.edu/cs-8803-o20-quantum-hardware",
+      "sha256": "0cb864a249390c869634f8fe712a3a815d5f4596377483685983221a0130e8a8",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o24",
+      "url": "https://omscs.gatech.edu/cs-8803-o24-intro-research",
+      "sha256": "f1bfb1121252bd404b9b8b0d6ea04547d7e2fa41c7c8bfdf4d645dc1950db908",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o25",
+      "url": "https://omscs.gatech.edu/cs-8803-o25-advanced-wireless-networks",
+      "sha256": "358cb7429eabd4d420339bb5c608bcd5089b531b5f9031f29d8d915b520fdae6",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o27",
+      "url": "https://omscs.gatech.edu/cs-8803-o27-computer-graphics-ai-era",
+      "sha256": "a92f7eafb8e3c277c082cca6351619d48e9ab286b668ff00d8fbf7e9b498e79e",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-o34",
+      "url": "https://omscs.gatech.edu/cs-8803-o34-human-dimension-cybersecurity",
+      "sha256": "461c14dae4616fa04b541b7d37ce0f372c44904d9506a87cf66699e16597a671",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cs8803-oro",
+      "url": "https://omscs.gatech.edu/cs-8803-oro-management-leadership-computing",
+      "sha256": "e5f37ab0e09436979698a9198ee4d6d514fbb9434dd194e2d2fbe407830ddf68",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cse6220",
+      "url": "https://omscs.gatech.edu/cse-6220-intro-high-performance-computing",
+      "sha256": "7ad9eeac42980f18d955180698e1d098141e42dcf86091b8900bf2254a2cd0aa",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cse6242",
+      "url": "https://omscs.gatech.edu/cse-6242-data-and-visual-analytics",
+      "sha256": "020e4fdddac29d0a8ac0352e76c2eccb844e6b27406ec82bcfff9fbc2b891bef",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cse6250",
+      "url": "https://omscs.gatech.edu/cse-6250-big-data-health-informatics",
+      "sha256": "bcd7320fdbf1957c6fee1dda2544d3fb0c8de228489be300ce15b21c0b874c5d",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "cse6742",
+      "url": "https://omscs.gatech.edu/cse-6742-modeling-simulation-and-military-gaming",
+      "sha256": "74e7cc01c80f12e7d947da084bdf9bbafea72f88532314087c623a984193775d",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "ece8843",
+      "url": "https://omscs.gatech.edu/ece-8843-side-channels-and-their-role-cybersecurity",
+      "sha256": "f3639b286bf528ba33e06725f0b7d9f1f71d703d82459d923d64b5d18fbc6a25",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "inta6450",
+      "url": "https://omscs.gatech.edu/inta-6450-data-analytics-and-security",
+      "sha256": "735e109e545e40f05d4ec1893f851cb763880c9facec70b5df34a9bafedf3e33",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6402",
+      "url": "https://omscs.gatech.edu/isye-6402-time-series-analysis",
+      "sha256": "3ca28d214154d4171920a14a6e35cdd252f531810bace8a07bcdaa2ab1da4171",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6414",
+      "url": "https://omscs.gatech.edu/isye-6414-regression-analysis",
+      "sha256": "ea68247b7eb1e755235bf4d1e859a98d2b20a0a17ebd7ecbf977de5f1926786c",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6420",
+      "url": "https://omscs.gatech.edu/isye-6420-bayesian-statistics",
+      "sha256": "255a1a4f6cf3fcb879df1551e348a4c538f246e38f9ce7da0267f90263b126ba",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6501",
+      "url": "https://omscs.gatech.edu/isye-6501-intro-analytics-modeling",
+      "sha256": "fc7e6f5d1e3df054e93f8472d56daaecb44e9f7bb9d868ac504f0a7cd7e0b831",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6525",
+      "url": "https://omscs.gatech.edu/isye-6525-topics-high-dimensional-data-analytics",
+      "sha256": "951c4fe90eeb20ae374b63e0a01cf37a289239921efefaee195496900b406fe7",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6644",
+      "url": "https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science",
+      "sha256": "0638a3ff0031f649a07afc2d6597867fae3c70cc1e886be0ffc3a1314fbb5b9f",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "isye6669",
+      "url": "https://omscs.gatech.edu/isye-6669-deterministic-optimization",
+      "sha256": "f9e45d4bb5cfc3b007f650a9de621395a804b7098feab76c3548960a39198107",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "mgt6311",
+      "url": "https://omscs.gatech.edu/mgt-6311-digital-marketing",
+      "sha256": "ebcba717b6fdd32d8a305a266afd7ee6947d5eef0e708a9ab2ad19035353dda4",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "mgt8813",
+      "url": "https://omscs.gatech.edu/mgt-8813-financial-modeling",
+      "sha256": "3065aa165e9ddac0cdd50fe1d0578822bd04dac8e2ef5b795901c1ef01e8046e",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "pubp6725",
+      "url": "https://omscs.gatech.edu/pubp-6725-information-security-policies",
+      "sha256": "03adf815b7f10d9090ccebecd75d3e76763788957681cce466157b64e4d081c5",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    },
+    {
+      "courseId": "pubp8823",
+      "url": "https://omscs.gatech.edu/pubp-8823-geopolitics-cybersecurity",
+      "sha256": "8a689f05beb888779a154b875104c4dbcfa728d821d217c860efaced94430121",
+      "reviewScope": "Public overview; authored benefit/tradeoff and potential roadmap transfer."
+    }
+  ],
+  "collectionCorrections": [
+    "Recognized the observed div role=main container rather than assuming a main element.",
+    "Used actual heading levels rather than assuming every page ends its overview at a plural Sample Syllabi heading. Cached source pages were reused."
+  ]
+}

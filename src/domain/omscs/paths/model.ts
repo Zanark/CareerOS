@@ -15,6 +15,7 @@ export interface PathProfile {
   programStart: OmscsTerm | '';
   resumeTerm: OmscsTerm;
   completed: PriorCourse[];
+  readmissionConfirmed?: boolean;
 }
 export interface SpecializationSelection {
   design: string;
@@ -30,6 +31,7 @@ export interface SpecializationPath {
 export const pathProfileSchema: z.ZodType<PathProfile> = z.object({
   programStart: z.union([omscsTermSchema, z.literal('')]),
   resumeTerm: omscsTermSchema.refine(term => Number(term.slice(0, 4)) <= 2095, 'Use a start year no later than 2095.'),
+  readmissionConfirmed: z.boolean().optional(),
   completed: z.array(z.object({
     id: z.string().refine(isPathCourse, 'Choose a course in the reviewed OMSCS catalogue.'),
     term: z.union([omscsTermSchema, z.literal('')]),
@@ -133,6 +135,17 @@ export function evaluateDegree(ruleId: PathRuleId, selection: SpecializationSele
   };
 }
 
+export function courseShortlist(selection: SpecializationSelection, free: readonly string[], profile: PathProfile) {
+  const completed = new Set(budgetCompleted(profile).map(row => row.id)), spec = new Set(specializationIds(selection));
+  return [
+    { id: selection.design, role: 'Algorithms / design' },
+    ...selection.ai.map(id => ({ id, role: 'AI core' })),
+    ...selection.electives.map(id => ({ id, role: 'Specialization elective' })),
+    ...budgetCompleted(profile).filter(row => !spec.has(row.id)).map(row => ({ id: row.id, role: 'Free elective' })),
+    ...free.map(id => ({ id, role: 'Free elective' })),
+  ].map(row => ({ ...row, reportedComplete: completed.has(row.id) }));
+}
+
 function combinations(n: number, k: number): number {
   if (k < 0 || k > n) return 0;
   let value = 1;
@@ -171,6 +184,12 @@ export function suggestedCourseOrder(ids: readonly string[]): string[] {
     ordered.push(ready[0]); remaining.delete(ready[0]);
   }
   return ordered;
+}
+export function firstTermCourseOrder(ids: readonly string[], first: string): string[] {
+  const ordered = suggestedCourseOrder(ids);
+  if (!first) return ordered;
+  if (!ids.includes(first)) throw new Error('The first-term choice is not a selected new subject. Review the draft before proposing a calendar.');
+  return [first, ...ordered.filter(id => id !== first)];
 }
 export function proposedPathSemesters(ids: readonly string[], resume: OmscsTerm, includeSummer: boolean, regularLoad: 1 | 2) {
   let term = resume;

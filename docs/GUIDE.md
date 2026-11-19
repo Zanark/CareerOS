@@ -110,12 +110,17 @@ chapter tries real controls on isolated fictional data and discards its grade on
 exit. Alternate course routes are comparisons, not automatic substitutions.
 Read [the allocation, source differences and limitations](OMSCS-RESEARCH.md).
 
-**Local review candidate:** `#/omscs/paths` adds the complete AI subject-choice
+**Course-choice workbench:** `#/omscs/paths` adds the complete AI subject-choice
 explorer, current/catalog comparison, all 78 regular free-course entries and
 editable what-if calendars. Reported history can inform the private planning
 basis without changing saved grades or learning/Atlas credit. Its temporary
 choices do not rewrite the original 24-checkpoint study route. Read
-[path-explorer scope and sources](OMSCS-PATHS.md); publication awaits owner review.
+[path-explorer scope and sources](OMSCS-PATHS.md). Use **Start choosing subjects**
+for the four-step phone flow: private draft history, AI slots, additional free
+subjects and **My shortlist**. All 78 subjects have authored career benefits,
+tradeoffs and real roadmap links. Career fit is qualitative, not degree
+eligibility or completion credit. Draft choices reset on refresh/leaving;
+note the shortlist or select its plain text before leaving the page.
 
 ### AI Architect: agent-native cloud extension
 

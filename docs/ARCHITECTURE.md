@@ -293,15 +293,29 @@ not shared completion identity. Native recall is intentionally unchanged.
 Six lessons append to the existing 182-step tutorial, now 188 steps / 32 chapters,
 using only isolated practice data. See [the source and route notes](OMSCS-RESEARCH.md).
 
-### Optional encrypted repository journal
+### Course-choice workbench
 
-The local-review `omscs/paths` addition is deliberately outside this persistence
-contract: explicit public rule lenses, a complete static course catalogue and
-pure role/set/budget/calendar projections are loaded only for its route.
+The readonly `omscs/paths` workbench is deliberately outside academic/journal
+persistence. Explicit public rule lenses, a complete static course catalogue
+and pure role/set/budget/calendar projections are loaded only for its route.
 Draft choices remain component-local. No new academic setting or journal
 projection is introduced. Development-only private context is validated from
 the separate local review document; production ignores it. See
 [the detailed boundaries](OMSCS-PATHS.md).
+
+`careerFit.ts` has explicit source-reviewed benefit/tradeoff/mission associations,
+not inferred keyword edges or an AI adviser. The history editor validates a
+private tab-local basis. Reclassifying a reported passing/unknown-grade subject
+preserves its degree role while removing a duplicate new free choice; D/F do
+not reduce the budget. The pure shortlist retains role/conflict information
+and separates new subjects from reported prior work. Internal roadmap links open
+separately, without marking progress or deliberately discarding the draft.
+Optional return confirmation changes only the draft notice. An explicit first
+subject changes ordering, not course membership; a stale first choice blocks
+the proposed calendar until explicitly replaced. Preparation warnings remain
+guidance, not fabricated registration prerequisites.
+
+### Optional encrypted repository journal
 
 `RepositorySyncPage` is a separate hash route linked from Settings. The saved-workspace
 `useRepositorySync` hook retains a key while navigating pages; practice gets an isolated,

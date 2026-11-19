@@ -1,0 +1,55 @@
+{
+  "observedAt": "2026-11-19T17:27:28.962799+00:00",
+  "scope": "Qualified public-safe phone-review candidate before authorized commit/push/deployment. Human acceptance and actual publication are separate.",
+  "baseCheckpoint": "6226cd0282919a935c812c8cfff605102986b82d",
+  "features": [
+    "Four-step phone guidance and a visible primary start action.",
+    "Temporary prior-course/return basis, optional return confirmation, no academic saves.",
+    "Benefit, tradeoff and explicit real-roadmap navigation for all78publicly reviewed overviews.",
+    "Three qualitative career emphases, full course search and fit filters.",
+    "New-versus-prior role-labelled shortlist and manually selectable notes.",
+    "Explicit first new subject, readiness warnings and deliberate stale-choice recovery."
+  ],
+  "checks": {
+    "typescript": "passed",
+    "domainCases": 746,
+    "domainFiles": 51,
+    "trackingCasesPreviouslyQualifiedUnchangedRuntime": 22,
+    "uniqueAffectedBrowserCasesQualified": 24,
+    "finalWorkbenchBrowserCases": 11,
+    "finalWorkbenchUnexpected": 0,
+    "finalWorkbenchFlaky": 0,
+    "finalWorkbenchSkipped": 0,
+    "browserRetries": 0,
+    "layouts": [
+      "1440 dark",
+      "390 dark",
+      "320 light"
+    ],
+    "privateBoundary": {
+      "observedAt": "2026-11-19T17:27:27.980Z",
+      "productionFilesChecked": 29,
+      "privateContextInProduction": false,
+      "originalPreviewInjected": false,
+      "unapprovedHostStatus": 403,
+      "directPrivateFileStatus": 403,
+      "suppliedContextMatches": true,
+      "academicPlanSilentlySaved": false,
+      "realStorageUnchanged": true,
+      "tutorialConsumesPrivateHistory": false,
+      "privatePhoneOverflow": false,
+      "pageErrors": []
+    }
+  },
+  "visualReview": "Actual390dark/320light start, subject benefit/tradeoff/links and shortlist frames inspected. Not all78cards or every paragraph visually reviewed. Physical phone/Safari acceptance is not claimed.",
+  "corrections": [
+    "Initial native selector chose a newly collapsed preset instead of actual combination cards. Scoped it to the combination browser; no timeout/retry relaxation.",
+    "Actual phone review exposed a misleading original-companion-only top action and truncated native selected-course text. Added a primary Start action and fully wrapped selected titles."
+  ],
+  "limits": [
+    "No personal planning input, browser profile, actual academic transcript, GPA, admission document or credential is published.",
+    "All78public overviews were read; complete syllabi/readiness/toolchains were not reviewed for every subject.",
+    "Career fit is editorial qualitative guidance, not a university rating, job guarantee or automatic learning credit.",
+    "No future offering or seat is guaranteed."
+  ]
+}

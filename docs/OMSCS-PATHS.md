@@ -1,6 +1,6 @@
 # OMSCS AI path explorer
 
-**Local review candidate. Not published or approved by the owner.**
+**Phone-review workbench. Subject choices are proposals, not approved enrollment.**
 Public sources reviewed November 19, 2026.
 
 The path explorer at `#/omscs/paths` compares subject choices without replacing
@@ -9,6 +9,64 @@ The program is **Georgia Tech OMSCS**; its CareerOS codename is **Gold Circuit**
 The display rename changes no saved mission, checkpoint, course or journal identity.
 It is a temporary what-if tool, not university advising, registration or an
 official individual degree audit.
+
+## Choose subjects in four steps
+
+1. Use **Start choosing subjects**, then **Set your starting point**. On a new
+   phone, add your own previously completed subjects to the temporary draft;
+   leave unknown grades unrecorded. This does not save academic records. A
+   reported passing/unknown-grade subject moves out of new free choices into
+   prior work instead of counting twice; D/F attempts do not reduce the budget.
+   If return approval is already confirmed, mark that in the draft: the gap
+   notice becomes historical context, not an instruction to apply again.
+2. Choose a **career direction**, then fill the five specialization slots:
+   one algorithms/design, two AI-core and two specialization electives.
+   Eligible prior subjects can fill slots. Five slots does not mean five new
+   enrollments. Optional worked examples replace draft choices explicitly.
+3. Fill the additional free-elective budget. Remove an unwanted example
+   before selecting its replacement. Search by course/area or filter by career
+   fit; clearing filters restores every catalogue option.
+4. Open **My shortlist**. Review the new subjects separately from reported
+   prior work. Note the list or expand its plain text, use **Select shortlist
+   text**, then the phone/browser copy command. No clipboard upload or sharing
+   service is called. Incomplete/conflicting choices stay clearly labelled.
+   **Choose next term** lets you select one starting subject while later terms
+   remain proposals. Only currently selected new subjects are offered. The
+   preparation-order suggestion is not a final choice or a booked seat.
+
+The full 830/216-combination browser is optional and collapsed initially.
+The semester proposal is an optional calendar check after subject selection,
+not a reservation. An explicit starting subject is ordered first without
+changing the subject set; readiness warnings still apply. If that course
+becomes prior work or leaves the draft, the calendar stops until the learner
+deliberately resets or replaces it rather than silently proposing a retake.
+Draft choices last only while this page stays open:
+refreshing or leaving resets them. Internal roadmap links open separately
+so inspecting a connection does not intentionally discard this draft.
+
+## What a subject can contribute
+
+Every current catalogue subject has an authored benefit, opportunity cost and
+explicit links to existing CareerOS roadmaps. **Career direction** compares AI
+engineering, AI-cloud/solutions architecture and forward deployed engineering.
+**Direct support**, **Supporting depth** and **Specialist detour** are qualitative
+judgments, not numeric scores, university endorsements or employment forecasts.
+Changing this emphasis changes explanations/filters, never subject selections.
+
+Connections use the actual mission identities: Pattern/Algorithm Forge for
+algorithmic foundations; System Forge/Fabric Core for resource/distributed
+reasoning; Blueprint for architecture; Neural Edge for AI/agent-cloud systems;
+Fieldcraft and Side Income for delivery, discovery and customer value. A
+connection is not automatic learning credit or proof that a course teaches
+Azure, Service Fabric or production agent operations.
+
+Some important choices are deliberately not flattened into equivalent labels:
+GA versus SDP is proof/algorithm depth versus software delivery; DC versus
+AOS/SDCC is distributed protocols versus broader/deeper cloud-system work;
+GPU and HPC emphasize different computation/performance layers; NLP versus CV
+depends on the data/application domain. HCI strengthens discovery/adoption
+without substituting for model or systems implementation. RL is not compulsory
+merely because an application is called an agent.
 
 ## What is counted
 
@@ -73,11 +131,12 @@ misleading global count of unique complete degrees, and millions of complete
 plans are not materialized into the DOM. Pagination covers the entire filtered
 specialization/course catalogue, not a hidden truncated subset.
 
-Capability areas and example bundles are authored navigation. Ten original
-OMSCS companion courses retain detailed guides; additional reviewed overview
-pages have short comparisons. For other catalogue entries, the disclosure explicitly says
-that only identity/availability metadata was reviewed. A title alone is not
-presented as a semantically reviewed complete syllabus or workload estimate.
+Capability areas and example bundles are authored navigation. All 78 official
+public overviews were read for the benefit/tradeoff/roadmap guidance. The ten
+original companion guides and ten additional readiness/tool overviews retain
+their separate deeper review scope. Other subjects explicitly disclose that
+complete content, readiness, tools and assessed workload were not reviewed.
+A short public overview is not a complete future syllabus.
 
 ## Semester and return checks
 
@@ -110,6 +169,12 @@ labelled a complete graduation estimate.
 `src/domain/omscs/paths` owns the static public catalogue, explicit rule lenses,
 complete role/set enumeration and pure budget/calendar functions.
 `src/omscs/paths` loads separately and keeps draft choices in component memory.
+`careerFit.ts` holds explicit editorial associations, not keyword matching or
+an AI adviser. The pure shortlist retains role/conflict information; its UI
+separates proposed new subjects from reported prior subjects. The draft history
+editor validates the same planning schema and never calls workspace persistence.
+Its optional confirmed-return flag and explicit first-term choice are likewise
+tab-local, not new saved academic fields or official verification.
 There is no new workspace schema, storage key, journal cell or academic save.
 The original mission's 24 checkpoints and source/recall/Atlas rules are unchanged.
 
@@ -133,3 +198,6 @@ The extra HCI, cognitive science, health informatics, educational technology
 and AI ethics course overviews/readiness pages were reviewed directly. Their
 gated content and full dated syllabi were not accessed or represented as read.
 Existing OMSCS research receipts retain their original scope separately.
+The public-safe overview register records all 78 URLs/hashes and exact scope:
+[course overview review](tracking/2026-11-19-omscs-course-overview-review.json).
+Raw source pages and private planning inputs are not included.

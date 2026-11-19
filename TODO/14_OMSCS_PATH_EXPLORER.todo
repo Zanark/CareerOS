@@ -20,10 +20,11 @@ Tasks:
   [x] Preserve academic records, learning evidence, Atlas and frozen roadmaps.
   [x] Qualify constraints, actual browser behavior, privacy and responsive views.
   [x] Update focused documentation, evidence and this issue/Project mapping.
-  [ ] Clarify the phone-first selection steps and private draft starting basis.
-  [ ] Explain qualitative career/roadmap fit and the opportunity cost of subjects.
-  [ ] Provide a readable final shortlist for the owner's review notes.
-  [ ] Qualify the exact mobile candidate and public/private input boundary.
+  [x] Clarify the phone-first selection steps and private draft starting basis.
+  [x] Explain qualitative career/roadmap fit and the opportunity cost of subjects.
+  [x] Provide a readable final shortlist for the owner's review notes.
+  [x] Support draft-only return confirmation and an explicit starting subject.
+  [x] Qualify the exact mobile candidate and public/private input boundary.
   [ ] Commit/push the public-safe candidate and monitor its exact Pages run.
   [ ] Verify actual hosted phone workflows and same-identity completion tracking.
 
@@ -58,8 +59,23 @@ Acceptance criteria:
     draft without changing academic records. Guidance explains subject selection,
     direct/supporting/specialist career fit, roadmap links and a final shortlist.
     Do not invent numeric fit scores, university endorsements or assured outcomes.
+  Return confirmation changes only the notice, never credits or saved records.
+    A chosen first subject changes only ordering; if it is no longer a new
+    selected subject, stop the calendar until deliberate replacement/reset.
+    Preparation warnings remain visible without inventing prerequisite locks.
 
 Completion evidence:
+  Phone-review candidate: strict TypeScript and746domain cases across51files
+    pass. Retained native reports qualify24unique affected cases, including
+    all11final workbench cases without skips, failures, retries or flaky cases.
+    Actual390dark/320light start, fit/roadmap and shortlist frames inspected;
+    final title/return/starting-subject refinements retain responsive checks.
+  Actual private preview retains the supplied basis without academic saves,
+    workspace changes or tutorial leakage. All29production files exclude the
+    private provider/context; unapproved Host/direct-file requests return403.
+    No actual input values are copied here. Evidence:
+    docs/tracking/2026-11-19-omscs-phone-local-qualification.json;
+    docs/tracking/2026-11-19-omscs-course-overview-review.json.
   Local technical implementation is complete; owner review is pending.
     Official current menu and older catalog remain separate lenses:
     830distinct current course sets/1650role allocations and216conservative
@@ -82,10 +98,25 @@ Completion evidence:
     docs/OMSCS-PATHS.md;
     docs/tracking/2026-11-19-omscs-paths-local-qualification.json;
     docs/tracking/2026-11-19-gold-circuit-local-qualification.json.
-  No actual student record is copied here. No commit, push, deployment,
-    official degree audit, future seat or human acceptance is claimed.
+  No actual student record is copied here. The earlier local-only milestone
+    claimed no commit/push/deployment. Its later publication authorization does
+    not establish an official degree audit, future seat or human acceptance.
 
 Completion log:
+  2026-11-19 - Final phone gate passes746domain/24unique native cases, including
+    11final workbench workflows. Added explicit draft-only return confirmation
+    and a selectable first new subject; a stale selection blocks calendar
+    proposals until deliberate reset. Actual private input remains excluded
+    from public source, issues, shared continuity and production output.
+    Native initial preset/combination selector mismatch is retained/corrected;
+    no assertion, timeout or retry policy was weakened. Ready for authorized
+    source checkpoint, push and exact-run deployment/hosted qualification.
+  2026-11-19 - Qualified the original explorer and naming correction in coherent
+    local checkpoint6226cd0282919a935c812c8cfff605102986b82d with verified
+    Zanark author/committer and current session trailers. No push yet.
+    Added the bounded phone selection flow, draft prior-course editor,
+    role-labelled shortlist and explicit qualitative guidance for all78subjects.
+    Reviewed all78official public overviews; full syllabi are not claimed.
   2026-11-19 - Owner authorizes deployment of the completed candidate for phone
     review and requests more intuitive subject selection and career/roadmap
     benefit explanations. Resume this same workstream/issue/Project item.

@@ -3,7 +3,7 @@ import { createInitialState } from '../../engine';
 import { getDiscoverySnapshot } from '../../../discovery/model';
 import { pathArea, pathCourses } from './catalog';
 import {
-  defaultPathSelection, enumerateSpecializationPaths, evaluateDegree,
+  courseShortlist, defaultPathSelection, enumerateSpecializationPaths, evaluateDegree, firstTermCourseOrder,
   pathCalendarWarnings, pathProfileSchema, proposedPathSemesters,
   remainingFreeCombinations, returnGap, reusedInSpecialization,
   specializationErrors, specializationGradeConflicts, specializationIds,
@@ -11,6 +11,8 @@ import {
 } from './model';
 import type { PathProfile, SpecializationSelection } from './model';
 import { pathRules } from './rules';
+import { careerDirections, courseAdvice, courseCareerFit } from './careerFit';
+import { getLatestMission } from '../../catalog';
 
 const referenceProfile: PathProfile = {
   programStart: '2022-spring', resumeTerm: '2024-spring',
@@ -80,6 +82,34 @@ describe('complete source-backed specialization possibilities', () => {
 });
 
 describe('conditional degree budgets and complete free-elective choices', () => {
+  it('builds a role-labelled shortlist without retaking reported courses or hiding duplicate-slot conflicts', () => {
+    const rows = courseShortlist(defaultPathSelection, free, referenceProfile);
+    expect(rows.filter(row => !row.reportedComplete).map(row => row.id).sort())
+      .toEqual(evaluateDegree('current', defaultPathSelection, free, referenceProfile).newCourseIds.sort());
+    expect(rows.filter(row => row.reportedComplete).map(row => row.id).sort()).toEqual(referenceProfile.completed.map(row => row.id).sort());
+    expect(rows.find(row => row.id === 'cs6457')).toMatchObject({ role: 'Free elective', reportedComplete: true });
+    const duplicate = courseShortlist({ ...defaultPathSelection, ai: ['cs7641', 'cs7641'] }, [], referenceProfile);
+    expect(duplicate.filter(row => row.id === 'cs7641')).toHaveLength(2);
+    const failed = { ...referenceProfile, completed: [{ id: 'cs7641', term: '' as const, grade: 'F' as const }] };
+    expect(courseShortlist(defaultPathSelection, [], failed).find(row => row.id === 'cs7641')?.reportedComplete).toBe(false);
+  });
+
+  it('provides complete explicitly authored career guidance with real roadmap targets, not title matching or numeric scores', () => {
+    expect(Object.keys(courseAdvice).sort()).toEqual(pathCourses.map(course => course.id).sort());
+    for (const course of pathCourses) for (const direction of careerDirections) {
+      const fit = courseCareerFit(course.id, direction.id);
+      expect(fit.source).toBe(course.url);
+      expect(fit.benefit.length).toBeGreaterThan(30);
+      expect(fit.tradeoff.length).toBeGreaterThan(30);
+      expect(fit.roadmaps.length).toBeGreaterThan(0);
+      expect(fit.direct.some(id => fit.supporting.includes(id))).toBe(false);
+      for (const target of fit.roadmaps) expect(getLatestMission(target).id).toBe(target);
+    }
+    expect(courseCareerFit('cs6300', 'fde').tier).toBe('Direct support');
+    expect(courseCareerFit('cs6300', 'cloud').tier).toBe('Supporting depth');
+    expect(courseCareerFit('mgt8813', 'cloud').tier).toBe('Specialist detour');
+  });
+
   it('keeps reported credits separate from unknown grades and never mutates workspace or Atlas', () => {
     const workspace = createInitialState(false), raw = JSON.stringify(workspace);
     const before = getDiscoverySnapshot(workspace);
@@ -139,6 +169,21 @@ describe('conditional degree budgets and complete free-elective choices', () => 
 });
 
 describe('return calendars and input boundaries', () => {
+  it('lets the learner choose the first new subject, preserves other choices and flags readiness instead of inventing a prerequisite lock', () => {
+    const evaluated = evaluateDegree('current', defaultPathSelection, free, referenceProfile);
+    const before = [...evaluated.newCourseIds], ordered = firstTermCourseOrder(before, 'cs6200');
+    expect(ordered[0]).toBe('cs6200');
+    expect(new Set(ordered)).toEqual(new Set(before));
+    expect(before).toEqual(evaluated.newCourseIds);
+    const advancedFirst = proposedPathSemesters(firstTermCourseOrder(before, 'cs7643'), referenceProfile.resumeTerm, false, 1);
+    expect(pathCalendarWarnings(referenceProfile, advancedFirst).some(value => value.startsWith('ML preparation before deep learning'))).toBe(true);
+    expect(() => firstTermCourseOrder(before, 'cs6457')).toThrow('not a selected new subject');
+    const confirmed = { ...referenceProfile, readmissionConfirmed: true };
+    expect(pathProfileSchema.parse(confirmed)).toEqual(confirmed);
+    expect(evaluateDegree('current', defaultPathSelection, free, confirmed)).toEqual(evaluated);
+    expect(returnGap(confirmed)).toEqual(returnGap(referenceProfile));
+  });
+
   it('counts summer in a three-term gap and does not infer a gap when course terms are unknown', () => {
     expect(returnGap(referenceProfile)).toEqual({ terms: ['2023-spring', '2023-summer', '2023-fall'], needsCheck: true });
     expect(returnGap({ ...referenceProfile, resumeTerm: '2023-fall' }).needsCheck).toBe(false);
@@ -175,6 +220,7 @@ describe('return calendars and input boundaries', () => {
       { ...referenceProfile, programStart: '2023-spring' },
       { ...referenceProfile, resumeTerm: '2096-spring' },
       { ...referenceProfile, completed: [{ id: 'cs7641', term: '', grade: 'B+' }] },
+      { ...referenceProfile, readmissionConfirmed: 'true' },
     ]) expect(pathProfileSchema.safeParse(invalid).success).toBe(false);
   });
 });
