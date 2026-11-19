@@ -1,0 +1,23 @@
+{
+  "observedAt": "2026-11-19T00:32:38.538Z",
+  "repository": "Zanark/CareerOS",
+  "workstreamId": "geojack-omscs",
+  "sourceRevision": "5b6c6d034d01d4108374a3e73af167165b74a201",
+  "successfulPagesRun": 44423750975,
+  "issue": "https://github.com/Zanark/CareerOS/issues/12",
+  "issueState": "closed",
+  "stateReason": "completed",
+  "project": 4,
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhJ-hyA",
+  "projectStatus": "Done",
+  "originalIssueAndItemPreserved": true,
+  "managedSourceMatches": true,
+  "managedSha256": "e1ae12145182858a3556ea42d707a33d0ea8149499319970d97485e826d5e471",
+  "backlinkMatches": true,
+  "noOpActions": 0,
+  "noOpCreates": 0,
+  "recoverySha256Before": "A92331F64BF3DB332D4D436E3C0068DD81DABE0363F1AB80B27514049E176F2A",
+  "recoverySha256After": "A92331F64BF3DB332D4D436E3C0068DD81DABE0363F1AB80B27514049E176F2A",
+  "recoveryBytesUnchanged": true,
+  "humanAcceptanceClaimed": false
+}

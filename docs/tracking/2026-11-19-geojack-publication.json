@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-19",
+  "workstreamId": "geojack-omscs",
+  "sourceRevision": "5b6c6d034d01d4108374a3e73af167165b74a201",
+  "runId": 44423750975,
+  "runUrl": "https://github.com/Zanark/CareerOS/actions/runs/44423750975",
+  "siteUrl": "https://zanark.github.io/CareerOS/#/omscs",
+  "buildConclusion": "success",
+  "deployConclusion": "success",
+  "commitAuthorAndCommitter": "Zanark",
+  "push": "Normal main push through the reviewed per-command owner credential helper; exact remote ref independently verified.",
+  "ci": {
+    "unitFilesPassed": 50,
+    "unitTestsPassed": 729,
+    "browserCases": 475,
+    "browserReportedPassed": 473,
+    "browserReportedFlaky": 2,
+    "persistentBrowserFailures": 0,
+    "retryPolicyChanged": false,
+    "retryObservations": [
+      "Orbit-highlight initial framebuffer equality differed; the configured retry passed. The underlying pixel difference was not independently reproduced.",
+      "The 390px full tutorial crossed UTC midnight; normal next-day planning changed the post-exit snapshot. The configured retry passed. This is not a demonstrated tutorial-to-real-progress leak."
+    ]
+  },
+  "artifact": {
+    "sha256": "8c462ab695d3afd4002bcf0199a51d6489a7d8e644afde33d50db601214ec3ef",
+    "fileCount": 27,
+    "selectedLiveByteMatches": 8,
+    "entry": "assets/index-Ca15AYQA.js",
+    "styles": "assets/index-igGtZ92I.css",
+    "geojackTeaching": "assets/content-DVAlPYzf.js",
+    "retainedNeuralBook": "assets/neural-GeZIzQSS.js",
+    "shared3d": "assets/career-3d-DfBp6M2W.js",
+    "fontLicense": "licenses/Silkscreen-OFL.txt",
+    "entryHtmlAlsoMatched": true,
+    "publicJournalBytes": 0,
+    "privatePdfOrContextMemberPresent": false
+  },
+  "actualHostedQualification": {
+    "passed": 13,
+    "failed": 0,
+    "flaky": 0,
+    "retries": 0,
+    "environment": "Disposable Edge contexts against the actual deployed HTTPS site, not a local preview or real owner profile.",
+    "coverage": [
+      "Semester proposal, all ten course guides, actual sources, independent practice and full roadmap at 1440 dark,390 dark,320 light.",
+      "Regular-term default and explicit summer option; unknown/B/C/F grades; academic-credit versus learning/Atlas boundaries.",
+      "Real native course entry/cancel, route persistence, reload and ordinary backup replacement.",
+      "Competing-tab rejection, rejected storage writes and genuine prior ten-mission wire preservation.",
+      "Background learning evidence, cross-page level-up and actual graph reveal without academic credit.",
+      "All six real-control GeoJack lessons at desktop/320 with unchanged real storage.",
+      "Search, source registry, Help and mission tree; native encrypted-journal academic change export/decryption."
+    ],
+    "pageExceptions": 0,
+    "unexpectedExternalRequests": 0,
+    "visualReview": "Actual deployed desktop-dark planner and 320-light entry frames inspected together; not an exhaustive visual or accessibility audit."
+  },
+  "boundaries": {
+    "actualStudentRecordsOrUniversityAccountAccessed": false,
+    "realBrowserProfileUsed": false,
+    "officialDegreeOrGpaVerified": false,
+    "futureCourseOfferingsGuaranteed": false,
+    "humanAcceptanceClaimed": false,
+    "fullCiClaimedRetryFree": false,
+    "workflowOrPermissionsChanged": false
+  }
+}

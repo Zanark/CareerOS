@@ -1,6 +1,6 @@
 Workstream ID: geojack-omscs
 Title: GeoJack OMSCS semester and learning companion
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Add an unofficial source-backed AI degree-planning mission
 Dependencies: tracker-foundation, versioned-roadmaps, career-graph, encrypted-progress-journal, discovery-atlas
 GitHub issue: https://github.com/Zanark/CareerOS/issues/12
@@ -20,9 +20,9 @@ Tasks:
   [x] Preserve old workspaces, manual backups, encrypted replay and tutorial isolation.
   [x] Qualify domain, actual browser workflows and responsive theme layouts.
   [x] Update focused documentation, evidence and this same issue/Project mapping.
-  [ ] Commit and push the reviewed source through the verified Zanark transport.
-  [ ] Monitor the exact Pages run and qualify its artifact and hosted workflows.
-  [ ] Record publication and verify completion on this same issue/Project item.
+  [x] Commit and push the reviewed source through the verified Zanark transport.
+  [x] Monitor the exact Pages run and qualify its artifact and hosted workflows.
+  [x] Record publication and verify completion on this same issue/Project item.
 
 Acceptance criteria:
   GeoJack is an unofficial learning companion, not Georgia Tech advising, a
@@ -66,12 +66,27 @@ Completion evidence:
   Focused GUIDE/ARCHITECTURE/OPERATION-SOURCES and OMSCS-RESEARCH explain source
     differences, conditional credit rules, unknowns, privacy and optional-plan
     backup/journal compatibility. The public journal remains empty.
-  Local technical review is complete. At that milestone source was uncommitted
-    and no deployment was performed. Publication is now explicitly authorized
-    and in progress; no human acceptance, actual student record, GPA or degree
-    approval is claimed. Private research and actual profiles remain untouched.
+  Feature5b6c6d034d01d4108374a3e73af167165b74a201 is committed/pushed and deployed
+    by successful exact Pages44423750975. Full CI:729units;473browser passes
+    plus2retry-flaky cases, no persistent failures. Existing retry policy was
+    not changed and a retry-free full suite is not claimed.
+  All13actual hosted cases pass without retries. Eight selected served files
+    match the exact successful artifact, including entry/styles/GeoJack teaching,
+    retained Neural book/shared3D/font license and empty public journal.
+    Actual desktop-dark/320-light hosted frames inspected. Publication source:
+    docs/tracking/2026-11-19-geojack-publication.json.
+  No human acceptance, actual student record, GPA or degree approval is claimed.
+    Private research and actual profiles remain untouched. Tracking/evidence
+    follow-through does not require redeploying unchanged runtime bytes.
 
 Completion log:
+  2026-11-19 - Published feature5b6c6d0 through verified Zanark attribution and
+    transport. Native watcher confirms successful build/deploy for exact
+    Pages44423750975. Retained actual CI logs include two retry-flaky cases:
+    orbit framebuffer equality and a tutorial spanning normal date rollover.
+    No retry/deadline was relaxed. All13actual hosted workflows pass, eight
+    artifact/live byte comparisons match and two actual frames were inspected.
+    Completion tracking preserves issue12/original Project4 item identities.
   2026-11-19 - Owner authorizes frequent coherent commits, pushing the changes,
     a new CareerOS deployment and monitoring. Reopen this same issue/item for
     exact main-branch CI, Pages artifact and actual hosted qualification.
