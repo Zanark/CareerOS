@@ -3,6 +3,11 @@
 **Phone-review workbench. Subject choices are proposals, not approved enrollment.**
 Public sources reviewed November 19, 2026.
 
+Published for review at **https://zanark.github.io/CareerOS/#/omscs/paths**.
+Exact source/run/artifact/hosted qualification:
+[publication evidence](tracking/2026-11-19-omscs-paths-publication.json).
+Publication does not imply the owner has approved a subject plan.
+
 The path explorer at `#/omscs/paths` compares subject choices without replacing
 academic records, learning checkpoints or the existing Gold Circuit study template.
 The program is **Georgia Tech OMSCS**; its CareerOS codename is **Gold Circuit**.

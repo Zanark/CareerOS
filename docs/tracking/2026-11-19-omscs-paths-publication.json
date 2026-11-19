@@ -1,0 +1,249 @@
+{
+  "observedAt": "2026-11-19T18:16:37.781848+00:00",
+  "sourceRevision": "c89fb1d4f2622850e2a8193f7c9cae47612b0d2e",
+  "baseFeatureCommit": "6226cd0282919a935c812c8cfff605102986b82d",
+  "runId": 44578042329,
+  "runAttempt": 1,
+  "runUrl": "https://github.com/Zanark/CareerOS/actions/runs/44578042329",
+  "workflowConclusion": "success",
+  "jobs": [
+    {
+      "id": 135750786355,
+      "name": "build",
+      "conclusion": "success",
+      "startedAt": "2026-11-19T17:31:14Z",
+      "completedAt": "2026-11-19T18:04:59Z"
+    },
+    {
+      "id": 135771878899,
+      "name": "deploy",
+      "conclusion": "success",
+      "startedAt": "2026-11-19T18:05:04Z",
+      "completedAt": "2026-11-19T18:05:15Z"
+    }
+  ],
+  "ci": {
+    "domainTestsPassed": 746,
+    "domainFiles": 51,
+    "browserCasesPassed": 486,
+    "retryOrFlakyMarkers": []
+  },
+  "artifact": {
+    "artifactId": 14560522230,
+    "downloadDigest": "sha256:e1f94fe2d5f5aa35ffe2be554c1d572adc18df1f398765057f8664149270ee20",
+    "tarSha256": "0a27a6c075f6a107cd07767765751f389b241f65291e9c4a97178c6acd9c20e3",
+    "fileCount": 29,
+    "allActualHostedFilesMatch": true,
+    "publicJournalEmpty": true,
+    "privateDevelopmentContextInArtifact": false,
+    "verifiedLiveFiles": [
+      {
+        "path": "assets/CareerGraphScene-C5TBVlTD.js",
+        "bytes": 97651,
+        "sha256": "595fd1d63a44b5a3fd93dd1815d54df89d7c402aa663df91c8f7f0eee1769cea",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/CareerGraphScene-zyMgeFMo.css",
+        "bytes": 3135,
+        "sha256": "bacc86166df56dfea142258d5712448aea72fc734994eb498668a851e7567c4b",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/OmscsPathsPage-BPQrZqUm.js",
+        "bytes": 91879,
+        "sha256": "027e4ebcad48351798c797e6d65dc5c1e41e1a7d10821edd45646901de5fc14e",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/OmscsPathsPage-D2vUF4Ig.css",
+        "bytes": 5281,
+        "sha256": "e3b69d6068cb1ddf8d4e5a68bd0a947857bcded04c0d9ed40cee97c49ec11200",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/Silkscreen-Regular-CXGsBV3a.ttf",
+        "bytes": 31320,
+        "sha256": "734e6faa40fb5566327330d5b9b6e52fcc5d52ee91f0da1fe696ca33c5f7d258",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/WayfinderViewer-oLG8Fsqv.js",
+        "bytes": 18345,
+        "sha256": "623b6c4a6d4f1296d666b64c25c368c3b7a83c48f6040d4d71e50e71c91b5dee",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/algorithm-CuhCfIhf.js",
+        "bytes": 208240,
+        "sha256": "b4159c464a427002759b6cca616291ffc2e2e829b1fc900c51218a53bcdbec0f",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/blueprint-gARdarTg.js",
+        "bytes": 263877,
+        "sha256": "7041022b2daf72e5c0c49603008935d1144ec527d34492c76c5f5eaf7ef72d24",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/career-3d-DfBp6M2W.js",
+        "bytes": 597425,
+        "sha256": "23cca696e8d05bc83f5cae8f868755550da3cccbf0844548d2230066e669969c",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/careerhq-mark-SpwMT6dT.svg",
+        "bytes": 3410,
+        "sha256": "13e76364513e6f52dabf6fdf223d297765d1dd618042e29d71208d874b1f5194",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/content-344c9imc.js",
+        "bytes": 51559,
+        "sha256": "690415ce0bdbca652cf93c1c28f247935181b112c1f3b22921d230ab14d6b508",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/content-BXmhJfu2.js",
+        "bytes": 21223,
+        "sha256": "e4c2b30f4410d7b2048de75557a983b275eef95b257e0250df31bc905f531186",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/content-ByVtt7j6.js",
+        "bytes": 20485,
+        "sha256": "85ab985519d10e91cf3a066e2406cf4fc1223fe319187b7d1396503013636d63",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/credential-CGNB5Nxf.js",
+        "bytes": 273444,
+        "sha256": "eca217c2420a486b3c8f5e99e501dd58758b8b53571ee9e4441f687f56bed98f",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/escape-DB2Phemg.js",
+        "bytes": 237579,
+        "sha256": "b999b303bf0e3b2a4120a8e184073d51a9603527ed430767b164d6b566575dde",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/fabric-qiX6oW2L.js",
+        "bytes": 198454,
+        "sha256": "1f3de31de903584066db3c8b106e053bc88f082a736bd60462660895bbc8b81e",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/income-CV5Mp2Qv.js",
+        "bytes": 257858,
+        "sha256": "dd2a69c5646d5b0be5d97168c568793e50d6af9f0546c45f113a53f7954210b7",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/index-DGkJE5vs.js",
+        "bytes": 889841,
+        "sha256": "267525f9179aef4d5e59780442c7e763591888107cd899d20043fce22d660c19",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/index-igGtZ92I.css",
+        "bytes": 227235,
+        "sha256": "55c6df2b6d822e81572955071139a52fdddaae93af73f179872bf86779bb2ba3",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/neural-GeZIzQSS.js",
+        "bytes": 193148,
+        "sha256": "f97750eb82721e403aa92311d79ad081468e2eabb5f118f5efd6d68c5dafaece",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/practice-reference-data-CMOP5gpI.js",
+        "bytes": 227826,
+        "sha256": "0337a5aa68cae98c49a85e8fae5bd09a5003fa8f6c0a4a687e274f39a1be5b78",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/roadmap-pack-outlines-CwMnuF_X.js",
+        "bytes": 591291,
+        "sha256": "88ebcca0d0d3d49077c71df1932bd26b12202247de33899a8833c51baa58336b",
+        "readAttempts": 1
+      },
+      {
+        "path": "assets/vendor-C3-BEMiT.js",
+        "bytes": 314988,
+        "sha256": "89b0114dd5bc19f9b7cbce126c271b3d8177b66400491b40e3840db0db0c5737",
+        "readAttempts": 1
+      },
+      {
+        "path": "careeros-progress.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "readAttempts": 1
+      },
+      {
+        "path": "index.html",
+        "bytes": 1356,
+        "sha256": "2f63ae2f36c23ec6721fbd0aabfa1929f6215904b47b3d6d682845de20afeff9",
+        "readAttempts": 1
+      },
+      {
+        "path": "licenses/DeepSeaFoam-MIT.txt",
+        "bytes": 1081,
+        "sha256": "ee32b4435eeccc87bb7d5b77e6c18e2e75d32ce9221a26022bd9c44273c4d329",
+        "readAttempts": 1
+      },
+      {
+        "path": "licenses/Silkscreen-OFL.txt",
+        "bytes": 4393,
+        "sha256": "0c0defe44c565904cdd3037f41254b55cb93e5999d4ff13c6c682f69d4c1c0a4",
+        "readAttempts": 1
+      },
+      {
+        "path": "licenses/Three-MIT.txt",
+        "bytes": 1081,
+        "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+        "readAttempts": 1
+      },
+      {
+        "path": "theme-init.js",
+        "bytes": 659,
+        "sha256": "cc829058537c5fc2bbdb7c7a96dd4132813e513282ad45d6d01b6387943db32d",
+        "readAttempts": 1
+      }
+    ]
+  },
+  "hosted": {
+    "url": "https://zanark.github.io/CareerOS/#/omscs/paths",
+    "qualifiedUniqueCases": 24,
+    "firstPass": {
+      "passed": 23,
+      "failed": 1
+    },
+    "isolatedRecheck": {
+      "passed": 1,
+      "failed": 0,
+      "configuredRetries": 0
+    },
+    "coldUnseededPhoneReady": true,
+    "coldPrivateDefaultsPublished": false,
+    "coldAcademicPlanSilentlyCreated": false,
+    "phoneOverflow": false,
+    "coldPageErrors": [],
+    "unexpectedExternalRequests": [],
+    "visualReview": "Actual deployed unseeded390phone,320light course benefit/tradeoff/links and390dark/320light shortlist frames inspected in one sheet. Not every card or paragraph visually reviewed."
+  },
+  "retainedObservation": {
+    "request": "https://zanark.github.io/CareerOS/assets/OmscsPathsPage-BPQrZqUm.js",
+    "status": 503,
+    "effect": "First hosted desktop case showed the explicit lazy-chunk failure UI without replacing the workspace.",
+    "recovery": "Same exact case passed when rerun with unchanged assertions/deadlines and no configured retries. The unseeded public phone probe also passed. No source or deployment change.",
+    "upstreamRootCauseIndependentlyEstablished": false
+  },
+  "limits": [
+    "Owner visual/subject acceptance is pending; passing tests does not establish academic or career mastery.",
+    "No actual student input is published. Supplied private planning values were used only in the expressly requested local preview; no official transcript/admission account or real browser profile was accessed.",
+    "Mobile viewport/touch emulation is qualified, not a physical phone or Safari certification.",
+    "Future offerings/seats, official degree audit and GPA are not verified."
+  ]
+}

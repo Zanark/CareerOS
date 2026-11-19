@@ -177,11 +177,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/13",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKG-Ko",
       "baseline": {
-        "managed": "ce7898dd9b476002ef67833996d9ffdff788c36c162fcf1e0ceb01e3969aae0f",
+        "managed": "7265d46ab223bea6ca64f9d650c9beedf8750f72bbe87f3c1f7d401408f23e12",
         "title": "Gold Circuit: compare OMSCS AI specialization paths and elective choices",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

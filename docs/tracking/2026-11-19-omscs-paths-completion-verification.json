@@ -1,0 +1,15 @@
+{
+  "observedAt": "2026-11-19T18:19:49.726626+00:00",
+  "issue": "https://github.com/Zanark/CareerOS/issues/13",
+  "issueNumber": 13,
+  "state": "CLOSED",
+  "stateReason": "COMPLETED",
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKG-Ko",
+  "projectStatus": "Done",
+  "managedSha256": "7265d46ab223bea6ca64f9d650c9beedf8750f72bbe87f3c1f7d401408f23e12",
+  "localBacklinkAndDoneStatusMatch": true,
+  "identityRetained": true,
+  "recoverySha256": "efc1c68628179047720c5caf8c47bc2477145c763ff8086b5bcad32e1be0443b",
+  "readOnlyVerificationChangedRecovery": false,
+  "humanAcceptanceInferred": false
+}

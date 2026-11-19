@@ -1,6 +1,6 @@
 Workstream ID: omscs-path-explorer
 Title: Gold Circuit: compare OMSCS AI specialization paths and elective choices
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Publish an intuitive phone-ready degree-path review workbench
 Dependencies: geojack-omscs, versioned-roadmaps
 GitHub issue: https://github.com/Zanark/CareerOS/issues/13
@@ -25,8 +25,8 @@ Tasks:
   [x] Provide a readable final shortlist for the owner's review notes.
   [x] Support draft-only return confirmation and an explicit starting subject.
   [x] Qualify the exact mobile candidate and public/private input boundary.
-  [ ] Commit/push the public-safe candidate and monitor its exact Pages run.
-  [ ] Verify actual hosted phone workflows and same-identity completion tracking.
+  [x] Commit/push the public-safe candidate and monitor its exact Pages run.
+  [x] Verify actual hosted phone workflows and same-identity completion tracking.
 
 Acceptance criteria:
   The interface distinguishes ten courses/thirty credits from ten credits.
@@ -65,6 +65,25 @@ Acceptance criteria:
     Preparation warnings remain visible without inventing prerequisite locks.
 
 Completion evidence:
+  Phone workbenchc89fb1d4f2622850e2a8193f7c9cae47612b0d2e is pushed and
+    deployed by exact successful Pages44578042329, attempt1. Build33m45s/
+    deploy11s; full CI746domain cases/51files and486browser cases pass,
+    with no retry/flaky markers in the retained actual CI log.
+  All29actual hosted files match the successful artifact. Tar SHA256:
+    0a27a6c075f6a107cd07767765751f389b241f65291e9c4a97178c6acd9c20e3.
+    Public journal remains empty; private development context is absent.
+  All24unique hosted workflows qualify, plus a truly unseeded390px touch/
+    mobile-context check. Actual hosted start, subject benefit/roadmap links
+    and shortlist phone frames inspected. First hosted pass had23passes and
+    one HTTP503 on the lazy path chunk; correct visible failure UI preserved
+    the workspace. The same exact case passes on isolated recheck without
+    source/assertion/deadline/retry changes. Upstream root cause is not
+    independently established; a retry-free first hosted pass is not claimed.
+    Actual publication proof:
+    docs/tracking/2026-11-19-omscs-paths-publication.json.
+  Technical publication is complete; owner phone review/subject decisions
+    remain unrecorded. Physical Safari/device coverage and future seats,
+    official GPA/degree audit or actual learning are not claimed.
   Phone-review candidate: strict TypeScript and746domain cases across51files
     pass. Retained native reports qualify24unique affected cases, including
     all11final workbench cases without skips, failures, retries or flaky cases.
@@ -103,6 +122,13 @@ Completion evidence:
     not establish an official degree audit, future seat or human acceptance.
 
 Completion log:
+  2026-11-19 - Publishedc89fb1d through verified Zanark attribution/transport.
+    Native watcher44578042329completed successfully; retained exact CI/run/
+    artifact and all29actual hosted byte matches.24hosted workflows and
+    unseeded phone check qualify. Preserved/diagnosed the actual single
+    chunk HTTP503 rather than hiding it as a product or timing fix; isolated
+    unchanged-case recheck passes. Actual phone frames reviewed. Complete
+    this same issue13/Project item; no human acceptance is inferred.
   2026-11-19 - Final phone gate passes746domain/24unique native cases, including
     11final workbench workflows. Added explicit draft-only return confirmation
     and a selectable first new subject; a stale selection blocks calendar
