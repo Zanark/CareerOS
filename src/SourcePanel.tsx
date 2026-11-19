@@ -55,12 +55,12 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
         {pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources`
           : pack.sourceKind === 'mixed' ? `${pack.pageCount} original source pages plus ${pack.webSources?.length} reviewed public extension sources`
             : `${pack.pageCount} source pages`}, {latest.checkpoints.length} curriculum checkpoints and {pack.exerciseCount} exercises, plus supporting cases and references.{' '}
-        {missionId === 'omscs' ? 'GeoJack starts unconfirmed in the background. Proposed semesters, academic self-reports and learning checkpoints are separate; no credit or university verification is assumed.'
+        {missionId === 'omscs' ? 'Gold Circuit starts unconfirmed in the background. Proposed semesters, academic self-reports and learning checkpoints are separate; no credit or university verification is assumed.'
           : pack.sourceKind === 'web-research' ? 'Fieldcraft starts in the background without changing your other missions. Its sequence and criteria are authored learning design, not employer hiring requirements.'
           : pack.sourceKind === 'mixed' ? 'The original workbook is unchanged. Agent-cloud lessons are new authored learning design, not additional PDF pages or a claim of autonomous production capability.'
             : 'Full roadmap shows the complete edition; your saved tracker stays separate until confirmed adoption.'}</p>
       <a className="text-link" data-tour="pack-library-open" href={packUnitHref(missionId)}>Open the complete practice library<ArrowRight size={14} /></a>
-      {missionId === 'omscs' && <p><a className="button secondary" href="#/omscs" data-tour="omscs-planner-open">Open GeoJack semester companion<ArrowRight size={14} /></a></p>}
+      {missionId === 'omscs' && <p><a className="button secondary" href="#/omscs" data-tour="omscs-planner-open">Open Georgia Tech semester companion<ArrowRight size={14} /></a></p>}
     </div>}
     {notice && <p className="source-notice" role="status">{notice}</p>}
     {missionId === 'income' && <p className="source-notice"><a className="text-link" href="#/freelance">Open freelance opportunity ledger<ArrowRight size={14} /></a></p>}

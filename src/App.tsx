@@ -48,6 +48,7 @@ import { getDiscoverySnapshot } from './discovery/model';
 import type { WayfinderRun } from './discovery/model';
 import { createDiscoveryPracticeState } from './discovery/practice';
 import OmscsPage from './omscs/OmscsPage';
+import OmscsPathsLoader from './omscs/paths/OmscsPathsLoader';
 
 type Commit = (transform: (current: AppState) => AppState) => boolean;
 const mainNav = [
@@ -62,7 +63,7 @@ const mainNav = [
   { id: 'recall', label: 'Recall practice', icon: BrainCircuit, color: 'violet' },
 ];
 const extraNav = [
-  { id: 'omscs', label: 'GeoJack OMSCS', icon: BookOpen, color: 'amber' },
+  { id: 'omscs', label: 'Georgia Tech OMSCS', icon: BookOpen, color: 'amber' },
   { id: 'discoveries', label: 'Discovery Atlas', icon: Gem, color: 'amber' },
   { id: 'pipeline', label: 'Opportunities', icon: BriefcaseBusiness, color: 'amber' },
   { id: 'readiness', label: 'Interview readiness', icon: Target, color: 'rose' },
@@ -289,7 +290,9 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
           entryId={route.split('/')[1] === 'concept' ? route.split('/')[3] : route.split('/')[1]}
           conceptGroupId={route.split('/')[1] === 'concept' ? route.split('/')[2] : undefined} />}
         {page === 'practice' && <PackPracticePage state={state} missionId={route.split('/')[1]} entryId={route.split('/')[2]} />}
-        {page === 'omscs' && <OmscsPage state={state} commit={commit} practice={practice} />}
+        {page === 'omscs' && (route.split('/')[1] === 'paths'
+          ? <OmscsPathsLoader state={state} practice={practice} />
+          : <OmscsPage state={state} commit={commit} practice={practice} />)}
         {page === 'hq' && <Overview state={state} date={date} practice={practice} onEvidence={openEvidence} onResume={resume} onExport={exportBackup} />}
         {page === 'missions' && <MissionsPage state={state} onResume={resume} />}
         {page === 'mission' && selected && <MissionPage mission={selected} state={state} commit={commit} onEvidence={() => openEvidence(selected.id)} onResume={resume} notify={setToast} onFullRoadmap={() => setFullRoadmapOpen(true)} />}

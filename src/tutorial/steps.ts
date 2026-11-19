@@ -91,7 +91,7 @@ export const chapters: TutorialChapter[] = [
   { id: 'discovery', title: 'Discovery Atlas' },
   { id: 'fde', title: 'Fieldcraft / new background mission' },
   { id: 'agent-cloud', title: 'AI Architect / agent-native cloud' },
-  { id: 'omscs', title: 'GeoJack / OMSCS semester companion' },
+  { id: 'omscs', title: 'Gold Circuit / Georgia Tech OMSCS' },
 ];
 
 export const steps: TutorialStep[] = [

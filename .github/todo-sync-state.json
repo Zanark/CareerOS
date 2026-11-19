@@ -163,11 +163,25 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/12",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhJ-hyA",
       "baseline": {
-        "managed": "e1ae12145182858a3556ea42d707a33d0ea8149499319970d97485e826d5e471",
-        "title": "GeoJack OMSCS semester and learning companion",
+        "managed": "5819450fa9d3a173c3d2f89ac16a96ffdf498269fbdffb81eac4787849b161d5",
+        "title": "Gold Circuit: Georgia Tech OMSCS semester and learning companion",
         "state": "closed",
         "reason": "completed",
         "status": "98236657",
+        "archived": false
+      }
+    },
+    "omscs-path-explorer": {
+      "issueNumber": 13,
+      "issueId": "I_kwDOU6lJns8AAAABgqPwDg",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/13",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKG-Ko",
+      "baseline": {
+        "managed": "02a5c854c4e357509ab108a17b4b0b1249720f7ea2da57b8b4eab1d4f0321bf1",
+        "title": "Gold Circuit: compare OMSCS AI specialization paths and elective choices",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
         "archived": false
       }
     }

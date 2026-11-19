@@ -19,7 +19,7 @@ import type { OmscsCourseId, OmscsGrade, OmscsPlan } from './types';
 import type { JournalFile } from '../../repositorySync/journalFormat';
 
 const now = new Date('2026-11-19T10:00:00Z');
-const phrase = 'A fictional GeoJack journal test phrase';
+const phrase = 'A fictional Gold Circuit journal test phrase';
 const entry = (id: OmscsCourseId, grade: OmscsGrade = 'B') => ({
   id, status: 'completed' as const, term: '' as const, grade,
 });
@@ -30,7 +30,7 @@ const academic = (plan: OmscsPlan) => recordChange({
 beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(now); });
 afterEach(() => vi.useRealTimers());
 
-describe('GeoJack compatibility and independent evidence boundaries', () => {
+describe('Gold Circuit compatibility and independent evidence boundaries', () => {
   it('adds only an unstarted background lane to a genuine earlier ten-mission workspace', () => {
     let current = createInitialState(false, '2.0.0');
     current = recordEvidence(current, {

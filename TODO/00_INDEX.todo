@@ -20,7 +20,8 @@ PERPETUAL - 09_DEVELOPMENT_LEDGER.todo (excluded from ordinary feature issues)
 DONE - 10_DISCOVERY_ATLAS.todo (discovery-atlas)
 DONE - 11_FORWARD_DEPLOYED_ENGINEERING.todo (forward-deployed-engineering)
 DONE - 12_AI_ARCHITECT_AGENT_CLOUD.todo (ai-architect-agent-cloud)
-DONE - 13_GEOJACK_OMSCS.todo (geojack-omscs)
+DONE - 13_GOLD_CIRCUIT_OMSCS.todo (geojack-omscs; immutable tracking ID)
+IN_PROGRESS - 14_OMSCS_PATH_EXPLORER.todo (omscs-path-explorer)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

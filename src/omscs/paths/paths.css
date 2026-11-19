@@ -1,0 +1,56 @@
+.omscs-paths { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
+.omscs-paths > * { min-width: 0; }
+.omscs-paths label { display: grid; grid-template-columns: minmax(0, 1fr); gap: .45rem; min-width: 0; }
+.omscs-paths input, .omscs-paths select { min-width: 0; width: 100%; max-width: 100%; }
+.omscs-paths .page-heading { margin-bottom: 0; }
+.omscs-paths h2 { margin-top: 0; }
+.omscs-paths .badge { white-space: normal; overflow-wrap: anywhere; }
+.omscs-paths section[id] { scroll-margin-top: 2rem; }
+.path-jumps { flex-wrap: wrap; }
+.path-purpose { display: flex; gap: 1rem; align-items: flex-start; }
+.path-purpose > svg { flex: 0 0 auto; color: var(--accent); }
+.path-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.path-metrics > div { display: grid; min-width: 0; overflow-wrap: anywhere; gap: .6rem; padding: 1rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--paper); }
+.path-metrics strong { font-size: 1.65rem; }
+.path-metrics small, .path-metrics span { font-size: .8rem; line-height: 1.5; }
+.path-history, .path-preset-grid, .path-free-grid, .path-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.path-history > article, .path-option, .path-free-card { padding: 1rem; border: 1px solid var(--line); border-radius: .65rem; min-width: 0; background: var(--paper); }
+.path-history h3, .path-option h3, .path-free-card h3 { margin-top: .5rem; }
+.path-history { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.path-gap { margin-top: 1.2rem; padding: 1rem; border-left: 2px solid var(--accent); }
+.path-flow { display: grid; gap: .5rem; }
+.path-step > .eyebrow { display: block; margin-bottom: .6rem; }
+.path-flow-arrow { justify-self: center; color: var(--accent); }
+.path-two, .path-filters, .path-calendar-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.path-course-detail { margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--line); }
+.path-course-detail > summary { cursor: pointer; font-weight: 600; line-height: 1.5; }
+.path-course-detail p, .path-course-detail li, .path-warnings li { line-height: 1.7; overflow-wrap: anywhere; }
+.path-option details { margin-bottom: 1rem; }
+.path-pages { margin-block: 1rem; align-items: center; }
+.path-selected { margin-block: 1rem; }
+.path-selected > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+.path-selected > div > span { min-width: 0; overflow-wrap: anywhere; }
+.path-selected button { flex: 0 0 auto; }
+.omscs-paths .path-course-check, .path-calendar-options > label:first-child { display: flex; flex-direction: row; align-items: flex-start; gap: .65rem; margin-top: 1rem; line-height: 1.5; }
+.omscs-paths input[type="checkbox"] { width: 1rem; height: 1rem; min-height: 0; padding: 0; margin-top: .2rem; flex: 0 0 auto; }
+.path-calendar-form { align-items: end; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.path-calendar-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1rem; }
+.path-warnings { padding: 1rem 1rem 1rem 2rem; border: 1px solid var(--accent); border-radius: .6rem; }
+.path-warnings li { margin-bottom: .7rem; }
+.path-semesters { display: grid; gap: 1rem; padding-left: 1rem; border-left: 2px solid var(--accent); }
+.path-semesters > article { padding: 1rem; border: 1px solid var(--line); border-radius: .65rem; }
+.path-semesters h3 { margin: 0 0 .6rem; }
+.path-semesters li { margin-block: .6rem; line-height: 1.6; }
+.omscs-paths .button { white-space: normal; }
+@media (max-width: 1100px) {
+  .path-metrics, .path-history { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .path-preset-grid, .path-options, .path-free-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 650px) {
+  .path-two, .path-filters, .path-calendar-form, .path-calendar-options, .path-history { grid-template-columns: 1fr; }
+  .path-purpose { display: block; }
+  .path-purpose > svg { margin-bottom: .7rem; }
+  .path-metrics > div { padding: .75rem; }
+  .path-metrics strong { font-size: 1.3rem; }
+  .path-pages { flex-wrap: wrap; }
+}

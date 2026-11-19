@@ -1,0 +1,35 @@
+{
+  "observedAt": "2026-11-19T10:42:16.502566+00:00",
+  "scope": "Independent read-only verification of the two existing workstream mappings. No source publication.",
+  "rows": [
+    {
+      "workstreamId": "geojack-omscs",
+      "issue": "https://github.com/Zanark/CareerOS/issues/12",
+      "issueNumber": 12,
+      "title": "Gold Circuit: Georgia Tech OMSCS semester and learning companion",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhJ-hyA",
+      "projectStatus": "Done",
+      "managedSha256": "5819450fa9d3a173c3d2f89ac16a96ffdf498269fbdffb81eac4787849b161d5",
+      "localTitleAndBacklinkMatch": true,
+      "identityRetained": true
+    },
+    {
+      "workstreamId": "omscs-path-explorer",
+      "issue": "https://github.com/Zanark/CareerOS/issues/13",
+      "issueNumber": 13,
+      "title": "Gold Circuit: compare OMSCS AI specialization paths and elective choices",
+      "state": "OPEN",
+      "stateReason": null,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKG-Ko",
+      "projectStatus": "In review",
+      "managedSha256": "dd3ab5e61d3a512602f98fe025f4840df41ec8d1e411b566b1ee5aef4becf98d",
+      "localTitleAndBacklinkMatch": true,
+      "identityRetained": true
+    }
+  ],
+  "recoverySha256": "9cd8ba67977e44e496173fe0efbea986fea3fdecf2c894b3b9bcdf67faefc88f",
+  "recoveryChangedByVerification": false,
+  "verifierCorrection": "An initial read-only helper assumed a nested repository ID; corrected to the actual flat repositoryId configuration field. That failed probe performed no remote mutation."
+}

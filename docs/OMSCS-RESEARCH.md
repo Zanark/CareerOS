@@ -1,13 +1,13 @@
-# GeoJack OMSCS: source-backed AI study companion
+# Gold Circuit: Georgia Tech OMSCS study companion
 
 Reviewed **November 19, 2026**. This is an unofficial public-source route template,
 not Georgia Tech advising, an official individual degree audit, enrollment,
 a transcript/GPA integration or a connected AI tutor. No actual student history,
 grades, matriculation date or previous completion is included in the defaults.
 
-[User guide](GUIDE.md#geojack-omscs-semesters-course-guides-and-independent-learning) ·
-[Architecture](ARCHITECTURE.md#geojack-academic-planning-is-not-learning-progress) ·
-[Source integration](OPERATION-SOURCES.md#geojack-omscs-november-19) ·
+[User guide](GUIDE.md#gold-circuit-georgia-tech-omscs-semesters-and-learning) ·
+[Architecture](ARCHITECTURE.md#gold-circuit-academic-planning-is-not-learning-progress) ·
+[Source integration](OPERATION-SOURCES.md#gold-circuit--georgia-tech-omscs-november-19) ·
 [Official AI specialization](https://omscs.gatech.edu/specialization-artificial-intelligence-formerly-interactive-intelligence)
 
 ## Degree contract and selected allocation

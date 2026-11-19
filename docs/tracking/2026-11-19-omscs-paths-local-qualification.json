@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-19",
+  "workstreamId": "omscs-path-explorer",
+  "baseCommit": "95a108461e03cd133b78e2b98857016f1891fe00",
+  "scope": "Local-only review candidate; owner approval is required before publication.",
+  "choices": {
+    "regularCourseCatalogue": 78,
+    "nonCsCseCatalogueEntries": 13,
+    "currentSpecializationCourseSets": 830,
+    "currentSpecializationRoleAllocations": 1650,
+    "conservativeSpecializationCourseSets": 216,
+    "unavailableCurrentCampusReferences": 12,
+    "additionalOlderCatalogReferences": 4,
+    "globalUniqueCompleteDegreeCountClaimed": false
+  },
+  "checks": {
+    "typescript": "passed",
+    "domainTestsPassed": 743,
+    "domainTestFiles": 51,
+    "newFocusedDomainCases": 14,
+    "trackingTestsPassed": 22,
+    "uniqueProductionBrowserCasesPassed": 20,
+    "finalResponsiveOpenChoiceCasesPassed": 3,
+    "browserRetries": 0,
+    "layouts": ["1440 dark", "390 dark", "320 light"],
+    "coverage": [
+      "Complete specialization role/set enumeration and conservative source comparison.",
+      "Prior-course reuse, grade floors, uniqueness, conditional credit budgets and non-CS/CSE cap.",
+      "All catalogue choices, search/pagination, open elective selection and capability presets.",
+      "Regular/summer/heavy calendars, preparation guidance, return gap and credit-age boundaries.",
+      "Readonly storage/Atlas behavior, invalid inputs, visible conflicts and lazy-chunk failure recovery.",
+      "Existing GeoJack academic entry, ordinary/encrypted backups, stale saves and tutorial coexistence."
+    ],
+    "privateContext": {
+      "productionFilesChecked": 29,
+      "personalContextInProduction": false,
+      "productionIgnoresDevelopmentContext": true,
+      "originalPreviewReceivesPrivateInjection": false,
+      "unapprovedHostStatus": 403,
+      "directPrivateFileStatus": 403,
+      "suppliedPrivateAssumptionsRenderedExactly": true,
+      "academicPlanSilentlySaved": false,
+      "tutorialConsumesPrivateHistory": false,
+      "savedStorageChangedByExploration": false,
+      "realOwnerBrowserProfileAutomated": false
+    },
+    "visualReview": "Actual private desktop-dark and 320-light overview, history/choices and calendar frames inspected in one contact sheet; not every long-form paragraph or all 830 cards visually reviewed.",
+    "protectedContracts": "Published mission editions/checkpoints, AppState/schema/journal, README, packages/workflow and empty public journal unchanged."
+  },
+  "corrections": [
+    "Narrow implicit grid minimum and nowrap badges caused real overflow. Scoped minimum-width and wrapping fixes preserve the type scale; current native/private checks report no overflow.",
+    "An initial private-file probe omitted the CareerOS base and received a generic404, not private data. The correct base-relative probe returns403.",
+    "A private-term verification compared rendered uppercase text to mixed-case source text. The semantic term text is now checked without mistaking styling for changed history."
+  ],
+  "limitations": [
+    "Unknown grades, official GPA, applicable catalog and admission/registration status are not verified.",
+    "Current online-list membership is not a promised future offering or seat.",
+    "Only explicitly disclosed course overviews/guides were reviewed; all 78 full syllabi are not claimed as read.",
+    "Draft choices remain temporary and do not rewrite the original24-checkpoint learning route.",
+    "Human acceptance, commit, push and deployment are not part of this local qualification."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-19",
+  "workstreamId": "omscs-path-explorer",
+  "baseCommit": "95a108461e03cd133b78e2b98857016f1891fe00",
+  "scope": "Local-only naming correction; no commit, push or deployment.",
+  "branding": {
+    "program": "Georgia Tech OMSCS",
+    "operation": "Gold Circuit",
+    "displayReferencePrefix": "GC",
+    "currentRuntimeIncorrectBrandMatches": 0,
+    "historicalReceiptsRewritten": false
+  },
+  "compatibility": {
+    "missionId": "omscs",
+    "missionVersion": "3.0.0",
+    "checkpointAndUnitIdentitiesPreserved": true,
+    "academicAndWorkspaceSchemasChanged": false,
+    "journalAndStorageKeysChanged": false,
+    "tutorialStepAndChapterIdentitiesPreserved": true,
+    "graphTransferEndpointsPreserved": true,
+    "workstreamIssueAndProjectIdentitiesPreserved": true,
+    "protectedReadmePackagesWorkflowFrozenSourcesAndPublicJournalChanged": false
+  },
+  "checks": {
+    "typescript": "passed",
+    "domainTestsPassed": 743,
+    "domainTestFiles": 51,
+    "trackingTestsPassed": 22,
+    "productionBrowserCasesPassed": 20,
+    "browserSkipped": 0,
+    "browserUnexpected": 0,
+    "browserFlaky": 0,
+    "browserRetries": 0,
+    "layouts": ["1440 dark", "390 dark", "320 light"],
+    "browserCoverage": [
+      "Current program heading, navigation, global search, Help and operation branding.",
+      "Renamed GC study references, original course guides, full roadmap and graph transfers.",
+      "Specialization/free-elective choices, calendars, conflicts and responsive layouts.",
+      "Ordinary/encrypted backup, explicit academic saves, stale writes and isolated tutorial behavior."
+    ],
+    "privatePreview": {
+      "observedAt": "2026-11-19T10:34:40.686Z",
+      "currentBrandingVerified": true,
+      "productionFilesChecked": 29,
+      "privateContextInProduction": false,
+      "originalPreviewInjected": false,
+      "unapprovedHostStatus": 403,
+      "directPrivateFileStatus": 403,
+      "suppliedContextRenderedExactly": true,
+      "academicPlanSilentlySaved": false,
+      "tutorialConsumesPrivateHistory": false,
+      "savedStorageChanged": false,
+      "pageErrors": 0,
+      "visualReview": "Actual desktop and 320px dark local overview frames inspected; prior three-width production cases also passed."
+    },
+    "focusedRelativeDocumentTargetsMissing": 0
+  },
+  "limits": [
+    "Human acceptance and publication are pending owner approval.",
+    "Earlier published artifact, dated audit receipts and existing browser history are not rewritten.",
+    "An immutable maintainer workstream ID is retained deliberately through the display/file rename.",
+    "No real browser profile, enrollment account or official academic record was accessed."
+  ]
+}

@@ -20,7 +20,7 @@ function courseSections(unitId: string): PackSection[] | undefined {
     const module = course.modules.find(item => omscsCourseUnit(course, item) === unitId);
     if (!module) continue;
     const teaching = omscsTeaching[unitId];
-    if (!teaching) throw new Error(`Missing GeoJack teaching: ${unitId}`);
+    if (!teaching) throw new Error(`Missing Gold Circuit teaching: ${unitId}`);
     return [
       section('What the course covers and why it matters', [course.overview, course.career], module.topics),
       section('Mechanism and a worked reasoning example', [teaching.model, teaching.example]),
@@ -110,7 +110,7 @@ const units: PackUnit[] = omscsOutline.units.map(outline => {
   const module = course?.modules.find(item => omscsCourseUnit(course, item) === outline.id);
   const extra = additional[outline.id];
   const sections = courseSections(outline.id) ?? extra?.sections;
-  if (!sections) throw new Error(`Missing GeoJack unit content: ${outline.id}`);
+  if (!sections) throw new Error(`Missing Gold Circuit unit content: ${outline.id}`);
   const tasks = module ? [module.task, module.transfer] : extra.tasks;
   const checks = module ? [module.check, module.transferCheck] : extra.checks;
   return {

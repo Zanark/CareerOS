@@ -1,5 +1,5 @@
 Workstream ID: geojack-omscs
-Title: GeoJack OMSCS semester and learning companion
+Title: Gold Circuit: Georgia Tech OMSCS semester and learning companion
 Status: DONE
 Milestone: Add an unofficial source-backed AI degree-planning mission
 Dependencies: tracker-foundation, versioned-roadmaps, career-graph, encrypted-progress-journal, discovery-atlas
@@ -25,7 +25,7 @@ Tasks:
   [x] Record publication and verify completion on this same issue/Project item.
 
 Acceptance criteria:
-  GeoJack is an unofficial learning companion, not Georgia Tech advising, a
+  Gold Circuit is an unofficial learning companion, not Georgia Tech advising, a
     registrar integration, an automated tutor or a guaranteed future timetable.
   The new mission starts unconfirmed in the background without changing old
     focus, modes, positions, blockers, dates, records or frozen definitions.
@@ -57,7 +57,7 @@ Completion evidence:
     checkpoints; all eleven now581. Original editions/books are unchanged.
   TypeScript/729domain cases and22tracking cases pass. Retained native reports
     cover159unique qualified cases:145initial broad passes, the corrected
-    remaining backup case, all13GeoJack workflows and directly affected repeats.
+    remaining backup case, all13OMSCS workflows and directly affected repeats.
     All188tutorial steps pass at three widths; final narrow and isolated
     chapters retain exact real-storage isolation.
   Actual planner/guide, semester and entry frames reviewed, including320light.
@@ -71,15 +71,23 @@ Completion evidence:
     plus2retry-flaky cases, no persistent failures. Existing retry policy was
     not changed and a retry-free full suite is not claimed.
   All13actual hosted cases pass without retries. Eight selected served files
-    match the exact successful artifact, including entry/styles/GeoJack teaching,
+    match the exact successful artifact, including entry/styles/OMSCS teaching,
     retained Neural book/shared3D/font license and empty public journal.
     Actual desktop-dark/320-light hosted frames inspected. Publication source:
     docs/tracking/2026-11-19-geojack-publication.json.
   No human acceptance, actual student record, GPA or degree approval is claimed.
     Private research and actual profiles remain untouched. Tracking/evidence
     follow-through does not require redeploying unchanged runtime bytes.
+  The local follow-up corrects the current name to Georgia Tech OMSCS /
+    Operation Gold Circuit. Checkpoint/storage identities remain unchanged.
+    New labels are qualified under workstream14, not already published:
+    docs/tracking/2026-11-19-gold-circuit-local-qualification.json.
 
 Completion log:
+  2026-11-19 - Correct current display naming to Georgia Tech OMSCS / Operation
+    Gold Circuit during the local path-review follow-up. Preserve this
+    workstream ID, issue12, checkpoint/storage identities and historical
+    publication receipts. New labels await owner approval before publication.
   2026-11-19 - Published feature5b6c6d0 through verified Zanark attribution and
     transport. Native watcher confirms successful build/deploy for exact
     Pages44423750975. Retained actual CI logs include two retry-flaky cases:

@@ -13,7 +13,7 @@ loading problem. Different browsers/devices still need a private backup transfer
 [Overview](../README.md) · [Architecture](ARCHITECTURE.md) · [Themes](THEMES.md) · [Privacy](PRIVACY.md) ·
 [Agent contract](AGENT_CONTRACT.md) · [Operation sources](OPERATION-SOURCES.md) ·
 [Contributor workflow](DEVELOPMENT.md) · [FDE research](FDE-RESEARCH.md) ·
-[GeoJack OMSCS](OMSCS-RESEARCH.md)
+[Georgia Tech OMSCS / Gold Circuit](OMSCS-RESEARCH.md)
 
 ## What this prototype does
 
@@ -28,7 +28,7 @@ loading problem. Different browsers/devices still need a private backup transfer
   an opportunity pipeline, and self-assessed interview readiness.
 - Saves browser-local state and supports private JSON backup/export and replacement import.
 - Tracks freelance research and spaced recall separately from checkpoint completion.
-- Offers GeoJack OMSCS: proposed semesters, ten selected-course guides and optional
+- Offers Georgia Tech OMSCS / Operation Gold Circuit: proposed semesters, ten selected-course guides and optional
   academic self-reports, separate from learning evidence and official degree verification.
 - Offers an optional Discovery Atlas: a finite hidden collection derived from saved
   evidence and recall, with source receipts rather than a career or mastery score.
@@ -43,7 +43,7 @@ loading problem. Different browsers/devices still need a private backup transfer
   animates sunrise/sunset, remembers your choice, and respects reduced motion.
 
 The supplied operation documents define the original nine missions. Research-backed
-**Fieldcraft** and **GeoJack OMSCS** add unstarted background missions without changing
+**Fieldcraft** and **Gold Circuit** add unstarted background missions without changing
 your primary focus or existing progress. Tracking granularity is explicit:
 
 | Mission | Documented tracking |
@@ -58,7 +58,7 @@ your primary focus or existing progress. Tracking granularity is explicit:
 | Algorithm Forge | 34 checkpoints across the complete 6-stage contest curriculum; older forecast versions remain available |
 | Side Income | 104 modules across 13 stages, with cases, templates and the separate private freelance ledger |
 | Forward Deployed Engineering / Fieldcraft | 48 checkpoints across 12 phases, eight optional specialization labs and 112 authored exercises informed by 24 reviewed primary sources |
-| Georgia Tech OMSCS / GeoJack | 24 learning checkpoints, five independent reference/practice units and 58 exercises; ten academic course guides and an editable semester proposal are separate from degree credits |
+| Georgia Tech OMSCS / Gold Circuit | 24 learning checkpoints, five independent reference/practice units and 58 exercises; ten academic course guides and an editable semester proposal are separate from degree credits |
 
 The eleven latest editions contain **581 tracked checkpoints**; the earlier ten
 retain their original 557.
@@ -71,9 +71,10 @@ for conflicts, granularity choices and unverified certification availability.
 There is no actual AI agent, cloud workspace, authentication, or multi-device sync.
 The AI-engineering mission is a learning roadmap, not a connected AI service.
 
-### GeoJack OMSCS: semesters, course guides and independent learning
+### Gold Circuit: Georgia Tech OMSCS semesters and learning
 
-Open **GeoJack OMSCS** in the Career navigation, or `#/omscs`. The unofficial
+Open **Georgia Tech OMSCS** in the Career navigation, or `#/omscs`. Its operation
+codename is **Gold Circuit**. The unofficial
 AI-specialization template selects ten courses / 30 credits. Seven courses have
 a proposed learning order: ML, GIOS, Graduate Algorithms, Deep Learning, NLP,
 Distributed Computing and GPU Hardware and Software. KBAI, Game AI and Video
@@ -104,10 +105,17 @@ Academic entries, proposals and browsing award no learning checkpoint, recorded-
 streak or Atlas EXP. Genuine study evidence uses the existing criteria/Atlas flow.
 
 Private backups and the optional encrypted journal retain academic entries;
-no university account or model is connected. The final **GeoJack OMSCS** tutorial
+no university account or model is connected. The final **Gold Circuit / OMSCS** tutorial
 chapter tries real controls on isolated fictional data and discards its grade on
 exit. Alternate course routes are comparisons, not automatic substitutions.
 Read [the allocation, source differences and limitations](OMSCS-RESEARCH.md).
+
+**Local review candidate:** `#/omscs/paths` adds the complete AI subject-choice
+explorer, current/catalog comparison, all 78 regular free-course entries and
+editable what-if calendars. Reported history can inform the private planning
+basis without changing saved grades or learning/Atlas credit. Its temporary
+choices do not rewrite the original 24-checkpoint study route. Read
+[path-explorer scope and sources](OMSCS-PATHS.md); publication awaits owner review.
 
 ### AI Architect: agent-native cloud extension
 
@@ -152,7 +160,7 @@ All units have a local/free synthetic route; real customer access, paid APIs
 and production changes require separate permission.
 
 **Connected learning** and Career graph **Connections** retain Fieldcraft's thirteen
-original comparisons spanning all nine earlier missions; GeoJack adds a separate
+original comparisons spanning all nine earlier missions; Gold Circuit adds a separate
 ML-evaluation comparison. Transfer your
 understanding, but demonstrate the new FDE criteria separately: links do not
 grant equivalent completion or create extra prerequisite gates.

@@ -1,0 +1,47 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "95a108461e03cd133b78e2b98857016f1891fe00",
+  "observedAt": "2026-11-19T15:57:20.467Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "omscs-path-explorer",
+      "path": "TODO/14_OMSCS_PATH_EXPLORER.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/13",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "02a5c854c4e357509ab108a17b4b0b1249720f7ea2da57b8b4eab1d4f0321bf1",
+      "actions": [
+        "update managed description",
+        "set Project In Progress"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 13,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

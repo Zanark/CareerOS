@@ -82,7 +82,8 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     await page.setViewportSize({ width, height: 1000 });
     await seed(page, fixture(), theme);
     await page.goto('./#/omscs');
-    await expect(page.getByRole('heading', { name: 'GeoJack OMSCS', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Georgia Tech OMSCS', exact: true })).toBeVisible();
+    await expect(page.locator('.app')).not.toContainText(/geojack|GJ-/i);
     const before = await storage(page);
     await expect(page.locator('[data-omscs-course]')).toHaveCount(10);
     await expect(page.locator('[data-omscs-term]')).toHaveCount(7);
@@ -90,7 +91,7 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     await expect(page.locator('[data-tour="omscs-credit-summary"] strong').first()).toHaveText('0 / 30');
     await expect(page.getByText('This is an unsaved example proposal.', { exact: false })).toBeVisible();
     await noOverflow(page);
-    await page.screenshot({ path: testInfo.outputPath(`geojack-planner-${width}-${theme}.png`) });
+    await page.screenshot({ path: testInfo.outputPath(`gold-circuit-planner-${width}-${theme}.png`) });
 
     const guide = page.locator('[data-tour="omscs-course-guide"]');
     for (const course of omscsCourses) {
@@ -107,7 +108,7 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     }
     await page.getByRole('combobox', { name: 'Explore a course', exact: true }).selectOption('cs7295');
     await guide.scrollIntoViewIfNeeded();
-    await page.screenshot({ path: testInfo.outputPath(`geojack-guide-${width}-${theme}.png`) });
+    await page.screenshot({ path: testInfo.outputPath(`gold-circuit-guide-${width}-${theme}.png`) });
     await page.locator('[data-tour="omscs-record-cs7637"]').click();
     const entry = page.locator('dialog.omscs-entry-modal');
     await entry.getByRole('combobox', { name: 'Course status', exact: true }).selectOption('completed');
@@ -125,7 +126,7 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     await cancel.scrollIntoViewIfNeeded();
     await expect(entry.getByRole('button', { name: 'Close dialog', exact: true })).toBeInViewport({ ratio: 1 });
     await noOverflow(page);
-    await page.screenshot({ path: testInfo.outputPath(`geojack-entry-${width}-${theme}.png`) });
+    await page.screenshot({ path: testInfo.outputPath(`gold-circuit-entry-${width}-${theme}.png`) });
     await cancel.click();
     expect(await storage(page)).toEqual(before);
 
@@ -134,6 +135,8 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     await expect(chooser.locator('option')).toHaveCount(29);
     await chooser.selectOption('omscs-cs7650-retrieval');
     await expect(page.locator('.pack-unit-meta')).toContainText('UNOFFICIAL STUDY GUIDE');
+    await expect(page.locator('.pack-unit-meta')).toContainText('GC-');
+    await expect(page.locator('.app')).not.toContainText(/geojack|GJ-/i);
     await expect(page.locator('.pack-study-unit')).not.toContainText('PDF PAGES');
     await page.locator('[data-tour="pack-unit-sources"] > summary').click();
     await expect(page.locator('[data-tour="pack-unit-sources"] a')).not.toHaveCount(0);
@@ -239,7 +242,7 @@ test('explicit academic entries respect grade rules, cancel exactly and survive 
   const chooser = page.waitForEvent('filechooser');
   await page.locator('[data-tour="backup-import"]').click();
   page.once('dialog', dialog => dialog.accept());
-  await (await chooser).setFiles({ name: 'synthetic-geojack-backup.json', mimeType: 'application/json', buffer: backup });
+  await (await chooser).setFiles({ name: 'synthetic-gold-circuit-backup.json', mimeType: 'application/json', buffer: backup });
   await expect.poll(() => stored(page)).toEqual(saved);
   await page.reload();
   expect(await stored(page)).toEqual(saved);
@@ -286,7 +289,7 @@ test('a rejected browser save keeps the previous plan absent and shows failure r
   expect((await stored(page)).omscsPlan).toBeUndefined();
 });
 
-test('a genuine ten-mission wire fixture gains only an unstarted GeoJack lane while every earlier record and date remains exact', async ({ page }) => {
+test('a genuine ten-mission wire fixture gains only an unstarted Gold Circuit lane while every earlier record and date remains exact', async ({ page }) => {
   let state = createInitialState(false, '2.0.0');
   state.updatedAt = now.toISOString();
   state = recordEvidence(state, {
@@ -303,7 +306,7 @@ test('a genuine ten-mission wire fixture gains only an unstarted GeoJack lane wh
   expect(Object.keys(oldMissions)).toHaveLength(10);
   await seed(page, { ...state, missions: oldMissions });
   await page.goto('./#/omscs');
-  await expect(page.getByRole('heading', { name: 'GeoJack OMSCS', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Georgia Tech OMSCS', exact: true })).toBeVisible();
   expect(await stored(page)).toEqual(state);
   expect((await stored(page)).missions.omscs).toEqual(omscs);
   expect((await stored(page)).omscsPlan).toBeUndefined();
@@ -311,7 +314,7 @@ test('a genuine ten-mission wire fixture gains only an unstarted GeoJack lane wh
   expect(await stored(page)).toEqual(state);
 });
 
-test('real background GeoJack evidence offers a cross-page level-up and mission graph reveal without academic credits', async ({ page }) => {
+test('real background Gold Circuit evidence offers a cross-page level-up and mission graph reveal without academic credits', async ({ page }) => {
   await seed(page);
   await page.goto('./#/mission/omscs');
   await page.getByRole('button', { name: 'Record evidence', exact: true }).click();
@@ -347,7 +350,7 @@ test('real background GeoJack evidence offers a cross-page level-up and mission 
 });
 
 for (const width of [1440, 320]) {
-  test(`all six real-control GeoJack lessons stay isolated at ${width}px`, async ({ page }) => {
+  test(`all six real-control Gold Circuit lessons stay isolated at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     await seed(page);
     await page.goto('./#/settings');
@@ -377,11 +380,11 @@ for (const width of [1440, 320]) {
   });
 }
 
-test('mission search, primary-source registry, Help and the connected roadmap expose GeoJack without saving progress', async ({ page }) => {
+test('mission search, primary-source registry, Help and the connected roadmap expose Gold Circuit without saving progress', async ({ page }) => {
   await seed(page);
   await page.goto('./#/hq');
   const before = await storage(page);
-  await page.getByLabel('Search missions and evidence').fill('GeoJack');
+  await page.getByLabel('Search missions and evidence').fill('Gold Circuit');
   await page.locator('.search-results a').filter({ hasText: 'Georgia Tech OMSCS' }).first().click();
   await expect(page).toHaveURL(/#\/mission\/omscs$/);
   await page.goto('./#/sources/omscs');
@@ -392,7 +395,7 @@ test('mission search, primary-source registry, Help and the connected roadmap ex
   await page.locator('[data-tour="omscs-planner-open"]').click();
   await expect(page).toHaveURL(/#\/omscs$/);
   await page.goto('./#/guide');
-  await page.getByRole('searchbox', { name: 'Find an answer', exact: true }).fill('GeoJack');
+  await page.getByRole('searchbox', { name: 'Find an answer', exact: true }).fill('Gold Circuit');
   const topic = page.locator('.help-topic');
   await expect(topic).toHaveCount(1);
   await topic.locator('summary').click();
@@ -407,7 +410,7 @@ test('mission search, primary-source registry, Help and the connected roadmap ex
 
 test('the real browser encrypted-journal workflow appends academic changes without replacing ordinary storage or publishing plaintext', async ({ page, context }) => {
   await seed(page);
-  const phrase = 'A synthetic GeoJack browser journal phrase';
+  const phrase = 'A synthetic Gold Circuit browser journal phrase';
   const published = { text: '' };
   await context.route('**/careeros-progress.jsonl', route =>
     route.fulfill({ contentType: 'application/x-ndjson', body: published.text }));
@@ -422,7 +425,7 @@ test('the real browser encrypted-journal workflow appends academic changes witho
   published.text = baseline;
   await page.getByRole('button', { name: 'Check published updates', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Prepare encrypted updates', exact: true })).toBeEnabled();
-  await navigate(page, 'GeoJack OMSCS');
+  await navigate(page, 'Georgia Tech OMSCS');
   await enterCourse(page, 'cs7637');
   const saved = await stored(page);
   await navigate(page, 'Settings & data');

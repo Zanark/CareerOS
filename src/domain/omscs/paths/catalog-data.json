@@ -1,0 +1,704 @@
+[
+  {
+    "id": "cs6035",
+    "code": "CS 6035",
+    "title": "Introduction to Information Security",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6035-introduction-information-security",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6150",
+    "code": "CS 6150",
+    "title": "Computing for Good",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6150-computing-good",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs6200",
+    "code": "CS 6200",
+    "title": "Introduction to Operating Systems",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6200-introduction-operating-systems",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6210",
+    "code": "CS 6210",
+    "title": "Advanced Operating Systems",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6210-advanced-operating-systems",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6211",
+    "code": "CS 6211",
+    "title": "System Design for Cloud Computing",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6211-system-design-cloud-computing",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6238",
+    "code": "CS 6238",
+    "title": "Secure Computer Systems",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6238-secure-computer-systems",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6250",
+    "code": "CS 6250",
+    "title": "Computer Networks",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6250-computer-networks",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6260",
+    "code": "CS 6260",
+    "title": "Applied Cryptography",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6260-applied-cryptography",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6261",
+    "code": "CS 6261",
+    "title": "Security Operations and Incident Response",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6261-security-operations-and-incident-response",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs6262",
+    "code": "CS 6262",
+    "title": "Network Security",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6262-network-security",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6263",
+    "code": "CS 6263",
+    "title": "Intro to Cyber Physical Systems Security",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6263-intro-cyber-physical-systems-security",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6264",
+    "code": "CS 6264",
+    "title": "Information Security Lab - System and Network Defenses",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6264-information-security-lab-system-and-network-defenses",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6265",
+    "code": "CS 6265",
+    "title": "Information Security Lab",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6265-information-security-lab",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs6271",
+    "code": "CS 6271",
+    "title": "Cybersecurity of Drones",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6271-cybersecurity-drones",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs6290",
+    "code": "CS 6290",
+    "title": "High Performance Computer Architecture",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6290-high-performance-computer-architecture",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6291",
+    "code": "CS 6291",
+    "title": "Embedded Systems Optimization",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6291-embedded-systems-optimization",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6300",
+    "code": "CS 6300",
+    "title": "Software Development Process",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6300-software-development-process",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6310",
+    "code": "CS 6310",
+    "title": "Software Architecture and Design",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6310-software-architecture-and-design",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6340",
+    "code": "CS 6340",
+    "title": "Software Analysis",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6340-software-analysis",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6400",
+    "code": "CS 6400",
+    "title": "Database Systems Concepts and Design",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6400-database-systems-concepts-and-design",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6422",
+    "code": "CS 6422",
+    "title": "Database System Implementation",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6422-database-system-implementation",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6435",
+    "code": "CS 6435",
+    "title": "Digital Health Equity",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6435-digital-health-equity",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6440",
+    "code": "CS 6440",
+    "title": "Intro to Health Informatics",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6440-intro-health-informatics",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6457",
+    "code": "CS 6457",
+    "title": "Video Game Design",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6457-video-game-design",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6460",
+    "code": "CS 6460",
+    "title": "Educational Technology",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6460-educational-technology",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6475",
+    "code": "CS 6475",
+    "title": "Computational Photography",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6475-computational-photography",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6476",
+    "code": "CS 6476",
+    "title": "Computer Vision",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6476-computer-vision",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6491",
+    "code": "CS 6491",
+    "title": "Foundations of Computer Graphics",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6491-foundations-computer-graphics",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6515",
+    "code": "CS 6515",
+    "title": "Intro to Graduate Algorithms",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6515-intro-graduate-algorithms",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6601",
+    "code": "CS 6601",
+    "title": "Artificial Intelligence",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6601-artificial-intelligence",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6603",
+    "code": "CS 6603",
+    "title": "AI, Ethics, and Society",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6603-ai-ethics-and-society",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6675",
+    "code": "CS 6675",
+    "title": "Advanced Internet Systems and Applications",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6675-advanced-internet-systems-and-applications",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6747",
+    "code": "CS 6747",
+    "title": "Advanced Malware Analysis",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6747-advanced-malware-analysis",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs6750",
+    "code": "CS 6750",
+    "title": "Human-Computer Interaction",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6750-human-computer-interaction",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs6795",
+    "code": "CS 6795",
+    "title": "Introduction to Cognitive Science",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-6795-introduction-cognitive-science",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7210",
+    "code": "CS 7210",
+    "title": "Distributed Computing",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7210-distributed-computing",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7240",
+    "code": "CS 7240",
+    "title": "Modern Internet Research Methods",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7240-modern-internet-research-methods",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs7280",
+    "code": "CS 7280",
+    "title": "Network Science",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7280-network-science",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7295",
+    "code": "CS 7295",
+    "title": "GPU Hardware and Software",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7295-gpu-hardware-and-software",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7400",
+    "code": "CS 7400",
+    "title": "Intro to Quantum Computing",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7400-intro-quantum-computing",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7470",
+    "code": "CS 7470",
+    "title": "Mobile & Ubiquitous Computing",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7470-mobile-ubiquitous-computing",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7496",
+    "code": "CS 7496",
+    "title": "Computer Animation",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7496-computer-animation",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7632",
+    "code": "CS 7632",
+    "title": "Game AI",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7632-game-ai",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7637",
+    "code": "CS 7637",
+    "title": "Knowledge-Based AI",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7637-knowledge-based-ai",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7638",
+    "code": "CS 7638",
+    "title": "Robotics: AI Techniques",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7638-robotics-ai-techniques",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7639",
+    "code": "CS 7639",
+    "title": "Cyber-Physical Design and Analysis",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7639-cyber-physical-design-and-analysis",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7641",
+    "code": "CS 7641",
+    "title": "Machine Learning",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7641-machine-learning",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7642",
+    "code": "CS 7642",
+    "title": "Reinforcement Learning",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7642-reinforcement-learning",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7643",
+    "code": "CS 7643",
+    "title": "Deep Learning",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7643-deep-learning",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7646",
+    "code": "CS 7646",
+    "title": "Machine Learning for Trading",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7646-machine-learning-trading",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7650",
+    "code": "CS 7650",
+    "title": "Natural Language",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7650-natural-language",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs7711",
+    "code": "CS 7711",
+    "title": "Health Sensing and Interventions",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-7711-health-sensing-and-interventions",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o08",
+    "code": "CS 8803 O08",
+    "title": "Compilers - Theory and Practice",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o08-compilers-theory-and-practice",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o15",
+    "code": "CS 8803 O15",
+    "title": "Introduction to Computer Law",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o15-introduction-computer-law",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o17",
+    "code": "CS 8803 O17",
+    "title": "Global Entrepreneurship",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o17-global-entrepreneurship",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o20",
+    "code": "CS 8803 O20",
+    "title": "Quantum Hardware",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o20-quantum-hardware",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o24",
+    "code": "CS 8803 O24",
+    "title": "Intro to Research",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o24-intro-research",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o25",
+    "code": "CS 8803 O25",
+    "title": "Advanced Wireless Networks",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o25-advanced-wireless-networks",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o27",
+    "code": "CS 8803 O27",
+    "title": "Computer Graphics in the AI Era",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o27-computer-graphics-ai-era",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-o34",
+    "code": "CS 8803 O34",
+    "title": "Human Dimension of Cybersecurity",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-o34-human-dimension-cybersecurity",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cs8803-oro",
+    "code": "CS 8803 ORO",
+    "title": "Management & Leadership in Computing",
+    "subject": "CS",
+    "url": "https://omscs.gatech.edu/cs-8803-oro-management-leadership-computing",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "cse6220",
+    "code": "CSE 6220",
+    "title": "Intro to High-Performance Computing",
+    "subject": "CSE",
+    "url": "https://omscs.gatech.edu/cse-6220-intro-high-performance-computing",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cse6242",
+    "code": "CSE 6242",
+    "title": "Data and Visual Analytics",
+    "subject": "CSE",
+    "url": "https://omscs.gatech.edu/cse-6242-data-and-visual-analytics",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cse6250",
+    "code": "CSE 6250",
+    "title": "Big Data for Health Informatics",
+    "subject": "CSE",
+    "url": "https://omscs.gatech.edu/cse-6250-big-data-health-informatics",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "cse6742",
+    "code": "CSE 6742",
+    "title": "Modeling, Simulation, and Military Gaming",
+    "subject": "CSE",
+    "url": "https://omscs.gatech.edu/cse-6742-modeling-simulation-and-military-gaming",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "ece8843",
+    "code": "ECE 8843",
+    "title": "Side-Channels and Their Role in Cybersecurity",
+    "subject": "ECE",
+    "url": "https://omscs.gatech.edu/ece-8843-side-channels-and-their-role-cybersecurity",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "inta6450",
+    "code": "INTA 6450",
+    "title": "Data Analytics & Security",
+    "subject": "INTA",
+    "url": "https://omscs.gatech.edu/inta-6450-data-analytics-and-security",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "isye6402",
+    "code": "ISYE 6402",
+    "title": "Time Series Analysis",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6402-time-series-analysis",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "isye6414",
+    "code": "ISYE 6414",
+    "title": "Regression Analysis",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6414-regression-analysis",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "isye6420",
+    "code": "ISYE 6420",
+    "title": "Bayesian Statistics",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6420-bayesian-statistics",
+    "foundational": true,
+    "credits": 3
+  },
+  {
+    "id": "isye6501",
+    "code": "ISYE 6501",
+    "title": "Intro to Analytics Modeling",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6501-intro-analytics-modeling",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "isye6525",
+    "code": "ISYE 6525",
+    "title": "Topics on High-Dimensional Data Analytics",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6525-topics-high-dimensional-data-analytics",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "isye6644",
+    "code": "ISYE 6644",
+    "title": "Simulation and Modeling for Engineering and Science",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6644-simulation-and-modeling-engineering-and-science",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "isye6669",
+    "code": "ISYE 6669",
+    "title": "Deterministic Optimization",
+    "subject": "ISYE",
+    "url": "https://omscs.gatech.edu/isye-6669-deterministic-optimization",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "mgt6311",
+    "code": "MGT 6311",
+    "title": "Digital Marketing",
+    "subject": "MGT",
+    "url": "https://omscs.gatech.edu/mgt-6311-digital-marketing",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "mgt8813",
+    "code": "MGT 8813",
+    "title": "Financial Modeling",
+    "subject": "MGT",
+    "url": "https://omscs.gatech.edu/mgt-8813-financial-modeling",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "pubp6725",
+    "code": "PUBP 6725",
+    "title": "Information Security Policies",
+    "subject": "PUBP",
+    "url": "https://omscs.gatech.edu/pubp-6725-information-security-policies",
+    "foundational": false,
+    "credits": 3
+  },
+  {
+    "id": "pubp8823",
+    "code": "PUBP 8823",
+    "title": "Geopolitics of Cybersecurity",
+    "subject": "PUBP",
+    "url": "https://omscs.gatech.edu/pubp-8823-geopolitics-cybersecurity",
+    "foundational": false,
+    "credits": 3
+  }
+]

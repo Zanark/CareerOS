@@ -1,0 +1,110 @@
+Workstream ID: omscs-path-explorer
+Title: Gold Circuit: compare OMSCS AI specialization paths and elective choices
+Status: IN_PROGRESS
+Milestone: Publish an intuitive phone-ready degree-path review workbench
+Dependencies: geojack-omscs, versioned-roadmaps
+GitHub issue: https://github.com/Zanark/CareerOS/issues/13
+Purpose: Replace a single prescribed-plan assumption with transparent choices:
+  complete online AI specialization allocations, the broader free-elective
+  catalogue, completed-course reuse and proposed calendars. Keep private
+  planning assumptions separate from public source and saved career progress.
+
+Tasks:
+  [x] Review official AI menus, current courses, degree rules and return policies.
+  [x] Implement current-menu and conservative source-comparison rule sets.
+  [x] Enumerate complete specialization choices without double-counting roles.
+  [x] Expose all current credit-course choices and the non-CS/CSE credit limit.
+  [x] Add understandable editable choices, comparisons and semester proposals.
+  [x] Correct operation naming to Gold Circuit and program naming to Georgia Tech.
+  [x] Supply private local preview assumptions without public source defaults.
+  [x] Preserve academic records, learning evidence, Atlas and frozen roadmaps.
+  [x] Qualify constraints, actual browser behavior, privacy and responsive views.
+  [x] Update focused documentation, evidence and this issue/Project mapping.
+  [ ] Clarify the phone-first selection steps and private draft starting basis.
+  [ ] Explain qualitative career/roadmap fit and the opportunity cost of subjects.
+  [ ] Provide a readable final shortlist for the owner's review notes.
+  [ ] Qualify the exact mobile candidate and public/private input boundary.
+  [ ] Commit/push the public-safe candidate and monitor its exact Pages run.
+  [ ] Verify actual hosted phone workflows and same-identity completion tracking.
+
+Acceptance criteria:
+  The interface distinguishes ten courses/thirty credits from ten credits.
+    Completion, grade eligibility, free electives and specialization slots
+    are distinct. Unknown grades never become verified GPA or degree approval.
+  Current online menus, unused-core elective rules and unavailable campus
+    entries are explicit. The older catalog disagreement and readmission
+    catalog policy remain visible rather than silently resolved.
+  Every structurally valid specialization allocation in the selected rule set
+    is represented; role mappings and distinct course sets are counted separately.
+    Free-elective possibilities are factorized, not falsely summed as globally
+    unique complete degrees or materialized as millions of rendered cards.
+  The complete current regular-course catalogue is browsable. Courses count
+    once, seminars do not count and non-CS/CSE credits cannot exceed six.
+  Reported prior courses affect private what-if budgets and proposed calendars,
+    not stored academic or learning records. Planning grants no Atlas credit.
+  Return-gap, foundational-grade and six-year credit-age checks are clearly
+    conditional and source-backed. No readmission, seat or future offering
+    is guaranteed; no academic account or application is accessed.
+  Actual personal planning inputs stay outside public source, issues, shared
+    context and production assets. Existing browser profiles are not automated.
+  The approved published application, existing checkpoint identities, normal
+    backups and encrypted journal remain intact. Private preview and testing
+    use separate loopback processes/disposable data.
+  The November19evening follow-up explicitly authorizes coherent commits,
+    pushing and deploying the candidate for phone review. Keep human acceptance
+    separate: the owner will inspect the actual published site afterward.
+    No private planning input, transcript or real browser state is published.
+  A new phone can enter prior completions in an explicitly private what-if
+    draft without changing academic records. Guidance explains subject selection,
+    direct/supporting/specialist career fit, roadmap links and a final shortlist.
+    Do not invent numeric fit scores, university endorsements or assured outcomes.
+
+Completion evidence:
+  Local technical implementation is complete; owner review is pending.
+    Official current menu and older catalog remain separate lenses:
+    830distinct current course sets/1650role allocations and216conservative
+    sets. The catalogue covers78regular entries/13non-CS-CSE entries.
+  TypeScript/743domain cases across51files and22tracking cases pass.
+    Twenty unique production-browser cases pass, plus three final responsive
+    open-choice repeats at1440dark/390dark/320light, with no retry/deadline
+    relaxation. Original OMSCS backup/entry/tutorial workflows are preserved.
+  Private context is absent from29production files and ignored by production.
+    Actual supplied terms render correctly, tutorial history is isolated,
+    storage is unchanged and unapproved host/direct-file requests return403.
+    Personal inputs remain outside public source/tracking/shared continuity.
+  Actual current desktop-dark/320-light private frames reviewed. Narrow grid/
+    badge overflow was corrected without hiding content or shrinking type.
+  Final naming correction is requalified:743domain/22tracking/20production-
+    browser cases pass with no skips, failures, retries or flaky cases.
+    Actual private desktop/320px dark frames show the corrected branding;
+    supplied context, storage isolation and production exclusion still pass.
+    Focused docs and source/qualification receipt:
+    docs/OMSCS-PATHS.md;
+    docs/tracking/2026-11-19-omscs-paths-local-qualification.json;
+    docs/tracking/2026-11-19-gold-circuit-local-qualification.json.
+  No actual student record is copied here. No commit, push, deployment,
+    official degree audit, future seat or human acceptance is claimed.
+
+Completion log:
+  2026-11-19 - Owner authorizes deployment of the completed candidate for phone
+    review and requests more intuitive subject selection and career/roadmap
+    benefit explanations. Resume this same workstream/issue/Project item.
+    Improve the bounded review flow, preserve private inputs, qualify the exact
+    source and monitor the existing main-push Pages workflow. Earlier local-only
+    authorization entries retain their actual historical scope.
+  2026-11-19 - Owner clarifies the program name is Georgia Tech. Renamed current
+    UI, lesson display codes, search/Help/tutorial and focused docs to
+    Operation Gold Circuit / Georgia Tech OMSCS. Stable omscs progress IDs
+    and immutable workstream/issue identities remain unchanged. The same
+    local review URL stays running. New branding/GC references and preserved
+    academic/backup/tutorial behavior pass the final native/private gates;
+    no source publication is authorized.
+  2026-11-19 - Local review candidate is technically qualified. Complete
+    course/role enumeration, elective freedom and calendars stay readonly.
+    Private loopback review is separate from the existing preview and
+    production build. Preserve source95a1084 and await owner review.
+    Corrected actual narrow-layout grid minimum/badge wrapping; retained
+    private probe base-path and uppercase-label verification mistakes.
+  2026-11-19 - Started the bounded local path-explorer follow-up. Preserve
+    deployed OMSCS companion and source95a1084. Private assumptions and personal
+    academic inputs are not mirrored into this public-safe workstream.

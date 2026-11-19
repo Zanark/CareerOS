@@ -8,7 +8,7 @@ plan as proof of capability.
 
 | Layer | Responsibility |
 | --- | --- |
-| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `agentCloud/*`, `omscs/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2/v3 references, verified DSA and Neural appends, System v3 modules, seven independently adopted workbooks and latest-only Fieldcraft/GeoJack. Existing saved versions never silently change. |
+| `src/domain/catalog.ts`, `operations/*`, `roadmapPacks/*`, `forwardDeployed/*`, `agentCloud/*`, `omscs/*`, `legacyCatalog.ts` | Exact-version definitions: frozen v1/v2/v3 references, verified DSA and Neural appends, System v3 modules, seven independently adopted workbooks and latest-only Fieldcraft/Gold Circuit. Existing saved versions never silently change. |
 | `src/domain/types.ts` — `AppState` | Versioned runtime shape: progress, plans, evidence, history, readiness, opportunities. |
 | `src/domain/engine.ts` — `parseState` | Schema and cross-reference validation before accepting persisted or imported state. |
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
@@ -29,7 +29,7 @@ plan as proof of capability.
 | `src/domain/roadmapPacks/*`, `src/practice/*` | Typed outlines generate 377 new-edition checkpoints; seven lazy study chunks preserve 806 source units and 5,944 exercise occurrences. Reference/practice roles stay outside required checkpoint identity. |
 | `src/domain/forwardDeployed/*` | Original web-source research registry, latest-only 48-checkpoint mission, eight independent labs and 112 exercises. Outline metadata is shared; full teaching prose is a lazy chunk. No fictitious PDF provenance. |
 | `src/domain/agentCloud/*` | Original public-source Neural v4 extension: exact v3 prefix plus 12 checkpoints/four optional cases/60 exercises. Mixed PDF/web library, 30 source receipts and a separate lazy teaching chunk; no new workspace schema or model integration. |
-| `src/domain/omscs/*`, `src/omscs/OmscsPage.tsx` | Latest-only GeoJack learning curriculum and ten course guides; pure semester/conditional-credit projections and explicit optional academic entries. Full teaching prose is lazy. Academic status never changes learning evidence or official degree state. |
+| `src/domain/omscs/*`, `src/omscs/OmscsPage.tsx` | Latest-only Gold Circuit learning curriculum for Georgia Tech OMSCS and ten course guides; pure semester/conditional-credit projections and explicit optional academic entries. Full teaching prose is lazy. Academic status never changes learning evidence or official degree state. |
 | `src/roadmaps/useMapViewport.ts` | Shared fit/zoom, pointer panning, focus/centering, resize measurement and lifecycle cleanup for both tracked and concept maps. |
 | `src/graph/*` | Read-only career graph model, stable 3D positions and Three.js rendering. Mission/collection identities remain distinct; green is reserved for completed checkpoints, including archived ones. |
 | `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Seventeen derived data views: eleven exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
@@ -253,10 +253,10 @@ for the denser mixed-version catalog; unchanged fitted-spacing and dense-import
 requirements guard readability rather than increasing the containing scene alone.
 See [research and source limits](FDE-RESEARCH.md).
 
-### GeoJack academic planning is not learning progress
+### Gold Circuit academic planning is not learning progress
 
 `omscsMission` exists only at v3 and is appended after the existing ten missions,
-without rewriting `v3Missions` or fabricating older GeoJack definitions.
+without rewriting `v3Missions` or fabricating older OMSCS definitions.
 `createOmscsProgress` supplies an empty background lane. Genuine legacy migration
 and missing-only schema-two normalization add that lane while preserving prior
 records, modes, positions and dates. Explicit malformed values reject.
@@ -294,6 +294,14 @@ Six lessons append to the existing 182-step tutorial, now 188 steps / 32 chapter
 using only isolated practice data. See [the source and route notes](OMSCS-RESEARCH.md).
 
 ### Optional encrypted repository journal
+
+The local-review `omscs/paths` addition is deliberately outside this persistence
+contract: explicit public rule lenses, a complete static course catalogue and
+pure role/set/budget/calendar projections are loaded only for its route.
+Draft choices remain component-local. No new academic setting or journal
+projection is introduced. Development-only private context is validated from
+the separate local review document; production ignores it. See
+[the detailed boundaries](OMSCS-PATHS.md).
 
 `RepositorySyncPage` is a separate hash route linked from Settings. The saved-workspace
 `useRepositorySync` hook retains a key while navigating pages; practice gets an isolated,

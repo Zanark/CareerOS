@@ -43,7 +43,7 @@ function CourseEntry({ course, record, state, commit, practice, onClose, onSaved
         }
         return recordChange({ ...current, omscsPlan: setOmscsCourse(current.omscsPlan, {
           id: course.id, term: term === '' ? '' : omscsTermSchema.parse(term), status, grade,
-        }) }, `GeoJack course entry updated: ${course.code}`, 'omscs');
+        }) }, `Gold Circuit course entry updated: ${course.code}`, 'omscs');
       });
       if (ok) { onSaved(); onClose(); }
       else setError('Course entry not saved. Review the workspace warning; your previous record is retained.');
@@ -112,11 +112,15 @@ export default function OmscsPage({ state, commit, practice }: { state: AppState
   }
 
   return <div className="omscs-page amber" style={missionAccentStyle('omscs')}>
-    <PageHeading eyebrow="GEOJACK / UNOFFICIAL LEARNING COMPANION" title="GeoJack OMSCS"
+    <PageHeading eyebrow="OPERATION GOLD CIRCUIT / UNOFFICIAL COMPANION" title="Georgia Tech OMSCS"
       description="A semester proposal, complete course guides and honest learning evidence for the Georgia Tech OMSCS AI route. Not university advising, enrollment or a connected AI tutor.">
       <a className="button secondary" href="#/mission/omscs">My learning tracker<ArrowRight size={15} /></a>
       <a className="button secondary" href="#/practice/omscs">Practice library<BookOpen size={15} /></a>
     </PageHeading>
+    <aside className="panel"><h2>Want to compare other subject choices?</h2>
+      <p>The path explorer separates all online AI-specialization combinations from the full free-elective catalogue. It is a temporary planning sandbox, not a change to this saved tracker.</p>
+      <a className="button secondary" href="#/omscs/paths">Explore all AI degree paths<ArrowRight size={15} /></a>
+    </aside>
     <section className="omscs-intro panel" data-tour="omscs-intro">
       <GraduationCap size={30} /><div><h2>One degree route. Separate evidence.</h2>
         <p>Ten selected courses / 30 credits. Seven proposed course semesters and three foundation guides; no previous completion is prefilled.
@@ -156,7 +160,7 @@ export default function OmscsPage({ state, commit, practice }: { state: AppState
         const ok = commit(currentState => recordChange({
           ...currentState,
           omscsPlan: setOmscsRoute(currentState.omscsPlan, { startTerm: omscsTermSchema.parse(`${year}-${season}`), includeSummer: summer }),
-        }, 'GeoJack semester proposal updated', 'omscs'));
+        }, 'Gold Circuit semester proposal updated', 'omscs'));
         setNotice(ok ? 'Semester proposal saved. No registration, grade or learning completion changed.'
           : 'Semester proposal not saved. Review the workspace warning; previous data is retained.');
       }}>

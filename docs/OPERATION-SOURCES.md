@@ -1,6 +1,6 @@
 # Operation-document integration
 
-## GeoJack OMSCS: November 19
+## Gold Circuit / Georgia Tech OMSCS: November 19
 
 The eleventh mission is an **unofficial public-source academic learning
 companion**, not an additional supplied PDF, university integration or automatic
@@ -8,7 +8,7 @@ degree audit. [The research and allocation notes](OMSCS-RESEARCH.md) explain the
 selected ten-course AI route, dated public-syllabus differences and alternatives.
 The website's 37-source registry retains exact review scopes.
 
-GeoJack provides **24 learning checkpoints**, five independent references/practice
+Gold Circuit provides **24 learning checkpoints**, five independent references/practice
 units and **58 original exercises** across 29 browsable units. Its semester page
 also covers all ten selected courses with preparation, tools, syllabus topics,
 career transfer and dated assessment snapshots. Those academic courses are not

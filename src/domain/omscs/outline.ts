@@ -14,7 +14,7 @@ const phases: PackPhase[] = [
 ];
 
 const program: PackUnitOutline[] = [
-  { id: 'omscs-route', sourceId: 'GJ-00.1', title: 'A degree route is not a degree audit', phaseId: 'omscs-program', role: 'checkpoint',
+  { id: 'omscs-route', sourceId: 'GC-00.1', title: 'A degree route is not a degree audit', phaseId: 'omscs-program', role: 'checkpoint',
     pages: [], minutes: 30, exerciseCount: 2,
     summary: 'Inspect the selected ten-course, thirty-credit allocation and identify the assumptions that official advising must confirm.',
     action: 'Create a private slot map separating nine core, six specialization-elective and fifteen free-elective credits.',
@@ -22,7 +22,7 @@ const program: PackUnitOutline[] = [
     criteria: ['Allocate each of the ten selected courses exactly once and explain the excess-core elective exception.', 'List actual unknown grades, GPA, time window and offering assumptions without inventing their values.'],
     recovery: 'Start from the official degree and specialization pages, not an old course-icon or an assumed completion.',
     sourceIds: ['P01', 'P02', 'P03', 'P05', 'P06', 'P08'] },
-  { id: 'omscs-readiness', sourceId: 'GJ-00.2', title: 'Prepare only the missing foundations', phaseId: 'omscs-program', role: 'checkpoint',
+  { id: 'omscs-readiness', sourceId: 'GC-00.2', title: 'Prepare only the missing foundations', phaseId: 'omscs-program', role: 'checkpoint',
     pages: [], minutes: 45, exerciseCount: 2,
     summary: 'Use small Python, mathematics, algorithms and C/Linux diagnostics to choose a realistic next study block.',
     action: 'Attempt a bounded readiness exercise for the next course and identify a specific gap or supported strength.',
@@ -35,7 +35,7 @@ const program: PackUnitOutline[] = [
 export const omscsUnits: PackUnitOutline[] = [
   ...program,
   ...omscsRouteCourses.flatMap(course => course.modules.map((module, index) => ({
-    id: omscsCourseUnit(course, module), sourceId: `GJ-${course.order}.${index + 1}`,
+    id: omscsCourseUnit(course, module), sourceId: `GC-${course.order}.${index + 1}`,
     title: `${course.code} / ${module.title}`, phaseId: `omscs-${course.id}`,
     role: 'checkpoint' as const, pages: [], minutes: index === 2 ? 60 : 45, exerciseCount: 2,
     summary: module.topics.join(' / '), action: module.task, concepts: module.topics,
@@ -43,7 +43,7 @@ export const omscsUnits: PackUnitOutline[] = [
     recovery: 'Return to one small original example, explain the invariant or evidence boundary, and retry with a changed condition.',
     sourceIds: course.sourceIds,
   }))),
-  { id: 'omscs-defense', sourceId: 'GJ-08.1', title: 'Defend a complete AI-systems design', phaseId: 'omscs-capstone', role: 'checkpoint',
+  { id: 'omscs-defense', sourceId: 'GC-08.1', title: 'Defend a complete AI-systems design', phaseId: 'omscs-capstone', role: 'checkpoint',
     pages: [], minutes: 60, exerciseCount: 2,
     summary: 'Connect model evaluation, resources, distributed failure and permission boundaries without claiming academic or production authority.',
     action: 'Defend one original read-only evidence assistant using public or invented documents and a credible non-LLM baseline.',
@@ -52,14 +52,14 @@ export const omscsUnits: PackUnitOutline[] = [
     recovery: 'Remove the model or deployment layer until the smallest deterministic path is reproducible.',
     sourceIds: ['C01', 'C02', 'C03', 'C05', 'C06', 'C07', 'T01', 'T02', 'T03'] },
   ...omscsCourses.filter(course => course.order === null).map(course => ({
-    id: omscsCourseUnit(course), sourceId: `GJ-REF-${course.code.slice(3)}`, title: `${course.code} / ${course.title}`,
+    id: omscsCourseUnit(course), sourceId: `GC-REF-${course.code.slice(3)}`, title: `${course.code} / ${course.title}`,
     phaseId: 'omscs-foundations', role: 'reference' as const, pages: [], minutes: 30, exerciseCount: 2,
     summary: course.overview, action: course.modules[0].task, concepts: course.modules[0].topics,
     criteria: [course.modules[0].check, course.modules[0].transferCheck],
     recovery: 'Review one original example and record only the understanding or academic status you can actually support.',
     sourceIds: course.sourceIds,
   })),
-  { id: 'omscs-cloud-route', sourceId: 'GJ-ALT-01', title: 'Compare the cloud-infrastructure alternative', phaseId: 'omscs-alternatives', role: 'practice',
+  { id: 'omscs-cloud-route', sourceId: 'GC-ALT-01', title: 'Compare the cloud-infrastructure alternative', phaseId: 'omscs-alternatives', role: 'practice',
     pages: [], minutes: 30, exerciseCount: 2,
     summary: 'Replace DC/GPU with AOS/SDCC only deliberately, preserving the degree count and checking preparation and mandatory meeting constraints.',
     action: 'Compare the default route with a cloud-infrastructure-first variant and defend the opportunity cost.',
@@ -67,7 +67,7 @@ export const omscsUnits: PackUnitOutline[] = [
     criteria: ['Keep ten courses and thirty credits without quietly adding both alternatives.', 'Identify AOS readiness, the SDCC entry/meeting conditions and unconfirmed future delivery.'],
     recovery: 'Compare one actual desired capability and one binding constraint before collecting more course names.',
     sourceIds: ['P01', 'P03', 'C08', 'C09', 'C10', 'C11', 'C12', 'C13', 'C24', 'S08', 'S09'] },
-  { id: 'omscs-integrity', sourceId: 'GJ-REF-02', title: 'Protect independent work and private records', phaseId: 'omscs-alternatives', role: 'reference',
+  { id: 'omscs-integrity', sourceId: 'GC-REF-02', title: 'Protect independent work and private records', phaseId: 'omscs-alternatives', role: 'reference',
     pages: [], minutes: 20, exerciseCount: 2,
     summary: 'Course-specific AI/collaboration policies and private academic self-reports do not become permissions or proof of mastery.',
     action: 'Write a short independent-study contract for source use, assistance, assessment and portfolio publication.',
@@ -78,8 +78,8 @@ export const omscsUnits: PackUnitOutline[] = [
 ];
 
 export const omscsOutline: RoadmapPackOutline = {
-  missionId: 'omscs', document: 'GeoJack OMSCS / public-source AI study route',
-  title: 'GeoJack OMSCS: semester planning, course guides and independent learning',
+  missionId: 'omscs', document: 'Gold Circuit / Georgia Tech OMSCS public-source AI study route',
+  title: 'Gold Circuit: Georgia Tech OMSCS planning, course guides and independent learning',
   pageCount: 0, sourceKind: 'web-research', reviewedAt: omscsReviewedAt, webSources: omscsSources,
   overview: 'An unofficial Georgia Tech OMSCS AI completion-route template: ten course guides, a seven-semester learning proposal, conditional credit accounting and independent evidence. No enrollment, prior completion or future offering is assumed.',
   sourceNotes: [

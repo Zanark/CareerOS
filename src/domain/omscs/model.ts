@@ -47,7 +47,7 @@ export function omscsTermIndex(term: OmscsTerm): number {
   return Number(year) * 3 + seasons.findIndex(value => value === season);
 }
 
-function followingTerm(term: OmscsTerm, includeSummer: boolean): OmscsTerm {
+export function followingOmscsTerm(term: OmscsTerm, includeSummer: boolean): OmscsTerm {
   const index = omscsTermIndex(term);
   const next = index + (!includeSummer && index % 3 === 0 ? 2 : 1);
   return omscsTermSchema.parse(`${Math.floor(next / 3)}-${seasons[next % 3]}`);
@@ -55,7 +55,7 @@ function followingTerm(term: OmscsTerm, includeSummer: boolean): OmscsTerm {
 
 export function proposedOmscsPlan(now = new Date()): OmscsPlan {
   const next = nextOmscsTerm(now);
-  return { startTerm: next.endsWith('-summer') ? followingTerm(next, false) : next, includeSummer: false, courses: [] };
+  return { startTerm: next.endsWith('-summer') ? followingOmscsTerm(next, false) : next, includeSummer: false, courses: [] };
 }
 
 export function setOmscsRoute(
@@ -81,7 +81,7 @@ export function getOmscsSchedule(plan: OmscsPlan) {
   let term = plan.startTerm;
   for (const [index, course] of omscsRouteCourses.entries()) {
     defaults.set(course.id, term);
-    if (index < omscsRouteCourses.length - 1) term = followingTerm(term, plan.includeSummer);
+    if (index < omscsRouteCourses.length - 1) term = followingOmscsTerm(term, plan.includeSummer);
   }
   return omscsCourses.map(course => {
     const record = plan.courses.find(row => row.id === course.id);

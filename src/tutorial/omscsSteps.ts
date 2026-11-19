@@ -4,8 +4,8 @@ export const omscsSteps: TutorialStep[] = [
   {
     id: 'omscs-intro', chapter: 'omscs', kind: 'explain', route: 'omscs', command: 'close-dialogs',
     targets: ['omscs-intro'],
-    title: 'GeoJack / a semester and learning companion',
-    body: 'GeoJack is an unofficial OMSCS AI route: ten course guides, proposed semesters and independent learning. It is not Georgia Tech advising, registration or a connected AI tutor. No prior completion is imported. Academic self-reports, rule-eligible credits and study checkpoints stay separate. Everything you change in this tutorial is temporary.',
+    title: 'Gold Circuit / a semester and learning companion',
+    body: 'Operation Gold Circuit is an unofficial Georgia Tech OMSCS AI route: ten course guides, proposed semesters and independent learning. It is not university advising, registration or a connected AI tutor. No prior completion is imported. Academic self-reports, rule-eligible credits and study checkpoints stay separate. Everything you change in this tutorial is temporary.',
   },
   {
     id: 'omscs-plan', chapter: 'omscs', kind: 'action', route: 'omscs',
