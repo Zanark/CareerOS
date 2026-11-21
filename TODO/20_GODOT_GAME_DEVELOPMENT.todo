@@ -1,0 +1,102 @@
+Workstream ID: godot-game-development
+Title: Add a Planned Godot-first Game Development mission and multiplayer capstone
+Status: IN_REVIEW
+Milestone: Deliver a complete beginner-to-multiplayer learning path and reference brief
+Dependencies: versioned-roadmaps, career-graph, encrypted-progress-journal
+GitHub issue: https://github.com/Zanark/CareerOS/issues/19
+Purpose: Add a substantive from-scratch Game Development mission with Godot as
+  the primary engine. Finish with an independently authored multiplayer game
+  specification, production milestones, acceptance scenarios and self-grading
+  rubric. Keep the product mission Planned, not active or credited.
+
+Tasks:
+  [x] Review current primary engine, networking and production references.
+  [x] Trace existing mission, planned-state, pack and persistence contracts.
+  [x] Author programming, design, math, Godot2D/3D and asset/audio foundations.
+  [x] Cover architecture, AI, multiplayer, testing, performance and release.
+  [x] Specify an original capstone's story, mechanics, levels and content.
+  [x] Provide implementable network/session rules and a clear self-grading target.
+  [x] Integrate the complete mission/library/maps/search with a Planned default.
+  [x] Preserve old workspaces, backups, encrypted journals and tutorial isolation.
+  [x] Verify learning content, migration behavior and actual responsive workflows.
+  [x] Update focused documentation, evidence, same-identity tracking and continuity.
+
+Acceptance criteria:
+  Teach from no assumed programming or game-engine knowledge. Sequence
+    prerequisites, runnable exercises, changed-case retries, diagnostics and
+    meaningful artifacts; do not deliver only a list of topics or links.
+  Godot/GDScript is the main path. Include both2D and3D foundations and explain
+    which advanced specializations are optional rather than promising every
+    possible studio discipline as a mandatory first-project requirement.
+  The capstone is a concrete, original, bounded multiplayer reference design,
+    not a renamed engine tutorial. Specify story, game loop, controls, rules,
+    content, failure/recovery, technical ownership, milestones and acceptance.
+    Keep the detailed creative brief local; mirror only this generic workstream.
+  Provide reproducible multiplayer/network failure scenarios, observable
+    self-grading criteria and critical completion gates. A specification is
+    not a built/tested Godot game, actual playtest or automatically awarded skill.
+  New and compatible older workspaces gain only the missing canonical unstarted
+    Planned mission. Preserve existing focus, modes, dates, records and explicit
+    valid game state; reject malformed explicit state rather than resetting it.
+  Planned means available curriculum awaiting deliberate activation, not an
+    undocumented or permanently disabled mission. Browsing gives no completion,
+    daily-plan, readiness, recall, evidence or discovery credit.
+  Keep the enlarged type, accepted minimalist UI, themes, meaningful3D and
+    frozen source editions. Use existing library/disclosure/navigation patterns.
+  Use disposable examples, not the owner's browser/profile or private backup.
+    Retain both user previews; no unapproved engine install, network exposure,
+    paid service, commit, push, deployment or game publication.
+
+Completion evidence:
+  Authored 65 core checkpoints in 14 phases, five complete benchmark references
+    and eight optional studies: 78 units, 156 exercises and 23 scoped primary
+    sources. The original comparison target has 22 acceptance scenarios and a
+    category-specific 100-point rubric; detailed creative content stays local.
+  Final strict typing and all 778 domain cases across 55 files pass. All 12 new
+    native game workflows pass in 12 attempts, including 312 expanded unit/
+    viewport checks, responsive card/mission/maps, exact no-write browsing,
+    deliberate evidence/backup, tutorial isolation and encrypted journal work.
+    All 22 existing offline tracking cases pass.
+  Eight independent two/four-actor geometric model routes pass. This is limited
+    content/conservation reasoning, not actual Godot, timed-gate/reservation or
+    network execution, a built game or a human playtest.
+  Complete current browser coverage is reconciled across 535 unique cases on
+    identical product source: the original full run passed 529 and exposed six
+    obsolete Help-count/all-active-fixture/Planned-filter assertions. Every
+    failure and the extended Help workflow passed in a seven-case affected run.
+    No original failure is relabelled; exact inventory/source joins reject
+    uncovered cases. One worker, zero skips/flaky/automatic retries throughout.
+  The first journal test assumed the wrong route/key lifetime; its corrected
+    native flow passes. An older ten-mission fixture excludes both later lanes
+    without weakening its ten-count or data-equality assertions.
+  Ten representative desktop/narrow captures were reviewed through two contact
+    sheets. Earlier source-bound evidence and original failures remain intact.
+    Focused guide, architecture, source register and authority documentation
+    explain actual behavior and limits. Both original previews remain current;
+    temporary qualification listeners are gone. Approved README, manifests,
+    workflows, public journal and prior private report editions are preserved.
+  Public-safe proof: docs/tracking/2026-11-21-godot-local-review.json.
+    Final aggregate source/test fingerprint:
+    dfc660a5e21e137520c6446f34cac225e164b4302660bb9ac2b32cc8e02d2274.
+    Its 106 changed/untracked files include preceding local work, not 106 new
+    feature edits. All 80 product-source files match the full-run edition.
+  No owner profile, engine installation, actual Godot/network playtest,
+    source commit/push/deployment or human approval is claimed. Product mission
+    stays Planned. Technical readiness and owner review/publication are separate.
+
+Completion log:
+  2026-11-21 - Technically ready for local review. Completed the exact current
+    browser inventory through retained full-run passes plus seven corrected
+    affected passes on byte-identical product source. Preserve all original
+    diagnostics and the distinction between eight geometric model routes and
+    actual game qualification. Existing issue/item move to In review; product
+    remains Planned and no source publication follows.
+  2026-11-21 - Complete content and available-but-initially-Planned integration
+    are authored and targeted-qualified. Missing-only normalization preserves
+    earlier work, while explicit malformed progress and mission-cell deletion
+    reject. The twelfth mission exposed real fitted-layout and interpolation
+    defects; fix packing/endpoints, not existing readability/identity thresholds.
+    Final regression, closing tracking and handoff remain in progress.
+  2026-11-21 - Owner requests a complete from-scratch Godot-first Game Development
+    roadmap, ending in an original multiplayer reference project for self-grading.
+    Keep the product mission Planned and preserve all current local work.

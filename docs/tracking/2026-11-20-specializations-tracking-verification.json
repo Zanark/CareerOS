@@ -1,0 +1,37 @@
+{
+  "observedAt": "2026-11-20T05:20:49.187Z",
+  "mode": "independent-read-only",
+  "repository": "Zanark/CareerOS",
+  "account": "Zanark",
+  "workstream": "omscs-specializations",
+  "issue": {
+    "number": 15,
+    "url": "https://github.com/Zanark/CareerOS/issues/15",
+    "state": "open",
+    "reason": null,
+    "titleAndManagedContentMatch": true,
+    "managedSha256": "e8733f9de7afcf1bacee4ee36ddef7a9c7e0072dd54b30ea6c1206f874a24849"
+  },
+  "project": {
+    "id": "PVT_kwHOAe2wCs4BqeZy",
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKXrcM",
+    "status": "In review",
+    "issueIdentityMatches": true,
+    "primaryView": {
+      "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+      "name": "Kanban",
+      "number": 1,
+      "layout": "BOARD_LAYOUT"
+    }
+  },
+  "backlinkMatches": true,
+  "recoveryStateUnchanged": true,
+  "recoverySha256": "d5265cad65ab4d2098ab61b22b60c9850769134afbc2b59e5a490655a650b3f3",
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "sourcePublicationAuthorized": false,
+  "humanAcceptanceRecorded": false
+}

@@ -9,6 +9,10 @@
 .omscs-stats small { font-size: .85rem; font-weight: 400; }
 .omscs-stats span { font-size: .8rem; line-height: 1.5; }
 .omscs-next h2, .omscs-guide h2 { margin-top: 0; }
+.omscs-next-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.omscs-next-header > div { display: grid; gap: .35rem; min-width: 0; }
+.omscs-next-header h2, .omscs-next-header p { margin: 0; }
+.omscs-next-header > .button { flex-shrink: 0; }
 .omscs-allocation, .omscs-foundations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .omscs-allocation > div { padding: .8rem; border-left: 2px solid var(--accent); }
 .omscs-allocation h3 { font-size: .95rem; }

@@ -6,6 +6,7 @@ import { serializeWorkspace } from './workspaceFile';
 
 export function createPracticeState(date = localDate()): AppState {
   const state = createInitialState(false);
+  delete state.omscsPlan;
   state.missions.fabric = { ...createInitialState(false, '1.0.0').missions.fabric };
   state.sampleData = true;
   state.objective = 'Tutorial example: practice tracking a learning goal.';

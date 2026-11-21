@@ -176,7 +176,7 @@ describe('return calendars and input boundaries', () => {
     expect(new Set(ordered)).toEqual(new Set(before));
     expect(before).toEqual(evaluated.newCourseIds);
     const advancedFirst = proposedPathSemesters(firstTermCourseOrder(before, 'cs7643'), referenceProfile.resumeTerm, false, 1);
-    expect(pathCalendarWarnings(referenceProfile, advancedFirst).some(value => value.startsWith('ML preparation before deep learning'))).toBe(true);
+    expect(pathCalendarWarnings(referenceProfile, advancedFirst)).toContain('CS 7643 expects prior formal ML coursework; self-study does not count. Confirm equivalent study or place CS 7641 earlier.');
     expect(() => firstTermCourseOrder(before, 'cs6457')).toThrow('not a selected new subject');
     const confirmed = { ...referenceProfile, readmissionConfirmed: true };
     expect(pathProfileSchema.parse(confirmed)).toEqual(confirmed);

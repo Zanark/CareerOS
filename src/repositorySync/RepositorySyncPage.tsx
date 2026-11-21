@@ -65,7 +65,7 @@ export function RepositorySyncPage({ sync }: { sync: RepositorySyncModel }) {
 
   return <div className="repository-sync" data-tour="repository-sync">
     <PageHeading eyebrow="OPTIONAL / MANUAL PUBLICATION" title="Repository sync"
-      description="An encrypted, append-only progress journal for your GitHub Pages site. Existing browser saving and ordinary backups stay exactly as they are." />
+      help="An optional encrypted, append-only journal. Browser saving and ordinary backups stay separate. Encryption happens here; you manually publish the encrypted text through your repository." />
     {sync.practice ? <section className="panel"><h2>Real-journal controls are unavailable in tutorial practice.</h2>
       <p>The tutorial does not read, encrypt, export or replace your real repository journal. Exit practice to configure this optional feature.</p>
       <a className="text-link" href="#/settings">Return to practice backups<ArrowRight size={16} /></a></section> : <>
@@ -188,7 +188,7 @@ export function RepositorySyncPage({ sync }: { sync: RepositorySyncModel }) {
         <button className="button secondary" disabled={blocked || !pasted.trim()} onClick={() => void sync.openFile(pasted)}>Review pasted journal</button>
       </details>
 
-      <section className="panel repository-instructions"><SectionTitle title="Laptop and phone workflow" />
+      <details className="panel repository-instructions calm-disclosure"><summary>Laptop and phone workflow</summary>
         <ol><li>On your first device, create a journal and publish its initial encrypted block.</li>
           <li>On your phone, open Repository sync, check published updates, unlock with the same passphrase and review the first connection.</li>
           <li>Record work anywhere in CareerOS. Browser saving, completion criteria, focus reports and ordinary backups still work normally.</li>
@@ -198,7 +198,7 @@ export function RepositorySyncPage({ sync }: { sync: RepositorySyncModel }) {
           If two offline exports branch from the same history, publish one, load it on the other browser and re-export; do not append stale branches.</p>
         <p className="muted small">The website cannot commit for you and stores no GitHub credentials. A cached journal or a downloaded block is not proof of publication.
           A journal is limited to 24 MB / 2,000 batches; keep backups before starting a new history. Encryption protects committed contents, not public file size or batch count.</p>
-      </section>
+      </details>
 
       {(sync.connected || sync.recoveryRaw) && <details className="panel repository-disconnect"><summary>Encrypted recovery and disconnect</summary>
         <p>Disconnect removes only this browser&apos;s cached journal and unconfirmed export chain, not its current workspace or the repository file.

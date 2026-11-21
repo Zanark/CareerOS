@@ -10,6 +10,7 @@ import type { CareerGraph } from '../graph/careerGraphModel';
 import { DEFAULT_NODE_SPACING, spaceCareerGraph } from '../graph/careerNodeSpacing';
 import { focusCareerGraph, getCareerFocusVisibility, type CareerFocusVisibility } from '../graph/careerFocusVisibility';
 import type { FocusRoomHandle, FocusSessionController } from './focusTypes';
+import { ContextHelp } from '../ContextHelp';
 import './focus-room.css';
 
 export type { FocusRoomHandle } from './focusTypes';
@@ -300,8 +301,8 @@ const FocusRoom = forwardRef<FocusRoomHandle, {
             <label className="focus-room__ambient" title="A gentle outward-and-back mesh ripple from the white core every 10 seconds. Requires Ambient motion.">
               <input type="checkbox" data-tour="focus-room-heartbeat" checked={heartbeat} onChange={event => setHeartbeat(event.target.checked)} />Core heartbeat
             </label>
+            <ContextHelp title="Focus room visuals">A snapshot of saved work, not live AI. Ambient motion and the core ripple are independent of the timer.{motionDescription}</ContextHelp>
           </div>
-          <p className="focus-room__ambient-note">Ambient visuals, not live AI.{motionDescription}</p>
           {(graphics === 'unavailable' || graphics === 'lost') && <p className="focus-room__notice" role="status">
             {graphics === 'lost' ? '3D connection lost.' : '3D unavailable.'} Timer and reports still work.
           </p>}

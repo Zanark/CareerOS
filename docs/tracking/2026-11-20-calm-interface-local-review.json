@@ -1,0 +1,283 @@
+{
+  "date": "2026-11-20",
+  "observedAt": "2026-11-20T06:06:02.319598+05:30",
+  "workstreamId": "calm-interface",
+  "baseCommit": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "scope": "Qualified local-only review candidate. No source staging, commit, push or deployment; owner acceptance remains pending.",
+  "runtimeAndTestFingerprint": "8e79c4e14fbcc8d558ea766c6592deda49e7583bfc1da489a5945b3b57c75ae0",
+  "fingerprintScope": "Sorted path/SHA256 records for changed runtime and test files, including intended new files; not a commit or full-repository fingerprint.",
+  "interface": {
+    "routesAudited": 28,
+    "pathsDefaultWordsBefore": 2491,
+    "pathsDefaultWordsAfter": 588,
+    "metricScope": "Default rendered main-content words; closed details, screen-reader-only text and unopened help are excluded. Word counts do not prove semantic preservation, owner acceptance or curriculum review.",
+    "normalPages": "Action-first controls and data; redundant prose deleted, secondary context disclosed. Actual records, study teaching and material warnings retained.",
+    "sidebar": [
+      "Discovery Atlas",
+      "Tracking",
+      "Education",
+      "Career"
+    ],
+    "tutorialSteps": 197,
+    "tutorialChapters": 33,
+    "originalTutorialPrefixPreserved": 188,
+    "typeScaleChanged": false
+  },
+  "courseIntegrity": {
+    "regularOnlineInventory": 78,
+    "boldOnlineAiChoices": 14,
+    "catalogueIdsUrlsAndFoundationalFlagsMatched": true,
+    "campusOnlyUiListsRemoved": true,
+    "hardPrerequisitesAndGradeConditionsSeparatedFromAdvice": true,
+    "plannedAosAndSdccNeverShareATermWithoutAllowedAlternative": true,
+    "unknownOrPlainBDoesNotImplyHighB": true,
+    "formalMlAndGraduateCrossListingLimitsExplicit": true,
+    "sourceReceipt": "docs/tracking/2026-11-20-omscs-entry-review.json",
+    "registrarEligibilityOrFutureSeatsVerified": false
+  },
+  "qualification": {
+    "typescript": "passed during final fresh-build browser gate",
+    "domainCasesPassed": 753,
+    "domainTestFiles": 52,
+    "offlineTrackingCasesPassed": 22,
+    "browser": {
+      "scope": "Initial complete run plus exactly corrected failed cases; final fresh-build popup/offscreen/Help/choice gate is separate. Not a claim of a single retry-free final-tree full pass.",
+      "uniqueBrowserWorkflowsQualified": 498,
+      "initial": {
+        "startTime": "2026-11-19T23:45:18.055Z",
+        "duration": 1504570.109,
+        "expected": 489,
+        "skipped": 0,
+        "unexpected": 9,
+        "flaky": 0
+      },
+      "correctedWorkflowGate": {
+        "startTime": "2026-11-20T00:19:26.135Z",
+        "duration": 42590.621,
+        "expected": 9,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "finalFreshBuildGate": {
+        "startTime": "2026-11-20T00:22:23.787Z",
+        "duration": 65274.485,
+        "expected": 29,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "missingInitialFailures": 0,
+      "skippedAcrossGates": 0,
+      "flakyAcrossGates": 0,
+      "automaticRetriesAcrossGates": 0
+    },
+    "routePageErrors": 0,
+    "routeOverflowCount": 0,
+    "routeAudit": [
+      {
+        "route": "home",
+        "before": 24,
+        "after": 24,
+        "disposition": "Already sparse graph chrome; genuine rendered data retained."
+      },
+      {
+        "route": "hq",
+        "before": 139,
+        "after": 139,
+        "disposition": "Already bounded overview; actual daily/mission data retained."
+      },
+      {
+        "route": "omscs/paths",
+        "before": 2491,
+        "after": 588,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "omscs",
+        "before": 1120,
+        "after": 333,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "missions",
+        "before": 372,
+        "after": 272,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "mission/pattern",
+        "before": 315,
+        "after": 180,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "mission/system",
+        "before": 443,
+        "after": 226,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "mission/neural",
+        "before": 405,
+        "after": 170,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "mission/fde",
+        "before": 400,
+        "after": 170,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "roadmap",
+        "before": 208,
+        "after": 178,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "plan",
+        "before": 232,
+        "after": 160,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "evidence",
+        "before": 38,
+        "after": 31,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "history",
+        "before": 56,
+        "after": 18,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "recall",
+        "before": 117,
+        "after": 34,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "pipeline",
+        "before": 77,
+        "after": 63,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "readiness",
+        "before": 143,
+        "after": 52,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "freelance",
+        "before": 128,
+        "after": 67,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "sources",
+        "before": 899,
+        "after": 121,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "settings",
+        "before": 358,
+        "after": 129,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "repository-sync",
+        "before": 367,
+        "after": 172,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "perspective",
+        "before": 103,
+        "after": 54,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "discoveries",
+        "before": 954,
+        "after": 844,
+        "disposition": "Retain finite discovery clues, requirements and actual receipts; trim generic hero/reassurance."
+      },
+      {
+        "route": "guide",
+        "before": 199,
+        "after": 141,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "dsa/1",
+        "before": 481,
+        "after": 360,
+        "disposition": "Retain source problem sets and coaching content; trim repeated library chrome."
+      },
+      {
+        "route": "system-concepts",
+        "before": 890,
+        "after": 787,
+        "disposition": "Retain all concept branches and labels; source/context is on demand."
+      },
+      {
+        "route": "system-practice",
+        "before": 354,
+        "after": 296,
+        "disposition": "Retain complete study prompts, cases and gates; trim repeated chrome."
+      },
+      {
+        "route": "practice",
+        "before": 214,
+        "after": 142,
+        "disposition": "Action-first controls/data; delete redundant prose and disclose secondary guidance."
+      },
+      {
+        "route": "practice/omscs/omscs-route",
+        "before": 437,
+        "after": 363,
+        "disposition": "Intentional lesson teaching retained, not a normal-interface word target."
+      }
+    ],
+    "representativeVisuals": "Actual final desktop/390px path chooser, academic companion and compact navigation inspected; 320px light/touch, contextual help, calendar and tutorial exercised. Private preview first control fits at390/320. No physical Safari/device approval claimed.",
+    "retainedDiagnostics": [
+      "Fractional border-box placement and an oversized hover panel intercepting its own trigger were fixed without forced clicks or looser bounds.",
+      "Eight full-suite expectations were updated for intentional copy/disclosure/heading/navigation changes. One fixture now awaits confirmation and exact backup replacement before navigating; the retained trace shows navigation preceding dialog acceptance in the failed test.",
+      "A pinned help offscreen-anchor clamp/regression and final Help text were qualified by the separate final29-case fresh-build gate. The initial full run is not described as a single retry-free final-tree pass.",
+      "An initial private-verifier fetch Host probe was replaced with explicit raw HTTP. Actual unapproved-Host and outside-file requests both return403; no server or permission change."
+    ]
+  },
+  "privatePreview": {
+    "suppliedContextApplied": true,
+    "priorCoursesNotOfferedAsNew": true,
+    "academicPlanSilentlySaved": false,
+    "learningCreditAwarded": false,
+    "tutorialConsumesPrivateInput": false,
+    "savedStorageChanged": false,
+    "pageErrors": 0,
+    "unapprovedHostStatus": 403,
+    "directPrivateFileStatus": 403,
+    "productionFilesChecked": 29,
+    "privateContextInProduction": false,
+    "actualPersonalValuesIncluded": false
+  },
+  "preserved": {
+    "approvedReadmePackagesWorkflowFrozenLearningSourcesAndPublicJournalChanged": false,
+    "workspaceAcademicAndJournalSchemasChanged": false,
+    "actualOwnerProfilesAccessed": false,
+    "actualEnrollmentOrLearningApprovalPerformed": false,
+    "userPreviewsRemainRunning": true,
+    "temporaryQualificationServerStopped": true,
+    "stagedFiles": 0
+  },
+  "acceptance": {
+    "technical": "qualified locally",
+    "humanReview": "pending",
+    "sourcePublication": "not authorized for this candidate"
+  }
+}

@@ -7,7 +7,7 @@ export type OmscsTerm = `${number}-${'spring' | 'summer' | 'fall'}`;
 export type OmscsGrade = 'unrecorded' | 'A' | 'B' | 'C' | 'D' | 'F';
 
 export interface OmscsCourseRecord {
-  id: OmscsCourseId;
+  id: string;
   term: OmscsTerm | '';
   status: 'planned' | 'taking' | 'completed';
   grade: OmscsGrade;

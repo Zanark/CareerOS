@@ -1,0 +1,67 @@
+Workstream ID: current-site-publication
+Title: Publish the current CareerOS website and refresh its illustrated README
+Status: IN_PROGRESS
+Milestone: Make the public Pages site match the qualified current product
+Dependencies: calm-interface, omscs-specializations, sitewide-visual-polish, godot-game-development
+GitHub issue: https://github.com/Zanark/CareerOS/issues/20
+Purpose: Execute the owner's explicit publication request for the accumulated
+  public-safe website improvements. Refresh current README/guides, preserve
+  private artifacts and records, publish through the existing Pages workflow
+  and verify the actual hosted result rather than assuming a push deployed it.
+
+Tasks:
+  [x] Review the complete source/privacy boundary, remote branch and workflow.
+  [x] Refresh README content while preserving approved illustrated artwork.
+  [x] Reconcile living guides with the now-authorized publication scope.
+  [x] Create and verify this original issue/Project identity and backlink.
+  [ ] Stage only reviewed public files and verify effective commit attribution.
+  [ ] Commit/push the qualified candidate using reviewed scoped authentication.
+  [ ] Identify and verify the exact successful Pages source/run/artifact.
+  [ ] Compare hosted assets and exercise representative live native workflows.
+  [ ] Reconcile original feature statuses, release evidence and continuity.
+
+Acceptance criteria:
+  Public runtime includes the qualified calmer interface, Education navigation,
+    six-specialization/online-course/entry-rule improvements and complete
+    initially-Planned Godot-first mission. No genuine work is inferred.
+  README and living guides describe the current product accurately while
+    retaining the approved illustrations and their honest source scope.
+  Publish only reviewed public-safe source/docs/tracking. Private reports,
+    screenshots, PDFs, context stores, browser records and credentials remain
+    excluded. Preserve the existing narrow approved academic product preset.
+  Verify Zanark account/repository/transport and both effective identities;
+    keep current required trailers. Do not change global auth or rewrite history.
+  Reuse the existing main-branch Pages workflow and minimum permissions;
+    no new scheduler, secret provisioning, public service or unrelated trigger.
+  Exact authorized SHA/run must succeed and the actual hosted bytes/controls
+    must match its artifact. Preserve failures and distinguish local, hosted,
+    human acceptance and any documentation-only follow-through.
+  Keep the original issue/Project/item identities and Kanban layout. Private
+    document workstreams are not permission to publish their report bodies.
+  Preserve both original local previews and the owner's actual browser data;
+    qualification uses disposable contexts and only owned temporary helpers.
+
+Completion evidence:
+  Owner explicitly authorizes current website deployment and README updates
+    on November 21. Zanark/ADMIN, expected public repository, main branch and
+    existing workflow-based Pages configuration are verified. Fetched remote
+    main equals the starting local revision; no force or history rewrite.
+  Public-scope audit admits only reviewed source, tests, focused docs and
+    maintainer tracking. Of the 106 qualified runtime/test files, 104 are
+    byte-identical and two have only an extra EOF blank line removed, with
+    identical source tokens. No behavior changes, private report, context,
+    browser export or credential file is selected.
+  README retains all four original illustration references and artwork bytes,
+    while describing the current missions, Education tools and Planned game
+    route. All 68 relative documentation file targets exist. Packages,
+    workflow definitions and the empty public journal remain unchanged.
+  Original issue/Project membership and backlink are verified after reviewed
+    preview/apply/no-op. The first empty-backlink preview was safely rejected;
+    the documented pending sentinel was corrected before issue creation.
+  Source commit/push, exact successful run/artifact, hosted verification and
+    closing tracking are not yet complete. No deployment success is inferred.
+
+Completion log:
+  2026-11-21 - Started the explicit current-site publication request. This is
+    new website/source publication authority, not a retroactive claim of
+    deployment, human learning/visual approval or private-document clearance.

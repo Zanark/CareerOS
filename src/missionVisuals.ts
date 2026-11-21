@@ -16,6 +16,7 @@ export const MISSION_COLORS: Readonly<Record<MissionId, string>> = Object.freeze
   income: '#C89459',
   fde: '#E8AC83',
   omscs: '#D9AE32',
+  gamedev: '#8EAED9',
 });
 
 export const COLLECTION_COLORS: Readonly<Record<Exclude<CareerOrbitKind, 'mission'>, string>> = Object.freeze({

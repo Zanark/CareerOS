@@ -1,12 +1,13 @@
 import { expect, test as base, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, recordEvidence } from '../src/domain/engine';
-import type { AppState } from '../src/domain/types';
+import { missionIds, type AppState } from '../src/domain/types';
 import { omscsCourses } from '../src/domain/omscs/courses';
 import type { OmscsCourseId, OmscsCourseRecord } from '../src/domain/omscs/types';
 import { omscsSources } from '../src/domain/omscs/sources';
 import { deriveJournalKey, unlockJournal } from '../src/repositorySync/journal';
 import { parseJournal } from '../src/repositorySync/journalFormat';
 import { omscsSteps } from '../src/tutorial/omscsSteps';
+import { ACADEMIC_STARTER_KEY, ACADEMIC_STARTER_VERSION } from '../src/domain/omscs/starter';
 import { openGraphPanel, setGraphCheckbox } from './graph-ui';
 
 const key = 'careerhq.workspace.v1';
@@ -34,6 +35,7 @@ test.use({
 
 function fixture(): AppState {
   const state = createInitialState(false);
+  delete state.omscsPlan;
   state.updatedAt = now.toISOString();
   state.plans[day] = generatePlan(state, day);
   return state;
@@ -42,10 +44,11 @@ function fixture(): AppState {
 async function seed(page: Page, state: unknown = fixture(), theme = 'dark') {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.clock.setFixedTime(now);
-  await page.addInitScript(({ state, theme, key }) => {
+  await page.addInitScript(({ state, theme, key, starterKey, starterVersion }) => {
     if (!localStorage.getItem(key)) localStorage.setItem(key, JSON.stringify(state));
+    localStorage.setItem(starterKey, starterVersion);
     if (!localStorage.getItem('careerhq.theme.v1')) localStorage.setItem('careerhq.theme.v1', theme);
-  }, { state, theme, key });
+  }, { state, theme, key, starterKey: ACADEMIC_STARTER_KEY, starterVersion: ACADEMIC_STARTER_VERSION });
 }
 
 async function stored(page: Page): Promise<AppState> {
@@ -89,11 +92,12 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     await expect(page.locator('[data-omscs-term]')).toHaveCount(7);
     expect(await page.locator('.omscs-record-status').allTextContents()).toEqual(Array(10).fill('No academic entry'));
     await expect(page.locator('[data-tour="omscs-credit-summary"] strong').first()).toHaveText('0 / 30');
-    await expect(page.getByText('This is an unsaved example proposal.', { exact: false })).toBeVisible();
+    await expect(page.getByText('Unsaved example route.', { exact: true })).toBeVisible();
     await noOverflow(page);
     await page.screenshot({ path: testInfo.outputPath(`gold-circuit-planner-${width}-${theme}.png`) });
 
     const guide = page.locator('[data-tour="omscs-course-guide"]');
+    await guide.locator(':scope > summary').click();
     for (const course of omscsCourses) {
       await page.getByRole('combobox', { name: 'Explore a course', exact: true }).selectOption(course.id);
       await expect(guide.getByRole('heading', { level: 2 })).toHaveText(course.title);
@@ -161,15 +165,15 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
   });
 }
 
-test('default regular-term planning skips summer while an explicitly selected summer remains an option', async ({ page }) => {
+test('the shared resume term stays stable while an explicitly selected summer remains an option', async ({ page }) => {
   await seed(page);
   await page.clock.setFixedTime(new Date('2027-02-01T10:00:00Z'));
   await page.goto('./#/omscs');
   const season = page.getByRole('combobox', { name: 'Start semester', exact: true });
   const summers = page.getByRole('checkbox', { name: 'Include later summer terms in the proposal', exact: true });
-  await expect(season).toHaveValue('fall');
+  await expect(season).toHaveValue('spring');
   await expect(summers).not.toBeChecked();
-  await expect(page.locator('[data-omscs-term]').first()).toHaveAttribute('data-omscs-term', '2027-fall');
+  await expect(page.locator('[data-omscs-term]').first()).toHaveAttribute('data-omscs-term', '2027-spring');
   await expect(page.locator('[data-omscs-term$="summer"]')).toHaveCount(0);
   expect((await stored(page)).omscsPlan).toBeUndefined();
   await season.selectOption('summer');
@@ -203,8 +207,8 @@ test('explicit academic entries respect grade rules, cancel exactly and survive 
   await expect(stats.nth(1)).toHaveText('0 / 30');
   await expect(page.getByText('1 completed entry has no recorded grade.', { exact: false })).toBeVisible();
   await enterCourse(page, 'cs7637', { grade: 'C' });
-  await expect(stats.nth(1)).toHaveText('0 / 30');
-  await expect(page.locator('.omscs-warnings')).toContainText('does not meet its selected ai core slot');
+  await expect(stats.nth(1)).toHaveText('3 / 30');
+  await expect(page.locator('[data-tour="academic-completed"] [data-academic-course="cs7637"]')).toContainText('free-elective credit only');
   await enterCourse(page, 'cs7637');
   await enterCourse(page, 'cs6457', { grade: 'C' });
   await expect(stats.nth(0)).toHaveText('6 / 30');
@@ -289,8 +293,9 @@ test('a rejected browser save keeps the previous plan absent and shows failure r
   expect((await stored(page)).omscsPlan).toBeUndefined();
 });
 
-test('a genuine ten-mission wire fixture gains only an unstarted Gold Circuit lane while every earlier record and date remains exact', async ({ page }) => {
+test('a genuine ten-mission wire fixture gains canonical unstarted lanes while every earlier record and date remains exact', async ({ page }) => {
   let state = createInitialState(false, '2.0.0');
+  delete state.omscsPlan;
   state.updatedAt = now.toISOString();
   state = recordEvidence(state, {
     missionId: 'system', checkpointId: state.missions.system.checkpointId,
@@ -302,13 +307,14 @@ test('a genuine ten-mission wire fixture gains only an unstarted Gold Circuit la
   state.missions.pattern.mode = 'background';
   state.missions.escape.blocker = 'Synthetic retained blocker';
   state.plans[day] = generatePlan(state, day);
-  const { omscs, ...oldMissions } = state.missions;
+  const { omscs, gamedev, ...oldMissions } = state.missions;
   expect(Object.keys(oldMissions)).toHaveLength(10);
   await seed(page, { ...state, missions: oldMissions });
   await page.goto('./#/omscs');
   await expect(page.getByRole('heading', { name: 'Georgia Tech OMSCS', exact: true })).toBeVisible();
   expect(await stored(page)).toEqual(state);
   expect((await stored(page)).missions.omscs).toEqual(omscs);
+  expect((await stored(page)).missions.gamedev).toEqual(gamedev);
   expect((await stored(page)).omscsPlan).toBeUndefined();
   await page.reload();
   expect(await stored(page)).toEqual(state);
@@ -345,7 +351,7 @@ test('real background Gold Circuit evidence offers a cross-page level-up and mis
   await expect(page.locator('.career-orbit-inspector')).toContainText('Revealed for today after checkpoint completion');
   await expect(page.locator('.career-orbit-inspector')).toHaveAttribute('data-mission-mode', 'background');
   await setGraphCheckbox(page, 'Show everything', true);
-  await expect(scene).toHaveAttribute('data-orbit-count', '11');
+  await expect(scene).toHaveAttribute('data-orbit-count', String(missionIds.length));
   expect(await stored(page)).toEqual(saved);
 });
 
@@ -360,10 +366,13 @@ for (const width of [1440, 320]) {
     for (const step of omscsSteps) {
       const coach = page.locator('.tutorial-panel');
       await expect(coach).toHaveAttribute('data-step', step.id);
-      const next = coach.getByRole('button', { name: step.id === 'omscs-finish' ? 'Finish tutorial' : 'Next', exact: true });
+      const next = coach.getByRole('button', { name: 'Next', exact: true });
       if (step.kind === 'action') await expect(next).toBeDisabled();
       if (step.id === 'omscs-plan') await page.locator('[data-tour="omscs-plan-save"]').click();
-      if (step.id === 'omscs-guide') await page.locator('[data-tour="omscs-course-select"]').selectOption('cs7295');
+      if (step.id === 'omscs-guide') {
+        await page.locator('[data-tour="omscs-course-guide"] > summary').click();
+        await page.locator('[data-tour="omscs-course-select"]').selectOption('cs7295');
+      }
       if (step.id === 'omscs-entry') {
         await page.locator('[data-tour="omscs-record-cs7637"]').click();
         await page.locator('[data-tour="omscs-course-example"]').click();
@@ -373,7 +382,8 @@ for (const width of [1440, 320]) {
       await expect(next).toBeEnabled();
       await noOverflow(page);
       expect(await storage(page)).toEqual(before);
-      await next.click();
+      if (step.id === 'omscs-finish') await coach.getByRole('button', { name: 'Exit tutorial', exact: true }).click();
+      else await next.click();
     }
     await expect(page.locator('.app')).toHaveAttribute('data-workspace', 'saved');
     expect(await storage(page)).toEqual(before);
@@ -402,7 +412,7 @@ test('mission search, primary-source registry, Help and the connected roadmap ex
   await topic.locator('a[href="#/omscs"]').click();
   await expect(page).toHaveURL(/#\/omscs$/);
   await page.goto('./#/roadmap');
-  await expect(page.locator('.tree-mission')).toHaveCount(11);
+  await expect(page.locator('.tree-mission')).toHaveCount(missionIds.length);
   await page.getByRole('button', { name: 'View Georgia Tech OMSCS flowchart', exact: true }).click();
   await expect(page.locator('.roadmap-selected-heading h2')).toHaveText('Georgia Tech OMSCS');
   expect(await storage(page)).toEqual(before);

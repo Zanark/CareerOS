@@ -1,0 +1,63 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "observedAt": "2026-11-20T12:55:48.867Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "calm-interface",
+      "path": "TODO/15_CALM_INTERFACE.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/14",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "17b24a02066172261225de9d92f7b4621d53f8bcf60b7f28411d4bb4039c332b",
+      "actions": [
+        "update managed description",
+        "set Project In Progress"
+      ]
+    },
+    {
+      "id": "omscs-specializations",
+      "path": "TODO/16_OMSCS_SPECIALIZATIONS.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/15",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "76949402b63fabc6dc6f818367d1e3b1937f2f9f1c5e8b1990a49173aee7eb3b",
+      "actions": [
+        "update managed description",
+        "set Project In Progress"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 17,
+    "selected": 2,
+    "excluded": 2,
+    "created": 0,
+    "reused": 2,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

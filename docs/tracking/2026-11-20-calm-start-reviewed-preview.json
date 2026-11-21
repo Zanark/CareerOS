@@ -1,0 +1,39 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "observedAt": "2026-11-19T22:15:01.417Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "calm-interface",
+      "path": "TODO/15_CALM_INTERFACE.todo",
+      "outcome": "conflict",
+      "created": false,
+      "reused": false,
+      "error": "Local backlink differs from the discovered managed issue."
+    }
+  ],
+  "counts": {
+    "included": 14,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 0,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 1,
+    "failed": 0
+  }
+}

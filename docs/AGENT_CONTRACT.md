@@ -27,11 +27,19 @@ that an agent currently reads, grades, or updates the workspace.
   completion criteria. Describe this as **self-attested**, not independently verified.
 - Respect the single current checkpoint and source-defined prerequisites. Do not invent progress for
   planned missions or turn capability connections into undocumented prerequisites.
+- An available initially-Planned curriculum remains freely browsable. Authoring,
+  opening its benchmark or adopting other roadmaps does not activate it;
+  activation and actual artifact/criteria confirmation remain deliberate actions.
 - Preserve existing evidence and the append-only event history during normal updates.
   Do not rewrite records to make outcomes appear better. The local audit is not
   tamper-proof, and whole-workspace replacement is a distinct, confirmed operation.
 - Label samples, assumptions, suggestions, missing evidence, and uncertain conclusions.
   Never present illustrative seeds as personal history.
+- The owner's explicitly approved public academic starter is a narrow exception,
+  not illustrative learning progress. Initialize only a fresh/once-only absent
+  academic profile; preserve explicit empty/custom records. Parsed imports and
+  journal replay must not silently restore removed academic history. Green
+  academic rows mean recorded completion, not a passing grade or mastery.
 
 ## Data and execution
 

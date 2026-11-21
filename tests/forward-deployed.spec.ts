@@ -4,6 +4,7 @@ import { missionIds, type AppState } from '../src/domain/types';
 import { getPackOutline } from '../src/domain/roadmapPacks/registry';
 import { fdeSteps } from '../src/tutorial/fdeSteps';
 import { openGraphPanel, setGraphCheckbox } from './graph-ui';
+import { openLibraryBrowser } from './library-ui';
 
 const key = 'careerhq.workspace.v1';
 test.use({
@@ -51,6 +52,7 @@ for (const [width, theme] of [[1440, 'dark'], [390, 'dark'], [320, 'light']] as 
     const image = testInfo.outputPath(`fieldcraft-${width}-${theme}.png`);
     await page.screenshot({ path: image });
     await testInfo.attach('Research-backed Fieldcraft lesson / synthetic empty workspace', { path: image, contentType: 'image/png' });
+    await openLibraryBrowser(page);
     await page.getByRole('combobox', { name: 'Material', exact: true }).selectOption('practice');
     await expect(select.locator('option').filter({ hasText: '(practice)' })).toHaveCount(8);
     await select.selectOption('fde-lab-ontology');

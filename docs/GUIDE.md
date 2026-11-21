@@ -13,7 +13,21 @@ loading problem. Different browsers/devices still need a private backup transfer
 [Overview](../README.md) · [Architecture](ARCHITECTURE.md) · [Themes](THEMES.md) · [Privacy](PRIVACY.md) ·
 [Agent contract](AGENT_CONTRACT.md) · [Operation sources](OPERATION-SOURCES.md) ·
 [Contributor workflow](DEVELOPMENT.md) · [FDE research](FDE-RESEARCH.md) ·
-[Georgia Tech OMSCS / Gold Circuit](OMSCS-RESEARCH.md)
+[Georgia Tech OMSCS / Gold Circuit](OMSCS-RESEARCH.md) ·
+[Game Development / World Forge](GAME-DEVELOPMENT.md)
+
+## Action-first pages and optional help
+
+Normal pages keep actions, records and important warnings visible. Use the
+question-mark button beside a title or control for secondary context: click,
+tap or keyboard Enter pins it; Escape, Close or an outside click dismisses it.
+Hover and keyboard focus also preview help. Expand labelled sections when you
+want course guides, source detail, diagrams or the calendar.
+
+The optional **Course choices & contextual help** tutorial chapter demonstrates
+the selection workflow using temporary practice data. It does not replace
+contextual help or move actual lesson content into the tutorial. Sidebar order
+is Discovery Atlas, Tracking, Education and Career; Georgia Tech is in Education.
 
 ## What this prototype does
 
@@ -30,6 +44,9 @@ loading problem. Different browsers/devices still need a private backup transfer
 - Tracks freelance research and spaced recall separately from checkpoint completion.
 - Offers Georgia Tech OMSCS / Operation Gold Circuit: proposed semesters, ten selected-course guides and optional
   academic self-reports, separate from learning evidence and official degree verification.
+- Includes **Game Development / World Forge**: a Godot-first route
+  from zero, an original multiplayer benchmark and evidence-based self-grading.
+  Its complete curriculum starts **Planned**, not automatically active.
 - Offers an optional Discovery Atlas: a finite hidden collection derived from saved
   evidence and recall, with source receipts rather than a career or mastery score.
 - Preserves previous roadmap versions and requires confirmation before adopting new definitions.
@@ -44,7 +61,8 @@ loading problem. Different browsers/devices still need a private backup transfer
 
 The supplied operation documents define the original nine missions. Research-backed
 **Fieldcraft** and **Gold Circuit** add unstarted background missions without changing
-your primary focus or existing progress. Tracking granularity is explicit:
+your primary focus or existing progress. **World Forge** starts
+unstarted and **Planned**. Tracking granularity is explicit:
 
 | Mission | Documented tracking |
 | --- | --- |
@@ -59,35 +77,57 @@ your primary focus or existing progress. Tracking granularity is explicit:
 | Side Income | 104 modules across 13 stages, with cases, templates and the separate private freelance ledger |
 | Forward Deployed Engineering / Fieldcraft | 48 checkpoints across 12 phases, eight optional specialization labs and 112 authored exercises informed by 24 reviewed primary sources |
 | Georgia Tech OMSCS / Gold Circuit | 24 learning checkpoints, five independent reference/practice units and 58 exercises; ten academic course guides and an editable semester proposal are separate from degree credits |
+| Game Development / World Forge | 65 checkpoints across 14 core phases, five complete capstone references, eight optional specialization studies and 156 exercises; starts Planned |
 
-The eleven latest editions contain **581 tracked checkpoints**; the earlier ten
-retain their original 557.
+The twelve latest editions contain **646 tracked checkpoints**. The earlier
+eleven retain their original 581; the preceding ten retain 557.
 The original seven expanded mission workbooks
 also provide **806 browsable source units and 5,944 practice, transfer and diagnostic prompts**.
 Repeated source exercise contexts are retained; this is not a claim of 5,944 distinct autograded problems.
 Study material and tracking definitions are not imported personal achievements.
 The original PDFs and private progress/biographical sections are not published. See the source notes
 for conflicts, granularity choices and unverified certification availability.
-There is no actual AI agent, cloud workspace, authentication, or multi-device sync.
+There is no actual AI agent, hosted workspace, authentication, or automatic multi-device sync.
 The AI-engineering mission is a learning roadmap, not a connected AI service.
+
+### World Forge: learn Godot, then build the original multiplayer game
+
+Open **Missions → Planned → Game Development** or `#/mission/gamedev`.
+Its full roadmap, 78-unit practice library and **Capstone benchmark** are available
+without starting it. **Bring into focus** deliberately enables the existing
+evidence/criteria workflow; browsing changes no progress or focus.
+
+The route starts with files/programming/math, finishes 2D and 3D microprojects,
+then integrates design, art/audio, systems, accessibility, multiplayer and release.
+The final original game has a complete rulebook/story, level atlas, authority/
+recovery contract, production milestones, 22 acceptance scenarios and a 100-point
+rubric. Eight advanced specializations stay optional.
+
+CareerOS supplies the reference, not a playable Godot game or automatic grade.
+Critical missing actual multiplayer/recovery/delivery evidence means Incomplete,
+regardless of presentation points. Read [the complete scope, Planned semantics,
+sources and compatibility rules](GAME-DEVELOPMENT.md).
 
 ### Gold Circuit: Georgia Tech OMSCS semesters and learning
 
-Open **Georgia Tech OMSCS** in the Career navigation, or `#/omscs`. Its operation
+Open **Georgia Tech OMSCS** in Education, or `#/omscs`. Its operation
 codename is **Gold Circuit**. The unofficial
 AI-specialization template selects ten courses / 30 credits. Seven courses have
 a proposed learning order: ML, GIOS, Graduate Algorithms, Deep Learning, NLP,
 Distributed Computing and GPU Hardware and Software. KBAI, Game AI and Video
-Game Design have foundation guides, not prefilled completion records.
+Game Design have foundation guides. The app includes the
+owner-approved public academic starter; these are academic self-reports, not
+learning completions. Existing explicit empty/custom records are preserved.
 
 The default proposes one course per regular term. **Save semester proposal**
 stores your chosen start and optional summers; it does not register you. **Record
 course** accepts a planned, taking or completed self-report, an optional term and,
-for completed entries only, an optional final grade. Nothing is stored until you
-save. Cancel leaves the previous record intact. Entered course terms survive
+for completed entries only, an optional final grade. Beyond starter initialization,
+your edits are stored only when you save. Cancel leaves the previous record intact. Entered course terms survive
 route changes, and reporting a completion does not silently compress other terms.
 Preparation/load warnings are guidance, not registration permission.
-The unsaved default skips summer. An explicitly chosen summer start stays;
+The shared saved resume term drives academic suggestions and mission/roadmap entry.
+The default skips summer. An explicitly chosen summer start stays;
 the summer checkbox controls later summers in the sequence.
 
 Each course guide explains syllabus topics, preparation, tools, a dated assessment
@@ -98,14 +138,14 @@ current checkpoint; its 24 checkpoints are learning tasks, not university course
 or credits. Six cited cross-mission comparisons support transfer without awarding
 equivalent completion.
 
-Academic totals use only explicit entries. Unknown grades cannot qualify a slot;
+Academic totals use the saved entries, including the approved starter. Unknown grades cannot qualify a slot;
 specialization slots need B or better, free electives C or better. The app does
 not know your actual cumulative GPA, six-year window or official applicability.
 Academic entries, proposals and browsing award no learning checkpoint, recorded-work
 streak or Atlas EXP. Genuine study evidence uses the existing criteria/Atlas flow.
 
 Private backups and the optional encrypted journal retain academic entries;
-no university account or model is connected. The final **Gold Circuit / OMSCS** tutorial
+no university account or model is connected. The **Gold Circuit / OMSCS** tutorial
 chapter tries real controls on isolated fictional data and discards its grade on
 exit. Alternate course routes are comparisons, not automatic substitutions.
 Read [the allocation, source differences and limitations](OMSCS-RESEARCH.md).
@@ -115,12 +155,34 @@ explorer, current/catalog comparison, all 78 regular free-course entries and
 editable what-if calendars. Reported history can inform the private planning
 basis without changing saved grades or learning/Atlas credit. Its temporary
 choices do not rewrite the original 24-checkpoint study route. Read
-[path-explorer scope and sources](OMSCS-PATHS.md). Use **Start choosing subjects**
-for the four-step phone flow: private draft history, AI slots, additional free
-subjects and **My shortlist**. All 78 subjects have authored career benefits,
+[path-explorer scope and sources](OMSCS-PATHS.md). **Course choices** starts with
+the next-term selector. **Prior courses & return**, AI slots, free subjects,
+**My shortlist** and the optional calendar remain available below. All 78 subjects have authored career benefits,
 tradeoffs and real roadmap links. Career fit is qualitative, not degree
 eligibility or completion credit. Draft choices reset on refresh/leaving;
 note the shortlist or select its plain text before leaving the page.
+
+**Six specializations:** `#/omscs/specializations` compares Artificial Intelligence,
+Computing Systems, Computational Perception & Robotics, Human-Computer Interaction,
+Computer Graphics and Machine Learning. Use the compact jump selector or expand a section to see required/choice
+groups, category minima and shared course rows. A steady green border means
+recorded complete everywhere that subject appears; a completed C still cannot
+fill a B-minimum specialization slot. Reuse counts assign each subject once.
+The detailed subject/calendar planner remains AI-specific, not six saved degree plans.
+
+Record or edit any listed current-catalogue subject once; the shared academic
+ledger, exports and comparisons update together. **Review provided academic
+history** previews a deliberate starter update for an older/custom profile;
+cancel changes nothing. Other subjects and learning progress are retained.
+An imported empty/custom profile stays authoritative, and an initialized device
+does not recreate deliberately removed academic history on every reload.
+
+Entry badges distinguish published prerequisites, background expectations and
+recommendations. SDCC's AOS/grade/allowed-approval conditions affect the calendar,
+including heavy-load ordering; an unknown grade or ordinary B is not confirmed
+high B. Formal ML background for DL is not presented as a registrar-enforced
+CS 7641-only lock. Entry confirmations are temporary self-reports, not academic
+credit or university verification.
 
 ### AI Architect: agent-native cloud extension
 
@@ -211,7 +273,7 @@ tags on mission hubs, ring dots and hovered/selected nodes. It does not hide nod
 change picking or close the inspector. The named **Work** list remains available.
 
 **View → Show everything** temporarily includes every available graph node and connection:
-all eleven mission rings, unfinished and completed checkpoints, untracked curriculum,
+all twelve mission rings, unfinished and completed checkpoints, untracked curriculum,
 archived completions, evidence, applications at every stage, freelance leads and past work.
 It also includes all saved daily actions, even unfinished older actions and future saved
 plans. It bypasses focus, mission scope, layer filters and individual hiding without
@@ -264,7 +326,7 @@ missions remain unavailable.
 All configured missions remain in **Rings**. To show an inactive ring without activating
 the mission, inspect it and choose **Reveal orbit and members**, or check its ring in
 **Nodes → Individual nodes and rings → Ring views**. **Select all items** can show all
-eleven mission rings, never collection rings. These choices last for the current graph page.
+twelve mission rings, never collection rings. These choices last for the current graph page.
 Daily work, evidence, applications, freelance leads, past accomplishments and untracked
 curriculum no longer have rings. Their records remain on their existing pages, in named
 node inspection and relevant checkpoint connections; nothing is deleted or reclassified.
@@ -436,9 +498,15 @@ or Operation documents. Each expanded mission has its own source-based library w
 mental models, worked reasoning, concepts, exercises, transfer tasks, diagnostics,
 mastery evidence and recovery guidance.
 
-Search the full selected workbook, filter by stage/reference group or material type,
-then choose a module, case, lab bank or reference. Source page numbers remain visible.
-Shared learning rules are factored into **How to use this roadmap**. Missing source
+Library landing pages open **Browse this library**, with full-workbook search,
+stage/material filters and the module, case, lab-bank or reference chooser.
+Direct lesson links start with the selected material instead; open the same
+disclosure to browse elsewhere. An invalid lesson keeps the chooser available
+rather than silently showing another unit. The isolated tutorial keeps its
+real browse controls open for guided practice.
+
+Source page numbers remain visible. Shared learning rules are factored into
+**Study & review guide**, below the material on direct lesson links. Missing source
 fixtures, inconsistent labels and other limitations are stated rather than filled with
 invented source content. The app does not run labs, grade answers or verify credentials.
 
@@ -474,6 +542,8 @@ archive-and-start adoption path. Export a backup before either operation.
 appearances are intentional. Use the section selector, row-difficulty filter and
 problem search; **Open practice set** on the mission opens the relevant section.
 The full roadmap inspector links to each appended topic's practice too.
+The selected section comes before the optional NotebookLM and set-protocol
+guidance; those references remain available without becoming extra progress.
 
 The sets are curated choices, not 939 required completions. Foundation/Core/Stress
 are the source's group labels and do not always match a row's Easy/Medium/Hard label.
@@ -548,6 +618,8 @@ anything. Export a private backup in **Settings** first; no backup is downloaded
 - Evidence, recalls, prior plans, history, personal accomplishments and focus records
   stay intact. Primary focus and active/background modes are preserved; a previously
   planned mission with newly available curriculum becomes **background**, not active.
+  An already-current, initially-Planned World Forge mission is unchanged; adopting
+  other roadmaps does not activate it.
   Refresh an untouched daily plan separately when ready.
 - A confirmation is valid only for the exact workspace reviewed. If that workspace
   changes, reopen and review a fresh preview. Validation, record/size limits, archive
@@ -814,7 +886,7 @@ Implementation references: [`getMissionActivity`](../src/domain/missionActivity.
 | DSA practice library | Browse all 50 expanded DSA sections and curated problem links | No automatic solve tracking, completion credit, or requirement to clear every listed problem |
 | System Design concepts | Browse or search the attached one-page roadmap and its repeated pattern contexts | No automatic mastery claims, new required checkpoint gates, or changes to the saved System Forge tracker |
 | System Design problems | Work through the 72-module source progression and browse 15 cases, prompts, transfer tasks and diagnostics | No AI assessment, automatic adoption, or mandatory case-to-case completion chain |
-| Practice libraries | Browse seven expanded workbooks and the research-backed Fieldcraft guide; search study content and open modules, labs or references | No automatic completion, execution of source instructions, exam booking or guaranteed outcomes |
+| Practice libraries | Browse source workbooks, Fieldcraft, Gold Circuit and World Forge; search lessons and open modules, labs or references | No automatic completion, game execution, exam booking or guaranteed outcomes |
 | Roadmap | Browse the goal, mission tree and stage flowcharts | Clicking a diagram does not complete work |
 | Recall practice | Revisit saved DSA/System Design/FDE work from memory | No AI grading or automatic insertion into Daily plan |
 | Discovery Atlas | Explore optional discoveries and the saved records behind them | No career score, independently assessed mastery, record mutation or separate export |

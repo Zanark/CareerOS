@@ -4,6 +4,11 @@ import { getMissionVersion } from '../src/domain/catalog';
 import { missionIds } from '../src/domain/types';
 
 async function expectVerticalFlow(page: Page) {
+  const inline = page.locator('[data-tour="mission-inline-map"]');
+  if (await inline.count() && !await inline.evaluate((element: HTMLDetailsElement) => element.open)) {
+    await inline.locator(':scope > summary').click();
+  }
+  await expect(page.locator('[data-tour="mission-roadmap"]')).toBeVisible();
   const boxes = await page.locator('[data-tour="mission-roadmap"] .flow-checkpoint').evaluateAll(nodes => nodes.map(node => {
     const rect = node.getBoundingClientRect();
     return { x: rect.x, y: rect.y, height: rect.height };
@@ -114,6 +119,7 @@ test('completing the final checkpoint removes the decision without breaking conn
   }
   await page.addInitScript(state => localStorage.setItem('careerhq.workspace.v1', JSON.stringify(state)), state);
   await page.goto('./#/mission/pattern');
+  await page.locator('[data-tour="mission-inline-map"] > summary').click();
   await expect(page.locator('[data-tour="mission-roadmap"] .diagram-edge')).toHaveCount(9);
   await page.getByRole('button', { name: 'Record evidence', exact: true }).click();
   const form = page.getByRole('dialog', { name: 'Record progress', exact: true });

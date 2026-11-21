@@ -1,0 +1,46 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "observedAt": "2026-11-21T04:07:50.948Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "current-site-publication",
+      "path": "TODO/21_CURRENT_SITE_PUBLICATION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/20",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "ff54aa06f796ce6bb559be5d1ea2d93e1eec24c2872c497cc24f342b950d6160",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKpO-Y",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 20,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

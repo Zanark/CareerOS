@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { createInitialState, generatePlan, localDate, recordEvidence, upgradeRoadmap } from '../src/domain/engine';
+import { createInitialState, generatePlan, localDate, parseState, recordEvidence, upgradeRoadmap } from '../src/domain/engine';
 import type { AppState } from '../src/domain/types';
 
 const key = 'careerhq.workspace.v1';
@@ -26,7 +26,9 @@ function recordedWorkspace() {
 
 async function seed(page: Page, state: AppState) {
   state.plans[localDate()] = generatePlan(state);
-  const raw = JSON.stringify(state);
+  const canonical = parseState(state);
+  expect(canonical).toEqual(state);
+  const raw = JSON.stringify(canonical);
   await page.addInitScript(({ key, raw }) => {
     if (!localStorage.getItem(key)) localStorage.setItem(key, raw);
   }, { key, raw });
@@ -42,12 +44,12 @@ async function chooseHistory(page: Page, value: unknown = historyFile) {
 test('Keep going stays optional and contains no research, generic encouragement or invented personal wins', async ({ page }) => {
   await page.goto('./');
   const before = await page.evaluate(key => localStorage.getItem(key), key);
-  const navigation = page.getByRole('complementary', { name: 'Main navigation' }).locator('nav').first();
+  const navigation = page.getByRole('complementary', { name: 'Main navigation' }).getByRole('navigation', { name: 'TRACKING', exact: true });
   await expect(navigation.getByRole('link').nth(0)).toHaveText('Career graph');
   await expect(navigation.getByRole('link').nth(1)).toHaveText('Keep going');
   await navigation.getByRole('link', { name: 'Keep going', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText("What you've already done.");
-  await expect(page.locator('.perspective-empty')).toContainText('Your earlier accomplishments have not been loaded into this browser.');
+  await expect(page.locator('.perspective-empty')).toContainText('Import a private personal-history file or a workspace backup.');
   await expect(page.locator('.personal-proof-card, .perspective-receipt')).toHaveCount(0);
   await expect(page.locator('.perspective-page')).not.toContainText(/Harkin|Dunlosky|hard is not|hopeless|missed day|whole life tonight|research averages/i);
   await page.reload();
@@ -128,7 +130,7 @@ test('past accomplishments can be recorded without inventing a date or completin
   await page.goto('./#/perspective');
   const before = await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), key);
   await page.getByRole('button', { name: 'Add a past accomplishment', exact: true }).click();
-  const dialog = page.getByRole('dialog', { name: 'Add a past accomplishment', exact: true });
+  const dialog = page.getByRole('dialog', { name: 'Add past work', exact: true });
   await dialog.getByLabel('What did you accomplish?').fill(historyRecord.title);
   await dialog.getByLabel('What did you actually do?').fill(historyRecord.detail);
   await dialog.getByLabel('Evidence or source').fill(historyRecord.source);

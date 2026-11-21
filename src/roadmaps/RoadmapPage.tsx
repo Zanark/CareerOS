@@ -8,6 +8,7 @@ import { Diagram } from './Diagram';
 import type { DiagramEdge } from './Diagram';
 import { MissionFlowchart } from './MissionFlowchart';
 import { missionAccentStyle } from '../missionVisuals';
+import { AcademicBasis } from '../omscs/AcademicBasis';
 
 const groupNames: Record<MissionMode, string> = { active: 'In focus', background: 'Background', planned: 'Planned' };
 
@@ -33,7 +34,7 @@ export function RoadmapPage({ state }: { state: AppState }) {
   }
 
   return <>
-    <PageHeading eyebrow="CAREER MAP" title="Roadmap" description="Choose a mission in the tree to open its checkpoint flowchart.">
+    <PageHeading eyebrow="CAREER MAP" title="Roadmap" help="Select a mission to inspect its checkpoint sequence. Branches group focus modes, not prerequisite dependencies; reading a map changes no progress.">
       <button className="button secondary" onClick={() => window.print()}><FileDown size={16} />Print roadmap</button>
     </PageHeading>
     <div className="roadmap-map-toolbar"><span><GitBranch size={15} />Top-down tree</span><label className="checkbox-label"><input type="checkbox" checked={onlyActive} onChange={event => setOnlyActive(event.target.checked)} />In-focus missions only</label></div>
@@ -57,10 +58,11 @@ export function RoadmapPage({ state }: { state: AppState }) {
         </div>
         {!groups.length && <p className="diagram-pending">No missions are in focus. Clear the filter to see all missions.</p>}
       </Diagram>
-      <figcaption id="roadmap-tree-description">Branches group missions by their current focus setting, not prerequisites. Select a node to inspect its actual checkpoint sequence.</figcaption>
+      <figcaption id="roadmap-tree-description" className="sr-only">Missions grouped by focus setting, not prerequisites.</figcaption>
     </figure>
     {selected && <section className="roadmap-selected" ref={detail} aria-label="Selected mission flowchart" tabIndex={-1}>
       <div className="roadmap-selected-heading"><div><span className="eyebrow">{selected.operation}</span><h2>{selected.name}</h2></div><a className="button secondary" href={`#/mission/${selected.id}`} aria-label={`Open ${selected.name} mission`}>Open mission<ArrowUpRight size={15} /></a></div>
+      {selected.id === 'omscs' && <AcademicBasis state={state} />}
       <MissionFlowchart key={selected.id} mission={selected} state={state} />
       {selected.dependencies.length > 0 && <div className="flow-related"><span>Related skills, not unlock gates:</span>{selected.dependencies.map(id => <a key={id} href={`#/mission/${id}`}>{getMission(id).name}<ArrowUpRight size={12} /></a>)}</div>}
     </section>}

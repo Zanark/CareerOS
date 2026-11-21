@@ -178,6 +178,37 @@ Existing application checks remain `npm run validate`, `npm run build` and
 `npm run test:e2e`. Do not rerun browser/GPU suites for documentation-only changes
 or describe historical gate results as freshly executed tests.
 
+## Visual and responsive review
+
+Less copy must not remove visual hierarchy or clear controls. Preserve the
+canonical themes, `1.5` type scale, meaningful status colors, study content and
+visible validation/consent. Group related actions, use consistent spacing and
+keep secondary help/disclosures obvious rather than relying on hover.
+
+For broad interface changes, derive the current internal route inventory from
+dispatch and catalogue exports, including generated lesson/context URLs.
+Check desktop, tablet and narrow layouts in disposable profiles and both themes;
+use fictional saved-record IDs instead of inspecting the owner's records.
+Cover empty/populated, expanded, error, dialog, help and tutorial states too.
+Keep necessary table/canvas scrolling local rather than clipping controls or
+shrinking text. Raw `scrollWidth` alone can flag intentional full-bleed artwork;
+check the actual text/icon bounds before calling it lost functionality.
+
+[Visual regressions](../tests/visual-layout.spec.ts) cover shared headers,
+tablet navigation, reader-first lessons, card actions, paired contextual
+controls and native dialog titles. Run them on a free,
+separate qualification port with one browser worker, alongside the affected
+existing flows. Sitewide changes also need the appropriate full suites.
+Bind route results and captures to their actual source; inspect contact sheets
+and selected readable frames, not only rectangle checks. Human visual acceptance
+and physical-browser/accessibility qualification remain separate.
+
+The design basis is [useful minimalism](https://www.nngroup.com/articles/aesthetic-minimalist-design/),
+[clear action hierarchy](https://design-system.service.gov.uk/components/button/)
+and [reflow without lost functionality](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
+Apply their principles within CareerOS, not a copied foreign visual identity.
+Keep private captures/fixtures local and mirror only public-safe evidence.
+
 ## Credential, retry and concurrency boundaries
 
 The runner internally resolves the manual's ignored/untracked local `.env`;

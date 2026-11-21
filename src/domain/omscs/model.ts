@@ -1,7 +1,8 @@
 import { z } from 'zod';
 import { omscsCourses, omscsRouteCourses } from './courses';
-import { omscsCourseIds } from './types';
 import type { OmscsCourseRecord, OmscsPlan, OmscsTerm } from './types';
+import { isPathCourse, pathCourse, pathCourses } from './paths/catalog';
+import { academicAllocation } from './recommendations';
 
 const seasons = ['spring', 'summer', 'fall'] as const;
 
@@ -13,7 +14,7 @@ export const omscsTermSchema = z.custom<OmscsTerm>(validTerm, {
   message: 'Use a semester from 2000 to 2100, such as 2027-spring.',
 });
 export const omscsCourseRecordSchema = z.object({
-  id: z.enum(omscsCourseIds),
+  id: z.string().refine(isPathCourse, 'Choose a current OMSCS course.'),
   term: z.union([omscsTermSchema, z.literal('')]),
   status: z.enum(['planned', 'taking', 'completed']),
   grade: z.enum(['unrecorded', 'A', 'B', 'C', 'D', 'F']),
@@ -72,7 +73,7 @@ export function setOmscsCourse(
   return omscsPlanSchema.parse({
     ...plan,
     courses: [...plan.courses.filter(row => row.id !== course.id), course]
-      .sort((a, b) => omscsCourseIds.indexOf(a.id) - omscsCourseIds.indexOf(b.id)),
+      .sort((a, b) => pathCourses.findIndex(course => course.id === a.id) - pathCourses.findIndex(course => course.id === b.id)),
   });
 }
 
@@ -92,20 +93,25 @@ export function getOmscsSchedule(plan: OmscsPlan) {
 export function getOmscsSummary(plan: OmscsPlan | undefined) {
   let reportedCredits = 0, qualifyingCredits = 0, specializationCredits = 0, unknownGrades = 0;
   const problems: string[] = [];
-  for (const course of omscsCourses) {
-    const record = plan?.courses.find(row => row.id === course.id);
-    if (record?.status !== 'completed') continue;
+  for (const record of plan?.courses ?? []) {
+    if (record.status !== 'completed') continue;
+    const course = pathCourse(record.id);
+    const allocation = academicAllocation(record.id, plan?.courses ?? []);
     if (record.grade !== 'D' && record.grade !== 'F') reportedCredits += 3;
     if (record.grade === 'unrecorded') {
       unknownGrades++;
       continue;
     }
     const eligible = record.grade === 'A' || record.grade === 'B' ||
-      course.allocation === 'Free elective' && record.grade === 'C';
+      allocation === 'Free elective' && record.grade === 'C';
     if (eligible) {
       qualifyingCredits += 3;
-      if (course.allocation !== 'Free elective') specializationCredits += 3;
-    } else problems.push(`${course.code}: this entered grade does not meet its selected ${course.allocation.toLowerCase()} slot. Review reallocation or further study with official advising.`);
+      if (allocation !== 'Free elective') specializationCredits += 3;
+    } else problems.push(`${course.code}: this entered grade does not meet its proposed ${allocation.toLowerCase()} slot. Review reallocation or further study with official advising.`);
+  }
+  if ((plan?.courses.filter(row => row.status === 'completed' && ['A', 'B', 'C'].includes(row.grade)
+    && !['CS', 'CSE'].includes(pathCourse(row.id).subject)).length ?? 0) > 2) {
+    problems.push('Passing non-CS/CSE entries exceed the six-credit cap. Review which courses can count toward the degree.');
   }
   return { reportedCredits, qualifyingCredits, specializationCredits, unknownGrades, problems };
 }

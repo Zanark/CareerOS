@@ -22,7 +22,7 @@ export function Perspective({ state, practice, commit }: {
     <section className="perspective-intro" data-tour="perspective-intro" aria-labelledby="perspective-title">
       <span className="eyebrow">{practice ? 'TUTORIAL PRACTICE' : 'KEEP GOING / YOUR OWN TRACK RECORD'}</span>
       <h1 id="perspective-title">{practice ? 'Practice records.' : "What you've already done."}</h1>
-      <p>{practice ? 'These examples belong only to this tutorial, not your real history.' : 'Your past accomplishments and completed work, with the record behind each one.'}</p>
+      {practice && <p>Temporary tutorial examples, not your real history.</p>}
       <a className="text-link" href="#/hq">Back to Overview<ArrowRight size={16} /></a>
     </section>
 
@@ -68,11 +68,11 @@ export function Perspective({ state, practice, commit }: {
 
     {!hasRecords && <section className="perspective-empty" data-tour="perspective-record">
       <h2>{practice ? 'Save an example to see it here.' : 'Load your own history'}</h2>
-      <p>{practice ? 'The tutorial uses a separate temporary workspace.' : 'Your earlier accomplishments have not been loaded into this browser. Use a private personal-history file or an existing workspace backup. This page will not fill the gap with generic advice.'}</p>
+      <p>{practice ? 'Temporary tutorial workspace.' : 'Import a private personal-history file or a workspace backup.'}</p>
     </section>}
     <section className="personal-proof-tools" aria-label="Manage your personal history">
       <PersonalProofManager state={state} commit={commit} practice={practice} />
-      <p className="personal-proof-privacy">Personal history stays in this browser and travels in your workspace backup. It is not uploaded or published. Adding history does not complete roadmap checkpoints.</p>
+      <p className="personal-proof-privacy">Browser-local / included in backups / no checkpoint credit.</p>
     </section>
   </div>;
 }

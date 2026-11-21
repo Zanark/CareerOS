@@ -1,0 +1,89 @@
+{
+  "reviewedAt": "2026-11-20",
+  "scope": "Public-source online course inventory and targeted entry-condition distinctions for a local-only candidate. Not student records, official eligibility, future offerings or complete future-syllabus certification.",
+  "catalogueObservation": {
+    "observedAt": "2026-11-19T22:58:34.061617+00:00",
+    "regularCourses": 78,
+    "localCourses": 78,
+    "missingLocally": [],
+    "notInOfficialInventory": [],
+    "urlDifferences": [],
+    "foundationalDifferences": [],
+    "sources": [
+      {
+        "url": "https://omscs.gatech.edu/current-courses",
+        "sha256": "5031e00b7d385210cf4a95578716906a3fc62208290ddaab3bb7794fde402624"
+      },
+      {
+        "url": "https://omscs.gatech.edu/specialization-artificial-intelligence-formerly-interactive-intelligence",
+        "sha256": "a8325ca13ff405470dc350e490dfacff20d5dea8029d730a5cf1521885d9be38"
+      }
+    ],
+    "onlineAiChoices": [
+      "cs6300", "cs6440", "cs6460", "cs6476", "cs6515", "cs6601", "cs6603",
+      "cs6750", "cs6795", "cs7632", "cs7637", "cs7641", "cs7643", "cs7650"
+    ],
+    "missingOnlineAi": [],
+    "unexpectedOnlineAi": [],
+    "method": "Parsed actual list items, linked course identities and bold markup. Preserved A/C-administered offerings explicitly open to OMSCS; excluded seminars and campus-only specialization references. The initial parser missed optional colons in seven AI titles; corrected parsing on the same captured HTML produced the complete match."
+  },
+  "entryConditions": [
+    {
+      "courseId": "cs6211",
+      "classification": "Published course prerequisite / qualifying grade / allowed alternative",
+      "sources": [
+        "https://omscs.gatech.edu/cs-6211-system-design-cloud-computing",
+        "https://faculty.cc.gatech.edu/~rama/CS6211-External/"
+      ],
+      "finding": "The linked faculty syllabus states prior OS study or instructor consent; the current OMSCS overview expects AOS with A or high B, or equivalent study elsewhere. An unknown grade or ordinary B is not confirmed high B. Mandatory weekly 90-minute live attendance is explicit.",
+      "implementation": "Reject a calendar missing the prerequisite or an explicitly reported allowed alternative. Keep a planned AOS term strictly before SDCC even with two courses per term; future qualifying grades remain conditional. Do not silently rewrite grades.",
+      "limit": "The current overview links a dated sample syllabus. Current-section permission, grading and registration enforcement were not independently checked."
+    },
+    {
+      "courseId": "cs7643",
+      "classification": "Expected formal ML background, not a verified CS 7641-only registration lock",
+      "sources": [
+        "https://omscs.gatech.edu/cs-7643-deep-learning"
+      ],
+      "finding": "The page says this should not be the first ML class and self-study does not count. Equivalent formal introductory ML is permitted background; strong mathematics and Python are expected.",
+      "implementation": "Expose formal-ML status; warn for an unsupported first-DL plan. Recognize reported prior formal ML or an explicit equivalent-formal-study confirmation. Earlier planned ML stays conditional rather than already completed."
+    },
+    {
+      "courseId": "cs6422",
+      "classification": "Required foundational coursework / systems background",
+      "sources": [
+        "https://omscs.gatech.edu/cs-6422-database-system-implementation",
+        "https://faculty.cc.gatech.edu/~jarulraj/courses/6422-online/"
+      ],
+      "finding": "Foundational algorithms/data structures and computer-systems coursework are required; OS/database familiarity is recommended. C++ and systems-programming readiness matter.",
+      "implementation": "Expose a required-background check without inventing a mandatory GIOS/CS 6400 sequence or offering campus-only undergraduate classes as new degree choices."
+    },
+    {
+      "courseId": "cse6250",
+      "classification": "Graduate-section source ambiguity / background check",
+      "sources": [
+        "https://omscs.gatech.edu/cse-6250-big-data-health-informatics",
+        "https://jimengsun.org/teaching/cse6250/fall2026/"
+      ],
+      "finding": "The OMSCS overview lists prior statistics grades and data subjects. The linked Fall 2026 faculty page places those formal conditions under an undergraduate cross-listing and permits learned equivalent background for its graduate cross-listing.",
+      "implementation": "Flag current graduate-section confirmation and ML/programming/ETL/statistics/data readiness. Do not impose an unverified undergraduate named-course chain on OMSCS."
+    },
+    {
+      "courseId": "cs7210",
+      "classification": "Explicit no-enforcement control with expected background",
+      "sources": [
+        "https://omscs.gatech.edu/cs-7210-distributed-computing"
+      ],
+      "finding": "The current public page explicitly says no prerequisites are enforced, while expecting graduate-level systems/networking understanding.",
+      "implementation": "Preserve preparation advice without locking the course behind GIOS or AOS."
+    }
+  ],
+  "additionalContext": "Previously captured public course-overview/readiness passages were screened for named-course, grade, permission and required-background wording. Recommended Game AI/KBAI/SDP/GPU preparation remains advice; this is not a claim that every full syllabus or future section was reviewed.",
+  "privacyAndAuthority": {
+    "personalAcademicInputsIncluded": false,
+    "academicOrLearningCreditChanged": false,
+    "registrarOrStudentAccountAccessed": false,
+    "enrollmentOrApprovalPerformed": false,
+    "sourceCommitPushOrDeploymentAuthorized": false
+  }
+}

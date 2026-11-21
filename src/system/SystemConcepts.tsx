@@ -29,13 +29,12 @@ export function SystemConceptsPage({ groupId }: { groupId?: string }) {
   return <div className="system-concepts-page">
     <div data-tour="system-concepts-intro">
       <PageHeading eyebrow="SYSTEM FORGE / CONCEPTS REFERENCE" title="System Design concepts"
-        description="The supplied concept roadmap, from system fundamentals through cloud and reliability patterns.">
+        help={<><p>{SYSTEM_PATTERN_GUIDANCE}</p><p>Concept branches and repeated placements are references, not prerequisite locks or completion credit.</p>
+          <p>Source: {SYSTEM_CONCEPT_SOURCE.document}, p.{SYSTEM_CONCEPT_SOURCE.page}. <a href={SYSTEM_CONCEPT_SOURCE.url} target="_blank" rel="noopener noreferrer">{SYSTEM_CONCEPT_SOURCE.attribution}</a></p></>}>
         <a href="#/mission/system" className="button secondary">System Design mission<ArrowRight size={15} /></a>
       </PageHeading>
       <div className="system-concept-notice">
-        <p><strong>{systemConceptGroups.length} sections / {systemConcepts.length} concept placements.</strong> The numbers show coverage, not completed work. Repeated patterns remain in each source category.</p>
-        <p>{SYSTEM_PATTERN_GUIDANCE}</p>
-        <p>Source: {SYSTEM_CONCEPT_SOURCE.document}, p.{SYSTEM_CONCEPT_SOURCE.page}, attributed to <a href={SYSTEM_CONCEPT_SOURCE.url} target="_blank" rel="noopener noreferrer">{SYSTEM_CONCEPT_SOURCE.attribution}<ArrowUpRight size={14} /></a>. The existing System Forge tracker is unchanged.</p>
+        <p><strong>{systemConceptGroups.length} sections / {systemConcepts.length} concept placements.</strong></p>
       </div>
       {groupId && <a className="text-link" href="#/system-concepts">Show all concept sections<ArrowRight size={14} /></a>}
     </div>
@@ -44,7 +43,6 @@ export function SystemConceptsPage({ groupId }: { groupId?: string }) {
       <button type="button" className="button secondary" disabled={!query} onClick={() => setQuery('')}>Clear search</button>
       <span role="status">{groups.length} of {systemConceptGroups.length} sections</span>
     </div>
-    <p className="system-concept-reading">Sections follow the document's reading route. Branches group related concepts; they are not prerequisite or completion gates. Source terminology is retained, including the older replication labels.</p>
     <div className="system-concept-browser-grid">
       {groups.map(group => <section key={group.id} className={`system-concept-card ${group.color}`} data-concept-group={group.id}>
         <span className="system-concept-order">{String(systemConceptGroups.indexOf(group) + 1).padStart(2, '0')}{group.overview ? ' / PATTERN OVERVIEW' : ''}</span>
@@ -56,7 +54,6 @@ export function SystemConceptsPage({ groupId }: { groupId?: string }) {
     {!groups.length && <p className="system-concept-empty">No concepts match that search. Clear it to see the complete map.</p>}
     <aside className="system-concept-related"><h2>Related tracks from the source</h2>
       <div>{systemRelatedTracks.map(track => <a key={track.title} href={track.url} target="_blank" rel="noopener noreferrer">{track.title}<ArrowUpRight size={14} /></a>)}</div>
-      <p>These are further-reading links, not extra required checkpoints.</p>
     </aside>
   </div>;
 }

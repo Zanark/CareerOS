@@ -1,0 +1,88 @@
+{
+  "status": "local-review-ready",
+  "date": "2026-11-20",
+  "workstream": "calm-change-guide",
+  "document": {
+    "sections": 13,
+    "wordsIncludingInventory": 3210,
+    "figures": 18,
+    "pdfPages": 24,
+    "offlineHtml": true,
+    "fullSizeImageViewer": true,
+    "inventoryRoutes": 29
+  },
+  "capture": {
+    "baselineRoutes": 28,
+    "currentRoutes": 29,
+    "freshCommittedBaselineFrames": 7,
+    "currentFrames": 18,
+    "rawFramesUsed": 25,
+    "archivedReferencesExcluded": 7,
+    "matchedDemonstrationFixture": true,
+    "laterAcademicExamplesSeparated": true,
+    "typeScaleBeforeAndAfter": "1.5"
+  },
+  "qualification": {
+    "documentBrowserContexts": 3,
+    "documentOverflow": 0,
+    "externalRequests": 0,
+    "pageErrors": 0,
+    "all18ImagesDecodedPerContext": true,
+    "keyboardImageViewerAndTableScroll": true,
+    "pdfHeadingsPreserved": 13,
+    "pdfInventoryRoutesPreserved": 29,
+    "pdfJpegBytesUnchanged": 18,
+    "allFigureCaptionsOnSamePage": true,
+    "pdfOutOfPageWords": 0,
+    "sourceArchiveFilesContentMatched": 245,
+    "snapshotDifferencesLimitedToWindowsLineEndings": true
+  },
+  "visualReview": {
+    "sourceContactSheets": 4,
+    "selectedFreshBaselineAndGuideFigures": [
+      "V01",
+      "V03",
+      "V12"
+    ],
+    "htmlFrames": [
+      "desktop-comparison",
+      "phone-full-size-viewer"
+    ],
+    "all24PdfPageLayoutsContactReviewed": true,
+    "pdfContactSheets": 4,
+    "fullSizePdfPages": [
+      2,
+      18,
+      23
+    ],
+    "everyPdfPageReadAtFullSize": false
+  },
+  "meaningReview": {
+    "deletedVersusDisclosedVersusTutorialSeparated": true,
+    "navigationBaselineCorrected": true,
+    "newFeaturesNotMislabelledAsCleanup": true,
+    "warningsAndIntentionalStudyContentRetained": true,
+    "fewerWordsNotTreatedAsPreservationProof": true,
+    "greenCompletionNotCalledMastery": true,
+    "demonstrationsNotCalledOwnerBrowserRecords": true,
+    "historicalChecksNotCalledNewFullAppPass": true
+  },
+  "preservation": {
+    "websiteSourceUnchangedByReport": true,
+    "runtimeTestFingerprint": "d28ecb37c3e3a4812b8d493115fd94b983076634019e3b7beb3938274d723e5c",
+    "changedRuntimeTestFiles": 65,
+    "userPreviewsRetained": true,
+    "temporaryBaselineStopped": true,
+    "temporaryDependencyJunctionRemoved": true,
+    "ownerBrowserAccessed": false,
+    "savedDemoDataUnchanged": true
+  },
+  "publication": {
+    "stagedFiles": 0,
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "reportBodyOrImagesUploaded": false,
+    "humanApprovalRecorded": false
+  }
+}

@@ -1,0 +1,80 @@
+Workstream ID: calm-change-guide
+Title: Document the local interface changes with real before-and-after screenshots
+Status: IN_REVIEW
+Milestone: Deliver a private screenshot-led change guide and complete page inventory
+Dependencies: calm-interface, omscs-specializations
+GitHub issue: https://github.com/Zanark/CareerOS/issues/17
+Purpose: Explain what the local CareerOS candidate removed, moved, disclosed,
+  retained or added. Reuse verified pre-cleanup evidence and capture matching
+  current views in disposable workspaces. Distinguish the interface cleanup
+  from later academic behavior changes; do not alter the website for the report.
+
+Tasks:
+  [x] Establish the published-code baseline and current local source boundary.
+  [x] Locate preserved before captures and their original fixture/audit method.
+  [x] Review the actual source diff and classify changes across all routes.
+  [x] Capture current matched views and on-demand interaction states safely.
+  [x] Show later academic additions separately from presentation cleanup.
+  [x] Build economical contact sheets, selected crops and explanatory captions.
+  [x] Produce a visual guide with a complete page-by-page disposition inventory.
+  [x] Inspect offline HTML/PDF, screenshot integrity, provenance and legibility.
+  [x] Verify source/data/previews and prepare the same-identity tracking read-back.
+
+Acceptance criteria:
+  Every screenshot is a real application capture with explicit source/viewport/
+    fixture provenance. Historical before images are not relabelled as fresh.
+  Compare matching legacy-empty demonstration state for cleanup views. Show
+    cold-start academic defaults separately, not as evidence of text removal.
+  Do not read, reset, import or automate the owner's actual browser/profile.
+    Demonstration values and public starter examples are not live private records.
+  Cover all previously audited normal routes and the new specialization route.
+    Selected screenshots illustrate the inventory; do not imply every state or
+    every hidden field was individually pictured.
+  Clearly distinguish deleted redundancy, contextual help, native disclosures,
+    tutorial teaching, navigation movement, unchanged content and new behavior.
+  Preserve important warnings, actual study/record content, typography and data
+    semantics. Do not equate fewer visible words with proof of preservation.
+  Crops/highlights remain labelled derivatives; retain raw frames and never
+    redraw controls or fabricate before/after differences.
+  The guide works offline with legible screenshot detail, captions and a PDF.
+    Use contact sheets and selected detail review instead of excessive image views.
+  No application edits, source staging/commit/push/deployment or public image/
+    report upload. Preserve user previews and stop only owned temporary helpers.
+  Only generic public-safe metadata is mirrored into the original issue/item;
+    private paths, screenshots, report bodies and academic values stay local.
+
+Completion evidence:
+  Private guide is technically ready for review:13sections,18labelled figures,
+    25real frames,29-route disposition inventory and24-page PDF plus offline
+    HTML/Markdown. Seven fresh committed-baseline frames replace historical
+    references that already contained an early navigation move.
+  All245archived baseline inputs match committed content with Windows line
+    endings only; the captured snapshot matches the source archive byte-for-byte.
+    Baseline28/current29route audits preserve demo data without errors/overflow.
+    Later cold academic examples are explicitly separate, not a cleanup metric.
+  Three document viewports qualify all18embedded images, internal navigation,
+    keyboard full-size image reading and table scrolling with no page errors,
+    external requests or document overflow. PDF retains13headings/29routes/
+    all18original JPEG byte streams, same-page captions and zero out-of-page
+    words. Four PDF contact sheets and full-size pages2/18/23 were inspected;
+    this is not a full-size reading claim for all24pages.
+  Website fingerprintd28ecb37...d723e5c/65runtime-test files and HEAD475b600
+    remain unchanged. Both original user previews remain responsive. The owned
+    baseline helper is stopped and its dependency junction removed; no package
+    install, owner profile access, actual record edit or source publication.
+  Generic proof: docs/tracking/2026-11-20-visual-guide-local-review.json.
+    Private bodies/images/paths/academic values are excluded from tracking.
+    Closing same-identity status verification follows the reviewed preview/apply;
+    owner visual approval and any source publication remain separate.
+
+Completion log:
+  2026-11-20 - Completed the local visual guide and all29route dispositions.
+    Contact review caught an incorrect potential before-navigation comparison;
+    fresh committed-source captures corrected the provenance without changing
+    the app or relabelling historical frames. Source/archive content, actual
+    offline document behavior and native PDF text/images/layout now qualify.
+    Preserve the original issue17/item and move only to In review, not Done.
+  2026-11-20 - Owner requests a screenshot-led explanation of the minimized
+    local interface. Initially reuse authentic baseline captures where valid;
+    the later contact review requires a brief isolated committed-source helper
+    for correct navigation provenance. Keep academic changes separate.

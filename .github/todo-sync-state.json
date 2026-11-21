@@ -184,6 +184,104 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "calm-interface": {
+      "issueNumber": 14,
+      "issueId": "I_kwDOU6lJns8AAAABg3LW9g",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/14",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKTsIw",
+      "baseline": {
+        "managed": "73cc8035327158b41962d770156536f37dcd138372626985fb30a4cfd25a75da",
+        "title": "Make normal CareerOS pages calmer and action-first",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "omscs-specializations": {
+      "issueNumber": 15,
+      "issueId": "I_kwDOU6lJns8AAAABg7U7cw",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/15",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKXrcM",
+      "baseline": {
+        "managed": "78311923de456b3c5b02d8773e1399dd2901296de91786cb78601eb3038633d5",
+        "title": "Compare six OMSCS specializations and persist an academic starter",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "omscs-ml-vs-ai": {
+      "issueNumber": 16,
+      "issueId": "I_kwDOU6lJns8AAAABg8OlLA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/16",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "baseline": {
+        "managed": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97",
+        "title": "Research OMSCS Machine Learning versus Artificial Intelligence",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "calm-change-guide": {
+      "issueNumber": 17,
+      "issueId": "I_kwDOU6lJns8AAAABhBQRtQ",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/17",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKdhX4",
+      "baseline": {
+        "managed": "ea13ebc75ec4bc15cc756541da36cd637ce934ecb3c8552469f527bc7c31e877",
+        "title": "Document the local interface changes with real before-and-after screenshots",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "sitewide-visual-polish": {
+      "issueNumber": 18,
+      "issueId": "I_kwDOU6lJns8AAAABhJ_4qA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/18",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKlubA",
+      "baseline": {
+        "managed": "6fa4d8aa0b40e98c169e6ba03b5479f8fc6033c09c180d235473a4f63b78b957",
+        "title": "Refine every CareerOS page into a polished minimal interface",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "godot-game-development": {
+      "issueNumber": 19,
+      "issueId": "I_kwDOU6lJns8AAAABhMmPJQ",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/19",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKoCVM",
+      "baseline": {
+        "managed": "4fb0ea9858d0d197081e5a07075c68842d14fbf00e839760ba1c88bd1337e1dc",
+        "title": "Add a Planned Godot-first Game Development mission and multiplayer capstone",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "current-site-publication": {
+      "issueNumber": 20,
+      "issueId": "I_kwDOU6lJns8AAAABhOAljg",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/20",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKpO-Y",
+      "baseline": {
+        "managed": "79781fd5117945966823e6fef285176dc0710c2e664662dc0e7bc7ba14094ba8",
+        "title": "Publish the current CareerOS website and refresh its illustrated README",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

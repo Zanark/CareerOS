@@ -6,7 +6,7 @@ import {
 import { getMission } from '../domain/catalog';
 import { getSaveState } from '../domain/engine';
 import type { AppState } from '../domain/types';
-import { Modal } from '../components';
+import { ContextHelp, Modal } from '../components';
 import type { Discovery, DiscoveryDay, DiscoverySnapshot, DiscoverySource, DiscoveryTrack, WayfinderRun } from './model';
 import { discoveryTracks } from './model';
 import { DiscoverySeal } from './DiscoverySeal';
@@ -58,7 +58,7 @@ function CollectionMap({ snapshot }: { snapshot: DiscoverySnapshot }) {
       <g className="map-coordinate"><path d="M24 39V24h15M581 24h15v15M24 419v15h15M581 434h15v-15" /><circle cx="310" cy="24" r="2" /><circle cx="310" cy="434" r="2" /></g>
     </svg>
     <div className="discovery-map-center" aria-hidden="true"><Gem size={18} /><strong>{snapshot.earned}<span>/{snapshot.total}</span></strong><span>DISCOVERED</span></div></div>
-    <figcaption><span className="map-key-dot" />One star per discovery. Lit by saved work, not screen time.</figcaption>
+    <figcaption><span className="map-key-dot" />Saved-work discoveries</figcaption>
   </figure>;
 }
 
@@ -82,14 +82,14 @@ function DiscoveryDetail({ discovery, index, onClose, missionHref }: { discovery
     className="discovery-modal" restoreFocus onClose={onClose}>
     <div className="discovery-detail-body" data-tour="discovery-detail" data-discovery-id={discovery.id}>
       <div className="discovery-detail-seal"><DiscoverySeal discovery={discovery} index={index} revealed={visible} />{earned ? <span className="discovery-earned-label"><Check size={14} />Discovered {dateLabel(discovery.earnedAt!)}</span> : <span className="discovery-mystery-label"><LockKeyhole size={13} />The name is hidden until you discover it or reveal the trail.</span>}</div>
-      {!visible ? <div className="discovery-clue"><span className="eyebrow">YOUR CLUE</span><p>{discovery.clue}</p><button className="button secondary" data-tour="discovery-reveal" onClick={() => setRevealed(true)}><Eye size={16} />Reveal the trail</button><small>Looking never earns a discovery or changes your records.</small></div>
+      {!visible ? <div className="discovery-clue"><span className="eyebrow">YOUR CLUE</span><p>{discovery.clue}</p><button className="button secondary" data-tour="discovery-reveal" onClick={() => setRevealed(true)}><Eye size={16} />Reveal the trail</button></div>
         : <section className="discovery-requirement" data-tour="discovery-requirement"><span className="eyebrow">THE TRAIL</span><p>{discovery.requirement}</p>
           <div className="discovery-detail-progress"><strong>{discovery.current}<span> / {discovery.target}</span></strong><span>{discovery.unit}</span></div>
           <div className="discovery-progress" role="progressbar" aria-label="Discovery requirement" aria-valuenow={discovery.current} aria-valuemin={0} aria-valuemax={discovery.target}><span style={{ width: `${discovery.current / discovery.target * 100}%` }} /></div>
         </section>}
       {visible && <section className="discovery-proof" data-tour="discovery-proof"><span className="eyebrow"><Fingerprint size={13} />{earned ? 'WHY THIS WAS DISCOVERED' : 'YOUR SUPPORTING RECORDS'}</span>
-        {discovery.sources.length ? <SourceList sources={discovery.sources} /> : <p>No qualifying records yet. Do the real work first; then describe it honestly in the existing tools.</p>}
-        <p className="discovery-proof-note">These are your recorded observations, not an independent assessment. A later Needs review result does not erase an earlier discovery or claim you are currently retained.</p>
+        {discovery.sources.length ? <SourceList sources={discovery.sources} /> : <p>No qualifying records yet.</p>}
+        <p className="discovery-proof-note">Saved observations, not an independent assessment. Later recall changes do not erase earlier discoveries.</p>
       </section>}
       <div className="discovery-detail-actions"><a className="button primary" href={href}>{discovery.track === 'memory' ? 'Open recall practice' : discovery.track === 'rhythm' ? 'Open my daily plan' : 'Continue my mission'}<ArrowRight size={15} /></a><button className="button secondary" data-tour="discovery-close" onClick={onClose}>Back to the atlas</button></div>
     </div>
@@ -102,7 +102,8 @@ function ActivityRibbon({ snapshot }: { snapshot: DiscoverySnapshot }) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const selected: DiscoveryDay | undefined = snapshot.recentDays.find(day => day.date === selectedDate);
   return <section className="discovery-activity" data-tour="discovery-activity">
-    <div className="discovery-section-heading"><div><span className="eyebrow">THE LAST 28 DAYS</span><h2>A rhythm, not a streak.</h2></div><div className="discovery-day-total"><strong>{snapshot.recordedDays}</strong><span>recorded days<br />across your saved history</span></div></div>
+    <div className="discovery-section-heading"><div><span className="eyebrow">THE LAST 28 DAYS</span><div className="context-heading"><h2>Recorded days</h2>
+      <ContextHelp title="Recorded days">A filled tile means evidence or recall was saved that day. Extra notes do not brighten it. Gaps never subtract discoveries. Select a day to inspect its actual records.</ContextHelp></div></div><div className="discovery-day-total"><strong>{snapshot.recordedDays}</strong><span>recorded days<br />across your saved history</span></div></div>
     <div className="discovery-day-grid" role="group" aria-label="Recorded learning days; use arrow keys to explore">
       {snapshot.recentDays.map((day, index) => {
         const count = day.evidence + day.recalls;
@@ -122,9 +123,8 @@ function ActivityRibbon({ snapshot }: { snapshot: DiscoverySnapshot }) {
     </div>
     <div className="discovery-day-range"><span>{dateLabel(snapshot.recentDays[0].date)}</span><span>{dateLabel(snapshot.recentDays.at(-1)!.date)}</span></div>
     {selected && <div className="discovery-day-detail" data-tour="discovery-day-detail"><div><h3>{dateLabel(selected.date)}</h3><span>{selected.evidence} evidence · {selected.recalls} recalls · {selected.checkpoints} distinct checkpoints</span></div>
-      {selected.sources.length ? <><SourceList sources={selected.sources} limit={5} />{selected.evidence + selected.recalls > selected.sources.length && <p className="muted small">Showing the first five records. Open Saved work or Recall practice for the full history.</p>}</> : <p>No learning record on this date. That does not mean you did no work.</p>}
+      {selected.sources.length ? <><SourceList sources={selected.sources} limit={5} />{selected.evidence + selected.recalls > selected.sources.length && <p className="muted small">First five records. Full history is in Saved work or Recall practice.</p>}</> : <p>No saved learning record on this date.</p>}
     </div>}
-    <p className="discovery-activity-note">One filled tile means evidence or recall was saved that day. More notes do not make a day brighter. Gaps never subtract discoveries.</p>
   </section>;
 }
 
@@ -153,12 +153,10 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
     <div className="discovery-masthead"><span><Compass size={17} />DISCOVERY ATLAS</span><span>COLLECTION 01 <i /> {snapshot.total} FINITE DISCOVERIES</span></div>
     <Wayfinder snapshot={snapshot} request={levelUp} onRequestViewed={onLevelUpViewed} />
     <section className="discovery-hero" data-tour="discovery-intro">
-      <div className="discovery-hero-copy"><span className="discovery-overline"><span />YOUR WORK LEAVES A SIGNAL</span>
-        <h1>Small steps.<br /><em>Lasting signals.</em></h1>
-        <p>A hidden collection, brought to light by the work you actually record. Make something. Go deeper. Meet it again.</p>
-        <div className="discovery-hero-progress"><span>{Math.round(snapshot.earned / snapshot.total * 100)}<small>%</small></span><div><strong>of this collection discovered</strong><small>Not a score of your career or ability.</small></div></div>
+      <div className="discovery-hero-copy"><div className="context-heading"><h1>Discovery Atlas</h1>
+        <ContextHelp title="Discovery Atlas">A finite collection revealed by saved evidence and recall, not screen time or browsing. Names can be revealed without earning anything. Discoveries and fictional Wayfinder levels are not measures of career ability; gaps never remove them.</ContextHelp></div>
+        <div className="discovery-hero-progress"><span>{Math.round(snapshot.earned / snapshot.total * 100)}<small>%</small></span><div><strong>of this collection discovered</strong></div></div>
         <button className="discovery-hero-link" onClick={() => collection.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })}>Explore your collection<ArrowRight size={17} /></button>
-        <div className="discovery-hero-foot"><LockKeyhole size={13} />Private records. No countdown. No points to lose.</div>
       </div>
       <CollectionMap snapshot={snapshot} />
     </section>
@@ -172,7 +170,7 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
       })}
     </div>
     <section className="discovery-collection" ref={collection} data-tour="discovery-collection">
-      <div className="discovery-section-heading"><div><span className="eyebrow">THE COLLECTION</span><h2>{track === 'all' ? 'There is more beneath the surface.' : discoveryTracks.find(item => item.id === track)!.title}</h2></div><span className="discovery-collection-count">{snapshot.earned} / {snapshot.total} discovered</span></div>
+      <div className="discovery-section-heading"><div><h2>{track === 'all' ? 'Collection' : discoveryTracks.find(item => item.id === track)!.title}</h2></div><span className="discovery-collection-count">{snapshot.earned} / {snapshot.total} discovered</span></div>
       <div className="discovery-filters" data-tour="discovery-filters"><div role="group" aria-label="Discovery status">{([['all', 'All signals'], ['earned', 'Discovered'], ['hidden', 'Undiscovered']] as const).map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div>
         {track !== 'all' && <button className="discovery-reset-filter" data-tour="discovery-all-families" onClick={() => chooseTrack('all')}>All families<ArrowRight size={14} /></button>}<span role="status">{filtered.length} {filtered.length === 1 ? 'signal' : 'signals'}</span>
       </div>
@@ -191,17 +189,16 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
           <span className="discovery-card-bottom">{earned ? <time dateTime={discovery.earnedAt!}>{dateLabel(discovery.earnedAt!)}</time> : <span>Follow the clue <span>{discovery.current}/{discovery.target}</span></span>}<ChevronRight size={16} /></span>
           <span className="discovery-card-meter" aria-hidden="true"><i style={{ width: `${discovery.current / discovery.target * 100}%` }} /></span>
         </button>;
-      })}</div> : <div className="discovery-empty"><Sparkles size={26} /><h3>{filter === 'earned' ? 'Your first signal is still ahead.' : 'This part of the collection is discovered.'}</h3><p>{filter === 'earned' ? 'Explore a clue, then return to the real practice. Opening cards never earns a discovery.' : 'There is no timer to beat. Keep doing work that matters to you.'}</p><button className="button secondary" onClick={() => { setTrack('all'); setFilter('all'); }}>Show all signals</button></div>}
+      })}</div> : <div className="discovery-empty"><Sparkles size={26} /><h3>{filter === 'earned' ? 'No discoveries in this view.' : 'This part of the collection is discovered.'}</h3><button className="button secondary" onClick={() => { setTrack('all'); setFilter('all'); }}>Show all signals</button></div>}
     </section>
     <div className="discovery-bottom-grid"><ActivityRibbon snapshot={snapshot} />
       <aside className="discovery-next" data-tour="discovery-next"><span className="eyebrow"><Compass size={14} />YOUR REAL NEXT STEP</span><span className="discovery-next-operation">{mission.operation}</span><h2>{progress.blocker ? 'Work with the blocker.' : save.checkpoint && progress.status !== 'completed' ? save.checkpoint.title : 'Revisit what you have made.'}</h2>
         <p>{progress.blocker || (save.checkpoint && progress.status !== 'completed' ? save.checkpoint.action : 'Open your saved work and choose something worth revisiting. Discoveries never replace your completion criteria.')}</p>
         <a className="button primary" href={progress.status === 'completed' ? '#/evidence' : missionHref}>{progress.status === 'completed' ? 'Open saved work' : 'Open current checkpoint'}<ArrowUpRight size={15} /></a>
         <a className="discovery-recall-link" href="#/recall">Revisit learning in Recall practice<ArrowRight size={14} /></a>
-        <p className="discovery-next-note">Your actual mission comes first. You never need to change focus or rush a checkpoint for a collectible.</p>
       </aside>
     </div>
-    <details className="discovery-rules" data-tour="discovery-rules"><summary><Info size={16} />A collection of records, not a measure of your worth.</summary><div>
+    <details className="discovery-rules" data-tour="discovery-rules"><summary><Info size={16} />Discovery rules</summary><div>
       <p>Discoveries are recalculated from saved evidence and recall. Existing records can reveal them immediately. Viewing, filters, timers, tutorial progress, readiness ratings and application stages do not earn them.</p>
       <p>Distinct checkpoints are counted by exact roadmap identity; only the verified unchanged DSA append shares an identity. Multiple same-day records count as one recorded day, using this browser&apos;s local calendar. Later calendar days are excluded.</p>
       <p>A discovery remembers a qualifying event in the records you currently hold. It is not a claim of current retention: a later Needs review still matters in Recall practice. There are no penalties for gaps, no currency, deadlines or leaderboard.</p>

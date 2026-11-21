@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
-import { ClipboardCopy, Info, LockKeyhole, Plus } from 'lucide-react';
+import { ClipboardCopy, LockKeyhole, Plus } from 'lucide-react';
 import { getCheckpoint, getMissionVersion, recordRoadmapVersion } from './domain/catalog';
 import { recordChange, recordEvidence, recordRecall, recallSummary } from './domain/engine';
 import type {
@@ -131,7 +131,7 @@ export function FreelancePage({ state, commit, practice = false }: { state: AppS
   }
 
   return <>
-    <PageHeading eyebrow="SIDE INCOME · OPPORTUNITY LEDGER" title="Freelance opportunities" description="Research leads before you apply. Classifications are your judgment, not an automatic score.">
+    <PageHeading eyebrow="SIDE INCOME" title="Freelance opportunities" help="This ledger records research, not applications or paid work. Verdicts are your judgment, not an automatic fit score. Select five leads to copy a review brief; the selection clears on reload.">
       <button className="button primary" data-tour="freelance-add" onClick={() => setShowAdd(true)}><Plus size={16} />Add opportunity</button>
     </PageHeading>
     {practice && opportunities.length < RESEARCH_TARGET && <button className="button secondary practice-example"
@@ -145,7 +145,6 @@ export function FreelancePage({ state, commit, practice = false }: { state: AppS
             notes: 'Fictional tutorial example, not a real opportunity.', createdAt: new Date().toISOString(),
           }))],
       }, 'Tutorial research examples added', 'income'))}>Fill research examples</button>}
-    <div className="operation-tools-note"><Info size={16} /><p>Research the market first. A lead sitting here is not an application, a commitment, or a sign of readiness &mdash; it is only a note to look into further.</p></div>
     <div className="operation-tools-stats">
       <div className="operation-tools-stat"><strong>{opportunities.length} / {RESEARCH_TARGET}</strong><span>Collected vs. this sprint's research target</span></div>
       <div className="operation-tools-stat"><strong>{classifiedCount} / {opportunities.length}</strong><span>Classified (verdict set beyond Unreviewed)</span></div>
@@ -181,7 +180,7 @@ export function FreelancePage({ state, commit, practice = false }: { state: AppS
       : <Empty title="No opportunities yet.">Add a lead from a freelance platform to start this sprint's research.</Empty>}
     <div className="freelance-brief" data-tour="freelance-brief">
       <SectionTitle eyebrow="LOCAL REVIEW BRIEF" title="Selected opportunities" />
-      <p className="muted small">Select exactly {MAX_BRIEF_SELECTION} rows above to build a plain-text brief for your own review. This selection is not saved and clears on reload.</p>
+      <p className="muted small">{selected.length} / {MAX_BRIEF_SELECTION} selected. Selection is temporary.</p>
       <textarea readOnly rows={8} value={briefText || 'Select opportunities above to generate a brief.'} aria-label="Review brief text" />
       <div className="freelance-brief-actions">
         <button className="button secondary" data-tour="freelance-copy" disabled={selected.length !== MAX_BRIEF_SELECTION} onClick={copyBrief}><ClipboardCopy size={15} />Copy brief</button>
@@ -305,7 +304,7 @@ export function RecallPage({ state, commit, practice = false }: { state: AppStat
   }
 
   return <>
-    <PageHeading eyebrow="PATTERN / SYSTEM / FIELDCRAFT" title="Spaced recall" description="Check in on what you can still retrieve from memory. This is self-reported, not a new assessment." />
+    <PageHeading eyebrow="PATTERN / SYSTEM / FIELDCRAFT" title="Spaced recall" help="Recall is self-reported. A first independent review is suggested around 24 hours after practice, then another 4-5 days later. Appropriately spaced reviews affect recall status, never checkpoint completion. Only checkpoints with saved work appear here." />
     {practice && !items.length && <div className="panel">
       <p className="muted small">This chapter needs saved work. Add a fictional practice note without completing a checkpoint.</p>
       <button className="button secondary" data-tour="recall-example" disabled={!exampleMission} onClick={() => {
@@ -317,7 +316,6 @@ export function RecallPage({ state, commit, practice = false }: { state: AppStat
       }}>Add tutorial recall example</button>
       {!exampleMission && <p className="muted small">Bring an unblocked DSA or System Design mission into focus first.</p>}
     </div>}
-    <div className="operation-tools-note"><Info size={16} /><p>Rough rhythm: a first review around 24 hours after practice, a second about 4&ndash;5 days later. Two appropriately spaced independent reviews move a checkpoint toward Retained. A later review that doesn't go well simply flags it as Needs review &mdash; it does not delete your checkpoint completion or undo the roadmap. There is no backlog to feel behind on; only checkpoints with saved work appear here.</p></div>
     <div className="recall-filters" data-tour="recall-filters">
       <select aria-label="Filter by mission" value={missionFilter} onChange={event => setMissionFilter(event.target.value as typeof missionFilter)}>
         <option value="all">All missions</option>

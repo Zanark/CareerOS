@@ -9,7 +9,9 @@ import {
 import { freelanceVerdicts, missionIds, opportunityStages, readinessKeys, recallMissionIds } from './types';
 import { createFdeProgress } from './forwardDeployed/mission';
 import { createOmscsProgress } from './omscs/mission';
+import { createGameProgress } from './gameDevelopment/mission';
 import { omscsPlanSchema } from './omscs/model';
+import { createAcademicStarter } from './omscs/starter';
 import { personalProofListSchema } from './personalProofSchema';
 import { focusDurationSchema, focusEventInputSchema, focusRecordSignature, FocusRecordReplacedError, focusSessionsSchema } from './focusSession';
 import type {
@@ -128,7 +130,7 @@ const stateSchema = z.object({
   missions: z.object({
     pattern: progressSchema, system: progressSchema, escape: progressSchema,
     fabric: progressSchema, blueprint: progressSchema, credential: progressSchema,
-    neural: progressSchema, algorithm: progressSchema, income: progressSchema, fde: progressSchema, omscs: progressSchema,
+    neural: progressSchema, algorithm: progressSchema, income: progressSchema, fde: progressSchema, omscs: progressSchema, gamedev: progressSchema,
   }).strict(),
   plans: z.record(dateSchema, z.array(actionSchema).max(3))
     .refine((plans) => Object.keys(plans).length <= MAX_PLAN_DAYS, 'Too many saved plan dates'),
@@ -228,7 +230,13 @@ function validateMissionProgress(
       progress.blocker === '', `${mission.name} is planned and cannot have progress`);
     return;
   }
-  ensure(progress.mode !== 'planned', `${mission.name} has an available roadmap and cannot be planned`);
+  if (progress.mode === 'planned') {
+    ensure(mission.initialMode === 'planned', `${mission.name} has an available roadmap and cannot be planned`);
+    ensure(progress.checkpointId === mission.checkpoints[0]?.id && progress.status === 'not-started' &&
+      progress.completedCheckpointIds.length === 0 && progress.blocker === '',
+    `${mission.name} must remain unstarted while planned`);
+    return;
+  }
   ensure(progress.completedCheckpointIds.length <= mission.checkpoints.length, `Too many completed checkpoints for ${mission.id}`);
   const completedSet = new Set(progress.completedCheckpointIds);
   ensure(completedSet.size === progress.completedCheckpointIds.length, `Duplicate completed checkpoint for ${mission.id}`);
@@ -330,6 +338,7 @@ function validateV2Relations(state: AppState): AppState {
       ensure(checkpoint, `Plan references an unknown checkpoint: ${action.checkpointId}`);
       const progress = getProgressForVersion(state, action.missionId, version);
       ensure(progress, `Plan references a mission/version with no matching progress: ${action.missionId} ${version}`);
+      ensure(progress.mode !== 'planned', `Plan references a planned mission: ${action.missionId}`);
       ensure(referenceable(mission, checkpoint, progress), `Plan references a locked checkpoint: ${action.checkpointId}`);
       ensure(!action.completed || hasCheckpointEvidence(practicedKeys, action.missionId, action.checkpointId, version),
         `Completed action requires evidence: ${action.id}`);
@@ -392,6 +401,7 @@ export function parseState(value: unknown): AppState {
     const additions = {
       ...(!Object.hasOwn(value.missions, 'fde') ? { fde: createFdeProgress() } : {}),
       ...(!Object.hasOwn(value.missions, 'omscs') ? { omscs: createOmscsProgress() } : {}),
+      ...(!Object.hasOwn(value.missions, 'gamedev') ? { gamedev: createGameProgress() } : {}),
     };
     if (Object.keys(additions).length) value = { ...value, missions: { ...value.missions, ...additions } };
   }
@@ -463,6 +473,7 @@ export function createInitialState(sampleData = true, version?: RoadmapVersion):
   const missionProgress = (id: MissionId): MissionProgress => {
     if (id === 'fde') return createFdeProgress();
     if (id === 'omscs') return createOmscsProgress();
+    if (id === 'gamedev') return createGameProgress();
     const mission = version === undefined || version === '3.0.0' || version === '4.0.0' ? getLatestMission(id)
       : getMissionVersion(id, id === 'income' ? '2.0.0' : version);
     return {
@@ -493,7 +504,7 @@ export function createInitialState(sampleData = true, version?: RoadmapVersion):
     freelanceOpportunities: [],
     recalls: [],
   };
-  if (!sampleData) return parseState(state);
+  if (!sampleData) return parseState({ ...state, omscsPlan: createAcademicStarter() });
   for (const id of (['pattern', 'system', 'escape'] as const)) {
     const mission = getMission(id, state);
     const checkpoint = mission.checkpoints.find((candidate) => candidate.id === state.missions[id].checkpointId);
@@ -720,6 +731,7 @@ export function activateCheckpoint(state: AppState, missionId: MissionId, checkp
   const mission = getMission(missionId, next);
   const progress = next.missions[missionId];
   ensure(!mission.planned, 'Cannot activate a checkpoint on a planned mission');
+  ensure(progress.mode !== 'planned', 'Bring this mission into focus before selecting a checkpoint');
   ensure(progress.status !== 'completed', 'This mission is already complete');
   const checkpoint = mission.checkpoints.find((candidate) => candidate.id === checkpointId);
   ensure(checkpoint, `Unknown checkpoint "${checkpointId}" for ${missionId}`);

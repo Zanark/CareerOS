@@ -13,13 +13,14 @@ import { missionIds, opportunityStages, readinessKeys } from './types';
 import type { AppState, MissionId, MissionProgress } from './types';
 import { createFdeProgress } from './forwardDeployed/mission';
 import { createOmscsProgress } from './omscs/mission';
+import { createGameProgress } from './gameDevelopment/mission';
 
 export const LEGACY_ROADMAP_VERSION = '1.0.0' as const;
 const LEGACY_MAX_RECORDS = 5000;
 const LEGACY_MAX_PLAN_DAYS = 3660;
 const LEGACY_MAX_COMPLETED = 5;
 
-export type LegacyMissionId = Exclude<MissionId, 'income' | 'fde' | 'omscs'>;
+export type LegacyMissionId = Exclude<MissionId, 'income' | 'fde' | 'omscs' | 'gamedev'>;
 export const legacyMissionIds = legacyMissions.map((mission) => mission.id) as LegacyMissionId[];
 
 export function isDate(value: string): boolean {
@@ -244,6 +245,7 @@ export function migrateLegacyToLatest(legacy: LegacyV1State): AppState {
   const missions = Object.fromEntries(missionIds.map((id): [MissionId, MissionProgress] => {
     if (id === 'fde') return [id, createFdeProgress()];
     if (id === 'omscs') return [id, createOmscsProgress()];
+    if (id === 'gamedev') return [id, createGameProgress()];
     if (id === 'income') {
       return [id, {
         roadmapVersion: LATEST_ROADMAP_VERSION,

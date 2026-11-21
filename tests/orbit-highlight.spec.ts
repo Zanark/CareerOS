@@ -29,7 +29,16 @@ async function capture(page: Page, scene: Locator) {
   await canvas.scrollIntoViewIfNeeded();
   await page.mouse.move(1, 1);
   await expect.poll(async () => Number(await scene.getAttribute('data-cursor-strength'))).toBe(0);
-  return canvas.screenshot({
+  const bounds = await canvas.evaluate(element => {
+    const rect = element.getBoundingClientRect();
+    return { x: rect.x + scrollX, y: rect.y + scrollY, width: rect.width, height: rect.height };
+  });
+  const x = Math.ceil(bounds.x), y = Math.ceil(bounds.y);
+  const clip = { x, y, width: Math.floor(bounds.x + bounds.width) - x, height: Math.floor(bounds.y + bounds.height) - y };
+  await test.info().attach('canvas-pixel-bounds', { body: JSON.stringify({ bounds, clip }), contentType: 'application/json' });
+  // Outward-rounded element screenshots include a partial pixel of the adjacent toolbar border.
+  return page.screenshot({
+    clip,
     style: '.career-graph-inspector, .career-graph-scene__node-label, .career-graph-scene__orbit-label { visibility: hidden !important; }',
   });
 }
@@ -86,7 +95,9 @@ test('selecting a card or stage visibly lights the whole ring without moving the
   await inspector.getByRole('button', { name: 'Close orbit details', exact: true }).click();
   await expect(scene).toHaveAttribute('data-highlighted-orbit-id', '');
   await expect(scene).toHaveAttribute('data-orbit-highlight-visible', 'false');
-  const cleared = PNG.sync.read(await capture(page, scene));
+  const clearedFrame = await capture(page, scene);
+  await testInfo.attach('after-clearing-selection', { body: clearedFrame, contentType: 'image/png' });
+  const cleared = PNG.sync.read(clearedFrame);
   expect(cleared.data.equals(PNG.sync.read(before).data)).toBe(true);
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(raw);
 });

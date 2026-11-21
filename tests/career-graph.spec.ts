@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { createInitialState, generatePlan, localDate, recordEvidence } from '../src/domain/engine';
+import { createInitialState, generatePlan, localDate, parseState, recordEvidence } from '../src/domain/engine';
 import { missions } from '../src/domain/catalog';
 import type { AppState } from '../src/domain/types';
 import { graphCheckbox, openGraphPanel, searchGraphNodes, setGraphCheckbox, setGraphScope } from './graph-ui';
@@ -18,7 +18,9 @@ async function ready(page: Page) {
 
 async function seed(page: Page, state: AppState) {
   state.plans[localDate()] ??= generatePlan(state);
-  const raw = JSON.stringify(state);
+  const canonical = parseState(state);
+  expect(canonical).toEqual(state);
+  const raw = JSON.stringify(canonical);
   await page.addInitScript(({ key, raw }) => {
     if (!localStorage.getItem(key)) localStorage.setItem(key, raw);
   }, { key, raw });

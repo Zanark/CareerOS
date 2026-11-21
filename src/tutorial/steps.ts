@@ -6,6 +6,7 @@ import { discoverySteps } from './discoverySteps';
 import { fdeSteps } from './fdeSteps';
 import { agentCloudSteps } from './agentCloudSteps';
 import { omscsSteps } from './omscsSteps';
+import { pathsSteps } from './pathsSteps';
 import type { Theme } from '../useTheme';
 
 export interface CheckContext {
@@ -92,6 +93,7 @@ export const chapters: TutorialChapter[] = [
   { id: 'fde', title: 'Fieldcraft / new background mission' },
   { id: 'agent-cloud', title: 'AI Architect / agent-native cloud' },
   { id: 'omscs', title: 'Gold Circuit / Georgia Tech OMSCS' },
+  { id: 'course-choices', title: 'Course choices & contextual help' },
 ];
 
 export const steps: TutorialStep[] = [
@@ -173,7 +175,7 @@ export const steps: TutorialStep[] = [
     id: 'mission-roadmap-intro', chapter: 'mission', kind: 'explain',
     targets: ['mission-roadmap'],
     title: 'A mission roadmap',
-    body: 'Follow the connected nodes downward. Roadmap stage changes which part you inspect. Expand How checkpoint completion works for the evidence-and-criteria rule. Browsing the diagram never changes progress.',
+    body: 'Expand Checkpoint flowchart, then follow the connected nodes downward. Roadmap stage changes which part you inspect. How checkpoint completion works explains the evidence-and-criteria rule. Browsing never changes progress.',
   },
   {
     id: 'mission-full-roadmap', chapter: 'mission', kind: 'explain',
@@ -185,7 +187,7 @@ export const steps: TutorialStep[] = [
     id: 'mission-list', chapter: 'mission', kind: 'explain', route: 'missions',
     targets: ['mission-list'],
     title: 'Find all learning areas',
-    body: 'Missions lists every area using the same mission hues as the graph rings. Use In focus, Background, or Planned to filter it, then open a card for its checkpoint and recorded-work streak. All ten latest curricula are available; Planned can contain older forecast-only trackers until their updates are adopted.',
+    body: 'Missions lists every area using the same mission hues as the graph rings. Use In focus, Background, or Planned to filter it, then open a card for its checkpoint and recorded-work streak. Available curricula can be inspected before adoption; Planned can contain older forecast-only trackers until their updates are adopted.',
   },
   // Evidence
   {
@@ -590,4 +592,5 @@ export const steps: TutorialStep[] = [
   ...fdeSteps,
   ...agentCloudSteps,
   ...omscsSteps,
+  ...pathsSteps,
 ];

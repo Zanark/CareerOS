@@ -49,7 +49,7 @@ test('only matching topics show sourcebook correctness reminders, without changi
     await page.goto(`./#/dsa/${section}`);
     await companion(page).locator('> summary').click();
     await expect(companion(page)).toContainText(text);
-    await expect(page.locator('.dsa-library-intro')).toContainText('50 sections / 939 problem appearances');
+    await expect(page.locator('.dsa-library-intro')).toContainText('50 sections / 939 appearances');
   }
   await page.goto('./#/dsa/13');
   await companion(page).locator('> summary').click();

@@ -27,7 +27,7 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   page.on('pageerror', error => errors.push(error.message));
   await seed(page, createInitialState(false));
   await page.goto('./#/discoveries');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Small steps.Lasting signals.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Discovery Atlas');
   await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');
   await expect(page.locator('.discovery-card')).toHaveCount(24);
   await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-viewer-state', 'ready');
@@ -47,7 +47,7 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   await expect(card).toBeFocused();
   await expect(card).toHaveAttribute('data-earned', 'false');
   await page.getByRole('button', { name: 'Discovered', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Your first signal is still ahead.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'No discoveries in this view.' })).toBeVisible();
   await page.getByRole('button', { name: 'Show all signals', exact: true }).click();
   const today = page.locator('[data-tour="discovery-today"]');
   await today.focus();
@@ -60,7 +60,7 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   await expect(page.locator('.discovery-day').nth(columns)).toBeFocused();
   await page.keyboard.press('Home');
   await page.keyboard.press('Enter');
-  await expect(page.locator('[data-tour="discovery-day-detail"]')).toContainText('does not mean you did no work');
+  await expect(page.locator('[data-tour="discovery-day-detail"]')).toContainText('No saved learning record on this date.');
   expect(await storage(page)).toEqual(before);
   await page.reload();
   await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');

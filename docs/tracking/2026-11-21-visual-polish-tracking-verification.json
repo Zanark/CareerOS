@@ -1,0 +1,68 @@
+{
+  "observedAt": "2026-11-21T01:09:23.668Z",
+  "mode": "independent-read-only",
+  "account": "Zanark",
+  "repository": "Zanark/CareerOS",
+  "workstreams": [
+    {
+      "id": "sitewide-visual-polish",
+      "issue": 18,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKlubA",
+      "state": "open",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "6fa4d8aa0b40e98c169e6ba03b5479f8fc6033c09c180d235473a4f63b78b957"
+    },
+    {
+      "id": "calm-interface",
+      "issue": 14,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKTsIw",
+      "state": "open",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "73cc8035327158b41962d770156536f37dcd138372626985fb30a4cfd25a75da"
+    },
+    {
+      "id": "omscs-specializations",
+      "issue": 15,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKXrcM",
+      "state": "open",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "78311923de456b3c5b02d8773e1399dd2901296de91786cb78601eb3038633d5"
+    },
+    {
+      "id": "omscs-ml-vs-ai",
+      "issue": 16,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "state": "open",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97"
+    },
+    {
+      "id": "calm-change-guide",
+      "issue": 17,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKdhX4",
+      "state": "open",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "ea13ebc75ec4bc15cc756541da36cd637ce934ecb3c8552469f527bc7c31e877"
+    }
+  ],
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "recoveryStateUnchanged": true,
+  "recoverySha256": "319c029a5fe999625125197ba9d97f62c30cdd5b8328b685f26cb5504787ead0",
+  "privateImagesOrOwnerRecordsPublished": false,
+  "humanAcceptanceRecorded": false,
+  "sourcePublicationAuthorized": false
+}

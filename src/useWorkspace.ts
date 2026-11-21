@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createInitialState, generatePlan, localDate, parseState, STORAGE_KEY } from './domain/engine';
 import type { AppState } from './domain/types';
 import { serializeWorkspace } from './workspaceFile';
+import { ACADEMIC_STARTER_KEY, ACADEMIC_STARTER_VERSION, initializeAcademicStarter } from './domain/omscs/starter';
 
 export interface WorkspaceModel {
   state: AppState | null;
@@ -22,12 +23,22 @@ function loadWorkspace() {
   let raw: string | null = null;
   try {
     raw = localStorage.getItem(STORAGE_KEY);
-    const state = raw ? parseState(JSON.parse(raw)) : createInitialState(false);
+    const loaded = raw ? parseState(JSON.parse(raw)) : createInitialState(false);
+    const starter = localStorage.getItem(ACADEMIC_STARTER_KEY);
+    if (starter !== null && starter !== ACADEMIC_STARTER_VERSION) {
+      throw new Error('The academic-start initialization setting is invalid. Existing workspace data has not been reset.');
+    }
+    const state = starter === null ? initializeAcademicStarter(loaded) : loaded;
     const date = localDate();
     if (!state.plans[date]) state.plans[date] = generatePlan(state, date);
     const serialized = serializeWorkspace(state);
     localStorage.setItem(STORAGE_KEY, serialized);
-    return { state, serialized, raw, error: '' };
+    try {
+      localStorage.setItem(ACADEMIC_STARTER_KEY, ACADEMIC_STARTER_VERSION);
+      return { state, serialized, raw, error: '' };
+    } catch (error) {
+      return { state, serialized, raw, error: `Workspace saved, but the academic initialization preference was not saved. ${message(error)}` };
+    }
   } catch (error) {
     return { state: null, serialized: raw, raw, error: message(error) };
   }
@@ -91,6 +102,20 @@ export function useWorkspace(pausePlanning = false): WorkspaceModel {
       return false;
     }
   }
+
+  useEffect(() => {
+    if (!stateRef.current) return;
+    try {
+      const marker = localStorage.getItem(ACADEMIC_STARTER_KEY);
+      if (marker === ACADEMIC_STARTER_VERSION) return;
+      if (marker !== null) throw new Error('The academic-start initialization setting is invalid.');
+      const next = initializeAcademicStarter(stateRef.current);
+      if (next !== stateRef.current && !commit(current => initializeAcademicStarter(current))) return;
+      localStorage.setItem(ACADEMIC_STARTER_KEY, ACADEMIC_STARTER_VERSION);
+    } catch (cause) {
+      setError(`Academic defaults could not finish initialization. Existing records are retained. ${message(cause)}`);
+    }
+  }, []);
 
   useEffect(() => {
     if (!pausePlanning && stateRef.current && !stateRef.current.plans[date]) {

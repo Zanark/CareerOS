@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, FileText, RefreshCw } from 'lucide-react';
 import { Badge, Empty, ExternalLink, MissionIcon, PageHeading } from '../components';
 import { getCheckpoint, getLatestMission, getMission } from '../domain/catalog';
@@ -18,8 +18,7 @@ export function PackPracticeLink({ mission, checkpoint }: { mission: Mission; ch
   if (!pack) return null;
   const unit = packUnitForCheckpoint(mission.id, checkpoint);
   return <aside className="dsa-practice-link" data-tour="pack-practice-link">
-    <BookOpen size={20} /><div><strong>{unit ? 'Practice for this checkpoint' : 'The complete practice roadmap'}</strong>
-      <p>Concepts, worked reasoning, exercises, transfer tasks and source gates. Browsing does not change your saved tracker.</p>
+    <BookOpen size={20} /><div><strong>{unit ? 'Practice for this checkpoint' : 'Practice library'}</strong>
     </div><a className="text-link" data-tour="pack-current-library-open" href={packUnitHref(mission.id, unit?.id)}>Open practice library<ArrowRight size={15} /></a>
   </aside>;
 }
@@ -29,13 +28,14 @@ function StudySection({ section }: { section: PackSection }) {
     <summary>{section.heading}</summary>
     {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
     {section.items.length > 0 && <ul>{section.items.map((item, index) => <li key={index}>{item}</li>)}</ul>}
+    {section.code && <pre className="pack-code" tabIndex={0} role="region" aria-label={`${section.heading} code example`}><code>{section.code}</code></pre>}
   </details>;
 }
 
 function searchableUnit(unit: PackUnit) {
   return [
     unit.title, unit.sourceId, unit.summary, ...unit.concepts, ...unit.criteria, unit.recovery,
-    ...unit.sections.flatMap(section => [section.heading, ...section.paragraphs, ...section.items]),
+    ...unit.sections.flatMap(section => [section.heading, ...section.paragraphs, ...section.items, section.code ?? '']),
     ...unit.exercises.flatMap(exercise => [exercise.title, exercise.task, exercise.check ?? '']),
   ].join(' ').toLowerCase();
 }
@@ -63,12 +63,12 @@ function RelatedPractice({ missionId, unit }: { missionId: PackMissionId; unit: 
 function PracticeIndex() {
   return <div className="pack-practice-page">
     <PageHeading eyebrow="SOURCE-BASED PRACTICE" title="Practice libraries"
-      description="Open a complete curriculum without changing your current checkpoint. Exercises and references are separate from recorded progress." />
+      help="Read curricula and try exercises here. Record evidence or confirm checkpoint completion on your saved tracker; browsing a library never changes progress." />
     <div className="pack-library-grid">
       {roadmapPackOutlines.map(pack => {
         const mission = getLatestMission(pack.missionId);
         return <a key={pack.missionId} href={packUnitHref(pack.missionId)} className={`pack-library-card ${mission.color}`} style={missionAccentStyle(mission.id)}>
-          <MissionIcon mission={mission} /><h2>{mission.name}</h2><p>{pack.title}</p>
+          <MissionIcon mission={mission} /><h2>{mission.name}</h2><p>{mission.operation}</p>
           <span>{pack.units.filter(unit => unit.role === 'checkpoint').length} checkpoints / {pack.exerciseCount} exercises</span>
           <span>{pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources`
             : pack.sourceKind === 'mixed' ? `${pack.pageCount}-page source + ${pack.webSources?.length} public references`
@@ -81,13 +81,13 @@ function PracticeIndex() {
   </div>;
 }
 
-export function PackPracticePage({ state, missionId, entryId }: { state: AppState; missionId?: string; entryId?: string }) {
+export function PackPracticePage({ state, missionId, entryId, practice = false }: { state: AppState; missionId?: string; entryId?: string; practice?: boolean }) {
   if (!missionId) return <PracticeIndex />;
   if (!isPackMissionId(missionId)) return <Empty title="That practice roadmap was not found."><a href="#/practice">Open the practice libraries</a></Empty>;
-  return <LoadedPractice key={missionId} state={state} missionId={missionId} entryId={entryId} />;
+  return <LoadedPractice key={missionId} state={state} missionId={missionId} entryId={entryId} practice={practice} />;
 }
 
-function LoadedPractice({ state, missionId, entryId }: { state: AppState; missionId: PackMissionId; entryId?: string }) {
+function LoadedPractice({ state, missionId, entryId, practice }: { state: AppState; missionId: PackMissionId; entryId?: string; practice: boolean }) {
   const mission = getLatestMission(missionId);
   const active = getMission(missionId, state);
   const outline = getPackOutline(missionId);
@@ -123,61 +123,70 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
   const currentCheckpoint = unit?.role === 'checkpoint' &&
     state.missions[missionId].checkpointId === packCheckpointId(missionId, unit.id);
   const unitResearch = research || Boolean(unit?.sourceIds?.length);
+  const readerFirst = Boolean(entryId) && !practice;
+  const sharedGuide = pack && <details className="pack-shared-guide" data-tour="pack-shared-guide">
+    <summary>Study &amp; review guide</summary>
+    {pack.commonSections.map((section, index) => <StudySection key={index} section={section} />)}
+    <p>The source's capability states describe evidence quality, not automatically assigned app statuses. The site does not grade answers, run labs, assess interviews or verify credentials.</p>
+  </details>;
 
   return <div className={`pack-practice-page ${mission.color}`} style={missionAccentStyle(mission.id)} data-tour="pack-library">
     <PageHeading eyebrow={`${mission.operation.toUpperCase()} / COMPLETE PRACTICE`} title={`${mission.name} practice`}
-      description={outline?.overview ?? mission.description}>
+      help={outline?.overview ?? mission.description}>
       <a className="button secondary" href={`#/mission/${missionId}`}>My saved tracker<ArrowRight size={15} /></a>
       {academic && <a className="button secondary" href="#/omscs">Semester companion<ArrowRight size={15} /></a>}
     </PageHeading>
-    <div className="pack-source-notice">
+    <details className="pack-library-browser" data-tour="pack-browser" open={!readerFirst || Boolean(pack && !unit)}>
+      <summary>Browse this library</summary>
+      <div className="pack-browser-content"><div className="pack-source-notice">
       <p><strong>{outline?.units.filter(candidate => candidate.role === 'checkpoint').length} curriculum checkpoints / {outline?.exerciseCount} exercises.</strong>
-        {' '}Practice banks and references are also included, without extra completion credit.</p>
-      <p><span className="pack-source-name">{outline?.document}</span> / {research ? `${outline?.webSources?.length} primary sources; original research synthesis, not a PDF.`
+      </p>
+      <details><summary>Sources / saved tracker v{active.roadmapVersion}</summary><p><span className="pack-source-name">{outline?.document}</span> / {research ? `${outline?.webSources?.length} primary sources; original research synthesis, not a PDF.`
         : mixed ? `${outline?.pageCount} original pages plus ${outline?.webSources?.length} public extension sources; web lessons have no invented PDF pages.`
           : `${outline?.pageCount} pages.`}
-        {' '}Your saved tracker is v{active.roadmapVersion}. Reading ahead does not adopt the new edition or advance your checkpoint.</p>
+        {' '}Reading ahead does not adopt an edition or advance your checkpoint.</p></details>
       <div className="button-row"><a className="text-link" href="#/practice">All practice libraries</a>
         <a className="text-link" href={`#/sources/${missionId}`}>Source notes and tracker update</a></div>
-    </div>
+      </div>
+      {pack && <>
+        <div className="pack-filters">
+          <label>Search this roadmap<input type="search" value={query} onChange={event => setQuery(event.target.value)}
+            placeholder="Topic or exercise" /></label>
+          <label>Stage or reference group<select value={phase} onChange={event => setPhase(event.target.value)}>
+            <option value="">All groups</option>{pack.phases.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
+          </select></label>
+          <label>Material<select value={role} onChange={event => setRole(event.target.value)}>
+            <option value="">All material</option><option value="checkpoint">Curriculum checkpoints</option>
+            <option value="practice">Practice banks and cases</option><option value="reference">Supporting references</option>
+          </select></label>
+        </div>
+        <div className="pack-unit-chooser">
+          <label>Module, exercise bank or reference<select aria-label="Practice module or reference" data-tour="pack-unit-select" value={unit?.id ?? ''}
+            onChange={event => { window.location.hash = packUnitHref(missionId, event.target.value); }}>
+            {!unit && <option value="" disabled>Choose a source unit</option>}
+            {unit && !visible.some(candidate => candidate.id === unit.id) && <option value={unit.id}>Selected (outside filters): {unit.sourceId} - {unit.title}</option>}
+            {pack.phases.map(item => <optgroup key={item.id} label={item.title}>
+              {visible.filter(candidate => candidate.phaseId === item.id).map(candidate =>
+                <option key={candidate.id} value={candidate.id}>{candidate.sourceId} - {candidate.title}{candidate.role === 'checkpoint' ? '' : ` (${candidate.role})`}</option>)}
+            </optgroup>)}
+          </select></label>
+          <p role="status">{visible.length} matching source units. Filters narrow the chooser; the selected lesson stays open.</p>
+          {!!(query || phase || role) && <button className="text-button" onClick={() => { setQuery(''); setPhase(''); setRole(''); }}>Clear filters</button>}
+          {current && current.id !== unit?.id && <a className="text-link" href={packUnitHref(missionId, current.id)}>Current checkpoint's practice<ArrowRight size={15} /></a>}
+        </div>
+      </>}</div>
+    </details>
     {error && <div className="alert error" role="alert"><span>Practice content could not be loaded: {error}</span>
       <button className="button secondary" onClick={() => window.location.reload()}><RefreshCw size={15} />Reload library</button></div>}
     {!pack && !error && <p role="status">Loading this roadmap's study material...</p>}
     {pack && <>
-      <details className="pack-shared-guide" data-tour="pack-shared-guide">
-        <summary>How to use this roadmap: practice, diagnostics and retention</summary>
-        {pack.commonSections.map((section, index) => <StudySection key={index} section={section} />)}
-        <p>The source's capability states describe evidence quality, not automatically assigned app statuses. The site does not grade answers, run labs, assess interviews or verify credentials.</p>
-      </details>
-      <div className="pack-filters">
-        <label>Search this roadmap<input type="search" value={query} onChange={event => setQuery(event.target.value)}
-          placeholder="Topic or exercise" /></label>
-        <label>Stage or reference group<select value={phase} onChange={event => setPhase(event.target.value)}>
-          <option value="">All groups</option>{pack.phases.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
-        </select></label>
-        <label>Material<select value={role} onChange={event => setRole(event.target.value)}>
-          <option value="">All material</option><option value="checkpoint">Curriculum checkpoints</option>
-          <option value="practice">Practice banks and cases</option><option value="reference">Supporting references</option>
-        </select></label>
-      </div>
-      <div className="pack-unit-chooser">
-        <label>Module, exercise bank or reference<select aria-label="Practice module or reference" data-tour="pack-unit-select" value={unit?.id ?? ''}
-          onChange={event => { window.location.hash = packUnitHref(missionId, event.target.value); }}>
-          {!unit && <option value="" disabled>Choose a source unit</option>}
-          {unit && !visible.some(candidate => candidate.id === unit.id) && <option value={unit.id}>Selected (outside filters): {unit.sourceId} - {unit.title}</option>}
-          {pack.phases.map(item => <optgroup key={item.id} label={item.title}>
-            {visible.filter(candidate => candidate.phaseId === item.id).map(candidate =>
-              <option key={candidate.id} value={candidate.id}>{candidate.sourceId} - {candidate.title}{candidate.role === 'checkpoint' ? '' : ` (${candidate.role})`}</option>)}
-          </optgroup>)}
-        </select></label>
-        <p role="status">{visible.length} matching source units. Filters narrow the chooser; the selected lesson stays open.</p>
-        {!!(query || phase || role) && <button className="text-button" onClick={() => { setQuery(''); setPhase(''); setRole(''); }}>Clear filters</button>}
-        {current && current.id !== unit?.id && <a className="text-link" href={packUnitHref(missionId, current.id)}>Current checkpoint's practice<ArrowRight size={15} /></a>}
-      </div>
+      {!readerFirst && sharedGuide}
       {!unit ? <p className="pack-missing" role="alert">That source unit was not found. Choose a module or reference from the roadmap above.</p> : <section className="pack-study-unit" data-tour="pack-study-unit" aria-labelledby="pack-unit-title">
         <div className="pack-unit-meta"><span className="eyebrow"><FileText size={16} />{unit.sourceId} / {academic ? 'UNOFFICIAL STUDY GUIDE' : unitResearch ? 'RESEARCH-BACKED FIELDWORK' : `PDF PAGES ${formatPackPages(unit.pages)}`}</span>
           <Badge>{unit.role === 'checkpoint' ? currentCheckpoint ? 'Your saved checkpoint' : 'Curriculum checkpoint' : 'Practice / reference only'}</Badge></div>
-        <h2 id="pack-unit-title">{unit.title}</h2><p>{unit.summary}</p>
+        <h2 id="pack-unit-title">{unit.title.split('/').map((part, index, parts) => <Fragment key={index}>
+          {part}{index < parts.length - 1 && <>/<wbr /></>}
+        </Fragment>)}</h2><p>{unit.summary}</p>
         {unitResearch && <details className="pack-study-section" data-tour="pack-unit-sources">
           <summary>Reviewed sources for this lesson ({unit.sourceIds?.length ?? 0})</summary>
           <p>{academic ? 'Official program pages and dated sample syllabi inform this original guide. The sequence, practice and criteria are authored here, not assessed answers or an official degree audit.'
@@ -212,6 +221,7 @@ function LoadedPractice({ state, missionId, entryId }: { state: AppState; missio
           {next && <a className="text-link" href={packUnitHref(missionId, next.id)}>{next.sourceId}: {next.title}<ArrowRight size={15} /></a>}
         </nav>
       </section>}
+      {readerFirst && sharedGuide}
       <details className="pack-shared-guide"><summary>Source scope and integration notes</summary>
         <ul>{pack.sourceNotes.map((note, index) => <li key={index}>{note}</li>)}</ul>
       </details>

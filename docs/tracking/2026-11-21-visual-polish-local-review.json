@@ -1,0 +1,149 @@
+{
+  "status": "local-review-ready",
+  "observedAt": "2026-11-21T01:06:49.291670+00:00",
+  "scope": "Research-led local interface refinement; human acceptance and publication remain separate.",
+  "sourceHead": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "runtimeTestFingerprint": "c3773821c969a166dcb27d3e3249060a4e7b2809c8eeceb0147890decf8a1c02",
+  "changedRuntimeTestFiles": 82,
+  "changedFileCountIncludesEarlierLocalWork": true,
+  "ownedUiFilesSinceBaseline": 14,
+  "reviewedPrimaryDesignSources": 14,
+  "researchClaimsLimitedToReviewedGuidance": true,
+  "defaultRouteAudit": {
+    "authoredUrls": 1331,
+    "boundaryUrls": 7,
+    "uniqueUrls": 1338,
+    "urlViewportChecks": 5352,
+    "widths": [
+      {
+        "width": 1440,
+        "theme": "dark",
+        "height": 1000,
+        "routes": 1338,
+        "documentOverflow": 0,
+        "meaningfulControlClipping": 0,
+        "splitHeadingWords": 0,
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "savedDemoDataUnchanged": true
+      },
+      {
+        "width": 320,
+        "theme": "light",
+        "height": 844,
+        "routes": 1338,
+        "documentOverflow": 0,
+        "meaningfulControlClipping": 0,
+        "splitHeadingWords": 0,
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "savedDemoDataUnchanged": true
+      },
+      {
+        "width": 390,
+        "theme": "dark",
+        "height": 844,
+        "routes": 1338,
+        "documentOverflow": 0,
+        "meaningfulControlClipping": 0,
+        "splitHeadingWords": 0,
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "savedDemoDataUnchanged": true
+      },
+      {
+        "width": 768,
+        "theme": "dark",
+        "height": 1000,
+        "routes": 1338,
+        "documentOverflow": 0,
+        "meaningfulControlClipping": 0,
+        "splitHeadingWords": 0,
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "savedDemoDataUnchanged": true
+      }
+    ],
+    "renderedInternalLinkClosure": true,
+    "unknownRenderedLinks": 0,
+    "externalRequests": 0,
+    "realCareerAndWayfinderRenderersReady": true,
+    "sourceUnchangedDuringAudit": true,
+    "scope": "Default source-authored destinations in disposable public-starter contexts. Interactive/populated/saved-record states and manual aesthetic review are separate gates."
+  },
+  "interactiveStateAudit": {
+    "cases": 80,
+    "measuredUiCases": 76,
+    "profileIntegrityCases": 4,
+    "stateTypes": 20,
+    "widths": [
+      1440,
+      768,
+      390,
+      320
+    ],
+    "nativeHeadingWordSplits": 0,
+    "savedDemoDataUnchanged": true,
+    "ownerBrowserAccessed": false
+  },
+  "strictTypeScriptAndProductionBuildPassed": true,
+  "domainTests": 764,
+  "domainTestFiles": 54,
+  "affectedBrowserTests": 28,
+  "fullFinalBrowserTests": 523,
+  "fullFinalBrowserAttempts": 523,
+  "workers": 1,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "topLevelErrors": 0,
+  "visualReview": {
+    "primaryFamilies": 45,
+    "primaryContactWidths": [
+      1440,
+      390
+    ],
+    "finalAcademicStripFrames": 8,
+    "finalNativeStateFrames": 8,
+    "currentRepresentativeCaptures": 180,
+    "manualScope": "Primary-family contact review followed by current-source review of every late-changed strip/dialog family; not full-resolution reading of all bodies."
+  },
+  "retainedDiagnostics": {
+    "originalFullRun": {
+      "passed": 503,
+      "failed": 16,
+      "sourceFingerprint": "e4bf532fb9289b1ab98406d01a7e825a00aaa26a7bf6f4ce74d6bcd6b17a898b"
+    },
+    "semanticSerializationOnlyCases": 9,
+    "closedMenuRoleQueryCases": 4,
+    "trueDuplicateFixtureCases": 2,
+    "partialCanvasBoundaryCaptureCases": 1,
+    "exactSavedByteAndCanvasAssertionsPreserved": true,
+    "noTestSelectionErrorNotCountedAsPass": true
+  },
+  "preserved": {
+    "typeScale": "1.5",
+    "canonicalDarkAndLightThemes": true,
+    "actual3DAndSunMoonBehavior": true,
+    "courseAndLearningSemantics": true,
+    "frozenReportArtifacts": 6,
+    "approvedReadmePackagesAndWorkflowUnchanged": true,
+    "publicJournalBytes": 0
+  },
+  "currentLocalPreviews": [
+    "http://127.0.0.1:4470/CareerOS/",
+    "http://127.0.0.1:4468/CareerOS/"
+  ],
+  "originalPreviewProcessesRetained": true,
+  "actualOwnerBrowserProfileAccessed": false,
+  "privateReportBodiesOrImagesPublished": false,
+  "stagedFiles": 0,
+  "sourceCommitted": false,
+  "pushed": false,
+  "deployed": false,
+  "humanAcceptanceRecorded": false,
+  "limits": [
+    "Finite authored URLs and explicit boundary cases; actual saved-record IDs use fictional examples.",
+    "Disposable local Edge qualification is not physical-device/Safari qualification or complete accessibility conformance."
+  ]
+}

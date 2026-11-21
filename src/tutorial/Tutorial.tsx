@@ -19,6 +19,13 @@ function findOpenDialog(): HTMLElement | null {
 
 function findTarget(targets: string[] | undefined, dialog: HTMLElement | null): HTMLElement | null {
   if (!targets || targets.length === 0) return null;
+  const visibleTarget = (target: HTMLElement): HTMLElement => {
+    let result = target;
+    for (let ancestor = target.closest('details'); ancestor; ancestor = ancestor.parentElement?.closest('details') ?? null) {
+      if (!ancestor.open) result = ancestor.querySelector<HTMLElement>(':scope > summary') ?? result;
+    }
+    return result instanceof HTMLDetailsElement ? result.querySelector<HTMLElement>(':scope > summary') ?? result : result;
+  };
   for (const name of targets) {
     const target = graphTarget(document, name);
     if (!target || target.closest('[hidden]')) continue;
@@ -46,7 +53,7 @@ function findTarget(targets: string[] | undefined, dialog: HTMLElement | null): 
       const references = graphToggle(document, 'References');
       if (records?.checked !== references?.checked) return references;
     }
-    return target;
+    return visibleTarget(target);
   }
   if (targets.includes('career-graph-list')) return document.querySelector('[data-tour="career-graph-list"] button');
   if (targets.includes('career-graph-checkpoints') && !dialog) {
@@ -120,12 +127,12 @@ function findTarget(targets: string[] | undefined, dialog: HTMLElement | null): 
   }
   for (const name of targets) {
     const scoped = dialog?.querySelector<HTMLElement>(`[data-tour="${name}"]`);
-    if (scoped) return scoped instanceof HTMLDetailsElement ? scoped.querySelector('summary') : scoped;
+    if (scoped) return visibleTarget(scoped);
   }
   if (dialog) return null;
   for (const name of targets) {
     const global = document.querySelector<HTMLElement>(`[data-tour="${name}"]`);
-    if (global) return global instanceof HTMLDetailsElement ? global.querySelector('summary') : global;
+    if (global) return visibleTarget(global);
   }
   return null;
 }
@@ -213,6 +220,7 @@ export function Tutorial({ state, route, signals, onNavigate, onCommand, onExit,
 
   // Navigate / invoke command exactly once when the step changes.
   useEffect(() => {
+    document.dispatchEvent(new CustomEvent('careeros-context-help', { detail: 'tutorial-step-change' }));
     enterThemeRef.current = signals.theme;
     uiObservation.current = { stepId: step.id, interacted: false, viewRevision: null };
     dragStart.current = null;

@@ -18,7 +18,10 @@ async function seed(page: Page, state: AppState) {
 test('the full System roadmap separates problem modules, independent cases, concepts and the saved tracker', async ({ page }) => {
   const raw = await seed(page, createInitialState(false, '2.0.0'));
   await page.goto('./#/mission/system');
-  await expect(page.locator('[data-tour="system-concepts-open"]')).toContainText('SystemDesign_RoadMap.pdf');
+  await page.getByRole('button', { name: 'About System Design sources', exact: true }).click();
+  const sources = page.getByRole('dialog', { name: 'System Design sources', exact: true });
+  await expect(sources).toContainText('SystemDesign_RoadMap.pdf');
+  await sources.getByRole('button', { name: 'Close System Design sources help', exact: true }).click();
   await page.getByRole('button', { name: 'Full roadmap', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: 'System Design full roadmap', exact: true });
   await expect(dialog.getByLabel('Roadmap view')).toHaveValue('complete');

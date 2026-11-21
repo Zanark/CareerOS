@@ -1,0 +1,68 @@
+{
+  "observedAt": "2026-11-20T12:39:58.383Z",
+  "mode": "independent-read-only",
+  "repository": "Zanark/CareerOS",
+  "account": "Zanark",
+  "workstreams": [
+    {
+      "workstream": "calm-interface",
+      "issue": 14,
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/14",
+      "state": "open",
+      "stateReason": null,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKTsIw",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "f6c4df300775c0c31035e1a9ecad5b43f6bf1033e647af8236cf56f2a617533f"
+    },
+    {
+      "workstream": "omscs-specializations",
+      "issue": 15,
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/15",
+      "state": "open",
+      "stateReason": null,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKXrcM",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "e8733f9de7afcf1bacee4ee36ddef7a9c7e0072dd54b30ea6c1206f874a24849"
+    },
+    {
+      "workstream": "omscs-ml-vs-ai",
+      "issue": 16,
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/16",
+      "state": "open",
+      "stateReason": null,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97"
+    },
+    {
+      "workstream": "calm-change-guide",
+      "issue": 17,
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/17",
+      "state": "open",
+      "stateReason": null,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKdhX4",
+      "projectStatus": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "ea13ebc75ec4bc15cc756541da36cd637ce934ecb3c8552469f527bc7c31e877"
+    }
+  ],
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "number": 1,
+    "layout": "BOARD_LAYOUT"
+  },
+  "recoveryStateUnchanged": true,
+  "recoverySha256": "497f4557e7ed35e189dd5daa93384d4c187f77e92f803265d9847a3e41dfef8f",
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "privateReportBodyOrImagesPublished": false,
+  "humanAcceptanceRecorded": false,
+  "sourcePublicationAuthorized": false
+}

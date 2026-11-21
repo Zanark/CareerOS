@@ -3,10 +3,16 @@
 ## What is public
 
 The published static app ships source-aligned roadmap definitions, public problem-reference
-links, authored study material and exercise prompts, and clearly labeled fictional sample records only.
+links, authored study material and exercise prompts, and clearly labeled fictional sample records.
+The app also includes a **narrowly owner-approved public
+academic starter** in `src/domain/omscs/starter.ts`. Its course history and resume
+basis are intentionally readable app data, not encrypted or independently verified.
+This permission covers only that preset, not other private planning inputs,
+transcripts, browser exports or personal history. Website publication does not
+authorize publishing any other private records.
 The original PDFs, including all documents in the expanded roadmap pack, are excluded.
-Private source documents and personal baseline information must not be copied into the
-site, repository, screenshots, or tests.
+Private source documents and other personal baseline information must not be copied
+into the site, repository, screenshots, or tests.
 
 The application has no login, cloud workspace, AI service, analytics integration,
 or automatic upload. Hosting providers still receive normal page/asset requests.
@@ -22,7 +28,7 @@ Opening Repository sync may fetch that one same-origin journal file; it sends no
 passphrase in the request.
 
 **Keep going** reads personal history and saved work from the visible workspace only.
-Past accomplishments are never bundled in the public source or sent to a remote service.
+That personal-history collection is not bundled in the public source or sent to a remote service.
 A personal-history file is read locally, previewed, and added only after confirmation.
 It does not replace the workspace or award checkpoint credit. Artifact links open
 only when clicked, without a referrer.
@@ -34,7 +40,7 @@ tab without a referrer; that destination may have its own login or subscription 
 The seven expanded practice workbooks load static study chunks from the same host.
 These requests contain no workspace records. Search, filters, source-unit links and
 reference inspection do not upload work or alter progress. Source save-state examples
-and personal baseline material are not used as seed data.
+and other personal baseline material are not used as seed data.
 
 The 3D career graph is rendered locally from the visible workspace. It does not
 upload nodes, records or progress. **Copy brief for AI** writes to the local
@@ -56,6 +62,15 @@ private freelance leads, optional application effort fields, and recall records.
 An optional `personalProof` collection holds user-supplied past accomplishments and
 their sources. It is included in ordinary unencrypted workspace backups. Existing
 workspaces without this collection are left unchanged until history is explicitly added.
+
+Academic self-reports use the optional `omscsPlan` field in the same workspace.
+Fresh workspaces receive the approved starter. A one-time missing-profile
+initializer never replaces explicit empty/custom plans. The separate
+`careeros.academic-starter.v1` preference contains initialization-version metadata
+only; it is not exported or journaled. Once initialized, importing a plan without
+academic history does not silently reseed it on reload. A reviewed-history dialog
+can deliberately restore the supplied entries, retaining unrelated subjects and
+all learning records; stale/over-limit updates fail visibly.
 
 An optional `focusSessions` collection records starts, planned durations and ordered
 pause/resume/distraction/ending events. A distraction timestamp is the time of the

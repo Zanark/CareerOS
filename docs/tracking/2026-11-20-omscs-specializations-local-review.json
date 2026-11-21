@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-20",
+  "workstream": "omscs-specializations",
+  "status": "local-review-ready",
+  "reviewUrl": "http://127.0.0.1:4470/CareerOS/#/omscs/specializations",
+  "source": {
+    "head": "475b60055dec047ad09e0476e6b569051e128b8c",
+    "changedRuntimeTestFiles": 65,
+    "fingerprint": "d28ecb37c3e3a4812b8d493115fd94b983076634019e3b7beb3938274d723e5c",
+    "fingerprintScope": "Sorted path/SHA-256 list of changed and untracked src/tests files, hashed as compact JSON. This is not a commit or complete-repository hash.",
+    "committed": false,
+    "stagedFiles": 0,
+    "pushed": false,
+    "deployed": false
+  },
+  "implementation": {
+    "specializations": 6,
+    "requirementDefinitions": "src/domain/omscs/specializations.ts",
+    "academicStarter": "src/domain/omscs/starter.ts",
+    "starterVisibility": "Only the expressly owner-approved product preset is intentionally public app data. Its values are not copied into this receipt or tracking.",
+    "initialization": "Fresh non-sample state and once-only absent legacy profiles; explicit empty/custom plans are authoritative.",
+    "persistence": "Existing optional omscsPlan and atomic setting/omscsPlan journal cell; separate device-only initialization-version preference.",
+    "completion": "Shared green rows indicate recorded completion, not a passing grade, specialization eligibility or learning mastery.",
+    "gradeRules": "A/B for specialization; C can use degree/free-elective space; no double counting or unknown-grade qualification.",
+    "comparison": "Six online requirement comparisons with reserved sub-area slots; detailed subject/calendar drafts remain AI-specific.",
+    "learningCreditFromAcademicData": false
+  },
+  "sources": {
+    "capturedAt": "2026-11-20T04:30:09.331057+00:00",
+    "scope": "Bold linked online choices on all six official specialization pages, mapped to the reviewed regular-course catalogue.",
+    "exactRenderedOnlineCounts": {
+      "ai": 14,
+      "systems": 27,
+      "robotics": 9,
+      "hci": 9,
+      "graphics": 6,
+      "ml": 15
+    },
+    "exactSetMatchInAllThreeSourceContexts": true,
+    "futureTermOfferingOrSeatGuarantee": false
+  },
+  "qualification": {
+    "strictTypesAndProductionBuild": "passed in the final compact-page browser gate",
+    "existingChunkSizeWarnings": true,
+    "fullDomain": {
+      "passed": 764,
+      "files": 54,
+      "scope": "Full domain run before the subsequent practice-factory correction."
+    },
+    "afterPracticeCorrection": {
+      "passed": 32,
+      "files": 4,
+      "scope": "Academic starter, practice workspace, discovery model and tutorial identity/order."
+    },
+    "affectedProductionBrowser": {
+      "passed": 38,
+      "scope": "Academic guides/records, path drafts, prerequisites, backups, journal, stale tabs, storage failures and tutorial controls."
+    },
+    "finalCompactPageBrowser": {
+      "passed": 11,
+      "scope": "Final six-section layout, shared edits, default/migration/marker failures, import/reload/export, reviewed replacement/CAS/limits and keyboard section jump."
+    },
+    "uniqueAffectedBrowserWorkflows": 39,
+    "skipped": 0,
+    "flaky": 0,
+    "automaticRetries": 0,
+    "fullFinalTreeWholeAppBrowserRun": false,
+    "offlineTrackingCases": 22,
+    "currentSourceContexts": [
+      { "port": 4470, "width": 390, "theme": "dark" },
+      { "port": 4470, "width": 320, "theme": "light" },
+      { "port": 4468, "width": 1440, "theme": "dark" }
+    ],
+    "sourceContextResults": {
+      "exactOfficialMenus": true,
+      "academicMissionPracticeAndBothRoadmapEntryBasis": true,
+      "unchangedSavedState": true,
+      "pageErrors": 0,
+      "externalRequests": 0,
+      "documentOverflow": 0,
+      "finalPhoneFramesVisuallyReviewed": true,
+      "ownerBrowserProfileAccessed": false
+    },
+    "initialFailuresRetainedLocally": [
+      "Test typing and Node JSON-import startup blockers.",
+      "Exact-label and multi-element test-locator mistakes.",
+      "Old no-default profile assumptions.",
+      "Actual tutorial save-gate regression from pre-creating its academic proposal; fixed in both practice factories."
+    ]
+  },
+  "preserved": {
+    "approvedReadme": true,
+    "packagesAndWorkflow": true,
+    "originalLearningDefinitionsAndSources": true,
+    "publicJournalBytes": 0,
+    "buildFiles": 29,
+    "legacyPrivateDocumentHookInBuild": false,
+    "protectedPreviewsLeftRunning": true
+  },
+  "limits": [
+    "No official transcript, GPA, individual degree audit, future enrollment permission or seat verification.",
+    "Authored AI recommendations are not an exhaustive grade-allocation solver; conflicts remain explicit.",
+    "Human visual/course acceptance and source publication remain separate.",
+    "No physical-device or Safari qualification is claimed."
+  ]
+}

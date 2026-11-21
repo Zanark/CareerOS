@@ -261,10 +261,13 @@ test('explicit backup replacement stops the old live timer instead of writing or
   const replacement = await stored(page);
   delete replacement.focusSessions;
   await page.goto('./#/settings');
-  page.once('dialog', dialog => dialog.accept());
-  await page.locator('[data-tour="backup-input"]').setInputFiles({
+  const confirmation = page.waitForEvent('dialog');
+  const importing = page.locator('[data-tour="backup-input"]').setInputFiles({
     name: 'synthetic-replacement.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(replacement)),
   });
+  await (await confirmation).accept();
+  await importing;
+  await expect.poll(() => stored(page)).toEqual(replacement);
   await page.goto('./#/plan');
   await expect(page.getByRole('timer')).toHaveText('25:00');
   await expect(page.locator('.focus-timer-error')).toContainText('replaced');

@@ -14,8 +14,7 @@ export default function PlanningBasisEditor({ profile, onChange }: {
   const [status, setStatus] = useState('');
   return <details className="path-baseline-editor path-course-detail" open={expanded} onToggle={event => setExpanded(event.currentTarget.open)}>
     <summary>Add previously completed courses to this draft</summary>
-    <p>Optional, especially on a new phone. Enter your own prior subjects so the planner does not suggest taking them again.
-      This edits only this open tab, not academic records, backups or learning progress. Leave grades unknown unless you know them.</p>
+    <p>Tab-only planning. Leave grades unknown unless you know them.</p>
     <form className="path-baseline-form" onSubmit={event => {
       event.preventDefault();
       const parsed = pathProfileSchema.safeParse({ ...profile, completed: [...profile.completed, { id: course, term, grade }] });
@@ -23,8 +22,8 @@ export default function PlanningBasisEditor({ profile, onChange }: {
       onChange(parsed.data);
       setCourse(''); setTerm(''); setGrade('unrecorded'); setError('');
       setStatus(grade === 'D' || grade === 'F'
-        ? 'Added as a draft attempt only. This grade does not reduce the passing-course budget; the subject may still be a new course choice.'
-        : 'Added to this tab only. The same subject is no longer a new free choice; it stays counted as reported prior work. No academic record was saved.');
+        ? 'Attempt added. D/F do not reduce the passing-course budget.'
+        : 'Added to this draft. No academic record was saved.');
     }}>
       <label>Previously completed course<select aria-label="Previously completed course" required value={course} onChange={event => setCourse(event.currentTarget.value)}>
         <option value="">Choose a course</option>

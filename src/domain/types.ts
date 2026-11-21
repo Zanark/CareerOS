@@ -1,6 +1,6 @@
 import type { OmscsPlan } from './omscs/types';
 
-export const missionIds = ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income', 'fde', 'omscs'] as const;
+export const missionIds = ['pattern', 'system', 'escape', 'fabric', 'blueprint', 'credential', 'neural', 'algorithm', 'income', 'fde', 'omscs', 'gamedev'] as const;
 export type MissionId = typeof missionIds[number];
 export const recallMissionIds = ['pattern', 'system', 'fde'] as const;
 export type RoadmapVersion = '1.0.0' | '2.0.0' | '3.0.0' | '4.0.0';
@@ -65,6 +65,7 @@ export interface Mission {
   roadmapVersion: RoadmapVersion;
   appendFrom?: RoadmapVersion;
   planned: boolean;
+  initialMode?: MissionMode;
   dependencies: MissionId[];
   checkpoints: Checkpoint[];
   stages?: RoadmapStage[];

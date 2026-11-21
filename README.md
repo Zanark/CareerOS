@@ -2,11 +2,41 @@
 
 **[Open CareerOS](https://zanark.github.io/CareerOS/)** · [How to use it](docs/GUIDE.md#start-using-it) · [Developer setup](docs/GUIDE.md#develop-and-verify)
 
+Your career workspace: **12 missions, 646 source-defined checkpoints**, practical
+study libraries and browser-local records. No account or automatic AI grading.
+
 ## Your documents, made usable
 
 [![The supplied PDFs became nine learning and career roadmaps: DSA, system design, Service Fabric, architecture, certifications, AI engineering, opportunities, freelance research, and planned competitive programming.](docs/images/readme-roadmaps.png)](https://zanark.github.io/CareerOS/#/sources)
 
-Open **[Operation documents](https://zanark.github.io/CareerOS/#/sources)** to explore the content. These are tracking milestones, not full courses or imported achievements.
+The illustration shows the original nine PDF-derived missions. The current
+catalogue also includes Fieldcraft, Georgia Tech OMSCS / Gold Circuit and
+Game Development / World Forge.
+
+Open **[Operation documents](https://zanark.github.io/CareerOS/#/sources)** for
+curricula, practical exercises and reviewed sources. Reading material never
+imports an achievement or silently upgrades your saved tracker.
+
+## The current workspace
+
+- **A calmer interface:** action-first pages, Education navigation and useful
+  explanations available by click, tap, hover or keyboard.
+- **[Georgia Tech OMSCS](https://zanark.github.io/CareerOS/#/omscs):**
+  [six specialization comparisons](https://zanark.github.io/CareerOS/#/omscs/specializations),
+  online-only [course choices](https://zanark.github.io/CareerOS/#/omscs/paths),
+  prerequisite-aware draft calendars and shared academic entries. Self-reports
+  are not enrollment, an official degree audit or learning credit.
+- **[Game Development / World Forge](https://zanark.github.io/CareerOS/#/mission/gamedev):**
+  a Godot-first route from zero with 65 checkpoints, 78 study/reference units
+  and 156 exercises. Starts **Planned**; browsing does not activate it.
+- **An original multiplayer capstone:** Borrowed Ground includes a complete
+  story, mechanics, level atlas, network/recovery contract and 100-point
+  self-grading rubric. It is [your build target](docs/GAME-DEVELOPMENT.md),
+  not a supplied playable game.
+- **[Your actual work, in 3D](https://zanark.github.io/CareerOS/#/home):**
+  mission rings, saved evidence and optional Discovery Atlas rewards, with
+  a bounded daily plan and focus room. DeepSeaFoam dark and Harbor Daylight
+  light retain the animated sunrise/sunset switch.
 
 ## One session at a time
 
@@ -20,4 +50,12 @@ New here? Open the website and click **Tutorial**. Practice with the actual cont
 
 **[Export a backup](https://zanark.github.io/CareerOS/#/settings)** before changing devices. Imports replace the destination; backups are not encrypted.
 
-[Full guide](docs/GUIDE.md) · [PDF-to-website mapping](docs/OPERATION-SOURCES.md) · [Privacy](docs/PRIVACY.md) · [DeepSeaFoam theme](docs/THEMES.md)
+Existing explicit records and custom choices remain authoritative. The narrowly
+owner-approved academic starter is intentionally public app data; it is not
+encrypted personal storage. An optional [encrypted repository journal](https://zanark.github.io/CareerOS/#/repository-sync)
+supports manual cross-device publication, not automatic uploads or cloud sync.
+Private PDFs, advisory reports and browser backups are not bundled.
+
+[Full guide](docs/GUIDE.md) · [Curricula and sources](docs/OPERATION-SOURCES.md) ·
+[Godot mission](docs/GAME-DEVELOPMENT.md) · [Privacy](docs/PRIVACY.md) ·
+[DeepSeaFoam theme](docs/THEMES.md) · [Contributor workflow](docs/DEVELOPMENT.md)

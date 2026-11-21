@@ -282,7 +282,9 @@
   .focus-room__time[data-long-time="true"] { font-size: clamp(2.4rem, 16vw, 3rem); }
   .focus-room__duration { margin-bottom: 0.65rem; }
   .focus-room__report { margin-top: 0.75rem; padding-top: 0.75rem; }
-  .focus-room__preferences { gap: 0.2rem 0.5rem; }
+  .focus-room__preferences { display: grid; grid-template-columns: max-content auto; gap: 0.2rem 0.5rem; }
+  .focus-room__preferences > .focus-room__ambient { justify-content: flex-start; }
+  .focus-room__preferences > .context-help-trigger { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
   .focus-room__utility, .focus-room__ambient { font-size: 0.56rem; }
   .focus-room__fullscreen-label { display: none; }
   .focus-room__record-note { margin-top: 0.3rem; }

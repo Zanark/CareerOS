@@ -40,7 +40,14 @@
     { "id": "forward-deployed-engineering", "path": "TODO/11_FORWARD_DEPLOYED_ENGINEERING.todo", "publicSafe": true },
     { "id": "ai-architect-agent-cloud", "path": "TODO/12_AI_ARCHITECT_AGENT_CLOUD.todo", "publicSafe": true },
     { "id": "geojack-omscs", "path": "TODO/13_GOLD_CIRCUIT_OMSCS.todo", "publicSafe": true },
-    { "id": "omscs-path-explorer", "path": "TODO/14_OMSCS_PATH_EXPLORER.todo", "publicSafe": true }
+    { "id": "omscs-path-explorer", "path": "TODO/14_OMSCS_PATH_EXPLORER.todo", "publicSafe": true },
+    { "id": "calm-interface", "path": "TODO/15_CALM_INTERFACE.todo", "publicSafe": true },
+    { "id": "omscs-specializations", "path": "TODO/16_OMSCS_SPECIALIZATIONS.todo", "publicSafe": true },
+    { "id": "omscs-ml-vs-ai", "path": "TODO/17_OMSCS_ML_VS_AI.todo", "publicSafe": true },
+    { "id": "calm-change-guide", "path": "TODO/18_CALM_CHANGE_GUIDE.todo", "publicSafe": true },
+    { "id": "sitewide-visual-polish", "path": "TODO/19_SITEWIDE_VISUAL_POLISH.todo", "publicSafe": true },
+    { "id": "godot-game-development", "path": "TODO/20_GODOT_GAME_DEVELOPMENT.todo", "publicSafe": true },
+    { "id": "current-site-publication", "path": "TODO/21_CURRENT_SITE_PUBLICATION.todo", "publicSafe": true }
   ],
   "excluded": [
     { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },

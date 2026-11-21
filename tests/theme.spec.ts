@@ -68,7 +68,7 @@ async function selectTheme(page: Page, theme: Theme) {
 async function navigate(page: Page, name: string | RegExp) {
   const menu = page.getByRole('button', { name: 'Open navigation', exact: true });
   if (await menu.isVisible() && await menu.getAttribute('aria-expanded') !== 'true') await menu.click();
-  const link = page.getByRole('complementary', { name: 'Main navigation' }).getByRole('link', { name });
+  const link = page.getByRole('complementary', { name: 'Main navigation', includeHidden: true }).getByRole('link', { name, includeHidden: true });
   await link.click();
   await expect(link).toHaveClass(/\bselected\b/);
   if (await menu.isVisible()) await expect(menu).toHaveAttribute('aria-expanded', 'false');

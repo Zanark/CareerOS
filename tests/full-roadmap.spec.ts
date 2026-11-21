@@ -147,7 +147,7 @@ test('Fabric opens beside the mission title with all 5 stages and 32 checkpoints
   const mission = getMission('fabric', state);
   await loadMission(page, state, mission.id);
   const before = await storage(page);
-  const titleRow = page.getByRole('heading', { level: 1, name: mission.name, exact: true }).locator('..');
+  const titleRow = page.locator('.page-title-row').filter({ has: page.getByRole('heading', { level: 1, name: mission.name, exact: true }) });
   await expect(titleRow.getByRole('button', { name: 'Full roadmap', exact: true })).toBeVisible();
   const dialog = await openRoadmap(page, mission);
   await expectMap(dialog, mission, 5, 32);

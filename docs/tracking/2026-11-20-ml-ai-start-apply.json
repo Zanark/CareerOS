@@ -1,0 +1,53 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "observedAt": "2026-11-20T05:40:38.817Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "omscs-ml-vs-ai",
+      "path": "TODO/17_OMSCS_ML_VS_AI.todo",
+      "outcome": "verified",
+      "created": true,
+      "reused": false,
+      "issue": "https://github.com/Zanark/CareerOS/issues/16",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "a39a0e36ecb51a4c60771c6361f5fec3e82adb8269ca9a97f16438a235834fb4",
+      "actions": [
+        "create issue",
+        "set issue open/-",
+        "add issue to Project",
+        "set Project In Progress",
+        "write backlink",
+        "verify all surfaces"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 16,
+    "selected": 1,
+    "excluded": 2,
+    "created": 1,
+    "reused": 0,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

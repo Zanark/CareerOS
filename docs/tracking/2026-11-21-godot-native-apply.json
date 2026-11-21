@@ -1,0 +1,48 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "observedAt": "2026-11-21T03:17:23.854Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "godot-game-development",
+      "path": "TODO/20_GODOT_GAME_DEVELOPMENT.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/19",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "1d7c43846a8a48618bc537837609b74aa20caba59a5d05f50076f7c8682f9ace",
+      "actions": [
+        "update managed description"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKoCVM",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 19,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

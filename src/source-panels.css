@@ -1,6 +1,6 @@
-.source-panel { margin: 20px 0 26px; padding: 20px; border: 1px solid var(--dsf-separator); border-radius: 8px; background: var(--dsf-paper); }
-.source-heading { display: flex; align-items: center; gap: 11px; }
-.source-heading > svg { color: var(--dsf-accent); }
+.source-panel { margin: 20px 0 26px; padding: 20px; border: 1px solid var(--dsf-separator); border-radius: 12px; background: var(--dsf-paper); }
+.source-heading { display: flex; align-items: flex-start; gap: 11px; }
+.source-heading > svg { color: var(--dsf-accent); margin-top: .2rem; }
 .source-heading > div { flex: 1; }
 .source-heading h3 { font-size: 0.9375rem; }
 .source-heading p { font-size: 0.625rem; color: var(--dsf-muted); margin-top: 4px; }

@@ -3,9 +3,25 @@
 **Phone-review workbench. Subject choices are proposals, not approved enrollment.**
 Public sources reviewed November 19, 2026.
 
+**Current interface:** calmer action-first pages, on-demand help and a
+prerequisite-aware calendar. The
+online inventory and targeted entry-condition sources were rechecked on
+November 20; earlier degree-rule/source receipts retain their original scope.
+[Local qualification and limits](tracking/2026-11-20-calm-interface-local-review.json)
+remain separate from owner acceptance and deployment evidence.
+
+**Specialization comparisons:** `#/omscs/specializations` adds six online requirement
+sections, shared academic rows and a narrowly approved public starter. That
+starter is an intentional exception to the earlier no-personal-default design.
+Its exact values live in product data, not this guide. Existing saved records
+remain authoritative; the path explorer is still a temporary draft rather than
+a degree-plan writer.
+
 Published for review at **https://zanark.github.io/CareerOS/#/omscs/paths**.
-Exact source/run/artifact/hosted qualification:
-[publication evidence](tracking/2026-11-19-omscs-paths-publication.json).
+Current release status and exact source/run/artifact/hosted qualification:
+[publication evidence](tracking/2026-11-21-current-site-publication.json).
+The [earlier phone-workbench receipt](tracking/2026-11-19-omscs-paths-publication.json)
+retains its own historical scope.
 Publication does not imply the owner has approved a subject plan.
 
 The path explorer at `#/omscs/paths` compares subject choices without replacing
@@ -15,10 +31,12 @@ The display rename changes no saved mission, checkpoint, course or journal ident
 It is a temporary what-if tool, not university advising, registration or an
 official individual degree audit.
 
-## Choose subjects in four steps
+## Choose subjects
 
-1. Use **Start choosing subjects**, then **Set your starting point**. On a new
-   phone, add your own previously completed subjects to the temporary draft;
+1. The next-term selector is the first planning action. Open **Prior courses &
+   return** when you need to adjust the basis. A fresh device now starts from
+   the approved public academic history. Saved empty/custom profiles remain
+   authoritative; you can also add previously completed subjects to the temporary draft;
    leave unknown grades unrecorded. This does not save academic records. A
    reported passing/unknown-grade subject moves out of new free choices into
    prior work instead of counting twice; D/F attempts do not reduce the budget.
@@ -35,12 +53,17 @@ official individual degree audit.
    prior work. Note the list or expand its plain text, use **Select shortlist
    text**, then the phone/browser copy command. No clipboard upload or sharing
    service is called. Incomplete/conflicting choices stay clearly labelled.
-   **Choose next term** lets you select one starting subject while later terms
+   **First-term subject** lets you select one starting subject while later terms
    remain proposals. Only currently selected new subjects are offered. The
    preparation-order suggestion is not a final choice or a booked seat.
 
-The full 830/216-combination browser is optional and collapsed initially.
-The semester proposal is an optional calendar check after subject selection,
+Course benefits, tradeoffs, tools and roadmap links are behind each subject's
+question-mark button, available by touch, keyboard and hover. Redundant
+introductory prose is deleted rather than relocated wholesale. The optional
+**Course choices & contextual help** tutorial teaches the real controls.
+
+The full 830/216-combination browser and calendar are collapsed initially.
+The semester proposal is an optional check after subject selection,
 not a reservation. An explicit starting subject is ordered first without
 changing the subject set; readiness warnings still apply. If that course
 becomes prior work or leaves the draft, the calendar stops until the learner
@@ -86,9 +109,31 @@ or better, free electives C or better, and the actual cumulative GPA must be at
 least 3.0. D/F attempts do not reduce the passing-credit budget; an entered C
 cannot silently satisfy a B-minimum specialization slot.
 
-No example in source is a real student record. Actual personal history, when
-explicitly supplied for a local preview, stays outside repository source,
-issues, shared continuity and production output.
+The specifically approved academic starter is intentionally public app data.
+Other private planning history remains outside repository source, issues,
+shared continuity and production output. Academic self-reports are not a
+verified transcript or learning completion.
+
+## Six specialization comparisons
+
+The separate ledger shows the current bold-linked online choices from each
+official specialization page. Each course can fill at most one slot within an
+allocation; its academic record is shared across every section and the AI
+workbench. Sub-area minima reserve slots, not additional course requirements.
+
+| Specialization | Specialization credits | Distinct online choices | Official source |
+| --- | --- | --- | --- |
+| Artificial Intelligence | 15 | 14 | [Requirements](https://omscs.gatech.edu/specialization-artificial-intelligence-formerly-interactive-intelligence) |
+| Computing Systems | 18 | 27 | [Requirements](https://omscs.gatech.edu/specialization-computing-systems) |
+| Computational Perception & Robotics | 15 | 9 | [Requirements](https://omscs.gatech.edu/specialization-computational-perception-and-robotics) |
+| Human-Computer Interaction | 15 | 9 | [Requirements](https://omscs.gatech.edu/specialization-human-computer-interaction) |
+| Computer Graphics | 15 | 6 | [Requirements](https://omscs.gatech.edu/specialization-computer-graphics) |
+| Machine Learning | 15 | 15 | [Requirements](https://omscs.gatech.edu/specialization-machine-learning) |
+
+Green borders mark recorded completion even when its grade is not usable in a
+specialization. Completed C entries visibly remain degree/free-only. Reuse is
+a maximum possible allocation, not an official audit, GPA check or future seat.
+The full subject-choice/calendar workbench remains AI-specific.
 
 ## Complete menus, not one prescribed route
 
@@ -106,11 +151,11 @@ lens has **216 distinct allocations/subject sets**. It is an intentionally
 conservative comparison, not a declaration that the student's official record
 must use one rule set or that an exception has been approved.
 
-The UI includes the twelve additional current-page campus choices not marked
-online, plus four topic/course references appearing only in the older table.
-They are references, not selectable online degree slots in this snapshot.
-For example, the presence of a Large Language Models title in the formal
-campus menu does not establish an available online OMSCS section.
+Campus-only and older-table-only reference lists are removed from the normal
+UI, not offered as alternative online subjects. Historical research retains
+its excluded-source evidence. Fresh machine comparison matches all 78 regular
+course identities, URLs and foundational flags, plus all 14 bold online AI
+menu entries. Catalogue membership still does not guarantee a future offering.
 
 Completed compatible courses can be reused in different legal roles. Filtering
 for maximum reuse finds efficient plans; other allocations can require more new
@@ -147,9 +192,38 @@ A short public overview is not a complete future syllabus.
 
 The calendar uses only selected new subjects. One regular-term course is the
 default; later summers and a two-course heavy regular-term scenario are
-explicit controls. Summer stays one course. Recommended preparation order is
-guidance, not an invented university prerequisite gate. SDCC's listed strong
-AOS-level preparation and weekly 90-minute live attendance remain explicit.
+explicit controls. Summer stays one course. Required course ordering and
+recommended preparation are separate:
+
+- **SDCC / CS 6211:** the linked faculty syllabus states prior OS study or
+  instructor consent; the current OMSCS page expects AOS with A or high B, or
+  equivalent study elsewhere. A missing prerequisite, unknown grade or plain B
+  does not establish eligibility. The calendar stops until a qualifying prior
+  report, planned earlier AOS or explicit allowed-alternative confirmation
+  resolves it. Planned AOS and SDCC never share a term, even at heavy load;
+  future qualifying grades stay conditional. Weekly 90-minute live meetings
+  remain visible. The linked sample is dated, not a future section contract.
+- **DL / CS 7643:** formal introductory ML is expected and self-study does not
+  count according to the public page. Equivalent formal study can satisfy that
+  background; no registrar-enforced CS 7641-only rule is invented. Earlier
+  planned ML is conditional, not already completed study. An unsupported
+  first-DL choice retains a visible background warning.
+- **Database Implementation / CS 6422:** required foundation-level algorithms
+  and systems coursework is distinguished from recommended OS/database
+  familiarity and C++/systems readiness. No mandatory GIOS/CS 6400 chain is
+  fabricated.
+- **Big Data for Health / CSE 6250:** the OMSCS overview lists prior statistics
+  grades/data subjects, while the linked Fall 2026 faculty page places those
+  formal conditions under an undergraduate cross-listing and permits learned
+  equivalent background for its graduate cross-listing. The UI flags the
+  graduate-section rule for confirmation instead of imposing campus-only
+  undergraduate degree choices.
+
+AOS accepts relevant OS/industry background; DC explicitly states no enforced
+prerequisites; GPU lists preparation courses as beneficial. These do not become
+mandatory named-course locks. **Entry confirmations** are tab-local,
+self-reported checks with no grade rewrite, course credit or university check.
+Only documented cases are modeled; current sections may add requirements.
 
 The Registrar's current return policy triggers a readmission check after
 three or more consecutive absent terms, **including summer**. Approval is not
@@ -180,14 +254,19 @@ separates proposed new subjects from reported prior subjects. The draft history
 editor validates the same planning schema and never calls workspace persistence.
 Its optional confirmed-return flag and explicit first-term choice are likewise
 tab-local, not new saved academic fields or official verification.
-There is no new workspace schema, storage key, journal cell or academic save.
+`requirements.ts` models source-backed entry distinctions and the hard
+earlier-term edge. `CourseEntryInfo` exposes compact status and linked detail
+on choices, shortlists and calendars. Required-background confirmations remain
+separate from academic records and do not alter the degree-credit calculation.
+Draft choices add no workspace schema, journal cell or academic save. The
+separate starter initializer uses the existing atomic `omscsPlan` setting and
+a device-only initialization-version preference, not another progress ledger.
 The original mission's 24 checkpoints and source/recall/Atlas rules are unchanged.
 
-A private local review process may supply validated planning context in a
-development-only document node. That process and its input file are outside
-the repository; production ignores the node and never imports the private data.
-It uses a distinct loopback port/cache without restarting the existing preview.
-No actual browser profile is automated, and the draft grants no progress or XP.
+The earlier external private-preview process and input remain outside the
+repository. Both current development and production planners ignore that old
+document override and derive their initial basis from saved academic records.
+No actual owner browser profile is automated, and drafts grant no progress or XP.
 
 ## Primary sources and review scope
 
@@ -206,3 +285,15 @@ Existing OMSCS research receipts retain their original scope separately.
 The public-safe overview register records all 78 URLs/hashes and exact scope:
 [course overview review](tracking/2026-11-19-omscs-course-overview-review.json).
 Raw source pages and private planning inputs are not included.
+
+Entry-condition review also used the current
+[SDCC overview](https://omscs.gatech.edu/cs-6211-system-design-cloud-computing)
+and [linked faculty syllabus](https://faculty.cc.gatech.edu/~rama/CS6211-External/),
+[DL overview](https://omscs.gatech.edu/cs-7643-deep-learning),
+[Database Implementation overview](https://omscs.gatech.edu/cs-6422-database-system-implementation)
+and [faculty syllabus](https://faculty.cc.gatech.edu/~jarulraj/courses/6422-online/),
+[Big Data for Health overview](https://omscs.gatech.edu/cse-6250-big-data-health-informatics)
+and [Fall 2026 faculty page](https://jimengsun.org/teaching/cse6250/fall2026/),
+and [DC's explicit enforcement statement](https://omscs.gatech.edu/cs-7210-distributed-computing).
+This is public-source planning research, not a live registration/permission check
+or a claim to have reviewed every full future syllabus.

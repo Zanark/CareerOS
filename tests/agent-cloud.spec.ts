@@ -5,6 +5,7 @@ import type { AppState } from '../src/domain/types';
 import { getDiscoverySnapshot } from '../src/discovery/model';
 import { agentCloudSteps } from '../src/tutorial/agentCloudSteps';
 import { getSourcePackOutline } from '../src/domain/roadmapPacks/registry';
+import { openLibraryBrowser } from './library-ui';
 
 const key = 'careerhq.workspace.v1';
 
@@ -60,6 +61,7 @@ for (const width of [1440, 320]) {
         await testInfo.attach('Agent-cloud lesson / synthetic prior v3 tracker', { path, contentType: 'image/png' });
       }
     }
+    await openLibraryBrowser(page);
     await page.getByLabel('Practice module or reference', { exact: true }).selectOption('neural-agent-case-race');
     await expect(page.locator('.pack-reference-note')).toBeVisible();
     await expect(page.locator('.pack-exercises > ol > li')).toHaveCount(3);

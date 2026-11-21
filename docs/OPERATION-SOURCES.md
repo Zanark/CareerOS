@@ -1,5 +1,63 @@
 # Operation-document integration
 
+## World Forge / Godot-first Game Development: November 21
+
+The twelfth mission is original public-source learning synthesis, not an
+additional supplied PDF. [The focused guide](GAME-DEVELOPMENT.md) explains
+65 core checkpoints/14 phases, five complete capstone references, eight optional
+specialization studies and 156 applied/transfer exercises across 78 units.
+The 23-source registry retains exact URLs, review date and complete/partial
+reading scopes. Godot/GDScript is the primary path; stable aliases may move.
+
+The original multiplayer reference defines the complete game/story/rules,
+concrete levels, authority/session/recovery contract, production milestones,
+22 acceptance scenarios and a category-specific 100-point rubric. It is a
+comparison target, not a supplied playable game, executed Godot build,
+external playtest, market-novelty clearance or automatic assessment.
+
+World Forge is available/latest-only v3 but starts **Planned** and unconfirmed.
+Missing-only compatibility adds its canonical cell without altering old work,
+focus or dates. Explicit malformed progress rejects. Browsing and other-roadmap
+adoption cannot activate it; deliberate Bring into focus is required.
+It reuses the normal backups, encrypted journal and evidence flow without
+inventing prior completion or new native recall.
+
+All twelve latest missions total **646 tracked checkpoints**. Original
+PDF page/unit/exercise counts below stay frozen. Publishing this curriculum
+does not qualify an actual Godot game or award learning progress.
+
+## Six-specialization comparison: November 20
+
+`src/domain/omscs/specializations.ts` separately records all six official online
+requirement sets, category minima and source links. Fresh bold-linked online
+menus contain 14/27/9/9/6/15 distinct catalogue courses in AI/Systems/Perception-
+Robotics/HCI/Graphics/ML order. They are current programme choices, not guaranteed
+future offerings. The original 37-source learning registry is not rewritten.
+See [the six comparison sources and boundaries](OMSCS-PATHS.md#six-specialization-comparisons).
+
+The expressly approved public academic starter is a narrow exception to the
+earlier absent-academic-default behavior below. Existing explicit records and
+learning evidence remain authoritative. Its values belong only in the intended
+product preset, never tracking or shared continuity.
+
+## Online course choices and entry conditions: November 20
+
+The path explorer remains separate from the learning curriculum and academic
+saves. A fresh comparison matches all 78 official regular OMSCS entries and
+all 14 bold online AI choices; campus-only references are removed from its
+normal UI. Catalogue membership is not a term-offering guarantee.
+
+The [entry-condition review](tracking/2026-11-20-omscs-entry-review.json)
+distinguishes SDCC's published prior-study/grade/allowed-approval condition,
+formal ML background, other required background and recommendations. It
+retains the health-data graduate/undergraduate source ambiguity instead of
+inventing an undergraduate degree-course chain. These are public-source
+planning checks, not registrar enforcement or a complete future-syllabus review.
+
+The original 37-source learning registry, 24 checkpoints and actual saved
+records do not change. Read [the current explorer scope](OMSCS-PATHS.md) for
+temporary confirmations and calendar constraints.
+
 ## Gold Circuit / Georgia Tech OMSCS: November 19
 
 The eleventh mission is an **unofficial public-source academic learning
@@ -16,11 +74,12 @@ the 24 checkpoint identities. The three foundation guides presume no actual
 completion, grade or term.
 
 It is latest-only v3 and starts unconfirmed in the background. Optional
-`omscsPlan` appears only after an explicit browser save, survives ordinary backups
+`omscsPlan` originally appeared only after an explicit browser save; the current
+starter exception is documented above. It survives ordinary backups
 and encrypted journal changes, and never grants learning/Atlas credit. Existing
 mission editions and the original source books are unchanged. Six curated
 comparisons are transfer opportunities, not equivalence or hidden prerequisites.
-All eleven latest missions total **581 tracked checkpoints**.
+At that November 19 integration, eleven latest missions totaled **581 tracked checkpoints**.
 
 ## Neural Edge / agent-native cloud: November 9
 
@@ -248,8 +307,10 @@ Later specific handoffs take precedence over conflicting older visual taxonomy.
 | Algorithm Forge | Complete 120-page roadmap | v3 supplies 34 checkpoints across six stages. The older four-phase forecast is preserved, not silently converted into progress. |
 | Side Income | Complete 162-page roadmap | v3 supplies 104 modules across 13 stages. The older starting sprint remains archived/resolvable; no income or client outcome is assumed. |
 | Fieldcraft | [Reviewed primary web sources and authored synthesis](FDE-RESEARCH.md) | Latest-only v3: 48 checkpoints, eight optional labs, 112 exercises; no PDF pages or invented historical definition. |
+| Gold Circuit | [Official OMSCS references and original learning synthesis](OMSCS-RESEARCH.md) | Latest-only v3: 24 learning checkpoints and 58 exercises; academic records/proposals are separate from learning credit. |
+| World Forge | [Reviewed Godot/game-development references and original benchmark](GAME-DEVELOPMENT.md) | Latest-only v3: 65 core checkpoints, 78 study/reference units and 156 exercises; available but initially Planned, with no supplied Godot executable. |
 
-There are 557 tracked nodes across the latest missions (87 in the unchanged frozen v2 catalog).
+There are 646 tracked nodes across the latest local missions (87 in the unchanged frozen v2 catalog).
 Topic-group and phase-level milestones
 are labeled as such. Their evidence prompts adapt the source's explain/build/draw/review
 requirements; they are not claims that every source supplied a complete exercise rubric.

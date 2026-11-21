@@ -1,0 +1,133 @@
+Workstream ID: calm-interface
+Title: Make normal CareerOS pages calmer and action-first
+Status: IN_REVIEW
+Milestone: Provide a cleaner local review candidate without publication
+Dependencies: tracker-foundation, tutorial-and-help, omscs-path-explorer
+GitHub issue: https://github.com/Zanark/CareerOS/issues/14
+Purpose: Reduce default interface prose across the portal. Keep actions and
+  meaningful data prominent, put secondary explanations in concise accessible
+  contextual help, reserve useful procedural teaching for the optional tutorial
+  and delete redundant copy. Do not treat learning content or user records as
+  disposable interface clutter.
+
+Tasks:
+  [x] Audit routed surfaces and capture representative before states.
+  [x] Classify essential data/warnings, contextual help, teaching and deletion.
+  [x] Reuse or add one small accessible click/hover/keyboard help pattern.
+  [x] Make OMSCS choices and its companion action-first.
+  [x] Put Discovery Atlas above Tracking and group Georgia Tech under Education.
+  [x] Reverify OMSCS-only course choices and remove campus-only UI references.
+  [x] Distinguish source-backed hard prerequisites from recommended preparation.
+  [x] Apply deliberate copy/hierarchy decisions across the other normal pages.
+  [x] Move useful procedures into appropriate isolated tutorial/help lessons.
+  [x] Preserve actual data, controls, confirmations, errors and study content.
+  [x] Qualify desktop/mobile, both themes, help interactions and affected flows.
+  [x] Update focused documentation, evidence and this issue/Project mapping.
+  [x] Restore consistent group spacing above Tracking after owner visual feedback.
+
+Acceptance criteria:
+  The normal OMSCS paths page exposes its next-term action, real draft budget
+    and useful choices without introductory essays or repeated reassurance.
+  All normal routed surfaces have an explicit audited disposition. Static
+    guidance is edited intentionally, not hidden by global paragraph/opacity/
+    font-size rules. User-authored records and intentional reading content remain.
+  Sidebar order is Discovery Atlas, Tracking, Education and Career. Georgia
+    Tech remains on its stable route under Education; all counts and records
+    retain their meaning. Desktop and compact navigation stay usable.
+  Useful context is available by click/tap, keyboard and hover, with accessible
+    naming, Escape/outside dismissal, sensible focus return and viewport bounds.
+    No important explanation is hover-only.
+  Required consent, irreversible-action warnings, stale/conflicting saves,
+    validation errors and material academic/credit conflicts stay visible where
+    the decision is made. Compact help never silently changes business rules.
+  New enrollment choices, presets and recommendations are supported by the
+    current official OMSCS catalogue. In-person-only references are not course
+    choices. Online catalogue membership does not promise a particular term.
+  Source-backed hard prerequisites/grade/permission conditions are visible
+    and respected by proposed ordering. Recommended background is separate;
+    do not invent enforced registration rules from soft preparation advice.
+  The tutorial may grow, but only useful teaching moves there. Existing step
+    identities/order, real-control action gates and practice isolation survive.
+    Redundant motivational/policy repetition may be deleted outright.
+  Do not shrink the established type scale, replace source learning workbooks,
+    rewrite frozen editions or change actual progress/storage/journal semantics.
+  Existing user previews stay running. Qualification uses disposable contexts,
+    never a real owner profile or private record manipulation.
+  This is a local-only candidate. Human review, commits, pushes and deployment
+    are not inferred; publication awaits a separate explicit owner decision.
+
+Completion evidence:
+  Owner-feedback correction is locally qualified: Tracking now reuses the same
+    29px group separation as Education/Career, rather than a zero gap below
+    Discovery. Desktop/390dark/320light geometry and actual frames qualify.
+    Three focused layout regressions plus one retained academic workflow pass
+    on a fresh production build with strict TypeScript,0skips/flaky/retries.
+    Source fingerprintf60741f6720c6ee7f1b3a88047e9e6b0de81db883d56853a5403d04964fc1c5a
+    covers66runtime/test files at unchanged475b600. This later targeted gate
+    is not a new whole-app pass. Both user previews and saved demo data remain.
+    Proof: docs/tracking/2026-11-20-layout-feedback-review.json.
+    No stage/commit/push/deployment or actual owner browser access.
+    Earlier results below retain their original source scope.
+  Earlier local technical review candidate is qualified, not published or owner-approved.
+    Base remains475b60055dec047ad09e0476e6b569051e128b8c; no staging,
+    source commit, push or deployment. Earlier c89fb1d/Pages44578042329 remains
+    the completed public baseline.
+  Public-safe proof: docs/tracking/2026-11-20-calm-interface-local-review.json.
+    Changed runtime/test fingerprint:
+    8e79c4e14fbcc8d558ea766c6592deda49e7583bfc1da489a5945b3b57c75ae0.
+    All28default routes have explicit editorial/retained-content dispositions,
+    no page errors or document overflow. Default paths copy2491to588words;
+    this is not a curriculum-deletion target. Actual final phone/desktop,
+    academic companion and compact navigation frames were inspected.
+  Strict TypeScript;753domain cases/52files;22offline tracking cases pass.
+    Complete browser run:489of498initial passes,9failures retained. Eight
+    copy/disclosure/heading/navigation expectations were adapted to the new UI;
+    one fixture now awaits actual import confirmation and exact replacement
+    before navigating. All9corrected workflows pass;498unique workflows are
+    qualified across those gates. A final fresh-build29-case help/choice gate
+    passes after the offscreen-anchor clamp and final Help edits. No skipped,
+    flaky or automatically retried cases; no single retry-free final-tree
+    full-run claim.
+  Source inventory and entry review:
+    docs/tracking/2026-11-20-omscs-entry-review.json.
+    All78regular online entries/URLs/foundational flags and14bold AI choices
+    match actual official markup. Campus-only normal UI lists are removed.
+    Published hard prerequisites/grade/allowed alternatives, formal background
+    and recommendations remain distinct; future grades and graduate-section
+    ambiguities are not treated as verified registration eligibility.
+  Original188tutorial steps retain identity/order;9real-control lessons append
+    for197steps/33chapters. Native disclosures, contextual help, touch,
+    keyboard, focus, clipping, native modal/fullscreen and tutorial isolation
+    qualify. Actual records, critical warnings, type scale, schemas, journal,
+    frozen learning definitions, approved README/packages/workflow and empty
+    public journal are retained.
+  Both current-source user previews are verified and left running. Private
+    context applies only in its requested preview; it changes no saved
+    academic/learning records and never enters tutorial or29-file build.
+    Unapproved Host/outside-file probes return403. Qualification helper stopped.
+    No actual owner browser profile, enrollment account or transcript accessed.
+  Same issue14/original Project item identity is verified open/In review,
+    with the managed description and local backlink read back. Transition
+    receipt: docs/tracking/2026-11-20-calm-final-apply.json.
+    No source publication or human acceptance is inferred.
+
+Completion log:
+  2026-11-20 - Corrected the reported zero-gap navigation grouping by applying
+    the existing secondary-group spacing. All three measured contexts now
+    match the established29px separation without changing links or typography.
+    Actual navigation frame inspected; keep the same issue14/item In review.
+  2026-11-20 - Owner review finds no clear gap between Discovery Atlas and the
+    Tracking group. Reuse the established navigation-group spacing and qualify
+    desktop/phone behavior without moving destinations or publishing source.
+  2026-11-20 - Same issue14/original Project item verified open/In review after
+    reviewed preview/apply. Final task/evidence reconciliation changes no
+    application source, records, permission or publication state.
+  2026-11-20 - Finished the local implementation and bounded qualification.
+    Removed redundant prose, disclosed useful context and preserved substantive
+    study/user content. Real initial help geometry/trigger defects and test
+    expectation/import-order diagnostics are retained with their actual fixes.
+    Owner review and any later publication remain separate explicit decisions.
+  2026-11-20 - Started the owner-requested sitewide editorial/interface cleanup.
+    Preserve the deployed source and all actual browser records. Make selective
+    normal-page/contextual-help/tutorial/deletion decisions and deliver local
+    review first; do not publish the product changes.

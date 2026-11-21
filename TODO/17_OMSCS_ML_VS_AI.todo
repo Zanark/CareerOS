@@ -1,0 +1,80 @@
+Workstream ID: omscs-ml-vs-ai
+Title: Research OMSCS Machine Learning versus Artificial Intelligence
+Status: IN_REVIEW
+Milestone: Deliver a dated, source-linked course decision document
+Dependencies: None
+GitHub issue: https://github.com/Zanark/CareerOS/issues/16
+Purpose: Compare the online CS 7641 and CS 6601 offerings using exact official
+  course pages, dated syllabi and carefully qualified student evidence. Explain
+  content, prerequisites, assessment, workload, practical career transfer,
+  sequencing and opportunity cost without silently changing the website.
+  Keep the personalized advisory document and academic context private.
+
+Tasks:
+  [x] Establish document-only scope and separate first-course versus degree choices.
+  [x] Review exact official OMSCS pages and linked dated syllabi.
+  [x] Reconcile curriculum revisions, semester/source conflicts and stale guidance.
+  [x] Triangulate workload evidence without treating reviews as future guarantees.
+  [x] Compare benefits, limitations, overlap, preparation and career transfer.
+  [x] Check current online specialization allocation and taking-both tradeoffs.
+  [x] Write a balanced recommendation, counter-case and practical readiness plan.
+  [x] Render and inspect portable, source-linked Markdown and offline HTML.
+  [x] Record evidence, limitations and same-identity tracking without private data.
+
+Acceptance criteria:
+  Use the exact online course identities, not a similarly named campus class.
+  Course/semester facts have actual reviewed sources and dates. Conflicting
+    or inaccessible material stays explicit; no future syllabus is invented.
+  Separate verified requirements from recommendations and editorial judgment.
+    Student workload reports are dated, self-selected evidence, not guarantees.
+  Compare concrete learning/assessment modes, not just course titles or hype.
+    Explain both the recommendation and the strongest case for the alternative.
+  Consider sequencing, prerequisite preparation, degree opportunity cost and
+    alternatives without treating prior completion as demonstrated mastery.
+  Deliver a detailed, navigable advisory document with citations and a compact
+    decision summary. HTML works offline and prints without external services.
+  Keep private academic inputs, report bodies and absolute private paths out
+    of issues, shared continuity and public repository documentation.
+  Do not alter course selections, academic records, learning progress, website
+    code or prior approved editions as a research side effect.
+  Research/tracking does not authorize staging, commits, pushes or deployment.
+    Preserve the local review candidate, previews and original issue identities.
+
+Completion evidence:
+  Private advisory is technically ready for review in Markdown, standalone
+    offline HTML and22-page PDF:8239words including sources,20sections,
+    24canonical references and15page-specific PDF citation aliases.
+  Exact online identities and dated/undated evidence are distinguished.
+    Official overview/sample disagreement, a mislabeled sample and section/
+    upload-date ambiguity remain explicit; no future course contract is invented.
+    Actual report bodies, personal context and recommendation remain private.
+  Three disposable document contexts pass:1440dark,390light,320dark.
+    All navigation targets resolve; zero page errors, external requests or
+    document overflow. Narrow comparison tables support keyboard scrolling.
+    PDF retains all20section headings,101external link annotations and has
+    zero replacement characters or out-of-page words. Selected HTML frames
+    and PDF pages1/15were visually inspected, not every PDF page.
+  Two conditional allocation illustrations pass catalogue/uniqueness/role/
+    grade-floor/credit checks. They are not an individual degree audit.
+    The recommendation, strongest counter-case, workload uncertainty,
+    preparation diagnostics and ethical assistant-use boundaries are included.
+  Application runtime/test fingerprint remains
+    d28ecb37c3e3a4812b8d493115fd94b983076634019e3b7beb3938274d723e5c.
+    No website, saved-plan code, records or prior editions were changed.
+    No staging, commit, push or deployment; user acceptance remains unrecorded.
+  Public-safe proof: docs/tracking/2026-11-20-ml-ai-research-review.json.
+    Tracking read-back: docs/tracking/2026-11-20-ml-ai-tracking-verification.json.
+    Keep the same issue16/original Project item; no report body is mirrored.
+
+Completion log:
+  2026-11-20 - Detailed decision document is ready for private owner review.
+    Primary-source version conflicts and secondary-review limitations are
+    prominent, not silently normalized. Recovered an unreadable public
+    Type3-font syllabus with local OCR and visually checked relevant pages.
+    Produced and inspected offline/print artifacts. Corrected the sealing
+    helper's normalized-text versus actual-byte hash mismatch; qualified
+    document bytes were unchanged. Human review and website changes are
+    separate from this research delivery.
+  2026-11-20 - Owner requests a detailed ML-versus-AI course comparison.
+    Scope a private advisory deliverable and generic public-safe research
+    tracking; preserve the website and separate evidence from assumptions.

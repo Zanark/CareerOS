@@ -4,7 +4,7 @@ import { getCheckpoint, getLatestMission, getMission, getMissionVersion, isVerif
 import { previewRoadmapUpgrades, upgradeAllRoadmaps, upgradeRoadmap, type RoadmapUpgradePreview } from './domain/engine';
 import type { AppState, Mission, MissionId } from './domain/types';
 import { recallMissionIds } from './domain/types';
-import { Badge, Modal, PageHeading } from './components';
+import { Badge, ContextHelp, Modal, PageHeading } from './components';
 import { MissionFlowchart } from './roadmaps/MissionFlowchart';
 import { SYSTEM_CONCEPT_SOURCE } from './system/concepts';
 import { SYSTEM_PRACTICE_SOURCE } from './domain/operations/systemPracticeStudy';
@@ -45,22 +45,26 @@ export function SourcePanel({ missionId, state, commit, expanded = false }: {
     </div>}
     {missionId === 'pattern' && <p className="source-notice"><a className="text-link" data-tour="dsa-library-open" href="#/dsa/1">Browse all 50 DSA sections and problem sets<ArrowRight size={14} /></a></p>}
     {missionId === 'system' && <div className="system-concept-entry" data-tour="system-concepts-open">
-      <p><strong>Two connected roadmaps:</strong> {SYSTEM_CONCEPT_SOURCE.document} is the concepts map; {SYSTEM_PRACTICE_SOURCE} supplies the modules, problems and case studies. Full roadmap lets you switch between both and your saved tracker. Cloud patterns begin at overview depth, not mastery of every pattern.</p>
       <div className="button-row"><a className="text-link" href="#/system-concepts">Browse and search all System Design concepts<ArrowRight size={14} /></a>
-      <a className="text-link" href="#/system-practice">Open System Design problems and case studies<ArrowRight size={14} /></a></div>
+      <a className="text-link" href="#/system-practice">Open System Design problems and case studies<ArrowRight size={14} /></a>
+        <ContextHelp title="System Design sources">{SYSTEM_CONCEPT_SOURCE.document} is the concepts map; {SYSTEM_PRACTICE_SOURCE} supplies problems and cases. Full roadmap switches between references and the saved tracker. Cloud patterns start at overview depth.</ContextHelp></div>
     </div>}
     {pack && <div className="system-concept-entry">
-      <p><strong>{missionId === 'omscs' ? 'The unofficial academic study companion is available:'
-        : pack.sourceKind === 'web-research' ? 'The research-backed field guide is available:' : 'The expanded workbook is available:'}</strong>{' '}
-        {pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources`
-          : pack.sourceKind === 'mixed' ? `${pack.pageCount} original source pages plus ${pack.webSources?.length} reviewed public extension sources`
-            : `${pack.pageCount} source pages`}, {latest.checkpoints.length} curriculum checkpoints and {pack.exerciseCount} exercises, plus supporting cases and references.{' '}
-        {missionId === 'omscs' ? 'Gold Circuit starts unconfirmed in the background. Proposed semesters, academic self-reports and learning checkpoints are separate; no credit or university verification is assumed.'
-          : pack.sourceKind === 'web-research' ? 'Fieldcraft starts in the background without changing your other missions. Its sequence and criteria are authored learning design, not employer hiring requirements.'
-          : pack.sourceKind === 'mixed' ? 'The original workbook is unchanged. Agent-cloud lessons are new authored learning design, not additional PDF pages or a claim of autonomous production capability.'
-            : 'Full roadmap shows the complete edition; your saved tracker stays separate until confirmed adoption.'}</p>
-      <a className="text-link" data-tour="pack-library-open" href={packUnitHref(missionId)}>Open the complete practice library<ArrowRight size={14} /></a>
+      <div className="context-actions"><a className="text-link" data-tour="pack-library-open" href={packUnitHref(missionId)}>Practice library<ArrowRight size={14} /></a>
+        <ContextHelp title={`${latest.operation} library`}>
+          <p>{latest.checkpoints.length} curriculum checkpoints / {pack.exerciseCount} exercises.
+            {' '}{pack.sourceKind === 'web-research' ? `${pack.webSources?.length} reviewed primary sources`
+              : pack.sourceKind === 'mixed' ? `${pack.pageCount} original source pages plus ${pack.webSources?.length} public extension sources`
+                : `${pack.pageCount} source pages`}.</p>
+          <p>Browsing does not adopt an edition, complete a checkpoint or verify professional readiness.
+            {missionId === 'omscs' && ' Academic entries are separate from learning evidence and degree approval.'}
+            {pack.sourceKind === 'web-research' && (missionId === 'gamedev'
+              ? ' Sequence and game benchmarks are original learning design, not an official Godot syllabus or automatic assessment.'
+              : ' Sequence and criteria are authored learning design, not employer requirements.')}
+            {pack.sourceKind === 'mixed' && ' Extension lessons are authored additions, not extra PDF pages.'}</p>
+        </ContextHelp></div>
       {missionId === 'omscs' && <p><a className="button secondary" href="#/omscs" data-tour="omscs-planner-open">Open Georgia Tech semester companion<ArrowRight size={14} /></a></p>}
+      {missionId === 'gamedev' && <p><a className="button secondary" href="#/practice/gamedev/gd-capstone-brief" data-tour="game-capstone-open">Capstone benchmark<ArrowRight size={14} /></a></p>}
     </div>}
     {notice && <p className="source-notice" role="status">{notice}</p>}
     {missionId === 'income' && <p className="source-notice"><a className="text-link" href="#/freelance">Open freelance opportunity ledger<ArrowRight size={14} /></a></p>}
@@ -110,14 +114,14 @@ export function OperationSourcesPage({ state, commit, initialSelection = 'patter
   }
 
   return <>
-    <PageHeading eyebrow="DOCUMENTED MATERIAL" title="Operation documents" description="Complete source-based curricula, exercises and supporting references. Your private progress stays on its saved version until you explicitly adopt an update."><div className="button-row source-page-actions"><button className="button primary" disabled={available.upgrades.length === 0} onClick={() => { setNotice(''); setPreview(available); }}><RefreshCw size={15} />Adopt all documented roadmaps</button><a href="#/practice" className="button secondary">Practice libraries<ArrowRight size={15} /></a></div></PageHeading>
+    <PageHeading eyebrow="REFERENCE" title="Operation documents" help="Inspect sources and editions here. Your saved tracker changes only after confirmed adoption; review the update and export a backup first."><div className="button-row source-page-actions"><button className="button primary" disabled={available.upgrades.length === 0} onClick={() => { setNotice(''); setPreview(available); }}><RefreshCw size={15} />Adopt all documented roadmaps</button><a href="#/practice" className="button secondary">Practice libraries<ArrowRight size={15} /></a></div></PageHeading>
     <div className="source-bulk-status">
       <p>{available.upgrades.length === 0 ? 'All documented roadmaps are already adopted.' : `${available.upgrades.length} roadmap ${available.upgrades.length === 1 ? 'update' : 'updates'} available. Review every change in one confirmation; individual adoption remains available below.`}</p>
       {available.upgrades.length > 0 && <p>Recommended before adoption: <a className="text-link" href="#/settings">export a workspace backup in Settings<ArrowRight size={14} /></a>.</p>}
       {notice && <p role="status">{notice}</p>}
     </div>
     <div className="source-selector"><label>Mission<select data-tour="source-mission" value={selection} onChange={event => setSelection(event.target.value as MissionId)}>{missions.map(item => <option key={item.id} value={item.id}>{item.name} · {item.operation}</option>)}</select></label><a className="button secondary" href={`#/mission/${selection}`}>Open current tracker<ArrowRight size={15} /></a></div>
-    <SourcePanel key={selection} missionId={selection} state={state} commit={commit} expanded />
+    <SourcePanel key={selection} missionId={selection} state={state} commit={commit} />
     <MissionFlowchart key={`${selection}-latest`} mission={mission} state={state} tutorialTarget={false} />
     {preview && <Modal title="Adopt all documented roadmaps?" eyebrow="REVIEW BEFORE ADOPTING" className="bulk-roadmap-modal" onClose={() => setPreview(null)} restoreFocus>
       <div className="bulk-roadmap-body">

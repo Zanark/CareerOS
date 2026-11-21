@@ -11,6 +11,7 @@ import { appendWorkspace, createJournal, unlockJournal } from '../../repositoryS
 import { journalText } from '../../repositorySync/journalFormat';
 import { applyWorkspaceChanges, canonicalJson, mergeWorkspaces, workspaceChanges } from '../../repositorySync/workspaceChanges';
 import { omscsCourses } from './courses';
+import { createAcademicStarter } from './starter';
 import {
   getOmscsSchedule, getOmscsScheduleWarnings, getOmscsSummary, omscsPlanSchema,
   nextOmscsTerm, proposedOmscsPlan, setOmscsCourse, setOmscsRoute,
@@ -39,13 +40,14 @@ describe('Gold Circuit compatibility and independent evidence boundaries', () =>
       kind: 'diagram', url: '', advance: true, criteriaConfirmed: true,
     });
     current.missions.escape.blocker = 'Synthetic retained blocker';
+    delete current.omscsPlan;
     current.plans[localDate()] = generatePlan(current);
-    const { omscs, ...oldMissions } = current.missions;
+    const { omscs, gamedev, ...oldMissions } = current.missions;
     const wire = { ...current, missions: oldMissions };
     const before = JSON.stringify(wire);
     expect(Object.keys(oldMissions)).toHaveLength(10);
     const restored = parseState(wire);
-    expect(restored).toEqual({ ...wire, missions: { ...oldMissions, omscs } });
+    expect(restored).toEqual({ ...wire, missions: { ...oldMissions, omscs, gamedev } });
     expect(restored.missions.omscs).toMatchObject({
       mode: 'background', status: 'not-started', checkpointId: 'omscs-v3-omscs-route', completedCheckpointIds: [],
     });
@@ -57,14 +59,14 @@ describe('Gold Circuit compatibility and independent evidence boundaries', () =>
     expect(() => getMissionVersion('omscs', '2.0.0')).toThrow('No 2.0.0');
     expect(() => getMissionVersion('omscs', '4.0.0')).toThrow('No 4.0.0');
     expect(v3Missions.some(mission => mission.id === 'omscs')).toBe(false);
-    expect(missions.filter(mission => mission.id !== 'omscs').reduce((n, mission) => n + mission.checkpoints.length, 0)).toBe(557);
+    expect(missions.filter(mission => mission.id !== 'omscs' && mission.id !== 'gamedev').reduce((n, mission) => n + mission.checkpoints.length, 0)).toBe(557);
   });
 
-  it.each([undefined, '1.0.0', '2.0.0', '3.0.0', '4.0.0'] as const)('creates a %s fixture with no assumed academic data', version => {
+  it.each([undefined, '1.0.0', '2.0.0', '3.0.0', '4.0.0'] as const)('creates a %s workspace with the public academic starter but no assumed learning', version => {
     const state = createInitialState(false, version);
     expect(state.missions.omscs.mode).toBe('background');
     expect(state.missions.omscs.completedCheckpointIds).toEqual([]);
-    expect(state.omscsPlan).toBeUndefined();
+    expect(state.omscsPlan).toEqual(createAcademicStarter());
     expect(generatePlan(state).some(action => action.missionId === 'omscs')).toBe(false);
   });
 
@@ -103,7 +105,7 @@ describe('Gold Circuit compatibility and independent evidence boundaries', () =>
     expect(() => recordEvidence(state, { ...input, criteriaConfirmed: false })).toThrow();
     const after = recordEvidence(state, input);
     expect(after.missions.omscs).toMatchObject({ mode: 'background', checkpointId: 'omscs-v3-omscs-readiness' });
-    expect(after.omscsPlan).toBeUndefined();
+    expect(after.omscsPlan).toEqual(state.omscsPlan);
     expect(getDiscoverySnapshot(after).earned).toBeGreaterThan(0);
     expect(() => recordRecall(after, {
       missionId: 'omscs', roadmapVersion: '3.0.0', checkpointId: input.checkpointId, outcome: 'independent',
@@ -152,10 +154,12 @@ describe('proposed semesters and conditional degree accounting', () => {
     plan = setOmscsCourse(plan, entry('cs7637', 'C'));
     plan = setOmscsCourse(plan, entry('cs7632', 'B'));
     plan = setOmscsCourse(plan, entry('cs6457', 'C'));
-    expect(getOmscsSummary(plan)).toMatchObject({ reportedCredits: 9, qualifyingCredits: 6, specializationCredits: 3, unknownGrades: 0 });
-    expect(getOmscsSummary(plan).problems[0]).toContain('CS 7637');
+    expect(getOmscsSummary(plan)).toMatchObject({ reportedCredits: 9, qualifyingCredits: 9, specializationCredits: 3, unknownGrades: 0 });
+    expect(getOmscsSummary(plan).problems).toEqual([]);
     plan = setOmscsCourse(plan, entry('cs6457', 'F'));
-    expect(getOmscsSummary(plan)).toMatchObject({ reportedCredits: 6, qualifyingCredits: 3 });
+    expect(getOmscsSummary(plan)).toMatchObject({ reportedCredits: 6, qualifyingCredits: 6 });
+    plan = setOmscsCourse(plan, entry('cs7641', 'C'));
+    expect(getOmscsSummary(plan).problems).toContainEqual(expect.stringContaining('CS 7641'));
   });
 
   it('replaces rather than duplicates a course and rejects malformed explicit academic records', () => {
@@ -190,9 +194,10 @@ describe('proposed semesters and conditional degree accounting', () => {
 });
 
 describe('academic journal preservation and complete source-linked study', () => {
-  it('roundtrips optional academic data, preserves absence and detects a competing plan edit', () => {
+  it('roundtrips catalogue-wide academic data, preserves absence and detects a competing plan edit', () => {
     const base = createInitialState(false);
-    const local = academic(setOmscsCourse(undefined, entry('cs7641')));
+    delete base.omscsPlan;
+    const local = academic(setOmscsCourse(undefined, { id: 'cs7470', term: '2027-spring', status: 'completed', grade: 'B' }));
     const remote = academic(setOmscsCourse(undefined, entry('cs6200')));
     expect(workspaceChanges(base, local).some(row => row.key === 'setting/omscsPlan')).toBe(true);
     expect(applyWorkspaceChanges(base, workspaceChanges(base, local), local.updatedAt)).toEqual(local);
@@ -204,6 +209,7 @@ describe('academic journal preservation and complete source-linked study', () =>
 
   it('authentically replays an old ten-mission ciphertext baseline before appending new academic data', async () => {
     const state = createInitialState(false);
+    delete state.omscsPlan;
     const created = await createJournal(state, phrase);
     const { omscs: _omscs, ...oldMissions } = state.missions;
     const old = { ...state, missions: oldMissions };

@@ -59,7 +59,7 @@ export function PersonalProofManager({ state, commit, practice }: {
       {error && <p className="form-error" role="alert">{error}</p>}
       <div className="modal-footer"><button type="button" className="button secondary" onClick={() => setRecords(null)}>Cancel</button><button type="button" className="button primary" onClick={() => save(records)}>Add these records</button></div>
     </Modal>}
-    {adding && <Modal title="Add a past accomplishment" subtitle="Describe completed work, not a future goal. Dates are optional when you do not know them." onClose={() => setAdding(false)}>
+    {adding && <Modal title="Add past work" subtitle="Describe completed work, not a future goal. Dates are optional when you do not know them." onClose={() => setAdding(false)}>
       <form className="stack-form" onSubmit={event => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);

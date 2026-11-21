@@ -117,6 +117,8 @@ test('source-defined HashMap branches remain selectable with one current checkpo
   const next = await stored(page);
   expect(next.missions.pattern.checkpointId).toBe(grouping.id);
   expect(next.missions.pattern.completedCheckpointIds).not.toContain(complement.id);
+  await page.locator('[data-tour="mission-inline-map"] > summary').click();
+  await expect(page.locator('[data-tour="mission-roadmap"]')).toBeVisible();
   await expect(page.locator('[data-tour="mission-roadmap"] .flow-checkpoint.current')).toHaveCount(1);
   const lastRow = page.locator('[data-tour="mission-roadmap"] .source-level').last();
   await expect(lastRow.locator('.flow-checkpoint')).toHaveCount(2);

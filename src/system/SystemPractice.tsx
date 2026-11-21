@@ -36,12 +36,11 @@ export function SystemPracticePage({ state, entryId, conceptGroupId }: {
   return <div className="system-practice-page">
     <div data-tour="system-practice-intro">
       <PageHeading eyebrow="SYSTEM FORGE / PROBLEMS & EXERCISES" title="System Design problems"
-        description="Concept practice, changed-constraint drills and end-to-end design cases from the supplied problem-solving roadmap.">
+        help={<>Practice material from {SYSTEM_PRACTICE_SOURCE}. Modules, diagnostic gates and independent cases remain separate from saved completion. The concepts view is a connected reference, not another set of prerequisites.</>}>
         <a href="#/mission/system" className="button secondary">System Design mission<ArrowRight size={15} /></a>
       </PageHeading>
       <div className="system-concept-notice">
-        <p><strong>72 modules / 15 case studies / 8 diagnostic gates.</strong> Source: {SYSTEM_PRACTICE_SOURCE}, 183 pages.</p>
-        <p>This is the problems roadmap. <a href="#/system-concepts">The concepts map</a> is a separate connected reference. Your saved tracker remains v{active.roadmapVersion}; reading ahead does not change its position or complete work.</p>
+        <p><strong>72 modules / 15 cases / 8 diagnostics.</strong> Tracker v{active.roadmapVersion} / <a href="#/system-concepts">Concepts map</a></p>
       </div>
     </div>
     <details className="system-practice-guide"><summary>Learning sequence, source states and review rules</summary>
@@ -98,7 +97,6 @@ export function SystemPracticePage({ state, entryId, conceptGroupId }: {
         </div>
         <div className="system-related-concepts"><h3>Related concepts</h3>
           {unit.conceptGroupIds.map(id => <a className="text-link" href={`#/system-concepts/${id}`} key={id}>{systemConceptGroups.find(group => group.id === id)?.title ?? id}<ArrowRight size={14} /></a>)}
-          <p>These navigation links connect the two supplied sources; they are not extra prerequisite gates.</p>
         </div>
       </section>
     </>}

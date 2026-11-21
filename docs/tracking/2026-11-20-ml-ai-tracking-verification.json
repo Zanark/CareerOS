@@ -1,0 +1,38 @@
+{
+  "observedAt": "2026-11-20T06:35:08.972Z",
+  "mode": "independent-read-only",
+  "repository": "Zanark/CareerOS",
+  "account": "Zanark",
+  "workstream": "omscs-ml-vs-ai",
+  "issue": {
+    "number": 16,
+    "url": "https://github.com/Zanark/CareerOS/issues/16",
+    "state": "open",
+    "reason": null,
+    "titleAndManagedContentMatch": true,
+    "managedSha256": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97"
+  },
+  "project": {
+    "id": "PVT_kwHOAe2wCs4BqeZy",
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+    "status": "In review",
+    "issueIdentityMatches": true,
+    "primaryView": {
+      "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+      "name": "Kanban",
+      "number": 1,
+      "layout": "BOARD_LAYOUT"
+    }
+  },
+  "backlinkMatches": true,
+  "recoveryStateUnchanged": true,
+  "recoverySha256": "8ece13dc03dea0072242a185f058249b1834a9ba80d30258d183661efdccbd0d",
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "privateReportBodyPublished": false,
+  "humanAcceptanceRecorded": false,
+  "sourcePublicationAuthorized": false
+}

@@ -731,4 +731,24 @@ export const careerSkillLinks: readonly CareerSkillLink[] = [
     reason: 'Gold Circuit GPU experiments include transfer and numerical correctness; Neural task-performance reasoning additionally includes tools, coordination, review and verification.',
     source: anchor('omscs', 'omscs-v3-omscs-cs7295-performance'), target: anchor('neural', 'neural-v4-neural-agent-performance', '4.0.0'),
   },
+  {
+    id: 'world-forge-keyed-inventory', concept: 'Stable identity before inventory lookup',
+    reason: 'Pattern keyed-state reasoning transfers to World Forge tile inventories and command receipts. The game must still prove its own conservation, ownership and replay invariants; related study never grants game completion.',
+    source: anchor('pattern', 'pattern-v3-section-05'), target: anchor('gamedev', 'gamedev-v3-gd-09'),
+  },
+  {
+    id: 'world-forge-measured-budget', concept: 'Find the actual limiting resource',
+    reason: 'System latency/throughput reasoning helps World Forge distinguish frame time, loading, authority cost and network traffic. A declared game budget is not measured performance on a target machine.',
+    source: anchor('system', 'system-v3-module-03'), target: anchor('gamedev', 'gamedev-v3-gd-57'),
+  },
+  {
+    id: 'world-forge-bounded-slice', concept: 'Architecture choices tied to a finish line',
+    reason: 'Blueprint alternatives and reconsideration triggers support World Forge scope decisions and its small multiplayer vertical slice. The new game still needs its own playable evidence, not an inherited architecture badge.',
+    source: anchor('blueprint', 'blueprint-v3-blueprint-s9-1'), target: anchor('gamedev', 'gamedev-v3-gd-27'),
+  },
+  {
+    id: 'world-forge-authority-boundary', concept: 'A request is not permission or truth',
+    reason: 'Fieldcraft actor-resource-action reasoning transfers to World Forge server-authoritative gameplay. A connected client must not choose another actor or report a trusted inventory/result, and the game requires its own rejection tests.',
+    source: anchor('fde', 'fde-v3-fde-17'), target: anchor('gamedev', 'gamedev-v3-gd-53'),
+  },
 ];

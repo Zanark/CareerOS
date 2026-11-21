@@ -5,6 +5,13 @@ import { followingOmscsTerm, omscsTermIndex, omscsTermLabel, omscsTermSchema, pr
 import { isPathCourse, outsideCsCse, pathCourse, pathCourses } from './catalog';
 import { pathRules } from './rules';
 import type { PathRuleId } from './rules';
+import { courseEntryAssessment, hardCoursePrerequisites, hardPrerequisiteProblems, prerequisiteNeedsEarlierTerm } from './requirements';
+import type { EntryConfirmations } from './requirements';
+export { defaultPathSelection } from '../recommendations';
+export type { SpecializationSelection } from '../recommendations';
+import type { SpecializationSelection } from '../recommendations';
+import { defaultPathSelection } from '../recommendations';
+import { createAcademicStarter } from '../starter';
 
 export interface PriorCourse {
   id: string;
@@ -16,11 +23,6 @@ export interface PathProfile {
   resumeTerm: OmscsTerm;
   completed: PriorCourse[];
   readmissionConfirmed?: boolean;
-}
-export interface SpecializationSelection {
-  design: string;
-  ai: [string, string];
-  electives: [string, string];
 }
 export interface SpecializationPath {
   id: string;
@@ -50,7 +52,7 @@ export const pathProfileSchema: z.ZodType<PathProfile> = z.object({
 
 export function profileFromWorkspace(state: AppState): PathProfile {
   return {
-    programStart: '', resumeTerm: state.omscsPlan?.startTerm ?? proposedOmscsPlan().startTerm,
+    programStart: '', resumeTerm: state.omscsPlan?.startTerm ?? createAcademicStarter().startTerm,
     completed: state.omscsPlan?.courses.filter(row => row.status === 'completed')
       .map(row => ({ id: row.id, term: row.term, grade: row.grade })) ?? [],
   };
@@ -171,14 +173,14 @@ export const preparationComparisons = [
   ['cs6200', 'cs6210', 'OS preparation before advanced OS'],
   ['cs6200', 'cs7210', 'Systems preparation before distributed protocols'],
   ['cs6200', 'cs7295', 'Systems/architecture preparation before GPU work'],
-  ['cs6210', 'cs6211', 'Strong AOS-level preparation before SDCC'],
 ] as const;
 const preferredOrder = ['cs7641', 'cs6200', 'cs6515', 'cs6300', 'cs6601', 'cs7643', 'cs7650', 'cs6476', 'cs6210', 'cs7210', 'cs7295', 'cs6211'];
 export function suggestedCourseOrder(ids: readonly string[]): string[] {
   const remaining = new Set(ids), ordered: string[] = [];
   const rank = (id: string) => preferredOrder.includes(id) ? preferredOrder.indexOf(id) : preferredOrder.length + pathCourses.findIndex(course => course.id === id);
   while (remaining.size) {
-    const ready = [...remaining].filter(id => !preparationComparisons.some(([before, after]) => after === id && remaining.has(before)));
+    const ready = [...remaining].filter(id => !preparationComparisons.some(([before, after]) => after === id && remaining.has(before))
+      && !hardCoursePrerequisites.some(({ before, after }) => after === id && remaining.has(before)));
     if (!ready.length) throw new Error('The authored preparation comparisons contain a cycle.');
     ready.sort((a, b) => rank(a) - rank(b));
     ordered.push(ready[0]); remaining.delete(ready[0]);
@@ -191,12 +193,19 @@ export function firstTermCourseOrder(ids: readonly string[], first: string): str
   if (!ids.includes(first)) throw new Error('The first-term choice is not a selected new subject. Review the draft before proposing a calendar.');
   return [first, ...ordered.filter(id => id !== first)];
 }
-export function proposedPathSemesters(ids: readonly string[], resume: OmscsTerm, includeSummer: boolean, regularLoad: 1 | 2) {
+export function proposedPathSemesters(ids: readonly string[], resume: OmscsTerm, includeSummer: boolean, regularLoad: 1 | 2,
+  completed: readonly PriorCourse[] = [], checks: EntryConfirmations = {}) {
+  const problems = hardPrerequisiteProblems(ids, completed, checks);
+  if (problems.length) throw new Error(problems.join(' '));
   let term = resume;
   const remaining = [...ids], semesters: { term: OmscsTerm; courseIds: string[] }[] = [];
   while (remaining.length) {
     const load = term.endsWith('summer') ? 1 : regularLoad;
-    semesters.push({ term, courseIds: remaining.splice(0, load) });
+    const available = remaining.filter(after => !remaining.some(before => prerequisiteNeedsEarlierTerm(before, after, completed, checks)));
+    if (!available.length) throw new Error('The required course order cannot produce an eligible next term.');
+    const courseIds = available.slice(0, load);
+    semesters.push({ term, courseIds });
+    for (const id of courseIds) remaining.splice(remaining.indexOf(id), 1);
     if (remaining.length) term = followingOmscsTerm(term, includeSummer);
   }
   return semesters;
@@ -213,17 +222,22 @@ export function returnGap(profile: PathProfile) {
   }
   return { terms: gap, needsCheck: gap.length >= 3 };
 }
-export function pathCalendarWarnings(profile: PathProfile, semesters: ReturnType<typeof proposedPathSemesters>): string[] {
+export function pathCalendarWarnings(profile: PathProfile, semesters: ReturnType<typeof proposedPathSemesters>, checks: EntryConfirmations = {}): string[] {
   const warnings: string[] = [];
   const positions = new Map(semesters.flatMap((semester, index) => semester.courseIds.map(id => [id, index] as const)));
   const completed = new Set(budgetCompleted(profile).map(row => row.id));
   for (const [before, after, label] of preparationComparisons) {
+    if (after === 'cs7643') continue;
     const a = positions.get(before), b = positions.get(after);
     if (!completed.has(before) && b !== undefined && (a === undefined || a >= b)) {
       warnings.push(`${label}: review actual readiness. This comparison is guidance, not an enforced registration prerequisite.`);
     }
   }
-  if (positions.has('cs6211')) warnings.push('SDCC lists mandatory weekly90-minute live meetings and strong AOS/equivalent preparation. Confirm current entry, grading and attendance conditions.');
+  for (const [index, semester] of semesters.entries()) for (const id of semester.courseIds) {
+    const entry = courseEntryAssessment(id, profile.completed, semesters.slice(0, index).flatMap(term => term.courseIds), checks);
+    if (entry?.warning) warnings.push(entry.warning);
+  }
+  if (positions.has('cs6211')) warnings.push('CS 6211: mandatory weekly 90-minute live meetings. Confirm the current section and attendance conditions.');
   if (semesters.some(term => term.courseIds.length > 1)) warnings.push('Two substantial courses share at least one regular term. This is a heavy what-if pace, not a workload recommendation or approved exception.');
   const finish = semesters.at(-1)?.term;
   if (finish) for (const row of budgetCompleted(profile)) {
@@ -234,9 +248,6 @@ export function pathCalendarWarnings(profile: PathProfile, semesters: ReturnType
   return [...new Set(warnings)];
 }
 
-export const defaultPathSelection: SpecializationSelection = {
-  design: 'cs6515', ai: ['cs7637', 'cs7641'], electives: ['cs7632', 'cs7643'],
-};
 export const pathPresets = [
   { id: 'ai-systems', title: 'AI engineering + systems', why: 'Balanced original route: ML/DL plus OS, NLP, distributed failure and GPU cost/performance.', selection: defaultPathSelection, free: ['cs6457', 'cs6200', 'cs7650', 'cs7210', 'cs7295'] },
   { id: 'cloud-platform', title: 'Cloud-platform depth', why: 'Trade DC/GPU for AOS/SDCC. Check the substantial systems preparation and live attendance cost.', selection: defaultPathSelection, free: ['cs6457', 'cs6200', 'cs7650', 'cs6210', 'cs6211'] },

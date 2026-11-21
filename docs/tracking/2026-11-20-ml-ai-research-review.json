@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-20",
+  "workstream": "omscs-ml-vs-ai",
+  "status": "private-document-ready-for-review",
+  "scope": "Public-safe research metadata only. Personalized report bodies, recommendations, academic inputs, raw captures and private paths are not mirrored.",
+  "deliverable": {
+    "formats": ["Markdown", "standalone offline HTML", "PDF"],
+    "wordsIncludingSources": 8239,
+    "sections": 20,
+    "pdfPages": 22,
+    "canonicalReferences": 24,
+    "pageSpecificCitationAliases": 15,
+    "comparisonTables": 14,
+    "privateArtifactByteIntegrityVerified": true
+  },
+  "researchBoundaries": {
+    "exactOnlineCourseIdentitiesReviewed": true,
+    "datedSyllabusAndCurrentOverviewConflictRetained": true,
+    "mislabeledSampleAndSectionIdentityDistinguished": true,
+    "repositoryUploadDateNotTreatedAsTeachingSemester": true,
+    "secondaryReviewsDatedAndQualified": true,
+    "ambiguousReviewNotUsedAsPolicyAuthority": true,
+    "recommendationAndStrongCountercaseIncludedPrivately": true,
+    "jobTransferLabelledEditorialInference": true,
+    "priorCompletionNotTreatedAsMastery": true,
+    "noUniqueNamedPrerequisiteInvented": true,
+    "futureCourseContractVerified": false,
+    "futureStudentAIToolPolicyNotAssumed": true,
+    "privateCourseAccountAccessed": false,
+    "assessedSolutionRepositoryAccessed": false
+  },
+  "qualification": {
+    "documentContexts": [
+      {"width": 1440, "theme": "dark"},
+      {"width": 390, "theme": "light"},
+      {"width": 320, "theme": "dark"}
+    ],
+    "allInternalTargetsResolve": true,
+    "keyboardTableScrolling": "passed where needed",
+    "documentPageErrors": 0,
+    "externalDocumentRequests": 0,
+    "documentOverflow": 0,
+    "pdfAllTwentySectionHeadingsPresent": true,
+    "pdfExternalLinkAnnotations": 101,
+    "pdfReplacementCharacters": 0,
+    "pdfOutOfPageWords": 0,
+    "conditionalAllocationChecks": 2,
+    "allocationScope": "Illustrative current-menu course/role/credit consistency, not an individual official degree audit.",
+    "selectedHtmlFramesVisuallyReviewed": 3,
+    "selectedPdfPagesVisuallyReviewed": [1, 15],
+    "entirePdfVisuallyReviewed": false,
+    "structuralChecksNotSubstitutedForMeaningReview": true
+  },
+  "preserved": {
+    "applicationRuntimeAndTestSourceUnchanged": true,
+    "applicationSourceFingerprint": "d28ecb37c3e3a4812b8d493115fd94b983076634019e3b7beb3938274d723e5c",
+    "head": "475b60055dec047ad09e0476e6b569051e128b8c",
+    "savedChoicesAndProgressNotChanged": true,
+    "priorDocumentEditionsNotOverwritten": true,
+    "stagedFiles": 0,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "humanAcceptanceRecorded": false,
+  "sourcePublicationAuthorized": false
+}

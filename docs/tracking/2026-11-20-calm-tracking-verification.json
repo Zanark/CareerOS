@@ -1,0 +1,22 @@
+{
+  "observedAt": "2026-11-20T06:13:28.806003+05:30",
+  "workstreamId": "calm-interface",
+  "scope": "Public-safe maintainer tracking only, not source publication or human acceptance.",
+  "issue": "https://github.com/Zanark/CareerOS/issues/14",
+  "issueState": "open",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKTsIw",
+  "projectStatus": "In review",
+  "managedSha256": "f6c4df300775c0c31035e1a9ecad5b43f6bf1033e647af8236cf56f2a617533f",
+  "backlink": "verified",
+  "taskFieldsAndCompletedTechnicalChecklist": "verified",
+  "newRemoteObjects": 0,
+  "conflicts": 0,
+  "failed": 0,
+  "finalNoopActions": [],
+  "verification": "Reviewed preview, guarded apply with complete remote body/state/Project/backlink read-back, then a second verified zero-action apply. Original identities and managed hash are stable.",
+  "applyReceipt": "docs/tracking/2026-11-20-calm-completion-apply.json",
+  "noopReceipt": "docs/tracking/2026-11-20-calm-completion-noop.json",
+  "sourceStagingCommitPushDeployment": false,
+  "ownerAcceptance": "pending"
+}

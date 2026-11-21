@@ -18,7 +18,10 @@ for (const version of ['1.0.0', '2.0.0'] as const) {
   test(`System Design offers all concepts while preserving its v${version} tracker`, async ({ page }) => {
     const raw = await seed(page, version);
     await page.goto('./#/mission/system');
-    await expect(page.locator('[data-tour="system-concepts-open"]')).toContainText('system-design.pdf');
+    await page.getByRole('button', { name: 'About System Design sources', exact: true }).click();
+    const sources = page.getByRole('dialog', { name: 'System Design sources', exact: true });
+    await expect(sources).toContainText('system-design.pdf');
+    await sources.getByRole('button', { name: 'Close System Design sources help', exact: true }).click();
     await page.getByRole('button', { name: 'Full roadmap', exact: true }).click();
     const dialog = page.getByRole('dialog', { name: 'System Design full roadmap', exact: true });
     await dialog.getByLabel('Roadmap view').selectOption('concepts');
@@ -91,8 +94,11 @@ for (const theme of ['dark', 'light']) {
     for (const group of systemConceptGroups) {
       await expect(page.getByRole('heading', { name: group.title, exact: true })).toHaveCount(1);
     }
-    await expect(page.locator('.system-concept-notice')).toContainText('not mastery of every pattern');
-    await expect(page.locator('.system-concept-notice a')).toHaveAttribute('href', 'https://roadmap.sh/system-design');
+    await page.getByRole('button', { name: 'About System Design concepts', exact: true }).click();
+    const context = page.getByRole('dialog', { name: 'System Design concepts', exact: true });
+    await expect(context).toContainText('not mastery of every pattern');
+    await expect(context.locator('a')).toHaveAttribute('href', 'https://roadmap.sh/system-design');
+    await context.getByRole('button', { name: 'Close System Design concepts help', exact: true }).click();
     await page.getByLabel('Search System Design concepts').fill('Circuit Breaker');
     await expect(page.locator('[data-concept-group]')).toHaveCount(1);
     await expect(page.locator('[data-concept-label]').filter({ hasText: /^Circuit Breaker$/ })).toHaveCount(2);

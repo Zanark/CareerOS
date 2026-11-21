@@ -1,0 +1,111 @@
+Workstream ID: omscs-specializations
+Title: Compare six OMSCS specializations and persist an academic starter
+Status: IN_REVIEW
+Milestone: Provide a locally reviewed specialization ledger and shared academic basis
+Dependencies: omscs-path-explorer, calm-interface, tracker-foundation
+GitHub issue: https://github.com/Zanark/CareerOS/issues/15
+Purpose: Show all six current online specialization requirement groups with
+  subject rows, shared completion styling and grade-aware eligibility. Use
+  the expressly authorized public academic starter consistently across
+  saved course records, future recommendations, calendars and mission entry.
+  Keep actual learning evidence and personal data outside that narrow
+  authorized preset unchanged.
+
+Tasks:
+  [x] Confirm six-specialization scope and explicit public-default visibility.
+  [x] Read all six official online specialization pages and degree grade rules.
+  [x] Encode online-only groups, minimum sub-area counts and no double counting.
+  [x] Add persistent starter initialization without overwriting explicit records.
+  [x] Support catalogue-wide academic entries and grade-aware course reuse.
+  [x] Add six compact specialization sections and completed-row green glow.
+  [x] Align academic recommendations, calendars and mission/roadmap entry.
+  [x] Preserve backups/journal, existing career data and isolated practice.
+  [x] Qualify default/migration/conflict, allocation and responsive behavior.
+  [x] Update focused documentation, evidence and same-identity tracking.
+  [x] Correct next-course action alignment and divider spacing across widths.
+
+Acceptance criteria:
+  All six current OMSCS specializations have distinct labelled sections.
+    Only explicitly online, current-catalogue subjects appear as requirement
+    choices; published core/elective counts and category minima are respected.
+  A shared recorded course appears completed everywhere it is shown. Green
+    borders/glow indicate academic completion, not eligibility or mastery;
+    grade/status text is accessible and reduced motion retains a steady cue.
+  Degree-passing and specialization-eligible grades remain different. Courses
+    below the specialization floor can use a free slot, never a required
+    specialization slot or two slots simultaneously.
+  The owner-authorized public starter is persisted and exported as academic
+    data. Its centralized resume term drives future academic suggestions,
+    calendars and mission/roadmap entry rather than page-local assumptions.
+  Existing explicit records and custom choices are not silently replaced.
+    Missing-profile initialization is distinct from an explicitly empty plan;
+    conflicting/newer entries require a deliberate reviewed update.
+  No academic seed or course grade completes learning checkpoints, evidence,
+    recall, readiness, Atlas or timer activity. Practice uses fictional/empty
+    academic data and cannot change the real starter or workspace.
+  Normal pages remain concise and action-first; source detail is on demand.
+    Frozen learning definitions and the approved illustrated README stay intact.
+  Only values expressly approved for the public app preset are included in
+    that product data. Do not copy other private input, actual grades/dates,
+    transcripts or profile bodies into issues or shared continuity.
+  Preserve live user previews and use disposable qualification contexts.
+    Public-default consent is not commit, push or deployment authority;
+    this candidate stays local until a separate owner decision.
+
+Completion evidence:
+  Owner-feedback correction is locally qualified: a responsive header keeps
+    the next-course action right-aligned/centered beside its text on wide
+    screens and below it on phones. The row now has24px before its study
+    disclosure divider, instead of the button touching it. Typography, same
+    link, saved academic basis and disclosure behavior remain unchanged.
+    Three new desktop/phone regressions and the retained academic proposal/
+    semester workflow pass on a fresh strict-TypeScript production build:
+    4passes,0skips/flaky/retries. Actual wide-dark/narrow-light frames inspected.
+    Fingerprintf60741f6720c6ee7f1b3a88047e9e6b0de81db883d56853a5403d04964fc1c5a
+    covers66runtime/test files at unchanged475b600. This is a targeted later
+    revision, not a new whole-app gate or renewed prior source review.
+    Proof: docs/tracking/2026-11-20-layout-feedback-review.json.
+    Both original user previews remain current; no actual owner profile,
+    academic behavior change, stage/commit/push/deployment or acceptance claim.
+  Earlier candidate is ready for local owner review at #/omscs/specializations, titled Degree paths.
+    All six current online menus match fresh official captures exactly:
+    14/27/9/9/6/15 unique choices. Source/sub-area rules and one-course-one-slot
+    matching are explicit. The detailed subject/calendar planner remains AI.
+  Fresh full domain gate: 764 cases across54 files; after the practice-factory
+    correction,32 affected practice/discovery/tutorial cases pass. Strict
+    TypeScript and production build pass; existing chunk-size warnings remain.
+  Affected production-browser gate38/38 and final compact-page gate11/11
+    reconcile to39 unique workflows, zero skips/flaky/automatic retries.
+    This is not a full final-tree whole-app browser-suite claim.
+  Current-source desktop/phone contexts on both protected previews match all
+    six official sets, preserve saved state, show the shared resume basis on
+    academic/mission/practice/full-map/master-roadmap entry and report no
+    page errors, external requests or document overflow. Actual final phone
+    frames were inspected. No owner browser profile was inspected or driven.
+  Final changed runtime/test fingerprint:
+    d28ecb37c3e3a4812b8d493115fd94b983076634019e3b7beb3938274d723e5c
+    across65 files at unchanged base475b600. It is not a commit/repository hash.
+  Proof: docs/tracking/2026-11-20-omscs-specializations-local-review.json.
+    Same-identity review transition:
+    docs/tracking/2026-11-20-specializations-tracking-verification.json.
+    Existing issue15/original Project item are retained; human acceptance and
+    source publication are separate. No stage, commit, push or deployment.
+
+Completion log:
+  2026-11-20 - Fixed the reported next-course button layout with a wrapping
+    action header and normal spacing before the study disclosure. Wide/phone
+    geometry, actual frames, link/disclosure behavior and preserved saved
+    state qualify. Keep the same issue15/item In review; publication separate.
+  2026-11-20 - Owner review finds the next-course action crowded against its
+    learning disclosure. Give the primary action a responsive aligned header
+    and breathing room while retaining the same subject, link and study detail.
+  2026-11-20 - Local technical implementation is ready for owner review.
+    Reduced duplicate section navigation to a compact accessible jump; required
+    choices and grade restrictions stay visible. Corrected the actual tutorial
+    save-gate regression by starting practice without a pre-saved proposal.
+    Old empty-profile expectations now use deliberate fixtures; retained
+    original failures rather than masking them with retries or weaker gates.
+    Public source defaults remain narrow; no academic values enter tracking.
+  2026-11-20 - Owner confirms all six current specializations and chooses
+    public app defaults after the visibility warning. Scope the public preset
+    narrowly; keep tracking and shared continuity free of its personal values.

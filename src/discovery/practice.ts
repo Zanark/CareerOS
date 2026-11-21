@@ -4,6 +4,7 @@ import type { AppState, EvidenceKind } from '../domain/types';
 /** Explicit synthetic replacement for the in-memory tutorial only, never the saved workspace. */
 export function createDiscoveryPracticeState(now = new Date()): AppState {
   let state = createInitialState(false);
+  delete state.omscsPlan;
   state.sampleData = true;
   state.objective = 'Tutorial example: a fictional collection of learning records.';
   function at(daysAgo: number) {

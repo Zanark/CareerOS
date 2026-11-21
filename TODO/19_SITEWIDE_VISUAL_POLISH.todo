@@ -1,0 +1,131 @@
+Workstream ID: sitewide-visual-polish
+Title: Refine every CareerOS page into a polished minimal interface
+Status: IN_REVIEW
+Milestone: Deliver a research-led, fully audited local visual review candidate
+Dependencies: calm-interface, omscs-specializations
+GitHub issue: https://github.com/Zanark/CareerOS/issues/18
+Purpose: Retain the accepted content reduction while restoring strong visual
+  hierarchy, coherent spacing, aligned controls, clear affordances and an
+  attractive interface throughout the existing product. Research primary
+  usability/design-system/accessibility guidance before applying it. Check
+  actual internal routes, not just the previously reported screenshots.
+
+Tasks:
+  [x] Review primary usability/design-system sources and record transfer limits.
+  [x] Inventory first-party route patterns and data-driven internal URLs.
+  [x] Capture and inspect the actual desktop/tablet/phone baseline safely.
+  [x] Refine shared heading/action/card/form/disclosure layout and visual rhythm.
+  [x] Correct page-specific empty, populated, detail and overlay rough edges.
+  [x] Preserve minimal copy, both themes, readable type and real data semantics.
+  [x] Audit internal URL layouts and inspect all primary page families visually.
+  [x] Add targeted layout regressions and run appropriate existing suites.
+  [x] Record exact source/coverage, focused documentation and same-identity tracking.
+  [x] Keep the local previews available and hand off without source publication.
+
+Acceptance criteria:
+  The content-reduction direction remains intact. Do not restore explanatory
+    essays, add decorative prose or hide essential records/warnings to make
+    a layout simpler. Intentional study material remains complete.
+  First-party routes and data-driven destinations have an explicit inventory.
+    Record actual checked URLs/viewports/states and manual visual-review scope;
+    do not call a few representative screenshots an exhaustive URL audit.
+  Shared headings, action groups, cards, rows, disclosures and forms use
+    consistent alignment, grouping and spacing. Primary actions are clear,
+    supporting actions remain discoverable and text/icon controls fit.
+  Desktop, tablet and narrow layouts reflow without clipped text/buttons,
+    unintended overlap or whole-document horizontal scrolling. Deliberate
+    diagram/table scrolling remains local and accessible.
+  Retain DeepSeaFoam/Harbor Daylight, the established type scale, semantic
+    mission/status colors, real 3D graph and sun/moon theme behavior. Visual
+    polish is not permission to shrink type or invent progress.
+  Context help, disclosures, native dialogs, focus indicators, errors and
+    meaningful disabled states remain usable by keyboard and touch. Distinguish
+    accessibility criteria from design recommendations and actual qualification.
+  Preserve IDs, course/grade rules, source workbooks, frozen roadmap editions,
+    approved illustrated README, user data, backups and manual journal semantics.
+  All browser checks use disposable synthetic/public-starter contexts, never
+    the owner's actual profile. Preserve existing user previews and stop only
+    identified temporary helpers; no unrelated process or browser disruption.
+  Research is applied critically, not copied as a foreign visual identity.
+    Keep findings, project choices, observed defects and unverified assumptions
+    separate. No private inputs are sent to research services or public tracking.
+  Keep technical verification, human visual approval and publication separate.
+    No staging, commit, push, deployment, workflow activation or public image/
+    report upload follows from this local review request.
+
+Completion evidence:
+  Research synthesis reviews14primary NN/g, GOV.UK and WCAG guidance/study
+    sources with explicit scope, applicability and limits. It distinguishes
+    useful minimalism from bare/weak-signifier UI, design recommendations
+    from normative criteria and a small findability experiment from actual
+    product usability. No projected percentage improvement is claimed.
+  Source-derived inventory contains1331authored internal destinations plus
+    7explicit boundary URLs:1338total, including907study units,50DSA sections
+    and192concept-filtered practice-unit destinations. Actual private saved
+    record IDs are excluded; their route pattern uses fictional examples.
+  Shared headings/actions, compact navigation, panel/card/empty-state rhythm,
+    source icons and form headers are refined. Academic and focus help remain
+    with their related controls. Explicit study links are reader-first;
+    browse/search/source controls and shared review guidance stay available.
+    No curriculum, academic rule, saved-record or renderer logic changed.
+  Final changed runtime/test fingerprint:
+    c3773821c969a166dcb27d3e3249060a4e7b2809c8eeceb0147890decf8a1c02
+    covers82changed/untracked files including earlier local features, not82
+    new edits in this workstream. HEAD475b600 remains unchanged.
+  All1338URLs pass at1440dark/768dark/390dark/320light:5352checks with exact
+    rendered-link closure, real graph/Wayfinder readiness, unchanged demo
+    data and zero document overflow, meaningful clipping, split heading
+    words, page/console errors or external requests. Current180family
+    captures and80state checks pass:76measured UI cases plus4profile-integrity
+    checks. Actual saved-record patterns use fictional examples.
+  Strict TypeScript/build,764domain tests across54files and28affected browser
+    cases pass. The complete final-source browser run passes523/523cases
+    in523attempts, one worker, zero skips/flaky/automatic retries.
+    Eleven targeted visual regressions cover headers, navigation, reader-first
+    pages, card actions, contextual grouping and native dialog titles.
+  Original full-run503/519diagnostics remain retained. Nine comparisons
+    differed only by fixture property ordering; four role queries followed
+    compact-menu closure; two fixtures no longer created a true duplicate.
+    One element screenshot included the adjacent toolbar's partial boundary
+    pixels. Canonical fixtures assert semantic equality; exact saved-byte,
+    selected-state, visible-validation and complete-canvas-pixel assertions
+    remain intact. No relaxed deadline, color tolerance or automatic retry.
+  Manual visual scope:45primary page families at desktop/phone through
+    contacts, then current-source contacts for every late-changed academic
+    strip and eight native states. The remaining grouping/title defects are
+    resolved. This is not full-resolution reading of every body, a user
+    usability study, physical-device approval or full accessibility conformance.
+  A raw scroll-box metric flagged intentionally full-bleed discovery-card
+    footers. Retain the original diagnostic; refined measurement checks
+    actual rendered text/small icons rather than labelling decorative padding
+    overflow as lost functionality. Discovery artwork was not changed.
+  Initial issue creation reached the original issue/item but a Windows atomic
+    state-file rename failed. Full preview rediscovered those same identities;
+    recovery verified the baseline and a rerun is a no-op, without duplication.
+  Both original local previews are responsive/current and retained. Readable
+    type scale1.5, canonical themes, meaningful status colors, actual3D and
+    sun/moon behavior are preserved. Approved README, packages/workflow,
+    frozen report editions and empty public journal remain unchanged.
+    No actual owner browser/profile or private backup was accessed.
+  Final public-safe proof:
+    docs/tracking/2026-11-21-visual-polish-local-review.json.
+    Same original issue18/Project item is retained; closing preview/apply,
+    no-op and independent exact read-back use the documented tracking gate.
+    Human visual acceptance and source publication remain pending.
+
+Completion log:
+  2026-11-21 - Completed the research-led local visual-review candidate.
+    Source-bound full URL/state checks, targeted regressions, complete523-case
+    browser suite and strict domain/type gates pass. Final contacts resolve
+    native-title and contextual-help grouping defects without shrinking type
+    or changing records. Preserve all original diagnostics and source editions.
+    Same-identity closing tracking is separate from human approval; no source
+    staging, commit, push or deployment is authorized by this local handoff.
+  2026-11-21 - Finished primary-source research and explicit internal-route
+    inventory, then inspected the responsive baseline and began shared visual
+    corrections. Preserve all earlier receipts and captured source identities;
+    a passing layout probe is not a whole-app or aesthetic-approval claim.
+  2026-11-21 - Owner accepts the minimal content direction but requests a full
+    visual refinement and proactive inspection across every internal page/URL,
+    followed by deeper research into minimal and intuitive UI design. Preserve
+    the accepted direction and local-only publication boundary.

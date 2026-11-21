@@ -2,13 +2,15 @@ import { useEffect, useRef } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import {
   ArrowUpRight, Award, Blocks, BookOpen, BrainCircuit, BriefcaseBusiness, Check, Code2, Compass,
-  FileText, GraduationCap, Layers3, Network, Rocket, Sparkles, Trophy, X,
+  FileText, Gamepad2, GraduationCap, Layers3, Network, Rocket, Sparkles, Trophy, X,
 } from 'lucide-react';
 import type { EvidenceKind, Mission } from './domain/types';
 import { missionAccentStyle } from './missionVisuals';
+import { ContextHelp } from './ContextHelp';
+export { ContextHelp } from './ContextHelp';
 
 export function MissionIcon({ mission, size = 20 }: { mission: Mission; size?: number }) {
-  const Icon = { code: Code2, layers: Layers3, rocket: Rocket, network: Network, compass: Compass, award: Award, cpu: BrainCircuit, trophy: Trophy, briefcase: BriefcaseBusiness, graduation: GraduationCap }[mission.icon] ?? Blocks;
+  const Icon = { code: Code2, layers: Layers3, rocket: Rocket, network: Network, compass: Compass, award: Award, cpu: BrainCircuit, trophy: Trophy, briefcase: BriefcaseBusiness, graduation: GraduationCap, gamepad: Gamepad2 }[mission.icon] ?? Blocks;
   return <span className={`mission-icon ${mission.color}`} style={missionAccentStyle(mission.id)}><Icon size={size} strokeWidth={1.7} /></span>;
 }
 
@@ -42,8 +44,14 @@ export function SectionTitle({ eyebrow, title, children }: { eyebrow?: string; t
   return <div className="section-title"><div>{eyebrow && <span className="eyebrow">{eyebrow}</span>}<h2>{title}</h2></div>{children}</div>;
 }
 
-export function PageHeading({ eyebrow, title, description, children, titleAction }: { eyebrow: string; title: string; description: string; children?: ReactNode; titleAction?: ReactNode }) {
-  return <div className="page-heading"><div><span className="eyebrow">{eyebrow}</span>{titleAction ? <div className="page-title-row"><h1>{title}</h1>{titleAction}</div> : <h1>{title}</h1>}<p>{description}</p></div>{children}</div>;
+export function PageHeading({ eyebrow, title, description, help, children, titleAction }: { eyebrow: string; title: string; description?: string; help?: ReactNode; children?: ReactNode; titleAction?: ReactNode }) {
+  return <div className="page-heading"><div className="page-heading-copy">
+    <div className="page-heading-kicker"><span className="eyebrow">{eyebrow}</span>
+      {help && <ContextHelp title={title}>{help}</ContextHelp>}</div>
+    <div className="page-title-row"><h1>{title}</h1>
+      <div className="page-heading-actions">{titleAction}{children}</div>
+    </div>{description && <p>{description}</p>}
+  </div></div>;
 }
 
 export function Empty({ title, children, icon = 'sparkles' }: { title: string; children: ReactNode; icon?: string }) {

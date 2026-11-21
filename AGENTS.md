@@ -19,6 +19,13 @@ GitHub tracking guide. Preserve the existing focused guide/architecture/source
 register conventions; do not generate a book or implement deferred features
 as a tracking/documentation side effect.
 
+Normal pages are action-first, not lessons. Delete redundant interface prose;
+put secondary explanations in concise contextual help usable by click/tap,
+hover and keyboard. Move useful procedures selectively into the optional
+tutorial. Do not hide actual records, intentional study content, material
+validation/conflict states or required consent and data-loss warnings.
+Preserve the established readable type scale rather than shrinking text.
+
 Retain stable numbered `.todo` workstreams and their eight required fields.
 Each actual public-safe workstream maps to one repository issue and the same
 issue in the configured CareerOS Project. The index and perpetual ledger are

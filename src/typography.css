@@ -14,7 +14,7 @@
 .overview-track-progress { width: 145px; flex-shrink: 0; }
 .overview-status { width: 130px; flex-shrink: 0; }
 .source-heading, .source-stage-heading, .roadmap-selected-heading, .save-state-main { flex-wrap: wrap; }
-.section-title { align-items: flex-start; }
+.section-title { align-items: center; }
 .section-title > .text-link { flex-shrink: 0; }
 .tutorial-head {
   position: sticky;
@@ -30,13 +30,16 @@
 .flow-decision::before { inset: 18px; }
 .flow-practice { min-width: 0; overflow-wrap: anywhere; }
 
-@media (min-width: 761px) {
+@media (min-width: 1051px) {
   .sidebar { width: 272px; }
   .main-shell { margin-left: 272px; }
   .toast { left: calc(50% + 136px); }
 }
 
 @media (max-width: 1050px) {
+  .sidebar { width: min(290px, calc(100vw - 32px)); }
+  .main-shell { margin-left: 0; }
+  .toast { left: 50%; }
   .overview-status { display: none; }
   .overview-checkpoint { flex-wrap: wrap; }
   .overview-track-progress { flex: 0 0 120px; }
@@ -44,8 +47,6 @@
 }
 
 @media (max-width: 760px) {
-  .sidebar { width: min(290px, calc(100vw - 32px)); }
-  .toast { left: 50%; }
   .top-actions { flex-shrink: 0; }
   .theme-toggle-label { min-width: 0; }
 }

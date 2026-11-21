@@ -3,6 +3,7 @@ import { getLatestMission, getMissionVersion } from '../src/domain/catalog';
 import { createInitialState, generatePlan, localDate } from '../src/domain/engine';
 import { getPackOutline, packCheckpointId } from '../src/domain/roadmapPacks/registry';
 import { packMissionIds } from '../src/domain/roadmapPacks/types';
+import { openLibraryBrowser } from './library-ui';
 
 const key = 'careerhq.workspace.v1';
 
@@ -20,7 +21,7 @@ async function rawState(page: Page) {
   return page.evaluate(key => localStorage.getItem(key), key);
 }
 
-for (const id of packMissionIds.filter(id => id !== 'fde' && id !== 'omscs')) {
+for (const id of packMissionIds.filter(id => id !== 'fde' && id !== 'omscs' && id !== 'gamedev')) {
   test(`${id}: all source units are browsable and deep links preserve the old tracker`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -36,6 +37,7 @@ for (const id of packMissionIds.filter(id => id !== 'fde' && id !== 'omscs')) {
     await expect(page.getByRole('heading', { name: last.title, level: 2, exact: true })).toBeVisible();
     await expect(page.locator('.pack-exercises > ol > li')).toHaveCount(last.exerciseCount);
     await page.reload();
+    await openLibraryBrowser(page);
     await expect(select).toHaveValue(last.id);
     await expect(page.getByRole('heading', { name: last.title, level: 2, exact: true })).toBeVisible();
     expect(await rawState(page)).toBe(before);

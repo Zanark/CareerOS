@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-11-21T03:46:40.546Z",
+  "mode": "independent-read-only",
+  "account": "Zanark",
+  "repository": "Zanark/CareerOS",
+  "workstream": {
+    "id": "godot-game-development",
+    "issue": 19,
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKoCVM",
+    "state": "open",
+    "projectStatus": "In review",
+    "exactManagedContentAndBacklink": true,
+    "managedSha256": "4fb0ea9858d0d197081e5a07075c68842d14fbf00e839760ba1c88bd1337e1dc"
+  },
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "recoveryStateUnchanged": true,
+  "recoverySha256": "e812494ffbf334e5454be7128d3a600c5a3867780ab310cee267ebc668e192cc",
+  "privateImagesOrOwnerRecordsPublished": false,
+  "humanAcceptanceRecorded": false,
+  "sourcePublicationAuthorized": false
+}

@@ -20,7 +20,7 @@ export function DsaPracticeLink({ checkpoint }: { checkpoint?: Checkpoint }) {
   return <><DsaNotebookCompanion sectionNumber={section?.number} />
     {section && <aside className="dsa-practice-link" data-tour="dsa-practice-link">
     <BookOpen size={20} />
-    <div><strong>Practice for this topic</strong><p>{section.title}: source problem sets, row difficulty, and mastery guidance. Choose representative problems; do not treat the whole list as a compulsory checklist.</p></div>
+    <div><strong>Practice for this topic</strong><p>{section.title}</p></div>
     <a className="text-link" href={`#/dsa/${section.number}`}>Open practice set<ArrowRight size={15} /></a>
   </aside>}</>;
 }
@@ -41,21 +41,12 @@ export function DsaLibrary({ state, sectionNumber }: { state: AppState; sectionN
 
   return <div className="dsa-library" data-tour="dsa-library">
     <PageHeading eyebrow="PATTERN FORGE / EXPANDED SOURCE" title="DSA practice library"
-      description="Every section of the supplied expanded roadmap, with direct problem links and the source's practice guidance.">
+      help="A read-only source library. Repeats are transfer practice, not extra completion credit. Set placement and row difficulty are different source classifications; difficulty is not checked live. Reading does not change your saved tracker.">
       <a href="#/mission/pattern" className="button secondary">Back to DSA<ArrowRight size={15} /></a>
     </PageHeading>
     <div className="dsa-library-intro">
-      <p><strong>{dsaSections.length} sections / {occurrenceCount} problem appearances / {uniqueCount} distinct problems.</strong> Repeats are intentional transfer practice, not extra completed work.</p>
-      <p>This is a read-only practice reference. Problem difficulty is copied from the PDF, not checked live against LeetCode. The PDF's Foundation/Core/Stress placement sometimes differs from its row difficulty; both are kept visible.</p>
-      <p>Your active tracker is v{active.roadmapVersion}. Browsing any section here does not unlock or complete it. Log actual work from your current DSA checkpoint.</p>
+      <p><strong>{dsaSections.length} sections / {occurrenceCount} appearances / {uniqueCount} distinct problems.</strong> Tracker v{active.roadmapVersion}</p>
     </div>
-    <DsaNotebookCompanion sectionNumber={section?.number} />
-    <details className="dsa-protocol">
-      <summary>How to use the sets without chasing a problem count</summary>
-      <ol>{dsaPracticeProtocol.map(item => <li key={item}>{item}</li>)}</ol>
-      <p>Section numbers identify the PDF's chapters, not execution order. The appended roadmap follows Appendix A's phases; study-method sections remain available throughout.</p>
-      <a href="#/sources/pattern" className="text-link">Read append notes and source mapping<ArrowRight size={15} /></a>
-    </details>
     <div className="dsa-library-controls">
       <label>PDF section<select data-tour="dsa-section" aria-label="DSA source section" value={section?.number ?? ''}
         onChange={event => { window.location.hash = `/dsa/${event.target.value}`; }}>
@@ -78,6 +69,13 @@ export function DsaLibrary({ state, sectionNumber }: { state: AppState; sectionN
           <p>These are self-checks, not an AI assessment. A checkpoint's suggested minutes describe one starting session, not a deadline to master the topic.</p>
         </details>
       </section>
+      <DsaNotebookCompanion sectionNumber={section.number} />
+      <details className="dsa-protocol">
+        <summary>How to use the sets without chasing a problem count</summary>
+        <ol>{dsaPracticeProtocol.map(item => <li key={item}>{item}</li>)}</ol>
+        <p>Section numbers identify the PDF's chapters, not execution order. The appended roadmap follows Appendix A's phases; study-method sections remain available throughout.</p>
+        <a href="#/sources/pattern" className="text-link">Read append notes and source mapping<ArrowRight size={15} /></a>
+      </details>
       <div className="dsa-problem-filters" data-tour="dsa-problem-filters">
         <label>Row difficulty<select aria-label="Filter DSA problems by difficulty" value={difficulty} onChange={event => setDifficulty(event.target.value as DsaDifficulty | 'all')}>
           <option value="all">All difficulties</option><option>Easy</option><option>Medium</option><option>Hard</option>
@@ -90,7 +88,7 @@ export function DsaLibrary({ state, sectionNumber }: { state: AppState; sectionN
         if (!problems.length) return null;
         return <section key={set.id} className="dsa-problem-set" data-problem-set={set.id}>
           <h3>{set.label}<span>{problems.length}</span></h3>
-          <p>{set.id === 'stress' ? 'Use these as later stress tests after representative Medium work is stable.' : 'Source placement, not a difficulty guarantee. Follow the row labels and prerequisite concepts.'}</p>
+          {set.id === 'stress' && <p>For later stress testing after representative Medium work is stable.</p>}
           <ul>{problems.map((problem, index) => <li key={`${problem.id}-${index}`}>
             <a href={problem.url} target="_blank" rel="noopener noreferrer"><span>{problem.id}. {problem.title}</span><ArrowUpRight size={16} /></a>
             <span className={`dsa-difficulty ${problem.difficulty.toLowerCase()}`}>{problem.difficulty}</span>

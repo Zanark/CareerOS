@@ -88,7 +88,7 @@ export const packPracticeSteps: TutorialStep[] = [
   {
     id: 'pack-open', chapter: 'pack-practice', kind: 'action', route: 'sources/fabric', command: 'close-dialogs',
     targets: ['pack-library-open'], title: 'Open the complete practice material',
-    body: 'Click Open the complete practice library. The seven expanded mission workbooks now have their own detailed study pages. These are separate from your saved checkpoint and do not require changing it.',
+    body: 'Click Practice library. Expanded mission workbooks have their own detailed study pages, separate from your saved checkpoint; browsing does not require adopting a new edition.',
     check: ({ route }) => route === 'practice/fabric' || route.startsWith('practice/fabric/'),
   },
   {
@@ -105,7 +105,7 @@ export const packPracticeSteps: TutorialStep[] = [
   {
     id: 'pack-guide', chapter: 'pack-practice', kind: 'action',
     targets: ['pack-shared-guide'], title: 'Find the shared learning rules',
-    body: 'Expand How to use this roadmap. Shared practice levels, diagnostic rubrics and retention guidance are factored here rather than copied into every lesson. The source capability labels are not automatically calculated app statuses.',
+    body: 'Expand Study & review guide. Shared practice levels, diagnostic rubrics and retention guidance are factored here rather than copied into every lesson. The source capability labels are not automatically calculated app statuses.',
     checkUi: root => expanded(root, 'pack-shared-guide'),
   },
   {

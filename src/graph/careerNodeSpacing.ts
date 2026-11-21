@@ -43,6 +43,10 @@ export function spaceCareerGraph(graph: CareerGraph, spacing: number): CareerGra
       positions.set(node.id, source);
       continue;
     }
+    if (unfold === 1) {
+      positions.set(node.id, target);
+      continue;
+    }
     const from = source.map((value, axis) => value - core.position[axis]);
     const to = target.map((value, axis) => value - core.position[axis]);
     const fromDepth = dot(from, FORWARD), toDepth = dot(to, FORWARD);
@@ -125,7 +129,7 @@ function compactPositions(graph: CareerGraph, core: CareerGraphNode) {
 /**
  * Open the interleaved cloud into separate mission fans. Each fan keeps real
  * source depth; stage order comes from existing membership, never new edges.
- * The finite polar rows are built once per slider change, not per frame.
+ * The finite hexagonal fans are built once per slider change, not per frame.
  */
 function unfoldNeighborhoods(graph: CareerGraph, core: CareerGraphNode, spread: number) {
   const byId = new Map(graph.nodes.map(node => [node.id, node]));
@@ -139,7 +143,7 @@ function unfoldNeighborhoods(graph: CareerGraph, core: CareerGraphNode, spread: 
   const unaffiliated = graph.nodes.filter(node => node.kind !== 'core' && !node.missionId).sort(compareIds);
   const definitionCount = groups.reduce((sum, group) => sum + group.filter(node => priority(node) < 2).length, 0);
   const separation = 7 + spread * 3;
-  const outer = 156;
+  const outer = 148;
   const inner = INNER_RADIUS + 8;
   const angles = groups.map(group => Math.max(18, group.filter(node => priority(node) < 2).length));
   const total = angles.reduce((sum, count) => sum + count, 0);
@@ -149,19 +153,32 @@ function unfoldNeighborhoods(graph: CareerGraph, core: CareerGraphNode, spread: 
     const group = groups[groupIndex];
     const width = Math.PI * 2 * angles[groupIndex] / total;
     const margin = width * (0.02 + spread * 0.02);
-    let cells: [number, number][] = [];
     const definitionNodes = group.filter(node => priority(node) < 2);
     // Saved records do not consume catalogue slots or shuffle its checkpoints.
     let step = separation * Math.min(1, Math.sqrt(520 / Math.max(520, definitionCount)));
-    for (let attempt = 0; attempt < 8; attempt++) {
-      cells = [];
-      for (let radius = inner; radius <= outer; radius += step * ROW_HEIGHT) {
-        const slots = Math.max(1, Math.floor((width - margin * 2) * radius / step));
-        for (let slot = 0; slot < slots; slot++) {
-          const angle = start + margin + (slot + 0.5) * (width - margin * 2) / slots;
-          cells.push([Math.cos(angle) * radius, Math.sin(angle) * radius]);
+    const cellsForStep = (distance: number) => {
+      const result: [number, number][] = [];
+      const limit = Math.ceil(outer / distance / ROW_HEIGHT);
+      for (let r = -limit; r <= limit; r++) for (let q = -limit * 2; q <= limit * 2; q++) {
+        const x = (q + r / 2) * distance, y = r * ROW_HEIGHT * distance;
+        const radius = Math.hypot(x, y);
+        if (radius < inner || radius > outer) continue;
+        const angle = ((Math.atan2(y, x) - start) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+        const clearance = Math.max(margin, Math.asin(Math.min(1, distance * 0.75 / radius)));
+        if (angle >= clearance && angle <= width - clearance) {
+          result.push([x, y]);
         }
       }
+      const angleOf = (x: number, y: number) => ((Math.atan2(y, x) - start) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+      return result.sort(([ax, ay], [bx, by]) => {
+        const band = Math.floor((Math.hypot(ax, ay) - inner) / (distance * ROW_HEIGHT));
+        const otherBand = Math.floor((Math.hypot(bx, by) - inner) / (distance * ROW_HEIGHT));
+        return band - otherBand || (band % 2 ? -1 : 1) * (angleOf(ax, ay) - angleOf(bx, by));
+      });
+    };
+    let cells: [number, number][] = [];
+    for (let attempt = 0; attempt < 8; attempt++) {
+      cells = cellsForStep(step);
       if (cells.length >= definitionNodes.length) break;
       step *= 0.85;
     }

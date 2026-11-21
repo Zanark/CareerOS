@@ -1,0 +1,19 @@
+{
+  "status": "authorized-preparing",
+  "scope": "Current public-safe website source, README and living documentation",
+  "authorizedAt": "2026-11-21T09:26:04.250+05:30",
+  "startingHead": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "qualifiedLocalRuntimeTestFingerprint": "dfc660a5e21e137520c6446f34cac225e164b4302660bb9ac2b32cc8e02d2274",
+  "productSourceChangedForPublication": true,
+  "productBehaviorChangedForPublication": false,
+  "formattingOnlySourceChanges": [
+    "src/domain/omscs/paths/requirements.ts",
+    "src/domain/omscs/specializations.ts"
+  ],
+  "illustratedReadmeArtworkPreserved": true,
+  "privateReportsContextBrowserRecordsAndCredentialsExcluded": true,
+  "gameMissionInitialMode": "planned",
+  "deploymentRun": null,
+  "hostedVerificationComplete": false,
+  "humanLearningOrVisualAcceptanceInferred": false
+}

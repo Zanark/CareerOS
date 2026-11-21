@@ -1,0 +1,63 @@
+{
+  "status": "local-review-ready",
+  "scope": "Only the two owner-reported layout corrections; no new whole-app suite claim.",
+  "sourceHead": "475b60055dec047ad09e0476e6b569051e128b8c",
+  "runtimeTestFingerprint": "f60741f6720c6ee7f1b3a88047e9e6b0de81db883d56853a5403d04964fc1c5a",
+  "changedRuntimeTestFiles": 66,
+  "ownedRuntimeFiles": [
+    "src/App.tsx",
+    "src/omscs/OmscsPage.tsx",
+    "src/omscs/omscs.css"
+  ],
+  "newResponsiveRegressionCases": 3,
+  "productionBrowserPasses": 4,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "strictTypeScriptAndProductionBuildPassed": true,
+  "geometry": [
+    {
+      "width": 1440,
+      "theme": "dark",
+      "rowToDividerGap": 24.0,
+      "previousDividerGap": 0.0,
+      "trackingGroupGapBefore": 0,
+      "trackingGroupGapAfter": 29,
+      "matchesExistingGroupGap": true,
+      "typographyUnchanged": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "rowToDividerGap": 24.0,
+      "previousDividerGap": 0.0,
+      "trackingGroupGapBefore": 0,
+      "trackingGroupGapAfter": 29,
+      "matchesExistingGroupGap": true,
+      "typographyUnchanged": true
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "rowToDividerGap": 24.0,
+      "previousDividerGap": 0.0,
+      "trackingGroupGapBefore": 0,
+      "trackingGroupGapAfter": 29,
+      "matchesExistingGroupGap": true,
+      "typographyUnchanged": true
+    }
+  ],
+  "captureCasesPerPhase": 3,
+  "pageErrors": 0,
+  "externalRequests": 0,
+  "documentOverflow": 0,
+  "savedDemoStateUnchanged": true,
+  "originalUserPreviewsCurrentAndRetained": true,
+  "actualOwnerBrowserAccessed": false,
+  "stagedFiles": 0,
+  "sourceCommitted": false,
+  "pushed": false,
+  "deployed": false,
+  "humanAcceptanceRecorded": false,
+  "visualReview": "Actual desktop-dark and narrow-light course card plus compact-dark navigation screenshots inspected."
+}

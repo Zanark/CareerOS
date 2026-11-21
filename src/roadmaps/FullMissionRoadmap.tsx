@@ -15,6 +15,7 @@ import { systemPracticeFor } from '../domain/operations/systemPracticeStudy';
 import { systemPracticeCases } from '../domain/operations/systemPracticeContent';
 import { MapInspector } from './MapInspector';
 import { getPackOutline, packUnitForCheckpoint, packUnitHref } from '../domain/roadmapPacks/registry';
+import { AcademicBasis } from '../omscs/AcademicBasis';
 
 const stageNodeId = (id: string) => `full-stage-${id}`;
 const caseNodeId = (id: string) => `practice-${id}`;
@@ -36,6 +37,7 @@ export function FullMissionRoadmap({ mission, state, onClose }: {
 
   return <Modal title={`${mission.name} full roadmap`} subtitle={subtitle}
     eyebrow={mission.operation} className={`full-roadmap-modal ${preview || concepts ? 'full-roadmap-preview' : ''}`} onClose={onClose} restoreFocus>
+    {mission.id === 'omscs' && <AcademicBasis state={state} />}
     {(hasExpanded || mission.id === 'system') && <div className="full-roadmap-version-bar" data-tour="full-map-version">
       <label>View<select aria-label="Roadmap view" value={mode}
         onChange={event => { const next = event.target.value; if (next === 'complete' || next === 'saved' || next === 'concepts') setMode(next); }}>

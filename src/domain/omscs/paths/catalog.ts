@@ -1,4 +1,4 @@
-import data from './catalog-data.json';
+import data from './catalog-data.json' with { type: 'json' };
 import { omscsCourses } from '../courses';
 
 export interface PathCourse {

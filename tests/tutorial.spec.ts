@@ -1,8 +1,8 @@
 import { test as base, expect, type Page } from '@playwright/test';
 import { createInitialState, generatePlan, localDate } from '../src/domain/engine';
+import { getMissions } from '../src/domain/catalog';
 import { steps } from '../src/tutorial/steps';
 import { graphSkillCheckpointTitle } from '../src/tutorial/graphControls';
-import { missionIds } from '../src/domain/types';
 
 const key = 'careerhq.workspace.v1';
 const themeKey = 'careerhq.theme.v1';
@@ -101,15 +101,14 @@ test('an existing workspace survives the UI update without a reset or migration'
 
 test('overview stays bounded when all configured missions are active', async ({ page }) => {
   const state = createInitialState(false);
-  for (const mission of Object.values(state.missions)) {
-    if (mission.mode !== 'planned') mission.mode = 'active';
-  }
+  const available = getMissions(state).filter(mission => !mission.planned);
+  for (const mission of available) state.missions[mission.id].mode = 'active';
   state.focusMissionId = 'neural';
   await page.addInitScript(({ key, state }) => localStorage.setItem(key, JSON.stringify(state)), { key, state });
   await page.goto('./#/hq');
   await expect(page.locator('.overview-checkpoint')).toHaveCount(3);
   await expect(page.locator('.overview-checkpoint').first()).toContainText('AI');
-  await expect(page.getByRole('link', { name: `${missionIds.length - 3} more active missions` })).toBeVisible();
+  await expect(page.getByRole('link', { name: `${available.length - 3} more active missions` })).toBeVisible();
 });
 
 for (const width of [1440, 390, 320]) {
@@ -337,7 +336,9 @@ for (const width of [1440, 390, 320]) {
           break;
         case 'mission-list':
           await page.getByRole('button', { name: /^Planned/ }).click();
-          await expect(page.locator('.mission-card')).toHaveCount(0);
+          await expect(page.locator('.mission-card')).toHaveCount(1);
+          await expect(page.locator('.mission-card')).toHaveAttribute('data-mission-id', 'gamedev');
+          await expect(page.locator('.mission-card').getByText('Planned', { exact: true })).toBeVisible();
           await page.getByRole('button', { name: /^All missions/ }).click();
           break;
         case 'evidence-open':
@@ -588,12 +589,41 @@ for (const width of [1440, 390, 320]) {
           await page.locator('[data-tour="omscs-plan-save"]').click();
           break;
         case 'omscs-guide':
+          await page.locator('[data-tour="omscs-course-guide"] > summary').click();
           await page.locator('[data-tour="omscs-course-select"]').selectOption('cs7295');
           break;
         case 'omscs-entry':
           await page.locator('[data-tour="omscs-record-cs7637"]').click();
           await page.locator('[data-tour="omscs-course-example"]').click();
           await page.locator('[data-tour="omscs-course-save"]').click();
+          break;
+        case 'paths-context-help':
+          await page.locator('[data-tour="paths-first-subject-help"]').click();
+          await expect(coach.locator('[data-tutorial-next="next"]')).toBeEnabled();
+          await page.keyboard.press('Escape');
+          break;
+        case 'paths-basis':
+          await page.locator('#paths-history > summary').click();
+          break;
+        case 'paths-design':
+          await page.locator('[data-tour="paths-design-select"]').selectOption('cs6300');
+          break;
+        case 'paths-free-search':
+          await page.locator('[data-tour="paths-free-query"]').fill('database');
+          break;
+        case 'paths-entry-conditions':
+          await page.locator('#paths-entry-checks > summary').click();
+          break;
+        case 'paths-first-choice':
+          await page.locator('[data-tour="paths-first-term-select"]').selectOption('cs6200');
+          break;
+        case 'paths-copy-shortlist':
+          await expect(page.locator('.tutorial-missing')).toHaveCount(0);
+          await page.locator('#paths-shortlist .path-course-detail > summary').click();
+          await page.locator('[data-tour="paths-shortlist-select"]').click();
+          break;
+        case 'paths-calendar':
+          await page.locator('#paths-semester-calendar > summary').click();
           break;
         case 'agent-cloud-cases':
           await page.locator('[data-tour="pack-unit-select"]').selectOption('neural-agent-case-race');

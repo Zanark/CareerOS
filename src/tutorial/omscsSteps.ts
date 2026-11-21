@@ -5,7 +5,7 @@ export const omscsSteps: TutorialStep[] = [
     id: 'omscs-intro', chapter: 'omscs', kind: 'explain', route: 'omscs', command: 'close-dialogs',
     targets: ['omscs-intro'],
     title: 'Gold Circuit / a semester and learning companion',
-    body: 'Operation Gold Circuit is an unofficial Georgia Tech OMSCS AI route: ten course guides, proposed semesters and independent learning. It is not university advising, registration or a connected AI tutor. No prior completion is imported. Academic self-reports, rule-eligible credits and study checkpoints stay separate. Everything you change in this tutorial is temporary.',
+    body: 'Operation Gold Circuit is an unofficial Georgia Tech OMSCS AI route: ten course guides, proposed semesters and independent learning. Six specializations also compares required and optional online courses. The normal workspace may include the owner-approved public academic starter; this tutorial starts without academic history or a saved proposal. Green course borders mean recorded completion, not grade eligibility or learning mastery. This is not university advising, registration or a connected AI tutor. Everything you change here is temporary.',
   },
   {
     id: 'omscs-plan', chapter: 'omscs', kind: 'action', route: 'omscs',
@@ -18,7 +18,7 @@ export const omscsSteps: TutorialStep[] = [
     id: 'omscs-guide', chapter: 'omscs', kind: 'action', route: 'omscs',
     targets: ['omscs-course-select'],
     title: 'Inspect the actual GPU preparation cost',
-    body: 'Choose CS 7295 in Explore a course. Its guide separates syllabus topics, C/C++ and architecture preparation, tools and a dated assessment snapshot. Simulator/compiler work is part of the course; this is not just running PyTorch on a GPU. It is one deliberate elective choice, not a universal requirement.',
+    body: 'Open Course guides, then choose CS 7295 in Explore a course. Its guide separates syllabus topics, C/C++ and architecture preparation, tools and a dated assessment snapshot. Simulator/compiler work is part of the course; this is not just running PyTorch on a GPU. It is one deliberate elective choice, not a universal requirement.',
     checkUi: root => root.querySelector<HTMLSelectElement>('[data-tour="omscs-course-select"]')?.value === 'cs7295',
   },
   {

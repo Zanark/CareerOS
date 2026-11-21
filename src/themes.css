@@ -314,9 +314,14 @@
 :root[data-theme] :is(.done-label, .proof-complete) { color: var(--dsf-text); }
 :root[data-theme] :is(.done-label > svg, .proof-complete > svg, .plan-item.done .plan-number) { color: var(--dsf-document); }
 :root[data-theme] .plan-item.done { background: var(--dsf-paper); }
-:root[data-theme] :is(.artifact-icon, .backup-icon, .empty-icon) {
+:root[data-theme] :is(.artifact-icon, .backup-icon) {
   color: var(--dsf-document);
   background: var(--dsf-paper);
+  border-color: var(--dsf-separator);
+}
+:root[data-theme] .empty-icon {
+  color: var(--dsf-accent);
+  background: var(--dsf-surface);
   border-color: var(--dsf-separator);
 }
 

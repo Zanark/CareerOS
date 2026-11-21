@@ -1,0 +1,100 @@
+{
+  "scope": "Local review candidate. Complete browser inventory reconciled from one full run and explicit affected-case reruns on byte-identical product source; not a claim that the original full run passed.",
+  "source": {
+    "head": "475b60055dec047ad09e0476e6b569051e128b8c",
+    "fingerprint": "dfc660a5e21e137520c6446f34cac225e164b4302660bb9ac2b32cc8e02d2274",
+    "aggregateChangedRuntimeTestFiles": 106,
+    "runtimeFilesIdenticalAcrossBrowserRuns": 80,
+    "fullRunFingerprint": "1e165c01cb5df23b591ef0a91a9a65d7a78c4326e11003f646e4052342939f3a",
+    "sourceUnchangedDuringEachRun": true,
+    "protectedSourceFilesUnchanged": true
+  },
+  "feature": {
+    "missionId": "gamedev",
+    "initialMode": "planned",
+    "coreCheckpoints": 65,
+    "corePhases": 14,
+    "browsableUnits": 78,
+    "exercises": 156,
+    "reviewedSources": 23,
+    "referenceUnits": 5,
+    "optionalStudies": 8,
+    "acceptanceScenarios": 22,
+    "rubricPoints": 100
+  },
+  "qualification": {
+    "strictTypingAndBuild": true,
+    "domainCases": 778,
+    "domainFiles": 55,
+    "uniqueBrowserCasesCovered": 535,
+    "originalFullPassed": 529,
+    "originalFullFailed": 6,
+    "explicitAffectedRerunPassed": 7,
+    "allOriginalFailuresCorrectedAndRerun": true,
+    "originalFailureEvidenceRetained": true,
+    "automaticRetries": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "workers": 1,
+    "unitViewportChecks": 312,
+    "layouts": [
+      {
+        "width": 1440,
+        "theme": "dark",
+        "unitChecks": 78,
+        "nativeSurfaces": [
+          "Planned card",
+          "Planned mission",
+          "complete roadmap"
+        ]
+      },
+      {
+        "width": 768,
+        "theme": "dark",
+        "unitChecks": 78,
+        "nativeSurfaces": [
+          "Planned card",
+          "Planned mission",
+          "complete roadmap"
+        ]
+      },
+      {
+        "width": 390,
+        "theme": "dark",
+        "unitChecks": 78,
+        "nativeSurfaces": [
+          "Planned card",
+          "Planned mission",
+          "complete roadmap"
+        ]
+      },
+      {
+        "width": 320,
+        "theme": "light",
+        "unitChecks": 78,
+        "nativeSurfaces": [
+          "Planned card",
+          "Planned mission",
+          "complete roadmap"
+        ]
+      }
+    ],
+    "representativeCapturesReviewed": 10,
+    "contactSheetsReviewed": 2
+  },
+  "contentModel": {
+    "geometricRoutes": 8,
+    "modelActions": 778,
+    "gameEngineExecuted": false,
+    "actualNetworkingOrPlaytesting": false,
+    "scope": "Independent source-derived geometry/conservation routes, not a complete timed-gate or reservation simulation."
+  },
+  "boundaries": {
+    "ownerBrowserProfileAccessed": false,
+    "privateImagesOrCreativeBriefPublished": false,
+    "gameMissionActivatedInOwnerData": false,
+    "gameBuiltOrSupplied": false,
+    "humanAcceptanceRecorded": false,
+    "sourceCommittedPushedOrDeployed": false
+  }
+}
