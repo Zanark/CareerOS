@@ -1,6 +1,6 @@
 Workstream ID: keep-going-journal-publication
 Title: Publish the Keep Going journal and current documentation
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Verify the exact pushed journal edition on the existing public site
 Dependencies: keep-going-journal
 GitHub issue: https://github.com/Zanark/CareerOS/issues/23
@@ -13,14 +13,14 @@ Purpose: Fulfill the separate publication request for the completed journal
 Tasks:
   [x] Reconcile the exact qualified source, owned dirty files and public boundary.
   [x] Verify account/repository/main/Pages authority and no active run to cancel.
-  [ ] Update README/guides without changing approved illustrations or runtime.
-  [ ] Audit staged paths/content and both effective Zanark identities/trailers.
-  [ ] Commit/push the exact source normally and read back remote main.
-  [ ] Verify the push run, required CI jobs and exact Pages artifact.
-  [ ] Compare actual hosted assets and exercise journal flows in disposable data.
-  [ ] Close original implementation/publication tracking with direct read-back.
-  [ ] Publish any evidence-only follow-through without runtime drift or repeat CI.
-  [ ] Refresh owned context, episode, exact marker and checked Context Mesh.
+  [x] Update README/guides without changing approved illustrations or runtime.
+  [x] Audit staged paths/content and both effective Zanark identities/trailers.
+  [x] Commit/push the exact source normally and read back remote main.
+  [x] Verify the push run, required CI jobs and exact Pages artifact.
+  [x] Compare actual hosted assets and exercise journal flows in disposable data.
+  [x] Close original implementation/publication tracking with direct read-back.
+  [x] Publish any evidence-only follow-through without runtime drift or repeat CI.
+  [x] Refresh owned context, episode, exact marker and checked Context Mesh.
 
 Acceptance criteria:
   Only independently reviewed public-safe source/docs/tracking enter Git.
@@ -51,9 +51,47 @@ Completion evidence:
     and strict build are earlier local evidence, not newly executed CI.
   Four illustrated README references/asset hashes are frozen for this release.
     Private bodies/captures/context remain outside the reviewed public inventory.
-  Exact commit/run/artifact/hosted qualification and closing context are pending.
+  Source2591f87af4677036138335821e64c316af0b77f2is committed/pushed; exact remote
+    main is independently read back.41audited public paths exclude private
+    material; nine qualified source/test files are preserved. Git normalizes
+    line endings for22staged files only; exact staged canonical content verified.
+  Both effective Zanark author/committer and current required trailers are
+    verified before/after the source commit. Four approved images/references
+    are preserved;33affected relative documentation file targets exist.
+  Exact push run44922714683succeeds for2591f87/main/deploy.yml: build36m3s/
+    deploy11s and required steps pass. Actual logs verify781domain cases/56files
+    and541browser passes, zero flaky/skipped/retry rows observed. Existing
+    retry configuration2and workflow unchanged; no historical run substituted.
+  Exact artifact14716060423contains30files/5069768bytes. Every actual hosted file,
+    bare public index and source README byte-matches, zero read failures/retries.
+    Service-reported transport digest:
+    sha256:e9e8ec49d4f28f8cf73a140817b5b7e1a74cfa84af8057f8d9109360abfe5b68.
+  Actual public journal qualification passes19cases in19attempts, one worker,
+    zero retries/skips/flaky, in disposable Edge contexts. Dates/two zones,
+    sources/stories, keyboard/focus, pagination, history/import/backup/delete,
+    sample/tutorial and six theme/viewport geometries are exercised.
+    No actual owner profile, new image view or human aesthetic review.
+  Public-safe exact proof:
+    docs/tracking/2026-11-21-keep-going-journal-publication.json.
+    Original-identity closing proof:
+    docs/tracking/2026-11-21-keep-going-journal-publication-tracking-verification.json.
+    Keep original implementation23/issue22and publication24/issue23/items;
+    private17/18remain review-scoped and unuploaded.
+  Runtime-equivalent evidence follow-through and owned offload read-back are
+    sealed separately in local completion receipts after each actual operation;
+    no self-referential final commit or offload timestamp is invented here.
+    Human visual/learning/motivational acceptance remains unrecorded.
 
 Completion log:
+  2026-11-21 - Exact source/run/jobs/artifact/hosted qualification succeeds.
+    Publish current journal/README/guides while preserving actual records and
+    four approved illustrations. Close original implementation/publication
+    identities with direct read-back, retain private material and separate
+    human acceptance. Evidence-only follow-through retains the deployed runtime.
+  2026-11-21 - Pushed the audited journal/README/guide edition2591f87and read
+    back exact main. Existing workflow starts run44922714683; monitor that run
+    without new dispatch/trigger or private material. CI/live success is not
+    yet asserted. Preserve source-bound local diagnostics and image limits.
   2026-11-21 - Owner explicitly authorizes publication after local journal delivery.
     Scope source/docs/README and existing Pages follow-through; do not broaden
     to private reports, record operations, workflow upgrades or new features.

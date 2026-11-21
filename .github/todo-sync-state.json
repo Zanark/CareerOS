@@ -303,11 +303,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/22",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKuov8",
       "baseline": {
-        "managed": "f36b958f9de45c4f3a05d1f1cfa39a8b911dec0f66ef8cced7cbefaf5815645e",
+        "managed": "ac0fc0c5b9bd801395e3fba90d5b3daaca6478366f5567a20648d12f3269eaf6",
         "title": "Build a chronological Keep Going journal",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -317,11 +317,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/23",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKvB1M",
       "baseline": {
-        "managed": "6d972810c1c5d8ec8cf2ebd183eb7467bb78f044f77648e1da1a47a567fb9519",
+        "managed": "60d392d9a6362dfafa4053d27d438de709a62a4d4de16747e132905d22bb01cb",
         "title": "Publish the Keep Going journal and current documentation",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

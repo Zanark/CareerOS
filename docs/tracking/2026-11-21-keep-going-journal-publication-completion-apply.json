@@ -1,0 +1,69 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "2591f87af4677036138335821e64c316af0b77f2",
+  "observedAt": "2026-11-21T16:49:40.018Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "keep-going-journal",
+      "path": "TODO/23_KEEP_GOING_JOURNAL.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/22",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "ac0fc0c5b9bd801395e3fba90d5b3daaca6478366f5567a20648d12f3269eaf6",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKuov8",
+      "backlink": "verified"
+    },
+    {
+      "id": "keep-going-journal-publication",
+      "path": "TODO/24_KEEP_GOING_JOURNAL_PUBLICATION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/23",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "60d392d9a6362dfafa4053d27d438de709a62a4d4de16747e132905d22bb01cb",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKvB1M",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 23,
+    "selected": 2,
+    "excluded": 2,
+    "created": 0,
+    "reused": 2,
+    "verified": 2,
+    "open": 0,
+    "closed": 2,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

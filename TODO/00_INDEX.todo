@@ -30,8 +30,8 @@ DONE - 19_SITEWIDE_VISUAL_POLISH.todo (sitewide-visual-polish)
 DONE - 20_GODOT_GAME_DEVELOPMENT.todo (godot-game-development)
 DONE - 21_CURRENT_SITE_PUBLICATION.todo (current-site-publication)
 DONE - 22_KEEP_GOING_JOURNAL_RESEARCH.todo (keep-going-journal-research)
-IN_REVIEW - 23_KEEP_GOING_JOURNAL.todo (keep-going-journal)
-IN_PROGRESS - 24_KEEP_GOING_JOURNAL_PUBLICATION.todo (keep-going-journal-publication)
+DONE - 23_KEEP_GOING_JOURNAL.todo (keep-going-journal)
+DONE - 24_KEEP_GOING_JOURNAL_PUBLICATION.todo (keep-going-journal-publication)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

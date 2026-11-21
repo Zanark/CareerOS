@@ -1,0 +1,71 @@
+{
+  "status": "verified-live",
+  "observedAt": "2026-11-21T16:47:06.105Z",
+  "scope": "Keep Going journal, README and living documentation; existing record formats retained.",
+  "authorizedAt": "2026-11-21T21:21:11.298+05:30",
+  "sourceCommit": "2591f87af4677036138335821e64c316af0b77f2",
+  "deploymentRun": 44922714683,
+  "deploymentRunUrl": "https://github.com/Zanark/CareerOS/actions/runs/44922714683",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "build",
+      "conclusion": "success"
+    },
+    {
+      "name": "deploy",
+      "conclusion": "success"
+    }
+  ],
+  "ci": {
+    "domainCasesPassed": 781,
+    "domainFilesPassed": 56,
+    "browserCasesPassed": 541,
+    "browserFlakyCases": 0,
+    "browserSkippedCases": 0,
+    "discoveredBrowserCases": 541,
+    "actualRetryOrSkipRowsObserved": 0,
+    "existingConfiguredRetries": 2,
+    "originalWorkflowUnchanged": true
+  },
+  "artifact": {
+    "id": 14716060423,
+    "name": "github-pages",
+    "transportBytes": 1284688,
+    "serviceReportedDigest": "sha256:e9e8ec49d4f28f8cf73a140817b5b7e1a74cfa84af8057f8d9109360abfe5b68",
+    "fileCount": 30,
+    "totalBytes": 5069768,
+    "fileManifestSha256": "f8fbfdb7289a31c9fd52c94d3eaf8d029a5c5a21a6b5f2a16abc529480abe644"
+  },
+  "hosted": {
+    "url": "https://zanark.github.io/CareerOS/#/perspective",
+    "allArtifactFilesMatched": true,
+    "barePublicIndexMatched": true,
+    "exactPublishedReadmeMatched": true,
+    "initialReadFailuresRetained": 0,
+    "nativeCasesPassed": 19,
+    "nativeAttempts": 19,
+    "nativeSkips": 0,
+    "nativeFlaky": 0,
+    "nativeAutomaticRetries": 0,
+    "nativeWorkers": 1,
+    "scope": "Actual public URL in disposable profiles: journal order/date precision, sources/stories, keyboard/focus, pagination, history add/import/remove/backup, sample/tutorial isolation and six theme/viewport geometries.",
+    "screenshotsOrPrivateRecordsPublished": false
+  },
+  "formatting": {
+    "qualifiedLocalRuntimeTestFilesPreserved": 9,
+    "localSourceFingerprint": "17f9c949536abe6f50eaa902126474370ca182dc6d0e74ebb7bd2f45b806066f",
+    "stagedLineEndingNormalizations": 22,
+    "stagedContentEqualsReviewedWorkingTextAfterGitLineEndingNormalization": true,
+    "functionalChangesAfterLocalQualification": false
+  },
+  "boundaries": {
+    "ownerBrowserProfileAccessed": false,
+    "privateReportsContextCapturesBrowserRecordsAndCredentialsExcluded": true,
+    "recordSchemaAndBackupFormatsChanged": false,
+    "approvedIllustrationsPreserved": 4,
+    "newImageViewToolCalls": 0,
+    "humanAestheticLearningOrMotivationalAcceptanceInferred": false
+  },
+  "evidenceFollowThrough": "Documentation/tracking-only follow-through must prove runtime/README/workflow/public equivalence to this deployed source."
+}

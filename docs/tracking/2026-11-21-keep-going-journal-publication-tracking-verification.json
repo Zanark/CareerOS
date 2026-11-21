@@ -1,0 +1,61 @@
+{
+  "observedAt": "2026-11-21T16:50:24.051Z",
+  "account": "Zanark",
+  "repository": "Zanark/CareerOS",
+  "workstreams": [
+    {
+      "id": "keep-going-journal",
+      "issue": 22,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKuov8",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "ac0fc0c5b9bd801395e3fba90d5b3daaca6478366f5567a20648d12f3269eaf6",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "keep-going-journal-publication",
+      "issue": 23,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKvB1M",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "60d392d9a6362dfafa4053d27d438de709a62a4d4de16747e132905d22bb01cb",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "omscs-ml-vs-ai",
+      "issue": 16,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "state": "open",
+      "stage": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "calm-change-guide",
+      "issue": 17,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKdhX4",
+      "state": "open",
+      "stage": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "ea13ebc75ec4bc15cc756541da36cd637ce934ecb3c8552469f527bc7c31e877",
+      "originalIdentityPreserved": true
+    }
+  ],
+  "otherSourceRecoveryEntriesUnchanged": 21,
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "recoveryStateUnchanged": true,
+  "privateReportsRemainReviewScopedAndUnpublished": true,
+  "humanVisualAcceptanceInferred": false
+}
