@@ -1,0 +1,91 @@
+Workstream ID: keep-going-journal
+Title: Build a chronological Keep Going journal
+Status: IN_REVIEW
+Milestone: Deliver a local journal-first Keep Going review candidate
+Dependencies: keep-going-journal-research
+GitHub issue: https://github.com/Zanark/CareerOS/issues/22
+Purpose: Implement the authorized section-only journal direction using existing
+  personal-history and saved-work records. Make the page feel like a readable
+  chronological scrapbook rather than another study collection. Keep this
+  original candidate local; do not extend the record schema. Later publication
+  is separately authorized and tracked by workstream24, not this local phase.
+
+Tasks:
+  [x] Read the approved direction, current contracts and affected source/tests.
+  [x] Verify and protect the existing live local previews and unrelated work.
+  [x] Derive one non-mutating newest-first feed with honest record/date labels.
+  [x] Add month chapters, varied memory treatments and accessible story expansion.
+  [x] Retain source access, deliberate history management and sample/tutorial truth.
+  [x] Cover sorting, stable order, date boundaries and unchanged input records.
+  [x] Qualify native interactions, narrow layouts, themes, focus and persistence.
+  [x] Update affected help/docs and retain source-bound evidence and limitations.
+  [x] Verify original tracking identities and hand off the local review candidate.
+
+Acceptance criteria:
+  Known dates sort newest first across personal history and saved work,
+    irrespective of completion status. Unknown dates remain explicitly unknown.
+  Date-only history never shifts a day through UTC; saved evidence is labelled
+    by recording time, not silently reinterpreted as an event date.
+  The visual and keyboard reading sequence remains chronological at wide and
+    narrow sizes. Keep both canonical themes and the existing readable type scale.
+  Actual titles/accounts remain intact and fully available. No invented diary
+    quotes, achievements, generic praise, mandatory reflection or penalty counters.
+  Browsing, expansion and layout changes write no records, progress or rewards.
+    Explicit add/import/remove retains validation, confirmation and error states.
+  Preserve backup/import, sample/tutorial isolation and record identifiers.
+    No schema migration, media fetching/storage, owner-profile access or reset.
+  Use disposable qualification data and a separate test server; preserve the
+    actual user-facing previews. Distinguish DOM checks from visual inspection.
+  The original local phase grants no staging, commit, push or deployment.
+    Later publication requires the separate workstream24scope; technical
+    completion, human visual acceptance and publication remain separate.
+
+Completion evidence:
+  Owner authorizes implementation on2026-11-21 after the research handoff.
+    Workstream22 owns the completed research; this workstream owns runtime changes.
+  Baseline HEAD21f7abd80c9b5872d2bf756eb4363bfde9552138; prior research TODO/
+    tracking changes are local and preserved, not unrelated source to overwrite.
+  Existing previews4470and4468respond200/current CareerOS with original owners.
+  Local journal candidate is technically ready for review at#/perspective.
+    Nine changed runtime/test files bind to fingerprint
+    17f9c949536abe6f50eaa902126474370ca182dc6d0e74ebb7bd2f45b806066f.
+    Non-mutating model, month chapters, explicit undated group, in-place stories/
+    sources and deliberate history controls preserve existing record formats.
+  Strict TypeScript/production build and3targeted model cases pass. Actual
+    focused native run passes22cases in22attempts, one worker, zero retries/
+    skips/flaky. Covers two time zones, six theme/viewport geometries, ordering,
+    keyboard expansion/focus, add/import/remove/backup, sample/tutorial truth
+    and coupled contrast/dialogs. Nine input hashes match after the run.
+  Earlier launches executed zero cases: a new fixture referenced nonexistent
+    AppState.createdAt, then Windows CLI path filters matched no files. Corrected
+    fixture/filter only; both original diagnostics remain private, not passes.
+  Six synthetic viewport frames are retained privately but not visually
+    inspected. DOM/geometry checks are not pixel review or human visual approval.
+    No owner browser data, extra image-view call or real record fixture used.
+  At local qualification, focused docs/KEEP-GOING.md, GUIDE, ARCHITECTURE,
+    PRIVACY and the optional tutorial labelled the unpublished local candidate.
+    Twenty-two checked relative documentation targets exist.
+  Protected4470/4468previews return200and actual current journal module source
+    under their original process owners. Temporary4476has no listener.
+  Proof: docs/tracking/2026-11-21-keep-going-journal-local-review.json.
+    Closing same-identity read-back belongs in
+    docs/tracking/2026-11-21-keep-going-journal-tracking-verification.json.
+    Preserve original issue22/itemPVTI_lAHOAe2wCs4BqeZyzhKuov8; research22
+    remains Done on original issue21/item. No private captures/reports mirrored.
+  Technical local readiness is not human aesthetic acceptance or publication.
+    Main21f7abdand public15f3957remain unchanged; no stage/commit/push/deployment.
+
+Completion log:
+  2026-11-21 - A later owner request authorizes pushing the completed candidate
+    and updating README/docs/context. Separate24owns publication and exact
+    hosted verification. Keep local evidence source-bound; no aesthetic
+    acceptance is inferred from publication authority.
+  2026-11-21 - Delivered the section-only local journal candidate. Existing
+    records become a newest-first month journal with explicit unknown dates,
+    varied restrained surfaces and optional story/source depth. Native22/22and
+    model3pass with unchanged input hashes. Retain the two zero-case launch
+    diagnostics and uninspected synthetic frames. Human visual review and any
+    source publication remain separate; both original previews are protected.
+  2026-11-21 - Scoped local implementation of the approved journal direction.
+    Preserve existing records, private research editions and completed deployment.
+    Append a separate workstream instead of rewriting research as implementation.

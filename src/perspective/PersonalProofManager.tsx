@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Plus, Upload } from 'lucide-react';
+import { ChevronDown, Plus, Upload } from 'lucide-react';
 import { Modal } from '../components';
 import type { AppState, PersonalProof } from '../domain/types';
 import { MAX_WORKSPACE_BYTES } from '../workspaceFile';
@@ -42,16 +42,21 @@ export function PersonalProofManager({ state, commit, practice }: {
   }
 
   return <div className="personal-proof-manager">
-    <div className="button-row">
-      <button type="button" className="button secondary" onClick={() => { setError(''); setNotice(''); input.current?.click(); }}><Upload size={16} />Load personal history</button>
-      <button type="button" className="button secondary" onClick={() => { setError(''); setNotice(''); setAdding(true); }}><Plus size={16} />Add a past accomplishment</button>
-      <a className="text-link" href="#/settings">Import an existing workspace backup</a>
+    <div className="journal-manager-actions">
+      <button type="button" className="button secondary" onClick={() => { setError(''); setNotice(''); setAdding(true); }}><Plus size={16} />Add a memory</button>
+      <details className="journal-history-options">
+        <summary>History options<ChevronDown size={15} aria-hidden="true" /></summary>
+        <div className="journal-history-actions">
+          <button type="button" className="text-button" onClick={() => { setError(''); setNotice(''); input.current?.click(); }}><Upload size={16} />Load personal history</button>
+          <a className="text-link" href="#/settings">Import an existing workspace backup</a>
+        </div>
+      </details>
     </div>
     <input ref={input} className="sr-only" type="file" accept=".json,application/json" aria-label="Choose personal-history file"
       onChange={event => { const file = event.target.files?.[0]; if (file) void load(file); }} />
     {error && !records && !adding && <p className="form-error" role="alert">{error}</p>}
     {notice && <p className="personal-proof-notice" role="status">{notice}</p>}
-    {records && <Modal title="Review your personal history" subtitle="Only add records that accurately describe something you already did." onClose={() => setRecords(null)}>
+    {records && <Modal title="Review your personal history" subtitle="Only add records that accurately describe something you already did." onClose={() => setRecords(null)} restoreFocus>
       <div className="personal-proof-preview">
         {records.map(record => <article key={record.id}><h3>{record.title}</h3><p>{record.detail}</p><p className="muted small">Source: {record.source}</p>{record.date && <p className="small">Date supplied: {record.date}</p>}</article>)}
       </div>
@@ -59,7 +64,7 @@ export function PersonalProofManager({ state, commit, practice }: {
       {error && <p className="form-error" role="alert">{error}</p>}
       <div className="modal-footer"><button type="button" className="button secondary" onClick={() => setRecords(null)}>Cancel</button><button type="button" className="button primary" onClick={() => save(records)}>Add these records</button></div>
     </Modal>}
-    {adding && <Modal title="Add past work" subtitle="Describe completed work, not a future goal. Dates are optional when you do not know them." onClose={() => setAdding(false)}>
+    {adding && <Modal title="Add past work" subtitle="Describe completed work, not a future goal. Dates are optional when you do not know them." onClose={() => setAdding(false)} restoreFocus>
       <form className="stack-form" onSubmit={event => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -73,6 +78,7 @@ export function PersonalProofManager({ state, commit, practice }: {
       }}>
         <label>What did you accomplish?<input name="title" required minLength={3} maxLength={160} /></label>
         <label>What did you actually do?<textarea name="detail" required minLength={10} maxLength={2000} rows={4} /></label>
+        <details className="journal-writing-prompts"><summary>A little help starting</summary><p>What happened? What helped? What would you like to remember? Use your own words; a small piece of completed work counts.</p></details>
         <label>Evidence or source<input name="source" required minLength={3} maxLength={500} placeholder="A document, artifact, or your own dated account" /></label>
         <div className="form-row"><label>Date, if known<input type="date" name="date" /></label><label>Artifact link, optional<input type="url" name="url" maxLength={2048} placeholder="https://..." /></label></div>
         <p className="privacy-note">Private browser data, not a secure vault. Do not include confidential material. This records history without awarding mission completion.</p>

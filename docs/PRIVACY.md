@@ -32,6 +32,9 @@ That personal-history collection is not bundled in the public source or sent to 
 A personal-history file is read locally, previewed, and added only after confirmation.
 It does not replace the workspace or award checkpoint credit. Artifact links open
 only when clicked, without a referrer.
+The chronological journal view derives ordering and open disclosures
+without changing record arrays or saving layout preferences. It does not fetch
+artifact-image previews or introduce photo storage.
 
 The DSA practice library also uses bundled references. Browsing sections and filtering
 problems sends no progress to LeetCode. Clicking a problem link opens LeetCode in a new

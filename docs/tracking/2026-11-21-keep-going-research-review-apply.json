@@ -1,0 +1,49 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "21f7abd80c9b5872d2bf756eb4363bfde9552138",
+  "observedAt": "2026-11-21T14:28:18.487Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "keep-going-journal-research",
+      "path": "TODO/22_KEEP_GOING_JOURNAL_RESEARCH.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/21",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In review",
+      "managedSha256": "264ae1e7d3e2fb27e31cf4150060ba03e0169348029efd5b0fdc39c2b49efb46",
+      "actions": [
+        "update managed description",
+        "set Project In review"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKt5Zs",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 21,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

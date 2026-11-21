@@ -21,6 +21,10 @@ imports an achievement or silently upgrades your saved tracker.
 
 - **A calmer interface:** action-first pages, Education navigation and useful
   explanations available by click, tap, hover or keyboard.
+- **[Keep going, your story so far](https://zanark.github.io/CareerOS/#/perspective):**
+  a newest-first journal of actual history and saved work, with month chapters,
+  memory cards and expandable accounts/sources. Unknown dates stay unknown;
+  reading never awards progress.
 - **[Georgia Tech OMSCS](https://zanark.github.io/CareerOS/#/omscs):**
   [six specialization comparisons](https://zanark.github.io/CareerOS/#/omscs/specializations),
   online-only [course choices](https://zanark.github.io/CareerOS/#/omscs/paths),
@@ -56,6 +60,7 @@ encrypted personal storage. An optional [encrypted repository journal](https://z
 supports manual cross-device publication, not automatic uploads or cloud sync.
 Private PDFs, advisory reports and browser backups are not bundled.
 
-[Full guide](docs/GUIDE.md) · [Curricula and sources](docs/OPERATION-SOURCES.md) ·
+[Full guide](docs/GUIDE.md) · [Keep Going journal](docs/KEEP-GOING.md) ·
+[Curricula and sources](docs/OPERATION-SOURCES.md) ·
 [Godot mission](docs/GAME-DEVELOPMENT.md) · [Privacy](docs/PRIVACY.md) ·
 [DeepSeaFoam theme](docs/THEMES.md) · [Contributor workflow](docs/DEVELOPMENT.md)

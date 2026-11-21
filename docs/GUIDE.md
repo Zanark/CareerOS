@@ -56,6 +56,8 @@ is Discovery Atlas, Tracking, Education and Career; Georgia Tech is in Education
   Try real controls without changing your progress, theme preference, or existing focus session.
 - Includes an optional **Keep going** page before Overview: your supplied past
   accomplishments and actual saved work, with sources rather than motivational quotes.
+  The [journal view](KEEP-GOING.md) adds newest-first month chapters
+  and expandable accounts without changing saved records.
 - Uses **DeepSeaFoam** dark and **Harbor Daylight** light palettes. The header switch
   animates sunrise/sunset, remembers your choice, and respects reduced motion.
 
@@ -700,7 +702,7 @@ Use the **Chapter** menu to work on one area at a time:
 | Inspect rings & connections | Mission-only ring selection, individual ring speeds, saved-edition stages, full-circle glow, member search, Focus ring, current checkpoint and cited connection reasons |
 | Choose individual nodes | Mission groups, hidden-item search, an individual checkbox, mixed groups, and Select all items versus Show everything |
 | Graph camera & fullscreen | Named-node search, Focus node, real zoom/rotation/drag/frame actions, keyboard guidance, native fullscreen/exit and manual clipboard handoff |
-| Keep going | Your own past accomplishments, completed work versus practice, and private history that never awards checkpoint credit |
+| Keep going | Actual history and saved work, honest date/source labels, expandable accounts and private history that never awards checkpoint credit |
 | DSA practice library | Source sections, printed difficulty, reference-versus-progress boundaries and the optional NotebookLM companion without a second tracker |
 | System Design concepts | The supplied concepts map, source grouping, pattern-overview guidance and contextual search |
 | System Design problems | Module practice sets, changing constraints, source gates, diagnostics and independently selectable case studies |
@@ -811,9 +813,10 @@ See [the scoped design and research basis](DISCOVERY-DESIGN.md).
 
 ### A normal working session
 
-**For work you did before using CareerOS:** open **Keep going**. Use **Load personal
-history** to review a privately supplied history file, or **Add a past accomplishment**
-to record it yourself with its source. The history import adds records without replacing
+**For work you did before using CareerOS:** open **Keep going**. In the
+[journal view](KEEP-GOING.md), use **Add a memory**, or open **History
+options** and **Load personal history** to review a privately supplied file.
+The history import adds records without replacing
 the workspace; duplicate IDs are not added again, and conflicting replacements are rejected.
 Dates are optional rather than guessed. This is separate from mission checkpoint evidence.
 Personal history is included in your normal **Export backup** and restored by importing
@@ -882,7 +885,7 @@ Implementation references: [`getMissionActivity`](../src/domain/missionActivity.
 | Page | Use it for | What it does not do |
 | --- | --- | --- |
 | Career graph | Rotate and inspect your career work in 3D, filter missions and records, or copy a private AI brief | No invented progress, automatic AI decisions, or completion from clicking a node |
-| Keep going | Read your own source-linked past accomplishments and actual saved work; load private history after reviewing it | No research quotes, generic motivation, invented wins, or automatic checkpoint credit |
+| Keep going | Read actual source-linked history and saved work; the journal groups newest dates by month and leaves unknown dates explicit | No research quotes, generic motivation, invented wins, or automatic checkpoint credit |
 | DSA practice library | Browse all 50 expanded DSA sections and curated problem links | No automatic solve tracking, completion credit, or requirement to clear every listed problem |
 | System Design concepts | Browse or search the attached one-page roadmap and its repeated pattern contexts | No automatic mastery claims, new required checkpoint gates, or changes to the saved System Forge tracker |
 | System Design problems | Work through the 72-module source progression and browse 15 cases, prompts, transfer tasks and diagnostics | No AI assessment, automatic adoption, or mandatory case-to-case completion chain |

@@ -1,0 +1,55 @@
+{
+  "status": "local-technical-review-candidate",
+  "observedAt": "2026-11-21T21:05:15.952349+05:30",
+  "sourceRevision": "21f7abd80c9b5872d2bf756eb4363bfde9552138",
+  "sourceTestFingerprint": "17f9c949536abe6f50eaa902126474370ca182dc6d0e74ebb7bd2f45b806066f",
+  "sourceTestFiles": 9,
+  "targetedModel": {
+    "passed": 3,
+    "command": "npm test -- src\\perspective\\journal.test.ts",
+    "scope": "Mixed sorting/immutability, same-day ties and namespaces, explicit undated month grouping."
+  },
+  "build": "Strict TypeScript and production build completed through the successful isolated native webServer command.",
+  "scope": [
+    "newest-first merged records",
+    "honest unknown/calendar/recorded dates in two time zones",
+    "keyboard expansion/source access/focus return",
+    "explicit import/add/remove/backup safeguards",
+    "tutorial/sample isolation",
+    "six theme/viewport geometries",
+    "coupled contrast and dialog flow"
+  ],
+  "boundaries": {
+    "schemaStorageAndSerializedRecordFormatsChanged": false,
+    "ownerProfileAccessed": false,
+    "newImageViewToolCalls": 0,
+    "humanVisualAcceptance": false,
+    "sourcePublished": false,
+    "privateInputImagesOrReportsPublished": false
+  },
+  "native": {
+    "passed": 22,
+    "attempts": 22,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "originalDiagnostics": [
+    {
+      "kind": "new test fixture compile error",
+      "executedCases": 0,
+      "retainedPrivately": true
+    },
+    {
+      "kind": "Windows CLI filename filter mismatch",
+      "executedCases": 0,
+      "retainedPrivately": true
+    }
+  ],
+  "captures": {
+    "privateFramesCaptured": 6,
+    "framesVisuallyInspected": 0,
+    "newImageViewToolCalls": 0
+  }
+}

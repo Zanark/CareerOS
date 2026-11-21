@@ -1,0 +1,45 @@
+{
+  "status": "research-ready-for-private-review",
+  "observedAt": "2026-11-21T19:48:03.566785+05:30",
+  "sourceRevision": "21f7abd80c9b5872d2bf756eb4363bfde9552138",
+  "scope": "Keep Going research/design rationale only; no application implementation.",
+  "review": {
+    "reviewedPsychologyPublications": 7,
+    "selectedFullTextPublications": 2,
+    "publicAbstractOnlyPublications": 5,
+    "accessibilityDocuments": 2,
+    "backgroundMetadataOnlyExcluded": 1,
+    "fullMethodsReviewClaimed": false
+  },
+  "artifact": {
+    "formats": [
+      "Markdown"
+    ],
+    "wordsIncludingReferences": 4501,
+    "sourceLinked": true,
+    "privateBodyNotPublished": true,
+    "noRenderedPrototypeClaimed": true
+  },
+  "design": {
+    "proposalOnly": true,
+    "sectionOnly": true,
+    "newestFirstWithExplicitUndatedGroup": true,
+    "dataAndProvenanceBoundariesSpecified": true,
+    "effectOnMotivationUnverified": true
+  },
+  "boundaries": {
+    "applicationSchemaRecordsReadmeTestsAndWorkflowsUnchanged": true,
+    "privateInputImagesAndReportBodiesExcluded": true,
+    "ownerBrowserDataRead": false,
+    "newImageViewToolCalls": 0,
+    "commitPushOrDeployment": false,
+    "humanAcceptanceNotInferred": true
+  },
+  "tracking": {
+    "verified": true,
+    "issue": 21,
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKt5Zs",
+    "stage": "In review",
+    "originalIdentityPreserved": true
+  }
+}

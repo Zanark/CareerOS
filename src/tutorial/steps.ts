@@ -107,8 +107,8 @@ export const steps: TutorialStep[] = [
   {
     id: 'perspective-intro', chapter: 'perspective', kind: 'explain', route: 'perspective',
     targets: ['perspective-intro'],
-    title: 'Your own completed work',
-    body: 'Keep going shows past accomplishments you supplied and work you recorded, not research or motivational quotes. Here you see only temporary practice data. Personal-history files are previewed before adding and do not complete mission checkpoints. Your real records stay untouched.',
+    title: 'Your journal, newest first',
+    body: 'Keep going brings supplied history and saved work into one journal, newest known dates first. Practice remains labeled; unknown dates are not guessed. Expand a longer account or open About this memory or record for its source. Add a memory uses reviewed past work, not future goals. Here, all records are temporary tutorial data. Your real workspace stays untouched.',
   },
   // Overview
   {

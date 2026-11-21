@@ -141,7 +141,7 @@ test('visual polish: mission actions align to the bottom of their actual card ro
 test('visual polish: ordinary dialogs keep full-width unfragmented titles at 320px', async ({ page }) => {
   await prepare(page, 320);
   let before: string | null = null;
-  for (const [route, button] of [['evidence', 'Add evidence'], ['pipeline', 'Add opportunity'], ['perspective', 'Add a past accomplishment']] as const) {
+  for (const [route, button] of [['evidence', 'Add evidence'], ['pipeline', 'Add opportunity'], ['perspective', 'Add a memory']] as const) {
     await page.goto(`./#/${route}`);
     before ??= await page.evaluate(key => localStorage.getItem(key), key);
     await page.getByRole('button', { name: button, exact: true }).click();

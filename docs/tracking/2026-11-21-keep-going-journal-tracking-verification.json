@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-11-21T15:39:08.697Z",
+  "account": "Zanark",
+  "repository": "Zanark/CareerOS",
+  "workstreams": [
+    {
+      "id": "keep-going-journal-research",
+      "issue": 21,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKt5Zs",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "79e6ddb59263dd1d7a64a071a9505f021caf61313fe92db872cb68d65db683cc",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "keep-going-journal",
+      "issue": 22,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKuov8",
+      "state": "open",
+      "stage": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "149effd3c471c1ef3596c43c17b1e46b4f5066f6113df4e190c0461df4caa341",
+      "originalIdentityPreserved": true
+    }
+  ],
+  "earlierRecoveryEntriesUnchanged": 20,
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "recoveryStateUnchanged": true,
+  "privateInputCapturesAndReportsPublished": false,
+  "websiteDeployment": false
+}

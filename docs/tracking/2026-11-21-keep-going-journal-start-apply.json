@@ -1,0 +1,72 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "21f7abd80c9b5872d2bf756eb4363bfde9552138",
+  "observedAt": "2026-11-21T15:23:51.678Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "keep-going-journal-research",
+      "path": "TODO/22_KEEP_GOING_JOURNAL_RESEARCH.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/21",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "79e6ddb59263dd1d7a64a071a9505f021caf61313fe92db872cb68d65db683cc",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKt5Zs",
+      "backlink": "verified"
+    },
+    {
+      "id": "keep-going-journal",
+      "path": "TODO/23_KEEP_GOING_JOURNAL.todo",
+      "outcome": "verified",
+      "created": true,
+      "reused": false,
+      "issue": "https://github.com/Zanark/CareerOS/issues/22",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "6a646dc91c6a07f87bb89e64f144b5368debc714552b2cbc20660ac814c37781",
+      "actions": [
+        "create issue",
+        "set issue open/-",
+        "add issue to Project",
+        "set Project In Progress",
+        "write backlink",
+        "verify all surfaces"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKuov8",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 22,
+    "selected": 2,
+    "excluded": 2,
+    "created": 1,
+    "reused": 1,
+    "verified": 2,
+    "open": 1,
+    "closed": 1,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

@@ -1,0 +1,59 @@
+Workstream ID: keep-going-journal-publication
+Title: Publish the Keep Going journal and current documentation
+Status: IN_PROGRESS
+Milestone: Verify the exact pushed journal edition on the existing public site
+Dependencies: keep-going-journal
+GitHub issue: https://github.com/Zanark/CareerOS/issues/23
+Purpose: Fulfill the separate publication request for the completed journal
+  candidate. Update the illustrated README and living guides, push an audited
+  public-safe source edition and verify its existing Pages workflow and hosted
+  output. Preserve private material and distinguish publication from visual
+  acceptance or a proven motivational effect.
+
+Tasks:
+  [x] Reconcile the exact qualified source, owned dirty files and public boundary.
+  [x] Verify account/repository/main/Pages authority and no active run to cancel.
+  [ ] Update README/guides without changing approved illustrations or runtime.
+  [ ] Audit staged paths/content and both effective Zanark identities/trailers.
+  [ ] Commit/push the exact source normally and read back remote main.
+  [ ] Verify the push run, required CI jobs and exact Pages artifact.
+  [ ] Compare actual hosted assets and exercise journal flows in disposable data.
+  [ ] Close original implementation/publication tracking with direct read-back.
+  [ ] Publish any evidence-only follow-through without runtime drift or repeat CI.
+  [ ] Refresh owned context, episode, exact marker and checked Context Mesh.
+
+Acceptance criteria:
+  Only independently reviewed public-safe source/docs/tracking enter Git.
+    No private context, PDFs/reports/captures, browser records or credentials.
+  Preserve all four approved README illustration files and references.
+    Keep the journal readable, date/provenance honest and actual records untouched.
+  Reuse the current workflow; no trigger, permission, secret or scheduler change.
+    Verify the exact pushed SHA/run and real hosted result, not an earlier release.
+  Retain previous diagnostics and scopes. Source hashes, CI, hosted interactions,
+    image inspection and human acceptance are separate evidence.
+  Keep the original issue/Project items and Kanban identity; stop conflicting
+    edits rather than overwriting them or creating duplicate objects.
+  Verify both effective local Git identities and current required trailers for
+    each authorized commit. No global attribution/auth changes or history rewrite.
+  A documentation-only follow-through must prove runtime/README/workflow/public
+    assets identical to the exact deployed source before final handoff.
+  Preserve both established previews and all actual browser data. Publication
+    approval does not imply personal learning, clinical effect or visual approval.
+
+Completion evidence:
+  Separate owner request on2026-11-21authorizes docs/README/context updates and push.
+  Baseline main21f7abd80c9b5872d2bf756eb4363bfde9552138matches actual remote main.
+    Zanark/ADMIN, expected public repository and workflow-based Pages verified.
+    Existing deploy.yml is active; no main run is active to be cancelled.
+  Qualified local source/test input remains exact
+    17f9c949536abe6f50eaa902126474370ca182dc6d0e74ebb7bd2f45b806066f/9files.
+    Actual22targeted native cases/22attempts/one worker/no retries,3model cases
+    and strict build are earlier local evidence, not newly executed CI.
+  Four illustrated README references/asset hashes are frozen for this release.
+    Private bodies/captures/context remain outside the reviewed public inventory.
+  Exact commit/run/artifact/hosted qualification and closing context are pending.
+
+Completion log:
+  2026-11-21 - Owner explicitly authorizes publication after local journal delivery.
+    Scope source/docs/README and existing Pages follow-through; do not broaden
+    to private reports, record operations, workflow upgrades or new features.

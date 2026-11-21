@@ -23,7 +23,7 @@ plan as proof of capability.
 | `src/tutorial/*` | Guided steps, state-derived completion gates, real-control highlighting and dialog-aware coaching. |
 | `src/ContextHelp.tsx`, `src/context-help.css`, `PageHeading` | Read-only contextual help with hover/focus preview, click/tap/keyboard pinning, viewport-bounded portals, dismissal and focus return. No workspace API or persisted preference. |
 | `src/roadmaps/*` | Read-only mission tree and top-down checkpoint flowcharts, using accessible HTML nodes and locally drawn SVG connections. |
-| `src/perspective/*`, `personalProofSchema.ts` | Personal evidence page: supplied past accomplishments and saved work. Strictly validated, confirmed history imports merge without changing checkpoint progress; no research or motivational filler. |
+| `src/perspective/*`, `personalProofSchema.ts` | Personal-history/saved-work journal. The view derives a merged newest-first calendar without rewriting source arrays; confirmed history imports retain the existing validation/progress boundary. |
 | `src/dsa/*`, `operations/dsaStudy*`, `dsaProblemSets.ts` | Read-only 50-section DSA practice reference, preserving source group/difficulty/URL/page and intentional repeats. No per-problem achievements are inferred. |
 | `src/system/*` | The supplied System Design concept tree and readable/searchable browser, separate from versioned checkpoint progress. Source reading-route and grouping edges are not prerequisite gates. |
 | `operations/systemPractice*`, `src/system/SystemPractice.tsx` | The 72-module System v3 source progression, 15 read-only cases, complete practice prompts and diagnostics. Context links connect the separate concepts source without inventing case prerequisites. |
@@ -188,6 +188,23 @@ curriculum dependencies. Selecting a node only changes which flowchart is displa
 The checkpoint decision/return loop illustrates the evidence-confirmation rule; it never
 performs an unlock or assessment itself. [Mermaid reference](checkpoint-flow.mmd) documents
 that small workflow; the website has no Mermaid runtime or external rendering dependency.
+
+## Keep Going journal
+
+`perspective/journal.ts` projects validated `personalProof` and `evidence` into
+source-prefixed view identities. Supplied history dates are calendar dates;
+evidence timestamps become browser-local recording dates. Known dates sort
+descending without completion priority. Same-day timed entries sort by timestamp
+before date-only history; stable source order resolves untimed/equal-time ties.
+UTC formatting preserves a supplied calendar date rather than shifting it.
+
+`Perspective` renders month groups in DOM/visual order, with undated history in
+an explicit final group. Dated pagination never hides that group. Story expansion,
+source disclosures and pagination use view state only; no domain command or
+workspace field is added. Existing history add/import/remove remain deliberate
+commands, including review, validation, confirmation and stale-storage behavior.
+No photo loading/storage or new journal serialization is introduced.
+See [the scoped journal guide](KEEP-GOING.md).
 
 ## Runtime flow
 

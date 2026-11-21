@@ -95,6 +95,9 @@ for (const theme of ['dark', 'light']) {
     ]) {
       await page.goto(`./#/${route}`);
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+      if (route === 'perspective') {
+        for (const summary of await page.locator('.journal-details > summary').all()) await summary.click();
+      }
       await readable(page, selector);
       if (route === 'perspective') {
         const colors = await page.locator('.personal-proof-card').evaluateAll(elements => elements.map(element => getComputedStyle(element).borderTopColor));

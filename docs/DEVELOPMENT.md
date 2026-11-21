@@ -177,6 +177,9 @@ npm run test:tracking
 Existing application checks remain `npm run validate`, `npm run build` and
 `npm run test:e2e`. Do not rerun browser/GPU suites for documentation-only changes
 or describe historical gate results as freshly executed tests.
+Playwright file arguments are regex filters: for narrow Windows runs use a
+filename selector such as `perspective.spec.ts`, not a backslash path that can
+match no tests. Verify the selected case list before running qualification.
 
 ## Visual and responsive review
 

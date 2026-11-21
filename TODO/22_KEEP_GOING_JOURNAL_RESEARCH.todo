@@ -1,0 +1,84 @@
+Workstream ID: keep-going-journal-research
+Title: Research a journal-first Keep Going experience
+Status: DONE
+Milestone: Deliver an evidence-informed, section-scoped design direction
+Dependencies: None
+GitHub issue: https://github.com/Zanark/CareerOS/issues/21
+Purpose: Research how a retrospective personal journal could support voluntary
+  reflection on actual recorded work. Compare psychology evidence and its
+  limits, then propose a newest-first, journal/moodboard direction for Keep
+  Going only. This is research and design rationale, not website implementation.
+  Keep the private design brief and supplied references out of public tracking.
+
+Tasks:
+  [x] Read the current section, record models, date semantics and privacy contract.
+  [x] Review primary psychology and relevant interface/accessibility evidence.
+  [x] Include mixed findings and separate theory from tested interventions.
+  [x] Compare visual alternatives without claiming a layout has proven benefits.
+  [x] Specify honest reverse chronology, record provenance and empty states.
+  [x] Distinguish presentation-only ideas from new media or persistence features.
+  [x] Deliver a detailed source-linked private brief and compact recommendation.
+  [x] Record scope, limitations and verified same-identity tracking.
+
+Acceptance criteria:
+  Findings identify actual sources, reviewed scope and important limitations.
+    No medical, mood-improvement or learning-outcome guarantee is made.
+  Design consequences are explicitly proposals, not validated product outcomes.
+    Keep the recommendation bounded to the existing Keep Going section.
+  Newest-first order respects supplied event dates versus saved-record dates.
+    Unknown dates and sample/tutorial provenance are not silently invented.
+  Preserve readable typography, canonical themes, meaningful source details and
+    keyboard/mobile access. Distinguish logical order from collage decoration.
+  Actual history, private input, reference images and report bodies stay out of
+    issues, shared continuity and public repository documents.
+  Do not inspect browser data, change the app/schema, fabricate accomplishments,
+    implement deferred features, stage, commit, push or deploy.
+  Human design acceptance and any later implementation remain separate.
+
+Completion evidence:
+  Source-only audit at21f7abd80c9b5872d2bf756eb4363bfde9552138:
+    src/perspective/Perspective.tsx, personalProof.ts, PersonalProofManager.tsx,
+    perspective.css; src/domain/personalProofSchema.ts and types.ts.
+  Existing personal-history array uses insertion order; saved evidence sorts
+    completed checkpoints ahead of timestamp. Neither is one newest-first feed.
+  Personal-history dates are optional calendar dates; evidence has save times.
+    Current inspected record types contain text/source/link fields, not images.
+  Private source-linked Markdown brief is technically ready for review:
+    4501words including references,14main sections and9citation definitions.
+    Seven psychology publications are distinguished from two accessibility
+    documents: selected full-text sections for two papers, public abstracts
+    for five, and one metadata-only background paper excluded from the count.
+    Restricted manuscripts and unavailable full texts were not represented
+    as reviewed. Include positive experimental and mixed everyday findings,
+    exact source dates, generalization limits and explicitly proposed design.
+  Current/source audit and document checks distinguish a chronological
+    scrapbook proposal from implemented UI or a tested motivational effect.
+    Preserve unknown dates, practice/sample provenance and source details;
+    new media/persistence features require separate design and authority.
+  All14TOC targets and9citation definitions match the private source register.
+    No rendered UI, screenshots, full-methods review or runtime suite claimed.
+    Runtime/schema/tests/README/public/workflow diff from21f7abdremains empty.
+  Public-safe proof: docs/tracking/2026-11-21-keep-going-research-review.json.
+    Same-identity closing read-back belongs in
+    docs/tracking/2026-11-21-keep-going-research-tracking-verification.json.
+    Keep original issue21/itemPVTI_lAHOAe2wCs4BqeZyzhKt5Zs; no private body,
+    input, supplied reference image or absolute private path is mirrored.
+  At research delivery, implementation/publication were not requested and no
+    staging, commit, push or deployment occurred.
+  Follow-up authority: owner authorizes implementing the direction on2026-11-21.
+    This completes research review only, not a claim that the owner read every
+    source or accepted a rendered interface/motivational outcome. Workstream23
+    separately owns local implementation; publication remains unauthorized.
+
+Completion log:
+  2026-11-21 - Owner proceeds from research to local implementation. Complete
+    this bounded research workstream and retain its exact private edition.
+    New workstream23owns app changes; no visual acceptance or publication inferred.
+  2026-11-21 - Research brief is technically ready for private review. Derived
+    one section-only direction from primary evidence with mixed findings and
+    honest access limits. Retain the completed baseline and mark proposed
+    chronology/visual/persistence choices as unimplemented. Structural document
+    checks are not a visual review or proof of a motivational outcome.
+  2026-11-21 - Scoped research and a private design direction for Keep Going.
+    Read actual current source and date/privacy boundaries before recommending
+    a layout. Preserve the deployed release and distinguish proposals from work.
