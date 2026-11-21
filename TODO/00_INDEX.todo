@@ -22,13 +22,13 @@ DONE - 11_FORWARD_DEPLOYED_ENGINEERING.todo (forward-deployed-engineering)
 DONE - 12_AI_ARCHITECT_AGENT_CLOUD.todo (ai-architect-agent-cloud)
 DONE - 13_GOLD_CIRCUIT_OMSCS.todo (geojack-omscs; immutable tracking ID)
 DONE - 14_OMSCS_PATH_EXPLORER.todo (omscs-path-explorer)
-IN_REVIEW - 15_CALM_INTERFACE.todo (calm-interface)
-IN_REVIEW - 16_OMSCS_SPECIALIZATIONS.todo (omscs-specializations)
+DONE - 15_CALM_INTERFACE.todo (calm-interface)
+DONE - 16_OMSCS_SPECIALIZATIONS.todo (omscs-specializations)
 IN_REVIEW - 17_OMSCS_ML_VS_AI.todo (omscs-ml-vs-ai)
 IN_REVIEW - 18_CALM_CHANGE_GUIDE.todo (calm-change-guide)
-IN_REVIEW - 19_SITEWIDE_VISUAL_POLISH.todo (sitewide-visual-polish)
-IN_REVIEW - 20_GODOT_GAME_DEVELOPMENT.todo (godot-game-development)
-IN_PROGRESS - 21_CURRENT_SITE_PUBLICATION.todo (current-site-publication)
+DONE - 19_SITEWIDE_VISUAL_POLISH.todo (sitewide-visual-polish)
+DONE - 20_GODOT_GAME_DEVELOPMENT.todo (godot-game-development)
+DONE - 21_CURRENT_SITE_PUBLICATION.todo (current-site-publication)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

@@ -1,7 +1,7 @@
 Workstream ID: sitewide-visual-polish
 Title: Refine every CareerOS page into a polished minimal interface
-Status: IN_REVIEW
-Milestone: Deliver a research-led, fully audited local visual review candidate
+Status: DONE
+Milestone: Deliver research-led visual refinement and its separately authorized publication
 Dependencies: calm-interface, omscs-specializations
 GitHub issue: https://github.com/Zanark/CareerOS/issues/18
 Purpose: Retain the accepted content reduction while restoring strong visual
@@ -20,7 +20,7 @@ Tasks:
   [x] Audit internal URL layouts and inspect all primary page families visually.
   [x] Add targeted layout regressions and run appropriate existing suites.
   [x] Record exact source/coverage, focused documentation and same-identity tracking.
-  [x] Keep the local previews available and hand off without source publication.
+  [x] Preserve previews and the initial local-only handoff before separate publication approval.
 
 Acceptance criteria:
   The content-reduction direction remains intact. Do not restore explanatory
@@ -42,7 +42,7 @@ Acceptance criteria:
     meaningful disabled states remain usable by keyboard and touch. Distinguish
     accessibility criteria from design recommendations and actual qualification.
   Preserve IDs, course/grade rules, source workbooks, frozen roadmap editions,
-    approved illustrated README, user data, backups and manual journal semantics.
+    approved README illustrations, user data, backups and manual journal semantics.
   All browser checks use disposable synthetic/public-starter contexts, never
     the owner's actual profile. Preserve existing user previews and stop only
     identified temporary helpers; no unrelated process or browser disruption.
@@ -50,10 +50,20 @@ Acceptance criteria:
     Keep findings, project choices, observed defects and unverified assumptions
     separate. No private inputs are sent to research services or public tracking.
   Keep technical verification, human visual approval and publication separate.
-    No staging, commit, push, deployment, workflow activation or public image/
-    report upload follows from this local review request.
+    Publication does not follow from the initial local review request alone.
+    A later explicit owner deployment decision is separate; private image/
+    report upload and human aesthetic approval are not inferred.
 
 Completion evidence:
+  The owner explicitly authorizes current website/README publication November21.
+    Source15f3957/Pages44865369309passes build/deploy,778domain and535browser
+    CI cases. All30hosted files match the artifact, and24live cases cover actual
+    desktop/tablet/narrow headers, reader-first material, navigation and academic
+    spacing alongside current feature flows. Prior source-bound visual audits
+    remain intact; no new image views beyond40or broad human acceptance claim.
+    Approved four illustrations and enlarged typography/themes/3D are preserved.
+    Proof: docs/tracking/2026-11-21-current-site-publication.json.
+  Earlier local-review evidence below retains its original source scope:
   Research synthesis reviews14primary NN/g, GOV.UK and WCAG guidance/study
     sources with explicit scope, applicability and limits. It distinguishes
     useful minimalism from bare/weak-signifier UI, design recommendations
@@ -114,6 +124,9 @@ Completion evidence:
     Human visual acceptance and source publication remain pending.
 
 Completion log:
+  2026-11-21 - Published the qualified refinement under the later explicit
+    deployment instruction. Exact hosted bytes and actual native workflows
+    verify delivery; preserve the original issue/item and all prior failures.
   2026-11-21 - Completed the research-led local visual-review candidate.
     Source-bound full URL/state checks, targeted regressions, complete523-case
     browser suite and strict domain/type gates pass. Final contacts resolve

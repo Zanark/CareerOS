@@ -1,19 +1,74 @@
 {
-  "status": "authorized-preparing",
+  "status": "verified-live",
+  "observedAt": "2026-11-21T04:58:35.892Z",
   "scope": "Current public-safe website source, README and living documentation",
   "authorizedAt": "2026-11-21T09:26:04.250+05:30",
-  "startingHead": "475b60055dec047ad09e0476e6b569051e128b8c",
-  "qualifiedLocalRuntimeTestFingerprint": "dfc660a5e21e137520c6446f34cac225e164b4302660bb9ac2b32cc8e02d2274",
-  "productSourceChangedForPublication": true,
-  "productBehaviorChangedForPublication": false,
-  "formattingOnlySourceChanges": [
-    "src/domain/omscs/paths/requirements.ts",
-    "src/domain/omscs/specializations.ts"
+  "sourceCommit": "15f3957d7eb5d027ce8ef80d8c0990b6f5c091af",
+  "deploymentRun": 44865369309,
+  "deploymentRunUrl": "https://github.com/Zanark/CareerOS/actions/runs/44865369309",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "build",
+      "conclusion": "success"
+    },
+    {
+      "name": "deploy",
+      "conclusion": "success"
+    }
   ],
-  "illustratedReadmeArtworkPreserved": true,
-  "privateReportsContextBrowserRecordsAndCredentialsExcluded": true,
-  "gameMissionInitialMode": "planned",
-  "deploymentRun": null,
-  "hostedVerificationComplete": false,
-  "humanLearningOrVisualAcceptanceInferred": false
+  "ci": {
+    "domainCasesPassed": 778,
+    "domainFilesPassed": 55,
+    "browserCasesPassed": 535,
+    "actualRetryOrSkipRowsObserved": 0,
+    "existingConfiguredRetries": 2,
+    "originalWorkflowUnchanged": true
+  },
+  "artifact": {
+    "id": 14692970734,
+    "name": "github-pages",
+    "transportBytes": 1280940,
+    "serviceReportedDigest": "sha256:26149a78112fdf4bb4497d02d8b8e2ffd6720d63b531b0a7f20153507374873b",
+    "fileCount": 30,
+    "totalBytes": 5061814,
+    "fileManifestSha256": "7f3fa0ca488abf0b9e7b2a7aa33cd0c6b4e37776060d508c1629c8378c030e98"
+  },
+  "hosted": {
+    "url": "https://zanark.github.io/CareerOS/",
+    "allArtifactFilesMatched": true,
+    "barePublicIndexMatched": true,
+    "exactPublishedReadmeMatched": true,
+    "initialReadFailuresRetained": 0,
+    "nativeCasesPassed": 24,
+    "nativeSkips": 0,
+    "nativeFlaky": 0,
+    "nativeAutomaticRetries": 0,
+    "nativeWorkers": 1,
+    "scope": "Actual public URL in disposable profiles: navigation/spacing, prerequisites, six specialization rows, academic persistence, Planned Godot browsing/activation/backups/tutorial/search and genuine graph.",
+    "screenshotsOrPrivateRecordsPublished": false
+  },
+  "feature": {
+    "missions": 12,
+    "latestCheckpoints": 646,
+    "gameMissionInitialMode": "planned",
+    "originalIllustrationFilesPreserved": 4,
+    "localPreviewProcessesPreserved": true
+  },
+  "formatting": {
+    "byteIdenticalQualifiedRuntimeTestFiles": 104,
+    "eofBlankLineOnlyFiles": [
+      "src/domain/omscs/paths/requirements.ts",
+      "src/domain/omscs/specializations.ts"
+    ],
+    "affectedDomainCasesPassed": 15,
+    "functionalChangesAfterLocalQualification": false
+  },
+  "boundaries": {
+    "ownerBrowserProfileAccessed": false,
+    "privateReportsContextBrowserRecordsAndCredentialsExcluded": true,
+    "actualGodotGameBuiltOrPlaytested": false,
+    "humanLearningOrVisualAcceptanceInferred": false
+  },
+  "evidenceFollowThrough": "Documentation/tracking-only follow-through does not change deployed runtime; exact Git/runtime equivalence is verified separately before handoff."
 }

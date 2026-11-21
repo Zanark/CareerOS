@@ -191,11 +191,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/14",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKTsIw",
       "baseline": {
-        "managed": "73cc8035327158b41962d770156536f37dcd138372626985fb30a4cfd25a75da",
+        "managed": "efd40f43937f66caa425bf6b52e8f6d5e81b545568d5b95473f5f167ae5107b2",
         "title": "Make normal CareerOS pages calmer and action-first",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -205,11 +205,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/15",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKXrcM",
       "baseline": {
-        "managed": "78311923de456b3c5b02d8773e1399dd2901296de91786cb78601eb3038633d5",
+        "managed": "0c72cafc1026801e2811ac4f1f275fff811145dd996abb09b2e3ba839593e63a",
         "title": "Compare six OMSCS specializations and persist an academic starter",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -247,11 +247,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/18",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKlubA",
       "baseline": {
-        "managed": "6fa4d8aa0b40e98c169e6ba03b5479f8fc6033c09c180d235473a4f63b78b957",
+        "managed": "59d67ac67439bd5c0d79f10c66c943c974b534b39b56738a56f58174968a9b8f",
         "title": "Refine every CareerOS page into a polished minimal interface",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -261,11 +261,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/19",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKoCVM",
       "baseline": {
-        "managed": "4fb0ea9858d0d197081e5a07075c68842d14fbf00e839760ba1c88bd1337e1dc",
+        "managed": "9f7e0978d381f7fb7ea00b10fe5bb06275533a3b90cde189e888d214108a9f33",
         "title": "Add a Planned Godot-first Game Development mission and multiplayer capstone",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -275,11 +275,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/20",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKpO-Y",
       "baseline": {
-        "managed": "79781fd5117945966823e6fef285176dc0710c2e664662dc0e7bc7ba14094ba8",
+        "managed": "d817fe1cd8d184196607d3bd22ca9cf4a7cd62f790266dffb217d4edb35eb952",
         "title": "Publish the current CareerOS website and refresh its illustrated README",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

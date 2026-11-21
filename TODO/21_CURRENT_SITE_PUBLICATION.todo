@@ -1,6 +1,6 @@
 Workstream ID: current-site-publication
 Title: Publish the current CareerOS website and refresh its illustrated README
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Make the public Pages site match the qualified current product
 Dependencies: calm-interface, omscs-specializations, sitewide-visual-polish, godot-game-development
 GitHub issue: https://github.com/Zanark/CareerOS/issues/20
@@ -14,11 +14,11 @@ Tasks:
   [x] Refresh README content while preserving approved illustrated artwork.
   [x] Reconcile living guides with the now-authorized publication scope.
   [x] Create and verify this original issue/Project identity and backlink.
-  [ ] Stage only reviewed public files and verify effective commit attribution.
-  [ ] Commit/push the qualified candidate using reviewed scoped authentication.
-  [ ] Identify and verify the exact successful Pages source/run/artifact.
-  [ ] Compare hosted assets and exercise representative live native workflows.
-  [ ] Reconcile original feature statuses, release evidence and continuity.
+  [x] Stage only reviewed public files and verify effective commit attribution.
+  [x] Commit/push the qualified candidate using reviewed scoped authentication.
+  [x] Identify and verify the exact successful Pages source/run/artifact.
+  [x] Compare hosted assets and exercise representative live native workflows.
+  [x] Reconcile original feature statuses, release evidence and continuity.
 
 Acceptance criteria:
   Public runtime includes the qualified calmer interface, Education navigation,
@@ -58,10 +58,37 @@ Completion evidence:
   Original issue/Project membership and backlink are verified after reviewed
     preview/apply/no-op. The first empty-backlink preview was safely rejected;
     the documented pending sentinel was corrected before issue creation.
-  Source commit/push, exact successful run/artifact, hosted verification and
-    closing tracking are not yet complete. No deployment success is inferred.
+  Source commit 15f3957d7eb5d027ce8ef80d8c0990b6f5c091af contains the exact
+    audited 205 public files, with both Zanark identities and current trailers
+    verified. Native HTTPS push used only the reviewed per-command credential
+    helper, and remote main was read back at that exact SHA.
+  Exact push-triggered Pages run44865369309succeeds for that source. Both build
+    and deploy jobs and required validation/browser/artifact steps pass. CI logs
+    verify778domain cases/55files and535browser cases, with zero retry/skip rows
+    observed. Existing configured CI retry policy is unchanged.
+  Artifact14692970734contains30files/5061814uncompressed bytes. Every actual
+    hosted file, bare public index and exact README matches; no read retries
+    were needed.24actual live native cases pass in24attempts, one worker,
+    zero skips/flaky/automatic retries and no owner profile access.
+  Original website workstreams15/16/19/20close on their existing identities.
+    Private document17/18remain review-scoped; no report bodies/images/PDFs are
+    published. Current proof:
+    docs/tracking/2026-11-21-current-site-publication.json.
+  Any documentation/tracking-only evidence follow-through must preserve exact
+    deployed runtime/README equivalence and avoid an unnecessary redeployment.
+    Publication authorization is not proof of human learning/aesthetic approval
+    or an implemented/playtested Godot capstone.
 
 Completion log:
+  2026-11-21 - Exact source/run/artifact and public controls verify the current
+    website is deployed. README/current guides match the product and approved
+    illustrations are preserved. Reconcile all original issue/item identities
+    with reviewed no-op/read-back; keep private deliverables private.
+  2026-11-21 - Committed and pushed the audited current product/README. Strict
+    staged whitespace checks caught two extra EOF blank lines; remove only
+    those, prove unchanged tokens and pass all 15 affected domain cases.
+    Exact Pages run is active. The public website is not called current until
+    its artifact and hosted behavior are actually verified.
   2026-11-21 - Started the explicit current-site publication request. This is
     new website/source publication authority, not a retroactive claim of
     deployment, human learning/visual approval or private-document clearance.

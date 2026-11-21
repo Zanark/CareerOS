@@ -1,6 +1,6 @@
 Workstream ID: godot-game-development
 Title: Add a Planned Godot-first Game Development mission and multiplayer capstone
-Status: IN_REVIEW
+Status: DONE
 Milestone: Deliver a complete beginner-to-multiplayer learning path and reference brief
 Dependencies: versioned-roadmaps, career-graph, encrypted-progress-journal
 GitHub issue: https://github.com/Zanark/CareerOS/issues/19
@@ -31,7 +31,8 @@ Acceptance criteria:
   The capstone is a concrete, original, bounded multiplayer reference design,
     not a renamed engine tutorial. Specify story, game loop, controls, rules,
     content, failure/recovery, technical ownership, milestones and acceptance.
-    Keep the detailed creative brief local; mirror only this generic workstream.
+    Detailed creative content belongs in the intended library/source; mirror
+    only this generic workstream into issues or shared continuity.
   Provide reproducible multiplayer/network failure scenarios, observable
     self-grading criteria and critical completion gates. A specification is
     not a built/tested Godot game, actual playtest or automatically awarded skill.
@@ -48,10 +49,20 @@ Acceptance criteria:
     paid service, commit, push, deployment or game publication.
 
 Completion evidence:
+  The owner explicitly authorizes website/source publication November21.
+    Source15f3957is deployed by successful Pages44865369309; CI passes778domain
+    and535browser cases. Every30hosted file matches, and24live workflows include
+    fresh/legacy Planned mode, source/search/Help/full map, explicit activation/
+    evidence/backup, tutorial isolation and genuine graph behavior. Product
+    default remains Planned; publishing the curriculum is not a built Godot
+    game, actual multiplayer playtest, automatic grade or human learning proof.
+    Proof: docs/tracking/2026-11-21-current-site-publication.json.
+  Earlier local-review evidence below retains its original source scope:
   Authored 65 core checkpoints in 14 phases, five complete benchmark references
     and eight optional studies: 78 units, 156 exercises and 23 scoped primary
     sources. The original comparison target has 22 acceptance scenarios and a
-    category-specific 100-point rubric; detailed creative content stays local.
+    category-specific 100-point rubric; detailed creative content is not mirrored
+    into tracking or shared continuity.
   Final strict typing and all 778 domain cases across 55 files pass. All 12 new
     native game workflows pass in 12 attempts, including 312 expanded unit/
     viewport checks, responsive card/mission/maps, exact no-write browsing,
@@ -85,6 +96,10 @@ Completion evidence:
     stays Planned. Technical readiness and owner review/publication are separate.
 
 Completion log:
+  2026-11-21 - Published the complete intended website curriculum/reference
+    under the owner's separate explicit deployment request. Exact run/artifact/
+    live controls qualify. Close development on the original issue/item while
+    the product mission remains Planned and the capstone remains a build target.
   2026-11-21 - Technically ready for local review. Completed the exact current
     browser inventory through retained full-run passes plus seven corrected
     affected passes on byte-identical product source. Preserve all original

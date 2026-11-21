@@ -1,7 +1,7 @@
 Workstream ID: calm-interface
 Title: Make normal CareerOS pages calmer and action-first
-Status: IN_REVIEW
-Milestone: Provide a cleaner local review candidate without publication
+Status: DONE
+Milestone: Deliver a calmer action-first interface with authorized publication evidence
 Dependencies: tracker-foundation, tutorial-and-help, omscs-path-explorer
 GitHub issue: https://github.com/Zanark/CareerOS/issues/14
 Purpose: Reduce default interface prose across the portal. Keep actions and
@@ -53,10 +53,20 @@ Acceptance criteria:
     rewrite frozen editions or change actual progress/storage/journal semantics.
   Existing user previews stay running. Qualification uses disposable contexts,
     never a real owner profile or private record manipulation.
-  This is a local-only candidate. Human review, commits, pushes and deployment
-    are not inferred; publication awaits a separate explicit owner decision.
+  Keep local verification, human review and publication separate. Source
+    publication requires a separate explicit owner decision and exact hosted
+    evidence; the November 21 release is tracked by current-site-publication.
 
 Completion evidence:
+  Owner explicitly authorizes publication on November 21. Current source
+    15f3957d7eb5d027ce8ef80d8c0990b6f5c091af is deployed by successful Pages
+    run44865369309. CI passes778domain/55files and535browser cases with no
+    retry/skip rows observed. All30hosted files match the artifact;24actual
+    public workflows pass, including navigation, help/layout and readonly
+    behavior. No owner profile, private report upload or human learning/
+    aesthetic acceptance is inferred. Current release proof:
+    docs/tracking/2026-11-21-current-site-publication.json.
+  Earlier local-review evidence below retains its original source scope:
   Owner-feedback correction is locally qualified: Tracking now reuses the same
     29px group separation as Education/Career, rather than a zero gap below
     Discovery. Desktop/390dark/320light geometry and actual frames qualify.
@@ -112,6 +122,9 @@ Completion evidence:
     No source publication or human acceptance is inferred.
 
 Completion log:
+  2026-11-21 - Published under the owner's separate explicit deployment request.
+    Exact CI/artifact/live qualification closes this workstream on its original
+    issue/Project item. Preserve prior diagnostics and source editions.
   2026-11-20 - Corrected the reported zero-gap navigation grouping by applying
     the existing secondary-group spacing. All three measured contexts now
     match the established29px separation without changing links or typography.

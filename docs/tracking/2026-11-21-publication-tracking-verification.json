@@ -1,0 +1,91 @@
+{
+  "observedAt": "2026-11-21T05:05:32.262Z",
+  "account": "Zanark",
+  "repository": "Zanark/CareerOS",
+  "workstreams": [
+    {
+      "id": "calm-interface",
+      "issue": 14,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKTsIw",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "efd40f43937f66caa425bf6b52e8f6d5e81b545568d5b95473f5f167ae5107b2",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "omscs-specializations",
+      "issue": 15,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKXrcM",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "0c72cafc1026801e2811ac4f1f275fff811145dd996abb09b2e3ba839593e63a",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "sitewide-visual-polish",
+      "issue": 18,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKlubA",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "59d67ac67439bd5c0d79f10c66c943c974b534b39b56738a56f58174968a9b8f",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "godot-game-development",
+      "issue": 19,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKoCVM",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "9f7e0978d381f7fb7ea00b10fe5bb06275533a3b90cde189e888d214108a9f33",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "current-site-publication",
+      "issue": 20,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKpO-Y",
+      "state": "closed",
+      "stage": "Done",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "d817fe1cd8d184196607d3bd22ca9cf4a7cd62f790266dffb217d4edb35eb952",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "omscs-ml-vs-ai",
+      "issue": 16,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "state": "open",
+      "stage": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97",
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "calm-change-guide",
+      "issue": 17,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKdhX4",
+      "state": "open",
+      "stage": "In review",
+      "exactManagedContentAndBacklink": true,
+      "managedSha256": "ea13ebc75ec4bc15cc756541da36cd637ce934ecb3c8552469f527bc7c31e877",
+      "originalIdentityPreserved": true
+    }
+  ],
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "recoveryStateUnchanged": true,
+  "recoverySha256": "87166211d9b7f55217a1626a95994ef098be73223703e10bba3d3978224b5be4",
+  "privateReportsPublished": false,
+  "humanLearningOrVisualAcceptanceInferred": false
+}

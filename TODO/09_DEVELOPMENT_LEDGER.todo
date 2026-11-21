@@ -17,6 +17,17 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-21 - Authorized current-site release is live. Exact source15f3957/
+    Pages44865369309passes build/deploy and actual778domain/535browser CI cases
+    with no retry/skip rows observed. All30artifact files/5061814bytes, bare
+    public index and README match;24actual hosted workflows pass, one worker/
+    zero retries/skips/flaky. Preserve all original local diagnostics rather
+    than claiming those earlier failed runs passed.
+    Original15/16/19/20and release21close on existing issue/Project identities.
+    Private17/18reports remain review-scoped and unuploaded; no owner browser
+    access or human learning/visual approval inferred. Product game stays
+    Planned; website publication is not an implemented Godot game.
+    Proof: docs/tracking/2026-11-21-current-site-publication.json.
   2026-11-21 - Owner explicitly authorizes publishing the current website and
     updating its README. Workstream21 tracks the new release boundary, exact
     Pages run/artifact/hosted qualification and original-identity follow-through.

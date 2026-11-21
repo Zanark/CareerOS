@@ -1,7 +1,7 @@
 Workstream ID: omscs-specializations
 Title: Compare six OMSCS specializations and persist an academic starter
-Status: IN_REVIEW
-Milestone: Provide a locally reviewed specialization ledger and shared academic basis
+Status: DONE
+Milestone: Deliver the specialization ledger and shared academic basis with authorized publication
 Dependencies: omscs-path-explorer, calm-interface, tracker-foundation
 GitHub issue: https://github.com/Zanark/CareerOS/issues/15
 Purpose: Show all six current online specialization requirement groups with
@@ -44,15 +44,24 @@ Acceptance criteria:
     recall, readiness, Atlas or timer activity. Practice uses fictional/empty
     academic data and cannot change the real starter or workspace.
   Normal pages remain concise and action-first; source detail is on demand.
-    Frozen learning definitions and the approved illustrated README stay intact.
+    Frozen learning definitions and the approved README illustrations stay intact.
   Only values expressly approved for the public app preset are included in
     that product data. Do not copy other private input, actual grades/dates,
     transcripts or profile bodies into issues or shared continuity.
   Preserve live user previews and use disposable qualification contexts.
-    Public-default consent is not commit, push or deployment authority;
-    this candidate stays local until a separate owner decision.
+    Public-default consent alone is not commit, push or deployment authority;
+    publication needs a separate owner decision and exact hosted evidence.
 
 Completion evidence:
+  Separate website publication is authorized November 21. Source15f3957 is
+    deployed through successful Pages44865369309;778domain/535browser CI cases
+    pass and all30hosted files match.24actual live workflows include both-theme
+    six-section shared rows, academic edits/export/reload, grade-aware proposals
+    and hard prerequisite behavior. Saved records remain authoritative; no
+    actual owner browser data, official degree approval or learning credit is
+    inferred. The approved preset remains confined to intended product data.
+    Proof: docs/tracking/2026-11-21-current-site-publication.json.
+  Earlier local-review evidence below retains its original source scope:
   Owner-feedback correction is locally qualified: a responsive header keeps
     the next-course action right-aligned/centered beside its text on wide
     screens and below it on phones. The row now has24px before its study
@@ -92,6 +101,9 @@ Completion evidence:
     source publication are separate. No stage, commit, push or deployment.
 
 Completion log:
+  2026-11-21 - The owner authorizes current website deployment. Exact source,
+    artifact and hosted academic workflows qualify; close the original issue/
+    item without publishing private report bodies or asserting official credit.
   2026-11-20 - Fixed the reported next-course button layout with a wrapping
     action header and normal spacing before the study disclosure. Wide/phone
     geometry, actual frames, link/disclosure behavior and preserved saved
