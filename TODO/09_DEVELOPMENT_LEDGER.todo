@@ -17,6 +17,26 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-24 - The explicit review-ready precondition passes five actual-public
+    stale-review executions with unchanged guard/alert/storage/cache assertions,
+    one worker/no retries; strict build passes. Original async unlock runtime
+    remains unchanged. One private broad-config filter selected zero tests and
+    is retained as a harness diagnostic, not counted as qualification. Publish
+    the one-line test correction and verify its own full CI source.
+  2026-11-24 - Correctivef3f5882/Pages45351019621is actually public. All30
+    artifact files/5101627bytes, bare index/README and41actual hosted cases
+    match/pass. FullCI782domain and557browser+one recovered flaky are distinct
+    from the retry-free41case hosted gate. Investigated the flake: stale-review
+    setup did not await asynchronous review creation before navigating/editing.
+    Add the explicit visible-review precondition; sync runtime/guards unchanged.
+    Preserve the first successful artifact/logs rather than relabelling them.
+  2026-11-24 - Audited15public files, verified both effective Zanark identities/
+    current trailers and normally pushed correctivef3f5882, exact remote main
+    read-back. The owner'sdbd6116parent remains; app runtime, workflow,
+    dependencies/public data and337prior inputs are unchanged. Only two
+    Fieldcraft test calls change semantics. Actual782local cases/56files and
+    strict build pass. Exact Pages45351019621is active;558browser source cases
+    and41prepared hosted cases are discovery, not execution/publication proof.
   2026-11-24 - Owner pusheddbd6116and explicitly requests current publication.
     Exact Pages45341298765failed at validate:780domain cases pass/two
     Fieldcraft callers still supply discovered count after the EXP-total API

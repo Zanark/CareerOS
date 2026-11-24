@@ -14,7 +14,9 @@ Tasks:
   [x] Reproduce the two obsolete Fieldcraft progression-call assertions.
   [x] Update those callers to the EXP-total contract without changing app rules.
   [x] Qualify the repair and update current public-facing release documentation.
-  [ ] Publish the bounded corrective commit with verified repository attribution.
+  [x] Publish the bounded corrective commit with verified repository attribution.
+  [x] Preserve the first successful release and diagnose its one recovered CI test.
+  [x] Qualify the explicit stale-review setup wait without changing sync behavior.
   [ ] Verify the exact successful Pages source, required jobs and artifact.
   [ ] Compare hosted files and exercise the real public Atlas in disposable contexts.
   [ ] Close the original completed Atlas items and verify their existing identities.
@@ -55,10 +57,40 @@ Completion evidence:
     existing discovery/notice/Wayfinder callers already use EXP.
   README/current guides remove obsolete local-only release descriptions while
     preserving the four approved illustrations and historical design receipts.
-  Corrective source publication and public qualification remain in progress.
-    Prior local 41-case proof is historical, not hosted CI.
+  Corrective source f3f58822355d178e06594a8ccc4918b87563edd4 is normally pushed
+    and independently equal to remote main. Its parent is the original owner
+    commit. Both effective Zanark identities and current trailers were verified.
+    Fifteen explicitly audited public files contain no private context/reports.
+    Runtime/workflow/dependencies/public data and 337 prior inputs are unchanged;
+    only the demonstrated Fieldcraft test file changes validation behavior.
+  First corrective push run 45351019621 succeeds and deploys exact f3f5882.
+    Actual CI: 782 domain/56 files, 557 browser passes plus one retry-recovered
+    flaky case, zero skipped. Do not call this retry-free full qualification.
+  Its exact artifact 14902238126 has 30 files / 5,101,627 bytes. Every hosted
+    file, bare public index and source README match, zero read failures/retries.
+    Actual 41 public Atlas/motion/backup cases pass in 41 attempts, one worker,
+    no retries/skips/flaky, only disposable fictional browser contexts.
+  The recovered CI case concerns stale journal review. Its setup clicked
+    asynchronous unlock but did not wait for a review before navigating/editing.
+    The source guard remains intact; an unlock finishing later can instead
+    create a fresh review from the edited workspace. Add the missing visible
+    review precondition, not a timeout, retry increase or journal-rule change.
+    The missing prerequisite is verified in source; the original retry's
+    exact scheduling is not recoverable from its retained log alone.
+  The corrected stale-review safety case passes five independent actual-public
+    executions, one worker/no retries, retaining the exact alert/storage/cache
+    assertions. Strict build passes. No journal runtime or schema is changed.
+    Preserve the earlier zero-case private harness selection diagnostic; it
+    is not counted among the five actual executions.
+  Publish this bounded test-prerequisite correction and reverify the final exact
+    CI source rather than describing the first retried CI gate as retry-free.
+  Prior local 41-case proof is historical, not hosted CI.
 
 Completion log:
+  2026-11-24 - Published the bounded corrective source f3f5882 with the owner's
+    dbd6116 parent and unchanged app runtime. Complete782-case local validation
+    and strict build pass. Exact Pages45351019621is active; preserve its native
+    watch and source freeze until its actual outcome. No hosted-success claim.
   2026-11-24 - Owner reports committing/pushing the Atlas and requests checking,
     fixing and updating the public site. Verify the original source/run; retain
     its failure. Start a bounded publication workstream, preserve all original

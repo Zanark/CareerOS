@@ -363,6 +363,7 @@ test('a stale review cannot overwrite work recorded while visiting another page'
   await page.getByRole('button', { name: 'Check published updates', exact: true }).click();
   await page.getByLabel('Journal passphrase', { exact: true }).fill(phrase);
   await page.getByRole('button', { name: 'Unlock selected journal', exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Review repository progress' })).toBeVisible();
   await navigate(page, 'Settings & data');
   await page.getByRole('textbox', { name: 'What are you working toward?' }).fill('Newer local work saved after the review opened');
   await page.getByRole('button', { name: 'Save direction', exact: true }).click();

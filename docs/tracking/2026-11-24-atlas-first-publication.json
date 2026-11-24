@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-24T14:09:55.582573+05:30",
+  "status": "first-corrective-release-verified-followup-ci-pending",
+  "ownerSource": "dbd61161998802bf7d1fc7fa7b10652cbaa5ff68",
+  "source": "f3f58822355d178e06594a8ccc4918b87563edd4",
+  "runId": 45351019621,
+  "runAttempt": 1,
+  "deploymentConclusion": "success",
+  "actualCi": {
+    "domainPassed": 782,
+    "domainFiles": 56,
+    "browserPassed": 557,
+    "browserFlaky": 1,
+    "skipped": 0,
+    "configuredRetriesUnchanged": 2
+  },
+  "artifact": {
+    "id": 14902238126,
+    "files": 30,
+    "bytes": 5101627,
+    "everyHostedFileMatched": true,
+    "bareIndexAndReadmeMatched": true,
+    "fetchFailuresOrRetries": 0
+  },
+  "actualHosted": {
+    "cases": 41,
+    "attempts": 41,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "ownerProfileAccessed": false,
+    "imagesInspected": false
+  },
+  "followup": {
+    "case": "a stale review cannot overwrite work recorded while visiting another page",
+    "change": "Await visible review creation before navigating and editing; keep all rejection/storage/cache assertions.",
+    "runtimeChanged": false,
+    "actualPublicChecks": 5,
+    "retries": 0,
+    "strictBuildPassed": true,
+    "originalRetrySchedulingProven": false,
+    "finalFullCiStillRequired": true
+  },
+  "privacy": {
+    "privateReportsPublished": false,
+    "realBrowserDataAccessed": false,
+    "newImageViews": 0
+  }
+}
