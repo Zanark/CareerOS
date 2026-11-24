@@ -34,6 +34,7 @@ DONE - 23_KEEP_GOING_JOURNAL.todo (keep-going-journal)
 DONE - 24_KEEP_GOING_JOURNAL_PUBLICATION.todo (keep-going-journal-publication)
 IN_REVIEW - 25_ATLAS_PROGRESSION_REDESIGN.todo (atlas-progression-redesign)
 IN_REVIEW - 26_ATLAS_LIVING_MOTION.todo (atlas-living-motion)
+IN_PROGRESS - 27_ATLAS_PUBLICATION.todo (atlas-publication)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

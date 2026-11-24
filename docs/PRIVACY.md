@@ -88,7 +88,7 @@ source records already in this browser. Normal backups and the optional encrypte
 journal carry those records; confirmed replacement/reset recalculates the collection
 and journey.
 Collection completion is not independently assessed ability or current retention.
-The local progression revision derives fictional journey EXP from distinct
+The progression revision derives fictional journey EXP from distinct
 checkpoint evidence, criteria-confirmed completion evidence, first recalls,
 recorded local days and discoveries. No points are saved separately or awarded
 for viewing, route selection, timers or academic self-reports.
@@ -96,7 +96,7 @@ Camera, expedition selection, explicitly unearned next-reward previews and
 level-up replay are temporary view state, not new
 localStorage fields, exports or analytics. Character geometry and the licensed
 display font are bundled locally; no avatar, model or font service receives data.
-The local animated revision also keeps motion pause, system-motion preference
+The animated revision also keeps motion pause, system-motion preference
 and visible-region observations only in transient presentation state. Visibility
 is used to stop decoration, not stored as viewing analytics. Weather, twinkling,
 hover effects and pausing do not earn EXP, record activity or change a backup.

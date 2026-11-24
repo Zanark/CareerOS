@@ -749,12 +749,9 @@ Open **Discovery Atlas** from the sidebar, or choose **Discovery Atlas**
 in the tutorial. The collection has 24 discoveries across tangible work, depth,
 recall and recorded days. Its percentage describes only this finite collection,
 not the percentage of your career, mastery or interview readiness.
-The local revision opens **Discovered** by default, including an empty collection.
+The collection opens **Discovered** by default, including an empty collection.
 **All signals** and **Undiscovered** remain available without changing records.
-The expedition/progression redesign described below is local development work,
-not the current hosted release.
-
-The local Atlas also has **living chapter atmosphere**, constellation orbits,
+The Atlas also has **living chapter atmosphere**, constellation orbits,
 twinkling earned signals, a moving reward invitation and more expressive cards.
 Use **Pause motion** at the top to freeze decoration and settle any level-up;
 **Play motion** resumes ambience without replaying or earning a reward.

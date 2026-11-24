@@ -641,7 +641,7 @@ and 28 activity tiles regardless of record count. Provenance is bounded, with ex
 continuation for larger first-qualified receipts. No new persistence is required:
 the existing backup and encrypted journal already carry its source records.
 
-The local 2026-11-21 progression revision extends this same chronological pass,
+The 2026-11-21 progression revision extends this same chronological pass,
 not the workspace schema. `journey` contains counts, read-only canonical identity
 sets, one EXP total and at most five recent award/source receipts. First evidence
 adds 40 EXP per checkpoint, first completion evidence 80, first recall of any
@@ -697,7 +697,7 @@ The discovery chapter observes its view-state attributes explicitly, so a
 post-frame camera reset can satisfy its action gate independently of click
 timing or unrelated DOM changes.
 
-The local motion revision adds `useAtlasMotion` to `DiscoveryPage`, replacing the
+The motion revision adds `useAtlasMotion` to `DiscoveryPage`, replacing the
 Wayfinder's separate reduced-motion subscription. It combines the per-visit pause,
 system preference and document visibility; an unavailable visibility API is
 explicitly labelled rather than advertised as live animation. Opening a discovery

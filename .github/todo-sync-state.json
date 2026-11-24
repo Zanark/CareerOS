@@ -352,6 +352,20 @@
         "status": "a7bd2df9",
         "archived": false
       }
+    },
+    "atlas-publication": {
+      "issueNumber": 26,
+      "issueId": "I_kwDOU6lJns8AAAABiAbt2A",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/26",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhLYLsM",
+      "baseline": {
+        "managed": "4a6846fe517b2815cdc4f92b555eea99b1340ae2329d949612d0ad8dbc314ccc",
+        "title": "Repair and verify publication of the current Discovery Atlas",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

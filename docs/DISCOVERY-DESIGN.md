@@ -4,11 +4,11 @@ This is the bounded design basis for the revised, optional character layer.
 It is not a claim that gamification improves this user's career outcomes.
 The [guide](GUIDE.md) explains use; the final interactive tutorial teaches it.
 
-## Current local motion revision (2026-11-22)
+## Current motion revision (2026-11-22)
 
 The owner asked for a substantially more animated, inviting page. This revision
 deliberately adds controllable **ambient CSS/SVG loops**, rather than repeating
-the previous finite-only presentation rule. It remains local/unpublished.
+the previous finite-only presentation rule.
 
 Each real 3D chapter now has an original screen-space atmosphere: harbor
 currents/motes, wind, drifting archive pages/orbits, rising bubbles, a sweeping
@@ -50,7 +50,7 @@ human aesthetic or motivational acceptance.
 
 ## Preserved progression revision (2026-11-21)
 
-The 2026-11-21 redesign is local, not a new hosted release. Its
+The 2026-11-21 redesign's
 [six-game research and tradeoff document](ATLAS-PROGRESSION-RESEARCH.md) covers
 Hades, Stardew Valley, Slay the Spire, Factorio, Celeste and Vampire Survivors,
 with explicit developer/interpretation/research-access distinctions.

@@ -1,0 +1,65 @@
+Workstream ID: atlas-publication
+Title: Repair and verify publication of the current Discovery Atlas
+Status: IN_PROGRESS
+Milestone: Make the owner-pushed Atlas the exactly verified public website
+Dependencies: discovery-atlas, atlas-progression-redesign, atlas-living-motion
+GitHub issue: https://github.com/Zanark/CareerOS/issues/26
+Purpose: Inspect the owner's pushed revision and actual Pages deployment,
+  repair confirmed release blockers, and verify that the published website
+  contains the current source-derived Atlas progression and animated interface.
+  Preserve the owner's commit, private records and original tracking identities.
+
+Tasks:
+  [x] Verify the owner-pushed source and inspect its exact failed Pages run.
+  [x] Reproduce the two obsolete Fieldcraft progression-call assertions.
+  [x] Update those callers to the EXP-total contract without changing app rules.
+  [x] Qualify the repair and update current public-facing release documentation.
+  [ ] Publish the bounded corrective commit with verified repository attribution.
+  [ ] Verify the exact successful Pages source, required jobs and artifact.
+  [ ] Compare hosted files and exercise the real public Atlas in disposable contexts.
+  [ ] Close the original completed Atlas items and verify their existing identities.
+  [ ] Seal public-safe release evidence and owned continuity.
+
+Acceptance criteria:
+  The owner-pushed commit and unrelated work remain intact; no history rewrite.
+  A failing deployment is diagnosed from its actual source/jobs/logs, not an
+    inference from a clean checkout, local proof or the owner's successful push.
+  Tests use snapshot.journey.xp for getWayfinderProgress; discovery count remains
+    a separate collection metric. Existing expected outcomes/guards remain.
+  Current validation, production build and exact hosted workflow pass without
+    skipping checks, increasing retries or relaxing assertions to force success.
+  The actual public website matches its successful Pages artifact and supports
+    the current Atlas defaults, expeditions, rewards, animation and pause.
+  Existing evidence/criteria, backups, tutorial isolation and local records hold.
+  Current README/guides accurately describe the released product, retaining
+    all four approved illustrations and historical source-bound research receipts.
+  No owner browser profile, private report/PDF/context, credential or browser
+    backup enters source publication or issue/Project descriptions.
+  Preserve original issue/Project/item identities, Kanban and human-owned edits;
+    technical deployment, positive owner feedback and measured outcomes differ.
+  No extra feature, new service/schedule, workflow bypass or secret provisioning.
+
+Completion evidence:
+  Owner's main commit:
+    dbd61161998802bf7d1fc7fa7b10652cbaa5ff68, independently equal to remote main.
+    All 338 previously qualified motion inputs match the owner-pushed source.
+  Exact push run 45341298765 failed at npm run validate: 780 domain cases pass,
+    two Fieldcraft assertions still pass discovered count to the new EXP API.
+    Build/browser/artifact/deploy were skipped; no updated deployment claimed.
+  Local targeted reproduction matches both failures. The two-line caller fix
+    preserves app runtime and the existing assertions' final-level/backup intent.
+  Actual complete local TypeScript/domain validation passes all 782 cases across
+    56 files; strict production build passes. No runtime, dependency, workflow,
+    saved-state or assertion-outcome changes are required.
+  Indexed search at the exact owner commit finds only these two stale callers;
+    existing discovery/notice/Wayfinder callers already use EXP.
+  README/current guides remove obsolete local-only release descriptions while
+    preserving the four approved illustrations and historical design receipts.
+  Corrective source publication and public qualification remain in progress.
+    Prior local 41-case proof is historical, not hosted CI.
+
+Completion log:
+  2026-11-24 - Owner reports committing/pushing the Atlas and requests checking,
+    fixing and updating the public site. Verify the original source/run; retain
+    its failure. Start a bounded publication workstream, preserve all original
+    Atlas issue/item identities and repair only the demonstrated contract gap.

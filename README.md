@@ -42,14 +42,13 @@ imports an achievement or silently upgrades your saved tracker.
   a bounded daily plan and focus room. DeepSeaFoam dark and Harbor Daylight
   light retain the animated sunrise/sunset switch.
 
-### Local Atlas redesign
+### Discovery Atlas
 
-The next Atlas revision adds real checkpoint expeditions, saved-work EXP between
-discovery unlocks, and an explicitly unearned next-chapter preview. **It is local
-development work, not the current hosted release.** Read the
+Explore real checkpoint expeditions, saved-work EXP between
+discovery unlocks, and an explicitly unearned next-chapter preview. Read the
 [six-game progression investigation and tradeoffs](docs/ATLAS-PROGRESSION-RESEARCH.md).
 Existing records, criteria and the Discovered default remain in charge.
-The local motion follow-up adds seven animated chapter atmospheres, a living
+The Atlas includes seven animated chapter atmospheres, a living
 constellation and expressive cards, with **Pause motion** and system reduced-motion
 support. Decoration never changes progress.
 

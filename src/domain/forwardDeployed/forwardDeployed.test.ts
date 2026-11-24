@@ -146,7 +146,7 @@ describe('research-backed learning and existing Atlas participation', () => {
     });
     const snapshot = getDiscoverySnapshot(state, now);
     expect(snapshot.earned).toBe(24);
-    expect(getWayfinderProgress(snapshot.earned)).toMatchObject({ level: 7, nextAt: null, remaining: 0 });
+    expect(getWayfinderProgress(snapshot.journey.xp)).toMatchObject({ level: 7, nextAt: null, remaining: 0 });
     expect(snapshot.discoveries.flatMap(discovery => discovery.sources).every(source => source.missionId === 'fde')).toBe(true);
     expect(state.missions.pattern.completedCheckpointIds).toEqual([]);
     expect(state.missions.fde.mode).toBe('background');
@@ -192,7 +192,7 @@ describe('research-backed learning and existing Atlas participation', () => {
     const snapshot = getDiscoverySnapshot(state);
     expect(snapshot.total).toBe(24);
     expect(snapshot.earned).toBeGreaterThan(0);
-    expect(getWayfinderProgress(snapshot.earned).level).toBeGreaterThan(1);
+    expect(getWayfinderProgress(snapshot.journey.xp).level).toBeGreaterThan(1);
     const working = snapshot.discoveries.find(item => item.id === 'working-thought')!;
     expect(working.sources).toHaveLength(1);
     expect(working.sources[0]).toMatchObject({ missionId: 'fde', checkpointId: state.missions.fde.checkpointId });
