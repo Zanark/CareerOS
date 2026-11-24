@@ -1,6 +1,6 @@
 Workstream ID: discovery-atlas
 Title: Evidence-based discovery collection and final tutorial chapter
-Status: IN_REVIEW
+Status: DONE
 Milestone: Make useful recorded practice rewarding without inventing career progress
 Dependencies: tracker-foundation, appearance-and-identity, versioned-roadmaps, tutorial-and-help
 GitHub issue: https://github.com/Zanark/CareerOS/issues/9
@@ -51,6 +51,18 @@ Acceptance criteria:
   Technical completion, user acceptance and actual deployment remain separate.
 
 Completion evidence:
+  2026-11-24: the owner reports pushing the current source, says everything
+    looks good so far and separately authorizes checking/fixing/publication.
+    Final corrective source e9a4aa8c4d0ed42289ea05bff3f739305080aadd is deployed
+    by successful exact Pages 45358324011. Actual CI782domain/56files and
+    all558browser cases pass, zero retry/skip/flaky rows observed. All30hosted
+    artifact files/5101627bytes, bare index/README and42actual public cases
+    match/pass. Default Discovered, records, criteria and tutorial remain.
+    This completes the original default follow-up on its existing issue/item.
+    Physical-device, whole-site accessibility and motivational outcomes are
+    not inferred from positive owner feedback or technical release success.
+    Current proof: docs/tracking/2026-11-24-atlas-publication.json.
+    Earlier local-only and publication figures below retain their own dates.
   The original discovery-only character formula and hidden-future-art rules
     below are historical. The separately tracked local progression redesign
     in 25_ATLAS_PROGRESSION_REDESIGN.todo intentionally supersedes them.
@@ -118,6 +130,10 @@ Completion evidence:
   Prior local tracking adoption files remain preserved for reviewed publication.
 
 Completion log:
+  2026-11-24 - Published the preserved default and current Atlas through exact
+    successfule9a4aa8/Pages45358324011. All558CIbrowser and42actual hosted cases
+    pass without retries/skips/flaky, all30public files match. Complete the same
+    original workstream/issue9/item; no new records, private data or workflow.
   2026-11-21 - Local follow-up is technically ready for review: initial
     Discovered, including zero discoveries. Existing explicit filters and
     tutorial/family exploration remain available;5native cases pass. Same

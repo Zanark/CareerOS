@@ -121,11 +121,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/9",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHIza0",
       "baseline": {
-        "managed": "2f3df58d6f0ce9d45f4a4a2cffcd49bc78f7a5354134105ba1cee485de84e051",
+        "managed": "2caa31911a5582e3d4a3bda8d60cc23b83a67413688b6f1c8b4a8e07591d222d",
         "title": "Evidence-based discovery collection and final tutorial chapter",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -331,11 +331,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/24",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKwE8s",
       "baseline": {
-        "managed": "5390f3d09c68093c0e5ca7d66bd5b3b096bdcf3aef1e5e174b01ba109fd04d01",
+        "managed": "5d1b12103269da46df734177ebcaa32c3b294d98623456d8368792a0b28d3e7d",
         "title": "Research-led Atlas expeditions and meaningful work progression",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -345,11 +345,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/25",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKw6No",
       "baseline": {
-        "managed": "efb03fe80993cfdabe58432a8a09d1816c5235d946a33a5119bc5f0276622da3",
+        "managed": "f15f4bede02424bff5d5c77f5be1ef288f845d551c902828de7489695ef3cc39",
         "title": "Living atmosphere and expressive motion for Discovery Atlas",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -359,11 +359,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/26",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhLYLsM",
       "baseline": {
-        "managed": "51dc873a45af62491b39de35fea50f3949538fc384c1e57aafdaa79eaeb4a9bc",
+        "managed": "85ea091426983a2977f892fedb370ebec4b8dede2dc81da3dcb01d2fe92faf6c",
         "title": "Repair and verify publication of the current Discovery Atlas",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

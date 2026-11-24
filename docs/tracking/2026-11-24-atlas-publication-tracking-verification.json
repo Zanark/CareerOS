@@ -1,0 +1,81 @@
+{
+  "observedAt": "2026-11-24T09:22:49.294Z",
+  "repository": "Zanark/CareerOS",
+  "account": "Zanark",
+  "workstreams": [
+    {
+      "id": "discovery-atlas",
+      "issue": 9,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHIza0",
+      "state": "closed",
+      "stage": "Done",
+      "managedSha256": "2caa31911a5582e3d4a3bda8d60cc23b83a67413688b6f1c8b4a8e07591d222d",
+      "exactManagedContentAndBacklink": true,
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "atlas-progression-redesign",
+      "issue": 24,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKwE8s",
+      "state": "closed",
+      "stage": "Done",
+      "managedSha256": "5d1b12103269da46df734177ebcaa32c3b294d98623456d8368792a0b28d3e7d",
+      "exactManagedContentAndBacklink": true,
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "atlas-living-motion",
+      "issue": 25,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKw6No",
+      "state": "closed",
+      "stage": "Done",
+      "managedSha256": "f15f4bede02424bff5d5c77f5be1ef288f845d551c902828de7489695ef3cc39",
+      "exactManagedContentAndBacklink": true,
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "atlas-publication",
+      "issue": 26,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhLYLsM",
+      "state": "closed",
+      "stage": "Done",
+      "managedSha256": "85ea091426983a2977f892fedb370ebec4b8dede2dc81da3dcb01d2fe92faf6c",
+      "exactManagedContentAndBacklink": true,
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "omscs-ml-vs-ai",
+      "issue": 16,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKYhYE",
+      "state": "open",
+      "stage": "In review",
+      "managedSha256": "cbb6f3253787a786520567a05695ce3d75164539c7510546e6c0eecd1c43bf97",
+      "exactManagedContentAndBacklink": true,
+      "originalIdentityPreserved": true
+    },
+    {
+      "id": "calm-change-guide",
+      "issue": 17,
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKdhX4",
+      "state": "open",
+      "stage": "In review",
+      "managedSha256": "ea13ebc75ec4bc15cc756541da36cd637ce934ecb3c8552469f527bc7c31e877",
+      "exactManagedContentAndBacklink": true,
+      "originalIdentityPreserved": true
+    }
+  ],
+  "otherSourceRecoveryEntriesUnchanged": 22,
+  "primaryView": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "noOp": {
+    "created": 0,
+    "actions": 0,
+    "conflicts": 0
+  },
+  "recoveryStateUnchanged": true,
+  "privateReportsRemainReviewScopedAndUnpublished": true,
+  "humanLearningOrMotivationalAcceptanceInferred": false
+}

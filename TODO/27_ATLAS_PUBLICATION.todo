@@ -1,6 +1,6 @@
 Workstream ID: atlas-publication
 Title: Repair and verify publication of the current Discovery Atlas
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Make the owner-pushed Atlas the exactly verified public website
 Dependencies: discovery-atlas, atlas-progression-redesign, atlas-living-motion
 GitHub issue: https://github.com/Zanark/CareerOS/issues/26
@@ -17,10 +17,10 @@ Tasks:
   [x] Publish the bounded corrective commit with verified repository attribution.
   [x] Preserve the first successful release and diagnose its one recovered CI test.
   [x] Qualify the explicit stale-review setup wait without changing sync behavior.
-  [ ] Verify the exact successful Pages source, required jobs and artifact.
-  [ ] Compare hosted files and exercise the real public Atlas in disposable contexts.
-  [ ] Close the original completed Atlas items and verify their existing identities.
-  [ ] Seal public-safe release evidence and owned continuity.
+  [x] Verify the exact successful Pages source, required jobs and artifact.
+  [x] Compare hosted files and exercise the real public Atlas in disposable contexts.
+  [x] Close the original completed Atlas items and verify their existing identities.
+  [x] Seal public-safe release evidence and owned continuity.
 
 Acceptance criteria:
   The owner-pushed commit and unrelated work remain intact; no history rewrite.
@@ -42,6 +42,25 @@ Acceptance criteria:
   No extra feature, new service/schedule, workflow bypass or secret provisioning.
 
 Completion evidence:
+  Final deployed source e9a4aa8c4d0ed42289ea05bff3f739305080aadd, exact
+    push-triggered Pages45358324011/attempt1SUCCESS. Build1906seconds/deploy11.
+    Actual CI782domain/56files and558browser passes; zero flaky/skipped/retry
+    rows observed. Existing configured retries2/workflow remain unchanged.
+  Exact artifact14905023725contains30runtime files/5101627bytes. Every actual
+    public file, bare public index and source README match, zero read failures/
+    retries. All file bytes also match the first successful runtime artifact;
+    archive wrapper identity is not confused with runtime content.
+  Actual42final-source public cases pass in42attempts, one worker/no retries/
+    skips/flaky. Covers default filters, expeditions, source-only rewards,
+    seven climates/actual motion, pause/reduced motion/drafts, camera/resource
+    boundaries, both tutorial widths and ordinary/encrypted backup safety.
+  Original owner commit is preserved as an ancestor. No app runtime, saved
+    record/schema, dependency, workflow, four approved illustrations or private
+    data is changed by the release repairs. Positive owner feedback is distinct
+    from unverified physical-device, accessibility and motivational outcomes.
+  Current public-safe proof: docs/tracking/2026-11-24-atlas-publication.json.
+    First-run retry and zero-case private selection remain separately dated
+    history below; neither is relabelled as the final retry-free source gate.
   Owner's main commit:
     dbd61161998802bf7d1fc7fa7b10652cbaa5ff68, independently equal to remote main.
     All 338 previously qualified motion inputs match the owner-pushed source.
@@ -82,11 +101,17 @@ Completion evidence:
     assertions. Strict build passes. No journal runtime or schema is changed.
     Preserve the earlier zero-case private harness selection diagnostic; it
     is not counted among the five actual executions.
-  Publish this bounded test-prerequisite correction and reverify the final exact
-    CI source rather than describing the first retried CI gate as retry-free.
+  The bounded prerequisite correction is published as the final exact source
+    above; its full CI and actual public checks complete the release.
   Prior local 41-case proof is historical, not hosted CI.
 
 Completion log:
+  2026-11-24 - Final e9a4aa8/Pages45358324011is verified public. Actual782domain/
+    558browser/42hostedpass with no retry/skip/flaky rows; all30runtime files/
+    bare index/README match the exact artifact. Preserve the owner commit and
+    first successful/retried edition. Complete the same original issues/items
+    for default, progression, motion and this release; private reviews remain
+    unuploaded. Evidence-only follow-through changes no qualified runtime/tests.
   2026-11-24 - Published the bounded corrective source f3f5882 with the owner's
     dbd6116 parent and unchanged app runtime. Complete782-case local validation
     and strict build pass. Exact Pages45351019621is active; preserve its native

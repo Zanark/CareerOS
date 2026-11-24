@@ -1,0 +1,99 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "e9a4aa8c4d0ed42289ea05bff3f739305080aadd",
+  "observedAt": "2026-11-24T09:21:46.950Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "discovery-atlas",
+      "path": "TODO/10_DISCOVERY_ATLAS.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/9",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "2caa31911a5582e3d4a3bda8d60cc23b83a67413688b6f1c8b4a8e07591d222d",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ]
+    },
+    {
+      "id": "atlas-progression-redesign",
+      "path": "TODO/25_ATLAS_PROGRESSION_REDESIGN.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/24",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "5d1b12103269da46df734177ebcaa32c3b294d98623456d8368792a0b28d3e7d",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ]
+    },
+    {
+      "id": "atlas-living-motion",
+      "path": "TODO/26_ATLAS_LIVING_MOTION.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/25",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "f15f4bede02424bff5d5c77f5be1ef288f845d551c902828de7489695ef3cc39",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ]
+    },
+    {
+      "id": "atlas-publication",
+      "path": "TODO/27_ATLAS_PUBLICATION.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/26",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "85ea091426983a2977f892fedb370ebec4b8dede2dc81da3dcb01d2fe92faf6c",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 26,
+    "selected": 4,
+    "excluded": 2,
+    "created": 0,
+    "reused": 4,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

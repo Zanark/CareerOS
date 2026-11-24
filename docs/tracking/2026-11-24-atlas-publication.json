@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "status": "verified-public-atlas-release",
+  "observedAt": "2026-11-24T14:48:15.494874+05:30",
+  "publicUrl": "https://zanark.github.io/CareerOS/#/discoveries",
+  "ownerSource": "dbd61161998802bf7d1fc7fa7b10652cbaa5ff68",
+  "ownerHistoryPreserved": true,
+  "sourceCommit": "e9a4aa8c4d0ed42289ea05bff3f739305080aadd",
+  "runId": 45358324011,
+  "runUrl": "https://github.com/Zanark/CareerOS/actions/runs/45358324011",
+  "runAttempt": 1,
+  "deploymentConclusion": "success",
+  "jobSeconds": {
+    "build": 1906.0,
+    "deploy": 11.0
+  },
+  "repairs": [
+    {
+      "source": "f3f58822355d178e06594a8ccc4918b87563edd4",
+      "scope": "Two Fieldcraft test call arguments use snapshot.journey.xp after the EXP-total API change; expected results and app runtime unchanged."
+    },
+    {
+      "source": "e9a4aa8c4d0ed42289ea05bff3f739305080aadd",
+      "scope": "One browser-test prerequisite awaits visible review creation before navigating/editing; all rejection/storage/cache assertions preserved."
+    }
+  ],
+  "actualCi": {
+    "domainCasesPassed": 782,
+    "domainFilesPassed": 56,
+    "browserCasesPassed": 558,
+    "browserFlaky": 0,
+    "browserSkipped": 0,
+    "retryOrSkipRowsObserved": 0,
+    "configuredRetriesUnchanged": 2,
+    "originalWorkflowUnchanged": true
+  },
+  "artifact": {
+    "id": 14905023725,
+    "digest": "sha256:17f2b1a1ed9dedb68dec1f7c35debae54c6eb298fa89985d1561f9c9b2f8f549",
+    "runtimeFiles": 30,
+    "runtimeBytes": 5101627,
+    "allActualHostedFilesMatched": true,
+    "barePublicIndexAndReadmeMatched": true,
+    "initialReadFailuresOrRetries": 0,
+    "byteIdenticalToFirstSuccessfulRuntime": true
+  },
+  "actualHosted": {
+    "cases": 42,
+    "attempts": 42,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "scope": [
+      "all seven animated climates and actual motion pixels",
+      "pause/reduced motion, offscreen and synthetic hidden-document handling",
+      "default filters, source-only rewards and real record/criteria forms",
+      "next-only unearned preview and route selection isolation",
+      "keyboard/touch camera, render budgets, fallback and disposal",
+      "six live/reduced theme/viewport geometries and tutorial isolation",
+      "ordinary backup, mocked encrypted-journal two-context workflow and stale-review rejection"
+    ],
+    "disposableProfiles": true,
+    "ownerBrowserAccessed": false,
+    "imagesInspected": false,
+    "physicalDeviceAcceptanceInferred": false
+  },
+  "firstRunHistory": {
+    "ownerFailedRun": 45341298765,
+    "firstSuccessfulSource": "f3f58822355d178e06594a8ccc4918b87563edd4",
+    "firstSuccessfulRun": 45351019621,
+    "firstCiBrowserPassed": 557,
+    "firstCiFlaky": 1,
+    "firstHostedPassed": 41,
+    "followupCaseIndependentPublicChecks": 5,
+    "originalRetrySchedulingProven": false,
+    "receipt": "docs/tracking/2026-11-24-atlas-first-publication.json"
+  },
+  "preservation": {
+    "approvedReadmeImages": 4,
+    "approvedImageBytesPreserved": true,
+    "appRuntimeUnchangedFromOwner": true,
+    "recordSchemasAndDataUnchanged": true,
+    "dependenciesAndWorkflowUnchanged": true,
+    "privateReportsPublished": false,
+    "credentialsPublished": false,
+    "newImageViewCalls": 0
+  },
+  "limits": {
+    "humanLearningOrMotivationalBenefitVerified": false,
+    "wholeSiteAccessibilityCertificationClaimed": false,
+    "existingActionRuntimeDeprecationAnnotationsRemainNonblocking": true
+  }
+}

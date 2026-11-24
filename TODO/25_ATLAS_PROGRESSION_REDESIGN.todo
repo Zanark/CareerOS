@@ -1,6 +1,6 @@
 Workstream ID: atlas-progression-redesign
 Title: Research-led Atlas expeditions and meaningful work progression
-Status: IN_REVIEW
+Status: DONE
 Milestone: Make real checkpoint work lead to clear, inviting fictional rewards
 Dependencies: discovery-atlas, tracker-foundation, tutorial-and-help
 GitHub issue: https://github.com/Zanark/CareerOS/issues/24
@@ -43,6 +43,18 @@ Acceptance criteria:
     deployment, workflow change or publication authorization.
 
 Completion evidence:
+  2026-11-24 separately authorized publication is complete. Owner-pusheddbd6116
+    remains an ancestor of deployedsourcee9a4aa8c4d0ed42289ea05bff3f739305080aadd.
+    Exact Pages45358324011succeeds:782domain/56files and558browser passes,
+    no retry/skip/flaky rows. All30actual hosted files/5101627bytes and42actual
+    public Atlas/motion/backup cases match/pass without retries. The only release
+    fixes update two dependent test callers to EXP and await an async review
+    setup; app progression, criteria, records, schema and workflow unchanged.
+    README/guides are current; all four approved illustrations remain.
+    Owner says everything looks good so far; measured learning/motivation,
+    physical-device and broader aesthetic outcomes remain separate.
+    Current proof: docs/tracking/2026-11-24-atlas-publication.json.
+    Preserve the original local research/qualification evidence below.
   Six case studies and the implemented rule/transfer rationale:
     docs/ATLAS-PROGRESSION-RESEARCH.md: 4,186 whitespace-counted words,
     13 numbered sections and two diagrams. Primary developer/description text,
@@ -85,6 +97,10 @@ Completion evidence:
     is unverified. No source commit, push or deployment was performed.
 
 Completion log:
+  2026-11-24 - Fulfilled the separate release authorization through exact
+    e9a4aa8/Pages45358324011and42actual hosted passes. Complete the same
+    original issue24/item after source/artifact/live qualification. No record
+    migration, new fantasy economy, private report or inferred learning outcome.
   2026-11-21 - Local implementation is technically qualified: 17 focused units,
     strict build, final 28/28 native cases and an actual current-preview paint/
     storage probe pass. Retain the initial 23-case and intermediate 27-case
