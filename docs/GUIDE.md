@@ -745,10 +745,33 @@ preserves that old completion in the archive while new v3 work starts unconfirme
 
 ### Discover useful signals without changing the tracker
 
-Open **Discovery Atlas** under Career, or choose **Discovery Atlas**
+Open **Discovery Atlas** from the sidebar, or choose **Discovery Atlas**
 in the tutorial. The collection has 24 discoveries across tangible work, depth,
 recall and recorded days. Its percentage describes only this finite collection,
 not the percentage of your career, mastery or interview readiness.
+The local revision opens **Discovered** by default, including an empty collection.
+**All signals** and **Undiscovered** remain available without changing records.
+The expedition/progression redesign described below is local development work,
+not the current hosted release.
+
+The local Atlas also has **living chapter atmosphere**, constellation orbits,
+twinkling earned signals, a moving reward invitation and more expressive cards.
+Use **Pause motion** at the top to freeze decoration and settle any level-up;
+**Play motion** resumes ambience without replaying or earning a reward.
+The choice applies to this visit, not saved career data. With system reduced
+motion, the control explains **Reduced motion** and automatic effects stay off.
+Manual orbit/pan/zoom and every work/collection action remain available.
+Offscreen/hidden ambience pauses, and open discovery/record dialogs quiet the
+background without requiring you to abandon a draft.
+
+**Your next expedition** now lives beside the character (before the scene on
+narrow screens). Choose an available **Expedition route** to inspect its actual
+checkpoint, nearby positions and trace/finish awards. This changes only the
+Atlas view, not mission focus. **Open checkpoint & criteria** leads to the
+existing learning tools. Do the work, then use **Record real work** to open the
+normal form. Practice and criteria-confirmed completion remain separate.
+Blocked and completed routes offer appropriate inspection/saved-work links;
+planned curricula are never silently activated.
 
 Hidden cards offer a clue. Open one and optionally choose **Reveal the trail**
 to see its name, exact requirement and current progress. Looking and filtering
@@ -758,7 +781,7 @@ Old records can reveal discoveries immediately; a reload does not announce them
 as newly earned work.
 
 Repeated notes cannot multiply distinct-checkpoint or same-day milestones.
-Only the verified unchanged DSA v2/v3 append shares checkpoint identity; other
+Only verified unchanged DSA v2/v3 and Neural v3/v4 appends share checkpoint identity; other
 editions stay separate. Rhythm discoveries use different local-calendar days,
 not a continuous streak. The 28-day ribbon shows recent evidence/recall, while
 its all-history count is cumulative. Inspect a day or use arrow keys, Home and End.
@@ -768,18 +791,20 @@ Recall discoveries recognise recorded attempts and explicitly spaced independent
 self-checks; they are not current retention assessments. A later **Needs review**
 still matters in Recall practice and does not erase the earlier event. No currency,
 leaderboard, countdown, lost points, automatic readiness or completion was added.
-The next-step panel opens your existing primary checkpoint or saved work; it never
-changes focus, makes a new plan or bypasses a blocker.
+The expedition begins with your primary route and never changes focus, makes
+a new plan or bypasses a blocker.
 
 No separate collection data is stored: normal backup/import and optional encrypted
 journal publication carry the existing source records. Confirmed replacement/reset
 recalculates the collection from those records. In the final tutorial, **Load discovery
 example** replaces only temporary examples and discards the practice timer; nothing
 is copied to your real workspace. The atlas map and ribbon use data-bearing SVG/CSS;
-the requested avatar and its isometric diorama share one small 3D view. There is no external asset
-service or continuous idle animation loop.
+the requested avatar and its isometric diorama share one small 3D view.
+There is no external asset service or idle JavaScript/WebGL rendering loop.
+The optional visible CSS/SVG ambience does loop, with the pause/reduced-motion
+controls above; it is decoration, not a source of EXP or recorded activity.
 
-Your original fictional **Wayfinder** has seven collection levels, each with a
+Your original fictional **Wayfinder** has seven journey levels, each with a
 different chapter, realm, equipment bundle and relic. The minimal PS1-style
 **3D character** keeps its earned equipment: turn it around to see the pack,
 rolled map and later additions. Its background is a real low-poly **isometric
@@ -789,16 +814,25 @@ switches a one-finger/left drag to pan. Right-drag or Shift plus arrow keys also
 moves the view. **Reset diorama view** or Home restores the isometric angle,
 position, zoom and rotation mode, not any saved progress.
 
-Each discovered card supplies **100 collection EXP**, purely a cosmetic display
-of the same collection count. It is not a career level, independently assessed
-ability, currency or a separate saved score. New records can offer **View level-up**
-without stealing focus. The sequence fills the old bar, crosses the threshold,
+Each discovery still supplies **100 EXP**. Distinct real work also advances
+the journey: first evidence on a checkpoint adds **40**, its first
+criteria-confirmed finish **80**, its first honest recall **40**, and each
+recorded local-calendar day **20**. These awards count once per relevant
+checkpoint/date, not per note; days need not be consecutive. The recall
+participation award is the same for an honest Needs review or Independent
+attempt, while independent-only discoveries keep their existing requirements.
+Expand **Where your EXP comes from** for the calculation and recent source links.
+It is a fictional journey, not assessed ability, spendable currency or a separate
+saved score. New records can offer **View level-up** even between discovery
+milestones, without stealing focus. The sequence fills the old bar, crosses the threshold,
 reveals the equipment and keeps a reward summary. Every crossed level is retained
 in a multi-level arrival. **Skip animation** shows all rewards immediately;
 **Replay level-up** and **Play prologue** never earn anything.
 
 Click an unlocked chapter to revisit its outfit and scene; **Current chapter**
-returns to the actual level. Future artwork stays hidden. Reduced motion removes
+returns to the actual level. **Preview reward** can show only the next chapter,
+explicitly labelled **not earned**; actual EXP/level and locked chapter buttons
+stay unchanged. Preview and route choices are never saved. Reduced motion removes
 automatic effects while leaving deliberate manual orbit available. The viewer
 has no idle animation loop and pauses rendering offscreen. Small texture-free
 geometry and a capped 82,944-pixel internal buffer minimize cost; no promise of zero
@@ -809,7 +843,8 @@ The final form is attainable within one learning mission; no job offer, paid
 credential or completion of every roadmap is required. The original 150 lessons
 remain in order; twenty Discovery Atlas lessons, seven later Fieldcraft lessons
 and five agent-cloud lessons bring the current tour to 182 steps.
-See [the scoped design and research basis](DISCOVERY-DESIGN.md).
+See [the scoped design basis](DISCOVERY-DESIGN.md) and the
+[six-game progression research and tradeoffs](ATLAS-PROGRESSION-RESEARCH.md).
 
 ### A normal working session
 

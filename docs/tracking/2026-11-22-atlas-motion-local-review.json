@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "workstreamId": "atlas-living-motion",
+  "status": "qualified-local-not-published",
+  "observedAt": "2026-11-21T19:35:53.677Z",
+  "source": {
+    "baseCommit": "e52a16f71c5231b8af1bdfeb83b1ba4544b10d60",
+    "previousQualifiedAtlas": "4bf26f7b4cdf17a3a9052e7ded76b17843ea4e2b32ef8de0a0bdc5ec16b04dca",
+    "fingerprint": "deb9327db8516e35894841be922f09b33e4121c190db7d585c10f0f101c377d7",
+    "inputs": 338,
+    "unchangedAfterRun": true,
+    "stagedFiles": 0
+  },
+  "checks": {
+    "strictBuild": "passed through final native webServer command",
+    "nativeCases": 41,
+    "nativeAttempts": 41,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "climates": [
+      {
+        "level": 1,
+        "climate": "harbor",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-tide-flow",
+          "atlas-mote-drift"
+        ]
+      },
+      {
+        "level": 2,
+        "climate": "breeze",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-wind-travel",
+          "atlas-mote-drift"
+        ]
+      },
+      {
+        "level": 3,
+        "climate": "archive",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-archive-turn",
+          "atlas-page-drift"
+        ]
+      },
+      {
+        "level": 4,
+        "climate": "depths",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-tide-flow",
+          "atlas-bubble-rise"
+        ]
+      },
+      {
+        "level": 5,
+        "climate": "beacon",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-beacon-watch",
+          "atlas-mote-drift"
+        ]
+      },
+      {
+        "level": 6,
+        "climate": "sky",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-wind-travel",
+          "atlas-cloud-sail",
+          "atlas-mote-drift"
+        ]
+      },
+      {
+        "level": 7,
+        "climate": "astral",
+        "names": [
+          "atlas-haze-breathe",
+          "atlas-archive-turn",
+          "atlas-star-wander"
+        ]
+      }
+    ],
+    "scope": [
+      "actual animated scene PNG changes with stable idle WebGL render count",
+      "keyboard pause/resume and preserved reward summary",
+      "live reduced-motion preference changes and manual camera controls",
+      "record-draft background pause and unchanged data",
+      "real offscreen suspension, synthetic hidden-document event and route cleanup",
+      "explicit missing-observer fallback",
+      "six live theme/viewport geometries plus existing reduced-motion layouts",
+      "all original Atlas/default/progress/tutorial/backup/journal boundaries"
+    ],
+    "renderingBounds": {
+      "trianglesExclusive": 1600,
+      "drawCalls": 8,
+      "pixelBuffer": 82944,
+      "internalWidth": 384
+    },
+    "physicalDevicesQualified": false,
+    "imagesInspected": false
+  },
+  "livePreview": {
+    "url": "http://127.0.0.1:4470/CareerOS/#/discoveries",
+    "httpStatus": 200,
+    "changedNativePixels": true,
+    "idleWebglFramesAdded": 0,
+    "runningSceneEffects": 12,
+    "pausePlayheadsFrozen": true,
+    "storageUnchanged": true,
+    "defaultDiscovered": true,
+    "errors": 0,
+    "externalRequests": 0,
+    "disposableProfile": true
+  },
+  "design": {
+    "decorativeOnly": true,
+    "perVisitPause": true,
+    "systemReducedMotionAuthoritative": true,
+    "noNewSavedPreference": true,
+    "noExtraRendererOrDependency": true,
+    "cssAndSvgHaveNonzeroPaintingCost": true
+  },
+  "earlierQualification": {
+    "initial39": "passed before observer fallback was added",
+    "intermediate40": "passed before the additional record-dialog pause regression; retained separately"
+  },
+  "authority": {
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "humanAestheticApprovalRecorded": false,
+    "motivationalBenefitVerified": false,
+    "ownerBrowserAccessed": false
+  }
+}

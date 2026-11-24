@@ -36,6 +36,9 @@ export function WayfinderViewer({ level, animate, fallback }: { level: number; a
     let context: WebGL2RenderingContext | null = null;
     let renderer: WebGLRenderer;
     try {
+      if (typeof IntersectionObserver === 'undefined' || typeof ResizeObserver === 'undefined') {
+        throw new Error('This browser cannot observe the viewer safely.');
+      }
       context = canvas.getContext('webgl2', { alpha: true, antialias: false, powerPreference: 'low-power', stencil: false });
       if (!context) throw new Error('This browser could not create a WebGL 2 context.');
       renderer = new WebGLRenderer({ canvas, context, alpha: true, antialias: false, stencil: false });

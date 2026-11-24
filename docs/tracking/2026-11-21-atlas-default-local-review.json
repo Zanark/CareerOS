@@ -1,0 +1,24 @@
+{
+  "status": "local-review-candidate",
+  "observedAt": "2026-11-21T22:45:40.516803+05:30",
+  "baseline": "e52a16f71c5231b8af1bdfeb83b1ba4544b10d60",
+  "scope": "Initial Atlas status filter only: Discovered, including zero discoveries.",
+  "nativeCasesPassed": 5,
+  "nativeAttempts": 5,
+  "workers": 1,
+  "retries": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "strictBuildPassedThroughNativeServer": true,
+  "scopeCovered": [
+    "empty and populated default",
+    "reload resets initial filter",
+    "manual filters/family resets",
+    "unchanged storage",
+    "1440px and320px tutorial chapters"
+  ],
+  "styleModelSchemaRewardsAndFamilyResetUnchanged": true,
+  "ownerProfileAccessed": false,
+  "imageViewToolCalls": 0,
+  "commitPushOrDeployment": false
+}

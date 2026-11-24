@@ -121,11 +121,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/9",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhHIza0",
       "baseline": {
-        "managed": "d87736f1b55507578a504da31415018e8f207c4ad331b5f76961739a4b100098",
+        "managed": "2f3df58d6f0ce9d45f4a4a2cffcd49bc78f7a5354134105ba1cee485de84e051",
         "title": "Evidence-based discovery collection and final tutorial chapter",
-        "state": "closed",
-        "reason": "completed",
-        "status": "98236657",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
         "archived": false
       }
     },
@@ -322,6 +322,34 @@
         "state": "closed",
         "reason": "completed",
         "status": "98236657",
+        "archived": false
+      }
+    },
+    "atlas-progression-redesign": {
+      "issueNumber": 24,
+      "issueId": "I_kwDOU6lJns8AAAABhVpIPw",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/24",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKwE8s",
+      "baseline": {
+        "managed": "5390f3d09c68093c0e5ca7d66bd5b3b096bdcf3aef1e5e174b01ba109fd04d01",
+        "title": "Research-led Atlas expeditions and meaningful work progression",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "atlas-living-motion": {
+      "issueNumber": 25,
+      "issueId": "I_kwDOU6lJns8AAAABhWixQA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/25",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKw6No",
+      "baseline": {
+        "managed": "efb03fe80993cfdabe58432a8a09d1816c5235d946a33a5119bc5f0276622da3",
+        "title": "Living atmosphere and expressive motion for Discovery Atlas",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
         "archived": false
       }
     }

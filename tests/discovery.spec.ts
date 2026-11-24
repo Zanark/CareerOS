@@ -1,5 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import { createInitialState, recordEvidence } from '../src/domain/engine';
+import { getMission } from '../src/domain/catalog';
 import { createDiscoveryPracticeState } from '../src/discovery/practice';
 import { getDiscoverySnapshot } from '../src/discovery/model';
 import { discoverySteps } from '../src/tutorial/discoverySteps';
@@ -22,6 +23,13 @@ async function noOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 
+async function readyViewer(page: Page) {
+  const viewer = page.locator('[data-tour="wayfinder-viewer"]');
+  await viewer.scrollIntoViewIfNeeded();
+  await expect(viewer).toHaveAttribute('data-viewer-state', 'ready');
+  return viewer;
+}
+
 test('an empty atlas is read-only, deep-linkable, keyboard accessible and does not create rewards from inspection', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -29,8 +37,12 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   await page.goto('./#/discoveries');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Discovery Atlas');
   await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');
+  await expect(page.getByRole('button', { name: 'Discovered', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.discovery-card')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'No discoveries in this view.' })).toBeVisible();
+  await page.getByRole('button', { name: 'All signals', exact: true }).click();
   await expect(page.locator('.discovery-card')).toHaveCount(24);
-  await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-viewer-state', 'ready');
+  await readyViewer(page);
   await expect(page.locator('canvas')).toHaveCount(1);
   await expect(page.locator('[data-tour="discovery-example"]')).toHaveCount(0);
   const before = await storage(page);
@@ -64,6 +76,8 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   expect(await storage(page)).toEqual(before);
   await page.reload();
   await expect(page.locator('.discovery-collection-count')).toHaveText('0 / 24 discovered');
+  await expect(page.getByRole('button', { name: 'Discovered', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.discovery-card')).toHaveCount(0);
   expect(await storage(page)).toEqual(before);
   expect(errors).toEqual([]);
 });
@@ -72,7 +86,7 @@ test('normal evidence unlocks discoveries without completing a checkpoint, and r
   await seed(page, createInitialState(false));
   await page.goto('./#/discoveries');
   const initial = JSON.parse((await storage(page))[key]!) as AppState;
-  await page.locator('[data-tour="discovery-next"]').getByRole('link', { name: 'Open current checkpoint' }).click();
+  await page.locator('[data-tour="discovery-next"]').getByRole('link', { name: 'Open checkpoint & criteria' }).click();
   await page.getByRole('button', { name: 'Record evidence', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: 'Record progress' });
   await dialog.getByLabel('What did you make?').selectOption('code');
@@ -82,6 +96,7 @@ test('normal evidence unlocks discoveries without completing a checkpoint, and r
   await dialog.getByRole('button', { name: 'Save evidence', exact: true }).click();
   await expect(page.locator('[data-tour="discovery-notice"]')).toContainText('DISCOVERIES UNLOCKED');
   await expect(page.locator('[data-tour="discovery-notice"]')).toHaveAttribute('data-level-up', 'true');
+  await expect(page.locator('[data-tour="discovery-notice"]')).toHaveAttribute('data-exp-gain', '260');
   await page.getByRole('button', { name: 'Record evidence', exact: true }).click({ timeout: 1500 });
   await page.getByRole('dialog', { name: 'Record progress' }).getByRole('button', { name: 'Cancel', exact: true }).click();
   const saved = JSON.parse((await storage(page))[key]!) as AppState;
@@ -90,7 +105,10 @@ test('normal evidence unlocks discoveries without completing a checkpoint, and r
   expect(Object.keys(saved)).toEqual(Object.keys(initial));
   await page.getByRole('link', { name: 'Visit your atlas' }).click();
   await expect(page.locator('.discovery-collection-count')).toHaveText('2 / 24 discovered');
+  await expect(page.getByRole('button', { name: 'Discovered', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.discovery-card')).toHaveCount(2);
   await expect(page.locator('[data-tour="wayfinder-panel"]')).toHaveAttribute('data-level', '2');
+  await expect(page.getByRole('progressbar', { name: 'Wayfinder journey EXP' })).toHaveAttribute('aria-valuenow', '260');
   await expect(page.locator('[data-tour="discovery-code-card"]')).toHaveAttribute('data-earned', 'true');
   await page.locator('[data-tour="discovery-code-card"]').click();
   await expect(page.locator('[data-tour="discovery-proof"]')).toContainText(saved.evidence[0].title);
@@ -114,7 +132,7 @@ for (const [width, theme] of [[1440, 'dark'], [1440, 'light'], [1024, 'dark'], [
     page.on('request', request => { if (/^https?:/.test(request.url())) requests.push(request.url()); });
     await page.goto('./#/discoveries');
     await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
-    await expect(page.locator('.discovery-hero h1')).toHaveCSS('color', 'rgb(238, 232, 213)');
+    await expect(page.locator('.discovery-hero h2')).toHaveCSS('color', 'rgb(238, 232, 213)');
     await expect(page.locator('.discovery-collection-count')).toHaveText(`${expected.earned} / 24 discovered`);
     await expect(page.locator('.map-star.earned')).toHaveCount(expected.earned);
     const centered = await page.locator('.discovery-map-plot').evaluate(node => {
@@ -126,10 +144,28 @@ for (const [width, theme] of [[1440, 'dark'], [1440, 'light'], [1024, 'dark'], [
     expect(centered.x).toBeLessThan(1);
     expect(centered.y).toBeLessThan(1);
     await expect(page.locator('.discovery-card[data-earned="true"]')).toHaveCount(expected.earned);
+    await expect(page.getByRole('button', { name: 'Discovered', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.discovery-card')).toHaveCount(expected.earned);
+    await page.getByRole('button', { name: 'Undiscovered', exact: true }).click();
+    await expect(page.locator('.discovery-card')).toHaveCount(expected.total - expected.earned);
+    await expect(page.locator('.discovery-card[data-earned="true"]')).toHaveCount(0);
+    await page.getByRole('button', { name: 'All signals', exact: true }).click();
+    await expect(page.locator('.discovery-card')).toHaveCount(expected.total);
     await expect(page.locator('.discovery-day')).toHaveCount(28);
-    await expect(page.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-viewer-state', 'ready');
+    await readyViewer(page);
     await expect(page.locator('canvas')).toHaveCount(1);
     await page.evaluate(() => document.fonts.ready);
+    await page.locator('[data-tour="discovery-next"]').scrollIntoViewIfNeeded();
+    const expeditionGeometry = await page.locator('[data-tour="discovery-next"]').evaluate(root => {
+      const bounds = root.getBoundingClientRect();
+      const content = [...root.querySelectorAll<HTMLElement>('h3, select, button, a, .atlas-expedition-awards > span')];
+      return content.filter(node => node.getClientRects().length).map(node => {
+        const rect = node.getBoundingClientRect();
+        return { label: node.textContent, left: rect.left - bounds.left, right: rect.right - bounds.right, font: parseFloat(getComputedStyle(node).fontSize) };
+      });
+    });
+    expect(expeditionGeometry.filter(item => item.left < -1 || item.right > 1)).toEqual([]);
+    expect(expeditionGeometry.find(item => item.label?.includes('Record real work'))!.font).toBeGreaterThanOrEqual(13);
     const before = await storage(page);
     const hero = testInfo.outputPath(`discovery-${width}-${theme}-hero.png`);
     await page.screenshot({ path: hero, animations: 'disabled' });
@@ -255,18 +291,136 @@ test('prologue and level-up replay cannot earn EXP, and reduced motion settles i
 
 test('the full collection has an earned final character form, not a career-readiness score', async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await seed(page, createCompleteDiscoveryFixture());
+  const complete = createCompleteDiscoveryFixture();
+  const xp = getDiscoverySnapshot(complete).journey.xp;
+  await seed(page, complete);
   await page.goto('./#/discoveries');
   await expect(page.locator('.discovery-collection-count')).toHaveText('24 / 24 discovered');
   const panel = page.locator('[data-tour="wayfinder-panel"]');
   await expect(panel).toHaveAttribute('data-level', '7');
-  await expect(panel).toContainText('Every form discovered');
+  await expect(panel).toContainText('Every form is yours');
   await expect(panel).toContainText('not your career');
   await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuemin', '0');
-  await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuemax', '2400');
+  await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuemax', String(xp));
+  await readyViewer(page);
   await expect(panel.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-model-level', '7');
   await expect(panel.locator('[data-tour="wayfinder-viewer"]')).toHaveAttribute('data-equipment', /astral-crown-and-star-manta/);
   const screenshot = testInfo.outputPath('wayfinder-complete-synthetic.png');
   await panel.screenshot({ path: screenshot, animations: 'disabled' });
   await testInfo.attach('Final form / fully synthetic qualifying records', { path: screenshot, contentType: 'image/png' });
+});
+
+test('a next-reward preview and expedition choice are explicitly unearned, keyboard-operable views', async ({ page }) => {
+  await seed(page, createInitialState(false));
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('./#/discoveries');
+  const viewer = await readyViewer(page);
+  const panel = page.locator('[data-tour="wayfinder-panel"]');
+  const before = await storage(page);
+  await page.locator('[data-tour="wayfinder-preview"]').focus();
+  await page.keyboard.press('Enter');
+  await viewer.scrollIntoViewIfNeeded();
+  await expect(panel).toHaveAttribute('data-preview', 'true');
+  await expect(panel).toHaveAttribute('data-level', '1');
+  await expect(viewer).toHaveAttribute('data-model-level', '2');
+  await expect(panel.locator('.wayfinder-preview-label')).toContainText('NOT EARNED');
+  await expect(panel.locator('[data-chapter-level="2"]')).toBeDisabled();
+  await expect(panel.locator('[data-chapter-level="2"]')).toHaveAttribute('aria-pressed', 'false');
+  await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '0');
+  await expect(panel.locator('[data-tour="wayfinder-replay"]')).toHaveCount(0);
+  await panel.locator('[data-tour="wayfinder-current"]').click();
+  await expect(viewer).toHaveAttribute('data-model-level', '1');
+  await page.getByLabel('Expedition route', { exact: true }).selectOption('system');
+  await expect(page.locator('[data-tour="discovery-next"]')).toHaveAttribute('data-expedition', 'system');
+  await page.locator('[data-tour="expedition-record"]').click();
+  const dialog = page.getByRole('dialog', { name: 'Record progress' });
+  await expect(dialog.getByRole('combobox', { name: 'Mission', exact: true })).toHaveValue('system');
+  await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
+  expect(await storage(page)).toEqual(before);
+  await expect(page.locator('[data-tour="discovery-notice"]')).toHaveCount(0);
+});
+
+test('finishing an already-practiced checkpoint advances EXP and gives feedback without another collectible', async ({ page }) => {
+  const complete = createCompleteDiscoveryFixture();
+  const beforeSnapshot = getDiscoverySnapshot(complete);
+  const beforeCompleted = complete.missions.pattern.completedCheckpointIds.length;
+  await seed(page, complete);
+  await page.goto('./#/discoveries');
+  await page.locator('[data-tour="expedition-record"]').click();
+  const dialog = page.getByRole('dialog', { name: 'Record progress' });
+  await dialog.getByLabel('What did you make?').selectOption('exercise');
+  await dialog.getByLabel('Artifact title').fill('Synthetic completed expedition checkpoint');
+  await dialog.getByLabel('What did you practice?').fill('Fictional browser qualification only: an explicit criteria-confirmed example.');
+  await dialog.locator('[data-tour="checkpoint-complete"]').check();
+  for (const criterion of await dialog.locator('[data-tour="evidence-criteria"] input').all()) await criterion.check();
+  await dialog.getByRole('button', { name: 'Complete & unlock next', exact: true }).click();
+  const notice = page.locator('[data-tour="discovery-notice"]');
+  await expect(notice).toContainText('JOURNEY ADVANCED');
+  await expect(notice).toHaveAttribute('data-exp-gain', '80');
+  await expect(notice).toHaveAttribute('data-level-up', 'false');
+  await expect(page.locator('.discovery-collection-count')).toHaveText('24 / 24 discovered');
+  await expect(page.getByRole('progressbar', { name: 'Wayfinder journey EXP' })).toHaveAttribute('aria-valuenow', String(beforeSnapshot.journey.xp + 80));
+  const saved = JSON.parse((await storage(page))[key]!) as AppState;
+  expect(saved.missions.pattern.completedCheckpointIds).toHaveLength(beforeCompleted + 1);
+  expect(saved.evidence).toHaveLength(complete.evidence.length + 1);
+  expect(Object.keys(saved)).toEqual(Object.keys(complete));
+  await page.reload();
+  await expect(page.locator('[data-tour="discovery-notice"]')).toHaveCount(0);
+  await expect(page.getByRole('progressbar', { name: 'Wayfinder journey EXP' })).toHaveAttribute('aria-valuenow', String(beforeSnapshot.journey.xp + 80));
+});
+
+test('expeditions respect blockers, completed routes and initially planned curricula without changing focus', async ({ page }) => {
+  let state = createInitialState(false);
+  for (const checkpoint of getMission('escape', state).checkpoints) {
+    state = recordEvidence(state, {
+      missionId: 'escape', checkpointId: checkpoint.id, kind: 'note', url: '',
+      title: 'Synthetic completed-route fixture', summary: 'Fictional criteria-confirmed route used only in an isolated browser context.',
+      advance: true, criteriaConfirmed: true,
+    });
+  }
+  state.missions.pattern.blocker = 'Synthetic route blocker; no real user progress.';
+  await seed(page, state);
+  await page.goto('./#/discoveries');
+  const before = await storage(page);
+  const expedition = page.locator('[data-tour="discovery-next"]');
+  await expect(expedition).toContainText(state.missions.pattern.blocker);
+  await expect(expedition.locator('[data-tour="expedition-record"]')).toHaveCount(0);
+  await expect(page.getByLabel('Expedition route', { exact: true }).locator('option[value="gamedev"]')).toHaveCount(0);
+  await page.getByLabel('Expedition route', { exact: true }).selectOption('escape');
+  await expect(expedition).toContainText('This route is in your wake.');
+  await expect(expedition.locator('[data-tour="expedition-record"]')).toHaveCount(0);
+  await expect(expedition.getByRole('link', { name: 'Revisit saved work' })).toHaveAttribute('href', '#/evidence');
+  await page.getByLabel('Expedition route', { exact: true }).selectOption('system');
+  await expect(expedition.locator('[data-tour="expedition-record"]')).toBeVisible();
+  expect(await storage(page)).toEqual(before);
+});
+
+test('confirmed source replacement still announces a new discovery when total EXP stays unchanged', async ({ page }) => {
+  const make = (kind: 'code' | 'exercise') => {
+    const state = createInitialState(false);
+    return recordEvidence(state, {
+      missionId: 'pattern', checkpointId: state.missions.pattern.checkpointId, kind, url: '',
+      title: 'Synthetic replacement-source fixture', summary: 'Fictional browser import only; not a user record or demonstrated skill.',
+      advance: false, criteriaConfirmed: false,
+    });
+  };
+  const first = make('code');
+  const replacement = make('exercise');
+  expect(getDiscoverySnapshot(replacement).journey.xp).toBe(getDiscoverySnapshot(first).journey.xp);
+  await seed(page, first);
+  await page.goto('./#/settings');
+  await expect(page.locator('[data-tour="discovery-notice"]')).toHaveCount(0);
+  page.once('dialog', dialog => dialog.accept());
+  await page.getByLabel('Choose backup file', { exact: true }).setInputFiles({
+    name: 'synthetic-equal-exp-replacement.json', mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(replacement)),
+  });
+  const notice = page.locator('[data-tour="discovery-notice"]');
+  await expect(notice).toContainText('Hands on');
+  await expect(notice).toContainText('SOURCES UPDATED');
+  await expect(notice).toHaveAttribute('data-exp-gain', '0');
+  await expect(notice).toHaveAttribute('data-level-up', 'false');
+  const saved = JSON.parse((await storage(page))[key]!) as AppState;
+  expect(saved.evidence).toEqual(replacement.evidence);
+  expect(saved.missions.pattern.completedCheckpointIds).toEqual([]);
 });

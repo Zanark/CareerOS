@@ -1,0 +1,121 @@
+.discovery-masthead { flex-wrap: wrap; }
+.discovery-masthead-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 13px 20px; }
+.discovery-masthead-tools > span { color: var(--dsf-muted); font: .48rem/1.8 Consolas, monospace; letter-spacing: .07em; }
+.atlas-motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--discovery-gold) 40%, var(--dsf-border)); border-radius: 8px; color: var(--dsf-heading); background: linear-gradient(130deg, color-mix(in srgb, var(--discovery-gold) 10%, var(--dsf-paper)), var(--dsf-paper)); font-size: .54rem; line-height: 1.7; white-space: nowrap; }
+.atlas-motion-toggle:enabled:hover { border-color: var(--discovery-gold); background: color-mix(in srgb, var(--discovery-gold) 12%, var(--dsf-paper)); }
+.atlas-motion-toggle:disabled { cursor: default; color: var(--dsf-muted); }
+.atlas-motion-lamp { width: 6px; height: 6px; border-radius: 50%; background: var(--discovery-gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--discovery-gold) 12%, transparent); }
+.discovery-page:not([data-atlas-motion="live"]) .atlas-motion-lamp { background: var(--dsf-muted); box-shadow: none; }
+
+.atlas-ambient { animation-play-state: paused; }
+.discovery-page[data-atlas-motion="live"] [data-atlas-visible="true"] .atlas-ambient { animation-play-state: running; }
+.discovery-page:not([data-atlas-motion="live"]) .atlas-ambient,
+.discovery-page [data-atlas-visible="false"] .atlas-ambient,
+.discovery-page [data-atlas-ceremony="true"] .atlas-ambient { animation-play-state: paused !important; }
+body:has(dialog[open]) .discovery-page .atlas-ambient,
+body:has(dialog[open]) .discovery-page .atlas-waypoint::after,
+body:has(dialog[open]) .discovery-page .atlas-expedition-record::after { animation-play-state: paused !important; }
+body:has(dialog[open]) .discovery-page .discovery-card { animation: none !important; }
+
+.wayfinder-panel { border-color: #7d9690; box-shadow: 0 4px 0 #000f13, inset 0 0 0 3px #000f13, 0 0 35px #69b5d10b; }
+.wayfinder-panel-head { position: relative; overflow: hidden; }
+.wayfinder-panel-head > span, .wayfinder-panel-head > strong { position: relative; z-index: 1; }
+.atlas-panel-gleam { position: absolute; z-index: 0; inset: 0 auto 0 -45%; width: 35%; background: linear-gradient(110deg, transparent, #dfc58c16, transparent); transform: skewX(-20deg); animation: atlas-console-sweep 12s ease-in-out infinite; }
+.wayfinder-scene-marker, .wayfinder-scene-corner { z-index: 2; }
+.atlas-atmosphere { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; color: #b6d6c6; }
+.atlas-world-haze { fill: currentColor; opacity: .045; transform-origin: center; transform-box: fill-box; animation: atlas-haze-breathe 13s ease-in-out infinite; }
+.atlas-world-mote { fill: currentColor; opacity: .5; transform-box: fill-box; transform-origin: center; animation: atlas-mote-drift 9s ease-in-out infinite; }
+.atlas-current { stroke: #8bc9c2; stroke-width: 1; opacity: .3; animation: atlas-tide-flow 9s ease-in-out infinite; }
+.atlas-weather-harbor { color: #d7ce9c; }
+.atlas-weather-breeze { color: #e4ce8d; }
+.atlas-wind-stroke { stroke: currentColor; stroke-width: 1; opacity: .3; animation: atlas-wind-travel 8s linear infinite; }
+.atlas-weather-archive { color: #e1cc99; }
+.atlas-archive-orbit { stroke: currentColor; stroke-width: .7; stroke-dasharray: 3 19; opacity: .2; transform-origin: center; transform-box: fill-box; animation: atlas-archive-turn 42s linear infinite; }
+.atlas-orbit-reverse { animation-direction: reverse; animation-duration: 57s; }
+.atlas-ink-page { fill: #e1d3ac; stroke: #527d82; stroke-width: .8; animation-name: atlas-page-drift; opacity: .48; }
+.atlas-weather-depths { color: #9cddd5; }
+.atlas-bubble { fill: #83bfc90c; stroke: currentColor; stroke-width: .9; animation-name: atlas-bubble-rise; opacity: .4; }
+.atlas-depth-caustics .atlas-current { stroke: #9edbd0; opacity: .2; animation-duration: 13s; }
+.atlas-weather-beacon { color: #f0cc86; }
+.atlas-beacon-sweep { transform-origin: 253px 49px; animation: atlas-beacon-watch 14s ease-in-out infinite; }
+.atlas-beacon-sweep > path:first-child { fill: #f0cd82; opacity: .09; }
+.atlas-beacon-sweep > path:last-child { fill: #f0d699; opacity: .15; }
+.atlas-weather-sky { color: #d4cbeb; }
+.atlas-cloud { fill: #c3bfde; opacity: .1; animation: atlas-cloud-sail 22s ease-in-out infinite; }
+.atlas-cloud-far { animation-duration: 29s; animation-delay: -12s; animation-direction: reverse; opacity: .07; }
+.atlas-weather-astral { color: #ddd2ed; }
+.atlas-astral-star { animation-name: atlas-star-wander; opacity: .65; }
+.atlas-celestial-orbit { stroke: #bdb1df; stroke-width: .65; stroke-dasharray: 2 15; opacity: .3; transform-origin: center; transform-box: fill-box; animation: atlas-archive-turn 52s linear infinite; }
+.atlas-reward-token { display: grid; place-items: center; color: #efd593; margin-top: 3px; animation: atlas-relic-float 5.5s ease-in-out infinite; }
+.atlas-reward-token > .wayfinder-relic { width: 29px; height: 29px; }
+.wayfinder-next-reward { position: relative; overflow: hidden; background: radial-gradient(ellipse at 5% 0, #dfc58c16, transparent 75%), #0b2a32; }
+.atlas-expedition .atlas-waypoint { position: relative; }
+.atlas-expedition[data-atlas-playable="true"] [data-checkpoint-state="current"] .atlas-waypoint::after { content: ""; position: absolute; inset: -2px; border: 1px solid #e8cf93; pointer-events: none; opacity: .35; animation: atlas-waypoint-ring 3.8s ease-out infinite paused; }
+.discovery-page[data-atlas-motion="live"] .atlas-expedition[data-atlas-visible="true"][data-atlas-playable="true"] [data-checkpoint-state="current"] .atlas-waypoint::after { animation-play-state: running; }
+.atlas-expedition-record { position: relative; overflow: hidden; }
+.atlas-expedition-record::after { content: ""; position: absolute; inset: 0 auto 0 -50%; width: 30%; pointer-events: none; background: linear-gradient(105deg, transparent, #fff5cf70, transparent); animation: atlas-button-glint 8s ease-in-out infinite paused; }
+.discovery-page[data-atlas-motion="live"] .atlas-expedition[data-atlas-visible="true"] .atlas-expedition-record::after { animation-play-state: running; }
+.discovery-page:not([data-atlas-motion="live"]) .atlas-expedition-record::after,
+.discovery-page:not([data-atlas-motion="live"]) .atlas-waypoint::after { animation-play-state: paused !important; }
+
+.atlas-map-orbit { stroke: #d6b66e; stroke-width: .8; stroke-dasharray: 17 61; fill: none; opacity: .35; transform-origin: center; transform-box: fill-box; animation: atlas-archive-turn 46s linear infinite; }
+.atlas-map-orbit.atlas-map-orbit-outer { stroke: #69b5d1; stroke-dasharray: 2 39; opacity: .27; animation-duration: 64s; animation-direction: reverse; }
+.map-tether.atlas-ambient { animation: atlas-route-flow 28s linear infinite paused; }
+.map-star.earned .map-star-aura { transform-origin: center; transform-box: fill-box; animation: atlas-signal-aura 7s ease-in-out infinite paused; }
+.map-star.earned .map-star-light { transform-origin: center; transform-box: fill-box; animation: atlas-starlight 6s ease-in-out infinite paused; }
+.discovery-page[data-atlas-motion="live"] .discovery-map[data-atlas-visible="true"] .map-star.earned .atlas-ambient,
+.discovery-page[data-atlas-motion="live"] .discovery-map[data-atlas-visible="true"] .map-tether { animation-play-state: running; }
+.discovery-collection[data-atlas-entered="true"] .discovery-card { animation: atlas-card-arrive .55s cubic-bezier(.16, 1, .3, 1) backwards; }
+.discovery-card::after { content: ""; position: absolute; inset: -20% auto -20% -65%; width: 42%; pointer-events: none; opacity: 0; background: linear-gradient(115deg, transparent, color-mix(in srgb, var(--discovery-color) 12%, transparent), transparent); }
+.discovery-page[data-atlas-motion="live"] .discovery-card:is(:hover, :focus-visible) { transform: perspective(800px) translateY(-5px) rotateX(2deg); box-shadow: 0 17px 33px var(--dsf-shadow), 0 0 0 1px color-mix(in srgb, var(--discovery-color) 15%, transparent); }
+.discovery-page[data-atlas-motion="live"] .discovery-card:is(:hover, :focus-visible)::after { animation: atlas-card-sheen .8s ease-out; }
+.discovery-card .discovery-seal { transition: transform .45s cubic-bezier(.2, .8, .2, 1); }
+.discovery-page[data-atlas-motion="live"] .discovery-card:is(:hover, :focus-visible) .discovery-seal { transform: translateY(-3px) rotate(-4deg) scale(1.04); }
+.discovery-family { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.discovery-page[data-atlas-motion="live"] .discovery-family:is(:hover, :focus-visible) { transform: translateY(-3px); box-shadow: 0 8px 22px var(--dsf-shadow); }
+.discovery-page[data-atlas-motion="live"] .discovery-hero-link > svg,
+.discovery-page[data-atlas-motion="live"] .atlas-expedition-link > svg { transition: transform .25s ease; }
+.discovery-page[data-atlas-motion="live"] .discovery-hero-link:is(:hover, :focus-visible) > svg,
+.discovery-page[data-atlas-motion="live"] .atlas-expedition-link:is(:hover, :focus-visible) > svg { transform: translateX(4px); }
+.discovery-page:not([data-atlas-motion="live"]) .discovery-card,
+.discovery-page:not([data-atlas-motion="live"]) .discovery-card::after { animation: none !important; }
+.discovery-page:not([data-atlas-motion="live"]) .discovery-card,
+.discovery-page:not([data-atlas-motion="live"]) .discovery-seal,
+.discovery-page:not([data-atlas-motion="live"]) .discovery-family { transition: none; }
+.discovery-page:not([data-atlas-motion="live"]) .discovery-card:is(:hover, :focus-visible),
+.discovery-page:not([data-atlas-motion="live"]) .discovery-card:is(:hover, :focus-visible) .discovery-seal { transform: none; }
+
+@keyframes atlas-console-sweep { 0%, 62% { transform: translateX(0) skewX(-20deg); opacity: 0; } 70% { opacity: 1; } 91%, 100% { transform: translateX(450%) skewX(-20deg); opacity: 0; } }
+@keyframes atlas-haze-breathe { 0%, 100% { opacity: .035; transform: scale(.9) translateY(3px); } 50% { opacity: .085; transform: scale(1.08) translateY(-4px); } }
+@keyframes atlas-mote-drift { 0%, 100% { transform: translate(0, 5px); opacity: .15; } 45% { opacity: .7; } 70% { transform: translate(8px, -15px); opacity: .45; } }
+@keyframes atlas-tide-flow { 0%, 100% { transform: translate(-10px, 3px); opacity: .15; } 50% { transform: translate(10px, -3px); opacity: .35; } }
+@keyframes atlas-wind-travel { 0% { transform: translate(-22px, 4px); opacity: 0; } 25%, 65% { opacity: .42; } 100% { transform: translate(26px, -8px); opacity: 0; } }
+@keyframes atlas-archive-turn { to { transform: rotate(360deg); } }
+@keyframes atlas-page-drift { 0%, 100% { transform: translate(-3px, 5px) rotate(-7deg); opacity: .25; } 50% { transform: translate(6px, -13px) rotate(9deg); opacity: .6; } }
+@keyframes atlas-bubble-rise { 0% { transform: translate(0, 28px) scale(.65); opacity: 0; } 30% { opacity: .6; } 85% { opacity: .3; } 100% { transform: translate(8px, -51px) scale(1.1); opacity: 0; } }
+@keyframes atlas-beacon-watch { 0%, 100% { transform: rotate(-8deg); opacity: .35; } 50% { transform: rotate(12deg); opacity: 1; } }
+@keyframes atlas-cloud-sail { 0%, 100% { transform: translateX(-11px); } 50% { transform: translateX(17px); } }
+@keyframes atlas-star-wander { 0%, 100% { transform: translate(-2px, 3px) scale(.7) rotate(0); opacity: .3; } 50% { transform: translate(4px, -6px) scale(1.1) rotate(45deg); opacity: .85; } }
+@keyframes atlas-relic-float { 0%, 100% { transform: translateY(1px) rotate(-4deg); } 50% { transform: translateY(-4px) rotate(4deg); } }
+@keyframes atlas-waypoint-ring { 0% { transform: scale(1); opacity: .5; } 75%, 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes atlas-button-glint { 0%, 68% { transform: translateX(0) skewX(-18deg); opacity: 0; } 77% { opacity: .8; } 93%, 100% { transform: translateX(600%) skewX(-18deg); opacity: 0; } }
+@keyframes atlas-route-flow { to { stroke-dashoffset: -120; } }
+@keyframes atlas-signal-aura { 0%, 100% { transform: scale(.8); opacity: .07; } 50% { transform: scale(1.3); opacity: .19; } }
+@keyframes atlas-starlight { 0%, 100% { opacity: .65; transform: scale(.87); } 50% { opacity: 1; transform: scale(1.16); } }
+@keyframes atlas-card-arrive { from { opacity: 0; transform: translateY(15px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes atlas-card-sheen { 0% { transform: translateX(0) skewX(-14deg); opacity: 0; } 25% { opacity: 1; } 100% { transform: translateX(460%) skewX(-14deg); opacity: 0; } }
+
+@media (max-width: 600px) {
+  .discovery-masthead-tools { width: 100%; justify-content: space-between; gap: 12px; }
+  .discovery-masthead-tools > span { font-size: .43rem; }
+  .atlas-motion-toggle { font-size: .5rem; padding: 8px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .discovery-page .atlas-ambient,
+  .discovery-page .atlas-expedition-record::after,
+  .discovery-page .atlas-waypoint::after,
+  .discovery-page .discovery-card::after { animation: none !important; }
+  .discovery-page .discovery-card:is(:hover, :focus-visible),
+  .discovery-page .discovery-card:is(:hover, :focus-visible) .discovery-seal,
+  .discovery-page .discovery-family:is(:hover, :focus-visible) { transform: none; }
+}

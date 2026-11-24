@@ -79,6 +79,30 @@ export interface DiscoveryDay {
   sources: DiscoverySource[];
 }
 
+export const wayfinderRewards = {
+  practice: { xp: 40, label: 'First checkpoint trace' },
+  completion: { xp: 80, label: 'Criteria-confirmed finish' },
+  recall: { xp: 40, label: 'First honest revisit' },
+  day: { xp: 20, label: 'A recorded learning day' },
+  discovery: { xp: 100, label: 'A discovery' },
+} as const;
+export type WayfinderRewardKind = keyof typeof wayfinderRewards;
+export interface WayfinderAward {
+  id: string;
+  kind: WayfinderRewardKind;
+  label: string;
+  xp: number;
+  source: DiscoverySource;
+}
+export interface WayfinderJourney {
+  xp: number;
+  counts: Record<WayfinderRewardKind, number>;
+  practiced: ReadonlySet<string>;
+  completed: ReadonlySet<string>;
+  reviewed: ReadonlySet<string>;
+  recent: WayfinderAward[];
+}
+
 export interface DiscoverySnapshot {
   discoveries: Discovery[];
   earned: number;
@@ -87,43 +111,43 @@ export interface DiscoverySnapshot {
   practicedCheckpoints: number;
   reviewedCheckpoints: number;
   recentDays: DiscoveryDay[];
+  journey: WayfinderJourney;
 }
 
 export const wayfinderStages = [
   { at: 0, title: 'First light', realm: 'Tidebound Harbor', effect: 'departure', form: 'Harbor cloak', relic: 'The blank chart', chapter: 'A chart with no borders',
     description: 'The harbor is quiet. A blank chart, an old cloak, and somewhere worth going.' },
-  { at: 1, title: 'Trail scout', realm: 'Windward Reach', effect: 'compass', form: 'Windrunner scarf', relic: 'Tide compass', chapter: 'A direction of your own',
+  { at: 100, title: 'Trail scout', realm: 'Windward Reach', effect: 'compass', form: 'Windrunner scarf', relic: 'Tide compass', chapter: 'A direction of your own',
     description: 'The compass wakes. Beyond the harbor, a trail of gold runs along the water.' },
-  { at: 3, title: 'Chart keeper', realm: 'The Chart Archive', effect: 'chart', form: 'Cartographer coat', relic: 'Living field map', chapter: 'The walls remember',
+  { at: 300, title: 'Chart keeper', realm: 'The Chart Archive', effect: 'chart', form: 'Cartographer coat', relic: 'Living field map', chapter: 'The walls remember',
     description: 'A folded map opens into a room of forgotten routes. Some of them are yours now.' },
-  { at: 6, title: 'Deep explorer', realm: 'The Drowned Gate', effect: 'dive', form: 'Abyss diving suit', relic: 'Pressure crystal', chapter: 'Below the familiar',
+  { at: 600, title: 'Deep explorer', realm: 'The Drowned Gate', effect: 'dive', form: 'Abyss diving suit', relic: 'Pressure crystal', chapter: 'Below the familiar',
     description: 'The diving seal closes. Far below the surface, something answers the crystal.' },
-  { at: 10, title: 'Signal bearer', realm: 'The Beacon Spire', effect: 'beacon', form: 'Beaconkeeper mantle', relic: 'Sunfire lantern', chapter: 'A light across the distance',
+  { at: 1000, title: 'Signal bearer', realm: 'The Beacon Spire', effect: 'beacon', form: 'Beaconkeeper mantle', relic: 'Sunfire lantern', chapter: 'A light across the distance',
     description: 'The lantern catches. One beam reaches from the spire to the edge of the sea.' },
-  { at: 16, title: 'Wayfinder', realm: 'The Skybridge', effect: 'glider', form: 'Stormsail glider', relic: 'Aether pennant', chapter: 'No road required',
+  { at: 1600, title: 'Wayfinder', realm: 'The Skybridge', effect: 'glider', form: 'Stormsail glider', relic: 'Aether pennant', chapter: 'No road required',
     description: 'The stormsilk unfolds. The bridge ends here; the journey does not.' },
-  { at: 24, title: 'Atlas keeper', realm: 'The Astral Observatory', effect: 'constellation', form: 'Astral regalia', relic: 'Constellation crown', chapter: 'The sky you brought with you',
-    description: 'Every signal has a place. A little star-manta arrives to keep the completed atlas company.' },
+  { at: 2400, title: 'Atlas keeper', realm: 'The Astral Observatory', effect: 'constellation', form: 'Astral regalia', relic: 'Constellation crown', chapter: 'The sky you brought with you',
+    description: 'A constellation is taking shape. A little star-manta arrives to keep the onward journey company.' },
 ] as const;
 
-export const wayfinderXpPerDiscovery = 100;
+export const wayfinderXpPerDiscovery = wayfinderRewards.discovery.xp;
 export type WayfinderStage = typeof wayfinderStages[number];
 export interface WayfinderRun { id: string; from: number; to: number; replay?: boolean }
 
-export function getWayfinderProgress(earned: number) {
-  if (!Number.isInteger(earned) || earned < 0 || earned > discoveryCatalogue.length) {
-    throw new Error('Wayfinder progression requires a valid discovered-collection count.');
+export function getWayfinderProgress(xp: number) {
+  if (!Number.isSafeInteger(xp) || xp < 0) {
+    throw new Error('Wayfinder progression requires a valid nonnegative EXP total.');
   }
   let index = 0;
-  while (index + 1 < wayfinderStages.length && earned >= wayfinderStages[index + 1].at) index++;
+  while (index + 1 < wayfinderStages.length && xp >= wayfinderStages[index + 1].at) index++;
   const stage = wayfinderStages[index];
   const nextAt = wayfinderStages[index + 1]?.at ?? null;
   return {
     level: index + 1, title: stage.title, description: stage.description, stage, startsAt: stage.at, nextAt,
-    xp: earned * wayfinderXpPerDiscovery, startsAtXp: stage.at * wayfinderXpPerDiscovery,
-    nextAtXp: nextAt === null ? null : nextAt * wayfinderXpPerDiscovery,
-    remaining: nextAt === null ? 0 : nextAt - earned,
-    percent: nextAt === null ? 100 : (earned - stage.at) / (nextAt - stage.at) * 100,
+    xp, startsAtXp: stage.at, nextAtXp: nextAt,
+    remaining: nextAt === null ? 0 : nextAt - xp,
+    percent: nextAt === null ? 100 : (xp - stage.at) / (nextAt - stage.at) * 100,
   };
 }
 
@@ -158,6 +182,12 @@ export function getDiscoverySnapshot(state: AppState, now = new Date()): Discove
   const contexts = new Map<string, { identity: string; title: string; detail: string }>();
   const days = new Map<string, DiscoveryDay & { identities: Set<string> }>();
   const earned = new Map<string, { at: string; sources: DiscoverySource[] }>();
+  const recentAwards: WayfinderAward[] = [];
+
+  function award(kind: WayfinderRewardKind, key: string, source: DiscoverySource, label: string = wayfinderRewards[kind].label) {
+    recentAwards.push({ id: `${kind}:${key}`, kind, label, xp: wayfinderRewards[kind].xp, source });
+    if (recentAwards.length > 5) recentAwards.shift();
+  }
 
   function credit(metric: Metric, key: string, sources: DiscoverySource[]) {
     const keys = seen.get(metric) ?? new Set<string>();
@@ -166,6 +196,10 @@ export function getDiscoverySnapshot(state: AppState, now = new Date()): Discove
     seen.set(metric, keys);
     metrics[metric].value++;
     if (metrics[metric].proofs.length < 21) metrics[metric].proofs.push(sources);
+    if (metric === 'recorded') award('practice', key, sources[0]);
+    else if (metric === 'completed') award('completion', key, sources[0]);
+    else if (metric === 'reviewed') award('recall', key, sources[0]);
+    else if (metric === 'days') award('day', key, sources[0]);
   }
 
   const records: LearningRecord[] = [
@@ -246,6 +280,7 @@ export function getDiscoverySnapshot(state: AppState, now = new Date()): Discove
       const metric = metrics[definition.metric];
       if (!earned.has(definition.id) && metric.value >= definition.target) {
         earned.set(definition.id, { at: record.createdAt, sources: proofFor(metric, definition.target) });
+        award('discovery', definition.id, source, definition.title);
       }
     }
   }
@@ -266,9 +301,21 @@ export function getDiscoverySnapshot(state: AppState, now = new Date()): Discove
     const day = days.get(date);
     return { date, evidence: day?.evidence ?? 0, recalls: day?.recalls ?? 0, checkpoints: day?.checkpoints ?? 0, sources: day?.sources ?? [] };
   });
+  const counts: WayfinderJourney['counts'] = {
+    practice: metrics.recorded.value, completion: metrics.completed.value,
+    recall: metrics.reviewed.value, day: metrics.days.value, discovery: earned.size,
+  };
+  const xp = (Object.keys(wayfinderRewards) as WayfinderRewardKind[])
+    .reduce((total, kind) => total + counts[kind] * wayfinderRewards[kind].xp, 0);
   return {
     discoveries, earned: earned.size, total: discoveries.length,
     recordedDays: metrics.days.value, practicedCheckpoints: metrics.recorded.value,
     reviewedCheckpoints: metrics.reviewed.value, recentDays,
+    journey: {
+      xp, counts, recent: recentAwards,
+      practiced: seen.get('recorded') ?? new Set<string>(),
+      completed: seen.get('completed') ?? new Set<string>(),
+      reviewed: seen.get('reviewed') ?? new Set<string>(),
+    },
   };
 }

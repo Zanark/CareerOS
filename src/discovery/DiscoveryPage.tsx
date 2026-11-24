@@ -1,17 +1,19 @@
 import { useId, useRef, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, BookOpen, Check, ChevronRight, Compass, Eye, Fingerprint,
-  Gem, Info, LockKeyhole, Sparkles,
+  Gem, Info, LockKeyhole, Pause, Play, Sparkles,
 } from 'lucide-react';
 import { getMission } from '../domain/catalog';
-import { getSaveState } from '../domain/engine';
-import type { AppState } from '../domain/types';
+import type { AppState, MissionId } from '../domain/types';
 import { ContextHelp, Modal } from '../components';
 import type { Discovery, DiscoveryDay, DiscoverySnapshot, DiscoverySource, DiscoveryTrack, WayfinderRun } from './model';
 import { discoveryTracks } from './model';
 import { DiscoverySeal } from './DiscoverySeal';
 import { Wayfinder } from './Wayfinder';
+import { Expedition } from './Expedition';
+import { useAtlasMotion, useAtlasVisibility } from './motion';
 import './discovery.css';
+import './motion.css';
 
 const starPositions = [
   [[101, 125], [146, 70], [207, 106], [190, 167], [125, 190], [72, 170]],
@@ -27,27 +29,30 @@ function dateLabel(value: string) {
 
 function CollectionMap({ snapshot }: { snapshot: DiscoverySnapshot }) {
   const id = useId();
-  return <figure className="discovery-map" data-tour="discovery-map">
+  const ref = useRef<HTMLElement>(null);
+  const visibility = useAtlasVisibility(ref);
+  return <figure ref={ref} className="discovery-map" data-tour="discovery-map" data-atlas-visible={visibility.visible}>
     <div className="discovery-map-plot"><svg viewBox="0 0 620 460" role="img" aria-label={`Discovery map: ${snapshot.earned} of ${snapshot.total} discoveries recorded across four families. Each bright star is an earned discovery; lines group a family, not prerequisites.`}>
       <defs>
         <radialGradient id={`${id}-ocean`}><stop stopColor="var(--dsf-hero-accent)" stopOpacity=".13" /><stop offset="1" stopColor="var(--dsf-hero-bg)" stopOpacity="0" /></radialGradient>
         <radialGradient id={`${id}-core`}><stop stopColor="#0b3940" /><stop offset="1" stopColor="var(--dsf-hero-bg)" /></radialGradient>
       </defs>
       <circle cx="310" cy="229" r="210" fill={`url(#${id}-ocean)`} />
+      <g aria-hidden="true"><circle className="atlas-ambient atlas-map-orbit" cx="310" cy="229" r="109" /><circle className="atlas-ambient atlas-map-orbit atlas-map-orbit-outer" cx="310" cy="229" r="127" /></g>
       <g className="discovery-map-grid"><path d="M22 229h576M310 16v426" /><path d="m33 52 554 354M33 406 587 52" strokeDasharray="2 9" /><circle cx="310" cy="229" r="193" strokeDasharray="1 9" /></g>
       {discoveryTracks.map((track, group) => {
         const discoveries = snapshot.discoveries.filter(item => item.track === track.id);
         const points = starPositions[group];
         return <g key={track.id} className={`map-family ${track.id}`}>
-          <path className="map-tether" d={`M310 229 ${points.map(([x, y]) => `L${x} ${y}`).join(' ')}`} />
+          <path className="map-tether atlas-ambient" d={`M310 229 ${points.map(([x, y]) => `L${x} ${y}`).join(' ')}`} />
           {discoveries.map((discovery, index) => {
             const [x, y] = points[index];
             const earned = !!discovery.earnedAt;
             return <g key={discovery.id} className={`map-star${earned ? ' earned' : ''}`} transform={`translate(${x} ${y})`}>
               <title>{earned ? discovery.title : `${track.title}: undiscovered signal ${index + 1}`}</title>
-              <circle className="map-star-aura" r={earned ? 17 : 10} />
+              <circle className="map-star-aura atlas-ambient" r={earned ? 17 : 10} style={{ animationDelay: `${(group * 6 + index) * -.43}s` }} />
               <path className="map-star-frame" d="m0-10 8.7 5v10L0 10l-8.7-5V-5Z" />
-              <path className="map-star-light" d="m0-5 1.5 3.5L5 0 1.5 1.5 0 5l-1.5-3.5L-5 0l3.5-1.5Z" />
+              <path className="map-star-light atlas-ambient" style={{ animationDelay: `${(group * 6 + index) * -.37}s` }} d="m0-5 1.5 3.5L5 0 1.5 1.5 0 5l-1.5-3.5L-5 0l3.5-1.5Z" />
             </g>;
           })}
         </g>;
@@ -128,34 +133,43 @@ function ActivityRibbon({ snapshot }: { snapshot: DiscoverySnapshot }) {
   </section>;
 }
 
-export default function DiscoveryPage({ state, snapshot, practice, onLoadExample, selectedId, onSelect, levelUp, onLevelUpViewed }: {
+export default function DiscoveryPage({ state, snapshot, practice, onLoadExample, selectedId, onSelect, levelUp, onLevelUpViewed, onRecord }: {
   state: AppState; snapshot: DiscoverySnapshot; practice: boolean; onLoadExample: () => void;
   selectedId: string | null; onSelect: (id: string | null) => void;
   levelUp: WayfinderRun | null; onLevelUpViewed: () => void;
+  onRecord: (missionId: MissionId) => void;
 }) {
   const [track, setTrack] = useState<DiscoveryTrack | 'all'>('all');
-  const [filter, setFilter] = useState<'all' | 'earned' | 'hidden'>('all');
+  const [filter, setFilter] = useState<'all' | 'earned' | 'hidden'>('earned');
   const collection = useRef<HTMLElement>(null);
+  const collectionVisibility = useAtlasVisibility(collection);
+  const motion = useAtlasMotion();
   const selected = snapshot.discoveries.find(item => item.id === selectedId);
   const mission = getMission(state.focusMissionId, state);
-  const progress = state.missions[mission.id];
-  const save = getSaveState(mission, state);
   const missionHref = `#/mission/${mission.id}`;
   const filtered = snapshot.discoveries.filter(item => (track === 'all' || item.track === track) &&
     (filter === 'all' || (filter === 'earned' ? !!item.earnedAt : !item.earnedAt)));
+  const motionMode = selected ? 'detail' : motion.mode;
+  const motionLabel = motion.reduced ? 'Reduced motion' : !motion.available ? 'Motion unavailable' : motion.paused ? 'Play motion' : 'Pause motion';
 
   function chooseTrack(next: DiscoveryTrack | 'all') {
     setTrack(next);
     setFilter('all');
   }
 
-  return <div className="discovery-page">
-    <div className="discovery-masthead"><span><Compass size={17} />DISCOVERY ATLAS</span><span>COLLECTION 01 <i /> {snapshot.total} FINITE DISCOVERIES</span></div>
-    <Wayfinder snapshot={snapshot} request={levelUp} onRequestViewed={onLevelUpViewed} />
-    <section className="discovery-hero" data-tour="discovery-intro">
-      <div className="discovery-hero-copy"><div className="context-heading"><h1>Discovery Atlas</h1>
-        <ContextHelp title="Discovery Atlas">A finite collection revealed by saved evidence and recall, not screen time or browsing. Names can be revealed without earning anything. Discoveries and fictional Wayfinder levels are not measures of career ability; gaps never remove them.</ContextHelp></div>
-        <div className="discovery-hero-progress"><span>{Math.round(snapshot.earned / snapshot.total * 100)}<small>%</small></span><div><strong>of this collection discovered</strong></div></div>
+  return <div className="discovery-page" data-atlas-motion={motionMode}>
+    <div className="discovery-masthead" data-tour="discovery-intro"><div><span className="discovery-overline"><Compass size={15} />YOUR FIELD JOURNEY</span><div className="context-heading"><h1>Discovery Atlas</h1>
+      <ContextHelp title="Discovery Atlas">Real saved work advances an optional fictional journey and a finite collection. First checkpoint practice, confirmed finishes, honest recalls, recorded days and discoveries contribute EXP. Browsing, reward previews, animation and timers do not. Pause motion quiets this visit; system reduced motion stays authoritative. None of this measures career ability.</ContextHelp></div></div>
+      <div className="discovery-masthead-tools"><span>{snapshot.earned} / {snapshot.total} SIGNALS DISCOVERED</span>
+        <button className="atlas-motion-toggle" data-tour="atlas-motion" disabled={motion.reduced || !motion.available}
+          title={motion.reduced ? 'Your system requests reduced motion. All rewards and manual camera controls remain available.' : !motion.available ? 'This browser cannot observe visible animation regions; decorative motion stays still.' : 'Pause or resume decorative Atlas animation for this visit. Your records stay unchanged.'}
+          onClick={motion.toggle}><span className="atlas-motion-lamp" aria-hidden="true" />{motion.paused && !motion.reduced ? <Play size={14} /> : <Pause size={14} />}<span>{motionLabel}</span></button>
+      </div>
+    </div>
+    <Wayfinder snapshot={snapshot} request={levelUp} onRequestViewed={onLevelUpViewed} motionAllowed={motionMode === 'live'}><Expedition state={state} snapshot={snapshot} onRecord={onRecord} /></Wayfinder>
+    <section className="discovery-hero">
+      <div className="discovery-hero-copy"><span className="discovery-overline">THE THINGS YOU BROUGHT BACK</span><h2>A constellation of real work.</h2>
+        <p>{snapshot.earned ? `${snapshot.earned} discoveries, each with a record behind it.` : 'Your first saved checkpoint record can light the first signal.'} A collection to explore, not a checklist to race.</p>
         <button className="discovery-hero-link" onClick={() => collection.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })}>Explore your collection<ArrowRight size={17} /></button>
       </div>
       <CollectionMap snapshot={snapshot} />
@@ -169,7 +183,7 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
           onClick={() => chooseTrack(track === family.id ? 'all' : family.id)}><span className="discovery-family-number">0{index + 1}</span><div><strong>{family.title}</strong><small>{family.subtitle}</small></div><span className="discovery-family-count">{count}<small>/{items.length}</small></span><span className="discovery-family-line"><i style={{ width: `${count / items.length * 100}%` }} /></span></button>;
       })}
     </div>
-    <section className="discovery-collection" ref={collection} data-tour="discovery-collection">
+    <section className="discovery-collection" ref={collection} data-tour="discovery-collection" data-atlas-visible={collectionVisibility.visible} data-atlas-entered={collectionVisibility.entered}>
       <div className="discovery-section-heading"><div><h2>{track === 'all' ? 'Collection' : discoveryTracks.find(item => item.id === track)!.title}</h2></div><span className="discovery-collection-count">{snapshot.earned} / {snapshot.total} discovered</span></div>
       <div className="discovery-filters" data-tour="discovery-filters"><div role="group" aria-label="Discovery status">{([['all', 'All signals'], ['earned', 'Discovered'], ['hidden', 'Undiscovered']] as const).map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div>
         {track !== 'all' && <button className="discovery-reset-filter" data-tour="discovery-all-families" onClick={() => chooseTrack('all')}>All families<ArrowRight size={14} /></button>}<span role="status">{filtered.length} {filtered.length === 1 ? 'signal' : 'signals'}</span>
@@ -178,7 +192,7 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
         const index = snapshot.discoveries.findIndex(item => item.id === discovery.id);
         const earned = !!discovery.earnedAt;
         return <button key={discovery.id} className={`discovery-card ${discovery.track}${earned ? ' earned' : ''}`}
-          data-discovery-id={discovery.id} data-earned={earned}
+          data-discovery-id={discovery.id} data-earned={earned} style={{ animationDelay: `${Math.min(index, 11) * 40}ms` }}
           data-tour={discovery.id === 'working-thought' ? 'discovery-code-card' : discovery.id === 'first-footprint' ? 'discovery-first-card' : undefined}
           aria-label={earned ? `Inspect ${discovery.title}` : `Inspect hidden discovery ${index + 1}: ${discovery.clue}`} onClick={() => onSelect(discovery.id)}>
           <span className="discovery-card-top"><span>{discoveryTracks.find(item => item.id === discovery.track)!.title}</span><span>{String(index + 1).padStart(2, '0')}</span></span>
@@ -191,17 +205,11 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
         </button>;
       })}</div> : <div className="discovery-empty"><Sparkles size={26} /><h3>{filter === 'earned' ? 'No discoveries in this view.' : 'This part of the collection is discovered.'}</h3><button className="button secondary" onClick={() => { setTrack('all'); setFilter('all'); }}>Show all signals</button></div>}
     </section>
-    <div className="discovery-bottom-grid"><ActivityRibbon snapshot={snapshot} />
-      <aside className="discovery-next" data-tour="discovery-next"><span className="eyebrow"><Compass size={14} />YOUR REAL NEXT STEP</span><span className="discovery-next-operation">{mission.operation}</span><h2>{progress.blocker ? 'Work with the blocker.' : save.checkpoint && progress.status !== 'completed' ? save.checkpoint.title : 'Revisit what you have made.'}</h2>
-        <p>{progress.blocker || (save.checkpoint && progress.status !== 'completed' ? save.checkpoint.action : 'Open your saved work and choose something worth revisiting. Discoveries never replace your completion criteria.')}</p>
-        <a className="button primary" href={progress.status === 'completed' ? '#/evidence' : missionHref}>{progress.status === 'completed' ? 'Open saved work' : 'Open current checkpoint'}<ArrowUpRight size={15} /></a>
-        <a className="discovery-recall-link" href="#/recall">Revisit learning in Recall practice<ArrowRight size={14} /></a>
-      </aside>
-    </div>
+    <div className="discovery-bottom-grid"><ActivityRibbon snapshot={snapshot} /></div>
     <details className="discovery-rules" data-tour="discovery-rules"><summary><Info size={16} />Discovery rules</summary><div>
-      <p>Discoveries are recalculated from saved evidence and recall. Existing records can reveal them immediately. Viewing, filters, timers, tutorial progress, readiness ratings and application stages do not earn them.</p>
-      <p>Distinct checkpoints are counted by exact roadmap identity; only the verified unchanged DSA append shares an identity. Multiple same-day records count as one recorded day, using this browser&apos;s local calendar. Later calendar days are excluded.</p>
-      <p>A discovery remembers a qualifying event in the records you currently hold. It is not a claim of current retention: a later Needs review still matters in Recall practice. There are no penalties for gaps, no currency, deadlines or leaderboard.</p>
+      <p>Discoveries and journey EXP are recalculated from saved evidence and recall. Existing records count immediately. Viewing, filters, reward previews, timers, tutorial progress, readiness ratings and application stages do not earn them.</p>
+      <p>First checkpoint evidence adds 40 EXP; its first criteria-confirmed finish adds 80; its first honest recall adds 40; each recorded local day adds 20; each discovery adds 100. Checkpoints use exact roadmap identity, sharing only verified unchanged DSA and Neural append lineage. Repeated same-day notes cannot farm these awards. Later calendar days are excluded.</p>
+      <p>A discovery remembers a qualifying event in the records you currently hold. It is not a claim of current retention: a later Needs review still matters in Recall practice. There are no penalties for gaps, spendable currency, deadlines or leaderboard.</p>
       <p>Normal backups and the optional encrypted journal carry the existing source records; there is no separate collection file to lose. Confirmed import/reset replaces those records and therefore recalculates the collection. Linked artifact files themselves are not included in backups.</p>
     </div></details>
     {selected && <DiscoveryDetail key={selected.id} discovery={selected} index={snapshot.discoveries.findIndex(item => item.id === selected.id)} missionHref={missionHref} onClose={() => onSelect(null)} />}

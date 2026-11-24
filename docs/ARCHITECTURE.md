@@ -14,9 +14,11 @@ plan as proof of capability.
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
 | `src/domain/engine.ts` — `previewRoadmapUpgrades`, `upgradeAllRoadmaps` | Exact-workspace confirmation preview and all-or-none adoption through the existing single-mission rules. |
 | `src/domain/missionActivity.ts` — `getMissionActivity`; `src/MissionWorkStreak.tsx` | Read-only local-calendar work days from evidence/recalls across editions, shown separately from mastery. |
-| `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discovery projection over validated evidence/recall: canonical identities, chronological first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
-| `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed SVG/CSS collection, inspectable source receipts, keyboard activity ribbon and non-focus-stealing notices for newly visible discoveries. No WebGL or render loop. |
-| `src/discovery/Wayfinder.tsx`, `WayfinderViewer.tsx`, `wayfinderGeometry.ts` | Source-derived collection EXP, bounded reward timeline and an event-driven low-resolution PS1-style 3D avatar with cumulative equipment; transient camera/chapter choices only. |
+| `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discoveries plus deterministic saved-work journey EXP: canonical identities, first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
+| `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed collection, inspectable receipts, keyboard activity ribbon and non-focus-stealing positive-EXP notices. The 3D view is delegated below. |
+| `src/discovery/Expedition.tsx` | Transient available-route selection, real current checkpoint/blocker and source-derived trace/finish awards. Opens existing mission/evidence tools; never writes focus or awards. |
+| `src/discovery/motion.ts`, `AtlasAtmosphere.tsx`, `motion.css` | Per-visit motion control, system/document/region visibility, seven original CSS/SVG chapter climates and scoped decorative interactions. No workspace writes or idle WebGL. |
+| `src/discovery/Wayfinder.tsx`, `WayfinderViewer.tsx`, `wayfinderGeometry.ts` | Source-derived journey EXP, explicit unearned next-reward preview, bounded timeline and event-driven low-resolution PS1-style 3D avatar with cumulative equipment. |
 | `src/missionVisuals.ts` | Shared twelve-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
@@ -639,12 +641,36 @@ and 28 activity tiles regardless of record count. Provenance is bounded, with ex
 continuation for larger first-qualified receipts. No new persistence is required:
 the existing backup and encrypted journal already carry its source records.
 
-`getWayfinderProgress` derives seven fictional character levels and cosmetic
-collection EXP (100 per discovery) without a new ledger or workspace field.
+The local 2026-11-21 progression revision extends this same chronological pass,
+not the workspace schema. `journey` contains counts, read-only canonical identity
+sets, one EXP total and at most five recent award/source receipts. First evidence
+adds 40 EXP per checkpoint, first completion evidence 80, first recall of any
+honest outcome 40, each eligible local day 20 and each discovery its existing 100.
+`credit`'s existing metric identity sets deduplicate the new contributions too.
+Unrelated editions remain distinct; verified append lineage shares identity.
+
+`getWayfinderProgress` now consumes an EXP total, not a discovery count; the seven
+thresholds retain their original 0/100/300/600/1,000/1,600/2,400 EXP values.
+`WayfinderRun.from/to` are transient EXP endpoints too. They are never saved
+backup fields. The final progressbar accommodates continued source-derived EXP
+without claiming further forms or a completed 24-discovery collection.
 `getWayfinderCrossings` retains every crossed chapter for catch-up presentations.
 `Wayfinder.tsx` owns a bounded, skippable threshold/reward timeline and transient
-unlocked-chapter inspection. The canvas remains mounted across phases and chapter
-changes, preserving the user's camera and avoiding repeated context creation.
+earned-chapter inspection. A next-reward preview is valid only for the current
+EXP snapshot and immediately next level; it is labelled unearned and cannot enable
+replay or unlock a chapter. The same canvas remains mounted across previews,
+phases and chapter changes, preserving the camera and avoiding context creation.
+`DiscoveryNotice` remembers the prior in-memory EXP/earned-ID snapshot. Positive
+differences can announce work between catalogue unlocks; hydration stays silent.
+Replacing/resetting sources recalculates both layers rather than reconciling a
+second reward history.
+
+`Expedition` starts from the focus mission, selecting only existing non-planned
+routes. Its choice is local component state. Its checkpoint, blocker, completion
+state and criteria still come from `getMission`/`getSaveState` and the existing
+domain. `App.openEvidence` and `recordEvidence` retain their availability,
+current-checkpoint and explicit-criteria guards. Nearby positions are not newly
+invented prerequisite links. See the [research and design decisions](ATLAS-PROGRESSION-RESEARCH.md).
 
 `wayfinderGeometry.ts` authors the original low-poly traveler, six cumulative
 equipment bundles and seven real chapter dioramas. Each equipment bundle is one
@@ -670,6 +696,27 @@ the scenery itself is real depth-bearing geometry in the same context.
 The discovery chapter observes its view-state attributes explicitly, so a
 post-frame camera reset can satisfy its action gate independently of click
 timing or unrelated DOM changes.
+
+The local motion revision adds `useAtlasMotion` to `DiscoveryPage`, replacing the
+Wayfinder's separate reduced-motion subscription. It combines the per-visit pause,
+system preference and document visibility; an unavailable visibility API is
+explicitly labelled rather than advertised as live animation. Opening a discovery
+detail temporarily suspends the background. A scoped `body:has(dialog[open])`
+CSS rule also freezes decoration behind other native dialogs without a global
+DOM-mutation observer or a persisted modal preference. `motionAllowed` settles the
+existing finite reward sequence; resuming cannot restart an already settled run.
+
+`useAtlasVisibility` observes stable page regions and disconnects on cleanup,
+ignoring callbacks after disposal. The scene, console, constellation, expedition
+and collection expose transient visibility/entry attributes. CSS pauses ongoing
+ambience outside visible regions and disables it for reduced motion. Short
+entrances settle instead of leaving content invisible when motion is stopped.
+`AtlasAtmosphere` draws original decorative SVG primitives over the existing
+canvas; it never replaces terrain geometry, owns a renderer or reads records.
+Constellation animations preserve the actual source-derived status/positions.
+CSS transform/opacity and SVG dash effects can incur browser painting/compositing
+cost, even though no idle JavaScript/WebGL frames are requested. Existing shader
+buffer, draw-call, disposal and manual camera boundaries stay in force.
 
 Tutorial cues share that portal: an animated opacity halo traces the current target,
 and a transform-animated pointing hand indicates buttons. They track scroll/resize

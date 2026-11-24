@@ -5,19 +5,26 @@ import { getWayfinderProgress } from './model';
 import { WayfinderArt } from './WayfinderArt';
 
 export function DiscoveryNotice({ snapshot, onViewLevelUp }: { snapshot: DiscoverySnapshot; onViewLevelUp: (from: number, to: number) => void }) {
-  const previous = useRef(new Set(snapshot.discoveries.filter(item => item.earnedAt).map(item => item.id)));
+  const previous = useRef({
+    ids: new Set(snapshot.discoveries.filter(item => item.earnedAt).map(item => item.id)),
+    xp: snapshot.journey.xp,
+  });
   const [notice, setNotice] = useState<{ ids: string[]; title: string; level: number; levelUp: boolean; from: number; to: number } | null>(null);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   useEffect(() => {
     const earned = snapshot.discoveries.filter(item => item.earnedAt);
-    const fresh = earned.filter(item => !previous.current.has(item.id));
-    const from = previous.current.size;
+    const fresh = earned.filter(item => !previous.current.ids.has(item.id));
+    const from = previous.current.xp;
     const oldLevel = getWayfinderProgress(from).level;
-    const progress = getWayfinderProgress(earned.length);
-    previous.current = new Set(earned.map(item => item.id));
-    if (fresh.length) setNotice({ ids: fresh.map(item => item.id), title: fresh[0].title, level: progress.level, levelUp: progress.level > oldLevel, from, to: earned.length });
-    else setNotice(current => current && current.to <= earned.length && current.ids.every(id => previous.current.has(id)) ? current : null);
+    const progress = getWayfinderProgress(snapshot.journey.xp);
+    previous.current = { ids: new Set(earned.map(item => item.id)), xp: progress.xp };
+    if (fresh.length || progress.xp > from) setNotice({
+      ids: fresh.map(item => item.id), title: fresh.length ? fresh[0].title : 'Another real step on the map.',
+      level: progress.level, levelUp: progress.level > oldLevel, from, to: progress.xp,
+    });
+    else setNotice(current => current && current.to <= progress.xp &&
+      current.ids.every(id => previous.current.ids.has(id)) ? current : null);
   }, [snapshot]);
   useEffect(() => {
     if (!notice || hovered || focused) return;
@@ -28,10 +35,11 @@ export function DiscoveryNotice({ snapshot, onViewLevelUp }: { snapshot: Discove
     if (!notice) { setHovered(false); setFocused(false); }
   }, [notice]);
   if (!notice) return null;
-  return <aside className="discovery-notice" aria-label="Discovery notification" data-tour="discovery-notice" data-level-up={notice.levelUp}
+  const gained = notice.to - notice.from;
+  return <aside className="discovery-notice" aria-label="Discovery notification" data-tour="discovery-notice" data-level-up={notice.levelUp} data-exp-gain={Math.max(0, gained)}
     onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
     onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
-    {notice.levelUp ? <WayfinderArt level={notice.level} decorative /> : <span className="discovery-notice-icon"><Gem size={24} /></span>}<div><div role="status"><small>{notice.ids.length === 1 ? 'DISCOVERY UNLOCKED' : `${notice.ids.length} DISCOVERIES UNLOCKED`}</small><strong>{notice.title}</strong>{notice.levelUp && <span className="wayfinder-notice-level">COLLECTION LEVEL {getWayfinderProgress(notice.from).level} → {notice.level} · +{(notice.to - notice.from) * 100} EXP</span>}</div><div className="wayfinder-notice-actions">{notice.levelUp && <button onClick={() => { onViewLevelUp(notice.from, notice.to); setNotice(null); }}>View level-up</button>}<a href="#/discoveries" onClick={() => setNotice(null)}>Visit your atlas<ArrowUpRight size={13} /></a></div></div>
+    {notice.levelUp ? <WayfinderArt level={notice.level} decorative /> : <span className="discovery-notice-icon"><Gem size={24} /></span>}<div><div role="status"><small>{notice.ids.length === 0 ? 'JOURNEY ADVANCED' : notice.ids.length === 1 ? 'DISCOVERY UNLOCKED' : `${notice.ids.length} DISCOVERIES UNLOCKED`}</small><strong>{notice.title}</strong><span className="wayfinder-notice-level">{gained > 0 ? `+${gained.toLocaleString()} JOURNEY EXP` : `${notice.to.toLocaleString()} JOURNEY EXP · SOURCES UPDATED`}{notice.levelUp ? ` · LEVEL ${getWayfinderProgress(notice.from).level} → ${notice.level}` : ''}</span></div><div className="wayfinder-notice-actions">{notice.levelUp && <button onClick={() => { onViewLevelUp(notice.from, notice.to); setNotice(null); }}>View level-up</button>}<a href="#/discoveries" onClick={() => setNotice(null)}>Visit your atlas<ArrowUpRight size={13} /></a></div></div>
     <button className="icon-button" aria-label="Dismiss discovery" onClick={() => setNotice(null)}><X size={15} /></button>
   </aside>;
 }

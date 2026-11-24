@@ -1,0 +1,49 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "e52a16f71c5231b8af1bdfeb83b1ba4544b10d60",
+  "observedAt": "2026-11-21T19:38:50.852Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "atlas-living-motion",
+      "path": "TODO/26_ATLAS_LIVING_MOTION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/25",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In review",
+      "managedSha256": "efb03fe80993cfdabe58432a8a09d1816c5235d946a33a5119bc5f0276622da3",
+      "actions": [
+        "update managed description",
+        "set Project In review"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhKw6No",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 25,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

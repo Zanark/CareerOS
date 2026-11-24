@@ -42,6 +42,17 @@ imports an achievement or silently upgrades your saved tracker.
   a bounded daily plan and focus room. DeepSeaFoam dark and Harbor Daylight
   light retain the animated sunrise/sunset switch.
 
+### Local Atlas redesign
+
+The next Atlas revision adds real checkpoint expeditions, saved-work EXP between
+discovery unlocks, and an explicitly unearned next-chapter preview. **It is local
+development work, not the current hosted release.** Read the
+[six-game progression investigation and tradeoffs](docs/ATLAS-PROGRESSION-RESEARCH.md).
+Existing records, criteria and the Discovered default remain in charge.
+The local motion follow-up adds seven animated chapter atmospheres, a living
+constellation and expressive cards, with **Pause motion** and system reduced-motion
+support. Decoration never changes progress.
+
 ## One session at a time
 
 ![Choose a checkpoint, do the work, then save your evidence. Complete a checkpoint only when you meet its criteria.](docs/images/readme-routine.png)
@@ -63,4 +74,5 @@ Private PDFs, advisory reports and browser backups are not bundled.
 [Full guide](docs/GUIDE.md) · [Keep Going journal](docs/KEEP-GOING.md) ·
 [Curricula and sources](docs/OPERATION-SOURCES.md) ·
 [Godot mission](docs/GAME-DEVELOPMENT.md) · [Privacy](docs/PRIVACY.md) ·
+[Atlas progression research](docs/ATLAS-PROGRESSION-RESEARCH.md) ·
 [DeepSeaFoam theme](docs/THEMES.md) · [Contributor workflow](docs/DEVELOPMENT.md)

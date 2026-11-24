@@ -33,7 +33,7 @@
 .wayfinder-scene-corner { position: absolute; top: 9px; right: 9px; color: #c4cfbc; font: .4rem/1.5 Consolas, monospace; opacity: .7; }
 .wayfinder-scene-caption { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 20px 14px; background: #0a2632; border-top: 1px solid #54757888; }
 .wayfinder-scene-caption > span { font: .43rem/1.5 Consolas, monospace; color: #b1c2bb; letter-spacing: .1em; }
-.wayfinder-scene-caption > strong { font: .7rem/1.8 Silkscreen, Consolas, monospace; color: #dfc58c; }
+.wayfinder-scene-caption > h2 { font: .88rem/1.7 Silkscreen, Consolas, monospace; color: #dfc58c; margin: 0; }
 .wayfinder-copy { min-width: 0; padding: 2px 0 0; }
 .wayfinder-overline { font: .43rem/1.8 Consolas, monospace; letter-spacing: .14em; color: #b7c8bd; }
 .wayfinder-heading { display: flex; align-items: center; gap: 17px; margin: 15px 0 17px; }
@@ -54,7 +54,7 @@
 .wayfinder-exp-track { height: 12px; padding: 2px; background: #061b27; border: 1px solid #668487; box-shadow: inset 0 1px 0 #000f13; overflow: hidden; }
 .wayfinder-exp-track > i { height: 100%; display: block; background: repeating-linear-gradient(90deg, transparent 0 13px, #00212a77 13px 15px), linear-gradient(#e9d495 0 35%, #b49a5d 35%); }
 .wayfinder-next-level { color: #bbcbbd; font-size: .52rem; line-height: 1.8; margin: 9px 0 17px; }
-.wayfinder-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.wayfinder-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 14px; border-top: 1px solid #54757866; }
 .wayfinder-actions > button { display: inline-flex; gap: 7px; align-items: center; padding: 9px 12px; color: #e3d3a6; border: 1px solid #b49a5d; box-shadow: 2px 2px 0 #071a25; background: #16363d; font-size: .54rem; line-height: 1.7; }
 .wayfinder-actions > button:hover { background: #264a4c; border-color: #e5ce99; }
 .wayfinder-actions .wayfinder-return { border-color: #547578; color: #b7d0c4; background: transparent; box-shadow: none; }
@@ -70,6 +70,63 @@
 .wayfinder-chapters small { color: inherit; font-size: .44rem; line-height: 1.7; text-align: center; overflow-wrap: anywhere; }
 .wayfinder-chapter-exp { font: .38rem/1.7 Consolas, monospace; color: #a4bbb2; }
 .wayfinder-boundary { color: #adc1b6; font-size: .46rem; line-height: 1.9; margin: 0 18px; padding: 12px 0 11px; border-top: 1px solid #54757866; }
+.wayfinder-preview-label { position: absolute; inset: 12px auto auto 12px; z-index: 4; display: flex; align-items: center; gap: 7px; max-width: calc(100% - 24px); padding: 7px 10px; border: 1px solid #dfc58c; color: #f0dfb5; background: #001e26ed; font: .42rem/1.8 Consolas, monospace; }
+.wayfinder-panel[data-preview="true"] .wayfinder-screen-column { border-color: #dfc58c; }
+.wayfinder-kit { padding: 0 14px 14px; }
+.wayfinder-kit > summary { color: #b7c8bd; cursor: pointer; font-size: .49rem; line-height: 1.8; }
+.wayfinder-kit .wayfinder-description { margin: 14px 0; font-size: .55rem; }
+.wayfinder-kit .wayfinder-loadout { margin: 0; border-bottom: 0; }
+.wayfinder-next-reward { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 9px 12px; padding: 14px; border: 1px solid #a68b5466; background: linear-gradient(125deg, #d6b66e0c, #d6b66e03); }
+.wayfinder-next-reward > .wayfinder-relic { color: #dfc58c; width: 29px; height: 29px; margin-top: 3px; }
+.wayfinder-next-reward > div > span { display: block; color: #b7c8bd; font: .4rem/1.8 Consolas, monospace; letter-spacing: .06em; }
+.wayfinder-next-reward strong { display: block; color: #e8d6a5; font-size: .58rem; line-height: 1.8; margin: 4px 0; font-weight: 500; overflow-wrap: anywhere; }
+.wayfinder-next-reward small { display: block; color: #b8cbbf; font-size: .49rem; line-height: 1.8; }
+.wayfinder-next-reward > button { grid-column: 2; justify-self: start; display: inline-flex; align-items: center; gap: 7px; color: #e8d6a5; font-size: .5rem; line-height: 1.8; padding: 6px 0 2px; border-bottom: 1px solid #a68b54; }
+.wayfinder-next-reward > button:hover { color: #fff0c1; border-color: #e8d6a5; }
+.atlas-expedition { padding: 0 0 21px; margin: 0 0 21px; border-bottom: 1px solid #54757888; min-width: 0; }
+.atlas-expedition-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+.atlas-expedition-top > span { display: inline-flex; align-items: center; gap: 7px; color: #e2ca91; font: .43rem/1.8 Consolas, monospace; letter-spacing: .08em; }
+.atlas-expedition-top label { min-width: 0; max-width: 100%; }
+.atlas-expedition-top select { width: auto; max-width: 100%; min-height: 36px; border: 1px solid #668487; border-radius: 3px; padding: 6px 28px 6px 9px; color: #dce5cd; background-color: #0a2931; font-size: .5rem; line-height: 1.6; }
+.atlas-expedition-position { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; color: #b7c8bd; margin: 18px 0 9px; font-size: .49rem; line-height: 1.8; }
+.atlas-expedition-position > span { overflow-wrap: anywhere; }
+.atlas-expedition-position > strong { color: #b5cfd0; font: .43rem/1.8 Consolas, monospace; white-space: nowrap; font-weight: 400; }
+.atlas-expedition h3 { color: #f0e5c7; font-size: .9rem; font-weight: 500; line-height: 1.5; letter-spacing: -.025em; overflow-wrap: anywhere; margin: 0; }
+.atlas-expedition > p { font-size: .58rem; line-height: 1.85; color: #bfcfc1; margin: 10px 0 0; }
+.atlas-expedition-trail { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 0; margin: 21px 0 17px; list-style: none; }
+.atlas-expedition-trail > li { position: relative; display: grid; justify-items: center; align-content: start; gap: 7px; min-width: 0; }
+.atlas-expedition-trail > li:not(:last-child)::after { content: ""; position: absolute; top: 14px; left: calc(50% + 17px); width: calc(100% - 34px); height: 1px; background: #54757888; }
+.atlas-waypoint { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid #547578; color: #a7beb9; background: #0a2931; font: .46rem/1.5 Consolas, monospace; }
+.atlas-expedition-trail small { color: #a7beb9; font: .36rem/1.7 Consolas, monospace; letter-spacing: .05em; }
+.atlas-expedition-trail [data-checkpoint-state="done"] .atlas-waypoint { color: #c6dfcc; border-color: #7ba89a; background: #194039; }
+.atlas-expedition-trail [data-checkpoint-state="current"] .atlas-waypoint { color: #f1dba4; border-color: #e2c784; background: #3a3b2b; box-shadow: 0 0 0 3px #dfc58c12; }
+.atlas-expedition-trail [data-checkpoint-state="current"] small { color: #e2c784; }
+.atlas-expedition-awards { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px 14px; margin: 17px 0; }
+.atlas-expedition-awards > span { display: inline-flex; gap: 6px; align-items: flex-start; font-size: .46rem; line-height: 1.8; color: #e3cb96; }
+.atlas-expedition-awards svg { flex-shrink: 0; margin-top: 3px; }
+.atlas-expedition-awards [data-earned="true"] { color: #a6c8b7; }
+.atlas-expedition-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px 17px; margin-top: 18px; }
+.atlas-expedition-record { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 11px 14px; min-height: 44px; color: #092a2d; background: #dfc58c; border: 1px solid #f0d99b; box-shadow: 2px 2px 0 #071a25; font-size: .58rem; line-height: 1.8; text-align: left; }
+.atlas-expedition-record:hover { background: #efdbad; }
+.atlas-expedition-link { display: inline-flex; align-items: center; gap: 7px; color: #c4d9ce; border-bottom: 1px solid #668487; padding: 5px 0; font-size: .49rem; line-height: 1.8; }
+.atlas-expedition-link:hover { color: #f0dfb5; border-color: #dfc58c; }
+.atlas-expedition-help { margin-top: 17px; }
+.atlas-expedition-help > summary { color: #a9c2b9; font-size: .46rem; line-height: 1.9; cursor: pointer; }
+.atlas-expedition-help p { color: #bfcfc1; font-size: .5rem; line-height: 1.9; margin-top: 10px; }
+.wayfinder-ledger { margin: 0 18px; border-top: 1px solid #54757866; padding: 15px 0; }
+.wayfinder-ledger > summary { color: #d6c696; cursor: pointer; font-size: .53rem; line-height: 1.9; }
+.wayfinder-ledger > summary > span { float: right; padding-left: 12px; color: #a9c2b9; font: .41rem/2.5 Consolas, monospace; }
+.wayfinder-ledger-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 25px; margin-top: 15px; }
+.wayfinder-ledger-body > dl { margin: 0; }
+.wayfinder-ledger-body > dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #54757844; }
+.wayfinder-ledger-body dt { color: #ced8c3; font-size: .52rem; line-height: 1.8; }
+.wayfinder-ledger-body dt > small { display: block; color: #a9c2b9; font: .4rem/1.8 Consolas, monospace; margin-top: 3px; }
+.wayfinder-ledger-body dd { color: #dfc58c; font: .54rem/1.8 Consolas, monospace; margin: 0; }
+.wayfinder-recent-awards ul { list-style: none; padding: 0; margin: 9px 0 0; }
+.wayfinder-recent-awards li { display: flex; gap: 11px; padding: 8px 0; }
+.wayfinder-recent-awards li > span { color: #dfc58c; font: .45rem/1.9 Consolas, monospace; white-space: nowrap; }
+.wayfinder-recent-awards a { color: #d0ddc9; font-size: .5rem; line-height: 1.8; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; min-width: 0; }
+.wayfinder-recent-awards small { color: #abc2b8; font-size: .45rem; line-height: 1.8; display: block; text-decoration: none; margin-top: 2px; }
 
 .wayfinder-sequence { min-width: 0; background: #0a2632; }
 .wayfinder-sequence-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #d9c18a; border-bottom: 1px solid #54757866; padding: 8px 11px; font: .42rem/1.7 Consolas, monospace; letter-spacing: .1em; }
@@ -133,6 +190,7 @@
 .wayfinder-notice-actions > button { color: var(--dsf-heading); font-size: .54rem; line-height: 1.8; border-bottom: 1px solid #bda36d; }
 @media (max-width: 1100px) {
   .wayfinder-console { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .wayfinder-copy { order: -1; }
   .wayfinder-screen-column { width: 100%; }
   .wayfinder-chapters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .wayfinder-heading h2 { overflow-wrap: normal; font-size: 1.15rem; }
@@ -152,7 +210,17 @@
   .wayfinder-chapters > button { padding: 10px 3px; }
   .wayfinder-chapters small { font-size: .4rem; }
   .wayfinder-boundary { margin: 0 12px; }
-  .wayfinder-scene-caption > strong { font-size: .58rem; }
+  .wayfinder-scene-caption > h2 { font-size: .75rem; }
+  .wayfinder-next-reward { padding: 12px; }
+  .wayfinder-next-reward > button { grid-column: 1 / -1; }
+  .atlas-expedition h3 { font-size: .8rem; }
+  .atlas-expedition-position { margin-top: 14px; }
+  .atlas-expedition-actions { align-items: stretch; flex-direction: column; gap: 10px; }
+  .atlas-expedition-link { align-self: flex-start; }
+  .wayfinder-ledger { margin: 0 12px; }
+  .wayfinder-ledger > summary > span { float: none; display: block; padding-left: 0; padding-top: 5px; }
+  .wayfinder-ledger-body { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .wayfinder-preview-label { inset: 8px auto auto 8px; max-width: calc(100% - 16px); font-size: .35rem; padding: 6px; }
   .wayfinder-levelup-banner { inset: 7px 4px auto; gap: 3px; }
   .wayfinder-levelup-banner > strong { font-size: .78rem; }
   .wayfinder-levelup-banner > span { font-size: .32rem; }

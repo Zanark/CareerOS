@@ -34,31 +34,56 @@ afterEach(() => vi.useRealTimers());
 
 describe('record-derived discoveries', () => {
   it('carries cosmetic EXP across thresholds and retains every crossed chapter on a multi-level arrival', () => {
-    expect(getWayfinderProgress(2)).toMatchObject({ level: 2, xp: 200, startsAtXp: 100, nextAtXp: 300, percent: 50 });
-    expect(getWayfinderCrossings(0, 17).map(stage => stage.level)).toEqual([2, 3, 4, 5, 6]);
-    expect(getWayfinderCrossings(17, 24).map(stage => stage.level)).toEqual([7]);
-    expect(getWayfinderCrossings(17, 17)).toEqual([]);
-    expect(getWayfinderCrossings(24, 0)).toEqual([]);
-    expect(getWayfinderProgress(24)).toMatchObject({ level: 7, xp: 2400, nextAtXp: null, percent: 100 });
-    expect(() => getWayfinderCrossings(0, 25)).toThrow('valid');
+    expect(getWayfinderProgress(200)).toMatchObject({ level: 2, xp: 200, startsAtXp: 100, nextAtXp: 300, percent: 50 });
+    expect(getWayfinderCrossings(0, 1700).map(stage => stage.level)).toEqual([2, 3, 4, 5, 6]);
+    expect(getWayfinderCrossings(1700, 2400).map(stage => stage.level)).toEqual([7]);
+    expect(getWayfinderCrossings(1700, 1700)).toEqual([]);
+    expect(getWayfinderCrossings(2400, 0)).toEqual([]);
+    expect(getWayfinderProgress(2840)).toMatchObject({ level: 7, xp: 2840, nextAtXp: null, percent: 100 });
+    expect(() => getWayfinderCrossings(0, 1.5)).toThrow('valid');
   });
 
-  it('levels the fictional character only from actual discoveries and permits a complete collection in one mission', () => {
+  it('levels the fictional character from saved work without farming duplicate notes and keeps existing collection chapters', () => {
     let state = createInitialState(false);
-    expect(getWayfinderProgress(getDiscoverySnapshot(state).earned).level).toBe(1);
+    expect(getWayfinderProgress(getDiscoverySnapshot(state).journey.xp).level).toBe(1);
     state = evidence(state, { kind: 'code' });
-    const first = getWayfinderProgress(getDiscoverySnapshot(state).earned);
-    expect(first.level).toBeGreaterThan(1);
+    const first = getWayfinderProgress(getDiscoverySnapshot(state).journey.xp);
+    expect(first).toMatchObject({ level: 2, xp: 260, remaining: 40 });
     state = evidence(state, { kind: 'code' });
-    expect(getWayfinderProgress(getDiscoverySnapshot(state).earned)).toEqual(first);
+    expect(getWayfinderProgress(getDiscoverySnapshot(state).journey.xp)).toEqual(first);
     const complete = createCompleteDiscoveryFixture(now());
     const snapshot = getDiscoverySnapshot(complete, now());
     expect(snapshot.earned).toBe(snapshot.total);
     expect(snapshot.recordedDays).toBe(21);
-    expect(getWayfinderProgress(snapshot.earned)).toMatchObject({ level: 7, nextAt: null, remaining: 0, percent: 100 });
+    expect(getWayfinderProgress(snapshot.journey.xp)).toMatchObject({ level: 7, nextAt: null, remaining: 0, percent: 100 });
+    expect(snapshot.journey.xp).toBeGreaterThanOrEqual(snapshot.earned * 100);
     expect(Object.entries(complete.missions).filter(([, progress]) => progress.completedCheckpointIds.length).map(([id]) => id)).toEqual(['pattern']);
     expect(() => getWayfinderProgress(-1)).toThrow('valid');
     expect(() => getWayfinderProgress(NaN)).toThrow('valid');
+  });
+
+  it('rewards distinct work after every collectible is earned and treats an honest difficult recall equally', () => {
+    let state = createCompleteDiscoveryFixture(now());
+    const original = getDiscoverySnapshot(state, now());
+    const checkpointId = state.missions.pattern.checkpointId;
+    state = evidence(state, { advance: true, criteriaConfirmed: true });
+    const completed = getDiscoverySnapshot(state, now());
+    expect(completed.earned).toBe(original.earned);
+    expect(completed.journey.xp - original.journey.xp).toBe(80);
+    expect(completed.journey.counts.completion - original.journey.counts.completion).toBe(1);
+    state = recordRecall(state, {
+      missionId: 'pattern', checkpointId, roadmapVersion: state.missions.pattern.roadmapVersion,
+      outcome: 'needs-review', checks: { explanation: false, diagram: false, exercise: false },
+      notes: 'An honest synthetic attempt that needs more practice.',
+    });
+    const revisited = getDiscoverySnapshot(state, now());
+    expect(revisited.journey.xp - completed.journey.xp).toBe(40);
+    expect(recallSummary(state, 'pattern', checkpointId, state.missions.pattern.roadmapVersion).status).toBe('needs-review');
+    expect(revisited.journey.recent.at(-1)).toMatchObject({
+      kind: 'recall', xp: 40, source: { id: state.recalls.at(-1)!.id, kind: 'recall' },
+    });
+    state = evidence(state, { advance: true, criteriaConfirmed: true });
+    expect(getDiscoverySnapshot(state, now()).journey.xp - revisited.journey.xp).toBe(120);
   });
 
   it('does not award browsing-shaped state, plans, readiness, history or elapsed time', () => {
@@ -67,6 +92,7 @@ describe('record-derived discoveries', () => {
     const snapshot = getDiscoverySnapshot(state, now());
     expect(snapshot.earned).toBe(0);
     expect(snapshot.recordedDays).toBe(0);
+    expect(snapshot.journey.xp).toBe(0);
     expect(getDiscoverySnapshot(state, new Date(2027, 10, 9)).earned).toBe(0);
   });
 
@@ -96,6 +122,10 @@ describe('record-derived discoveries', () => {
   });
 
   it('deduplicates unchanged v2/v3 DSA lineage without discarding its historical completion', () => {
+    let practice = evidence(createInitialState(false, '2.0.0'));
+    const practiceXp = getDiscoverySnapshot(practice).journey.xp;
+    practice = evidence(upgradeRoadmap(practice, 'pattern'));
+    expect(getDiscoverySnapshot(practice).journey.xp).toBe(practiceXp);
     let state = evidence(createInitialState(false, '2.0.0'), { advance: true, criteriaConfirmed: true });
     state = upgradeRoadmap(state, 'pattern');
     state = recordRecall(state, {
@@ -122,10 +152,12 @@ describe('record-derived discoveries', () => {
     state = evidence(state);
     vi.setSystemTime(new Date(2026, 10, 5, 12));
     state = evidence(state);
+    const eligibleJourney = getDiscoverySnapshot(state, now()).journey;
     vi.setSystemTime(new Date(2026, 10, 15, 12));
     state = evidence(state, { kind: 'project' });
     const snapshot = getDiscoverySnapshot(state, now());
     expect(snapshot.recordedDays).toBe(2);
+    expect(snapshot.journey).toEqual(eligibleJourney);
     expect(item(state, 'another-day').earnedAt).not.toBeNull();
     expect(item(state, 'something-real').earnedAt).toBeNull();
     expect(snapshot.recentDays.filter(day => day.evidence > 0).map(day => day.date)).toEqual(['2026-11-01', '2026-11-05']);
@@ -212,6 +244,8 @@ describe('record-derived discoveries', () => {
     expect(snapshot.recentDays.every(day => day.sources.length <= 5)).toBe(true);
     expect(snapshot.discoveries.every(discovery => discovery.sources.length <= 21)).toBe(true);
     expect(snapshot.discoveries).toHaveLength(24);
+    expect(snapshot.journey.recent.length).toBeLessThanOrEqual(5);
+    expect(snapshot.journey.counts).toMatchObject({ practice: 1, completion: 0, recall: 1, day: 35 });
     console.info(`Discovery projection: 10000 synthetic records, ${elapsedMs.toFixed(1)} ms, 24 discoveries / 28 recent tiles.`);
   });
 });

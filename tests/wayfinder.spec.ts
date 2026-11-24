@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import { createInitialState } from '../src/domain/engine';
 import { createCompleteDiscoveryFixture } from './discovery-fixture';
-import { wayfinderStages } from '../src/discovery/model';
+import { getDiscoverySnapshot, wayfinderStages } from '../src/discovery/model';
 import type { AppState } from '../src/domain/types';
 
 const key = 'careerhq.workspace.v1';
@@ -19,6 +19,7 @@ async function stored(page: Page) {
 }
 
 async function ready(page: Page) {
+  await page.locator(viewerSelector).scrollIntoViewIfNeeded();
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-viewer-state', 'ready');
   await page.evaluate(() => document.fonts.ready);
 }
@@ -94,7 +95,9 @@ test('PS1 avatar really orbits, tilts and zooms without idle frames or saved-sta
 
 test('all seven earned chapters keep one camera/context and have distinct equipment and actual reveal effects', async ({ page }, testInfo) => {
   test.setTimeout(60_000);
-  await seed(page, createCompleteDiscoveryFixture());
+  const complete = createCompleteDiscoveryFixture();
+  const xp = getDiscoverySnapshot(complete).journey.xp;
+  await seed(page, complete);
   await page.goto('./#/discoveries');
   await ready(page);
   const viewer = page.locator(viewerSelector);
@@ -137,7 +140,8 @@ test('all seven earned chapters keep one camera/context and have distinct equipm
     if (level > 1) {
       await expect.poll(async () => Number(await viewer.getAttribute('data-render-count'))).toBeGreaterThan(renders);
     }
-    const effects = await panel.locator('.wayfinder-scene').evaluate(node => node.getAnimations({ subtree: true }).map(animation => {
+    const effects = await panel.locator('.wayfinder-scene').evaluate(node => node.getAnimations({ subtree: true })
+      .filter(animation => animation instanceof CSSAnimation && animation.animationName.startsWith('wayfinder-')).map(animation => {
       const effect = animation.effect as KeyframeEffect;
       const target = effect.target as Element;
       animation.pause();
@@ -160,7 +164,7 @@ test('all seven earned chapters keep one camera/context and have distinct equipm
     await expect(sequence.locator('[data-reward-level]')).toHaveCount(1);
     await expect(sequence).toContainText(wayfinderStages[level - 1].relic);
     await expect(panel).toHaveAttribute('data-level', '7');
-    await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '2400');
+    await expect(panel.getByRole('progressbar')).toHaveAttribute('aria-valuenow', String(xp));
     expect(await stored(page)).toEqual(before);
   }
   expect(new Set(revealNames).size).toBe(7);
@@ -170,6 +174,7 @@ test('confirmed source import retains every crossed level and EXP carryover when
   await seed(page, createInitialState(false));
   await page.goto('./#/settings');
   const complete = createCompleteDiscoveryFixture();
+  const xp = getDiscoverySnapshot(complete).journey.xp;
   page.once('dialog', dialog => dialog.accept());
   await page.getByLabel('Choose backup file', { exact: true }).setInputFiles({
     name: 'synthetic-wayfinder-source.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(complete)),
@@ -179,7 +184,7 @@ test('confirmed source import retains every crossed level and EXP carryover when
   await ready(page);
   const sequence = page.locator('[data-tour="wayfinder-sequence"]');
   await expect(sequence).toHaveAttribute('data-from', '0');
-  await expect(sequence).toHaveAttribute('data-to', '24');
+  await expect(sequence).toHaveAttribute('data-to', String(xp));
   const before = await stored(page);
   await page.locator('[data-tour="wayfinder-skip"]').click();
   await expect(sequence).toHaveAttribute('data-phase', 'complete');
@@ -187,7 +192,7 @@ test('confirmed source import retains every crossed level and EXP carryover when
   for (let level = 2; level <= 7; level++) await expect(sequence.locator(`[data-reward-level="${level}"]`)).toContainText(wayfinderStages[level - 1].relic);
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-model-level', '7');
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-motion', 'still');
-  await expect(page.locator(panelSelector).getByRole('progressbar')).toHaveAttribute('aria-valuenow', '2400');
+  await expect(page.locator(panelSelector).getByRole('progressbar')).toHaveAttribute('aria-valuenow', String(xp));
   expect(await stored(page)).toEqual(before);
   const state = JSON.parse(before[key]!);
   expect(Object.keys(state)).toEqual(Object.keys(complete));

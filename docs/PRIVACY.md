@@ -85,12 +85,23 @@ Discovery Atlas reads existing evidence and recall to derive its optional collec
 and recent-day ribbon. It stores no extra profile, score, achievement ledger or
 viewing analytics, and makes no external requests. Discovery receipts show only
 source records already in this browser. Normal backups and the optional encrypted
-journal carry those records; confirmed replacement/reset recalculates the collection.
+journal carry those records; confirmed replacement/reset recalculates the collection
+and journey.
 Collection completion is not independently assessed ability or current retention.
-The fictional 3D character and collection EXP are derived from that same count.
-Camera, chapter previews and level-up replay are temporary view state, not new
+The local progression revision derives fictional journey EXP from distinct
+checkpoint evidence, criteria-confirmed completion evidence, first recalls,
+recorded local days and discoveries. No points are saved separately or awarded
+for viewing, route selection, timers or academic self-reports.
+Camera, expedition selection, explicitly unearned next-reward previews and
+level-up replay are temporary view state, not new
 localStorage fields, exports or analytics. Character geometry and the licensed
 display font are bundled locally; no avatar, model or font service receives data.
+The local animated revision also keeps motion pause, system-motion preference
+and visible-region observations only in transient presentation state. Visibility
+is used to stop decoration, not stored as viewing analytics. Weather, twinkling,
+hover effects and pausing do not earn EXP, record activity or change a backup.
+All decorative geometry/styles remain local; no animation, media or sound
+service is contacted.
 
 These personal activity records travel in ordinary unencrypted workspace exports.
 Resetting the timer preserves them; explicitly replacing/resetting the whole workspace

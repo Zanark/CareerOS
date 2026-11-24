@@ -1,0 +1,61 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "e52a16f71c5231b8af1bdfeb83b1ba4544b10d60",
+  "observedAt": "2026-11-21T18:13:42.655Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "discovery-atlas",
+      "path": "TODO/10_DISCOVERY_ATLAS.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/9",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In review",
+      "managedSha256": "2f3df58d6f0ce9d45f4a4a2cffcd49bc78f7a5354134105ba1cee485de84e051",
+      "actions": [
+        "update managed description"
+      ]
+    },
+    {
+      "id": "atlas-progression-redesign",
+      "path": "TODO/25_ATLAS_PROGRESSION_REDESIGN.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/24",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "81a79f43b70c02fc67726c408b32292799d350d8a53d2ec7c3cd90ee13a723da",
+      "actions": [
+        "update managed description"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 24,
+    "selected": 2,
+    "excluded": 2,
+    "created": 0,
+    "reused": 2,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

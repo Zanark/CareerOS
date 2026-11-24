@@ -1,6 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useRef } from 'react';
 import type { CSSProperties } from 'react';
 import { wayfinderStages } from './model';
+import { AtlasAtmosphere } from './AtlasAtmosphere';
+import { useAtlasVisibility } from './motion';
 
 const WayfinderViewer = lazy(async () => ({ default: (await import('./WayfinderViewer')).WayfinderViewer }));
 
@@ -69,12 +71,16 @@ function SceneEffect({ level }: { level: number }) {
 }
 
 export function WayfinderScene({ level, phase = 'still' }: { level: number; phase?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const visibility = useAtlasVisibility(ref);
   const stage = wayfinderStages[level - 1];
   if (!stage) throw new Error('Unknown Wayfinder scene.');
-  return <div className="wayfinder-scene" data-scene={stage.effect} data-phase={phase}>
+  return <div ref={ref} className="wayfinder-scene" data-scene={stage.effect} data-phase={phase}
+    data-atlas-visible={visibility.visible} data-atlas-ceremony={phase !== 'still' && phase !== 'complete'}>
     <Suspense fallback={<span className="wayfinder-viewer-loading" role="status">Preparing 3D viewer...</span>}>
       <WayfinderViewer level={level} animate={phase === 'ascend' || phase === 'reward'} fallback={<WayfinderArt level={level} />} />
     </Suspense>
+    <AtlasAtmosphere key={level} level={level} />
     <svg className="wayfinder-scene-effects" viewBox="0 0 320 240" shapeRendering="crispEdges" aria-hidden="true"
       style={{ display: phase === 'ascend' || phase === 'reward' ? 'block' : 'none' }}><SceneEffect level={level} /></svg>
     <span className="wayfinder-scene-marker" aria-hidden="true">SECTOR {String(level).padStart(2, '0')} / {stage.realm.toUpperCase()}</span>

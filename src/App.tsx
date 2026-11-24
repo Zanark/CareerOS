@@ -289,6 +289,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {page === 'home' && <CareerGraphPage ref={careerGraph} state={state} practice={practice} date={date} onRecord={id => openEvidence(id)} />}
         {page === 'perspective' && <Perspective state={state} practice={practice} commit={commit} />}
         {page === 'discoveries' && <DiscoveryPage state={state} snapshot={discovery} practice={practice}
+          onRecord={openEvidence}
           levelUp={wayfinderRequest} onLevelUpViewed={clearWayfinderRequest}
           selectedId={discoveryId} onSelect={setDiscoveryId} onLoadExample={() => {
             if (!practice) { workspace.setError('Discovery examples are available only in the isolated tutorial.'); return; }

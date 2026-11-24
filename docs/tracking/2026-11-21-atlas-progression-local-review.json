@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "workstreamId": "atlas-progression-redesign",
+  "status": "qualified-local-not-published",
+  "observedAt": "2026-11-21T18:25:08.626Z",
+  "source": {
+    "baseCommit": "e52a16f71c5231b8af1bdfeb83b1ba4544b10d60",
+    "fingerprint": "4bf26f7b4cdf17a3a9052e7ded76b17843ea4e2b32ef8de0a0bdc5ec16b04dca",
+    "inputs": 334,
+    "unchangedSinceNativeRun": true,
+    "stagedFiles": 0
+  },
+  "research": {
+    "document": "docs/ATLAS-PROGRESSION-RESEARCH.md",
+    "wordsByWhitespace": 4186,
+    "numberedSections": 13,
+    "mermaidBlocks": 2,
+    "games": [
+      "Hades",
+      "Stardew Valley",
+      "Slay the Spire",
+      "Factorio",
+      "Celeste",
+      "Vampire Survivors"
+    ],
+    "accessLimitsExplicit": true,
+    "fullGameVideosWatched": false,
+    "inaccessiblePapersClaimedRead": false
+  },
+  "checks": {
+    "strictProductionBuild": "passed in native qualification webServer command",
+    "focusedUnitCases": 17,
+    "focusedUnitFiles": 2,
+    "nativeCases": 28,
+    "nativeAttempts": 28,
+    "nativeWorkers": 1,
+    "nativeRetries": 0,
+    "nativeSkipped": 0,
+    "nativeFlaky": 0,
+    "nativeScope": [
+      "empty/populated/default/manual filters and reload silence",
+      "real evidence and criteria-confirmed completion between collectible milestones",
+      "unearned reward preview, route choice, blockers and planned/completed missions",
+      "equal-EXP confirmed source replacement retains new-discovery feedback",
+      "six theme/viewport geometries from 320 to 1440 pixels",
+      "full Discovery tutorial chapter at 1440 and 320 pixels",
+      "all seven real scenes, finite rewards, manual/touch camera and renderer lifecycle",
+      "ordinary backup and mocked encrypted-journal two-context workflow/tutorial isolation"
+    ],
+    "realOwnerBrowserAccessed": false,
+    "physicalDevicesQualified": false,
+    "imagesInspected": false,
+    "renderingBoundsChecked": {
+      "maxTrianglesExclusive": 1600,
+      "maxDrawCalls": 8,
+      "maxInternalWidth": 384,
+      "maxBufferPixels": 82944,
+      "idleAndOffscreenSuspension": true,
+      "contextDisposal": true
+    },
+    "protectedRuntimePathsUnchanged": true,
+    "dependencyOrWorkflowChanges": false
+  },
+  "retainedEarlierDiagnostics": {
+    "initialNative": {
+      "attempts": 23,
+      "passed": 21,
+      "failed": 2,
+      "cause": "Exact-label selectors did not resolve the wrapped route control; added explicit accessible label."
+    },
+    "intermediateNative": {
+      "attempts": 27,
+      "passed": 26,
+      "failed": 1,
+      "cause": "New test used an exact label locator for the existing Mission select; corrected to its exact combobox role/name without changing the dialog."
+    },
+    "firstUnitAttempt": "Two new fixture assumptions failed: current fixture checkpoint already had practice, and evidence cannot target an old completed checkpoint. Corrected fixtures; domain guards retained.",
+    "trackingPreview": "Uppercase pending placeholder rejected read-only; corrected exact lowercase sentinel before writes."
+  },
+  "livePreview": {
+    "url": "http://127.0.0.1:4470/CareerOS/#/discoveries",
+    "httpStatus": 200,
+    "actualEarnedLevel": "1",
+    "explicitlyUnearnedPreviewLevel": "2",
+    "sameCanvas": true,
+    "actualRenderCountAdvanced": true,
+    "canvasPngChanged": true,
+    "storageUnchanged": true,
+    "browserErrors": 0,
+    "externalRequests": 0,
+    "disposableProfile": true
+  },
+  "authority": {
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "publicBaselineUnchanged": true,
+    "humanAestheticApprovalRecorded": false,
+    "motivationalOrLearningBenefitVerified": false
+  }
+}

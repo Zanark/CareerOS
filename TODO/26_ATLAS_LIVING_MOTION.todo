@@ -1,0 +1,87 @@
+Workstream ID: atlas-living-motion
+Title: Living atmosphere and expressive motion for Discovery Atlas
+Status: IN_REVIEW
+Milestone: Make the Atlas visibly lively while keeping real work and user control clear
+Dependencies: atlas-progression-redesign, discovery-atlas, appearance-and-identity
+GitHub issue: https://github.com/Zanark/CareerOS/issues/25
+Purpose: Respond to the owner's request for a much more animated, inviting Atlas.
+  Add original chapter-specific atmosphere, constellation motion and expressive
+  interactions without changing saved work, rewards or completion authority.
+
+Tasks:
+  [x] Inspect the existing local Atlas and choose a coherent motion language.
+  [x] Add distinct ambient atmosphere to all seven chapter scenes.
+  [x] Animate the constellation, reward invitation and collection interactions.
+  [x] Add a visible pause control and honor system reduced motion.
+  [x] Suspend ambient work offscreen/hidden and preserve event-driven WebGL.
+  [x] Qualify animation, controls, layouts, tutorial and data/resource boundaries.
+  [x] Update affected guides, presentation policy and owned continuity.
+  [x] Synchronize this workstream and verify its original issue/Project item.
+
+Acceptance criteria:
+  Default motion is visibly richer than the preceding local prototype, with
+    distinct authored chapter effects rather than a uniform blinking treatment.
+  Decorative motion cannot earn EXP, reveal a discovery as owned, complete a
+    checkpoint or change records, mission focus, schema, backups or journal data.
+  Discovered remains the default; existing expeditions, previews and records work.
+  Pause is visible and keyboard-operable; it does not trap focus or prevent work.
+  System reduced motion stays authoritative, including changes while open.
+  Reading content/counters remain stable; no flashing, shake or autoplay audio.
+  Ongoing decoration pauses offscreen and in hidden documents; no idle
+    JavaScript/WebGL render loop or extra 3D context is introduced.
+  Native render-budget, orbit/pan/zoom/reset, fallback and disposal still work.
+  Both themes, desktop/tablet/narrow layouts and tutorial isolation are covered
+    using disposable fictional contexts, never the owner's browser profile.
+  The earlier finite-only presentation rule is deliberately revised for
+    controllable visible CSS/SVG ambience, not silently confused with WebGL.
+  Technical motion/layout checks do not claim human aesthetic or motivational
+    approval. Existing image-review limits remain respected.
+  This is local implementation, not source commit/push/deployment authorization.
+
+Completion evidence:
+  Started from the exact previous qualified local Atlas candidate:
+    4bf26f7b4cdf17a3a9052e7ded76b17843ea4e2b32ef8de0a0bdc5ec16b04dca.
+    All 334 sealed inputs were unchanged before this work began.
+  The existing development preview responds with the current expedition source;
+    both original loopback preview processes are preserved.
+  W3C Understanding SC 2.2.2 Pause, Stop, Hide reviewed for the visible pause
+    mechanism; system reduced-motion guidance remains applicable. This is not
+    a whole-site accessibility-conformance claim.
+  Strict build and final actual 41 native cases pass in 41 attempts, one worker,
+    no retries/skips/flaky. All 338 sealed inputs remain at:
+    deb9327db8516e35894841be922f09b33e4121c190db7d585c10f0f101c377d7.
+    Covers actual animated PNG changes with stable idle WebGL frame count,
+    keyboard pause/resume, live reduced-motion changes, preserved reward
+    summaries/drafts, real offscreen and synthetic hidden-document handling,
+    unavailable-observer fallback, seven distinct active climates, six live
+    theme/viewport geometries and all affected default/progress/tutorial/
+    ordinary/encrypted backup boundaries in disposable fictional contexts.
+  Earlier actual 39- and 40-case passes are retained as their own source-bound
+    editions. Review added explicit safe fallback when observers are missing,
+    then a regression for automatically freezing motion behind record dialogs;
+    no prior pass is relabelled as the final source.
+  Actual current development URL independently shows changed scene PNGs,
+    12 running chapter effects and zero additional idle WebGL frames. Pause
+    freezes native animation playheads. Storage/default Discovered remain,
+    with no browser errors/external requests. PNG comparison is not inspection
+    or human aesthetic approval. No owner profile or new image-view call.
+  Renderer retains tested bounds: fewer than 1,600 triangles, at most eight
+    draw calls, 384-pixel internal width and 82,944 pixels. Same-context,
+    camera/touch/reset, fallback and disposal behavior remains qualified.
+  Source progression/domain, dependencies, public journal and workflow are
+    unchanged. All four approved README images remain byte-identical.
+  Public-safe proof: docs/tracking/2026-11-22-atlas-motion-local-review.json.
+  Same issue25/item is review-ready. No source commit, push or deployment;
+    current human aesthetic/motivational benefit remains unverified.
+
+Completion log:
+  2026-11-22 - Motion implementation is locally qualified on final41/41/
+    one worker/no retries atdeb9327d/338inputs. Seven original atmospheres,
+    constellation/reward/card motion and pause/reduced-motion controls preserve
+    records. Explicit observer fallback and native-dialog draft protection
+    complete the presentation boundaries. README/guides/tutorial are current;
+    original images/previews and prior source-bound gates remain intact.
+    Advance the same issue/item to review; no publication or human approval.
+  2026-11-22 - Started a separate motion-only workstream on the owner's creative
+    direction. Preserve the previous research/progression/default work and
+    all original tracking identities. No questions or publication assumed.

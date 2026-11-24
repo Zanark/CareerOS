@@ -50,7 +50,9 @@
     { "id": "current-site-publication", "path": "TODO/21_CURRENT_SITE_PUBLICATION.todo", "publicSafe": true },
     { "id": "keep-going-journal-research", "path": "TODO/22_KEEP_GOING_JOURNAL_RESEARCH.todo", "publicSafe": true },
     { "id": "keep-going-journal", "path": "TODO/23_KEEP_GOING_JOURNAL.todo", "publicSafe": true },
-    { "id": "keep-going-journal-publication", "path": "TODO/24_KEEP_GOING_JOURNAL_PUBLICATION.todo", "publicSafe": true }
+    { "id": "keep-going-journal-publication", "path": "TODO/24_KEEP_GOING_JOURNAL_PUBLICATION.todo", "publicSafe": true },
+    { "id": "atlas-progression-redesign", "path": "TODO/25_ATLAS_PROGRESSION_REDESIGN.todo", "publicSafe": true },
+    { "id": "atlas-living-motion", "path": "TODO/26_ATLAS_LIVING_MOTION.todo", "publicSafe": true }
   ],
   "excluded": [
     { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },

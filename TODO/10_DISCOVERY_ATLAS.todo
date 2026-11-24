@@ -1,6 +1,6 @@
 Workstream ID: discovery-atlas
 Title: Evidence-based discovery collection and final tutorial chapter
-Status: DONE
+Status: IN_REVIEW
 Milestone: Make useful recorded practice rewarding without inventing career progress
 Dependencies: tracker-foundation, appearance-and-identity, versioned-roadmaps, tutorial-and-help
 GitHub issue: https://github.com/Zanark/CareerOS/issues/9
@@ -9,6 +9,7 @@ Purpose: Add an optional, visually rich discovery collection derived from existi
   addition in a final isolated tutorial chapter.
 
 Tasks:
+  [x] Make Discovered the initial status view without changing explicit filters or records.
   [x] Derive a finite collection from meaningful saved work, not clicks or timers.
   [x] Deduplicate verified roadmap lineage and exclude future calendar days.
   [x] Add responsive themed visual exploration, provenance and useful next actions.
@@ -24,6 +25,8 @@ Tasks:
   [x] Synchronize this workstream, publish authorized commits and verify Pages.
 
 Acceptance criteria:
+  The local default-filter follow-up opens Discovered even with zero discoveries.
+    All signals/Undiscovered and existing family/reset behavior stay available.
   Collection recognizes recorded work, not independently assessed ability.
   Repeated records cannot farm distinct-checkpoint or same-day milestones.
   Unrelated roadmap editions stay distinct; verified append lineage counts once.
@@ -48,6 +51,18 @@ Acceptance criteria:
   Technical completion, user acceptance and actual deployment remain separate.
 
 Completion evidence:
+  The original discovery-only character formula and hidden-future-art rules
+    below are historical. The separately tracked local progression redesign
+    in 25_ATLAS_PROGRESSION_REDESIGN.todo intentionally supersedes them.
+    Preserve this original default-filter follow-up and issue identity.
+  2026-11-21follow-up: owner requests Discovered as the initial Atlas tab.
+    This is a local-only one-line view default, not new publication authority.
+    Actual5focused native cases pass in5attempts, one worker/no retries/skips/
+    flaky, with strict production build. Empty/populated/reload/manual filter
+    and both1440/320tutorial chapter flows preserve storage. No style, model,
+    reward, schema or explicit family/reset behavior is changed.
+    Proof: docs/tracking/2026-11-21-atlas-default-local-review.json.
+    Existing published figures below are historical, not rerun or relabelled.
   Published source: 347a8e89d2789c6f837bdb80ddbf704545940d30.
   Exact Pages run 42611659259 succeeded: 689 unit cases, all 444 browser cases,
     production build and actual deployment. Hosted entry/styles/renderer/font/
@@ -103,6 +118,13 @@ Completion evidence:
   Prior local tracking adoption files remain preserved for reviewed publication.
 
 Completion log:
+  2026-11-21 - Local follow-up is technically ready for review: initial
+    Discovered, including zero discoveries. Existing explicit filters and
+    tutorial/family exploration remain available;5native cases pass. Same
+    workstream/issue/item moves to In review; no push/deployment is inferred.
+  2026-11-21 - Reopened the original workstream for the requested initial
+    collection filter. Preserve original issue9/item and all earned records,
+    views, schema and source-derived rewards. No automatic push/deployment.
   2026-11-09 - Created the bounded workstream after research and explicit end-to-end
     implementation/publication authorization. No user browser progress inspected.
   2026-11-09 - Initial preview rejected a missing pending backlink field before

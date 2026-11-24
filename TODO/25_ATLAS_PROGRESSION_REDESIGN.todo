@@ -1,0 +1,101 @@
+Workstream ID: atlas-progression-redesign
+Title: Research-led Atlas expeditions and meaningful work progression
+Status: IN_REVIEW
+Milestone: Make real checkpoint work lead to clear, inviting fictional rewards
+Dependencies: discovery-atlas, tracker-foundation, tutorial-and-help
+GitHub issue: https://github.com/Zanark/CareerOS/issues/24
+Purpose: Research progression across several games and motivation studies,
+  document transferable mechanisms and their limits, and implement a stronger
+  optional Discovery Atlas loop. Improve the invitation to do real work, not
+  time spent clicking, fabricated ability or compulsive engagement.
+
+Tasks:
+  [x] Review multiple source-backed game case studies and motivation evidence.
+  [x] Document findings, tradeoffs, rejected mechanics and the chosen design.
+  [x] Connect real saved work to readable near-term progress and reward previews.
+  [x] Offer useful checkpoint expeditions without changing mission authority.
+  [x] Preserve the Discovered default and existing collection/provenance.
+  [x] Preserve records, criteria, verified lineage, backups and tutorial isolation.
+  [x] Qualify affected domain, native-browser, motion and rendering boundaries.
+  [x] Update affected guides, source rationale and local continuity.
+  [x] Synchronize this workstream and verify its original issue/Project identity.
+
+Acceptance criteria:
+  Research distinguishes developer statements, documented mechanics, inference,
+    experimental results and unverified effects in this learning workspace.
+  Useful saved work can visibly advance the journey without requiring a new
+    entry in the finite 24-discovery collection.
+  The next real action and its deterministic reward are understandable; preview,
+    browsing, replay and timers never create progress or complete a checkpoint.
+  Completion remains an explicit evidence/criteria confirmation, and planned,
+    blocked, completed and archived mission boundaries remain authoritative.
+  Repeated records cannot farm the same checkpoint award, verified append
+    lineage deduplicates, and future local calendar days remain excluded.
+  No random loot, purchase, streak punishment, FOMO, leaderboard, new telemetry,
+    automatic publication or functional learning-tool gate is introduced.
+  Existing saved formats and ordinary/encrypted backup behavior are compatible.
+  Original 3D work remains bounded, event-driven and accessible without WebGL;
+    deliberate previews must be labelled unearned and cannot change ownership.
+  Both themes, narrow layouts, keyboard, reduced motion and tutorial coexistence
+    receive focused qualification using only disposable fictional records.
+  Technical completion is separate from human aesthetic/motivational acceptance.
+  This workstream is local research/implementation, not a new source push,
+    deployment, workflow change or publication authorization.
+
+Completion evidence:
+  Six case studies and the implemented rule/transfer rationale:
+    docs/ATLAS-PROGRESSION-RESEARCH.md: 4,186 whitespace-counted words,
+    13 numbered sections and two diagrams. Primary developer/description text,
+    two complete research abstracts and limited indexed excerpts are labelled;
+    no full-video or inaccessible-full-paper review is claimed.
+  Strict production build passes. Actual 17 focused model/geometry cases pass
+    after correcting two test-fixture assumptions, not changing domain guards.
+  Final actual 28 native cases pass in 28 attempts, one worker/no retries/skips/
+    flaky. Source fingerprint:
+    4bf26f7b4cdf17a3a9052e7ded76b17843ea4e2b32ef8de0a0bdc5ec16b04dca.
+    All 334 sealed source/test/configuration inputs remain identical afterward.
+    Includes real record forms, completion between discovery milestones,
+    equal-EXP source replacement, default/filters/reload, route/preview view
+    isolation, blockers/planned/completed routes, six theme/viewport geometries,
+    both tutorial chapter widths, all seven scenes and ordinary/encrypted
+    backup/tutorial compatibility in disposable fictional contexts.
+  Actual current development URL returns the new Atlas. A separate disposable
+    browser verifies level-one ownership/zero EXP while previewing level two,
+    the same canvas, a real render-count increase and changed native canvas PNG,
+    unchanged storage and no browser errors/external requests. PNG comparison
+    is not human aesthetic review; no new image view or physical-device claim.
+  Renderer retains tested bounds: fewer than 1,600 triangles, at most eight
+    draw calls, 384-pixel internal width and 82,944 pixels. Idle/offscreen,
+    disposal, keyboard/touch controls, reduced motion and fallback pass.
+  Public-safe proof: docs/tracking/2026-11-21-atlas-progression-local-review.json.
+  Initial native run: 21 passed, two exact-label selection timeouts, 23 attempts,
+    one worker/no retries/skips/flaky. Explicitly labelled the expedition select.
+    Intermediate run: 26/27 pass; its remaining new test used an exact label
+    locator for the existing Mission select. Corrected to its exact combobox
+    role/name without editing the dialog. Both failed runs remain diagnostics.
+  Started from the published journal baseline and preserved the uncommitted
+    original Atlas default-filter follow-up. No owner browser records inspected.
+  The earlier implementation tied character progress only to discoveries.
+    The new deterministic projection also recognises distinct real work;
+    all original discovery contributions and chapter thresholds remain.
+  README, guide, design/research, architecture, privacy and tutorial copy are
+    updated. All four approved README images remain intact. Workspace/domain,
+    encrypted-journal code, dependencies, public journal and workflow unchanged.
+  Technical work is ready for local review. Human aesthetic/motivational benefit
+    is unverified. No source commit, push or deployment was performed.
+
+Completion log:
+  2026-11-21 - Local implementation is technically qualified: 17 focused units,
+    strict build, final 28/28 native cases and an actual current-preview paint/
+    storage probe pass. Retain the initial 23-case and intermediate 27-case
+    diagnostics separately. Preserve all records, original default follow-up,
+    four README illustrations and both existing previews. Advance the same
+    issue/Project item to review; no source publication or human approval.
+  2026-11-21 - Initial read-only tracking preview rejected an uppercase
+    placeholder. The runtime requires the exact lowercase pending sentinel.
+    No remote issue existed and no write was attempted; corrected the source
+    rather than weakening conflict checks or inventing a mapping.
+  2026-11-21 - Started a separate substantial workstream for the owner's
+    research-and-implementation request. Preserve original discovery-atlas
+    issue identity/default-filter delta and completed journal publication.
+    Keep the local previews; no questions while the owner is away.

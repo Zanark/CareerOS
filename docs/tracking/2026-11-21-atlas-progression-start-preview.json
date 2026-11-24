@@ -1,0 +1,39 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "e52a16f71c5231b8af1bdfeb83b1ba4544b10d60",
+  "observedAt": "2026-11-21T17:36:09.046Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "atlas-progression-redesign",
+      "path": "TODO/25_ATLAS_PROGRESSION_REDESIGN.todo",
+      "outcome": "conflict",
+      "created": false,
+      "reused": false,
+      "error": "Local backlink differs from the discovered managed issue."
+    }
+  ],
+  "counts": {
+    "included": 24,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 0,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 1,
+    "failed": 0
+  }
+}
