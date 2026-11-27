@@ -176,8 +176,8 @@ describe('current tutorial curriculum', () => {
   });
 
   it('requires expanding the recorded-work explanation on the practice mission', () => {
-    expect(gate('evidence-activity', ui({ '.mission-work-streak[data-mission-id="fabric"] details[open]': {} }))).toBe(false);
-    expect(gate('evidence-activity', ui({ '.mission-work-streak[data-mission-id="pattern"] details[open]': {} }))).toBe(true);
+    expect(gate('evidence-activity', ui({ '.mission-work-streak[data-mission-id="fabric"] [data-context-help-open="true"]': {} }))).toBe(false);
+    expect(gate('evidence-activity', ui({ '.mission-work-streak[data-mission-id="pattern"] [data-context-help-open="true"]': {} }))).toBe(true);
   });
 
   it('keeps preview-and-cancel ahead of the deliberate per-mission archive exercise', () => {

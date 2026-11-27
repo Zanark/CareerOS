@@ -42,6 +42,23 @@ imports an achievement or silently upgrades your saved tracker.
   a bounded daily plan and focus room. DeepSeaFoam dark and Harbor Daylight
   light retain the animated sunrise/sunset switch.
 
+### Clearer missions, calmer focus
+
+- **A calendar in the shared header:** month, date and weekday, a gentle paper
+  turn, and a red weekend strip. Daily plan sits directly below Overview.
+- **[A checkpoint that looks like a checkpoint](https://zanark.github.io/CareerOS/#/mission/pattern):**
+  numbered flags, distinct stage labels, actual mission progress and next unlocks.
+  Streak counting stays behind `?` help; operation documents sit at the bottom.
+  Saved blockers turn their card red, while a clear card is green.
+- **[See how missions work](https://zanark.github.io/CareerOS/#/missions):**
+  an animated, read-only walkthrough of two missions, stages, evidence and
+  checkpoint unlocks. Pause, replay or step through it; reduced motion is
+  respected. **In focus** is your active planning pool; **Primary** gets first
+  priority among eligible missions. The example never awards real progress.
+- **[Choose a focus soundtrack](https://zanark.github.io/CareerOS/#/plan):**
+  the supplied cafe thumbnail opens an optional YouTube playlist in a new tab
+  from the compact timer or focus room. No embedded player, autoplay or timer reset.
+
 ### Discovery Atlas
 
 Explore real checkpoint expeditions, saved-work EXP between

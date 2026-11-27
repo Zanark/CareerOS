@@ -432,6 +432,15 @@
   box-shadow: inset 3px 0 var(--dsf-error);
 }
 
+:root[data-theme] .mission-blocker-card[data-blocked] {
+  --blocker-tone: var(--dsf-document);
+  border-color: var(--blocker-tone);
+  background: color-mix(in srgb, var(--blocker-tone) 12%, var(--dsf-paper));
+  box-shadow: inset 4px 0 var(--blocker-tone), var(--shadow);
+}
+:root[data-theme] .mission-blocker-card[data-blocked="true"] { --blocker-tone: var(--dsf-error); }
+.mission-blocker-card .blocker-card-state { display: inline-flex; flex-shrink: 0; color: var(--blocker-tone); }
+
 :root[data-theme] .toast {
   color: var(--dsf-heading);
   background: var(--dsf-paper);

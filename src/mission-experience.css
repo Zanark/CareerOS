@@ -1,0 +1,44 @@
+.mission-scheduling { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; margin: -.25rem 0 .75rem; }
+.mission-scheduling > span, .mission-scheduling > button.text-link { display: inline-flex; align-items: center; gap: .25rem; font-size: .625rem; }
+.mission-scheduling > span { padding: .25rem .4rem; border: 1px solid var(--line); border-radius: 20px; color: var(--dsf-text); background: var(--dsf-surface); }
+.mission-scheduling > span > svg { color: var(--dsf-accent); }
+.mission-scheduling > button.text-link { min-height: 40px; margin-left: .1rem; }
+.mission-scheduling > button.text-link > svg { color: #b58900; }
+:root[data-theme] .save-state-card.mission-checkpoint {
+  position: relative; overflow: hidden; padding: 22px 26px; border-radius: 17px;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--dsf-separator));
+  background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%), var(--dsf-paper);
+  box-shadow: inset 0 3px var(--accent), 0 12px 30px color-mix(in srgb, var(--dsf-shadow) 35%, transparent);
+}
+.mission-checkpoint .save-state-header { gap: 12px; }
+:root[data-theme] .mission-checkpoint .save-state-header .eyebrow { display: inline-flex; align-items: center; gap: .3rem; color: var(--tone); font-size: .625rem; }
+.mission-checkpoint .save-state-main { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 20px; align-items: center; margin: 22px 0; }
+.checkpoint-emblem { position: relative; display: grid; justify-items: center; align-content: center; gap: 2px; width: 76px; height: 88px; border: 1px solid color-mix(in srgb, var(--accent) 65%, var(--line)); border-radius: 16px 16px 28px 28px; background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 18%, var(--dsf-paper)), var(--dsf-surface)); color: var(--tone); box-shadow: inset 0 1px #ffffff16, 0 7px 0 color-mix(in srgb, var(--accent) 10%, transparent); }
+.checkpoint-emblem b { font-size: 1.2rem; line-height: 1.1; font-weight: 500; font-variant-numeric: tabular-nums; }
+.checkpoint-location { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem .6rem; margin-bottom: .3rem; color: var(--dsf-muted); font-size: .625rem; }
+.checkpoint-location > span { display: inline-flex; align-items: center; gap: .2rem; }
+.checkpoint-location > span + span { padding-left: .6rem; border-left: 1px solid var(--line); }
+.mission-checkpoint .save-state-main h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); line-height: 1.2; font-weight: 500; overflow-wrap: anywhere; }
+.checkpoint-mission-progress { text-align: right; }
+.checkpoint-mission-progress > small { display: block; margin-bottom: .25rem; color: var(--dsf-muted); font-size: .625rem; letter-spacing: .06em; }
+.mission-checkpoint .save-count { font-size: 1.6rem; }
+.mission-checkpoint .save-count small { font-size: .625rem; }
+.mission-checkpoint .progress-track { height: 6px; border-radius: 6px; }
+.mission-checkpoint .save-state-bottom { justify-content: flex-start; margin-top: 15px; }
+.mission-checkpoint .save-state-bottom > span { align-items: center; }
+.mission-checkpoint .save-state-bottom > span > svg { color: var(--tone); flex-shrink: 0; }
+.mission-checkpoint .save-state-bottom strong { color: var(--dsf-heading); font-weight: 500; }
+.mission-planned-summary { display: flex; margin-top: 18px; }
+.mission-planned-summary .mission-work-streak { width: min(100%, 340px); }
+.mission-detail :is(.next-action > .eyebrow, .criteria-list h4, .available-checkpoints h4, .dependencies h3) { display: flex; align-items: center; gap: .3rem; }
+.mission-detail .right-rail .mission-work-streak { margin: 0; }
+@media (max-width: 700px) {
+  :root[data-theme] .save-state-card.mission-checkpoint { padding: 19px; }
+  .mission-checkpoint .save-state-main { grid-template-columns: 58px minmax(0, 1fr); gap: 14px; }
+  .checkpoint-emblem { width: 58px; height: 74px; }
+  .checkpoint-mission-progress { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; text-align: left; }
+  .mission-checkpoint .save-count { margin: 0; font-size: 1.2rem; }
+  .checkpoint-location { font-size: .6rem; }
+  .checkpoint-location > span + span { padding-left: 0; border: 0; }
+  .mission-checkpoint .save-state-main h2 { font-size: 1.4rem; }
+}

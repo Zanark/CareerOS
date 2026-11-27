@@ -1,0 +1,61 @@
+{
+  "status": "local-optional-focus-playlist-review-candidate",
+  "observedAt": "2026-11-27T04:20:19.0715253+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "08df6e8bdb35dc402508fe8e67a31b21007840cd94234adf2eebc9d137863251",
+  "sourceInputCount": 348,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration, including preserved local navigation/blocker changes; not a whole-repository hash.",
+  "build": "npm run build passed separately on the sealed source; native tests reused the verified ready isolated production preview.",
+  "native": {
+    "casesPassed": 17,
+    "attempts": 17,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "byFile": {
+      "focus-playlist.spec.ts": 5,
+      "focus-room.spec.ts": 12
+    }
+  },
+  "playlist": "https://www.youtube.com/playlist?list=PLYw_q6Wu9DTU",
+  "localThumbnail": {
+    "path": "src/assets/focus-study-cafe.webp",
+    "width": 720,
+    "height": 405,
+    "bytes": 61336,
+    "sha256": "4329ae339fa5a4af7cc208e368eaed8ee0640f58739e36812a92b6fea62be6ee",
+    "sourceMetadataRemoved": true
+  },
+  "coverage": [
+    "Both themes and 1440x1000, 390x844, 320x568, 568x320; compact/full local image decode, exact destination, accessible new-tab name, complete scroll visibility and no horizontal overflow.",
+    "No external media request or iframe/audio/video before choosing the link; full focus retains dark readable roles under the light app theme.",
+    "Actual keyboard/image clicks into an intercepted external navigation fixture verify null opener and empty referrer, without starting an idle timer or writing saved data.",
+    "Running compact/full clicks preserve the room, original tab, timer progression and exact stored reports; tutorial clicks do not publish practice.",
+    "Existing distraction persistence, failed start/report/end, deferred practice ending, native fullscreen, stable graph snapshot, independent motion and four primary-control layouts pass."
+  ],
+  "diagnosticsRetained": [
+    {
+      "casesPassed": 15,
+      "casesFailed": 2,
+      "finding": "Nearest root scrolling left 0.75px of the compact card below the viewport.",
+      "resolution": "Add 0.5rem scroll clearance; retain the exact full-viewport assertion."
+    },
+    {
+      "casesPassed": 15,
+      "casesFailed": 2,
+      "finding": "After scrolling to optional music, reopening at a short viewport retained center scroll and obscured the timer.",
+      "resolution": "Reset only center scroll on each actual room opening; retain the controller and strict timer/report visibility assertions."
+    }
+  ],
+  "limitations": [
+    "Provider navigation is intercepted in browser tests; no audio audition, exhaustive playlist playability or provider availability guarantee.",
+    "No new image views, aesthetic acceptance, physical-device or screen-reader-user qualification.",
+    "Human review and supplied-image publication rights remain separate; no owner browser/profile or source staging/commit/push/deployment."
+  ],
+  "workspaceSchemaChanged": false,
+  "focusControllerChanged": false,
+  "dependenciesChanged": false,
+  "published": false
+}

@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-11-26T21:01:36.931Z",
+  "account": "Zanark",
+  "workstream": "navigation-refinements",
+  "issue": "https://github.com/Zanark/CareerOS/issues/27",
+  "issueId": "I_kwDOU6lJns8AAAABi2_0Fg",
+  "issueState": "open",
+  "projectId": "PVT_kwHOAe2wCs4BqeZy",
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMNXnY",
+  "projectStatus": "In review",
+  "managedSha256": "d62270b54908f35c180a28eaa60dcfaf36df7d3e3a9ac425243b82639f6e4241",
+  "exactManagedSourceMatches": true,
+  "backlinkVerified": true,
+  "originalKanbanVerified": true,
+  "unchangedPriorSourceMappings": 26,
+  "finalSyncActions": 0,
+  "remoteMain": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourcePublished": false,
+  "humanApproval": "pending"
+}

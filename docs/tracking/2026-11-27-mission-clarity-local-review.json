@@ -1,0 +1,73 @@
+{
+  "status": "local-mission-clarity-review-candidate",
+  "observedAt": "2026-11-27T05:33:43.0433641+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "492e3f9e089a438f039971d39a2efdc0aa40b7e924137c520789732951beef0e",
+  "sourceInputCount": 352,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration, including preserved local calendar/blocker/playlist work; not a whole-repository hash.",
+  "build": "npm run build passed on the sealed source; native tests reused a verified ready isolated production preview.",
+  "tutorialUnitCasesPassed": 13,
+  "native": {
+    "casesPassed": 26,
+    "attempts": 26,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "byFile": {
+      "background-evidence.spec.ts": 2,
+      "blocker-card.spec.ts": 6,
+      "dsa-expanded.spec.ts": 3,
+      "focus-playlist.spec.ts": 3,
+      "game-development.spec.ts": 1,
+      "mission-clarity.spec.ts": 10,
+      "tutorial-features.spec.ts": 1
+    }
+  },
+  "coverage": [
+    "Both themes and 1440x1000, 390x844, 320x568, 568x320; distinct checkpoint/stage/mission progress, compact streak rail, bottom documents and fully reachable modal controls without horizontal overflow.",
+    "Mouse hover, keyboard focus/Escape and real emulated-touch taps open the existing counting help without changing saved data.",
+    "Actual evidence saving retains the checkpoint; explicit all-criteria confirmation advances it. Primary changes priority without activating Background or replacing an existing plan.",
+    "Two fictional missions each have two stages/four checkpoints; evidence, next unlock, stage completion and one independent completed mission remain illustration only.",
+    "Manual steps, bounded autoplay, pause/resume/replay, hidden-tab suspension, finite real CSS motion, live reduced motion, route cleanup and focus return pass.",
+    "Practice walkthrough and docked paused tutorial return preserve real data; existing streak tutorial, edition append, blocker, Planned and optional playlist safeguards pass."
+  ],
+  "illustration": {
+    "missions": 2,
+    "stagesPerMission": 2,
+    "checkpointsPerMission": 4,
+    "scenes": 6,
+    "totalPlaybackMilliseconds": 21600,
+    "looping": false,
+    "workspaceDependency": false,
+    "externalMedia": false
+  },
+  "diagnosticRetained": {
+    "casesPassed": 6,
+    "casesFailed": 4,
+    "attachmentsPreserved": 12,
+    "fixtureCorrections": [
+      "Open DSA is an existing resume command that records Checkpoint started, not read-only navigation. The layout matrix now uses a plain hash route; business behavior is unchanged.",
+      "The next actual DSA checkpoint belongs to Stage 2 / HashMap Pattern Mastery, not the fixture's guessed Stage 1."
+    ],
+    "productCorrection": "Floating tutorial coaching intercepted player controls. Reuse the compact paused-guide pattern, reserve a docked dialog row, and close through the native cancel handler.",
+    "assertionTimeoutOrRetryRelaxation": false
+  },
+  "currentPreviewObservations": {
+    "http": 200,
+    "streakCardPixels": { "width": 278, "height": 123 },
+    "bothDesktopExampleRoutesInViewport": true,
+    "narrowModalHorizontalOverflow": 0,
+    "pageErrors": 0
+  },
+  "preservedPriorSourceInputs": 340,
+  "changedExistingSourceOrTestFiles": 8,
+  "newUiStyleOrTestFiles": 4,
+  "limitations": [
+    "No new image views or independent aesthetic acceptance; design review remains human.",
+    "Touch is browser-emulated, not physical-device qualification. Screen-reader-user experience is not claimed.",
+    "No owner browser/profile, source staging/commit/push/deployment or new dependencies/schema/progression rules."
+  ],
+  "published": false
+}

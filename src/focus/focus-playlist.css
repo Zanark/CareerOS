@@ -1,0 +1,35 @@
+.focus-playlist {
+  display: grid; min-width: 0; margin-top: 1rem; overflow: hidden; scroll-margin-block: .5rem;
+  border: 1px solid var(--line); border-radius: 10px;
+  color: var(--dsf-heading); background: var(--dsf-paper); text-align: left;
+}
+.focus-playlist__art { position: relative; display: block; min-width: 0; aspect-ratio: 16 / 9; overflow: hidden; }
+.focus-playlist__art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.focus-playlist__play {
+  position: absolute; inset: 50% auto auto 50%; display: grid; place-items: center;
+  width: 40px; height: 40px; border: 1px solid #EEE8D580; border-radius: 50%;
+  color: #EEE8D5; background: #000F13B8; transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.focus-playlist__caption { display: grid; align-content: center; gap: .2rem; min-width: 0; padding: .5rem; }
+.focus-playlist__caption strong { font-size: .6875rem; line-height: 1.4; font-weight: 600; overflow-wrap: anywhere; }
+.focus-playlist__caption > span { display: flex; align-items: center; gap: .3rem; font-size: .625rem; line-height: 1.4; color: var(--dsf-muted); }
+.focus-playlist:hover { border-color: var(--dsf-accent); }
+.focus-playlist:focus-visible { outline: 2px solid var(--dsf-accent); outline-offset: 3px; }
+.focus-room .focus-playlist {
+  grid-column: 1 / -1; grid-template-columns: 4rem minmax(0, 1fr);
+  width: min(100%, 22rem); margin: .75rem auto 0;
+  border-color: #586E7566; color: #EEE8D5; background: #001E26;
+}
+.focus-room .focus-playlist__art { align-self: center; }
+.focus-room .focus-playlist__play { width: 30px; height: 30px; }
+.focus-room .focus-playlist__play svg { width: 15px; height: 15px; }
+.focus-room .focus-playlist__caption > span { color: #93A1A1; }
+.focus-room .focus-playlist:hover { border-color: #00A591; }
+:root[data-theme] .focus-room .focus-playlist:focus-visible { outline-color: #EBE565; }
+@media (max-width: 360px) {
+  .focus-room .focus-playlist { grid-template-columns: 3rem minmax(0, 1fr); }
+}
+@media (max-height: 520px) and (min-width: 560px) {
+  .focus-room .focus-playlist { margin-top: 0; }
+}

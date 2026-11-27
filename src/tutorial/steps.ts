@@ -208,8 +208,8 @@ export const steps: TutorialStep[] = [
     id: 'evidence-activity', chapter: 'evidence', kind: 'action', route: 'mission/pattern', command: 'close-dialogs',
     targets: ['mission-work-streak'],
     title: 'Read the recorded-work streak',
-    body: 'Expand How this is counted below the streak. Any evidence/progress or recall result counts, even without completion. Same-day records across editions count once using this browser’s local date; future calendar days are excluded. No record today keeps yesterday’s streak for today; no record on either day means zero. Timers, browsing, settings, adoption, plans and personal history do not count.',
-    checkUi: root => !!root.querySelector('.mission-work-streak[data-mission-id="pattern"] details[open]'),
+    body: 'Open the ? beside Recorded streak in the compact card. Any evidence/progress or recall result counts, even without completion. Same-day records across editions count once using this browser’s local date; future calendar days are excluded. No record today keeps yesterday’s streak for today; no record on either day means zero. Timers, browsing, settings, adoption, plans and personal history do not count.',
+    checkUi: root => !!root.querySelector('.mission-work-streak[data-mission-id="pattern"] [data-context-help-open="true"]'),
   },
   {
     id: 'evidence-criteria', chapter: 'evidence', kind: 'explain', command: 'open-evidence',

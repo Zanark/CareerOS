@@ -1,0 +1,65 @@
+{
+  "status": "local-paper-calendar-review-candidate",
+  "observedAt": "2026-11-27T02:11:41.699867+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "e3b960a8b43c30e04879dcc9f1f49a672048e076b3973ec4e1b57eea4cae7c0b",
+  "sourceInputCount": 343,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration; not a whole-repository hash.",
+  "build": "Existing Playwright webServer command runs strict TypeScript and the production Vite build before its separate loopback preview.",
+  "native": {
+    "casesPassed": 50,
+    "attempts": 50,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "byFile": {
+      "atlas-motion.spec.ts": 13,
+      "header-date.spec.ts": 11,
+      "search.spec.ts": 13,
+      "theme.spec.ts": 1,
+      "visual-layout.spec.ts": 11,
+      "workspace.spec.ts": 1
+    }
+  },
+  "currentDesign": {
+    "presentation": "Paper-calendar page with binding details, larger month/weekday and generous horizontal spacing.",
+    "labelPixels": {
+      "regular": 21,
+      "narrow": 18
+    },
+    "dayPixels": 48,
+    "animation": "One 650ms page turn on mount or actual local-date change; no ambient loops or motion controls.",
+    "reducedMotion": "Removes the turn; native open dialogs suspend it.",
+    "dateSource": "Existing WorkspaceModel.date, formatted at local noon; no additional hook, timer, observer or storage."
+  },
+  "coverage": [
+    "Both themes, twelve widths and two font contexts; full September/Wednesday labels, actual accessibility text and non-overlapping centered fields.",
+    "Shared date DOM across normal routes, UTC/local calendar separation, year/month rollover and isolated tutorial midnight.",
+    "Finite turn settles, remains still across route changes, replays only for a new date, respects reduced motion and retains open drafts.",
+    "Daily plan directly below Overview in desktop/compact navigation, same routes and no saved-data changes.",
+    "Existing search, theme, shared visual-layout, graph fitting, midnight draft and all thirteen Atlas motion regressions."
+  ],
+  "historicalEdition": {
+    "report": "docs/tracking/2026-11-27-navigation-orbital-review.json",
+    "nativePasses": 52,
+    "sourceInputs": 344,
+    "disposition": "Subsequently rejected by the owner as too noisy and its text too small; not qualification of this paper revision."
+  },
+  "earlierDiagnosticsPreserved": [
+    "Zero-case startup/type diagnostic.",
+    "43-pass/9-fail orbital accessibility diagnostic; fixed with real screen-reader date text, retained in the current paper version."
+  ],
+  "limitations": [
+    "No new image views or aesthetic approval; captured/compared pixels are not visual inspection.",
+    "Desktop Edge with emulated viewports/timezones is not physical-device or screen-reader-user qualification.",
+    "Human review and publication remain pending; no commit, push or deployment."
+  ],
+  "atlasMotionImplementationUnchanged": true,
+  "workspaceSchemaChanged": false,
+  "dependenciesChanged": false,
+  "newIdleJavaScriptOrWebGLLoop": false,
+  "ownerBrowserAccessed": false,
+  "published": false
+}

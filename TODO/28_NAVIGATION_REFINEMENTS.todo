@@ -1,0 +1,164 @@
+Workstream ID: navigation-refinements
+Title: Add a shared current-date display and refine navigation order
+Status: IN_REVIEW
+Milestone: Provide a locally reviewable, readable navigation refinement
+Dependencies: None
+GitHub issue: https://github.com/Zanark/CareerOS/issues/27
+Purpose: Show the browser-local current month, centered day number and weekday
+  in the persistent header. Place Daily plan immediately below Overview.
+  Preserve existing controls, readable typography and saved records.
+  The owner explicitly requests local review before publication.
+
+Tasks:
+  [x] Inspect the shared shell, local-date lifecycle and responsive layout.
+  [x] Reuse the current workspace date without adding another clock or storage.
+  [x] Place Daily plan directly after Overview without changing route identities.
+  [x] Replace the rejected orbital treatment with a quiet paper-calendar tile.
+  [x] Spread month/day/weekday across a wider responsive composition.
+  [x] Enlarge month/weekday text and the central date after owner feedback.
+  [x] Bring the labels closer and add a restrained paper hover effect.
+  [x] Make only the calendar's top strip red on local Saturdays and Sundays.
+  [x] Qualify the current paper version's local date, layout and finite animation.
+  [x] Check existing search, theme, navigation and graph viewport behavior.
+  [x] Update focused documentation and prepare same-identity tracking/continuity.
+  [x] Prepare the running current-source local preview for owner review.
+
+Acceptance criteria:
+  Normal pages share one date display: month left, day number centered and
+    weekday right, with an accessible complete local calendar date.
+  Both themes and narrow layouts retain the full date and existing controls
+    without overlap, clipped text, smaller typography or horizontal overflow.
+  A recognizable paper-calendar date has generous spacing and larger labels.
+    No orbits, stars, glow, trails, looping decoration or extra motion button.
+    Only a brief page turn on initial load or an actual date change; reduced
+    motion remains authoritative and open native dialogs suspend that turn.
+  Labels stay near the tile at 24px, with readable 21px standard abbreviations
+    on narrow screens and the complete accessible date retained. The day is
+    48px. Hover gives the paper a gentle lift/tilt and shadow, not ambient noise.
+  Saturday and Sunday use a red top strip in both themes; weekdays retain teal.
+    The rule follows the browser-local date and updates through midnight.
+  Existing local-day updates keep the date current across midnight, including
+    month/year changes and tutorial practice, without a second timer.
+  Daily plan immediately follows Overview in desktop and compact navigation;
+    its route, tutorial target and saved plans remain unchanged.
+  The graph still fits the available viewport below the responsive header.
+  No new progress/reward, schema, dependency, workflow or browser-record change.
+  Tests use disposable fictional browser contexts, never the owner's profile.
+  Local technical verification is separate from pending human review.
+  No staging, commit, push or deployment; the published website stays unchanged.
+
+Completion evidence:
+  Shared header and navigation are owned by src/App.tsx::Workspace/mainNav.
+  Existing useWorkspace/usePracticeWorkspace date values update locally every
+    30 seconds; display formatting must not parse date-only strings as UTC.
+  The current paper calendar has no new hooks, timers or state. The original
+    Atlas motion implementation is restored unchanged; its policy is unrelated.
+  Current weekend-aware calendar passes all 15 affected header cases in 15
+    attempts, one worker/no retries/skips/flaky cases or top-level errors.
+    Strict build passes; all 343 inputs stay unchanged through this gate at
+    35dac42043763bd4d9e73f4cbeb9a4fb4df0eacdc27e44336379bb14ee35e111.
+    Both themes verify red Saturday/Sunday and teal Friday/Monday; a separate
+    live local-midnight sequence covers Friday through Monday.
+  The preceding balanced typography passed all 12 affected cases in 12
+    attempts, one worker/no retries/skips/flaky cases or top-level errors.
+    Strict build passes; all 343 inputs are unchanged through this gate at
+    a42f4d3c0e2cd708885cbfbe4ff475b7f08b04457d86690fd5dc5d2c241e5f94.
+  Only the calendar component, its CSS and its tests differ from the earlier
+    51-case gate; the other 340 inputs are identical. Keep the broader gate
+    separate rather than claim 51 current-source executions.
+  The preceding closer-label/hover refinement passed 51 cases in 51 attempts, one
+    worker, zero retries/skips/flaky cases or top-level errors. Strict
+    TypeScript/production build and all 343 unchanged source inputs pass.
+    Fingerprint:08d496d1f0fcce3ee0554c0ba22bf9ea109abd7e748cd423a4b990fb2e668e22.
+  Current header cases retain verification of 24px full labels/21px narrow standard
+    short names, 48px day, closer spacing, real accessibility text, hover lift
+    with stationary labels, local midnight and reduced-motion behavior.
+    The preceding gate also passed 39 coupled regressions, including all
+    13 Atlas cases; those are not relabelled as a new full current-source run.
+  Current proof: docs/tracking/2026-11-27-navigation-local-review.json.
+    Human visual review remains pending; no source is committed or published.
+  Initial weekend-color selection ran 13 pass/2 fixture failures: navigating
+    to the already-current hash did not remount the date hook after changing
+    its test clock. Explicit snapshot reload fixes this; the live midnight
+    case passes without changing the app's date update behavior.
+  The first paper-version qualification passed 50 cases in 50 attempts, one
+    worker, zero retries/skips/flaky cases or top-level errors. The existing
+    strict TypeScript/production build succeeds before the isolated browser run.
+  Its 343 inputs remained unchanged at fingerprint
+    e3b960a8b43c30e04879dcc9f1f49a672048e076b3973ec4e1b57eea4cae7c0b.
+    Eleven header, thirteen Atlas, thirteen search, eleven shared-layout,
+    one theme and one midnight-draft cases pass on this exact paper revision.
+  That earlier local preview retained full September/Wednesday labels, 21px type
+    (18px on narrow screens), a 48px day and no overflow at 320..2400px.
+    Its only calendar animation finishes after 650ms and does not replay on
+    ordinary navigation. Accessibility text, reduced motion and drafts hold.
+  Earlier paper proof: docs/tracking/2026-11-27-navigation-paper-first-review.json.
+    Superseded by the requested larger/closer labels and hover effect.
+  The rejected orbital version's native qualification passed 52 cases in 52 attempts, one worker,
+    no retries/skips/flaky cases or top-level errors. The existing strict
+    TypeScript/production build precedes its independent qualification server.
+  The 344 source/test/config inputs remain unchanged through qualification,
+    fingerprint4314610237d82be8af36b24866ccbc0c17fb358bd5b993814a2e4d9c168b6cb0.
+    This is not a whole-repository hash or a full application/domain-suite run.
+  Its thirteen header cases covered both themes, twelve viewport widths, two font
+    contexts, longest month/weekday labels, actual accessibility text, shared
+    routes, two local timezones, year rollover, tutorial isolation, date
+    animation/pause/visibility/dialog/static fallback and the navigation order.
+  Thirteen existing Atlas motion, thirteen search, eleven shared-layout,
+    one theme and one midnight-draft cases also pass on the final source.
+  The first launch ran zero cases because of a test style-handle type error.
+    The next 43-pass/9-fail edition exposed the date's inaccessible text
+    treatment. A real screen-reader text child and actual accessibility-tree
+    assertion replace unsupported time naming; original diagnostics remain.
+  No new image views: actual pixel change is verified programmatically, not
+    aesthetic or physical-device/screen-reader-user approval.
+  Historical proof: docs/tracking/2026-11-27-navigation-orbital-review.json.
+    The owner subsequently rejected that design; it does not qualify the
+    current paper revision. No source is committed, pushed or deployed.
+
+Completion log:
+  2026-11-27 - Weekend-aware final source passes all15header cases/15attempts,
+    one worker/no retries and strict build, with343inputs35dac420unchanged.
+    Retain the13/2snapshot-fixture diagnostic; no app timer workaround.
+    Red applies only to the local Saturday/Sunday top strip. Same original
+    issue27/item stays In review; no source publication or inferred approval.
+  2026-11-27 - Owner requests a RED calendar top header on Saturday/Sunday.
+    Derive the condition from the existing local calendar day, change only
+    the top strip and retain weekday teal, typography, spacing and hover.
+  2026-11-27 - Owner says the latest text is too big. Moderate labels to24px/
+    21pxnarrow and the day to48px while retaining closer placement and hover.
+    All12current affected cases pass in12attempts, one worker/no retries and
+    strict build, with unchanged343inputs a42f4d3c. The preceding51-case gate
+    remains distinct; only CSS typography/test floors changed. Still local
+    and awaiting owner review; original issue27/itemidentity is preserved.
+  2026-11-27 - Final closer/larger paper calendar and hover feedback pass all
+    51 native cases/51attempts, one worker/no retries, strict build and unchanged
+    343 inputs at08d496d1. Keep original issue27/item In review for the owner;
+    no source commit, push or deployment. Earlier paper50and orbital52reports
+    remain source-bound historical editions, not current approval.
+  2026-11-27 - Owner asks for hover feedback, labels closer to the calendar
+    and larger text again. Tighten the composition; use 27px labels/24px
+    narrow abbreviations and a 54px day. Add a subtle finite hover lift/tilt
+    with reduced-motion protection. Preserve the earlier paper50-case edition
+    separately and qualify the refinement without publishing source.
+  2026-11-27 - Current paper-calendar revision passes all 50 selected native
+    cases in 50 attempts, one worker/no retries, strict build and unchanged
+    343 inputs. Original Atlas motion source is unchanged. Prepare the same
+    issue27/item for In review; preserve rejected orbital and failed editions.
+  2026-11-27 - Owner says the animated design is too noisy and its text too
+    small; requests a more calendar-like feel. Remove orbital decoration and
+    its lifecycle/control code. Add a quiet paper tile with binding details,
+    larger 21px labels/18px on narrow screens and a 48px day number, preserving
+    spacing and a single 650ms page turn. Requalify this exact new revision.
+  2026-11-27 - The widened orbital date and reordered Daily plan are technically
+    qualified locally: final52native cases/52attempts, one worker/no retries,
+    strict build and unchanged344inputs. Preserve initial zero-case/type and
+    43/9accessibility diagnostics. Return the original issue/item to In review;
+    do not infer owner acceptance or publish the local candidate.
+  2026-11-27 - Owner rejects the plain treatment as insufficiently fancy,
+    requests creative animation and explicitly asks for more spacing between
+    all three items. Replace the compact separator treatment with a wider
+    original orbital calendar, keeping text stable and controls explicit.
+  2026-11-27 - Owner requests a local-only header date and then moves Daily plan
+    directly below Overview. Reuse the shared calendar-date value and stable
+    route identities; keep publication behind the owner's later review.

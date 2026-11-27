@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-11-26T21:57:38.763Z",
+  "account": "Zanark",
+  "workstream": "blocker-card-status",
+  "issue": "https://github.com/Zanark/CareerOS/issues/28",
+  "issueId": "I_kwDOU6lJns8AAAABi4LBXw",
+  "issueState": "open",
+  "projectId": "PVT_kwHOAe2wCs4BqeZy",
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMOjkQ",
+  "projectStatus": "In review",
+  "managedSha256": "01aed7e9194a14482bdc702bbd2bbdfda539c59991248bbd2d07f4549d7eac2e",
+  "exactManagedSourceMatches": true,
+  "backlinkVerified": true,
+  "originalKanbanVerified": true,
+  "unchangedPriorSourceMappings": 27,
+  "priorNavigationMappingPreserved": true,
+  "finalSyncActions": 0,
+  "remoteMain": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourcePublished": false,
+  "humanApproval": "pending"
+}

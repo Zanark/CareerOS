@@ -1,0 +1,78 @@
+Workstream ID: mission-clarity
+Title: Make mission checkpoints distinct and explain the hierarchy interactively
+Status: IN_REVIEW
+Milestone: An action-first mission page and a clear animated progression example
+Dependencies: tracker-foundation, tutorial-and-help
+GitHub issue: https://github.com/Zanark/CareerOS/issues/30
+Purpose: Make the current checkpoint visually distinct, remove repeated
+  stage/checkpoint names and clarify primary priority versus in-focus planning.
+  Move recorded work into one compact card with contextual counting help and
+  move Operation documents to the bottom. Add a polished, optional Missions
+  walkthrough with multiple example missions and checkpoints. Keep saved work,
+  completion rules, source adoption and the previous local refinements intact.
+
+Tasks:
+  [x] Trace mission rendering, planning priority and explicit completion rules.
+  [x] Compact the streak and preserve its tutorial/contextual-help behavior.
+  [x] Restyle the checkpoint and move documents below the mission content.
+  [x] Add the animated mission/stage/checkpoint/evidence walkthrough.
+  [x] Qualify accessible controls, motion, layout and real progression guards.
+  [x] Update focused documentation, original tracking and owned continuity.
+  [x] Prepare the preserved current-source preview for local review.
+
+Acceptance criteria:
+  The current checkpoint has a flag/number, unambiguous checkpoint title,
+    separate stage metadata, actual mission progress and next unlock.
+    A stage matching its checkpoint name is not repeated as another title.
+  Recorded streak is a compact secondary card, not a full-width introductory
+    row. Actual recorded-day status remains; counting moves to existing
+    click/tap/hover/keyboard contextual help and the tutorial remains usable.
+  Operation documents is last on the mission page. Adoption confirmations,
+    material warnings, version information and all existing links remain.
+  Primary is the single planning priority, not activation or completion.
+    Only eligible in-focus missions enter a newly generated capacity-bound plan.
+  Missions has an inviting button opening a readable, polished native dialog.
+    Its fictional multi-mission example shows stages, multiple checkpoints,
+    saving evidence versus criteria-confirmed completion, next unlock and
+    mission completion without automatically completing another mission.
+  Animation is bounded, pausable/replayable and manually navigable. Reduced
+    motion, hidden tabs, closing/unmount, focus return and narrow screens work.
+    The example is not real progress and cannot call workspace writers.
+  Both themes retain readable type and meaningful icons; no external media,
+    new dependencies, workspace/schema changes or invented mastery.
+  Preserve prior calendar/blocker/playlist work, real browser data and the
+    illustrated README. No image inspection, commit, push or deployment.
+  Technical evidence, human design review and publication remain separate.
+
+Completion evidence:
+  Inspected MissionPage/MissionsPage, getSaveState, generatePlan, recordEvidence,
+    shared Modal/ContextHelp, streak UI and directly coupled tutorial targets.
+  Primary ordering follows eligibility; evidence saving does not itself
+    complete a checkpoint. Stages group checkpoints rather than add records.
+  Strict build,13tutorial units and26native cases/26attempts/one worker/no
+    retries/skips/flaky pass on352unchanged inputs at
+    492e3f9e089a438f039971d39a2efdc0aa40b7e924137c520789732951beef0e.
+  Ten new cases cover both themes/four viewports, real mouse/keyboard/emulated
+    touch help, actual evidence/criteria advancement and primary eligibility,
+    manual/automatic/reduced/hidden-tab playback, cleanup and practice isolation.
+  Sixteen existing safeguards cover background practice/completion, three
+    roadmap-append cases, six blocker cases, Planned activation, streak tutorial
+    and compact/full/tutorial playlist navigation.
+  First6/4diagnostic remains source-bound with all12attachments. Two matrix
+    assertions had used the state-changing resume command as navigation; one
+    expected the wrong canonical stage. The real tutorial overlay obstruction
+    is fixed with an existing compact paused-guide pattern and a native close.
+  Current live DOM verifies one title, compact278x123streak card, two desktop
+    example routes, reachable narrow controls and no page errors.
+  No new image views, aesthetic acceptance or physical-device qualification.
+    Human review remains pending; no source staging/commit/push/deployment.
+  Proof: docs/tracking/2026-11-27-mission-clarity-local-review.json.
+
+Completion log:
+  2026-11-27 - Ready locally with compact secondary information, explicit
+    checkpoint identity/roles and the bounded interactive hierarchy example.
+    Preserve the existing progression model and original issue/item In review.
+    Passing checks do not establish aesthetic approval or authorize publication.
+  2026-11-27 - Begin a bounded mission-clarity workstream. Preserve the existing
+    progress model and make the information hierarchy clear in the interface
+    and an optional animated example, not another always-visible lesson.

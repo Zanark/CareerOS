@@ -14,6 +14,8 @@ plan as proof of capability.
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
 | `src/domain/engine.ts` — `previewRoadmapUpgrades`, `upgradeAllRoadmaps` | Exact-workspace confirmation preview and all-or-none adoption through the existing single-mission rules. |
 | `src/domain/missionActivity.ts` — `getMissionActivity`; `src/MissionWorkStreak.tsx` | Read-only local-calendar work days from evidence/recalls across editions, shown separately from mastery. |
+| `src/MissionHierarchy.tsx`, `src/mission-hierarchy.css` | Optional native-dialog illustration: two fictional multi-checkpoint missions, bounded pause/replay/manual playback and reduced-motion/visibility cleanup. No workspace data or writer dependency. |
+| `MissionPage` in `src/App.tsx`, `src/mission-experience.css` | Distinct flag/ordinal checkpoint, stage metadata and mission-level planning roles; compact streak rail and bottom operation documents. Existing commands and records remain authoritative. |
 | `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discoveries plus deterministic saved-work journey EXP: canonical identities, first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
 | `src/discovery/DiscoveryPage.tsx`, `DiscoverySeal.tsx`, `DiscoveryNotice.tsx` | Read-only themed collection, inspectable receipts, keyboard activity ribbon and non-focus-stealing positive-EXP notices. The 3D view is delegated below. |
 | `src/discovery/Expedition.tsx` | Transient available-route selection, real current checkpoint/blocker and source-derived trace/finish awards. Opens existing mission/evidence tools; never writes focus or awards. |
@@ -22,6 +24,7 @@ plan as proof of capability.
 | `src/missionVisuals.ts` | Shared twelve-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
+| `src/HeaderCalendar.tsx`, `src/header-calendar.css` | Local-review shared date projection and finite paper-page turn; existing browser-local date, no extra hooks, timer or persisted preference. |
 | `src/tutorial/*` | Guided steps, state-derived completion gates, real-control highlighting and dialog-aware coaching. |
 | `src/ContextHelp.tsx`, `src/context-help.css`, `PageHeading` | Read-only contextual help with hover/focus preview, click/tap/keyboard pinning, viewport-bounded portals, dismissal and focus return. No workspace API or persisted preference. |
 | `src/roadmaps/*` | Read-only mission tree and top-down checkpoint flowcharts, using accessible HTML nodes and locally drawn SVG connections. |
@@ -39,15 +42,30 @@ plan as proof of capability.
 | `src/graph/careerOrbitModel.ts`, `careerOrbitTypes.ts` | Eighteen derived data views: twelve exact saved-mission stages and six record/reference collections. Membership reuses real graph IDs, never new task identities or completion gates. |
 | `src/domain/focusSession.ts`, focus operations in `engine.ts` | Optional, bounded focus-session event records, strict chronology/state/ID validation and conditional ownership checks before appending reports. |
 | `src/focus/*` | One tab-local controller shared by compact/fullscreen timers, immediately persisted self-reports, retained history, and an inert calm-profile 3D backdrop. |
+| `src/focus/FocusPlaylist.tsx`, `focus-playlist.css`, `src/assets/focus-study-cafe.webp` | Shared optional external-playlist anchor and bundled supplied-image derivative. No player, provider fetch or controller/storage dependency. |
 | `src/workspaceFile.ts` — `serializeWorkspace` | Identical compact JSON encoding for saved and exported state, with a shared 5 MiB UTF-8 limit also used by import. |
 | `src/repositorySync/*` | Optional encrypted append-only journal, pure change/reconciliation model, local encrypted outbox, session-only key, explicit review and same-origin static-file loading. Existing browser/backup APIs are retained. |
 | `src/App.tsx`, `src/pages.tsx`, `src/dialogs.tsx` | Hash navigation, views, accessible forms, and user-confirmed commands. |
+| `MissionPage` blocker card in `src/App.tsx`, `src/themes.css` | Local-review red/green projection of saved `progress.blocker`, separate from the textarea draft; outline/tint, flag/check and actual accessible status text. Save/clear rules and errors are unchanged. |
 | `src/SourcePanel.tsx` — `OperationSourcesPage` | Native Modal for reviewing all pending roadmap versions before one confirmed commit; per-mission adoption stays separate. |
 | `vite.config.ts` | `/CareerOS/` asset base matching the renamed repository; Vite emits the static deployment into `dist`. |
 
 Large DSA problem references and System practice summaries are emitted into a
 separately cacheable static data chunk. They remain local bundled content, not a
 runtime service or a request containing personal progress.
+
+The local-review header calendar formats `WorkspaceModel.date` at local noon,
+not as a UTC date-only timestamp. The saved and practice workspaces retain their
+existing local-day updates. A page keyed by the actual date gets one 650ms CSS
+turn on mount or date change; ordinary navigation and workspace updates do not
+replay it. There are no ambient loops or motion controls. System reduced motion
+removes the turn and an open native dialog suspends it. The original Atlas
+motion implementation remains separate and unchanged.
+The paper-only hover lift is a short CSS transition; it changes no date or saved
+state. Side labels remain stationary, using larger standard abbreviations on
+narrow screens while the actual accessible date stays complete.
+`--topbar-height` is shared with the graph viewport so the wider responsive
+header never leaves its canvas below the available screen.
 The expanded outlines have their own cacheable chunk; full study prose loads only for
 the selected workbook. Loading failures are explicit and offer a reload without
 replacing workspace data. Search/filter/navigation remain read-only.
@@ -586,6 +604,15 @@ Labels and picking stay disabled. Ambient motion is independent of the countdown
 reduced motion starts it still and requires an explicit opt-in. Closing releases the scene.
 The separately supplied local-date gate still dims yesterday's activity borders while
 that snapshot and its camera remain fixed.
+
+`FocusPlaylist` follows core controls and material errors in both `FocusTimer`
+and `FocusRoom`. Its ordinary `noopener noreferrer` new-tab anchor uses the exact
+supplied playlist ID and a local 720x405 WebP, not a provider thumbnail or embed.
+It has no session callback, storage writer or media API. Playback belongs to the
+external destination after an explicit click. Scroll clearance keeps the card
+fully reachable; each room opening resets only its center panel's scroll position
+so previously viewed optional music cannot obscure the primary timer on reopening.
+Native fullscreen remains browser-controlled.
 
 ## Practice isolation
 

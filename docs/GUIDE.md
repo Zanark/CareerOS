@@ -29,6 +29,53 @@ the selection workflow using temporary practice data. It does not replace
 contextual help or move actual lesson content into the tutorial. Sidebar order
 is Discovery Atlas, Tracking, Education and Career; Georgia Tech is in Education.
 
+### Shared calendar and navigation
+
+The shared paper calendar shows a larger month
+label on the left, a prominent day-number page in the center, and weekday on
+the right. The date follows your device's local day, including during tutorial
+practice. A brief page turn runs on initial load or a new date, then settles;
+system reduced motion keeps it still. There are no looping decorative effects.
+Hover gives the paper a small lift and tilt while the labels stay in place.
+Full names sit close to the tile on desktop; narrow screens use readable,
+standard short names. The complete date remains
+available to assistive technology and in its hover title.
+The paper calendar's top strip is red on Saturday and Sunday, teal on weekdays,
+following your local date.
+
+Daily plan sits immediately below Overview in the sidebar.
+
+### Saved blocker status
+
+The mission's blocker card is red when a blocker is saved and green when none
+is saved. Its flag/check also identifies the status without relying on color.
+Typing or deleting a draft does not change the saved status: use **Save blocker**
+or **Clear blocker**. If saving fails, the previous status stays and the error
+remains visible. Green means no saved blocker, not mission completion or
+permission to start a Planned mission.
+
+### Mission checkpoints and hierarchy
+
+The current checkpoint now has its own numbered flag, distinct stage label,
+mission completion count and next unlock. A stage name identical to its
+checkpoint title is not repeated. The compact **Recorded streak** card sits
+in the side rail; its question-mark help explains counting. **Operation
+documents** is at the bottom, with version/adoption warnings and links retained.
+
+**In focus** is the active planning pool; several missions can be eligible.
+**Primary** is the single first-priority choice when a new capacity-bound plan
+is generated. It does not activate a background mission or replace an existing
+plan. The mission-level badges and question-mark help distinguish these roles.
+
+On **Missions**, select **How missions work** for a short animated walkthrough.
+Two fictional missions each have two stages and four checkpoints. The example
+shows saving evidence without advancing, confirming criteria, unlocking the
+next eligible checkpoint, finishing a stage and completing one mission without
+completing another. It does not read or write your progress.
+Pause, replay or select any numbered step. System reduced motion starts it
+paused and removes animated effects; background tabs suspend playback.
+Tutorial practice uses a docked, paused guide so it cannot cover the controls.
+
 ## What this prototype does
 
 - Keeps one current checkpoint per mission, with source-defined prerequisites.
@@ -483,6 +530,14 @@ Pause/continue preserve its length; a changed capacity applies to the next sessi
 shows recent records, and normal **Export backup / Import backup** includes the full
 session/event log for later analysis, not just the displayed count.
 
+For optional music, select the **Cozy autumn study cafe** thumbnail in the compact
+timer or full focus room. It opens the supplied playlist on YouTube in a new tab;
+choose playback there. The thumbnail is bundled locally: there is no embedded
+player, autoplay or YouTube media request before you click. Opening it does not
+start, pause or reset your timer or change saved reports. Your browser may leave
+native fullscreen when switching tabs. Reopening the room returns to its timer;
+on short screens, scroll below the main controls to reach the playlist.
+
 The countdown is tab-local. A reload starts a ready timer, while saved reports remain.
 An earlier record with no ending is labeled as such, not assumed completed or still
 running. A timer ending is not evidence of uninterrupted attention or checkpoint mastery.
@@ -885,7 +940,8 @@ estimates, not measured learning time.
 ### Recorded-work days and streaks
 
 Each mission page shows a **recorded-work streak** and **Work recorded today** or
-**No work recorded today**. Expand **How this is counted** for the rule:
+**No work recorded today**. Open the question-mark help beside **Recorded
+streak** for the rule:
 
 - Any saved progress/evidence entry or **any recall result** counts, including Partial
   and Needs review. No checkpoint completion is required.
@@ -907,7 +963,7 @@ a bright border proves mastery. Roadmap completion counts remain version-specifi
 though recorded-work days span versions.
 
 Implementation references: [`getMissionActivity`](../src/domain/missionActivity.ts#L19),
-[`MissionWorkStreak`](../src/MissionWorkStreak.tsx#L7),
+[`MissionWorkStreak`](../src/MissionWorkStreak.tsx#L8),
 [`activityPresentation`](../src/graph/CareerOrbitVisuals.ts#L170),
 [`missionVisuals`](../src/missionVisuals.ts#L5), and
 [`OperationSourcesPage`](../src/SourcePanel.tsx#L78).

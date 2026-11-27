@@ -1,0 +1,73 @@
+{
+  "status": "local-balanced-paper-calendar-review-candidate",
+  "observedAt": "2026-11-27T02:26:55.163801+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "a42f4d3c0e2cd708885cbfbe4ff475b7f08b04457d86690fd5dc5d2c241e5f94",
+  "sourceInputCount": 343,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration; not a whole-repository hash.",
+  "build": "Existing strict TypeScript/production build passes before the isolated browser suite.",
+  "currentNative": {
+    "casesPassed": 12,
+    "attempts": 12,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "scope": "All current header-date cases, including responsive typography, hover, shared routes, local year rollover, tutorial and navigation order."
+  },
+  "previousCoupledGate": {
+    "casesPassed": 51,
+    "attempts": 51,
+    "report": "docs/tracking/2026-11-27-navigation-paper-large-review.json",
+    "changedInputsSince": [
+      "src/header-calendar.css",
+      "tests/header-date.spec.ts"
+    ],
+    "unchangedInputs": 341,
+    "qualificationLimit": "This preceding 51-case gate is not relabelled as a 51-case run on the final moderated typography. The final font-only change receives the complete 12-case affected suite."
+  },
+  "currentDesign": {
+    "presentation": "Paper-calendar page, closer labels, moderate type and gentle paper-only hover lift/tilt/shadow.",
+    "labelPixels": {
+      "regularFullNames": 24,
+      "narrowStandardShortNames": 21
+    },
+    "dayPixels": 48,
+    "animation": "One 650ms page turn on mount/date change; a 200ms hover transition. No ambient loops or motion control.",
+    "reducedMotion": "Removes the turn and hover movement; open native dialogs suspend the turn.",
+    "dateSource": "Existing WorkspaceModel.date formatted at local noon; no additional hook, timer, observer or storage.",
+    "accessibility": "Complete local date is actual screen-reader text; phone abbreviations retain that date."
+  },
+  "historicalEditions": [
+    {
+      "report": "docs/tracking/2026-11-27-navigation-orbital-review.json",
+      "cases": 52,
+      "disposition": "Rejected as noisy/small text."
+    },
+    {
+      "report": "docs/tracking/2026-11-27-navigation-paper-first-review.json",
+      "cases": 50,
+      "disposition": "Superseded by requests for closer/larger labels and hover."
+    },
+    {
+      "report": "docs/tracking/2026-11-27-navigation-paper-large-review.json",
+      "cases": 51,
+      "disposition": "Its larger text was then judged too big; moderated without changing spacing/hover/logic."
+    }
+  ],
+  "earlierDiagnosticsPreserved": [
+    "Zero-case startup/type diagnostic.",
+    "43-pass/9-fail orbital accessibility diagnostic; repaired accessible text remains."
+  ],
+  "limitations": [
+    "No new image views, aesthetic acceptance, physical-device or screen-reader-user qualification.",
+    "Human review remains pending; no source staging, commit, push or deployment."
+  ],
+  "atlasMotionImplementationUnchanged": true,
+  "workspaceSchemaChanged": false,
+  "dependenciesChanged": false,
+  "newIdleJavaScriptOrWebGLLoop": false,
+  "ownerBrowserAccessed": false,
+  "published": false
+}

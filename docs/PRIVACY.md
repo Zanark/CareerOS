@@ -40,6 +40,12 @@ The DSA practice library also uses bundled references. Browsing sections and fil
 problems sends no progress to LeetCode. Clicking a problem link opens LeetCode in a new
 tab without a referrer; that destination may have its own login or subscription rules.
 
+The optional focus playlist also opens YouTube in a new tab without a referrer.
+Its supplied thumbnail is bundled locally. CareerOS adds no YouTube embed, API,
+remote thumbnail, preconnect or autoplay, and sends no workspace records with the
+link. Playback and any provider cookies or account activity belong to YouTube after
+you choose to open it. Choosing music does not create focus or progress records.
+
 The seven expanded practice workbooks load static study chunks from the same host.
 These requests contain no workspace records. Search, filters, source-unit links and
 reference inspection do not upload work or alter progress. Source save-state examples

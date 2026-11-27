@@ -1,6 +1,6 @@
 .career-graph-content {
   display: flex; flex-direction: column; gap: 8px;
-  height: calc(100dvh - 69px); max-width: none; padding: 12px;
+  height: calc(100dvh - var(--topbar-height)); max-width: none; padding: 12px;
 }
 .career-graph-content > :not(.career-graph-page) { flex: none; margin-bottom: 0; }
 .career-graph-page, .career-graph-workspace { display: flex; flex: 1; min-width: 0; min-height: 160px; }
@@ -194,7 +194,7 @@
   .career-graph-panel-openers { flex: 1 0 100%; justify-content: flex-end; }
 }
 @media (max-width: 1050px) {
-  .career-graph-content { height: calc(100dvh - 60px); padding: 8px; }
+  .career-graph-content { padding: 8px; }
 }
 @media (max-width: 650px) {
   .career-graph-commandbar { padding: 6px 8px; gap: 4px 8px; }

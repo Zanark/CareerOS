@@ -1,0 +1,47 @@
+{
+  "status": "local-review-candidate",
+  "observedAt": "2026-11-27T01:59:03.745795+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "4314610237d82be8af36b24866ccbc0c17fb358bd5b993814a2e4d9c168b6cb0",
+  "sourceInputCount": 344,
+  "inputScope": "Tracked and non-ignored first-party src/tests files plus existing package/build/browser configuration; not a whole-repository hash.",
+  "build": "Existing Playwright webServer command runs strict TypeScript and the production Vite build before its separate loopback preview.",
+  "native": {
+    "casesPassed": 52,
+    "attempts": 52,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "byFile": {
+      "atlas-motion.spec.ts": 13,
+      "header-date.spec.ts": 13,
+      "search.spec.ts": 13,
+      "theme.spec.ts": 1,
+      "visual-layout.spec.ts": 11,
+      "workspace.spec.ts": 1
+    }
+  },
+  "coverage": [
+    "Wide centered and compact second-row header; full September/Wednesday labels, two themes, twelve widths and two font contexts.",
+    "Shared date DOM across normal routes, UTC/local calendar separation, year/month rollover and isolated tutorial midnight.",
+    "Original animated calendar: actual pixel change, keyboard pause/play, reduced-motion changes, real offscreen and synthetic hidden-document events, static fallback and native-dialog draft protection.",
+    "Daily plan directly below Overview in desktop/compact navigation, same routes and no saved-data changes.",
+    "Existing search, theme, shared visual-layout, graph fitting, midnight draft and all thirteen Atlas motion regressions."
+  ],
+  "preservedDiagnostics": {
+    "startup": "Initial zero-case build failure: the injected style handle was typed as Node; add a proper HTMLStyleElement guard.",
+    "accessibility": "Initial 43-pass/9-fail native edition found the date text was absent from its accessibility projection. Replace unsupported time naming with actual screen-reader text; retain an assertion on the real accessibility tree."
+  },
+  "limitations": [
+    "No new image views or aesthetic approval; captured/compared pixels are not visual inspection.",
+    "Desktop Edge with emulated viewports/timezones is not physical-device or screen-reader-user qualification.",
+    "Human review and publication remain pending; no commit, push or deployment."
+  ],
+  "workspaceSchemaChanged": false,
+  "dependenciesChanged": false,
+  "newIdleJavaScriptOrWebGLLoop": false,
+  "ownerBrowserAccessed": false,
+  "published": false
+}

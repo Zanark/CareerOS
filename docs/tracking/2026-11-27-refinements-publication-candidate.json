@@ -1,0 +1,50 @@
+{
+  "status": "verified-prepush-candidate",
+  "observedAt": "2026-11-27T06:11:35.906315+05:30",
+  "sourceParent": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "runtimeSourceFingerprint": "492e3f9e089a438f039971d39a2efdc0aa40b7e924137c520789732951beef0e",
+  "runtimeSourceInputCount": 352,
+  "fullLocalValidation": {
+    "filesPassed": 56,
+    "testsPassed": 782,
+    "workers": 1
+  },
+  "strictBuildPassed": true,
+  "previousCurrentNativeGate": {
+    "casesPassed": 26,
+    "attempts": 26,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "sourceUnchanged": true
+  },
+  "browserInventory": {
+    "discovered": 594,
+    "executedByInventory": 0,
+    "hostedCiPending": true
+  },
+  "readmeSha256": "927b776e616cfb49adabdda404ffb5df007bc56f088271b115d025e7a9b232b5",
+  "readmeImages": [
+    {
+      "path": "docs/images/readme-cover.png",
+      "sha256": "9fe8a02b8b57221a49f31d6489921c1b371496fc3af717eb8907921ce0626b4d"
+    },
+    {
+      "path": "docs/images/readme-roadmaps.png",
+      "sha256": "1a7323475fdb1d56063cdf4b1b730c2cde2aec258f2e536bb1448c266ed4669b"
+    },
+    {
+      "path": "docs/images/readme-routine.png",
+      "sha256": "f26c88253f93f592c5d595f7e2c2a4ff0ae755bf11efed13ae99613e117d54e0"
+    },
+    {
+      "path": "docs/images/readme-storage.png",
+      "sha256": "40f55dfdcf32c1622917029d9e12fbf39e709b4aa0fd9fcad32f510ca2e9de7f"
+    }
+  ],
+  "workflowUnchanged": true,
+  "workspaceSchemaChanged": false,
+  "publicationAuthorized": true,
+  "published": false
+}

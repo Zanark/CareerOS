@@ -1,0 +1,74 @@
+{
+  "status": "local-refined-paper-calendar-review-candidate",
+  "observedAt": "2026-11-27T02:20:50.752645+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "08d496d1f0fcce3ee0554c0ba22bf9ea109abd7e748cd423a4b990fb2e668e22",
+  "sourceInputCount": 343,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration; not a whole-repository hash.",
+  "build": "Existing Playwright webServer command runs strict TypeScript and the production Vite build before its separate loopback preview.",
+  "native": {
+    "casesPassed": 51,
+    "attempts": 51,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "byFile": {
+      "atlas-motion.spec.ts": 13,
+      "header-date.spec.ts": 12,
+      "search.spec.ts": 13,
+      "theme.spec.ts": 1,
+      "visual-layout.spec.ts": 11,
+      "workspace.spec.ts": 1
+    }
+  },
+  "currentDesign": {
+    "presentation": "Paper-calendar page with binding details, closer labels, larger text and gentle hover feedback.",
+    "labelPixels": {
+      "regularFullNames": 27,
+      "narrowStandardShortNames": 24
+    },
+    "dayPixels": 54,
+    "animation": "One 650ms page turn on mount/date change; a 200ms paper-only hover lift/tilt and shadow. No ambient loops or motion controls.",
+    "reducedMotion": "Removes the turn and hover movement; open native dialogs suspend the turn.",
+    "dateSource": "Existing WorkspaceModel.date formatted at local noon; no additional hook, timer, observer or storage.",
+    "accessibility": "Complete local date is real screen-reader text; narrow visual abbreviations do not remove it."
+  },
+  "coverage": [
+    "Both themes, twelve widths and two font contexts; full desktop/standard short narrow labels, larger font floors and centered non-overlapping fields.",
+    "Shared date DOM across normal routes, UTC/local calendar separation, year/month rollover and isolated tutorial midnight.",
+    "Finite turn settles and does not replay on navigation; actual new dates turn once; hover lifts only the tile, leaves labels/data intact and honors reduced motion.",
+    "Daily plan directly below Overview in desktop/compact navigation, same routes and no saved-data changes.",
+    "Existing search, theme, shared visual-layout, graph fitting, midnight draft and all thirteen Atlas motion regressions."
+  ],
+  "historicalEditions": [
+    {
+      "report": "docs/tracking/2026-11-27-navigation-orbital-review.json",
+      "nativePasses": 52,
+      "sourceInputs": 344,
+      "disposition": "Rejected as noisy and text too small."
+    },
+    {
+      "report": "docs/tracking/2026-11-27-navigation-paper-first-review.json",
+      "nativePasses": 50,
+      "sourceInputs": 343,
+      "disposition": "Superseded by explicit requests for closer/larger labels and hover feedback; not final owner approval."
+    }
+  ],
+  "earlierDiagnosticsPreserved": [
+    "Zero-case startup/type diagnostic.",
+    "43-pass/9-fail orbital accessibility diagnostic; fixed with real screen-reader date text, retained in both paper revisions."
+  ],
+  "limitations": [
+    "No new image views or aesthetic approval; captured/compared pixels are not visual inspection.",
+    "Desktop Edge with emulated viewports/timezones is not physical-device or screen-reader-user qualification.",
+    "Human review and publication remain pending; no commit, push or deployment."
+  ],
+  "atlasMotionImplementationUnchanged": true,
+  "workspaceSchemaChanged": false,
+  "dependenciesChanged": false,
+  "newIdleJavaScriptOrWebGLLoop": false,
+  "ownerBrowserAccessed": false,
+  "published": false
+}

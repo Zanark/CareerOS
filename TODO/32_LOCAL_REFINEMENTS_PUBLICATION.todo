@@ -1,0 +1,57 @@
+Workstream ID: local-refinements-publication
+Title: Publish the current navigation and mission refinements with deployment proof
+Status: IN_PROGRESS
+Milestone: Ship the latest static app and verify the exact hosted artifact
+Dependencies: navigation-refinements, blocker-card-status, focus-playlist-link, mission-clarity
+GitHub issue: https://github.com/Zanark/CareerOS/issues/31
+Purpose: Update the illustrated README, publish the four technically qualified
+  local refinements and monitor the exact main-branch Pages run. This explicit
+  publication request supersedes their earlier local-only execution boundary,
+  not their historical evidence or independent human-review limitations.
+  Preserve the four approved illustrations, schemas and real browser data.
+
+Tasks:
+  [x] Reconcile the current source, workflow, branch, credential and attribution.
+  [x] Refresh README and release-facing guide without replacing illustrations.
+  [ ] Validate the release candidate and review an explicit public-safe allowlist.
+  [ ] Commit with both verified Zanark identities and normally push exact main.
+  [ ] Monitor the exact CI/deploy run and repair actual failures if necessary.
+  [ ] Verify deployed artifact bytes and actual hosted refinement workflows.
+  [ ] Complete original tracking identities and evidence-only follow-through.
+  [ ] Preserve the live preview and seal owned continuity with actual results.
+
+Acceptance criteria:
+  README describes current navigation, checkpoint hierarchy, blocker feedback
+    and optional focus music, retaining all four original illustration bytes.
+  Existing full validation/build and hosted CI checks pass without bypassing
+    behavior, raising deadlines or weakening assertions to force publication.
+  Both effective commit identities are the configured Zanark noreply identity;
+    required current trailers remain. No global attribution/auth changes.
+  Only reviewed public-safe source/tests/docs/tracking and the supplied
+    metadata-stripped thumbnail are staged. No context, private PDFs, backups,
+    actual browser records, credentials or producer evidence is published.
+  Normal HTTPS push preserves main ancestry. The actual successful run's
+    head/artifact/deployment and final remote main are independently verified.
+  Actual hosted browser checks exercise the new refinements in disposable
+    contexts. Deployed runtime files match the successful artifact exactly.
+  Original workstream/issue/Project identities and the Kanban view are retained.
+    Completion is not fabricated aesthetic, learning or physical-device approval.
+  Any evidence-only follow-through proves runtime/tests/README/workflow/public
+    equality to the verified deployed source before using a CI-skip marker.
+  Preserve the user-facing local preview and all failure/earlier scope receipts.
+    No force push, unrelated workflow activation, scheduler or secret setup.
+
+Completion evidence:
+  Intake source equals the prior352-input local candidate at
+    492e3f9e089a438f039971d39a2efdc0aa40b7e924137c520789732951beef0e.
+  Its strict build,13tutorial units and26selected native cases passed. Earlier
+    source-bound navigation/blocker/playlist gates retain their own scopes.
+  Local/remote main initially78816c618a767b4613140acb45974cd19fd7fd56.
+    Verified effective author/committer and authenticated GitHub account Zanark.
+  Approved four README illustration hashes retained in private release intake.
+  Full release validation, push, CI, artifact and live-site checks pending.
+
+Completion log:
+  2026-11-27 - Owner explicitly requests README refresh, latest push and
+    deployment monitoring. Begin one bounded publication workstream; preserve
+    previous local-only receipts as historical source-bound evidence.

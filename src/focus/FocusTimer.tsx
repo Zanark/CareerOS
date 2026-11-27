@@ -3,6 +3,7 @@ import { Clock3, Maximize2, Pause, Play, RotateCcw } from 'lucide-react';
 import type { AppState } from '../domain/types';
 import { focusSessionSummary } from '../domain/focusSession';
 import type { FocusSessionController } from './focusTypes';
+import { FocusPlaylist } from './FocusPlaylist';
 import './focus-timer.css';
 
 export function focusTime(seconds: number) {
@@ -38,6 +39,7 @@ export function FocusTimer({ session, state, onOpen }: {
       Reports save when you press the button in the focus room, not when the session ends.</p>
     {session.error && <p className="focus-timer-error" role="alert">{session.error}</p>}
     {session.pendingSave && <button className="button secondary" onClick={session.retrySave}>Retry saving session end</button>}
+    <FocusPlaylist />
     <details className="focus-history" data-tour="focus-history">
       <summary><Clock3 size={15} />Focus history: {history.sessions} sessions / {history.reports} reports</summary>
       <p>Self-reported distractions, not measured attention. An open record without an ending is not proof the timer continued after the tab closed.</p>

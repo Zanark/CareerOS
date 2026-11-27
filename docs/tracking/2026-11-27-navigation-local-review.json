@@ -1,0 +1,81 @@
+{
+  "status": "local-weekend-paper-calendar-review-candidate",
+  "observedAt": "2026-11-27T02:42:28.910842+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "35dac42043763bd4d9e73f4cbeb9a4fb4df0eacdc27e44336379bb14ee35e111",
+  "sourceInputCount": 343,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration; not a whole-repository hash.",
+  "build": "Existing strict TypeScript/production build passes before the isolated browser suite.",
+  "currentNative": {
+    "casesPassed": 15,
+    "attempts": 15,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "scope": "All current header-date cases, including both-theme weekend colors, local midnight transitions, responsive typography, hover, shared routes, year rollover, tutorial and navigation order."
+  },
+  "previousCoupledGate": {
+    "casesPassed": 51,
+    "attempts": 51,
+    "report": "docs/tracking/2026-11-27-navigation-paper-large-review.json",
+    "changedInputsSince": [
+      "src/HeaderCalendar.tsx",
+      "src/header-calendar.css",
+      "tests/header-date.spec.ts"
+    ],
+    "unchangedInputs": 340,
+    "qualificationLimit": "The prior 51-case gate remains separate. Current calendar-only changes receive the complete 15-case affected suite, not a fictional new full-app run."
+  },
+  "currentDesign": {
+    "presentation": "Paper calendar, closer labels, moderate type and gentle paper-only hover lift/tilt/shadow.",
+    "labelPixels": {
+      "regularFullNames": 24,
+      "narrowStandardShortNames": 21
+    },
+    "dayPixels": 48,
+    "weekendTopStrip": "Red only on browser-local Saturday/Sunday in both themes; teal on weekdays; follows existing date updates.",
+    "animation": "One 650ms page turn on mount/date change; a 200ms hover transition. No ambient loops or motion control.",
+    "reducedMotion": "Removes turn/hover movement; native open dialogs suspend the turn.",
+    "dateSource": "Existing WorkspaceModel.date formatted at local noon; no additional hook, timer, observer or storage.",
+    "accessibility": "Complete local date is actual screen-reader text; phone abbreviations retain it."
+  },
+  "historicalEditions": [
+    {
+      "report": "docs/tracking/2026-11-27-navigation-orbital-review.json",
+      "cases": 52,
+      "disposition": "Rejected as noisy/small text."
+    },
+    {
+      "report": "docs/tracking/2026-11-27-navigation-paper-first-review.json",
+      "cases": 50,
+      "disposition": "Superseded by closer/larger labels and hover."
+    },
+    {
+      "report": "docs/tracking/2026-11-27-navigation-paper-large-review.json",
+      "cases": 51,
+      "disposition": "Its text was then judged too big."
+    },
+    {
+      "report": "docs/tracking/2026-11-27-navigation-balanced-review.json",
+      "cases": 12,
+      "disposition": "Balanced typography passed before the explicit weekend-color addition."
+    }
+  ],
+  "earlierDiagnosticsPreserved": [
+    "Zero-case startup/type diagnostic.",
+    "43-pass/9-fail orbital accessibility diagnostic; repaired accessible text remains.",
+    "First weekend gate:13pass/2fixture failures. Repeating the current hash did not remount the date hook after changing the test clock; explicit reload fixes day snapshots. Separate live-midnight case passes without changing the app clock."
+  ],
+  "limitations": [
+    "No new image views, aesthetic acceptance, physical-device or screen-reader-user qualification.",
+    "Human review remains pending; no source staging, commit, push or deployment."
+  ],
+  "atlasMotionImplementationUnchanged": true,
+  "workspaceSchemaChanged": false,
+  "dependenciesChanged": false,
+  "newIdleJavaScriptOrWebGLLoop": false,
+  "ownerBrowserAccessed": false,
+  "published": false
+}

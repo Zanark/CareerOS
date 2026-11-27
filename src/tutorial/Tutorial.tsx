@@ -65,7 +65,7 @@ function findTarget(targets: string[] | undefined, dialog: HTMLElement | null): 
   }
   if (targets.includes('source-bulk-cancel')) return dialog?.querySelector('.bulk-roadmap-actions .secondary') ?? null;
   if (targets.includes('mission-work-streak') && !dialog) {
-    return document.querySelector('.mission-work-streak[data-mission-id="pattern"] summary');
+    return document.querySelector('.mission-work-streak[data-mission-id="pattern"] [data-tour="mission-work-streak"]');
   }
   if (dialog && targets.includes('full-map-last-node') &&
       dialog.querySelector('.full-roadmap-node[aria-pressed="true"]:not([aria-current="step"])')) {
@@ -444,6 +444,7 @@ export function Tutorial({ state, route, signals, onNavigate, onCommand, onExit,
   const host = dialogHost ?? document.body;
   const progressPct = Math.round(((stepIndex + 1) / total) * 100);
   const focusRoomHost = !!dialogHost?.matches('[data-focus-room-stage]');
+  const hierarchyHost = !!dialogHost?.classList.contains('mission-hierarchy-modal');
   const mobileAboveTarget = mobile && !!dialogHost?.matches('.career-graph-stage-wrap') &&
     targetRect !== null && targetRect.top >= panelSize.height + 20 &&
     targetRect.bottom > window.innerHeight - panelSize.height - 20;
@@ -464,10 +465,13 @@ export function Tutorial({ state, route, signals, onNavigate, onCommand, onExit,
       </div>
     </>, host);
 
-  if (dialogHost?.classList.contains('full-roadmap-modal') || focusRoomHost) return createPortal(
-    <div ref={panelRef} data-step={step.id} className={`tutorial-panel tutorial-map-guide ${focusRoomHost ? 'tutorial-focus-guide' : ''}`} role="region" aria-label="Tutorial view practice">
+  if (dialogHost?.classList.contains('full-roadmap-modal') || focusRoomHost || hierarchyHost) return createPortal(
+    <div ref={panelRef} data-step={step.id} className={`tutorial-panel tutorial-map-guide ${focusRoomHost ? 'tutorial-focus-guide' : hierarchyHost ? 'tutorial-hierarchy-guide' : ''}`} role="region" aria-label="Tutorial view practice">
       <span>Practice only. Tutorial paused.</span>
-      <button type="button" className="button secondary" onClick={() => onCommand('close-dialogs')}>Back to tutorial</button>
+      <button type="button" className="button secondary" onClick={() => {
+        if (hierarchyHost && dialogHost) dialogHost.dispatchEvent(new Event('cancel', { cancelable: true }));
+        else onCommand('close-dialogs');
+      }}>Back to tutorial</button>
       <button type="button" className="icon-button" aria-label="Exit tutorial" onClick={onExit}><X size={18} /></button>
     </div>, host);
 

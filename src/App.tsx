@@ -3,7 +3,7 @@ import {
   ArrowDownToLine, ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Check,
   ChevronRight, CircleCheck, Clock3, Compass, FileCheck2, Flag, FolderOpen,
   Gem, GitBranch, History, House, LayoutGrid, ListChecks, LockKeyhole, Menu, CircleHelp,
-  Pause, Play, Plus, RotateCcw, Search, Settings2, ShieldCheck, Target, X, BrainCircuit, FileText, Maximize2, Network,
+  Pause, Play, Plus, RotateCcw, Search, Settings2, ShieldCheck, Target, X, BrainCircuit, FileText, Maximize2, Network, Crown, Layers3, Trophy,
 } from 'lucide-react';
 import { getMissions, getMission, getMissionVersion, recordRoadmapVersion, prerequisitesFor } from './domain/catalog';
 import { createInitialState, generatePlan, getSaveState, localDate, recordChange, recordEvidence, activateCheckpoint } from './domain/engine';
@@ -16,6 +16,7 @@ import { downloadFile, useWorkspace } from './useWorkspace';
 import { serializeWorkspace } from './workspaceFile';
 import { useTheme } from './useTheme';
 import { ThemeToggle } from './ThemeToggle';
+import { HeaderCalendar } from './HeaderCalendar';
 import { Overview } from './Overview';
 import { Perspective } from './perspective/Perspective';
 import { usePracticeWorkspace } from './usePracticeWorkspace';
@@ -40,6 +41,8 @@ import FocusRoom from './focus/FocusRoom';
 import type { FocusRoomHandle } from './focus/focusTypes';
 import { missionAccentStyle, missionColor } from './missionVisuals';
 import { MissionWorkStreak } from './MissionWorkStreak';
+import { MissionHierarchy } from './MissionHierarchy';
+import './mission-experience.css';
 import { useRepositorySync } from './repositorySync/useRepositorySync';
 import { RepositorySyncPage } from './repositorySync/RepositorySyncPage';
 import DiscoveryPage from './discovery/DiscoveryPage';
@@ -57,9 +60,9 @@ const mainNav = [
   { id: 'home', label: 'Career graph', icon: Network, color: 'blue' },
   { id: 'perspective', label: 'Keep going', icon: Compass, color: 'sand' },
   { id: 'hq', label: 'Overview', icon: House, color: 'blue' },
+  { id: 'plan', label: 'Daily plan', icon: ListChecks, color: 'sand' },
   { id: 'missions', label: 'Missions', icon: LayoutGrid, color: 'violet' },
   { id: 'roadmap', label: 'Roadmap', icon: GitBranch, color: 'blue' },
-  { id: 'plan', label: 'Daily plan', icon: ListChecks, color: 'sand' },
   { id: 'evidence', label: 'Saved work', icon: FolderOpen, color: 'magenta' },
   { id: 'history', label: 'History', icon: History, color: 'amber' },
   { id: 'recall', label: 'Recall practice', icon: BrainCircuit, color: 'violet' },
@@ -272,6 +275,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
     <div className="main-shell">
       <header className="topbar">
         <div className="breadcrumbs"><button ref={navToggleRef} className="icon-button mobile-menu" onClick={() => { setMenuOpen(!menuOpen); setQuery(''); searchRef.current?.blur(); }} aria-label="Open navigation" aria-expanded={menuOpen} aria-controls="main-navigation"><Menu size={22} /></button><span>CareerOS</span><ChevronRight size={13} /><strong>{title}</strong></div>
+        <HeaderCalendar date={date} />
         <div className="top-actions"><div className={`search-wrap${query ? ' has-results' : ''}`}><Search size={16} /><input ref={searchRef} data-tour="global-search" placeholder="Search missions and work" aria-label="Search missions and evidence" value={query} onChange={event => setQuery(event.target.value)} /><kbd>Ctrl K</kbd>
           {query && <div className="search-results"><span className="eyebrow">MISSIONS, WORK & CURRICULUM</span>{searchResults.length ? searchResults.map(item => <a key={item.route} href={`#/${item.route}`}><span>{item.label}<small>{item.detail}</small></span><ArrowUpRight size={14} /></a>) : <p>No matches. Try a mission, topic or artifact title.</p>}<button className="text-button" onClick={() => setQuery('')}>Close search</button></div>}
         </div><ThemeToggle appearance={appearance} /><button className="tutorial-launch" onClick={onStartTutorial} aria-label={practice ? 'Restart tutorial' : 'Start tutorial'} title="Interactive tutorial"><CircleHelp size={17} /><span>Tutorial</span></button></div>
@@ -389,7 +393,7 @@ function MissionsPage({ state, onResume }: { state: AppState; onResume: (id: Mis
   const [filter, setFilter] = useState('all');
   const filtered = missions.filter(mission => filter === 'all' || state.missions[mission.id].mode === filter);
   return <>
-    <PageHeading eyebrow="LEARNING AREAS" title="Missions" help="Each mission keeps one current checkpoint. Background missions retain progress; only in-focus, unblocked missions enter the daily plan."><a href="#/practice" className="button secondary"><BookOpen size={16} />Practice libraries</a></PageHeading>
+    <PageHeading eyebrow="LEARNING AREAS" title="Missions" help="Each mission keeps one current checkpoint. Background missions retain progress; only in-focus, unblocked missions enter the daily plan."><MissionHierarchy /><a href="#/practice" className="button secondary"><BookOpen size={16} />Practice libraries</a></PageHeading>
     <div className="filter-row" data-tour="mission-list">
       <div className="tabs">{[['all', 'All missions'], ['active', 'In focus'], ['background', 'Background'], ['planned', 'Planned']].map(([key, label]) => <button key={key} onClick={() => setFilter(key)} className={filter === key ? 'active' : ''} aria-pressed={filter === key}>{label}<span>{key === 'all' ? missions.length : missions.filter(m => state.missions[m.id].mode === key).length}</span></button>)}</div>
     </div>
@@ -400,6 +404,12 @@ function MissionsPage({ state, onResume }: { state: AppState; onResume: (id: Mis
 function MissionPage({ mission, state, commit, onEvidence, onResume, notify, onFullRoadmap }: { mission: Mission; state: AppState; commit: Commit; onEvidence: () => void; onResume: (id: MissionId) => void; notify: (text: string) => void; onFullRoadmap: () => void }) {
   const save = getSaveState(mission, state);
   const progress = state.missions[mission.id];
+  const hasBlocker = Boolean(progress.blocker);
+  const checkpointNumber = save.checkpoint ? mission.checkpoints.indexOf(save.checkpoint) + 1 : null;
+  const definedStage = mission.stages?.findIndex(stage => stage.checkpointIds.includes(progress.checkpointId)) ?? -1;
+  const stageNumber = definedStage >= 0 ? definedStage + 1
+    : [...new Set(mission.checkpoints.map(checkpoint => checkpoint.stage))].indexOf(save.stage) + 1;
+  const showStageName = save.stage.trim().toLowerCase() !== save.checkpoint?.title.trim().toLowerCase();
   const [blocker, setBlocker] = useState(progress.blocker);
   const alternatives = mission.checkpoints.filter(checkpoint => checkpoint.id !== progress.checkpointId &&
     !progress.completedCheckpointIds.includes(checkpoint.id) &&
@@ -410,12 +420,24 @@ function MissionPage({ mission, state, commit, onEvidence, onResume, notify, onF
   }
   return <><a className="back-link" href="#/missions">← All missions</a><PageHeading eyebrow={mission.operation} title={mission.name} help={mission.purpose}
     titleAction={<button className="button secondary" data-tour="full-roadmap-open" onClick={onFullRoadmap}><Maximize2 size={17} />Full roadmap</button>}>{!mission.planned && <button className="button secondary" data-tour="mission-mode" onClick={() => update(progress.mode === 'active' ? 'Mission moved to background' : 'Mission brought into focus', current => ({ ...current, missions: { ...current.missions, [mission.id]: { ...current.missions[mission.id], mode: progress.mode === 'active' ? 'background' : 'active' } } }))}>{progress.mode === 'active' ? <Pause size={15} /> : <Play size={15} />}{progress.mode === 'active' ? 'Move to background' : 'Bring into focus'}</button>}</PageHeading>
-    <MissionWorkStreak mission={mission} state={state} />
-    <SourcePanel missionId={mission.id} state={state} commit={commit} />
-    {mission.planned ? <MissionFlowchart mission={mission} state={state} /> : <>
-      <section className={`save-state-card ${mission.color}`} style={missionAccentStyle(mission.id)} data-tour="save-state"><div className="save-state-header"><span className="eyebrow"><Flag size={14} />CURRENT CHECKPOINT</span><Badge>{progress.mode === 'planned' ? 'Planned' : statusLabels[save.status]}</Badge></div><div className="save-state-main"><MissionIcon mission={mission} size={27} /><div><span>{save.stage}</span><h2>{save.checkpoint?.title}</h2></div><span className="save-count">{save.completed}<small> / {save.total} complete</small></span></div><Progress value={save.completed / save.total * 100} label="Mission checkpoint progress" /><div className="save-state-bottom"><span><LockKeyhole size={14} /><strong>Next unlock:</strong> {save.next}</span><button className="text-link" data-tour="mission-primary" disabled={progress.mode === 'planned'} onClick={() => update('Primary mission updated', current => ({ ...current, focusMissionId: mission.id }))}>{state.focusMissionId === mission.id ? 'Your primary mission' : 'Make primary mission'}<Target size={14} /></button></div></section>
-      <div className="dashboard-grid mission-detail"><div><section className="panel next-action"><span className="eyebrow">NEXT ACTION</span><h2>{save.status === 'completed' ? (mission.completionLabel ?? 'Mission completed') : save.checkpoint?.action}</h2>{save.status !== 'completed' && <><div className="criteria-list"><h4>Completion criteria</h4>{save.checkpoint?.criteria.map(criterion => <div key={criterion}><span className="tiny-circle" />{criterion}</div>)}</div><div className="button-row"><button className="button primary" data-tour="record-evidence" onClick={onEvidence} disabled={progress.mode === 'planned' || !!progress.blocker}><Plus size={16} />Record evidence</button>{progress.status === 'not-started' && progress.mode === 'active' && <button className="button secondary" onClick={() => onResume(mission.id)} disabled={!!progress.blocker}>Begin checkpoint<Play size={14} /></button>}<span className="muted small"><Clock3 size={13} />About {save.checkpoint?.minutes} min</span>{progress.mode === 'background' && <ContextHelp title="Background practice">You can record or complete this checkpoint without changing focus. Daily plans still use only in-focus missions.</ContextHelp>}</div></>}</section>
-        {alternatives.length > 0 && <section className="panel available-checkpoints"><h4>Other available checkpoints</h4><p className="muted small">Choose one current checkpoint. This does not complete the previous one.</p><div className="button-row">{alternatives.map(checkpoint => <button key={checkpoint.id} className="button secondary" onClick={() => {
+    <div className="mission-scheduling" aria-label="Mission planning roles">
+      <span><Target size={15} aria-hidden="true" />{progress.mode === 'active' ? 'In focus' : progress.mode === 'background' ? 'Background' : 'Planned'}</span>
+      <button className="text-link" data-tour="mission-primary" disabled={progress.mode === 'planned'} onClick={() => update('Primary mission updated', current => ({ ...current, focusMissionId: mission.id }))}><Crown size={16} aria-hidden="true" />{state.focusMissionId === mission.id ? 'Primary mission' : 'Make primary mission'}</button>
+      <ContextHelp title="Primary and in-focus missions"><p><strong>In focus</strong> is your active planning pool. You can have several; blocked or completed missions are excluded from new plans.</p><p><strong>Primary</strong> is the single first-priority choice among eligible missions, subject to your capacity. Choosing it does not activate a background mission or rewrite an existing daily plan.</p></ContextHelp>
+    </div>
+    {mission.planned ? <><MissionFlowchart mission={mission} state={state} /><div className="mission-planned-summary"><MissionWorkStreak mission={mission} state={state} /></div></> : <>
+      <section className={`save-state-card mission-checkpoint ${mission.color}`} style={missionAccentStyle(mission.id)} data-tour="save-state" data-complete={save.status === 'completed'}>
+        <div className="save-state-header"><span className="eyebrow">{save.status === 'completed' ? <Trophy size={16} aria-hidden="true" /> : <Flag size={16} aria-hidden="true" />}{save.status === 'completed' ? 'MISSION COMPLETE' : 'CURRENT CHECKPOINT'}</span><Badge>{progress.mode === 'planned' ? 'Planned' : statusLabels[save.status]}</Badge></div>
+        <div className="save-state-main">
+          <span className="checkpoint-emblem" aria-hidden="true">{save.status === 'completed' ? <Trophy size={24} /> : <Flag size={24} />}<b>{checkpointNumber === null ? '--' : String(checkpointNumber).padStart(2, '0')}</b></span>
+          <div className="checkpoint-title-block"><p className="checkpoint-location"><span><Flag size={14} aria-hidden="true" />Checkpoint {checkpointNumber} of {save.total}</span><span><Layers3 size={14} aria-hidden="true" />Stage {stageNumber}{showStageName ? `: ${save.stage}` : ''}</span></p><h2>{save.checkpoint?.title ?? 'Checkpoint unavailable'}</h2></div>
+          <div className="checkpoint-mission-progress"><small>MISSION PROGRESS</small><span className="save-count">{save.completed}<small> / {save.total} complete</small></span></div>
+        </div>
+        <Progress value={save.completed / save.total * 100} label="Mission checkpoint progress" />
+        <div className="save-state-bottom"><span>{save.status === 'completed' ? <CircleCheck size={17} aria-hidden="true" /> : <LockKeyhole size={17} aria-hidden="true" />}{save.status === 'completed' ? 'All checkpoints complete' : <>Next unlock: <strong>{save.next}</strong></>}</span></div>
+      </section>
+      <div className="dashboard-grid mission-detail"><div><section className="panel next-action"><span className="eyebrow"><Compass size={15} aria-hidden="true" />NEXT ACTION</span><h2>{save.status === 'completed' ? (mission.completionLabel ?? 'Mission completed') : save.checkpoint?.action}</h2>{save.status !== 'completed' && <><div className="criteria-list"><h4><ListChecks size={17} aria-hidden="true" />Completion criteria</h4>{save.checkpoint?.criteria.map(criterion => <div key={criterion}><span className="tiny-circle" />{criterion}</div>)}</div><div className="button-row"><button className="button primary" data-tour="record-evidence" onClick={onEvidence} disabled={progress.mode === 'planned' || !!progress.blocker}><Plus size={16} />Record evidence</button>{progress.status === 'not-started' && progress.mode === 'active' && <button className="button secondary" onClick={() => onResume(mission.id)} disabled={!!progress.blocker}>Begin checkpoint<Play size={14} /></button>}<span className="muted small"><Clock3 size={13} />About {save.checkpoint?.minutes} min</span>{progress.mode === 'background' && <ContextHelp title="Background practice">You can record or complete this checkpoint without changing focus. Daily plans still use only in-focus missions.</ContextHelp>}</div></>}</section>
+        {alternatives.length > 0 && <section className="panel available-checkpoints"><h4><GitBranch size={16} aria-hidden="true" />Other available checkpoints</h4><p className="muted small">Choose one current checkpoint. This does not complete the previous one.</p><div className="button-row">{alternatives.map(checkpoint => <button key={checkpoint.id} className="button secondary" onClick={() => {
           if (commit(current => activateCheckpoint(current, mission.id, checkpoint.id))) notify('Current checkpoint changed. Existing evidence is preserved.');
         }}>Make current: {checkpoint.title}</button>)}</div></section>}
         {mission.id === 'pattern' && <DsaPracticeLink checkpoint={save.checkpoint} />}
@@ -423,7 +445,12 @@ function MissionPage({ mission, state, commit, onEvidence, onResume, notify, onF
         <PackPracticeLink mission={mission} checkpoint={save.checkpoint} />
         <details className="panel" data-tour="mission-inline-map"><summary>Checkpoint flowchart / v{mission.roadmapVersion}</summary><MissionFlowchart mission={mission} state={state} /></details>
       </div><div className="right-rail">
-        <section className="panel"><SectionTitle title="Blocker" />
+        <section className="panel mission-blocker-card" data-blocked={hasBlocker}><SectionTitle title="Blocker">
+          <span className="blocker-card-state">
+            {hasBlocker ? <Flag size={18} aria-hidden="true" /> : <CircleCheck size={18} aria-hidden="true" />}
+            <span className="sr-only">{hasBlocker ? 'Saved blocker' : 'No saved blocker'}</span>
+          </span>
+        </SectionTitle>
           <form className="stack-form" data-tour="blocker-form" onSubmit={event => {
             event.preventDefault();
             update(blocker.trim() ? 'Blocker recorded' : 'Blocker cleared', current => ({
@@ -434,11 +461,14 @@ function MissionPage({ mission, state, commit, onEvidence, onResume, notify, onF
             <button className="button secondary" data-tour="blocker-submit" disabled={progress.mode === 'planned'} type="submit">{blocker.trim() ? 'Save blocker' : 'Clear blocker'}</button>
           </form>
         </section>
-        <section className="panel dependencies"><div className="context-heading"><h3>Related missions</h3><ContextHelp title="Related missions">These are learning connections, not prerequisite locks or shared completion credit. Checkpoints follow their own mission sequence.</ContextHelp></div>{mission.dependencies.map(id => <a href={`#/mission/${id}`} key={id}><MissionIcon mission={getMission(id)} size={16} /><span>{getMission(id).name}</span><ArrowUpRight size={14} /></a>)}</section>
+        <MissionWorkStreak mission={mission} state={state} />
+        <section className="panel dependencies"><div className="context-heading"><h3><Network size={16} aria-hidden="true" />Related missions</h3><ContextHelp title="Related missions">These are learning connections, not prerequisite locks or shared completion credit. Checkpoints follow their own mission sequence.</ContextHelp></div>{mission.dependencies.map(id => <a href={`#/mission/${id}`} key={id}><MissionIcon mission={getMission(id)} size={16} /><span>{getMission(id).name}</span><ArrowUpRight size={14} /></a>)}</section>
         <section className="panel"><SectionTitle title="Saved work" /><p className="muted small">{state.evidence.filter(item => item.missionId === mission.id).length} items recorded.</p><a href="#/evidence" className="text-link">View saved work<ArrowUpRight size={14} /></a></section>
         <section className="panel"><span className="eyebrow">RECENT HISTORY</span>{[...state.events].reverse().filter(event => event.missionId === mission.id).slice(0, 3).map(event => <p className="mission-event" key={event.id}><strong>{event.title}</strong><small>{formatDate(event.createdAt)}</small></p>)}{!state.events.some(event => event.missionId === mission.id) && <p className="muted small">No events yet.</p>}</section>
       </div></div>
-    </>}</>;
+    </>}
+    <SourcePanel missionId={mission.id} state={state} commit={commit} />
+  </>;
 }
 
 function EvidencePage({ state, selectedId, onAdd }: { state: AppState; selectedId?: string; onAdd: () => void }) {

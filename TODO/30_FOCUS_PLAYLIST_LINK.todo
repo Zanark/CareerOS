@@ -1,0 +1,62 @@
+Workstream ID: focus-playlist-link
+Title: Add an optional thumbnail link to the supplied focus playlist
+Status: IN_REVIEW
+Milestone: Let users choose external study music without disturbing focus work
+Dependencies: focus-room
+GitHub issue: https://github.com/Zanark/CareerOS/issues/29
+Purpose: Add the user-supplied thumbnail and YouTube playlist to the compact
+  focus-session card and full focus room. Clicking opens the playlist in a
+  new tab. Do not embed a player, start audio, upload data or change sessions.
+  Keep the feature local for review; do not publish source or the image.
+
+Tasks:
+  [x] Read compact/full focus controls and current runtime/privacy boundaries.
+  [x] Derive a lightweight local thumbnail from the supplied image.
+  [x] Reuse one external-link component on both focus surfaces.
+  [x] Qualify thumbnail loading, safe new-tab navigation and network isolation.
+  [x] Verify timer/state/report preservation and compact/full responsive access.
+  [x] Update focused documentation, original tracking and owned continuity.
+  [x] Prepare the preserved current-source preview for local review.
+
+Acceptance criteria:
+  Both focus surfaces show a real local thumbnail linked to the supplied
+    playlist ID PLYw_q6Wu9DTU; no invented or substituted media destination.
+  The whole card is mouse/touch/keyboard usable, names YouTube and the new tab,
+    and uses noopener/noreferrer. Sharing-only URL tracking is not required.
+  No YouTube iframe, API, thumbnail fetch, preconnect or autoplay is added.
+    CareerOS makes no external media request before the user chooses the link.
+  Existing timer controls and material errors remain before optional music.
+    Short/narrow focus rooms keep core timer/report/close controls reachable.
+  Opening the link does not reset/pause/complete a timer or write progress,
+    reports or preferences. The provider controls playback after navigation.
+  The app keeps its original tab; native fullscreen remains browser-controlled.
+  The local supplied-image derivative has reserved dimensions and no retained
+    source metadata. No third-party artwork or audio is generated or fetched.
+  Existing schemas, focus controller, safeguards and prior local work remain.
+  No owner profile, new image inspection, source commit/push/deployment.
+  Technical verification remains separate from human review and media rights.
+
+Completion evidence:
+  Shared FocusPlaylist is a plain anchor with a locally bundled image.
+  Supplied PNG1672x941/2023761bytes becomes WebP720x405/61336bytes locally.
+  Public URL fetch returned the title DeepWorkCrossing; this is not listening,
+    exhaustive playlist validation or a guarantee of provider availability.
+  Strict build and17native cases/17attempts/one worker/no retries pass on
+    unchanged348inputs08df6e8bdb35dc402508fe8e67a31b21007840cd94234adf2eebc9d137863251.
+  Five playlist cases cover both themes/four viewports, local image/network
+    isolation, keyboard/image clicks, safe new tabs and running/tutorial data.
+    Twelve existing focus safeguards/layout/fullscreen cases also pass.
+  Two earlier15/2diagnostics are retained: real0.75px nearest-scroll clipping
+    fixed with scroll clearance; retained short-room scrolling fixed by
+    resetting only the center panel on opening. Strict assertions are unchanged.
+  Proof: docs/tracking/2026-11-27-focus-playlist-local-review.json.
+  Human review and supplied-image publication rights remain unverified.
+
+Completion log:
+  2026-11-27 - Optional compact/full playlist is technically qualified locally.
+    Safe click-only navigation leaves the countdown and saved reports intact.
+    Keep the supplied thumbnail local and the original issue/item In review;
+    no source staging, commit, push or deployment is authorized.
+  2026-11-27 - Owner supplies a playlist URL and thumbnail and requests an
+    optional click-through in focus mode. Keep existing session/data behavior
+    and local review boundary; do not introduce a player or remote requests.

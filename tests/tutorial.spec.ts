@@ -353,7 +353,7 @@ for (const width of [1440, 390, 320]) {
         case 'evidence-activity':
           await expect(page.locator('.mission-work-streak[data-mission-id="pattern"]')).toHaveAttribute('data-worked-today', 'true');
           await expect(page.locator('.mission-work-streak[data-mission-id="pattern"]')).toHaveAttribute('data-work-streak', '1');
-          await page.locator('.mission-work-streak summary').click();
+          await page.getByRole('button', { name: 'About Recorded-work streak', exact: true }).click();
           break;
         case 'evidence-complete':
           await expect(page.locator('dialog[open] .tutorial-panel')).toBeVisible();

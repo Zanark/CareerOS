@@ -94,7 +94,7 @@ test('saved practice evidence explains a work day without requiring completion',
   await expect(streak).toHaveAttribute('data-worked-today', 'true');
   await expect(streak).toHaveAttribute('data-work-streak', '1');
   await expect(page.locator('.tutorial-panel').getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
-  await streak.locator('summary').click();
+  await streak.getByRole('button', { name: 'About Recorded-work streak', exact: true }).click();
   await expect(page.locator('.tutorial-panel').getByRole('button', { name: 'Next', exact: true })).toBeEnabled();
   await finish(page, before);
 });

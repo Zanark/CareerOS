@@ -1,0 +1,47 @@
+{
+  "status": "local-saved-blocker-review-candidate",
+  "observedAt": "2026-11-27T03:21:02.915123+05:30",
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "sourceFingerprint": "a41d5505c2c709036ba359beb77e777024126f886285fd5971c8a2dc3826cb3f",
+  "sourceInputCount": 344,
+  "inputScope": "First-party src/tests and existing package/build/browser configuration, including preserved local navigation changes; not a whole-repository hash.",
+  "build": "npm run build passed separately on unchanged sources. The focused runner reused the verified ready isolated production preview.",
+  "native": {
+    "casesPassed": 10,
+    "attempts": 10,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "failed": 0,
+    "byFile": {
+      "background-evidence.spec.ts": 1,
+      "blocker-card.spec.ts": 6,
+      "game-development.spec.ts": 1,
+      "theme.spec.ts": 2
+    }
+  },
+  "coverage": [
+    "Both themes and 1440/320 layouts; saved blockers red, clear cards green, outline/tint and actual accessible status text.",
+    "Unsaved typing/deletion cannot pretend save/clear; accepted changes persist through reload.",
+    "Rejected storage writes preserve both previous saved states/colors, exact stored data, drafts and explicit errors.",
+    "Switching missions uses each saved blocker; planned missions remain disabled; existing background recording guards and themed route/dialog data preservation pass."
+  ],
+  "statusSource": "Boolean(saved progress.blocker), matching existing action guards; not the local textarea draft.",
+  "visualTreatment": "Canonical error/document border, 12% tinted background, inset status rail and flag/check with actual accessible saved-status text.",
+  "startupDiagnostic": {
+    "casesExecuted": 0,
+    "outcome": "Existing combined webServer command timed out at60000ms before test execution.",
+    "followup": "Unchanged standalone strict build passed; use a ready agent-owned production helper through existing reuse support. No timeout/retry/assertion increase.",
+    "rootCause": "Original startup scheduling cause not established from the available log."
+  },
+  "limitations": [
+    "No new image views, aesthetic acceptance, physical-device or screen-reader-user qualification.",
+    "Human review pending; no owner browser/profile or source staging/commit/push/deployment."
+  ],
+  "workspaceSchemaChanged": false,
+  "blockerPersistenceRulesChanged": false,
+  "dependenciesChanged": false,
+  "priorNavigationWorkPreserved": true,
+  "published": false
+}

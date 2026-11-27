@@ -1,0 +1,42 @@
+{
+  "status": "independently-verified-local-review-tracking",
+  "observedAt": "2026-11-26T23:00:02.831Z",
+  "repository": "Zanark/CareerOS",
+  "issue": {
+    "number": 29,
+    "id": "I_kwDOU6lJns8AAAABi4vyVw",
+    "url": "https://github.com/Zanark/CareerOS/issues/29",
+    "state": "OPEN",
+    "stateReason": null,
+    "managedBodyMatchesLocal": true,
+    "managedSha256": "2adae46648a0ef5800c7145c98ff0b02d40d3088d081a887e0b3b781c48a10a5"
+  },
+  "project": {
+    "id": "PVT_kwHOAe2wCs4BqeZy",
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPGQs",
+    "status": "In review",
+    "optionId": "a7bd2df9",
+    "archived": false,
+    "matchingMemberships": 1,
+    "observedIssueMemberships": 1,
+    "view": {
+      "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+      "name": "Kanban",
+      "layout": "BOARD_LAYOUT"
+    }
+  },
+  "localBacklinkVerified": true,
+  "priorLocalMappingsUnchanged": 28,
+  "pendingMutation": false,
+  "noOpActions": 0,
+  "noNewObjects": true,
+  "sourceHead": "78816c618a767b4613140acb45974cd19fd7fd56",
+  "remoteMain": {
+    "name": "main",
+    "target": {
+      "oid": "78816c618a767b4613140acb45974cd19fd7fd56"
+    }
+  },
+  "stagedFiles": 0,
+  "published": false
+}

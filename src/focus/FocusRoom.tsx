@@ -11,6 +11,7 @@ import { DEFAULT_NODE_SPACING, spaceCareerGraph } from '../graph/careerNodeSpaci
 import { focusCareerGraph, getCareerFocusVisibility, type CareerFocusVisibility } from '../graph/careerFocusVisibility';
 import type { FocusRoomHandle, FocusSessionController } from './focusTypes';
 import { ContextHelp } from '../ContextHelp';
+import { FocusPlaylist } from './FocusPlaylist';
 import './focus-room.css';
 
 export type { FocusRoomHandle } from './focusTypes';
@@ -42,6 +43,7 @@ const FocusRoom = forwardRef<FocusRoomHandle, {
 }>(function FocusRoom({ state, date, session, practice }, ref) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const routeRef = useRef('');
   const openRef = useRef(false);
@@ -159,6 +161,7 @@ const FocusRoom = forwardRef<FocusRoomHandle, {
     setActionError('');
     setFullscreenMessage('');
     dialog.showModal();
+    if (centerRef.current) centerRef.current.scrollTop = 0;
     openRef.current = true;
     setOpen(true);
     if (!latest.current.practice) enterFullscreen();
@@ -168,6 +171,7 @@ const FocusRoom = forwardRef<FocusRoomHandle, {
 
   useEffect(() => {
     const stage = stageRef.current;
+    openRef.current = dialogRef.current?.open ?? false;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const onMotion = () => {
       setReducedMotion(preference.matches);
@@ -254,7 +258,7 @@ const FocusRoom = forwardRef<FocusRoomHandle, {
             <button type="button" className="focus-room__utility" data-tour="focus-room-close" onClick={closeRoom} aria-label="Close focus room" autoFocus><X size={18} /><span>Close</span></button>
           </div>
         </header>
-        <div className="focus-room__center">
+        <div ref={centerRef} className="focus-room__center">
           <section className="focus-room__glass" aria-label="Focus timer and self-reported distractions">
             <div className="focus-room__clock">
               <p className="focus-room__phase" role="status" aria-live="polite">{phaseLabels[session.phase]}</p>
@@ -290,6 +294,7 @@ const FocusRoom = forwardRef<FocusRoomHandle, {
               </div>}
               <p className="focus-room__record-note">Only your button presses are recorded. Closing this room keeps the timer and reports.</p>
             </div>
+            <FocusPlaylist />
           </section>
         </div>
         <footer className="focus-room__footer">

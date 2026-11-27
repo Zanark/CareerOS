@@ -192,7 +192,12 @@ for (const theme of ['dark', 'light'] as const) {
     await expect(page.getByRole('heading', { level: 1, name: 'DSA', exact: true })).toBeVisible();
     await assertTheme(page, theme);
     const blockerCard = page.locator('section.panel').filter({ has: page.getByRole('heading', { name: 'Blocker', exact: true }) });
-    await expect(blockerCard).toHaveCSS('background-color', palette[theme].card);
+    const blocked = Boolean(JSON.parse(before!).missions.pattern.blocker);
+    await expect(blockerCard).toHaveAttribute('data-blocked', String(blocked));
+    await expect(blockerCard).toHaveCSS('border-top-color', theme === 'dark'
+      ? blocked ? 'rgb(232, 74, 95)' : 'rgb(69, 208, 114)'
+      : blocked ? 'rgb(173, 62, 85)' : 'rgb(36, 116, 73)');
+    await expect(blockerCard).not.toHaveCSS('background-color', palette[theme].card);
     await capture(page, testInfo, `mission-${theme}`);
 
     await navigate(page, 'Saved work');

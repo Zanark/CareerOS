@@ -53,7 +53,12 @@
     { "id": "keep-going-journal-publication", "path": "TODO/24_KEEP_GOING_JOURNAL_PUBLICATION.todo", "publicSafe": true },
     { "id": "atlas-progression-redesign", "path": "TODO/25_ATLAS_PROGRESSION_REDESIGN.todo", "publicSafe": true },
     { "id": "atlas-living-motion", "path": "TODO/26_ATLAS_LIVING_MOTION.todo", "publicSafe": true },
-    { "id": "atlas-publication", "path": "TODO/27_ATLAS_PUBLICATION.todo", "publicSafe": true }
+    { "id": "atlas-publication", "path": "TODO/27_ATLAS_PUBLICATION.todo", "publicSafe": true },
+    { "id": "navigation-refinements", "path": "TODO/28_NAVIGATION_REFINEMENTS.todo", "publicSafe": true },
+    { "id": "blocker-card-status", "path": "TODO/29_BLOCKER_CARD_STATUS.todo", "publicSafe": true },
+    { "id": "focus-playlist-link", "path": "TODO/30_FOCUS_PLAYLIST_LINK.todo", "publicSafe": true },
+    { "id": "mission-clarity", "path": "TODO/31_MISSION_CLARITY.todo", "publicSafe": true },
+    { "id": "local-refinements-publication", "path": "TODO/32_LOCAL_REFINEMENTS_PUBLICATION.todo", "publicSafe": true }
   ],
   "excluded": [
     { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },

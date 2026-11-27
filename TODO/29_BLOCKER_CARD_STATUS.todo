@@ -1,0 +1,64 @@
+Workstream ID: blocker-card-status
+Title: Show saved blocker status with red and green mission cards
+Status: IN_REVIEW
+Milestone: Make persisted blocker status immediately visible
+Dependencies: None
+GitHub issue: https://github.com/Zanark/CareerOS/issues/28
+Purpose: Make the mission's blocker editor red when a blocker is saved and
+  green when none is saved. Use the validated workspace state, not unsaved
+  textarea content. Preserve existing save/clear and failure behavior.
+  Keep the change local for review; do not publish source.
+
+Tasks:
+  [x] Trace saved blocker, draft input and successful/failed commit behavior.
+  [x] Add scoped red/green card treatment and non-color status information.
+  [x] Qualify save/clear/reload, unsaved edits and rejected storage writes.
+  [x] Check both themes, narrow layouts and existing blocker/mission guards.
+  [x] Update focused documentation and prepare original tracking/continuity.
+  [x] Prepare the preserved current-source preview for local review.
+
+Acceptance criteria:
+  The mission blocker card is red for a saved nonempty blocker and green when
+    clear, using the same saved-state predicate as existing mission actions.
+  Draft typing or deletion does not pretend a blocker was saved or cleared.
+  A rejected save retains the previous status/color, data and visible error.
+  Reloading and switching missions show the corresponding saved blocker state.
+  Both themes retain readable fields/buttons and a visible status outline/tint.
+  A flag/check and actual accessible text supplement the color.
+  Planned missions remain disabled; no new eligibility or progress is inferred.
+  Existing form labels, tutorial targets, save/clear rules and schemas remain.
+  No owner browser/profile, backup import/reset, source commit/push/deployment.
+  Technical verification remains separate from pending human review.
+
+Completion evidence:
+  MissionPage uses progress.blocker for saved status and a separate draft.
+  The existing form trims input and only accepted commits update progress.
+  Scoped card styling uses canonical error/document colors; other cards keep
+    their existing theme roles.
+  Strict TypeScript/production build and all 10 selected native cases pass,
+    10 attempts, one worker/no retries/skips/flaky cases or top-level errors.
+    Six new blocker cases, two existing themed-route cases and the existing
+    background-blocker and Planned-mission guards pass.
+  All 344 source/test/config inputs remain unchanged at fingerprint
+    a41d5505c2c709036ba359beb77e777024126f886285fd5971c8a2dc3826cb3f.
+    This is not a whole-repository hash or full application-suite claim.
+  Both themes at1440/320retain the red/green border, soft tint and real
+    accessible saved-status text. Drafts do not change persisted status;
+    rejected save/clear writes preserve prior colors, exact stored data,
+    draft input and the explicit error. Reload/missions/guards remain correct.
+  Initial native startup timed out before any case executed. The unchanged
+    standalone build passed; a verified ready agent-owned production preview
+    used existing runner reuse support. No deadlines/retries were raised.
+    The original startup scheduling cause is not established by its log.
+  Proof: docs/tracking/2026-11-27-blocker-card-local-review.json.
+    No new image views, owner profile or source publication. Human review
+    remains pending, separate from successful technical qualification.
+
+Completion log:
+  2026-11-27 - Current10native cases/10attempts/one worker/no retries and
+    strict build pass on unchanged344inputs a41d5505. Keep zero-case startup
+    diagnostic. Preserve original issue28/itemMOjkQ in review for the owner;
+    previous27navigation mappings/work and source publication boundary hold.
+  2026-11-27 - Owner requests red saved-blocker and green clear-card feedback.
+    Add a scoped read-only status projection without changing persistence,
+    action eligibility, draft handling or the existing local-review boundary.
