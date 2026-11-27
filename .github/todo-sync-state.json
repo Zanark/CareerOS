@@ -485,7 +485,7 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/35",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMXc1o",
       "baseline": {
-        "managed": "a4954fa4ee7810ca924fd0b30d0fa881e18fdf774136216742c56cef84fc2865",
+        "managed": "e5135a4be49e7d6b3378f3a83eec4481ca2d2dbf94c1cd6a68172d80b3d4288c",
         "title": "Sharpen new cards and restore compact header proportions",
         "state": "open",
         "reason": null,
@@ -499,7 +499,7 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/36",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMYOn4",
       "baseline": {
-        "managed": "573c85d27698de12728b32ca39f7483489459117a43e134abad27b83c27232a8",
+        "managed": "f919897917794c7134e756f8f5225d7bdb92098dc3c7e4bb68fdc785c3133cb8",
         "title": "Add realistic streak fire and an original recorded-work calendar",
         "state": "open",
         "reason": null,

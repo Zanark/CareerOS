@@ -48,7 +48,7 @@ test('an empty atlas is read-only, deep-linkable, keyboard accessible and does n
   await page.getByRole('button', { name: 'All signals', exact: true }).click();
   await expect(page.locator('.discovery-card')).toHaveCount(24);
   await readyViewer(page);
-  await expect(page.locator('canvas')).toHaveCount(1);
+  await expect(page.locator('canvas:not(.streak-fire)')).toHaveCount(1);
   await expect(page.locator('[data-tour="discovery-example"]')).toHaveCount(0);
   const before = await storage(page);
   const card = page.locator('[data-tour="discovery-code-card"]');
@@ -158,7 +158,7 @@ for (const [width, theme] of [[1440, 'dark'], [1440, 'light'], [1024, 'dark'], [
     await expect(page.locator('.discovery-card')).toHaveCount(expected.total);
     await expect(page.locator('.discovery-day')).toHaveCount(28);
     await readyViewer(page);
-    await expect(page.locator('canvas')).toHaveCount(1);
+    await expect(page.locator('canvas:not(.streak-fire)')).toHaveCount(1);
     await page.evaluate(() => document.fonts.ready);
     await page.locator('[data-tour="discovery-next"]').scrollIntoViewIfNeeded();
     const expeditionGeometry = await page.locator('[data-tour="discovery-next"]').evaluate(root => {

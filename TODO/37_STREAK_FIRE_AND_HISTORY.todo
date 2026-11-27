@@ -46,6 +46,20 @@ Acceptance criteria:
     evidence. Do not copy private progress, context, PDFs or credentials.
 
 Completion evidence:
+  Latest exactcd618ed/Pages45998537402fails with618passes/8generic-canvas
+    guard failures/1virtual-paint whole-case flaky timeout; deploy skipped.
+    Proof: docs/tracking/2026-11-27-streak-fire-ci-failure.json.
+  Bounded TEST-ONLY correction preserves production source/media/workflow
+    byte-for-byte, original one/zero non-fire GPU-canvas limits, actual context
+    disposal and strict data/phase checks. It excludes only the separately
+    tested2Dfire canvas and fast-forwards only an already-complete quiet interval.
+  Strict build and all73focused native cases pass in73attempts, one worker/
+    zero retries/skips/flaky,364inputs:
+    3ada25e3bf4a0989276cc25e6e41bbba6678fe82c2be4512dbe192bbf8e23b4c.
+    The unchanged runtime/domain qualification remains789/57; this is not a
+    newly executed domain suite. No budget or renderer workaround.
+    Proof: docs/tracking/2026-11-27-streak-fire-ci-repair.json.
+    The corrected successor still requires exact full CI/artifact/live proof.
   Technically qualified locally; current-source publication remains pending.
   Final strict validation passes789domain cases/57files and production build.
     All77native cases pass in77attempts, one worker/no retries/skips/flaky or
@@ -78,6 +92,12 @@ Completion evidence:
     The coherent successor must pass its own exact full CI/artifact/live gate.
 
 Completion log:
+  2026-11-27 - Preserve failedcd618ed/Pages45998537402and actual traces.
+    Correct only obsolete canvas proxies and needless completed-phase clock
+    painting; keep all budgets/assertions and runtime unchanged. Fresh73
+    native/73attempts/one worker/no retries and strict build pass at3ada25e3.
+    Prepare the same-identity publication repair, not another feature or
+    retroactive successful-deployment claim.
   2026-11-27 - Current implementation passes789domain/57files/build and a
     fresh77native cases/77attempts/one worker/zero retries on364inputs189fe136.
     Retain strict-type,62/2observation and priorb9CIevidence. The new page,

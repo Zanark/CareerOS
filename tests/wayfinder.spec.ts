@@ -257,7 +257,7 @@ test('maximal equipment stops rendering offscreen and releases its context on ro
   for (let index = 0; index < 3; index++) {
     await page.getByRole('link', { name: 'Discovery Atlas', exact: true }).click();
     await ready(page);
-    await expect(page.locator('canvas')).toHaveCount(1);
+    await expect(page.locator('canvas:not(.streak-fire)')).toHaveCount(1);
     expect(Number(await page.locator(viewerSelector).getAttribute('data-geometries'))).toBeLessThanOrEqual(8);
     if (index < 2) await page.getByRole('link', { name: 'Overview', exact: true }).click();
   }
@@ -279,7 +279,7 @@ test('unavailable WebGL is explicitly labelled and does not invent a working 3D 
   const before = await stored(page);
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-viewer-state', 'unavailable');
   await expect(page.locator('.wayfinder-viewer-message')).toContainText('A still illustration is shown');
-  await expect(page.locator('canvas')).toHaveCount(0);
+  await expect(page.locator('canvas:not(.streak-fire)')).toHaveCount(0);
   await expect(page.locator('.wayfinder-viewer-fallback .wayfinder-art')).toHaveAttribute('data-character-level', '7');
   await page.locator('[data-tour="wayfinder-first-chapter"]').click();
   await expect(page.locator('.wayfinder-viewer-fallback .wayfinder-art')).toHaveAttribute('data-character-level', '1');

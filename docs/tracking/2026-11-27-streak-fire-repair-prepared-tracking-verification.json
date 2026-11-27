@@ -1,0 +1,45 @@
+{
+  "status": "original-streak-publication-tracking-independently-verified",
+  "stage": "prepared",
+  "observedAt": "2026-11-27T13:24:27.220Z",
+  "rows": [
+    {
+      "id": "compact-square-chrome",
+      "issue": 35,
+      "issueId": "I_kwDOU6lJns8AAAABjBLgeQ",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMXc1o",
+      "state": "OPEN",
+      "stateReason": null,
+      "status": "In Progress",
+      "managedSha256": "e5135a4be49e7d6b3378f3a83eec4481ca2d2dbf94c1cd6a68172d80b3d4288c"
+    },
+    {
+      "id": "streak-fire-history",
+      "issue": 36,
+      "issueId": "I_kwDOU6lJns8AAAABjB9BdA",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMYOn4",
+      "state": "OPEN",
+      "stateReason": null,
+      "status": "In Progress",
+      "managedSha256": "f919897917794c7134e756f8f5225d7bdb92098dc3c7e4bb68fdc785c3133cb8"
+    }
+  ],
+  "unrelatedMappingsUnchanged": 34,
+  "privateGates": [
+    {
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "exactManagedBodiesAndBacklinks": true,
+  "pending": false
+}

@@ -186,7 +186,7 @@ test('an unavailable visibility observer is explicit and keeps a safe static fal
   await expect(page.getByRole('button', { name: 'Motion unavailable', exact: true })).toBeDisabled();
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-viewer-state', 'unavailable');
   await expect(page.locator('.wayfinder-viewer-message')).toContainText('cannot observe the viewer safely');
-  await expect(page.locator('canvas')).toHaveCount(0);
+  await expect(page.locator('canvas:not(.streak-fire)')).toHaveCount(0);
   const before = await storage(page);
   expect((await motion(page.locator('.wayfinder-scene'))).every(animation => animation.state === 'paused')).toBe(true);
   await page.getByRole('button', { name: 'All signals', exact: true }).click();

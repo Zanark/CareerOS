@@ -1,0 +1,25 @@
+{
+  "status": "exact-streak-source-ci-failed-deployment-skipped",
+  "source": "cd618ed7c8dfe3f05461248b11a37065430c92d3",
+  "run": 45998537402,
+  "url": "https://github.com/Zanark/CareerOS/actions/runs/45998537402",
+  "failedStep": "Run npm run test:e2e",
+  "deploy": "skipped",
+  "browser": {
+    "passed": 618,
+    "failed": 8,
+    "flaky": 1,
+    "failure": "Six Discovery visual cases and two Wayfinder resource/fallback cases counted the new explicitly Canvas2D fire canvas as though it were another GPU viewer.",
+    "flakyCase": "Blocked presentation persistence exceeded the 30s whole-case budget while frame-by-frame advancing both an active 4800ms ceremony and an already-complete 5000ms quiet interval."
+  },
+  "observedClockCostMs": {
+    "active4800VirtualMs": 13727.457,
+    "completed5000VirtualMs": 12331.012
+  },
+  "boundedCorrection": {
+    "resourceGuard": "Preserve one/zero non-fire renderer canvas limits and actual WebGL context-disposal checks; exclude only the separately pixel-tested .streak-fire Canvas2D surface.",
+    "quietInterval": "Retain frame-by-frame active ceremony coverage. Fast-forward only after completion, preserving exact phase/history/workspace checks without painting unrelated decorative frames.",
+    "runtime": "No application-code, data, timeout, retry, skip or schema workaround."
+  },
+  "publication": "Do not call cd618ed deployed. Its bounded test-only successor requires its own exact full gate."
+}

@@ -1,0 +1,40 @@
+{
+  "status": "test-only-correction-technically-qualified-publication-pending",
+  "baseline": "cd618ed7c8dfe3f05461248b11a37065430c92d3",
+  "failedRun": 45998537402,
+  "runtimeChanged": false,
+  "protectedRuntimeMediaDependenciesWorkflowIdentical": true,
+  "changes": [
+    "Retain the original one/zero non-fire renderer canvas limits and actual WebGL disposal assertions, excluding only the explicitly Canvas2D .streak-fire surface.",
+    "Retain frame-by-frame active presentation coverage; advance only an already-complete quiet interval with clock.fastForward while keeping exact phase/null-history/workspace assertions."
+  ],
+  "sourceInputs": {
+    "count": 364,
+    "sha256": "3ada25e3bf4a0989276cc25e6e41bbba6678fe82c2be4512dbe192bbf8e23b4c",
+    "unchangedThroughNativeGate": true
+  },
+  "strictBuild": true,
+  "native": {
+    "passed": 73,
+    "attempts": 73,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "topLevelErrors": 0,
+    "files": {
+      "atlas-motion.spec.ts": 13,
+      "discovery.spec.ts": 16,
+      "header-date.spec.ts": 17,
+      "streaks.spec.ts": 8,
+      "wayfinder-arrival.spec.ts": 11,
+      "wayfinder.spec.ts": 8
+    }
+  },
+  "unchangedDomainQualification": { "source": "cd618ed7c8dfe3f05461248b11a37065430c92d3", "passed": 789, "files": 57, "referenceNotNewExecution": true },
+  "timeoutsRetriesSkipsOrEqualityTolerancesChanged": false,
+  "productionDataOrRendererWorkaround": false,
+  "newSuccessfulDeployment": false,
+  "ownerBrowserAccessed": false,
+  "newImageViews": 0
+}

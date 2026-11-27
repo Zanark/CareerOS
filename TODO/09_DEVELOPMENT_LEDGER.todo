@@ -17,6 +17,19 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-27 - Bounded test-only repair passes strict build and73native
+    cases/73attempts/one worker/zero retries at364inputs3ada25e3. Preserve
+    exactcd618edproduction/media/workflow equality and original GPU disposal/
+    count/storage/phase limits. No renderer/data/timeout/retry workaround;
+    only exclude the already tested2Dfire and jump an already-complete quiet
+    interval. Public proof: docs/tracking/2026-11-27-streak-fire-ci-repair.json.
+  2026-11-27 - Exactcd618ed/Pages45998537402fails with618passes,
+    8obsolete canvas-count failures and1blocked-save whole-case timeout;
+    deploy skipped. New fire is explicitly2D, not another GPU viewer.
+    Keep GPU-canvas/context-loss budgets while excluding only that tested2D
+    component. Trace shows13.727sfor4800activevirtualmsand12.331sfor5000
+    already-completevirtualms; fast-forward only the quiet interval and keep
+    exact no-loop/null-history/workspace assertions. Runtime is unchanged.
   2026-11-27 - Work37local gate passes789domain/57files/build and fresh77
     native/77attempts/one worker/no retries/skips/flaky on364inputs189fe136.
     Original transparent turbulent fire/cold ash, global pause and visibility/

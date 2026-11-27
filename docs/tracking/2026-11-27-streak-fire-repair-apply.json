@@ -1,0 +1,65 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "cd618ed7c8dfe3f05461248b11a37065430c92d3",
+  "observedAt": "2026-11-27T13:23:56.149Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "compact-square-chrome",
+      "path": "TODO/36_COMPACT_SQUARE_CHROME.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/35",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "e5135a4be49e7d6b3378f3a83eec4481ca2d2dbf94c1cd6a68172d80b3d4288c",
+      "actions": [
+        "update managed description"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMXc1o",
+      "backlink": "verified"
+    },
+    {
+      "id": "streak-fire-history",
+      "path": "TODO/37_STREAK_FIRE_AND_HISTORY.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/36",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "f919897917794c7134e756f8f5225d7bdb92098dc3c7e4bb68fdc785c3133cb8",
+      "actions": [
+        "update managed description"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMYOn4",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 36,
+    "selected": 2,
+    "excluded": 2,
+    "created": 0,
+    "reused": 2,
+    "verified": 2,
+    "open": 2,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

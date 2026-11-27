@@ -213,7 +213,7 @@ test('a blocked presentation save reports its limit without changing progress or
   await page.clock.runFor(4800);
   await expect(page.getByText(/Atlas animation history could not be saved/)).toBeVisible();
   await expect(page.locator(sequence)).toHaveAttribute('data-phase', 'complete');
-  await page.clock.runFor(5000);
+  await page.clock.fastForward(5000);
   await expect(page.locator(sequence)).toHaveAttribute('data-phase', 'complete');
   expect(await history(page)).toBeNull();
   expect(await stored(page)).toBe(before);

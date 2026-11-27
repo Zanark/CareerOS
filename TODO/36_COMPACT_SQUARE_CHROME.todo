@@ -42,6 +42,11 @@ Acceptance criteria:
     Exact CI/deployment and actual hosted bytes/affected behavior must succeed.
 
 Completion evidence:
+  Latest coherent streak sourcecd618ed/Pages45998537402also remains undeployed:
+    618passes/8obsolete GPU-canvas proxies/1virtual quiet-phase timeout.
+    Work37contains a qualified test-only repair at364inputs3ada25e3with73
+    native passes/73attempts/one worker/no retries and unchanged runtime.
+    Preserve both failures and wait for actual repaired-source delivery.
   Exact sourceb9bba6cwas normally committed/pushed, but its Pages45988226854
     browser gate failed:617pass,1Atlasoffscreen-pause failure,1academic backup
     flaky case; deploy skipped. Do not call that source publicly deployed.
