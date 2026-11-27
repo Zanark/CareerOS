@@ -15,9 +15,10 @@ export function HeaderCalendar({ date, burning }: { date: string; burning: boole
         <span className="calendar-label-short">{day.toLocaleDateString('en', { month: 'short' })}</span>
       </span>
       <span className="calendar-core" aria-hidden="true">
+        {burning && <StreakFire burning variant="calendar" />}
         <span className="calendar-binding calendar-binding--left" />
         <span className="calendar-binding calendar-binding--right" />
-        <span key={date} className="calendar-page">{burning && <StreakFire burning variant="calendar" />}<strong>{day.getDate()}</strong></span>
+        <span key={date} className="calendar-page"><strong>{day.getDate()}</strong></span>
       </span>
       <span className="topbar-date-weekday" aria-hidden="true">
         <span className="calendar-label-full">{day.toLocaleDateString('en', { weekday: 'long' })}</span>

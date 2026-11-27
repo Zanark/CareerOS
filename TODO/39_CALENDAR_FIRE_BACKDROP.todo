@@ -1,0 +1,77 @@
+Workstream ID: calendar-fire-backdrop
+Title: Place blue streak fire behind the navbar calendar
+Status: DONE
+Milestone: Keep the paper date clear while blue flames rise behind its edges
+Dependencies: blue-streak-fire
+GitHub issue: https://github.com/Zanark/CareerOS/issues/38
+Purpose: The owner explicitly prefers the calendar fire behind the calendar
+  rather than painted on its face. Move the existing decorative canvas behind
+  the complete paper tile, keeping a bounded visible blue flame surround.
+
+Tasks:
+  [x] Read the actual calendar/canvas hierarchy, styles and existing guards.
+  [x] Add actual browser-pixel regression checks for unobscured paper and visible fire.
+  [x] Place the existing blue canvas behind the paper and bindings.
+  [x] Preserve date semantics, weekend color, compact dimensions and motion controls.
+  [x] Run the focused calendar/streak checks and strict build.
+  [x] Update focused documentation, original tracking and owned continuity.
+
+Acceptance criteria:
+  Positive actual recorded streaks retain blue fire visibly around/behind the
+    calendar; the opaque date face, top strip and bindings stay in front.
+  Clearing only the decorative canvas leaves the actual rendered paper interior
+    byte-identical while changing its visible surround in both themes.
+  The calendar remains 40x50px inside the original 69/60px header; readable
+    labels, full accessible date, weekend red, hover and finite turn remain.
+  Cold zero, actual records/history and all mission/hero fire remain unchanged.
+  Reuse the same bounded Canvas2D painter and shared motion/visibility/pause
+    controls, without extra canvases, media, dependencies or stored preferences.
+  Preserve README media, frozen curricula and the owner's actual browser data.
+  Local technical completion is separate from aesthetic approval and publication.
+    The original styling request did not authorize Git publication; the later
+    explicit push is tracked separately in calendar-backdrop-publication.
+
+Completion evidence:
+  Subsequent publication is separately authorized and tracked in
+    TODO/40_CALENDAR_BACKDROP_PUBLICATION.todo. Original local evidence below
+    describes the completed implementation before that publication request.
+  Technically complete locally, not committed/pushed/deployed. Strict production
+    build and all 28 affected native calendar/streak cases pass in 28 attempts,
+    one browser worker, zero retries/skips/flaky/top errors.
+  The final exact-paper regressions fail on the unchanged public foreground
+    release in both themes, then pass locally at desktop and mobile widths:
+    actual opaque paper/ink/strip pixels stay byte-identical with flame pixels
+    cleared, while the actual surround changes. Separate curved binding edges
+    are not mistaken for opaque paper. No tolerance or timeout is relaxed.
+  Existing local-day/weekend rollover, accessible full date, 20-width/fallback
+    type/geometry, tutorial/draft/hover/turn, cold zero, actual records/history,
+    pause/reduced/hidden/offscreen/dialog and canvas-fallback contracts pass.
+  Proof: docs/tracking/2026-11-28-calendar-backdrop-local-review.json.
+    Original issue38/itemMeOTIis the retained tracking identity; separate
+    completion receipts verify its closure and Project status. Other
+    workstreams and human review gates stay intact.
+  Prior corrected-source observation exposed native edge-raster differences
+    when hiding/readback-changing the canvas and mixing screenshot methods.
+    Retain the same warmed canvas, compare consecutive identical capture bounds,
+    and measure the paper below the separate curved bindings instead.
+    Exact equality and a visible-surround control remain; product code did not
+    gain an observation workaround. Initial failures remain historical evidence.
+  Initial inspection: the calendar canvas is nested inside calendar-page and
+    sits above its background. The same painter can be a lower sibling of
+    the complete paper tile instead. Existing preview remains current/alive.
+  Both theme-specific actual-browser compositing regressions fail on the
+    original foreground implementation for the intended paper-pixel mismatch.
+  The existing canvas is now a lower sibling behind opaque paper and bindings,
+    with a bounded 72x72px CSS surround; its 72x88px buffer is unchanged.
+  No new manual images are viewed; technical checks are not aesthetic approval.
+
+Completion log:
+  2026-11-28 - Complete the bounded local backdrop correction. Both final
+    compositing cases fail on unchanged public foreground fire, then all28
+    affected cases pass locally with strict build/28attempts/one worker/
+    zero retries. The paper and bindings stay in front of one unchanged
+    painter, with no bigger navbar or new activity/motion authority.
+    Publication was not requested; preserve the prior actual blue deployment.
+  2026-11-27 - Owner asks for calendar fire behind the calendar, not on it.
+    Begin a bounded stacking/placement correction, preserving the completed
+    blue-fire release and all non-calendar artwork/data/motion authority.

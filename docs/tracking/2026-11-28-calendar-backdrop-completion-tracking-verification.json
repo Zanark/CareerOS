@@ -1,0 +1,32 @@
+{
+  "status": "calendar-backdrop-original-tracking-independently-verified",
+  "observedAt": "2026-11-27T18:58:35.897Z",
+  "row": {
+    "id": "calendar-fire-backdrop",
+    "issue": 38,
+    "issueId": "I_kwDOU6lJns8AAAABjIXQYQ",
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMeOTI",
+    "state": "CLOSED",
+    "stateReason": "COMPLETED",
+    "status": "Done",
+    "managedSha256": "2fbccf5f79b37991980d0356c4b601cdc5962380ba84ffcbf8e6d92c187978d8"
+  },
+  "unrelatedMappingsUnchanged": 37,
+  "privateGates": [
+    {
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "exactManagedBodyAndBacklink": true,
+  "pending": false
+}

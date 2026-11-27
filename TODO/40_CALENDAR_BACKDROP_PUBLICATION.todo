@@ -1,0 +1,48 @@
+Workstream ID: calendar-backdrop-publication
+Title: Publish the calendar fire backdrop correction
+Status: IN_PROGRESS
+Milestone: Deliver the qualified behind-calendar blue fire to GitHub Pages
+Dependencies: calendar-fire-backdrop
+GitHub issue: https://github.com/Zanark/CareerOS/issues/39
+Purpose: The owner separately authorizes pushing the completed local calendar
+  correction. Publish that exact qualified source and its directly dependent
+  tests/docs/tracking, then verify the exact workflow and actual hosted result.
+
+Tasks:
+  [x] Reconcile the intended worktree and exact prior local qualification.
+  [ ] Review and commit only the intended source with both Zanark identities.
+  [ ] Push normally to the canonical main branch and read back its exact SHA.
+  [ ] Monitor the exact existing validation/deployment workflow and repair failures.
+  [ ] Verify actual deployed artifact bytes and affected hosted browser contracts.
+  [ ] Complete original tracking, final publication evidence and owned continuity.
+
+Acceptance criteria:
+  Source contains only the qualified calendar backdrop change and its directly
+    dependent tests, guides and public-safe tracking; real records stay private.
+  Both effective commit identities are the configured Zanark identity and the
+    current required agent trailers are retained. No force/amend/global changes.
+  Exact main-source validation and Pages deployment succeed; a submitted push
+    or an older successful run is not delivery evidence.
+  Actual hosted files match the successful Pages artifact, and affected calendar/
+    streak behavior passes against that source in disposable browser contexts.
+  Preserve the 40x50px tile, 69/60px header, blue field, date/weekend/turn,
+    cold zero, actual history, motion controls and original resource budgets.
+  Preserve prior release/failure evidence, original issue/Project identities,
+    human review gates, frozen curricula and approved README/media.
+  Publication evidence is distinct from independent aesthetic or device approval.
+    Do not bypass product CI or manufacture unrelated commits/deployments.
+
+Completion evidence:
+  Prior local build and all28affected browser cases pass in28attempts/one worker/
+    zero retries. The final two compositing tests fail for the intended paper
+    mismatch on the previous public foreground implementation.
+  Exact four changed runtime/test input hashes still match the local receipt:
+    docs/tracking/2026-11-28-calendar-backdrop-local-review.json.
+  Source base is c5dcacca90f15bbaa6c05cde5b4bb71bbc95f7d1. Existing canonical
+    workflow is Validate and deploy CareerOS; its trigger/budgets stay unchanged.
+  Source commit/push, exact workflow and actual public verification are pending.
+
+Completion log:
+  2026-11-28 - Owner explicitly requests push after local work39completed.
+    Begin a separate publication milestone without reopening its completed
+    implementation or relabelling previous local evidence as deployed.

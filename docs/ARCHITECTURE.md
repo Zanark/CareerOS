@@ -569,7 +569,10 @@ persisted reward system. Cold scenes have no ongoing rendering.
 Per-visit pause, reduced motion, hidden documents, offscreen regions, native
 dialogs and unmounting stop rendering; reduced motion retains one still frame.
 Missing Canvas2D reports a visible notice without touching progress.
-The inverse date ink and raised weekend strip remain above calendar flames;
+The calendar canvas is a lower sibling of the opaque paper and bindings, not a
+child painted over the paper. Its bounded surround extends beyond the tile
+without changing the header footprint or restarting the flame on a date turn.
+The inverse date ink and raised weekend strip remain in front of the flames;
 all surrounding cards retain square static-blur glass and readable text roles.
 
 `buildCareerOrbits` attaches the same summary, including `asOfDate`, to each mission

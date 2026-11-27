@@ -29,7 +29,8 @@ light and activity accents use the existing blue theme role. Turbulence stays
 inside its fuel volume, with soft falloff and restrained glints rather than
 free-floating bright grain. Positive recorded streaks burn; zero is
 charred logs/cool ash. Any running mission can light the navbar calendar.
-The date keeps its readable ink and a raised red weekend strip above the fire.
+The calendar's whole paper tile and bindings sit in front of the blue flames,
+which rise around its edges rather than painting over the date or weekend strip.
 One per-visit **Pause fire** control applies across these effects, independently
 of Atlas controls. Reduced motion shows a still frame; hidden/offscreen/native
 dialog states stop painting. No blur animation or extra WebGL context is added.

@@ -520,6 +520,34 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "calendar-fire-backdrop": {
+      "issueNumber": 38,
+      "issueId": "I_kwDOU6lJns8AAAABjIXQYQ",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/38",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMeOTI",
+      "baseline": {
+        "managed": "5603eaf820aec1620a0ac0bac2407e7114588793d4327f5a743dd089bd603b9e",
+        "title": "Place blue streak fire behind the navbar calendar",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
+        "archived": false
+      }
+    },
+    "calendar-backdrop-publication": {
+      "issueNumber": 39,
+      "issueId": "I_kwDOU6lJns8AAAABjJH3ow",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/39",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMfAAM",
+      "baseline": {
+        "managed": "f7ea0e055324d2b20c1a44dcdcac2f3e5c725e827f92b9e246c83f6270beecb0",
+        "title": "Publish the calendar fire backdrop correction",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

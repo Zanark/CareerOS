@@ -119,6 +119,59 @@ for (const theme of ['dark', 'light'] as const) {
     expect(after.recalls).toEqual(original.recalls);
     expect(after.missions).toEqual(original.missions);
   });
+
+  test(`calendar fire stays visible behind an unobscured paper face in ${theme}`, async ({ page }) => {
+    await prepare(page, { theme });
+    const before = await storage(page);
+    const calendar = page.locator('.header-calendar'), core = calendar.locator('.calendar-core');
+    const fire = calendar.locator('canvas');
+    for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+      await page.setViewportSize(viewport);
+      const bounds = await calendar.locator('.calendar-page').boundingBox();
+      if (!bounds) throw new Error('The actual calendar paper must be visible.');
+      const bindingsBottom = await core.locator('.calendar-binding').evaluateAll(elements =>
+        Math.max(...elements.map(element => element.getBoundingClientRect().bottom)));
+      // The curved binding edges are separate artwork, not the opaque paper face.
+      const top = Math.max(Math.ceil(bounds.y) + 2, Math.ceil(bindingsBottom) + 1);
+      const clip = {
+        x: Math.ceil(bounds.x) + 2, y: top,
+        width: Math.floor(bounds.x + bounds.width) - Math.ceil(bounds.x) - 4,
+        height: Math.floor(bounds.y + bounds.height) - top - 2,
+      };
+      await pixels(page, '.header-calendar canvas');
+      const paint = await fire.evaluateHandle(element => {
+        if (!(element instanceof HTMLCanvasElement)) throw new Error('Expected the actual calendar fire canvas.');
+        const context = element.getContext('2d');
+        if (!context) throw new Error('The calendar fire context must be available.');
+        const image = context.getImageData(0, 0, element.width, element.height);
+        return (visible: boolean) => {
+          if (visible) context.putImageData(image, 0, 0);
+          else context.clearRect(0, 0, element.width, element.height);
+        };
+      });
+      const litPaper = await page.screenshot({ clip });
+      await paint.evaluate(paint => paint(false));
+      const clearPaper = await page.screenshot({ clip });
+      await paint.evaluate(paint => paint(true));
+      const litSurround = await core.screenshot();
+      await paint.evaluate(paint => paint(false));
+      const clearSurround = await core.screenshot();
+      await paint.evaluate(paint => paint(true));
+      await paint.dispose();
+      if (!clearPaper.equals(litPaper)) {
+        await test.info().attach('paper-with-fire', { body: litPaper, contentType: 'image/png' });
+        await test.info().attach('paper-without-fire', { body: clearPaper, contentType: 'image/png' });
+        const layers = await core.locator(':scope, *').evaluateAll(elements => elements.map(element => {
+          const style = getComputedStyle(element);
+          return { className: element.className, background: style.backgroundColor, opacity: style.opacity, layer: style.zIndex, blend: style.mixBlendMode };
+        }));
+        await test.info().attach('calendar-layers', { body: JSON.stringify({ viewport, clip, layers }), contentType: 'application/json' });
+      }
+      expect(clearPaper.equals(litPaper), 'Fire must not paint over the paper, date or top strip.').toBe(true);
+      expect(clearSurround.equals(litSurround), 'Fire must remain visible around the paper, not merely be hidden.').toBe(false);
+    }
+    expect(await storage(page)).toBe(before);
+  });
 }
 
 test('calendar selection, keyboard navigation, mission filtering and run ranges are actual read-only history', async ({ page }) => {

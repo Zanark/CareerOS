@@ -1,0 +1,69 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "c5dcacca90f15bbaa6c05cde5b4bb71bbc95f7d1",
+  "observedAt": "2026-11-27T19:37:34.136Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "calendar-fire-backdrop",
+      "path": "TODO/39_CALENDAR_FIRE_BACKDROP.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/38",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "5603eaf820aec1620a0ac0bac2407e7114588793d4327f5a743dd089bd603b9e",
+      "actions": [
+        "update managed description"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMeOTI",
+      "backlink": "verified"
+    },
+    {
+      "id": "calendar-backdrop-publication",
+      "path": "TODO/40_CALENDAR_BACKDROP_PUBLICATION.todo",
+      "outcome": "conflict",
+      "created": true,
+      "reused": false,
+      "issue": "https://github.com/Zanark/CareerOS/issues/39",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "f7ea0e055324d2b20c1a44dcdcac2f3e5c725e827f92b9e246c83f6270beecb0",
+      "actions": [
+        "create issue",
+        "set issue open/-",
+        "add issue to Project",
+        "set Project In Progress",
+        "write backlink",
+        "verify all surfaces"
+      ],
+      "error": "Mapped Project item was removed/replaced; do not silently restore a human removal."
+    }
+  ],
+  "counts": {
+    "included": 39,
+    "selected": 2,
+    "excluded": 2,
+    "created": 1,
+    "reused": 1,
+    "verified": 1,
+    "open": 0,
+    "closed": 1,
+    "conflicts": 1,
+    "failed": 0
+  }
+}

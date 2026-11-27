@@ -1,0 +1,49 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "c5dcacca90f15bbaa6c05cde5b4bb71bbc95f7d1",
+  "observedAt": "2026-11-27T19:39:01.249Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "calendar-backdrop-publication",
+      "path": "TODO/40_CALENDAR_BACKDROP_PUBLICATION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/39",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "f7ea0e055324d2b20c1a44dcdcac2f3e5c725e827f92b9e246c83f6270beecb0",
+      "actions": [
+        "write backlink",
+        "save verified recovery baseline"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMfAAM",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 39,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

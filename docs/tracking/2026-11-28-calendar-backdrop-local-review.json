@@ -1,0 +1,38 @@
+{
+  "status": "technically-qualified-locally",
+  "workstream": "calendar-fire-backdrop",
+  "baseRevision": "c5dcacca90f15bbaa6c05cde5b4bb71bbc95f7d1",
+  "change": "Move the existing blue calendar canvas behind the opaque paper and bindings, with a bounded visible surround and unchanged header footprint.",
+  "inputs": [
+    { "path": "src/HeaderCalendar.tsx", "sha256": "54810ed9d52baa62da2e5f9ad93655e96494c811c6c4dbcae8a2d4c2bffb33ab" },
+    { "path": "src/header-calendar.css", "sha256": "ae15fb6fe2eee2ff046369985ad1e0c2a873603c44923a624645099fa470cac8" },
+    { "path": "src/streaks/streak-fire.css", "sha256": "2a94ff2982b3a411710d86419bcbceeae1b8bb32fe5646d527de89cde56f14b2" },
+    { "path": "tests/streaks.spec.ts", "sha256": "07420b10ef4dbed2b49d00c273c36cc889885395bbedab72905c1a8f12f45a14" }
+  ],
+  "qualification": {
+    "build": "Strict tsc -b and Vite production build through the existing Playwright webServer command.",
+    "browserFiles": ["tests/header-date.spec.ts", "tests/streaks.spec.ts"],
+    "cases": 28,
+    "attempts": 28,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "unexpected": 0,
+    "topErrors": 0,
+    "startTime": "2026-11-27T18:53:17.024Z",
+    "durationMs": 69077.902,
+    "compositing": "Both themes and desktop/mobile: actual opaque paper/ink/strip pixels remain byte-identical after clearing only canvas pixels, while its visible surround changes.",
+    "regressionControl": "The same two final cases fail for the intended paper-pixel mismatch on the unchanged published foreground-fire release.",
+    "preserved": [
+      "40x50px calendar, 69px desktop and 60px compact header",
+      "Accessible date, local day/weekend rollover, readable type, hover and finite turn",
+      "Cold zero, actual records, mission/hero artwork and recorded run history",
+      "Existing shared bounded painter, buffer sizes and all motion/visibility/pause controls",
+      "Domain, dependencies, workflow, README/media and owner browser data"
+    ]
+  },
+  "observationCorrection": "Keep the canvas present and warmed; use consecutive same-method captures and compare opaque paper below the separate curved bindings. Preserve strict equality rather than tolerating native edge-raster changes.",
+  "publication": { "requested": false, "committed": false, "pushed": false, "deployed": false },
+  "limitations": ["No new manual image review or independent aesthetic approval is claimed.", "Synthetic disposable browser contexts, not the owner's profile."]
+}

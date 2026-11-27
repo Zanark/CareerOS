@@ -17,6 +17,27 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-28 - Publication tracking initially stops after returning the newly
+    created issue39/itemMfAAMidentity because membership is not visible to its
+    immediate inventory. Preserve the partial record and original failure.
+    A fresh read-only preview finds that same item and permits only backlink/
+    verified-baseline persistence; no duplicate add, restoration or cleared
+    intent. Recovery apply/no-op/independent read-back verify the original item,
+    local issue38Done and37other mappings/private review gates unchanged.
+  2026-11-28 - Start work40for the owner's explicit push request. Reuse the
+    exact qualified local calendar backdrop/runtime/test hashes and28case
+    result; do not rerun an unchanged suite or claim an old CI run deployed
+    the new fix. Preserve completed local work39and all prior release evidence.
+  2026-11-28 - Work39complete locally: move the existing calendar flame
+    canvas behind the opaque paper and bindings, retaining a bounded visible
+    surround and original40x50/69/60pxgeometry. Exact final compositing cases
+    fail on the unchanged published foreground release in both themes, then
+    all28affected native cases pass locally/28attempts/one worker/no retries.
+    Preserve exact pixel equality after matching capture methods/canvas lifetime
+    and separating curved binding edges from opaque paper. Actual records,
+    painter/motion budgets, weekend/date/turn, cold zero and other flames remain.
+    Proof: docs/tracking/2026-11-28-calendar-backdrop-local-review.json.
+    No new manual image review, human beauty approval or Git publication claim.
   2026-11-27 - BLUE REFINEMENT COMPLETE PUBLIC: source4e7158b/exact
     Pages46028265320SUCCESS. Actual789domain/57files/629browserCIwith
     zero retry/skip/flaky markers. Artifact15214448414matches31runtime files/

@@ -18,7 +18,7 @@
 .calendar-label-short { display: none; }
 .calendar-core { position: relative; width: 40px; height: 50px; perspective: 400px; transition: transform .2s ease; }
 .calendar-page {
-  position: absolute; inset: 5px 2px 3px; display: grid; place-items: center; padding-top: 6px;
+  position: absolute; z-index: 1; inset: 5px 2px 3px; display: grid; place-items: center; padding-top: 6px;
   border: 1px solid color-mix(in srgb, var(--dsf-hero-bg) 16%, var(--dsf-pearl));
   border-radius: 2px; background: var(--dsf-pearl); color: var(--dsf-hero-bg);
   box-shadow: 0 3px 0 color-mix(in srgb, var(--dsf-pearl) 78%, var(--dsf-hero-bg)), 0 6px 10px color-mix(in srgb, var(--dsf-shadow) 35%, transparent);
@@ -40,7 +40,7 @@
   font-variant-numeric: lining-nums tabular-nums; line-height: 1; text-align: center;
 }
 .calendar-binding {
-  position: absolute; top: 1px; z-index: 1; width: 3px; height: 8px;
+  position: absolute; top: 1px; z-index: 2; width: 3px; height: 8px;
   border: 1px solid var(--dsf-border); border-radius: 1px;
   background: var(--dsf-paper);
 }
