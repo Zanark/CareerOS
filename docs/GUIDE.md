@@ -35,13 +35,16 @@ The compact paper calendar shows the month
 on the left, the day-number page in the center, and weekday on
 the right. The date follows your device's local day, including during tutorial
 practice. A brief page turn runs on initial load or a new date, then settles;
-system reduced motion keeps it still. There are no looping decorative effects.
+system reduced motion keeps it still. The page turn does not loop.
 Hover gives the paper a small lift and tilt while the labels stay in place.
 Full names sit close to the tile on desktop; narrow screens use readable,
 standard short names. The complete date remains
 available to assistive technology and in its hover title.
 The paper calendar's top strip is red on Saturday and Sunday, teal on weekdays,
 following your local date.
+Any running mission streak also lights the calendar with decorative fire.
+Select the calendar to open **Streaks**; its fire never changes the date,
+weekend strip, saved records or navbar height.
 
 Daily plan sits immediately below Overview in the sidebar.
 The calendar fits in the original single-row navbar, leaving the page room
@@ -951,6 +954,20 @@ estimates, not measured learning time.
 
 ### Recorded-work days and streaks
 
+Open **Tracking > Streaks**, or select the navbar calendar, for the Ember Atlas:
+running mission streaks with actual start/end dates, monthly activity panels
+and **Run history**. Choose a year or mission, then select a day to inspect
+its saved entries; arrow keys move between days. Brightness reflects the
+number of saved entries, not a learning score. The overall run combines
+recorded days across missions; mission runs remain separate.
+
+Nonzero streak cards have procedural fire; zero shows a cold, extinguished
+campfire. Any running mission can light the navbar, including a background
+mission. **Pause fire** on this page, beside Streaks in navigation or on a
+burning mission card pauses these effects for the visit. System reduced motion
+keeps them still. Filters and historical years never change today's fire
+status, and a missed day never deletes the older run.
+
 Each mission page shows a **recorded-work streak** and **Work recorded today** or
 **No work recorded today**. Open the question-mark help beside **Recorded
 streak** for the rule:
@@ -974,8 +991,10 @@ today** describes the tracker, not whether you worked elsewhere. Neither a strea
 a bright border proves mastery. Roadmap completion counts remain version-specific even
 though recorded-work days span versions.
 
-Implementation references: [`getMissionActivity`](../src/domain/missionActivity.ts#L19),
-[`MissionWorkStreak`](../src/MissionWorkStreak.tsx#L8),
+Implementation references: [`getMissionActivity`](../src/domain/missionActivity.ts#L77),
+[`getRecordedWorkHistory`](../src/domain/missionActivity.ts#L85),
+[`StreaksPage`](../src/streaks/StreaksPage.tsx),
+[`MissionWorkStreak`](../src/MissionWorkStreak.tsx#L9),
 [`activityPresentation`](../src/graph/CareerOrbitVisuals.ts#L170),
 [`missionVisuals`](../src/missionVisuals.ts#L5), and
 [`OperationSourcesPage`](../src/SourcePanel.tsx#L78).

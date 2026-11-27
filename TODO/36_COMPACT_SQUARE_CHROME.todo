@@ -42,6 +42,15 @@ Acceptance criteria:
     Exact CI/deployment and actual hosted bytes/affected behavior must succeed.
 
 Completion evidence:
+  Exact sourceb9bba6cwas normally committed/pushed, but its Pages45988226854
+    browser gate failed:617pass,1Atlasoffscreen-pause failure,1academic backup
+    flaky case; deploy skipped. Do not call that source publicly deployed.
+    Proof: docs/tracking/2026-11-27-compact-square-ci-failure.json.
+  The owner's in-flight streak extension is work37. Its coherent successor
+    retains this correction and passes789domain/57files/build plus a fresh
+    77native cases/77attempts/one worker/zero retries at364inputs189fe136,
+    including strict settled-pause and acknowledged-import comparisons.
+    Final successful CI/artifact/live proof is still required for completion.
   Current correction is technically qualified locally; authorized publication
     is still pending. Baseline main73a490228ac782ddf1b4aec6ecfb37e4cd324944.
   Strict validation passes786domain cases/57files and the production build.
@@ -72,6 +81,10 @@ Completion evidence:
     distinct; no successful new build or deployment is claimed yet.
 
 Completion log:
+  2026-11-27 - Preserve failed exactb9/Pages45988226854and skipped deployment.
+    Current successor37retains the compact/square correction and passes the
+    local789/77gate with unchanged timeouts/retries/exact assertions. Await
+    actual coherent-source publication rather than retroactively relabelb9.
   2026-11-27 - Current correction passes full786domain/57files, strict build
     and a fresh63native cases/63attempts/one worker/zero retries. Retain the
     real61/2responsive-radius diagnostic and all original source/tracking

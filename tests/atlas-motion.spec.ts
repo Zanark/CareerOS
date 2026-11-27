@@ -33,12 +33,15 @@ async function ready(page: Page) {
 }
 
 async function motion(locator: Locator) {
-  return locator.evaluate(node => node.getAnimations({ subtree: true })
-    .filter((animation): animation is CSSAnimation => animation instanceof CSSAnimation && animation.animationName.startsWith('atlas-'))
-    .map(animation => ({
+  return locator.evaluate(async node => {
+    const animations = node.getAnimations({ subtree: true })
+      .filter((animation): animation is CSSAnimation => animation instanceof CSSAnimation && animation.animationName.startsWith('atlas-'));
+    await Promise.all(animations.map(animation => animation.ready));
+    return animations.map(animation => ({
       name: animation.animationName, state: animation.playState, time: Number(animation.currentTime),
       loop: animation.effect!.getTiming().iterations === Infinity,
-    })));
+    }));
+  });
 }
 
 test('default world atmosphere changes actual pixels without idle WebGL frames or saved progress', async ({ page }) => {
@@ -145,7 +148,8 @@ test('offscreen regions and synthetic hidden-document events suspend motion and 
   await ready(page);
   const before = await storage(page);
   const scene = page.locator('.wayfinder-scene');
-  await page.locator('[data-tour="discovery-activity"]').scrollIntoViewIfNeeded();
+  await page.locator('.page-footer').scrollIntoViewIfNeeded();
+  expect(await scene.evaluate(node => node.getBoundingClientRect().bottom)).toBeLessThanOrEqual(0);
   await expect(scene).toHaveAttribute('data-atlas-visible', 'false');
   await expect.poll(async () => (await motion(scene)).every(animation => animation.state === 'paused')).toBe(true);
   const frozen = await motion(scene);

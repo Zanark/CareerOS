@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   createInitialState, generatePlan, recordEvidence, recordRecall, upgradeRoadmap,
 } from './engine';
-import { getMissionActivity } from './missionActivity';
+import { getMissionActivity, getRecordedWorkHistory } from './missionActivity';
 import { missionIds } from './types';
 import type { AppState, Evidence, EvidenceInput, MissionId, RecallEntry } from './types';
 
@@ -56,6 +56,55 @@ afterEach(() => {
 });
 
 describe('recorded mission activity', () => {
+  it('projects actual day intensity and contiguous history without changing frozen records', () => {
+    const state = freeze({
+      evidence: [evidence('2026-10-06'), evidence('2026-10-01'), evidence('2026-10-05'),
+        evidence('2026-10-02'), evidence('2026-10-07')],
+      recalls: [recall('2026-10-02', { missionId: 'system' }), recall('2026-10-05')],
+    });
+    const history = getRecordedWorkHistory(state, undefined, at('2026-10-06'));
+    expect(history.days.map(day => day.date)).toEqual(['2026-10-01', '2026-10-02', '2026-10-05', '2026-10-06']);
+    expect(history.days[1]).toEqual({
+      date: '2026-10-02', evidenceIds: ['evidence-2026-10-02'], recallIds: ['recall-2026-10-02'],
+      missionIds: ['pattern', 'system'],
+    });
+    expect(history.runs).toEqual([
+      { start: '2026-10-01', end: '2026-10-02', days: 2, running: false },
+      { start: '2026-10-05', end: '2026-10-06', days: 2, running: true },
+    ]);
+    expect(history).toMatchObject({ streak: 2, longestStreak: 2, workedToday: true });
+    expect(state.evidence.map(record => record.createdAt)).toHaveLength(5);
+  });
+
+  it('keeps global work history separate from a mission filter and retains yesterday continuity', () => {
+    const state = { evidence: [
+      evidence('2026-10-03', { missionId: 'system' }),
+      evidence('2026-10-04'), evidence('2026-10-05', { missionId: 'system' }),
+    ], recalls: [] };
+    expect(getRecordedWorkHistory(state, undefined, at('2026-10-06'))).toMatchObject({
+      streak: 3, longestStreak: 3, workedToday: false,
+      runs: [{ start: '2026-10-03', end: '2026-10-05', days: 3, running: true }],
+    });
+    expect(getRecordedWorkHistory(state, 'pattern', at('2026-10-06'))).toMatchObject({
+      streak: 0, longestStreak: 1,
+      runs: [{ start: '2026-10-04', end: '2026-10-04', days: 1, running: false }],
+    });
+    expect(getRecordedWorkHistory(state, 'system', at('2026-10-06')).streak).toBe(1);
+  });
+
+  it('joins real leap and year boundaries on calendar days and keeps an empty history honest', () => {
+    expect(getRecordedWorkHistory({ evidence: [
+      evidence('2028-02-28'), evidence('2028-02-29'), evidence('2028-03-01'),
+    ], recalls: [] }, undefined, at('2028-03-02')).runs).toEqual([
+      { start: '2028-02-28', end: '2028-03-01', days: 3, running: true },
+    ]);
+    expect(getRecordedWorkHistory({ evidence: [evidence('2026-12-31'), evidence('2027-01-01')], recalls: [] },
+      undefined, at('2027-01-01')).streak).toBe(2);
+    expect(getRecordedWorkHistory({ evidence: [], recalls: [] }, undefined, at('2026-10-06'))).toEqual({
+      asOfDate: '2026-10-06', workedToday: false, streak: 0, lastWorkedOn: null, days: [], runs: [], longestStreak: 0,
+    });
+  });
+
   it('returns an honest empty summary from only the required collections', () => {
     expect(getMissionActivity({ evidence: [], recalls: [] }, 'pattern', at('2026-10-06'))).toEqual({
       asOfDate: '2026-10-06', workedToday: false, streak: 0, lastWorkedOn: null,

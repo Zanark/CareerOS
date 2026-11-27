@@ -1,0 +1,9 @@
+.streak-fire { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; contain: strict; }
+.streak-fire--card { opacity: .9; }
+.streak-fire--calendar { z-index: 2; }
+.streak-fire--hero { opacity: .95; }
+.streak-fire-toggle { width: 28px; height: 28px; min-height: 28px; flex-shrink: 0; }
+.streak-nav-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 3px; }
+.streak-nav-row .nav-item { min-width: 0; }
+.streak-nav-row > button { color: var(--dsf-text); }
+.streak-motion-notice { margin-bottom: 16px; }

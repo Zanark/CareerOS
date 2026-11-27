@@ -13,7 +13,10 @@ plan as proof of capability.
 | `src/domain/engine.ts` — `parseState` | Schema and cross-reference validation before accepting persisted or imported state. |
 | `src/domain/engine.ts` — `generatePlan`, `recordEvidence` | Capacity-bounded planning and evidence-gated, prerequisite-aware completion. |
 | `src/domain/engine.ts` — `previewRoadmapUpgrades`, `upgradeAllRoadmaps` | Exact-workspace confirmation preview and all-or-none adoption through the existing single-mission rules. |
-| `src/domain/missionActivity.ts` — `getMissionActivity`; `src/MissionWorkStreak.tsx` | Read-only local-calendar work days from evidence/recalls across editions, shown separately from mastery. |
+| `src/domain/missionActivity.ts` — `getMissionActivity`, `getRecordedWorkHistory`; `src/MissionWorkStreak.tsx` | One read-only local-day index for mission summaries, entry intensity and contiguous historical runs; no activity ledger or mastery inference. |
+| `src/streaks/StreaksPage.tsx`, `streaks.css` | Original monthly activity atlas, current mission ranges, selected-day saved entries and filtered run history. View-only year/day/filter state. |
+| `src/streaks/StreakFire.tsx`, `firePainter.ts` | Shared per-visit fire control, bounded visible Canvas2D painting, procedural flames/cold ash, actual pixel diagnostics and explicit unavailable notice. |
+| `src/useDecorativeMotion.ts`, `src/discovery/motion.ts` | Shared reduced-motion/visibility policy; existing Atlas exports retain their behavior and independent pause state. |
 | `src/MissionHierarchy.tsx`, `src/mission-hierarchy.css` | Optional native-dialog illustration: two fictional multi-checkpoint missions, bounded pause/replay/manual playback and reduced-motion/visibility cleanup. No workspace data or writer dependency. |
 | `MissionPage` in `src/App.tsx`, `src/mission-experience.css` | Distinct flag/ordinal checkpoint, stage metadata and mission-level planning roles; compact streak rail and bottom operation documents. Existing commands and records remain authoritative. |
 | `src/discovery/model.ts` — `getDiscoverySnapshot` | Finite discoveries plus deterministic saved-work journey EXP: canonical identities, first-qualified receipts, nonconsecutive local days and bounded provenance. No workspace fields or writes. |
@@ -24,7 +27,7 @@ plan as proof of capability.
 | `src/missionVisuals.ts` | Shared twelve-mission/six-collection nongreen identity palette and the separate completed-checkpoint green. |
 | `src/useWorkspace.ts` — `useWorkspace` | Browser load/save, storage errors, date rollover, stale-tab detection, explicit replacement. |
 | `src/usePracticeWorkspace.ts` | Separate in-memory tutorial data using the same schema and domain operations, without storage writes. |
-| `src/HeaderCalendar.tsx`, `src/header-calendar.css` | Local-review shared date projection and finite paper-page turn; existing browser-local date, no extra hooks, timer or persisted preference. |
+| `src/HeaderCalendar.tsx`, `src/header-calendar.css` | Shared local date and finite paper turn, view link to Streaks, plus any-mission streak fire without a second date clock or larger header. |
 | `src/tutorial/*` | Guided steps, state-derived completion gates, real-control highlighting and dialog-aware coaching. |
 | `src/ContextHelp.tsx`, `src/context-help.css`, `PageHeading` | Read-only contextual help with hover/focus preview, click/tap/keyboard pinning, viewport-bounded portals, dismissal and focus return. No workspace API or persisted preference. |
 | `src/roadmaps/*` | Read-only mission tree and top-down checkpoint flowcharts, using accessible HTML nodes and locally drawn SVG connections. |
@@ -526,9 +529,9 @@ and stays Planned when other roadmaps are adopted.
 
 ### Recorded-work projection and date rollover
 
-[`getMissionActivity`](../src/domain/missionActivity.ts#L19) reads only `evidence` and
+[`getMissionActivity`](../src/domain/missionActivity.ts#L77) reads only `evidence` and
 `recalls`, selecting by mission ID across all roadmap versions. Each validated `createdAt`
-timestamp is converted to a browser-local calendar day and deduplicated in a set.
+timestamp is converted to a browser-local calendar day and deduplicated in a day index.
 Local date components are placed on a UTC day-number axis so daylight-saving transitions
 do not turn a consecutive day into a 23/25-hour gap. Future calendar days are excluded;
 slightly later timestamps on the same local day still belong to that day.
@@ -540,6 +543,32 @@ Browsing, settings, roadmap adoption, timer/distraction events, generated plans 
 personal-history records never enter this calculation. `MissionWorkStreak` renders the
 derived count and an explicit recorded-today/no-record-today label; there is no stored
 streak field, schema migration or mastery inference.
+
+`getRecordedWorkHistory` reuses that index and returns the actual evidence/recall
+IDs for each day, plus chronologically partitioned contiguous runs and their
+start/end dates. Combined history counts a local day once across missions;
+filtered histories retain each mission's independent run. No private records
+are copied into public definitions, and neither view changes existing arrays.
+The Streaks page stores only transient filter/year/day/history-view choices.
+Its monthly islands use entry count for intensity and native buttons with
+roving arrow-key navigation; selecting a day exposes the existing records.
+
+Any positive aggregate current run is equivalent to at least one mission having
+recorded work today or yesterday. This drives the navbar fire independently of
+mission focus mode and the selected history filter. Existing workspace midnight
+updates extinguish stale runs without deleting historical days.
+
+`StreakFireProvider` owns one RAF scheduler for registered visible burning
+canvases: at most 24fps, reduced to 15fps above three painters. Texture work is
+shared per variant/time, with fixed 72x88, 256x112 and 320x152 buffers. The original
+CPU field advects multiscale seeded noise through a plume and emission palette,
+then paints embers and logs; it is not a new WebGL context, media download or
+persisted reward system. Cold scenes have no ongoing rendering.
+Per-visit pause, reduced motion, hidden documents, offscreen regions, native
+dialogs and unmounting stop rendering; reduced motion retains one still frame.
+Missing Canvas2D reports a visible notice without touching progress.
+The inverse date ink and raised weekend strip remain above calendar flames;
+all surrounding cards retain square static-blur glass and readable text roles.
 
 `buildCareerOrbits` attaches the same summary, including `asOfDate`, to each mission
 orbit. [`CareerOrbitVisuals.activityPresentation`](../src/graph/CareerOrbitVisuals.ts#L170)

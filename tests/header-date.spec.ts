@@ -89,7 +89,7 @@ test('header date is one persistent display across normal routes without workspa
   for (const [route, title] of [
     ['discoveries', 'Discovery Atlas'], ['perspective', 'Keep going'], ['home', 'Career graph'],
     ['missions', 'Missions'], ['mission/pattern', 'DSA'], ['roadmap', 'Roadmap'],
-    ['plan', 'Daily plan'], ['evidence', 'Saved work'], ['history', 'History'],
+    ['plan', 'Daily plan'],     ['evidence', 'Saved work'], ['history', 'History'], ['streaks', 'Streaks'],
     ['recall', 'Recall practice'], ['pipeline', 'Opportunities'], ['readiness', 'Interview readiness'],
     ['freelance', 'Freelance ledger'], ['sources', 'Operation documents'], ['settings', 'Settings & data'],
     ['repository-sync', 'Repository sync'], ['guide', 'Help & glossary'], ['dsa', 'DSA practice library'],
@@ -237,7 +237,7 @@ test('Daily plan immediately follows Overview in desktop and compact navigation'
     if (await menu.isVisible()) await menu.click();
     const tracking = page.locator('nav[aria-labelledby="tracking-nav-label"]');
     expect(await tracking.locator('a').evaluateAll(links => links.map(link => link.getAttribute('href')))).toEqual([
-      '#/home', '#/perspective', '#/hq', '#/plan', '#/missions', '#/roadmap', '#/evidence', '#/history', '#/recall',
+      '#/home', '#/perspective', '#/hq', '#/plan', '#/missions', '#/roadmap', '#/evidence', '#/history', '#/streaks', '#/recall',
     ]);
     await tracking.getByRole('link', { name: 'Daily plan', exact: true }).click();
     await expect(page).toHaveURL(/#\/plan$/);

@@ -22,6 +22,16 @@ pixel artwork and meaningful colors remain content, not blurred decoration.
 The inverse deep-water console stays readable in either outer theme, like the
 existing graph stage; collection cards follow their surrounding theme.
 
+Streak artwork is an original transparent Canvas2D fire field inside the same
+sharp glass framing, not a rounded badge or an opaque video rectangle.
+Its warm emission colors belong to the flame artwork; text, heatmap cells and
+surfaces retain semantic theme roles. Positive recorded streaks burn; zero is
+charred logs/cool ash. Any running mission can light the navbar calendar.
+The date keeps its readable ink and a raised red weekend strip above the fire.
+One per-visit **Pause fire** control applies across these effects, independently
+of Atlas controls. Reduced motion shows a still frame; hidden/offscreen/native
+dialog states stop painting. No blur animation or extra WebGL context is added.
+
 Blur and saturation remain static. The new finite celebration highlight moves
 only transform/opacity, without a flash, bouncing text or animated blur.
 Pause, system reduced motion, actual screen visibility and native-dialog draft

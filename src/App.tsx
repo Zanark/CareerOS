@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ArrowDownToLine, ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Check,
+  ArrowDownToLine, ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Check, Flame,
   ChevronRight, CircleCheck, Clock3, Compass, FileCheck2, Flag, FolderOpen,
   Gem, GitBranch, History, House, LayoutGrid, ListChecks, LockKeyhole, Menu, CircleHelp,
   Pause, Play, Plus, RotateCcw, Search, Settings2, ShieldCheck, Target, X, BrainCircuit, FileText, Maximize2, Network, Crown, Layers3, Trophy,
@@ -17,6 +17,9 @@ import { serializeWorkspace } from './workspaceFile';
 import { useTheme } from './useTheme';
 import { ThemeToggle } from './ThemeToggle';
 import { HeaderCalendar } from './HeaderCalendar';
+import StreaksPage from './streaks/StreaksPage';
+import { FireAvailabilityNotice, FireMotionButton, StreakFireProvider } from './streaks/StreakFire';
+import { getRecordedWorkHistory } from './domain/missionActivity';
 import { Overview } from './Overview';
 import { Perspective } from './perspective/Perspective';
 import { usePracticeWorkspace } from './usePracticeWorkspace';
@@ -65,6 +68,7 @@ const mainNav = [
   { id: 'roadmap', label: 'Roadmap', icon: GitBranch, color: 'blue' },
   { id: 'evidence', label: 'Saved work', icon: FolderOpen, color: 'magenta' },
   { id: 'history', label: 'History', icon: History, color: 'amber' },
+  { id: 'streaks', label: 'Streaks', icon: Flame, color: 'amber' },
   { id: 'recall', label: 'Recall practice', icon: BrainCircuit, color: 'violet' },
 ];
 const discoveryNav = { id: 'discoveries', label: 'Discovery Atlas', icon: Gem, color: 'amber' };
@@ -110,10 +114,10 @@ export default function App() {
       if (window.confirm('Start over on this browser? Download your original data first. This replaces the unreadable workspace.')) workspace.replace(createInitialState(false));
     }}>Start a clean workspace</button></div></div>;
   }
-  return <Workspace key={practice.active ? `practice-${practice.generation}` : 'saved'} state={visible.state}
+  return <StreakFireProvider><Workspace key={practice.active ? `practice-${practice.generation}` : 'saved'} state={visible.state}
     workspace={visible} appearance={appearance} practice={practice.active}
     focusSession={practice.active ? practiceFocus : personalFocus}
-    onStartTutorial={startTutorial} onExitTutorial={exitTutorial} />;
+    onStartTutorial={startTutorial} onExitTutorial={exitTutorial} /></StreakFireProvider>;
 }
 
 function Workspace({ state, workspace, appearance, practice, focusSession, onStartTutorial, onExitTutorial }: {
@@ -137,6 +141,8 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
   const clearWayfinderRequest = useCallback(() => setWayfinderRequest(null), []);
   const [discoveryExampleCount, setDiscoveryExampleCount] = useState(0);
   const discovery = useMemo(() => getDiscoverySnapshot(state), [state, date]);
+  const recordedWork = useMemo(() => getRecordedWorkHistory(state, undefined, new Date(`${date}T12:00:00`)), [state, date]);
+  const hasRunningStreak = recordedWork.streak > 0;
   const focusRoom = useRef<FocusRoomHandle>(null);
   const careerGraph = useRef<CareerGraphPageHandle>(null);
   const closeFullRoadmap = useCallback(() => setFullRoadmapOpen(false), []);
@@ -244,7 +250,8 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
 
   const navButton = (item: typeof mainNav[number]) => {
     const selected = page === item.id || (item.id === 'missions' && ['mission', 'dsa', 'system-concepts', 'system-practice', 'practice'].includes(page));
-    return <a key={item.id} data-tour={`nav-${item.id}`} href={`#/${item.id}`} className={`nav-item ${item.color} ${selected ? 'selected' : ''}`} aria-current={selected ? 'page' : undefined}><item.icon size={18} strokeWidth={1.7} /><span>{item.label}</span>{item.id === 'missions' && <span className="nav-count">{active.length}</span>}{item.id === 'hq' && <span className="selected-dot" />}</a>;
+    const link = <a key={item.id} data-tour={`nav-${item.id}`} href={`#/${item.id}`} className={`nav-item ${item.color} ${selected ? 'selected' : ''}`} aria-current={selected ? 'page' : undefined}><item.icon size={18} strokeWidth={1.7} /><span>{item.label}</span>{item.id === 'missions' && <span className="nav-count">{active.length}</span>}{item.id === 'hq' && <span className="selected-dot" />}</a>;
+    return item.id === 'streaks' && hasRunningStreak ? <div key={item.id} className="streak-nav-row">{link}<FireMotionButton compact /></div> : link;
   };
 
   return <div className="app" data-workspace={practice ? 'practice' : 'saved'}>
@@ -275,12 +282,13 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
     <div className="main-shell">
       <header className="topbar">
         <div className="breadcrumbs"><button ref={navToggleRef} className="icon-button mobile-menu" onClick={() => { setMenuOpen(!menuOpen); setQuery(''); searchRef.current?.blur(); }} aria-label="Open navigation" aria-expanded={menuOpen} aria-controls="main-navigation"><Menu size={22} /></button><span>CareerOS</span><ChevronRight size={13} /><strong>{title}</strong></div>
-        <HeaderCalendar date={date} />
+        <HeaderCalendar date={date} burning={hasRunningStreak} />
         <div className="top-actions"><div className={`search-wrap${query ? ' has-results' : ''}`}><Search size={16} /><input ref={searchRef} data-tour="global-search" placeholder="Search missions and work" aria-label="Search missions and evidence" value={query} onChange={event => setQuery(event.target.value)} /><kbd>Ctrl K</kbd>
           {query && <div className="search-results"><span className="eyebrow">MISSIONS, WORK & CURRICULUM</span>{searchResults.length ? searchResults.map(item => <a key={item.route} href={`#/${item.route}`}><span>{item.label}<small>{item.detail}</small></span><ArrowUpRight size={14} /></a>) : <p>No matches. Try a mission, topic or artifact title.</p>}<button className="text-button" onClick={() => setQuery('')}>Close search</button></div>}
         </div><ThemeToggle appearance={appearance} /><button className="tutorial-launch" onClick={onStartTutorial} aria-label={practice ? 'Restart tutorial' : 'Start tutorial'} title="Interactive tutorial"><CircleHelp size={17} /><span>Tutorial</span></button></div>
       </header>
       <main id="main-content" className={`page-content ${selected?.color ?? pageInfo?.color ?? 'teal'}${page === 'home' ? ' career-graph-content' : ''}`} style={selected ? missionAccentStyle(selected.id) : undefined} ref={headingRef} tabIndex={-1}>
+        <FireAvailabilityNotice />
         {appearance.notice && <div className="alert" role="status"><span>{appearance.notice}</span><button className="icon-button" aria-label="Dismiss theme notice" onClick={appearance.dismissNotice}><X size={17} /></button></div>}
         {!practice && repositorySync.connected && !repositorySync.unlocked && page !== 'repository-sync' &&
           <div className="alert repository-sync-prompt" role="status"><span>Your optional repository journal is locked. Browser saving still works; unlock to load published progress.</span><a className="text-link" href="#/repository-sync">Unlock journal<ArrowRight size={15} /></a></div>}
@@ -329,6 +337,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         </>}
         {page === 'evidence' && <EvidencePage state={state} selectedId={route.split('/')[1]} onAdd={() => openEvidence()} />}
         {page === 'history' && <HistoryPage state={state} />}
+        {page === 'streaks' && <StreaksPage state={state} date={date} />}
         {page === 'pipeline' && <PipelinePage state={state} onAdd={() => setOpportunityDialog(true)} commit={commit} notify={setToast} />}
         {page === 'readiness' && <ReadinessPage state={state} commit={commit} />}
         {page === 'freelance' && <FreelancePage state={state} commit={commit} practice={practice} />}
@@ -337,7 +346,7 @@ function Workspace({ state, workspace, appearance, practice, focusSession, onSta
         {page === 'settings' && <DataPage state={state} commit={commit} onExport={exportBackup} onReplace={next => workspace.replace(next)} notify={setToast} practice={practice} onImported={() => setImportCount(count => count + 1)} />}
         {page === 'repository-sync' && <RepositorySyncPage sync={repositorySync} />}
         {page === 'guide' && <GuidePage onStartTutorial={onStartTutorial} />}
-        {(!['home', 'perspective', 'discoveries', 'dsa', 'system-concepts', 'system-practice', 'practice', 'omscs', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
+        {(!['home', 'perspective', 'discoveries', 'dsa', 'system-concepts', 'system-practice', 'practice', 'omscs', 'hq', 'missions', 'mission', 'roadmap', 'plan', 'evidence', 'history', 'streaks', 'pipeline', 'readiness', 'freelance', 'recall', 'sources', 'settings', 'repository-sync', 'guide'].includes(page) || (page === 'mission' && !selected)) && <Empty title="This page isn’t on the map."><a href="#/hq">Return to HQ overview</a></Empty>}
         {page !== 'home' && <footer className="page-footer"><a href="#/guide">Help & glossary</a><a href="#/settings">Data & backups</a></footer>}
       </main>
     </div>

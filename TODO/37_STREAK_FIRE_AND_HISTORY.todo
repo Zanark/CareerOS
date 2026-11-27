@@ -1,0 +1,91 @@
+Workstream ID: streak-fire-history
+Title: Add realistic streak fire and an original recorded-work calendar
+Status: IN_PROGRESS
+Milestone: Deliver a coherent, truthful streak experience across mission and navigation
+Dependencies: compact-square-chrome, mission-clarity
+GitHub issue: https://github.com/Zanark/CareerOS/issues/36
+Purpose: A nonzero mission streak should look alight with realistic turbulent
+  flames, not a cartoon icon. Zero should feel like an extinguished campfire.
+  Any running mission streak also lights the compact navbar calendar.
+  Provide one original, polished page for all running streaks, date ranges,
+  recorded-day intensity and historical runs, without inventing activity.
+
+Tasks:
+  [x] Read the actual mission activity, header, navigation and motion policies.
+  [x] Extend the existing local-calendar projection with days and real runs.
+  [x] Implement original bounded realistic fire and cold campfire presentation.
+  [x] Preserve frosted square framing, readable counts and motion safeguards.
+  [x] Connect any-mission activity to the existing compact navbar calendar.
+  [x] Add Streaks navigation, an original activity calendar and run history.
+  [x] Cover both themes, narrow layouts, date boundaries and real data guards.
+  [ ] Update focused documentation, original tracking and owned continuity.
+  [ ] Publish the coherent steered scope and verify exact CI and hosted output.
+
+Acceptance criteria:
+  Positive mission streaks use actual animated turbulent flame imagery with
+    bright cores, rolling orange tongues and embers, rather than a flame icon.
+    Zero uses charred logs/cool ash and no active flame animation.
+  New artwork remains inside sharp frosted-glass framing. Counts and actual
+    recorded-day states stay readable; do not make zero an error or failure.
+  The navbar lights whenever any mission's genuine streak is nonzero,
+    irrespective of primary/in-focus mode or a selected history filter.
+    Preserve the restored69/60pxheader,40x50pxcalendar and red weekend strip.
+  One Streaks page shows current mission runs, actual start/end dates and an
+    original non-copy activity calendar, including selected-day record detail.
+    Derive intensity from saved evidence/recall, not attention or timer use.
+  Existing local-day deduplication, yesterday-ending continuity, future-day
+    exclusion and archived-version records remain authoritative.
+  Fire has a visible pause mechanism, authoritative reduced motion, hidden/
+    offscreen/dialog suspension and cleanup. Bound CPU, resolution and frame
+    rate; do not add another WebGL context, dependency or external media fetch.
+  History/filter/year/day navigation is read-only and keyboard/touch usable.
+    No schema/default/reward/journal or owner browser-data change.
+  Preserve the already pushed b9bba6c correction and its exact known watcher.
+    Technical checks, human visual acceptance and publication remain separate.
+  Keep the original numbered workstream/issue/Project identity and public-safe
+    evidence. Do not copy private progress, context, PDFs or credentials.
+
+Completion evidence:
+  Technically qualified locally; current-source publication remains pending.
+  Final strict validation passes789domain cases/57files and production build.
+    All77native cases pass in77attempts, one worker/no retries/skips/flaky or
+    top-level errors:8streaks,17header,10mission,13Atlasmotion,5activity,
+    11shared-layout and13academic cases, including exact prior-CI repairs.
+  The364source/test/config inputs remain unchanged through the final gates:
+    189fe1366ad3d58ec1392da4af25c776c4637e76eda4d113e37eff1e53e5fbff.
+  Actual pixel checks verify hot, changing flame imagery; cold ash contains
+    no hot pixels. Pause/reduced/hidden/offscreen/native-dialog/cleanup and
+    explicit missing-Canvas2D fallback preserve actual records. Both themes,
+    four widths, year/filter/keyboard/day detail, run ranges, any-background
+    navbar fire, missed-day extinguishing and raised red weekend strip pass.
+  Preserve the initial strict closure-nullability diagnostic and62/2native
+    edition. Correct accessible combobox selection and warm one static
+    readback before byte-exact checks; no looser pixel tolerance or retries.
+    The separate corrected8-case gate and final77-case gate both pass.
+  Proof: docs/tracking/2026-11-27-streak-fire-local-review.json.
+    No manual image views or independent realism/aesthetic/device approval.
+    Artwork is original procedural fire, not captured footage or a mastery claim.
+  Original issue36/itemMYOn4 is Open/In Progress after reviewed initial
+    preview/apply and zero-action no-op. Prior35mappings remain intact.
+  The owner expands the in-flight website change with realistic
+    positive-streak fire, an extinguished zero state, any-streak navbar fire
+    and a unique motivating history/activity page.
+  getMissionActivity currently counts actual evidence/recall local days,
+    preserves yesterday-ending runs and ignores future calendar days.
+  Prior sourceb9bba6cd15f82b2429ed89d07e49c4b77bda4b1d is pushed normally;
+    exact Pages45988226854fails1Atlaspause case with617passes/1academic flaky
+    case; deployment skipped. Its ended watcher and diagnostics are preserved.
+    The coherent successor must pass its own exact full CI/artifact/live gate.
+
+Completion log:
+  2026-11-27 - Current implementation passes789domain/57files/build and a
+    fresh77native cases/77attempts/one worker/zero retries on364inputs189fe136.
+    Retain strict-type,62/2observation and priorb9CIevidence. The new page,
+    any-streak calendar and shared fire remain read-only/cosmetic. Prepare
+    same-identity tracking and normal source publication; no aesthetic approval
+    or successful public deployment is inferred from local results.
+  2026-11-27 - Owner asks for a burning nonzero streak and extinguished zero,
+    clarifies fully realistic flames, then extends it to any-streak calendar
+    fire and an original contribution-style history page. Begin a bounded
+    read-only projection and shared decorative renderer, preserving real work
+    and the compact sharp-glass correction already committed/pushed.

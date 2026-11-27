@@ -1,0 +1,42 @@
+{
+  "status": "technically-qualified-locally-publication-pending",
+  "workstream": "streak-fire-history",
+  "gitBaseline": "b9bba6cd15f82b2429ed89d07e49c4b77bda4b1d",
+  "route": "#/streaks",
+  "scope": {
+    "fire": "Original transparent noise-advected Canvas2D flames, emission palette, embers and logs; zero is cool ash without ongoing flame rendering.",
+    "control": "One per-visit scheduler and pause setting, reduced motion, foreground/region visibility, native-dialog suspension and cleanup.",
+    "budget": "24fps maximum, 15fps above three painters; per-variant shared texture work; fixed 72x88, 256x112 and 320x152 buffers. No additional WebGL context.",
+    "navbar": "Any actual running mission streak lights the existing 69/60px header calendar, independent of mission mode or selected history filter. The weekend strip remains raised and red.",
+    "history": "Original monthly activity panels, actual current and longest runs, mission filters, historical years, arrow-key day selection, actual saved entries and real start/end ranges.",
+    "authority": "Read-only local-calendar evidence/recall projection. No activity ledger, new workspace field, record repair or mastery credit."
+  },
+  "sourceInputs": {
+    "count": 364,
+    "sha256": "189fe1366ad3d58ec1392da4af25c776c4637e76eda4d113e37eff1e53e5fbff",
+    "unchangedThroughFinalGates": true
+  },
+  "validation": { "passed": 789, "failed": 0, "testFiles": 57, "strictTypeScript": true, "productionBuild": true },
+  "native": {
+    "passed": 77, "attempts": 77, "workers": 1, "retries": 0, "skipped": 0, "flaky": 0, "topLevelErrors": 0,
+    "files": { "streaks.spec.ts": 8, "header-date.spec.ts": 17, "mission-clarity.spec.ts": 10, "atlas-motion.spec.ts": 13, "mission-activity.spec.ts": 5, "visual-layout.spec.ts": 11, "omscs.spec.ts": 13 },
+    "coverage": "Actual hot/moving pixels, cold ash, exact stable pause/reduced frames, hidden/offscreen/dialog suspension, fallback, both themes, four widths, real run/date/year/filter/keyboard/detail behavior, any-background-streak calendar fire, missed-day extinguishing, red weekend strip and unchanged record authority."
+  },
+  "retainedDiagnostics": [
+    "Initial strict TypeScript closure narrowing required an explicit nonnullable Canvas2D helper parameter.",
+    "Initial 64-case native edition passed 62 and failed two observation cases: nested-label locator and first-read RGB settling without a new paint.",
+    "Use the actual accessible combobox role/name and warm one readback, retaining exact pixel/frame equality; corrected eight-case and final 77-case runs pass.",
+    "Prior b9bba6c/Pages45988226854 failed one Atlas pause case and had one academic-import flaky case, with 617 passes; deployment skipped. Preserve actual traces and observe real pause/import acknowledgement without increasing budgets or weakening assertions."
+  ],
+  "boundaries": {
+    "disposableProfilesOnly": true,
+    "ownerBrowserRecordsUntouched": true,
+    "newDependenciesOrExternalMedia": false,
+    "schemasDefaultsJournalRoadmapsUnchanged": true,
+    "readmeMediaWorkflowUnchanged": true,
+    "newManualImageViews": 0,
+    "independentHumanRealismOrAestheticApproval": false,
+    "physicalDeviceQualification": false,
+    "newSuccessfulDeployment": false
+  }
+}

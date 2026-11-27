@@ -1,0 +1,22 @@
+{
+  "status": "exact-source-ci-failed-deployment-skipped",
+  "source": "b9bba6cd15f82b2429ed89d07e49c4b77bda4b1d",
+  "run": 45988226854,
+  "url": "https://github.com/Zanark/CareerOS/actions/runs/45988226854",
+  "build": "failure",
+  "failedStep": "Run npm run test:e2e",
+  "deploy": "skipped",
+  "browser": {
+    "passed": 617,
+    "failed": 1,
+    "flaky": 1,
+    "failure": "Atlas offscreen pause snapshots changed by one or two animation frames although both snapshots reported paused.",
+    "flakyCase": "Synthetic academic backup replacement equality timed out on the first attempt and passed a retry."
+  },
+  "correctionScope": {
+    "atlas": "Observe actual Animation.ready settlement and establish fully offscreen geometry before exact frozen-time comparison.",
+    "backupTest": "Await the actual expected confirmation and successful import acknowledgement before unchanged deep-equality checks.",
+    "budgetsAndAssertions": "No timeout/retry increase, skipped case, weakened equality or application-data change."
+  },
+  "publication": "Do not call this source deployed. The steered streak update must pass its own exact full gate before delivery."
+}

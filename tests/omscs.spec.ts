@@ -245,8 +245,13 @@ test('explicit academic entries respect grade rules, cancel exactly and survive 
   await page.goto('./#/settings');
   const chooser = page.waitForEvent('filechooser');
   await page.locator('[data-tour="backup-import"]').click();
-  page.once('dialog', dialog => dialog.accept());
-  await (await chooser).setFiles({ name: 'synthetic-gold-circuit-backup.json', mimeType: 'application/json', buffer: backup });
+  const confirmation = page.waitForEvent('dialog').then(async dialog => {
+    expect(dialog.type()).toBe('confirm');
+    expect(dialog.message()).toContain('Replace the current browser workspace with this backup?');
+    await dialog.accept();
+  });
+  await Promise.all([confirmation, (await chooser).setFiles({ name: 'synthetic-gold-circuit-backup.json', mimeType: 'application/json', buffer: backup })]);
+  await expect(page.getByRole('status')).toContainText('Backup restored.');
   await expect.poll(() => stored(page)).toEqual(saved);
   await page.reload();
   expect(await stored(page)).toEqual(saved);
