@@ -1,0 +1,118 @@
+{
+  "status": "exact-source-ci-artifact-and-hosted-delivery-complete",
+  "observedAt": "2026-11-27T14:09:46.377003+00:00",
+  "website": "https://zanark.github.io/CareerOS/",
+  "streaks": "https://zanark.github.io/CareerOS/#/streaks",
+  "source": "34d2b8cd5e557fc45bd5e7b7c8c7e9c1e3d42c7e",
+  "featureSource": "cd618ed7c8dfe3f05461248b11a37065430c92d3",
+  "repairCommitParent": "cd618ed7c8dfe3f05461248b11a37065430c92d3",
+  "reviewedRepairFiles": 14,
+  "tree": "01409513a6a17f1eee0f7df59a1204430121920e",
+  "productionIdenticalToFeatureSource": true,
+  "workflow": {
+    "run": 46007158747,
+    "url": "https://github.com/Zanark/CareerOS/actions/runs/46007158747",
+    "build": "success",
+    "deploy": "success",
+    "definitionChanged": false
+  },
+  "ci": {
+    "domainFiles": 57,
+    "domainCases": 789,
+    "browserCases": 627,
+    "observedRetryMarkers": 0,
+    "flaky": 0,
+    "skipped": 0
+  },
+  "pagesArtifact": {
+    "id": 15204258684,
+    "files": 31,
+    "bytes": 5240686,
+    "bareIndexMatches": true,
+    "explicitIndexMatches": true,
+    "allActualRuntimeBytesMatch": true
+  },
+  "hostedBrowser": {
+    "passed": 38,
+    "attempts": 38,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "files": {
+      "atlas-glass.spec.ts": 6,
+      "atlas-motion.spec.ts": 1,
+      "discovery.spec.ts": 6,
+      "header-date.spec.ts": 4,
+      "mission-clarity.spec.ts": 2,
+      "omscs.spec.ts": 1,
+      "search.spec.ts": 7,
+      "streaks.spec.ts": 8,
+      "wayfinder-arrival.spec.ts": 1,
+      "wayfinder.spec.ts": 2
+    }
+  },
+  "sourceInputs": {
+    "count": 364,
+    "sha256": "3ada25e3bf4a0989276cc25e6e41bbba6678fe82c2be4512dbe192bbf8e23b4c",
+    "unchangedThroughHostedGate": true
+  },
+  "protectedReadme": {
+    "exactSourceReadmeMatches": true,
+    "unchangedGitObjects": [
+      {
+        "path": "README.md",
+        "unchangedGitBlob": "247effba65c404a9c020f32e51990165e289ad54"
+      },
+      {
+        "path": "docs/images/readme-graph.gif",
+        "unchangedGitBlob": "6e6310cb59743a770cbb87de6710f2d5709f05d7"
+      },
+      {
+        "path": "docs/images/readme-graph-still.png",
+        "unchangedGitBlob": "2cba7e9322a85edd5e769ac6c1852de9d2ab1708"
+      },
+      {
+        "path": "docs/images/readme-wordmark.png",
+        "unchangedGitBlob": "06645e4511a51bf9590a537bfe3ef3df79bca39b"
+      },
+      {
+        "path": "docs/images/licenses/CormorantGaramond-OFL.txt",
+        "unchangedGitBlob": "10e3a35d024a027a5d8b02aa31762b5afd0c38de"
+      },
+      {
+        "path": "docs/README-MEDIA.md",
+        "unchangedGitBlob": "915593a5faf26030ddb414bdb66bb11d3869fb97"
+      }
+    ],
+    "unchangedMediaNotRedownloaded": true
+  },
+  "historicalFailuresPreserved": [
+    {
+      "source": "b9bba6cd15f82b2429ed89d07e49c4b77bda4b1d",
+      "run": 45988226854,
+      "passed": 617,
+      "failed": 1,
+      "flaky": 1,
+      "deploy": "skipped"
+    },
+    {
+      "source": "cd618ed7c8dfe3f05461248b11a37065430c92d3",
+      "run": 45998537402,
+      "passed": 618,
+      "failed": 8,
+      "flaky": 1,
+      "deploy": "skipped"
+    }
+  ],
+  "boundaries": {
+    "ownerBrowserAccessed": false,
+    "newImageViews": 0,
+    "newDependenciesOrExternalMedia": false,
+    "schemaDefaultsOrRewardLedgerChanged": false,
+    "unrelatedMappingsAndPrivateReviewGatesPreserved": true,
+    "independentHumanRealismOrAestheticApproval": false,
+    "physicalDeviceOrScreenReaderUserQualification": false,
+    "learningMasteryInferred": false
+  }
+}

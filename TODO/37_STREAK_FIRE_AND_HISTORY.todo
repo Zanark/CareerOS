@@ -1,6 +1,6 @@
 Workstream ID: streak-fire-history
 Title: Add realistic streak fire and an original recorded-work calendar
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Deliver a coherent, truthful streak experience across mission and navigation
 Dependencies: compact-square-chrome, mission-clarity
 GitHub issue: https://github.com/Zanark/CareerOS/issues/36
@@ -18,8 +18,8 @@ Tasks:
   [x] Connect any-mission activity to the existing compact navbar calendar.
   [x] Add Streaks navigation, an original activity calendar and run history.
   [x] Cover both themes, narrow layouts, date boundaries and real data guards.
-  [ ] Update focused documentation, original tracking and owned continuity.
-  [ ] Publish the coherent steered scope and verify exact CI and hosted output.
+  [x] Update focused documentation, original tracking and owned continuity.
+  [x] Publish the coherent steered scope and verify exact CI and hosted output.
 
 Acceptance criteria:
   Positive mission streaks use actual animated turbulent flame imagery with
@@ -46,6 +46,23 @@ Acceptance criteria:
     evidence. Do not copy private progress, context, PDFs or credentials.
 
 Completion evidence:
+  COMPLETE PUBLIC: source34d2b8cd5e557fc45bd5e7b7c8c7e9c1e3d42c7e,
+    runtime identical to feature sourcecd618ed. Exact Pages46007158747
+    build/deploy SUCCESS. Actual789domain/57files and627browser cases
+    pass; zero observed retry/skipped/flaky markers. Workflow is unchanged.
+  Exact artifact15204258684matches every31runtime file/5240686bytes,
+    bare/explicit index and pinned-source README. Six protected README/media
+    Git objects are unchanged; original media is not unnecessarily recaptured
+    or redownloaded. Actual38hosted cases pass in38attempts/one worker/
+    zero retries/skips/flaky, covering the real fire/history/calendar and all
+    original resource/fallback/disposal/quiet-clock failures.
+  Proof: docs/tracking/2026-11-27-streak-fire-publication.json.
+    Original issues35/36/itemsMXc1o/MYOn4and private16/17review boundaries
+    are preserved. No owner profile, new image view, schema/default/reward
+    ledger, dependency, workflow or real-record mutation is introduced.
+    Technical delivery is not independent realism/aesthetic/device/mastery approval.
+  Historical failed/pending/local snapshots below remain source-bound evidence,
+    superseded by the exact successful current publication rather than rewritten.
   Latest exactcd618ed/Pages45998537402fails with618passes/8generic-canvas
     guard failures/1virtual-paint whole-case flaky timeout; deploy skipped.
     Proof: docs/tracking/2026-11-27-streak-fire-ci-failure.json.
@@ -92,6 +109,12 @@ Completion evidence:
     The coherent successor must pass its own exact full CI/artifact/live gate.
 
 Completion log:
+  2026-11-27 - Complete exact34d2b8c/Pages46007158747and hosted delivery.
+    Actual789domain/627browserCIand31runtime/38hostedcaseproof succeed
+    with no observed retries/skips/flaky. Complete original issue36/itemMYOn4
+    and work36on existing identities; preserve both failed source runs and
+    all original diagnostics. Runtime remains the qualified original fire/
+    activity implementation; no budget, data or workflow workaround.
   2026-11-27 - Preserve failedcd618ed/Pages45998537402and actual traces.
     Correct only obsolete canvas proxies and needless completed-phase clock
     painting; keep all budgets/assertions and runtime unchanged. Fresh73

@@ -1,6 +1,6 @@
 Workstream ID: compact-square-chrome
 Title: Sharpen new cards and restore compact header proportions
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Publish the requested square-card and compact-calendar correction
 Dependencies: frosted-atlas-publication, navigation-refinements, mission-clarity
 GitHub issue: https://github.com/Zanark/CareerOS/issues/35
@@ -15,9 +15,9 @@ Tasks:
   [x] Restore the original 69px desktop and 60px small-screen header budget.
   [x] Keep local date, weekend color, hover, motion and existing controls intact.
   [x] Qualify affected material, header, mission and shared-shell behavior.
-  [ ] Update focused documentation, original tracking identities and continuity.
-  [ ] Review the exact public-safe changes and both effective Git identities.
-  [ ] Normally commit/push and verify the exact Pages build and hosted output.
+  [x] Update focused documentation, original tracking identities and continuity.
+  [x] Review the exact public-safe changes and both effective Git identities.
+  [x] Normally commit/push and verify the exact Pages build and hosted output.
 
 Acceptance criteria:
   New Atlas and mission chrome has square corners without a global radius reset.
@@ -42,6 +42,19 @@ Acceptance criteria:
     Exact CI/deployment and actual hosted bytes/affected behavior must succeed.
 
 Completion evidence:
+  COMPLETE PUBLIC through coherent successor34d2b8cd5e557fc45bd5e7b7c8c7e9c1e3d42c7e/
+    exact Pages46007158747build/deploy SUCCESS. Actual789domain/57files and
+    627browser cases pass, zero observed retry/skipped/flaky markers.
+  Exact artifact15204258684matches all31runtime files/5240686bytes plus
+    bare/explicit index. Actual38hosted cases pass in38attempts, one worker/
+    no retries/skips/flaky, including compact geometry, fire/history, material,
+    saved records and every original failed resource/quiet-clock scenario.
+  Proof: docs/tracking/2026-11-27-streak-fire-publication.json.
+    Original issues35/36and Project items retain identity. README/media/
+    workflow/schema/defaults and owner browser records are unchanged.
+    No independent human aesthetic/physical-device/learning approval claimed.
+  Historical pending/failed snapshots below preserve their exact original
+    scope and are superseded by this verified successful delivery.
   Latest coherent streak sourcecd618ed/Pages45998537402also remains undeployed:
     618passes/8obsolete GPU-canvas proxies/1virtual quiet-phase timeout.
     Work37contains a qualified test-only repair at364inputs3ada25e3with73
@@ -86,6 +99,10 @@ Completion evidence:
     distinct; no successful new build or deployment is claimed yet.
 
 Completion log:
+  2026-11-27 - COMPLETE PUBLIC through exact34d2b8c/Pages46007158747:
+    actual789/627CI,31runtime files/5240686bytes and38hosted/38attempts/
+    one worker/no retries pass. Complete original issue35/itemMXc1o alongside
+    work37, preserve both failed runs/diagnostics and independent human review.
   2026-11-27 - Preserve failed exactb9/Pages45988226854and skipped deployment.
     Current successor37retains the compact/square correction and passes the
     local789/77gate with unchanged timeouts/retries/exact assertions. Await
