@@ -57,13 +57,18 @@ async function pixels(page: Page, selector: string) {
     const context = node.getContext('2d')!;
     context.getImageData(0, 0, node.width, node.height);
     const data = context.getImageData(0, 0, node.width, node.height).data;
-    let hash = 2166136261, opaque = 0, hot = 0;
+    let hash = 2166136261, opaque = 0, hot = 0, blue = 0, white = 0, warm = 0, stray = 0;
     for (let index = 0; index < data.length; index += 4) {
-      hash = Math.imul(hash ^ data[index] ^ data[index + 1] ^ data[index + 3], 16777619) >>> 0;
+      hash = Math.imul(hash ^ data[index] ^ data[index + 1] ^ data[index + 2] ^ data[index + 3], 16777619) >>> 0;
       if (data[index + 3] > 30) opaque++;
       if (data[index] > 180 && data[index + 1] > 70 && data[index + 3] > 80) hot++;
+      if (data[index + 2] > 160 && data[index + 2] > data[index] + 35 && data[index + 1] > 50 && data[index + 3] > 80) blue++;
+      if (data[index] > 195 && data[index + 1] > 225 && data[index + 2] > 245 && data[index + 3] > 80) white++;
+      if (data[index] > data[index + 2] + 25 && data[index + 1] > 40 && data[index + 3] > 60) warm++;
+      const x = index / 4 % node.width;
+      if (x > node.width * .22 && x < node.width * .57 && data[index + 3] > 80) stray++;
     }
-    return { hash, opaque, hot, width: node.width, height: node.height, frames: Number(node.dataset.fireFrame) };
+    return { hash, opaque, hot, blue, white, warm, stray, width: node.width, height: node.height, frames: Number(node.dataset.fireFrame) };
   });
 }
 
@@ -151,12 +156,27 @@ test('zero is a cold campfire, while any background-mission streak lights the re
   const cold = await pixels(page, '.mission-work-streak canvas');
   expect(cold.opaque).toBeGreaterThan(0);
   expect(cold.hot).toBe(0);
+  expect(cold.blue).toBe(0);
   await expect(page.locator('.mission-work-streak canvas')).toHaveAttribute('data-fire-motion', 'out');
   expect(await storage(page)).toBe(before);
   await page.locator('.header-calendar').click();
   await expect(page.getByRole('heading', { name: 'Streaks', exact: true, level: 1 })).toBeVisible();
   await expect(page.locator('.streak-running-card')).toHaveCount(0);
   await expect(page.locator('.streak-empty-day')).toContainText('No work recorded');
+});
+
+test('blue flame volumes have cool luminous cores across the calendar, mission and hero without warm flecks', async ({ page }) => {
+  await prepare(page);
+  const before = await storage(page);
+  for (const selector of ['.header-calendar canvas', '.streak-overview-feature canvas', '.streak-running-card[data-mission-id="pattern"] canvas']) {
+    await expect(page.locator(selector)).toHaveAttribute('data-fire-ready', 'true');
+    const frame = await pixels(page, selector);
+    expect(frame.blue).toBeGreaterThan(frame.width * frame.height * .015);
+    expect(frame.white).toBeGreaterThan(0);
+    expect(frame.warm).toBe(0);
+    if (!selector.includes('header-calendar')) expect(frame.stray).toBe(0);
+  }
+  expect(await storage(page)).toBe(before);
 });
 
 test('real flame pixels move, global pause freezes them, and hidden/offscreen/dialog states suspend the renderer', async ({ page }) => {
@@ -166,7 +186,9 @@ test('real flame pixels move, global pause freezes them, and hidden/offscreen/di
   await expect(fire).toHaveAttribute('data-fire-motion', 'live');
   const before = await storage(page);
   const first = await pixels(page, '.mission-work-streak canvas');
-  expect(first.hot).toBeGreaterThan(50);
+  expect(first.blue).toBeGreaterThan(50);
+  expect(first.warm).toBe(0);
+  expect(first.stray).toBe(0);
   expect(first.width * first.height).toBeLessThanOrEqual(320 * 152);
   await expect.poll(async () => (await pixels(page, '.mission-work-streak canvas')).hash).not.toBe(first.hash);
   await card.getByRole('button', { name: 'Pause streak fire', exact: true }).click();
@@ -204,7 +226,8 @@ test('reduced motion keeps positive fire still and preserves readable counts', a
   const fire = page.locator('.mission-work-streak canvas');
   await expect(fire).toHaveAttribute('data-fire-motion', 'reduced');
   const before = await pixels(page, '.mission-work-streak canvas');
-  expect(before.hot).toBeGreaterThan(50);
+  expect(before.blue).toBeGreaterThan(50);
+  expect(before.warm).toBe(0);
   await page.waitForTimeout(160);
   expect(await pixels(page, '.mission-work-streak canvas')).toEqual(before);
   await expect(page.locator('.mission-work-streak')).toContainText('2 days');

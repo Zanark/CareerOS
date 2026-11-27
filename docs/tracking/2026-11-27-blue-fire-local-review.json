@@ -1,0 +1,38 @@
+{
+  "status": "blue-refinement-technically-qualified-publication-pending",
+  "workstream": "blue-streak-fire",
+  "baselineMain": "02b227e9ec3df5067798ad11acc5918d05072eb8",
+  "scope": {
+    "art": "Coherent fuel-bounded blue/cyan/cool-white flame volumes, smooth alpha falloff, calmer advection, soft blue light and fewer glints; no active brown logs/warm sparks.",
+    "surfaces": "Existing calendar, mission card and hero, with consistent canonical-blue accents and unchanged sharp frosted-glass geometry.",
+    "unchanged": "Cold zero, real activity/history, header dimensions, date ink, raised red weekend strip, original motion/resource budgets, state/schema/defaults/dependencies/workflow and README/media."
+  },
+  "sourceInputs": {
+    "count": 364,
+    "sha256": "b22dfd41c191e94fa8cf5c0e0b5477b2ed042cd4852b4faf080557a17464b51e",
+    "unchangedThroughNativeGate": true
+  },
+  "strictBuild": true,
+  "native": {
+    "passed": 74,
+    "attempts": 74,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "topLevelErrors": 0,
+    "files": { "atlas-motion.spec.ts": 13, "discovery.spec.ts": 16, "header-date.spec.ts": 17, "streaks.spec.ts": 9, "wayfinder-arrival.spec.ts": 11, "wayfinder.spec.ts": 8 },
+    "actualPixelContract": "Blue-dominant and cool-white pixels across all three variants; zero warm flecks, zero non-calendar stray bright reading-zone pixels, exact warmed still/frame equality and visible live change.",
+    "coupledGuards": "Cold zero, fallback, two themes/four widths, real data/year/filter/ranges, global fire, pause/reduced/hidden/offscreen/native-dialog/cleanup, header dimensions, red weekend strip and 3D allocation/disposal."
+  },
+  "initialBlueSpecificGate": { "passed": 9, "attempts": 9, "retries": 0, "separateFromFinalGate": true },
+  "boundaries": {
+    "ownerBrowserAccessed": false,
+    "newManualImageViews": 0,
+    "independentHumanBeautyOrRealismApproval": false,
+    "physicalDeviceQualification": false,
+    "newSuccessfulDeployment": false,
+    "newDependenciesOrExternalMedia": false,
+    "workspaceOrMasteryCreditChanged": false
+  }
+}

@@ -45,6 +45,7 @@ DONE - 34_ATLAS_UNSEEN_LEVEL_UPS.todo (atlas-unseen-level-ups)
 DONE - 35_FROSTED_ATLAS_PUBLICATION.todo (frosted-atlas-publication)
 DONE - 36_COMPACT_SQUARE_CHROME.todo (compact-square-chrome)
 DONE - 37_STREAK_FIRE_AND_HISTORY.todo (streak-fire-history)
+IN_PROGRESS - 38_BLUE_STREAK_FIRE.todo (blue-streak-fire)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

@@ -63,7 +63,8 @@
     { "id": "atlas-unseen-level-ups", "path": "TODO/34_ATLAS_UNSEEN_LEVEL_UPS.todo", "publicSafe": true },
     { "id": "frosted-atlas-publication", "path": "TODO/35_FROSTED_ATLAS_PUBLICATION.todo", "publicSafe": true },
     { "id": "compact-square-chrome", "path": "TODO/36_COMPACT_SQUARE_CHROME.todo", "publicSafe": true },
-    { "id": "streak-fire-history", "path": "TODO/37_STREAK_FIRE_AND_HISTORY.todo", "publicSafe": true }
+    { "id": "streak-fire-history", "path": "TODO/37_STREAK_FIRE_AND_HISTORY.todo", "publicSafe": true },
+    { "id": "blue-streak-fire", "path": "TODO/38_BLUE_STREAK_FIRE.todo", "publicSafe": true }
   ],
   "excluded": [
     { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },

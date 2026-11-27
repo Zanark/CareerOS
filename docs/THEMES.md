@@ -24,8 +24,10 @@ existing graph stage; collection cards follow their surrounding theme.
 
 Streak artwork is an original transparent Canvas2D fire field inside the same
 sharp glass framing, not a rounded badge or an opaque video rectangle.
-Its warm emission colors belong to the flame artwork; text, heatmap cells and
-surfaces retain semantic theme roles. Positive recorded streaks burn; zero is
+Its smooth blue/cyan/cool-white emission belongs to the flame artwork; card
+light and activity accents use the existing blue theme role. Turbulence stays
+inside its fuel volume, with soft falloff and restrained glints rather than
+free-floating bright grain. Positive recorded streaks burn; zero is
 charred logs/cool ash. Any running mission can light the navbar calendar.
 The date keeps its readable ink and a raised red weekend strip above the fire.
 One per-visit **Pause fire** control applies across these effects, independently

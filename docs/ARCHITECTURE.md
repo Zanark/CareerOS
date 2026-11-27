@@ -561,8 +561,10 @@ updates extinguish stale runs without deleting historical days.
 `StreakFireProvider` owns one RAF scheduler for registered visible burning
 canvases: at most 24fps, reduced to 15fps above three painters. Texture work is
 shared per variant/time, with fixed 72x88, 256x112 and 320x152 buffers. The original
-CPU field advects multiscale seeded noise through a plume and emission palette,
-then paints embers and logs; it is not a new WebGL context, media download or
+CPU field advects multiscale seeded noise inside a smooth fuel-bounded plume,
+with blue/cyan/white emission, soft light and restrained glints. Cold scenes
+retain gray logs/ash; active flames do not paint brown logs or warm flecks.
+It is not a new WebGL context, media download or
 persisted reward system. Cold scenes have no ongoing rendering.
 Per-visit pause, reduced motion, hidden documents, offscreen regions, native
 dialogs and unmounting stop rendering; reduced motion retains one still frame.

@@ -25,12 +25,15 @@ function turbulence(x: number, y: number) {
   return sample(x, y) * .54 + sample(x * 2.03 + 17, y * 2.03) * .28 + sample(x * 4.07, y * 4.07 + 31) * .18;
 }
 
+const shades = [[8, 28, 118], [18, 96, 228], [45, 184, 255], [155, 237, 255], [244, 253, 255]];
 const palette = Array.from({ length: 256 }, (_, index) => {
-  const heat = index / 255;
+  const position = index / 255 * (shades.length - 1);
+  const lower = Math.min(shades.length - 2, Math.floor(position));
+  const blend = smooth(position - lower), a = shades[lower], b = shades[lower + 1];
   return [
-    Math.round(160 + 95 * clamp(heat * 3)),
-    Math.round(28 + 220 * Math.pow(heat, 1.25)),
-    Math.round(5 + 205 * Math.pow(heat, 4)),
+    Math.round(a[0] + (b[0] - a[0]) * blend),
+    Math.round(a[1] + (b[1] - a[1]) * blend),
+    Math.round(a[2] + (b[2] - a[2]) * blend),
   ];
 });
 const frameCache = new Map<FireVariant, { time: number; image: ImageData }>();
@@ -50,20 +53,20 @@ export function createFirePainter(canvas: HTMLCanvasElement, burning: boolean, v
     const cx = width * .84, base = height * .9, length = width * .18;
     context.lineCap = 'round';
     for (const direction of [-1, 1]) {
-      context.strokeStyle = burning ? '#3d2c26' : '#3a4445';
+      context.strokeStyle = '#3a4445';
       context.lineWidth = height * .066;
       context.beginPath();
       context.moveTo(cx - length / 2, base + direction * height * .028);
       context.lineTo(cx + length / 2, base - direction * height * .028);
       context.stroke();
-      context.strokeStyle = burning ? '#b7653566' : '#a9b6b34d';
+      context.strokeStyle = '#a9b6b34d';
       context.lineWidth = 1;
       context.stroke();
     }
     for (let index = 0; index < 17; index++) {
       const x = cx + (noise[index] - .5) * length * 1.5;
       const y = base + (noise[index + 21] - .25) * height * .08;
-      context.fillStyle = burning ? `rgba(255,154,65,${.2 + noise[index + 41] * .4})` : '#a8b7b955';
+      context.fillStyle = '#a8b7b955';
       context.fillRect(x, y, 1.5, .8);
     }
   }
@@ -77,20 +80,22 @@ export function createFirePainter(canvas: HTMLCanvasElement, burning: boolean, v
         const pixels = image.data;
         for (let y = 0; y < height; y++) {
           const rise = 1 - y / (height - 1);
+          const drift = Math.sin(rise * 5.2 - time * .7) * rise * .012;
           for (let x = 0; x < width; x++) {
             const nx = x / (width - 1);
-            const warp = turbulence(nx * 4.7, rise * 3.8 - time * .9);
-            const curl = (warp - .5) * (.05 + rise * .29);
+            const warp = turbulence(nx * 3.7, rise * 3.2 - time * .65);
+            const curl = (warp - .5) * (.025 + rise * .18) + drift;
             const fuelX = nx + curl;
             const center = variant === 'calendar' ? .5 : .84;
-            const spread = variant === 'calendar' ? .3 : .14;
-            const plume = Math.max(0, 1 - Math.abs(fuelX - center) / (spread * (1 - rise * .65)));
-            const edge = variant === 'calendar' ? 0 : Math.max(0, 1 - Math.abs(fuelX - .035) / .055) * .42;
-            const fine = turbulence(nx * 14 + warp * 1.8, rise * 8 - time * 2.1);
-            // Advected multiscale density gives tongues and holes, not translated flame silhouettes.
-            const density = Math.max(plume, edge) * (1 - rise * .9) + (fine - .48) * (.4 + rise * .25) - rise * .24;
-            const heat = clamp(density * 1.8 + (1 - rise) * .15);
-            let alpha = clamp((density - .025) * 5.2) * clamp((1 - rise) * 5);
+            const spread = variant === 'calendar' ? .32 : .145;
+            const plume = clamp(1 - Math.abs(fuelX - center) / (spread * (1 - rise * .55)));
+            const edge = variant === 'calendar' ? 0 : clamp(1 - Math.abs(fuelX - .035) / .045) * .3;
+            const fine = turbulence(nx * 9.5 + warp * 1.1, rise * 6.4 - time * 1.35);
+            // Contain turbulence inside the fuel so it cannot produce stray bright noise.
+            const fuel = smooth(Math.max(plume, edge));
+            const density = Math.max(0, fuel * (1 - rise * .74) * (.88 + (fine - .5) * .8) - rise * .13);
+            const heat = Math.pow(clamp(density * 1.1), 1.1);
+            let alpha = smooth(clamp((density - .015) / .32)) * smooth(clamp((1 - rise) / .18));
             if (variant === 'calendar') {
               const readingWindow = clamp(1 - Math.abs(nx - .5) / .3) * clamp(1 - Math.abs(rise - .48) / .3);
               alpha *= 1 - readingWindow * .92;
@@ -106,12 +111,21 @@ export function createFirePainter(canvas: HTMLCanvasElement, burning: boolean, v
         context.putImageData(image, 0, 0);
         frameCache.set(variant, { time, image });
       }
-      for (let index = 0; index < (variant === 'calendar' ? 3 : 7); index++) {
-        const phase = (time * (.19 + noise[index] * .14) + noise[index + 7]) % 1;
-        const center = variant === 'calendar' ? .5 : .84;
+      const center = variant === 'calendar' ? .5 : .84;
+      context.save();
+      context.globalCompositeOperation = 'destination-over';
+      const glow = context.createRadialGradient(width * center, height * .8, 0, width * center, height * .8, height * .68);
+      glow.addColorStop(0, 'rgba(63,178,255,.18)');
+      glow.addColorStop(.45, 'rgba(23,103,238,.08)');
+      glow.addColorStop(1, 'rgba(13,57,176,0)');
+      context.fillStyle = glow;
+      context.fillRect(0, 0, width, height);
+      context.restore();
+      for (let index = 0; index < (variant === 'calendar' ? 2 : 4); index++) {
+        const phase = (time * (.14 + noise[index] * .09) + noise[index + 7]) % 1;
         const x = width * (center + (noise[index + 19] - .5) * .18 + Math.sin(phase * 5 + index) * .025);
         const y = height * (.84 - phase * .72);
-        context.fillStyle = `rgba(255,197,105,${Math.sin(phase * Math.PI) * .65})`;
+        context.fillStyle = `rgba(153,231,255,${Math.sin(phase * Math.PI) * .45})`;
         context.fillRect(x, y, .7 + noise[index + 33], 1.2);
       }
     } else {
@@ -124,8 +138,8 @@ export function createFirePainter(canvas: HTMLCanvasElement, burning: boolean, v
         context.bezierCurveTo(x - 9, height * .6, x + 12, height * .54, x + 2, height * .36);
         context.stroke();
       }
+      logs(context);
     }
-    logs(context);
     canvas.dataset.fireFrame = String(++frames);
   };
 }

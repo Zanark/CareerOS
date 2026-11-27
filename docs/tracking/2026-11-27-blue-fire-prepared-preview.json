@@ -1,0 +1,46 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "02b227e9ec3df5067798ad11acc5918d05072eb8",
+  "observedAt": "2026-11-27T14:44:15.890Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "blue-streak-fire",
+      "path": "TODO/38_BLUE_STREAK_FIRE.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/37",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "6f5c8cb4ecc0ad81bea9a4308b1a039db5471de1dd4b8c32a3996221e1253726",
+      "actions": [
+        "update managed description"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 37,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

@@ -1,0 +1,71 @@
+Workstream ID: blue-streak-fire
+Title: Refine streak flames into smooth luminous blue fire
+Status: IN_PROGRESS
+Milestone: Publish a coherent blue-fire visual refinement without changing records
+Dependencies: streak-fire-history, appearance-and-identity
+GitHub issue: https://github.com/Zanark/CareerOS/issues/37
+Purpose: The owner rejects the previous flame appearance and explicitly asks
+  for prettier blue fire, then requests pushing the finished refinement.
+  Rework the field rather than merely recoloring it: coherent soft plumes,
+  cyan/white-hot cores, restrained glints and a gentle blue glow within the
+  existing sharp frosted-glass framing.
+
+Tasks:
+  [x] Read the actual published renderer, all fire surfaces and current guards.
+  [x] Replace the warm palette and free-floating noise with smoother blue volumes.
+  [x] Match calendar/card/activity accents without obscuring text or weekend red.
+  [x] Preserve cold zero, actual activity, frame budgets and motion controls.
+  [x] Qualify actual blue pixels, bounded texture, responsive and lifecycle behavior.
+  [ ] Update focused documentation, original tracking and owned continuity.
+  [ ] Commit/push the requested refinement and verify exact CI and hosted delivery.
+
+Acceptance criteria:
+  Flames are visibly blue/cyan with luminous cool-white cores and soft falloff,
+    not an orange effect behind a hue filter. No noisy bright field outside fuel.
+  Calmer coherent advection, fewer glints and blue light replace harsh orange
+    grain and brown active logs; the extinguished zero campfire stays cold.
+  Calendar, mission card and Streaks hero use the same refined artwork and
+    consistent theme-aware blue accents, without larger or rounder UI chrome.
+  Actual streak counts/history, header dimensions, legible date/text and raised
+    red weekend strip remain. No data/schema/default/reward/clock changes.
+  Existing pause/reduced/hidden/offscreen/native-dialog/cleanup and one bounded
+    Canvas2D scheduler/context budgets remain; no extra WebGL/media/dependency.
+  Targeted actual pixel/layout/motion checks and exact full CI/artifact/hosted
+    delivery succeed. Tests are technical evidence, not independent beauty approval.
+  Preserve prior release/failure editions, original workstream/issue/Project
+    identities, human review gates, real owner browser records and README media.
+
+Completion evidence:
+  Technically qualified locally; blue-source publication remains pending.
+  Strict build and all74focused native cases pass in74attempts, one worker/
+    zero retries/skips/flaky/top errors. Nine initial blue-specific cases also
+    pass separately. Exact364inputs stay unchanged throughout:
+    b22dfd41c191e94fa8cf5c0e0b5477b2ed042cd4852b4faf080557a17464b51e.
+  Actual Canvas2D pixels across calendar/card/hero are blue-dominant with
+    cool-white cores and no warm flecks; non-calendar reading-zone stray
+    bright pixels are zero. Still/motion/pause/hidden/offscreen/native-dialog,
+    cold zero, context fallback, data, two themes/four widths, red weekend
+    strip and existing 3D resource/arrival safeguards pass.
+  Proof: docs/tracking/2026-11-27-blue-fire-local-review.json.
+    No independent human beauty/realism or physical-device approval is claimed,
+    and no new manual image views are used.
+  Original issue37/itemMavak verifies Open/In Progress after reviewed initial
+    apply and a zero-action no-op. Prior36mappings are unchanged.
+  Published baseline02b227e9ec3df5067798ad11acc5918d05072eb8
+    retains successful source34d2b8c/Pages46007158747and original fire/history.
+  The owner explicitly rejects that fire appearance; prior successful technical
+    delivery never implied aesthetic acceptance. New blue refinement is separate.
+  The old field adds high-frequency noise outside its plume, uses warm sparks/
+    logs and orange accents. The new implementation contains noise within fuel,
+    smooths density/alpha and uses blue/cyan/white plus a soft local light field.
+  No new successful blue-source deployment is claimed before exact CI/live proof.
+
+Completion log:
+  2026-11-27 - Current blue field passes strict build and74native cases/
+    74attempts/one worker/zero retries at364inputsb22dfd41, with actual
+    color/cleanliness and lifecycle/geometry/data checks. Preserve subjective
+    beauty as the owner's judgment; prepare normal source push and exact
+    delivery on original issue37/item rather than inventing visual approval.
+  2026-11-27 - Owner says the fire looks ugly and requests blue, prettier fire;
+    then explicitly says once done push. Begin a bounded visual refinement,
+    preserving the exact completed prior release and existing data/motion guards.

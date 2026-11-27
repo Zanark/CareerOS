@@ -506,6 +506,20 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "blue-streak-fire": {
+      "issueNumber": 37,
+      "issueId": "I_kwDOU6lJns8AAAABjEj1Hw",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/37",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMavak",
+      "baseline": {
+        "managed": "6f5c8cb4ecc0ad81bea9a4308b1a039db5471de1dd4b8c32a3996221e1253726",
+        "title": "Refine streak flames into smooth luminous blue fire",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

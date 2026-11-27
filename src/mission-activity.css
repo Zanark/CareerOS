@@ -6,7 +6,7 @@
   background: color-mix(in srgb, var(--dsf-paper) 90%, transparent);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
-.mission-work-streak[data-streak-state="burning"] { border-bottom-color: color-mix(in srgb, var(--dsf-orange) 50%, var(--dsf-separator)); box-shadow: inset 0 -1px color-mix(in srgb, var(--dsf-orange) 35%, transparent); }
+.mission-work-streak[data-streak-state="burning"] { border-bottom-color: color-mix(in srgb, var(--dsf-blue) 50%, var(--dsf-separator)); box-shadow: inset 0 -1px color-mix(in srgb, var(--dsf-blue) 35%, transparent); }
 .mission-work-streak > canvas { z-index: 0; mask-image: linear-gradient(90deg, transparent 56%, #000 84%); }
 .mission-work-streak-summary { position: relative; z-index: 1; min-width: 0; padding-right: 28px; }
 .mission-work-streak-tools { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
