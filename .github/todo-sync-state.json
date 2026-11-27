@@ -513,11 +513,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/37",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMavak",
       "baseline": {
-        "managed": "e5381bd17ca74f208c2125d9264bb0aa385913856cfbf4f3eaf44a1586479641",
+        "managed": "9ce7eb4c209cea0d0cb2acf051ce65e02bf99c7ea409f8ed1a917c80e9967bd3",
         "title": "Refine streak flames into smooth luminous blue fire",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

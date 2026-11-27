@@ -1,0 +1,33 @@
+{
+  "status": "original-blue-fire-tracking-independently-verified",
+  "stage": "publication",
+  "observedAt": "2026-11-27T16:23:36.432Z",
+  "row": {
+    "id": "blue-streak-fire",
+    "issue": 37,
+    "issueId": "I_kwDOU6lJns8AAAABjEj1Hw",
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMavak",
+    "state": "CLOSED",
+    "stateReason": "COMPLETED",
+    "status": "Done",
+    "managedSha256": "9ce7eb4c209cea0d0cb2acf051ce65e02bf99c7ea409f8ed1a917c80e9967bd3"
+  },
+  "unrelatedMappingsUnchanged": 36,
+  "privateGates": [
+    {
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "exactManagedBodyAndBacklink": true,
+  "pending": false
+}
