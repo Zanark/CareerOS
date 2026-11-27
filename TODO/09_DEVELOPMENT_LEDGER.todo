@@ -17,6 +17,17 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-27 - Blue test-only repair passes strict build/75native cases/
+    75attempts/one worker/zero retries at364inputsfb9faca0. Both original
+    arrival/persisted-cursor and real-reload contracts remain live and exact;
+    production artwork/data/media/workflow and per-case budgets are unchanged.
+    Proof: docs/tracking/2026-11-27-blue-fire-ci-repair.json.
+  2026-11-27 - Exactblue1ae0665/Pages46019111416fails one composite
+    arrival/return/reload whole-case deadline;627other cases pass, deploy
+    skipped. All three traces complete logical calls but combine multiple GPU
+    lifetimes in30s. Split original live arrival/cursor/quiet-return and
+    real persisted-cursor reload into independent contracts, retaining every
+    assertion/fire behavior and the same per-case budget/retry policy.
   2026-11-27 - Work38local gate: strict build and74native/74attempts/one
     worker/zero retries at364inputsb22dfd41. Allthreefirevariants show actual
     blue/cool-white pixels without warm flecks/stray reading-zone grain.

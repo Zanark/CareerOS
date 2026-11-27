@@ -1,0 +1,24 @@
+{
+  "status": "exact-blue-source-ci-failed-deployment-skipped",
+  "source": "1ae066500632dba461f649178bb0abaf5a7ebc3d",
+  "run": 46019111416,
+  "url": "https://github.com/Zanark/CareerOS/actions/runs/46019111416",
+  "failedStep": "Run npm run test:e2e",
+  "deploy": "skipped",
+  "browser": {
+    "passed": 627,
+    "failed": 1,
+    "flaky": 0,
+    "case": "First automatic arrival, route return and a real reload were combined into one 30-second whole-case budget."
+  },
+  "traceFinding": "All three attempts completed the ceremony, persisted-cursor checks, quiet route return, reload and final read calls, but their combined browser/GPU lifetimes exceeded the whole-case deadline. No individual incorrect activity, palette, count or assertion result is reported.",
+  "boundedCorrection": {
+    "firstContract": "Keep frame-by-frame two-level automatic playback, actual cursor persistence, exact unchanged workspace and quiet in-page return.",
+    "reloadContract": "Separately load the same earned-source cursor and verify a real browser reload remains quiet and preserves both cursor and exact workspace.",
+    "preserved": "Every original behavior/assertion, live decorative fire, source identity, 30-second per-case budget, retry policy and application code.",
+    "runtimeChanged": false,
+    "timeoutOrRetryRaised": false,
+    "caseSkipped": false
+  },
+  "publication": "Do not call this source deployed. The bounded test-only successor requires its own exact full CI/artifact/hosted proof."
+}

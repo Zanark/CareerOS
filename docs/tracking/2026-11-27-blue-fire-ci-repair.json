@@ -1,0 +1,29 @@
+{
+  "status": "test-contract-repair-qualified-publication-pending",
+  "baseline": "1ae066500632dba461f649178bb0abaf5a7ebc3d",
+  "failedRun": 46019111416,
+  "runtimeChanged": false,
+  "correction": "Retain the complete live automatic-playback/persisted-cursor/quiet-return contract and separately exercise real reload from the same earned-source cursor. All original assertions remain; no timeout/retry increase or paused fire.",
+  "strictBuild": true,
+  "sourceInputs": {
+    "count": 364,
+    "sha256": "fb9faca06e144f01b4c30ef66a57a66f86cfd2beaa1a1c93f68eb983e99aeb6d",
+    "unchangedThroughNativeGate": true
+  },
+  "native": {
+    "passed": 75,
+    "attempts": 75,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "topLevelErrors": 0,
+    "files": { "atlas-motion.spec.ts": 13, "discovery.spec.ts": 16, "header-date.spec.ts": 17, "streaks.spec.ts": 9, "wayfinder-arrival.spec.ts": 12, "wayfinder.spec.ts": 8 }
+  },
+  "productionDataMediaDependenciesWorkflowChanged": false,
+  "domainQualification": { "passed": 789, "files": 57, "unchangedReferenceNotNewExecution": true },
+  "independentHumanBeautyOrRealismApproval": false,
+  "newSuccessfulDeployment": false,
+  "ownerBrowserAccessed": false,
+  "newImageViews": 0
+}

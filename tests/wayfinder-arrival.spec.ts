@@ -50,7 +50,7 @@ async function open(page: Page, state: AppState, history: string | null = null) 
 const stored = (page: Page) => page.evaluate(key => localStorage.getItem(key), key);
 const history = (page: Page) => page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? 'null') as { xp: number } | null, WAYFINDER_HISTORY_KEY);
 
-test('first arrival automatically celebrates both earned levels in order, then remains quiet on return and reload', async ({ page }) => {
+test('first arrival automatically celebrates both earned levels in order, then remains quiet on return', async ({ page }) => {
   const state = earned();
   expect(getDiscoverySnapshot(state).journey.xp).toBe(440);
   await open(page, state);
@@ -75,10 +75,23 @@ test('first arrival automatically celebrates both earned levels in order, then r
   await page.getByRole('link', { name: 'Discovery Atlas', exact: true }).click();
   await ready(page);
   await expect(page.locator(sequence)).toHaveCount(0);
+  expect(await stored(page)).toBe(before);
+});
+
+test('seen automatic rewards remain quiet after a real browser reload', async ({ page }) => {
+  const state = earned();
+  const snapshot = getDiscoverySnapshot(state);
+  const sourceId = wayfinderSourceId(snapshot);
+  expect(sourceId).not.toBeNull();
+  await open(page, state, JSON.stringify({ version: 1, sourceId, xp: snapshot.journey.xp }));
+  const before = await stored(page);
+  await expect(page.locator(sequence)).toHaveCount(0);
+  expect((await history(page))?.xp).toBe(snapshot.journey.xp);
   await page.clock.resume();
   await page.reload();
   await expect(page.locator(viewer)).toHaveAttribute('data-viewer-state', 'ready');
   await expect(page.locator(sequence)).toHaveCount(0);
+  expect((await history(page))?.xp).toBe(snapshot.journey.xp);
   expect(await stored(page)).toBe(before);
 });
 

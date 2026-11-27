@@ -36,6 +36,20 @@ Acceptance criteria:
     identities, human review gates, real owner browser records and README media.
 
 Completion evidence:
+  Exactblue1ae0665/Pages46019111416fails one composite30sarrival/return/
+    reload case after627other passes; deploy skipped. All three traces
+    complete browser calls but combine multiple GPU lifetimes in one budget.
+    Proof: docs/tracking/2026-11-27-blue-fire-ci-failure.json.
+  Bounded TEST-ONLY correction preserves production blue code/media/workflow:
+    keep actual automatic ordering/cursor persistence/quiet-return and
+    independently exercise real reload from the same earned-source cursor.
+    Every original assertion, live fire and per-case budget/retry policy remain.
+  Strict build and all75focused native cases pass in75attempts/one worker/
+    zero retries/skips/flaky at364inputs:
+    fb9faca06e144f01b4c30ef66a57a66f86cfd2beaa1a1c93f68eb983e99aeb6d.
+    Unchanged789/57domain qualification is a reference, not new execution.
+    Proof: docs/tracking/2026-11-27-blue-fire-ci-repair.json.
+    The corrected successor still requires exact full CI/artifact/live proof.
   Technically qualified locally; blue-source publication remains pending.
   Strict build and all74focused native cases pass in74attempts, one worker/
     zero retries/skips/flaky/top errors. Nine initial blue-specific cases also
@@ -61,6 +75,11 @@ Completion evidence:
   No new successful blue-source deployment is claimed before exact CI/live proof.
 
 Completion log:
+  2026-11-27 - Preserve failed exact1ae0665/Pages46019111416and627passes.
+    Split only the over-composed test into two retained contracts with live
+    fire and unchanged assertions/budgets. Production is byte-identical.
+    Strict build/75native/75attempts/one worker/zero retries pass atfb9faca0;
+    prepare same-identity normal publication repair, not a bypassed CI claim.
   2026-11-27 - Current blue field passes strict build and74native cases/
     74attempts/one worker/zero retries at364inputsb22dfd41, with actual
     color/cleanliness and lifecycle/geometry/data checks. Preserve subjective
