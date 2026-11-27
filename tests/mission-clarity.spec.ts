@@ -58,7 +58,10 @@ for (const theme of ['dark', 'light'] as const) {
       await expect(hero).toContainText('Stage 1');
       await expect(hero).toContainText('0 / 48 complete');
       const streak = page.locator('.right-rail .mission-work-streak');
+      await expect(hero).toHaveCSS('border-radius', '0px');
+      await expect(hero.locator('.checkpoint-emblem')).toHaveCSS('border-radius', '0px');
       await expect(streak).toHaveCount(1);
+      await expect(streak).toHaveCSS('border-radius', '0px');
       await expect(streak).toContainText('No work recorded today');
       await expect(streak.locator('details')).toHaveCount(0);
       const layout = await page.locator('.mission-detail').evaluate(element => {
@@ -76,6 +79,8 @@ for (const theme of ['dark', 'light'] as const) {
       await page.locator('.back-link').click();
       await opener(page).click();
       const dialog = walkthrough(page);
+      await expect(dialog).toHaveCSS('border-radius', '0px');
+      await expect(dialog.locator('.hierarchy-scene')).toHaveCSS('border-radius', '0px');
       await expect(dialog.getByRole('button', { name: 'Close dialog', exact: true })).toBeInViewport({ ratio: 1 });
       await expect(dialog.getByRole('button', { name: 'Play animation', exact: true })).toBeInViewport({ ratio: 1 });
       await expect(dialog.getByRole('button', { name: 'Step 6: Complete the mission', exact: true })).toBeInViewport({ ratio: 1 });
@@ -92,6 +97,9 @@ for (const theme of ['dark', 'light'] as const) {
         const card = dialog.getByRole('article', { name: `${title} example`, exact: true });
         await card.scrollIntoViewIfNeeded();
         await expect(card).toBeVisible();
+        await expect(card).toHaveCSS('border-radius', '0px');
+        await expect(card.locator('.hierarchy-stage').first()).toHaveCSS('border-radius', '0px');
+        await expect(card.locator('.hierarchy-orb').first()).toHaveCSS('border-radius', '50%');
         expect(await card.locator('.hierarchy-waypoints li').count()).toBe(4);
         await expect(card.locator('h3')).toHaveCSS('color', 'rgb(238, 232, 213)');
       }

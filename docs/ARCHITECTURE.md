@@ -62,10 +62,13 @@ replay it. There are no ambient loops or motion controls. System reduced motion
 removes the turn and an open native dialog suspends it. The original Atlas
 motion implementation remains separate and unchanged.
 The paper-only hover lift is a short CSS transition; it changes no date or saved
-state. Side labels remain stationary, using larger standard abbreviations on
-narrow screens while the actual accessible date stays complete.
-`--topbar-height` is shared with the graph viewport so the wider responsive
-header never leaves its canvas below the available screen.
+state. Side labels remain stationary and use the theme's text role, with
+standard abbreviations at 760px and below and a complete accessible date.
+The decorative tile is 40 by 50px; the shared `--topbar-height` restores the
+pre-calendar 69px desktop / 60px small-screen budget. Body typography is unchanged.
+At 1840px and below, the existing compact search panel opens under the header
+instead of forcing a second header row. The graph consumes the same height
+variable, keeping its canvas within the recovered visible area.
 The expanded outlines have their own cacheable chunk; full study prose loads only for
 the selected workbook. Loading failures are explicit and offer a reload without
 replacing workspace data. Search/filter/navigation remain read-only.

@@ -4,7 +4,7 @@
 .modal.mission-hierarchy-modal.wide {
   grid-template-rows: auto minmax(0, 1fr) auto;
   width: min(1120px, calc(100% - 32px)); max-height: calc(100dvh - 32px);
-  padding: 0; overflow: hidden; border-radius: 22px;
+  padding: 0; overflow: hidden; border-radius: 0;
 }
 .modal.mission-hierarchy-modal.wide[open] { display: grid; }
 .modal.mission-hierarchy-modal.wide:has(> .tutorial-hierarchy-guide) { grid-template-rows: auto minmax(0, 1fr) auto auto; }
@@ -15,7 +15,7 @@
 .mission-hierarchy-modal .modal-header > button { grid-row: 1 / span 3; }
 .mission-hierarchy-modal .modal-header h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); margin-top: 5px; }
 .hierarchy-body { min-height: 0; padding: 0 26px 20px; overflow-y: auto; overscroll-behavior: contain; }
-.hierarchy-levels { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem; padding: .5rem .65rem; border: 1px solid var(--line); border-radius: 10px; background: var(--dsf-surface); }
+.hierarchy-levels { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem; padding: .5rem .65rem; border: 1px solid var(--line); border-radius: 0; background: var(--dsf-surface); }
 .hierarchy-levels > span { display: inline-flex; align-items: center; gap: .25rem; font-size: .625rem; color: var(--dsf-heading); }
 .hierarchy-levels > span > svg { color: var(--dsf-accent); flex-shrink: 0; }
 .hierarchy-levels > svg { color: var(--dsf-muted); flex-shrink: 0; }
@@ -28,7 +28,7 @@
   --hierarchy-play-state: running;
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 12px;
-  padding: 20px; border: 1px solid #326477; border-radius: 18px;
+  padding: 20px; border: 1px solid #326477; border-radius: 0;
   color: #eee8d5;
   background: radial-gradient(ellipse at 0% 12%, #00a59121, transparent 62%),
     radial-gradient(ellipse at 100% 80%, #268bd224, transparent 65%), #00141c;
@@ -54,20 +54,20 @@
 .hierarchy-sky i:nth-child(4) { top: 96%; left: 48%; animation-delay: 1.8s; }
 .hierarchy-sky i:nth-child(5) { top: 3%; left: 85%; animation-delay: 2.4s; }
 .hierarchy-sky i:nth-child(6) { top: 64%; left: 86%; animation-delay: 3s; }
-.hierarchy-mission { position: relative; padding: 17px; border: 1px solid color-mix(in srgb, var(--route-accent) 65%, #173844); border-radius: 15px; background: linear-gradient(130deg, color-mix(in srgb, var(--route-accent) 10%, #071d27), #071a25e8); box-shadow: 0 12px 30px #00000030, inset 0 1px #ffffff08; }
+.hierarchy-mission { position: relative; padding: 17px; border: 1px solid color-mix(in srgb, var(--route-accent) 65%, #173844); border-radius: 0; background: linear-gradient(130deg, color-mix(in srgb, var(--route-accent) 10%, #071d27), #071a25e8); box-shadow: 0 12px 30px #00000030, inset 0 1px #ffffff08; }
 .hierarchy-mission-heading { display: flex; align-items: center; gap: .45rem; min-width: 0; }
-.hierarchy-mission-icon { display: grid; place-items: center; flex-shrink: 0; width: 43px; height: 43px; color: var(--route-accent); border: 1px solid color-mix(in srgb, var(--route-accent) 50%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--route-accent) 9%, transparent); }
+.hierarchy-mission-icon { display: grid; place-items: center; flex-shrink: 0; width: 43px; height: 43px; color: var(--route-accent); border: 1px solid color-mix(in srgb, var(--route-accent) 50%, transparent); border-radius: 0; background: color-mix(in srgb, var(--route-accent) 9%, transparent); }
 .hierarchy-small-label { display: block; color: #a1b7bd; font-size: .625rem; letter-spacing: .08em; }
 :root[data-theme] .hierarchy-mission-heading h3 { color: #eee8d5; font-size: .85rem; line-height: 1.35; }
 .hierarchy-mission-count { flex-shrink: 0; margin-left: auto; font-size: .65rem; color: #c0d0d1; font-variant-numeric: tabular-nums; text-align: right; }
 .hierarchy-mission-count strong { font-size: 1.2rem; font-weight: 500; color: #eee8d5; }
 .hierarchy-mission-count > span { display: block; font-size: .625rem; }
 .hierarchy-mission-badges { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 10px 0 14px; }
-.hierarchy-mission-badges > span { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #42616b; border-radius: 20px; color: #bdd3d4; font-size: .625rem; }
+.hierarchy-mission-badges > span { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #42616b; border-radius: 0; color: #bdd3d4; font-size: .625rem; }
 .hierarchy-mission-badges .hierarchy-primary { border-color: #b5890066; color: #e7cd84; background: #b5890012; }
 .hierarchy-mission-badges .hierarchy-finish { margin-left: auto; border-color: #00a59188; color: #a3edcf; background: #00a59118; animation: hierarchy-stamp .65s cubic-bezier(.2, .8, .2, 1) both; animation-play-state: var(--hierarchy-play-state); }
 .hierarchy-stages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.hierarchy-stage { min-width: 0; padding: 10px 12px 12px; border: 1px solid #42616b80; border-radius: 12px; background: #00131b66; }
+.hierarchy-stage { min-width: 0; padding: 10px 12px 12px; border: 1px solid #42616b80; border-radius: 0; background: #00131b66; }
 .hierarchy-stage[data-highlight="true"] { border-color: #72c6c0; box-shadow: 0 0 24px #00a59112; }
 .hierarchy-stage[data-complete="true"] { border-color: color-mix(in srgb, var(--route-accent) 70%, #173844); }
 .hierarchy-stage h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; font-size: .625rem; font-weight: 500; color: #d2e0dc; }
@@ -92,7 +92,7 @@
 .hierarchy-mission--secondary { grid-column: 2; grid-row: 2 / span 2; opacity: .82; }
 .hierarchy-mission--secondary .hierarchy-stages { grid-template-columns: minmax(0, 1fr); }
 .hierarchy-evidence-slot { grid-column: 1; min-height: 86px; display: grid; align-items: center; }
-.hierarchy-evidence { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 11px 14px; border: 1px solid #d5bd713b; border-radius: 10px; color: #dfd6b3; background: #222c26; animation: hierarchy-evidence .55s ease-out both; animation-play-state: var(--hierarchy-play-state); }
+.hierarchy-evidence { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 11px 14px; border: 1px solid #d5bd713b; border-radius: 0; color: #dfd6b3; background: #222c26; animation: hierarchy-evidence .55s ease-out both; animation-play-state: var(--hierarchy-play-state); }
 .hierarchy-evidence-file { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .hierarchy-evidence-file > svg { color: #dfc77b; flex-shrink: 0; }
 .hierarchy-evidence-file strong { display: block; color: #eee8d5; font-size: .625rem; font-weight: 500; }
@@ -128,7 +128,7 @@
 @keyframes hierarchy-stamp { 0% { opacity: .3; transform: scale(1.25) rotate(-8deg); } 70% { transform: scale(.96) rotate(2deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
 @keyframes hierarchy-link { from { transform: scaleX(0); opacity: .4; } to { transform: scaleX(1); opacity: 1; } }
 @media (max-width: 700px) {
-  .modal.mission-hierarchy-modal.wide { width: calc(100% - 16px); max-height: calc(100dvh - 16px); border-radius: 15px; }
+  .modal.mission-hierarchy-modal.wide { width: calc(100% - 16px); max-height: calc(100dvh - 16px); }
   .mission-hierarchy-modal .modal-header { padding: 16px 16px 12px; }
   .mission-hierarchy-modal .modal-header :is(.eyebrow, p) { display: none; }
   .mission-hierarchy-modal .modal-header h2 { margin: 0; }

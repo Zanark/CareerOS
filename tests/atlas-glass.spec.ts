@@ -48,8 +48,15 @@ for (const theme of ['dark', 'light']) {
         expect(surface.backdrop, `${surface.selector} needs static frosted blur`).toContain('blur(');
         expect(surface.alpha, `${surface.selector} needs an actual translucent material`).toBeGreaterThan(.45);
         expect(surface.alpha).toBeLessThan(1);
-        expect(surface.radius).toBeGreaterThanOrEqual(8);
+        expect(surface.radius, `${surface.selector} needs square glass corners`).toBe(0);
       }
+      const corners = await page.locator('.wayfinder-panel-head, .wayfinder-scene, .wayfinder-chapters > button, .wayfinder-actions > button, .wayfinder-levelup-banner > span, .discovery-card, .discovery-family, .discovery-activity')
+        .evaluateAll(elements => elements.map(element => {
+          const style = getComputedStyle(element);
+          return [style.borderTopLeftRadius, style.borderTopRightRadius, style.borderBottomLeftRadius, style.borderBottomRightRadius];
+        }));
+      expect(corners.length).toBeGreaterThan(10);
+      expect(corners.every(values => values.every(value => value === '0px'))).toBe(true);
 
       expect(surfaces.at(-1)!.fontSize).toBeGreaterThanOrEqual(width === 320 ? 18 : 26);
       expect(await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize))).toBe(24);

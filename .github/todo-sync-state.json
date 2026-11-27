@@ -478,6 +478,20 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "compact-square-chrome": {
+      "issueNumber": 35,
+      "issueId": "I_kwDOU6lJns8AAAABjBLgeQ",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/35",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMXc1o",
+      "baseline": {
+        "managed": "e8cf23c191bab3e4353d9143a195b1d538342824783f1119513f22e18aa8a2af",
+        "title": "Sharpen new cards and restore compact header proportions",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

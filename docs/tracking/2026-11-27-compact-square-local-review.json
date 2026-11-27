@@ -1,0 +1,42 @@
+{
+  "status": "technically-qualified-locally-publication-pending",
+  "workstream": "compact-square-chrome",
+  "gitBaseline": "73a490228ac782ddf1b4aec6ecfb37e4cd324944",
+  "authority": "Owner requests square new cards and compact themed calendar, then explicitly authorizes commit and push.",
+  "scope": {
+    "material": "Retain frosted translucency, static blur, fine borders, artwork and meaningful circular symbols; sharpen newly introduced Atlas and mission card chrome.",
+    "headerHeightPx": { "desktop": 69, "atOrBelow760px": 60 },
+    "calendarPx": { "width": 40, "height": 50, "dayFont": 27, "fullLabelFont": 18, "shortLabelFont": 15 },
+    "labelInk": "Existing DeepSeaFoam/Harbor Daylight text role.",
+    "compactSearchBreakpointPx": 1840,
+    "streak": "Retained below the normal mission blocker and in the planned-mission summary; counting unchanged."
+  },
+  "sourceInputs": {
+    "count": 357,
+    "sha256": "8a87cae6334b161d6825eb7144573c4aa7a4931b7cec02c055aded081806e9f6",
+    "scope": "src, tests and the five existing package/build/browser TypeScript configuration inputs",
+    "unchangedThroughNativeGate": true
+  },
+  "validation": { "passed": 786, "failed": 0, "testFiles": 57, "strictTypeScript": true, "productionBuild": true },
+  "native": {
+    "passed": 63, "attempts": 63, "workers": 1, "retries": 0, "skipped": 0, "flaky": 0, "topLevelErrors": 0,
+    "files": { "atlas-glass.spec.ts": 6, "header-date.spec.ts": 17, "mission-clarity.spec.ts": 10, "search.spec.ts": 19, "visual-layout.spec.ts": 11 },
+    "coverage": "Both themes, 320..2400px, fallback fonts, actual date/accessibility text, no overlap, original header height, compact/wide search, graph space, saved-data guards, mission streak/checkpoint/hierarchy, finite motion and authored no-blur fallback."
+  },
+  "retainedDiagnostic": {
+    "passed": 61, "failed": 2, "attempts": 63,
+    "cause": "A narrow-screen hierarchy-modal declaration overrode square corners with a 15px radius.",
+    "correction": "Remove the responsive override and freshly execute all 63 selected cases. Do not weaken the geometry assertion."
+  },
+  "boundaries": {
+    "disposableProfilesOnly": true,
+    "ownerBrowserRecordsUntouched": true,
+    "bodyTypeScaleUnchanged": true,
+    "schemasDefaultsJournalRoadmapsUnchanged": true,
+    "readmeMediaDependenciesWorkflowUnchanged": true,
+    "newManualImageReview": false,
+    "independentHumanAestheticApproval": false,
+    "physicalDeviceQualification": false,
+    "newPublicDeployment": false
+  }
+}

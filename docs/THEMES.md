@@ -14,8 +14,10 @@ replacement color scheme or a reason to shrink text.
 
 Atlas celebration chrome uses this treatment in
 [`src/discovery/frosted-glass.css`](../src/discovery/frosted-glass.css):
-the console, chapter/reward cards, banner and camera controls share softly
-rounded translucent surfaces. The original seven chapter worlds, equipment,
+the console, chapter/reward cards, banner and camera controls share square-edged
+translucent surfaces. Frost is independent of geometry: new cards and panels
+have sharp corners, while intentional graph rings, circular nodes and icon
+controls retain their shapes. The original seven chapter worlds, equipment,
 pixel artwork and meaningful colors remain content, not blurred decoration.
 The inverse deep-water console stays readable in either outer theme, like the
 existing graph stage; collection cards follow their surrounding theme.

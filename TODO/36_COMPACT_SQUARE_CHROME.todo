@@ -1,0 +1,84 @@
+Workstream ID: compact-square-chrome
+Title: Sharpen new cards and restore compact header proportions
+Status: IN_PROGRESS
+Milestone: Publish the requested square-card and compact-calendar correction
+Dependencies: frosted-atlas-publication, navigation-refinements, mission-clarity
+GitHub issue: https://github.com/Zanark/CareerOS/issues/35
+Purpose: Preserve frosted-glass materials without large rounded card geometry.
+  Resize the decorative calendar to fit the original navbar height and use
+  theme-aware text colors. Preserve each mission's compact Recorded streak.
+  The owner explicitly authorizes committing and pushing the finished changes.
+
+Tasks:
+  [x] Verify the existing preview, prior navbar dimensions and streak location.
+  [x] Sharpen the recently introduced Atlas and mission card/panel/label corners.
+  [x] Restore the original 69px desktop and 60px small-screen header budget.
+  [x] Keep local date, weekend color, hover, motion and existing controls intact.
+  [x] Qualify affected material, header, mission and shared-shell behavior.
+  [ ] Update focused documentation, original tracking identities and continuity.
+  [ ] Review the exact public-safe changes and both effective Git identities.
+  [ ] Normally commit/push and verify the exact Pages build and hosted output.
+
+Acceptance criteria:
+  New Atlas and mission chrome has square corners without a global radius reset.
+    Preserve static blur, translucency, fine borders, readable type and artwork.
+    Intentional circular nodes, orbit rings and icon controls remain circular.
+  The single-row header is 69px on desktop and 60px at 760px and below.
+    The decorative calendar fits within it; month/day/weekday remain balanced,
+    with a complete accessible local date and theme-aware reading ink.
+  Compact abbreviations retain the full accessible date. Existing search,
+    navigation, theme and tutorial controls remain reachable without overlap.
+    Responsive search opens its existing below-header panel when space is tight.
+  Calendar weekend strips, local midnight updates, finite turn, restrained hover,
+    native-dialog suspension and authoritative reduced motion remain unchanged.
+  Recorded streak stays below the saved blocker in each normal mission's rail,
+    and remains available for planned missions; counting/data are unchanged.
+  The actual graph fits the recovered visible area below the responsive header.
+  Preserve browser records, schemas, journal, progress authority, README/media,
+    frozen definitions, dependencies, motion budgets and deployment workflow.
+  Use only disposable fictional browser contexts, never the owner's profile.
+    Technical checks are not independent aesthetic or physical-device approval.
+  Publish only reviewed public-safe changes with verified Zanark attribution.
+    Exact CI/deployment and actual hosted bytes/affected behavior must succeed.
+
+Completion evidence:
+  Current correction is technically qualified locally; authorized publication
+    is still pending. Baseline main73a490228ac782ddf1b4aec6ecfb37e4cd324944.
+  Strict validation passes786domain cases/57files and the production build.
+    Final357-input source fingerprint:
+    8a87cae6334b161d6825eb7144573c4aa7a4931b7cec02c055aded081806e9f6.
+  Fresh native gate passes63cases in63attempts, one worker/no retries/skips/
+    flaky cases or top-level errors:6glass,17header,10mission,19search and
+    11shared-layout cases. These are actual executions, not a case inventory.
+  Both themes,320..2400pxwidths and fallback fonts retain actual date text,
+    no overlap, reachable controls, graph room, readable search and records.
+    Square card geometry retains actual translucency/static blur and circular
+    checkpoint symbols. Existing tutorial, finite motion and fallback hold.
+  Preserve the initial61pass/2fail edition: a narrow-screen modal rule still
+    forced15pxcorners. Remove that actual responsive override, not the strict
+    square-corner assertion. The final63-case run is separate and successful.
+  Proof: docs/tracking/2026-11-27-compact-square-local-review.json.
+    No new manual image review, aesthetic approval or physical-device claim.
+  Original issue35/itemMXc1o is independently mapped Open/In Progress after
+    reviewed preview/apply and a zero-action no-op;34prior mappings unchanged.
+  Historical pre-calendar styles at 78816c618a767b4613140acb45974cd19fd7fd56
+    define a 69px desktop navbar and 60px small-screen navbar.
+  Before correction, actual disposable-profile geometry measured a 150px
+    desktop header and 102px phone / 94px short-landscape variants.
+    The calendar was 72px by 86px, independent of body typography.
+  src/App.tsx::MissionPage retains MissionWorkStreak immediately after the
+    blocker card in the normal right rail and in the planned-mission summary.
+  Source publication, current qualification and human visual approval remain
+    distinct; no successful new build or deployment is claimed yet.
+
+Completion log:
+  2026-11-27 - Current correction passes full786domain/57files, strict build
+    and a fresh63native cases/63attempts/one worker/zero retries. Retain the
+    real61/2responsive-radius diagnostic and all original source/tracking
+    identities. Prepare the owner-authorized reviewed normal commit/push;
+    do not call the corrected source publicly deployed before exact CI/live proof.
+  2026-11-27 - Owner rejects rounded new cards, asks where mission streaks are,
+    and requests a smaller, theme-matched calendar within the former navbar
+    proportions. Later explicitly requests commit and push on completion.
+    Preserve the verified prior release and original workstream identities;
+    no browser-record, roadmap, workflow or private-data changes.

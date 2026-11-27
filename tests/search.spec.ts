@@ -1,13 +1,19 @@
 import { expect, test } from '@playwright/test';
 
 for (const theme of ['dark', 'light']) {
-  for (const width of [1440, 1051, 1024, 768, 390, 320]) {
+  for (const width of [2400, 1841, 1840, 1440, 1051, 1024, 768, 390, 320]) {
     test(`the full search hint fits at ${width}px in ${theme} without reducing type`, async ({ page }, testInfo) => {
       await page.setViewportSize({ width, height: 900 });
       await page.addInitScript(theme => localStorage.setItem('careerhq.theme.v1', theme), theme);
       await page.goto('./#/mission/credential');
       const search = page.getByRole('textbox', { name: 'Search missions and evidence', exact: true });
-      if (width <= 1050) await search.click();
+      if (width <= 1840) {
+        await expect(search).toHaveCSS('opacity', '0');
+        await search.click();
+        const panel = await page.locator('.search-wrap').boundingBox();
+        const header = await page.locator('.topbar').boundingBox();
+        expect(panel!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+      }
       await expect(search).toHaveCSS('opacity', '1');
       await expect(search).toHaveCSS('font-size', '16.5px');
       await expect(search).toHaveAttribute('placeholder', 'Search missions and work');

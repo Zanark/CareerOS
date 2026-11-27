@@ -30,6 +30,8 @@ The website's visual theme is **frosted glass**. New animations and special
 effects must follow that treatment: translucent surfaces, static background
 blur, fine borders and restrained light. Reuse the DeepSeaFoam/Harbor Daylight
 palette and preserve readable fallbacks, reduced motion and original content.
+Use square-edged cards, panels and labels; frost does not require rounded corners.
+Retain intentional circles such as graph nodes, orbit rings and icon controls.
 Do not animate blur or replace intentional chapter artwork with opaque effects.
 
 Retain stable numbered `.todo` workstreams and their eight required fields.

@@ -8,7 +8,7 @@ async function expectDate(page: Page, date: string, month: string, day: string, 
   const display = page.locator('.topbar-date');
   await expect(display).toBeVisible();
   await expect(display).toHaveAttribute('datetime', date);
-  const narrow = (page.viewportSize()?.width ?? 1440) <= 480;
+  const narrow = (page.viewportSize()?.width ?? 1440) <= 760;
   await expect(display.locator('.topbar-date-month')).toHaveText(narrow ? month.slice(0, 3) : month, { useInnerText: true });
   await expect(display.locator('strong')).toHaveText(day);
   await expect(display.locator('.topbar-date-weekday')).toHaveText(narrow ? weekday.slice(0, 3) : weekday, { useInnerText: true });
@@ -22,7 +22,7 @@ for (const theme of ['dark', 'light']) {
     await page.goto('./#/mission/fde');
     await expectDate(page, '2026-09-30', 'September', '30', 'Wednesday');
     const before = await page.evaluate(key => localStorage.getItem(key), workspaceKey);
-    for (const width of [2400, 2160, 2159, 2000, 1800, 1440, 1200, 1051, 1050, 768, 390, 320]) {
+    for (const width of [2400, 2160, 2000, 1841, 1840, 1800, 1440, 1271, 1270, 1200, 1051, 1050, 768, 761, 760, 568, 481, 480, 390, 320]) {
       await page.setViewportSize({ width, height: 900 });
       for (const fallback of [false, true]) {
         const style = fallback ? await page.addStyleTag({ content: ':root { font-family: Arial, sans-serif; }' }) : null;
@@ -30,7 +30,7 @@ for (const theme of ['dark', 'light']) {
           const date = header.querySelector<HTMLElement>('.topbar-date')!;
           const box = (element: Element) => {
             const rect = element.getBoundingClientRect();
-            return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, center: rect.left + rect.width / 2 };
+            return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, height: rect.height, center: rect.left + rect.width / 2 };
           };
           const overlap = (a: Element, b: Element) => {
             const x = box(a), y = box(b);
@@ -38,15 +38,18 @@ for (const theme of ['dark', 'light']) {
               * Math.max(0, Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top));
           };
           return {
-            header: box(header), date: box(date), day: box(date.querySelector('strong')!),
+            header: box(header), date: box(date), core: box(date.querySelector('.calendar-core')!), day: box(date.querySelector('strong')!),
             month: box(date.querySelector('.topbar-date-month')!), weekday: box(date.querySelector('.topbar-date-weekday')!),
             overlaps: [overlap(date, header.querySelector('.breadcrumbs')!), overlap(date, header.querySelector('.top-actions')!)],
             text: [...date.querySelectorAll('.topbar-date-month, strong, .topbar-date-weekday')].map(element => ({
               overflow: element.scrollWidth - element.clientWidth,
               fontSize: parseFloat(getComputedStyle(element).fontSize),
+              color: getComputedStyle(element).color,
             })),
           };
         });
+        expect(geometry.header.height).toBe(width <= 760 ? 60 : 69);
+        expect(geometry.core.height).toBe(50);
         expect(Math.abs(geometry.date.center - geometry.header.center)).toBeLessThan(1);
         expect(Math.abs(geometry.day.center - geometry.date.center)).toBeLessThan(1);
         expect(geometry.month.right).toBeLessThan(geometry.day.left);
@@ -58,9 +61,12 @@ for (const theme of ['dark', 'light']) {
         expect(geometry.overlaps).toEqual([0, 0]);
         for (const text of geometry.text) {
           expect(text.overflow).toBeLessThanOrEqual(1);
-          expect(text.fontSize).toBeGreaterThanOrEqual(21);
+          expect(text.fontSize).toBeGreaterThanOrEqual(width <= 760 ? 15 : 18);
         }
-        expect(geometry.text[1].fontSize).toBeGreaterThanOrEqual(48);
+        expect(geometry.text[1].fontSize).toBe(27);
+        const ink = theme === 'dark' ? 'rgb(147, 161, 161)' : 'rgb(53, 84, 81)';
+        expect(geometry.text[0].color).toBe(ink);
+        expect(geometry.text[2].color).toBe(ink);
         await expect(page.getByRole('switch', { name: 'Dark theme', exact: true })).toBeVisible();
         await expect(page.locator('header').getByRole('button', { name: 'Start tutorial', exact: true })).toBeVisible();
         expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
@@ -197,13 +203,13 @@ for (const theme of ['dark', 'light']) {
           fonts: parts.map(part => Number.parseFloat(getComputedStyle(part).fontSize)),
           overflow: document.documentElement.scrollWidth - innerWidth };
       });
-      expect(geometry.header.height).toBeLessThanOrEqual(102);
+      expect(geometry.header.height).toBe(viewport.width <= 760 ? 60 : 69);
       expect(geometry.date.top).toBeGreaterThanOrEqual(geometry.header.top);
       expect(geometry.date.bottom).toBeLessThanOrEqual(geometry.header.bottom);
       expect(geometry.overlaps.every(area => area === 0)).toBe(true);
-      expect(geometry.fonts[0]).toBeGreaterThanOrEqual(21);
-      expect(geometry.fonts[1]).toBeGreaterThanOrEqual(48);
-      expect(geometry.fonts[2]).toBeGreaterThanOrEqual(21);
+      expect(geometry.fonts[0]).toBeGreaterThanOrEqual(viewport.width <= 760 ? 15 : 18);
+      expect(geometry.fonts[1]).toBe(27);
+      expect(geometry.fonts[2]).toBeGreaterThanOrEqual(viewport.width <= 760 ? 15 : 18);
       expect(geometry.overflow).toBe(0);
       await expect(page.getByRole('switch', { name: 'Dark theme', exact: true })).toBeInViewport({ ratio: 1 });
       await expect(page.locator('header').getByRole('button', { name: 'Start tutorial', exact: true })).toBeInViewport({ ratio: 1 });

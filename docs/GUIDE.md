@@ -31,8 +31,8 @@ is Discovery Atlas, Tracking, Education and Career; Georgia Tech is in Education
 
 ### Shared calendar and navigation
 
-The shared paper calendar shows a larger month
-label on the left, a prominent day-number page in the center, and weekday on
+The compact paper calendar shows the month
+on the left, the day-number page in the center, and weekday on
 the right. The date follows your device's local day, including during tutorial
 practice. A brief page turn runs on initial load or a new date, then settles;
 system reduced motion keeps it still. There are no looping decorative effects.
@@ -44,10 +44,9 @@ The paper calendar's top strip is red on Saturday and Sunday, teal on weekdays,
 following your local date.
 
 Daily plan sits immediately below Overview in the sidebar.
-On shorter compact screens, controls and the outer date labels share space
-around the same full-size paper tile instead of taking a second full row.
-The date type stays readable; search, navigation and tutorial controls remain
-available, leaving more room for the graph and first-page actions.
+The calendar fits in the original single-row navbar, leaving the page room
+for actual work. When space is tight, search opens below the header and the
+tutorial keeps its labelled icon; navigation and theme controls remain available.
 
 ### Saved blocker status
 

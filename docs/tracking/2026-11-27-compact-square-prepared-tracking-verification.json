@@ -1,0 +1,33 @@
+{
+  "status": "original-compact-square-tracking-independently-verified",
+  "stage": "prepared",
+  "observedAt": "2026-11-27T11:07:15.697Z",
+  "row": {
+    "id": "compact-square-chrome",
+    "issue": 35,
+    "issueId": "I_kwDOU6lJns8AAAABjBLgeQ",
+    "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMXc1o",
+    "state": "OPEN",
+    "stateReason": null,
+    "status": "In Progress",
+    "managedSha256": "e8cf23c191bab3e4353d9143a195b1d538342824783f1119513f22e18aa8a2af"
+  },
+  "unrelatedMappingsUnchanged": 34,
+  "privateGates": [
+    {
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "exactManagedBodyAndBacklink": true,
+  "pending": false
+}

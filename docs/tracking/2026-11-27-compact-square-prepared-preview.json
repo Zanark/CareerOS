@@ -1,0 +1,46 @@
+{
+  "mode": "preview",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "73a490228ac782ddf1b4aec6ecfb37e4cd324944",
+  "observedAt": "2026-11-27T11:05:31.924Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "compact-square-chrome",
+      "path": "TODO/36_COMPACT_SQUARE_CHROME.todo",
+      "outcome": "planned",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/35",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In Progress",
+      "managedSha256": "e8cf23c191bab3e4353d9143a195b1d538342824783f1119513f22e18aa8a2af",
+      "actions": [
+        "update managed description"
+      ]
+    }
+  ],
+  "counts": {
+    "included": 35,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 0,
+    "open": 0,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

@@ -1,7 +1,7 @@
 .mission-work-streak {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px;
   padding: 16px; margin-bottom: 20px; border: 1px solid var(--dsf-separator);
-  border-left: 4px solid var(--accent); border-radius: 8px; background: var(--dsf-paper);
+  border-left: 4px solid var(--accent); border-radius: 0; background: var(--dsf-paper);
 }
 .mission-work-streak-summary { min-width: 0; }
 .mission-work-streak-label { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; color: var(--dsf-muted); font-size: .625rem; }
