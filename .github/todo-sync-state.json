@@ -436,6 +436,48 @@
         "status": "98236657",
         "archived": false
       }
+    },
+    "readme-graph-showcase": {
+      "issueNumber": 32,
+      "issueId": "I_kwDOU6lJns8AAAABi7fF7g",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/32",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMRtsA",
+      "baseline": {
+        "managed": "528f874eff673a241bc88ebe7cdada229a17b0c205a8145df9aabce91b5ebfd9",
+        "title": "Replace README illustrations with a looping graph and academic wordmark",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "atlas-unseen-level-ups": {
+      "issueNumber": 33,
+      "issueId": "I_kwDOU6lJns8AAAABi77-1A",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/33",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMSLfg",
+      "baseline": {
+        "managed": "bbbe218778a81852807fa2daf85097d0af282d30ae61cf759149a6cd259ea93a",
+        "title": "Automatically present unseen Atlas level-ups on arrival",
+        "state": "open",
+        "reason": null,
+        "status": "a7bd2df9",
+        "archived": false
+      }
+    },
+    "frosted-atlas-publication": {
+      "issueNumber": 34,
+      "issueId": "I_kwDOU6lJns8AAAABi_TsTA",
+      "issueUrl": "https://github.com/Zanark/CareerOS/issues/34",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMVfVo",
+      "baseline": {
+        "managed": "42ecfdea27c99c6aa1b82a6e7605a4e2bc72a1955e4919d9a8df12df06a3a3e8",
+        "title": "Align Atlas effects with frosted glass and publish the current changes",
+        "state": "open",
+        "reason": null,
+        "status": "47fc9ee4",
+        "archived": false
+      }
     }
   }
 }

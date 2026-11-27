@@ -70,7 +70,7 @@ function SceneEffect({ level }: { level: number }) {
   return <g className="wayfinder-effect wayfinder-star-manta" fill="#d6b66e"><path d="M98 82h3v9h9v3h-9v9h-3v-9h-9v-3h9Zm117-19h3v7h7v3h-7v7h-3v-7h-7v-3h7Zm12 50h3v5h5v3h-5v5h-3v-5h-5v-3h5Z" /></g>;
 }
 
-export function WayfinderScene({ level, phase = 'still' }: { level: number; phase?: string }) {
+export function WayfinderScene({ level, phase = 'still', onReady }: { level: number; phase?: string; onReady?: (ready: boolean) => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const visibility = useAtlasVisibility(ref);
   const stage = wayfinderStages[level - 1];
@@ -78,7 +78,7 @@ export function WayfinderScene({ level, phase = 'still' }: { level: number; phas
   return <div ref={ref} className="wayfinder-scene" data-scene={stage.effect} data-phase={phase}
     data-atlas-visible={visibility.visible} data-atlas-ceremony={phase !== 'still' && phase !== 'complete'}>
     <Suspense fallback={<span className="wayfinder-viewer-loading" role="status">Preparing 3D viewer...</span>}>
-      <WayfinderViewer level={level} animate={phase === 'ascend' || phase === 'reward'} fallback={<WayfinderArt level={level} />} />
+      <WayfinderViewer level={level} animate={phase === 'ascend' || phase === 'reward'} fallback={<WayfinderArt level={level} />} onReady={onReady} />
     </Suspense>
     <AtlasAtmosphere key={level} level={level} />
     <svg className="wayfinder-scene-effects" viewBox="0 0 320 240" shapeRendering="crispEdges" aria-hidden="true"

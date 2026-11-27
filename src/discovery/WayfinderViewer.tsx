@@ -17,13 +17,17 @@ interface ViewerControls {
   reset: () => void;
 }
 
-export function WayfinderViewer({ level, animate, fallback }: { level: number; animate: boolean; fallback: ReactNode }) {
+export function WayfinderViewer({ level, animate, fallback, onReady }: { level: number; animate: boolean; fallback: ReactNode; onReady?: (ready: boolean) => void }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const runtime = useRef<ViewerControls | null>(null);
   const instructions = useId();
   const [panMode, setPanMode] = useState(false);
   const [status, setStatus] = useState<{ state: 'loading' | 'ready' | 'unavailable' | 'lost'; message?: string }>({ state: 'loading' });
+
+  useEffect(() => {
+    onReady?.(status.state === 'ready' || status.state === 'unavailable');
+  }, [status.state, onReady]);
 
   useEffect(() => {
     const root = rootRef.current!;

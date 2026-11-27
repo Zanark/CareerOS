@@ -1,0 +1,77 @@
+Workstream ID: readme-graph-showcase
+Title: Replace README illustrations with a looping graph and academic wordmark
+Status: IN_REVIEW
+Milestone: Present the actual graph in one polished long-loop showcase
+Dependencies: career-graph, appearance-and-identity
+GitHub issue: https://github.com/Zanark/CareerOS/issues/32
+Purpose: Replace the four current README illustration embeds with one long,
+  smoothly looping capture of the real graph, plus the website logo/title in
+  an openly licensed dark-academia-style typeface. Use disposable fictional
+  data, varied ring speeds, core heartbeat, 20% spark lines and 40% spark dots.
+  This expressly supersedes the older four-image presentation requirement.
+
+Tasks:
+  [x] Inspect the actual renderer, controls, schema, media tools and README.
+  [x] Capture the requested graph preset without changing application defaults.
+  [x] Encode and verify a long loop with no abrupt end-to-start jump.
+  [x] Create a logo/title graphic with font provenance and usable alt text.
+  [x] Replace the old README embeds while retaining useful product/data guidance.
+  [x] Verify native media, source preservation and original-identity tracking.
+  [x] Persist source/output evidence, local preview and owned continuity.
+
+Acceptance criteria:
+  The animation uses the existing real Three.js graph, not a mocked illustration.
+  Show all mission rings with distinct speed settings, actual heartbeat,
+    20% decorative spark lines and 40% spark dots.
+  A long, infinitely looping GIF is embedded once with descriptive alt text
+    and an explicit fictional/demo-workspace caption.
+  The website's actual logo and CareerOS title use a suitable licensed serif
+    treatment that remains readable on GitHub without remote font loading.
+  Existing four illustration files remain preserved as historical assets;
+    their current README embeds and image-dependent captions are removed.
+  No application/schema/default, real browser record, workflow or dependency
+    change; no owner-profile automation or new source publication is implied.
+  Technical media checks, visual inspection scope, human review and Git
+    publication remain separate. Respect the current chat's image-view limit.
+  Maintain the same configured Project/Kanban and stable workstream identity.
+
+Completion evidence:
+  READY LOCAL REVIEW. Current published app remains bb43aa3 / Pages45924551922,
+    evidence/main b2a787c; no new commit/push/deployment was performed.
+  Real graph: all12missions active,12distinct actual ring velocities,40%dots,
+    20%lines and the existing ten-second core heartbeat. Source44seconds/
+    880frames at20fps; unchanged validated fictional data, no evidence/events
+    or academic profile. No owner browser or application default changed.
+  Final GIF:40seconds/600unique frames/800x466/15fps,22195578bytes, infinite
+    loop. Four-second circular cross-dissolve, no reversal/black fade.
+    All decoded frames are populated; boundary pixel difference1.526 is below
+    ordinary95th-percentile change1.800. Encoded core brightness changes and
+    four actual heartbeat cycles are verified, not only UI labels.
+  Actual website logo and Cormorant Garamond Semibold title:2400x400PNG.
+    Exact font bytes, loaded face/title bounds and OFL license are verified.
+  Actual GitHub Markdown rendering retains one GIF/one wordmark/reduced-motion
+    source; desktop1440/phone390 browser images decode/fit without overflow.
+    Reduced motion selects the exact first-frame poster. All19relative file
+    references and exact three local HTTP image responses are verified.
+  Source/proof: scripts/capture-readme-graph.mjs, docs/README-MEDIA.md and
+    docs/tracking/2026-11-27-readme-graph-local-review.json.
+    Original PNG/SVG illustrations and runtime/tests/workflow/packages stay exact.
+  Original issue32/Project itemMRtsA were recovered without recreation after
+    an initial partial membership read.31earlier mappings remain unchanged.
+    Reviewed final preview/apply/no-op and independent tracking receipt retain
+    original identities; initial partial-read cause remains unproven.
+  Initial101426598-byte encoding was unsuitable for README use. Optimize the
+    existing capture only with a fixed palette/transparent deltas and15fps;
+    no repeated graph recording or new dependency installation.
+  No new manual image inspection: the continuous-chat forty-view budget is
+    exhausted. Technical/media checks do not imply aesthetic/human approval.
+
+Completion log:
+  2026-11-27 - Prepare the qualified local README/real-graph loop/academic
+    wordmark, preserving original assets and all browser/app defaults.
+    Record actual native/GitHub-rendering/output/source evidence, exact
+    encoding-only recovery and the original issue/Project review identity.
+    Human review and separately requested Git publication remain distinct.
+  2026-11-27 - Owner authorizes replacing the current README images with one
+    long graph GIF and a logo/title in a dark-academia-style typeface.
+    Preserve the actual product, original images and owner browser data.

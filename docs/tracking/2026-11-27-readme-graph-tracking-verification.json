@@ -1,0 +1,20 @@
+{
+  "status": "original-review-tracking-independently-verified",
+  "observedAt": "2026-11-27T03:22:28.979Z",
+  "id": "readme-graph-showcase",
+  "issue": 32,
+  "issueUrl": "https://github.com/Zanark/CareerOS/issues/32",
+  "issueId": "I_kwDOU6lJns8AAAABi7fF7g",
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMRtsA",
+  "state": "OPEN",
+  "projectStatus": "In review",
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "managedSha256": "528f874eff673a241bc88ebe7cdada229a17b0c205a8145df9aabce91b5ebfd9",
+  "exactManagedBody": true,
+  "exactOriginalIdentities": true,
+  "previousMappingsUnchanged": 31,
+  "localBacklinkVerified": true,
+  "pending": false
+}

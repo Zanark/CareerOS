@@ -58,7 +58,10 @@
     { "id": "blocker-card-status", "path": "TODO/29_BLOCKER_CARD_STATUS.todo", "publicSafe": true },
     { "id": "focus-playlist-link", "path": "TODO/30_FOCUS_PLAYLIST_LINK.todo", "publicSafe": true },
     { "id": "mission-clarity", "path": "TODO/31_MISSION_CLARITY.todo", "publicSafe": true },
-    { "id": "local-refinements-publication", "path": "TODO/32_LOCAL_REFINEMENTS_PUBLICATION.todo", "publicSafe": true }
+    { "id": "local-refinements-publication", "path": "TODO/32_LOCAL_REFINEMENTS_PUBLICATION.todo", "publicSafe": true },
+    { "id": "readme-graph-showcase", "path": "TODO/33_README_GRAPH_SHOWCASE.todo", "publicSafe": true },
+    { "id": "atlas-unseen-level-ups", "path": "TODO/34_ATLAS_UNSEEN_LEVEL_UPS.todo", "publicSafe": true },
+    { "id": "frosted-atlas-publication", "path": "TODO/35_FROSTED_ATLAS_PUBLICATION.todo", "publicSafe": true }
   ],
   "excluded": [
     { "path": "TODO/00_INDEX.todo", "reason": "Navigation index, not an actual feature workstream." },

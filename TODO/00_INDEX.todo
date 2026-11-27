@@ -40,6 +40,9 @@ DONE - 29_BLOCKER_CARD_STATUS.todo (blocker-card-status)
 DONE - 30_FOCUS_PLAYLIST_LINK.todo (focus-playlist-link)
 DONE - 31_MISSION_CLARITY.todo (mission-clarity)
 DONE - 32_LOCAL_REFINEMENTS_PUBLICATION.todo (local-refinements-publication)
+IN_REVIEW - 33_README_GRAPH_SHOWCASE.todo (readme-graph-showcase)
+IN_REVIEW - 34_ATLAS_UNSEEN_LEVEL_UPS.todo (atlas-unseen-level-ups)
+IN_PROGRESS - 35_FROSTED_ATLAS_PUBLICATION.todo (frosted-atlas-publication)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

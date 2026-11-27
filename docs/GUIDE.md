@@ -880,10 +880,19 @@ attempt, while independent-only discoveries keep their existing requirements.
 Expand **Where your EXP comes from** for the calculation and recent source links.
 It is a fictional journey, not assessed ability, spendable currency or a separate
 saved score. New records can offer **View level-up** even between discovery
-milestones, without stealing focus. The sequence fills the old bar, crosses the threshold,
+milestones, without stealing focus. On your next Atlas visit, **every unseen
+earned level-up plays automatically, in order**, once the visible character or
+fallback is ready. This browser remembers shown chapters; returning or reloading
+does not repeat them. Leaving partway retains later unseen chapters, and hidden
+or offscreen time does not consume the ceremony. Tutorial practice stays manual.
+The sequence fills the old bar, crosses the threshold,
 reveals the equipment and keeps a reward summary. Every crossed level is retained
 in a multi-level arrival. **Skip animation** shows all rewards immediately;
 **Replay level-up** and **Play prologue** never earn anything.
+Explicitly closing a sequence or choosing another chapter acknowledges the
+current catch-up. Reduced motion presents the reward summary without automatic
+effects. If this browser cannot save the cosmetic history, a visible warning
+explains that celebrations may repeat; the real records remain unchanged.
 
 Click an unlocked chapter to revisit its outfit and scene; **Current chapter**
 returns to the actual level. **Preview reward** can show only the next chapter,

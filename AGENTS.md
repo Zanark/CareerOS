@@ -26,6 +26,12 @@ tutorial. Do not hide actual records, intentional study content, material
 validation/conflict states or required consent and data-loss warnings.
 Preserve the established readable type scale rather than shrinking text.
 
+The website's visual theme is **frosted glass**. New animations and special
+effects must follow that treatment: translucent surfaces, static background
+blur, fine borders and restrained light. Reuse the DeepSeaFoam/Harbor Daylight
+palette and preserve readable fallbacks, reduced motion and original content.
+Do not animate blur or replace intentional chapter artwork with opaque effects.
+
 Retain stable numbered `.todo` workstreams and their eight required fields.
 Each actual public-safe workstream maps to one repository issue and the same
 issue in the configured CareerOS Project. The index and perpetual ledger are

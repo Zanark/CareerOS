@@ -692,6 +692,24 @@ differences can announce work between catalogue unlocks; hydration stays silent.
 Replacing/resetting sources recalculates both layers rather than reconciling a
 second reward history.
 
+`useWayfinderHistory` adds only a cosmetic browser preference under
+`careerhq.wayfinder-view.v1`, outside `AppState`, backups and encrypted journal
+cells. Its versioned source-record anchor prevents an unrelated replacement
+collection inheriting an old cursor. `Wayfinder` derives every unseen threshold
+with `getWayfinderCrossings`, including work earned before page mount/reload,
+and queues a bounded recorded run independently of the expiring notification.
+It advances the cursor at each visible reward, then to the run's actual EXP
+endpoint on completion/skip. Explicit dismissal acknowledges the catch-up;
+manual replay never awards EXP. Practice bypasses personal preference access.
+
+Automatic consumption waits for `WayfinderViewer`'s first actual paint or its
+explicit fallback, foreground state and intersection of the character screen,
+not merely the much taller panel. The existing timer schedule retains elapsed
+active time across hidden/offscreen intervals. Reduced motion settles to the
+complete reward summary; unavailable/corrupt cosmetic storage shows a warning
+and does not replace source records. None of these presentation acknowledgements
+change the source-derived progressbar, discovery ownership or completion criteria.
+
 `Expedition` starts from the focus mission, selecting only existing non-planned
 routes. Its choice is local component state. Its checkpoint, blocker, completion
 state and criteria still come from `getMission`/`getSaveState` and the existing

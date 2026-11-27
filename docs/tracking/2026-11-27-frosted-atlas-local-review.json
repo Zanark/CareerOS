@@ -1,0 +1,23 @@
+{
+  "status": "local-frosted-atlas-qualified",
+  "observedAt": "2026-11-27T08:53:38.488519+00:00",
+  "sourceInputs": 357,
+  "sourceFingerprint": "ac4e67e661c9d832b0a55c3e1743d9e1851fd393d610c6cf34216f949e2329ac",
+  "domainPassed": 786,
+  "domainFiles": 57,
+  "build": "passed",
+  "nativeUniquePassed": 54,
+  "workers": 1,
+  "retries": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "coverageBasis": "48 unchanged-runtime coupled passes from the52-case first run, then all6corrected top-level glass cases. The first run itself had4test-scope failures and is retained, not relabelled54passes.",
+  "baseline": "Four actual old-material blur failures in both themes/two widths; preceding maximal-level fixture diagnostic had no next reward and is retained.",
+  "glassSurfaces": "Real translucent material, static backdrop blur, fine rounded borders and soft highlights; original chapter artwork/type sizes retained.",
+  "motion": "New finite350ms transform/opacity highlight, no animated blur; authoritative reduction/pause/visibility retained.",
+  "fallback": "Authored opaque no-blur declarations forced in a supported browser; not claimed as native unsupported-hardware qualification.",
+  "priorReadmeAndArrivalSourcePreserved": true,
+  "ownerBrowserAccessed": false,
+  "newImageViews": 0,
+  "humanApproval": "Not inferred; current explicit update/push authority is not aesthetic review."
+}

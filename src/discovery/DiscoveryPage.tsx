@@ -14,6 +14,7 @@ import { Expedition } from './Expedition';
 import { useAtlasMotion, useAtlasVisibility } from './motion';
 import './discovery.css';
 import './motion.css';
+import './frosted-glass.css';
 
 const starPositions = [
   [[101, 125], [146, 70], [207, 106], [190, 167], [125, 190], [72, 170]],
@@ -166,7 +167,8 @@ export default function DiscoveryPage({ state, snapshot, practice, onLoadExample
           onClick={motion.toggle}><span className="atlas-motion-lamp" aria-hidden="true" />{motion.paused && !motion.reduced ? <Play size={14} /> : <Pause size={14} />}<span>{motionLabel}</span></button>
       </div>
     </div>
-    <Wayfinder snapshot={snapshot} request={levelUp} onRequestViewed={onLevelUpViewed} motionAllowed={motionMode === 'live'}><Expedition state={state} snapshot={snapshot} onRecord={onRecord} /></Wayfinder>
+    <Wayfinder snapshot={snapshot} request={levelUp} onRequestViewed={onLevelUpViewed} practice={practice}
+      foreground={motion.mode !== 'hidden' && !selected} motionAllowed={motionMode === 'live'}><Expedition state={state} snapshot={snapshot} onRecord={onRecord} /></Wayfinder>
     <section className="discovery-hero">
       <div className="discovery-hero-copy"><span className="discovery-overline">THE THINGS YOU BROUGHT BACK</span><h2>A constellation of real work.</h2>
         <p>{snapshot.earned ? `${snapshot.earned} discoveries, each with a record behind it.` : 'Your first saved checkpoint record can light the first signal.'} A collection to explore, not a checklist to race.</p>

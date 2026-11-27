@@ -3,15 +3,20 @@ import { createInitialState } from '../src/domain/engine';
 import { createCompleteDiscoveryFixture } from './discovery-fixture';
 import { getDiscoverySnapshot, wayfinderStages } from '../src/discovery/model';
 import type { AppState } from '../src/domain/types';
+import { WAYFINDER_HISTORY_KEY, wayfinderSourceId } from '../src/discovery/useWayfinderHistory';
 
 const key = 'careerhq.workspace.v1';
 const viewerSelector = '[data-tour="wayfinder-viewer"]';
 const panelSelector = '[data-tour="wayfinder-panel"]';
 
 async function seed(page: Page, state: AppState) {
-  await page.addInitScript(({ storage, value }) => {
+  const snapshot = getDiscoverySnapshot(state);
+  const sourceId = wayfinderSourceId(snapshot);
+  await page.addInitScript(({ storage, value, historyKey, history }) => {
     if (!localStorage.getItem(storage)) localStorage.setItem(storage, JSON.stringify(value));
-  }, { storage: key, value: state });
+    if (history && !localStorage.getItem(historyKey)) localStorage.setItem(historyKey, JSON.stringify(history));
+  }, { storage: key, value: state, historyKey: WAYFINDER_HISTORY_KEY,
+    history: sourceId ? { version: 1, sourceId, xp: snapshot.journey.xp } : null });
 }
 
 async function stored(page: Page) {
@@ -193,7 +198,10 @@ test('confirmed source import retains every crossed level and EXP carryover when
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-model-level', '7');
   await expect(page.locator(viewerSelector)).toHaveAttribute('data-motion', 'still');
   await expect(page.locator(panelSelector).getByRole('progressbar')).toHaveAttribute('aria-valuenow', String(xp));
-  expect(await stored(page)).toEqual(before);
+  const presented = { ...before, [WAYFINDER_HISTORY_KEY]: JSON.stringify({
+    version: 1, sourceId: wayfinderSourceId(getDiscoverySnapshot(complete)), xp,
+  }) };
+  expect(await stored(page)).toEqual(presented);
   const state = JSON.parse(before[key]!);
   expect(Object.keys(state)).toEqual(Object.keys(complete));
   expect(state.evidence).toEqual(complete.evidence);
@@ -201,7 +209,7 @@ test('confirmed source import retains every crossed level and EXP carryover when
   await ready(page);
   await expect(page.locator('[data-tour="discovery-notice"]')).toHaveCount(0);
   await expect(page.locator('[data-tour="wayfinder-sequence"]')).toHaveCount(0);
-  expect(await stored(page)).toEqual(before);
+  expect(await stored(page)).toEqual(presented);
 });
 
 test('reduced motion during a reveal settles equipment and leaves manual orbit operable', async ({ page }) => {

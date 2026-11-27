@@ -1,17 +1,22 @@
-[![CareerOS: a local-first tracker for roadmaps, daily actions, and saved work.](docs/images/readme-cover.png)](https://zanark.github.io/CareerOS/)
+[![CareerOS - your career operating system.](docs/images/readme-wordmark.png)](https://zanark.github.io/CareerOS/)
 
 **[Open CareerOS](https://zanark.github.io/CareerOS/)** · [How to use it](docs/GUIDE.md#start-using-it) · [Developer setup](docs/GUIDE.md#develop-and-verify)
 
 Your career workspace: **12 missions, 646 source-defined checkpoints**, practical
 study libraries and browser-local records. No account or automatic AI grading.
 
+<a href="https://zanark.github.io/CareerOS/#/home">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="docs/images/readme-graph-still.png">
+    <img src="docs/images/readme-graph.gif" alt="The real CareerOS graph: twelve active mission rings rotate at different speeds around a pulsing core, with 20 percent spark lines and 40 percent spark dots." width="1000">
+  </picture>
+</a>
+
+*A 40-second loop from a fictional, all-active workspace. Different ring speeds,
+a pulsing core, 20% spark lines and 40% spark dots; no personal records.
+[Media sources and reproduction](docs/README-MEDIA.md).*
+
 ## Your documents, made usable
-
-[![The supplied PDFs became nine learning and career roadmaps: DSA, system design, Service Fabric, architecture, certifications, AI engineering, opportunities, freelance research, and planned competitive programming.](docs/images/readme-roadmaps.png)](https://zanark.github.io/CareerOS/#/sources)
-
-The illustration shows the original nine PDF-derived missions. The current
-catalogue also includes Fieldcraft, Georgia Tech OMSCS / Gold Circuit and
-Game Development / World Forge.
 
 Open **[Operation documents](https://zanark.github.io/CareerOS/#/sources)** for
 curricula, practical exercises and reviewed sources. Reading material never
@@ -71,13 +76,9 @@ support. Decoration never changes progress.
 
 ## One session at a time
 
-![Choose a checkpoint, do the work, then save your evidence. Complete a checkpoint only when you meet its criteria.](docs/images/readme-routine.png)
-
 New here? Open the website and click **Tutorial**. Practice with the actual controls without changing your progress. Completion is self-confirmed, not AI-graded.
 
 ## Know where your progress lives
-
-[![Progress is stored in this browser. Export a JSON backup and import it elsewhere to move devices. There is no account or automatic sync.](docs/images/readme-storage.png)](https://zanark.github.io/CareerOS/#/settings)
 
 **[Export a backup](https://zanark.github.io/CareerOS/#/settings)** before changing devices. Imports replace the destination; backups are not encrypted.
 

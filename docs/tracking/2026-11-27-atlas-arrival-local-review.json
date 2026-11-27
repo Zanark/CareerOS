@@ -1,0 +1,60 @@
+{
+  "status": "qualified-local-atlas-arrival",
+  "observedAt": "2026-11-27T03:59:55.280526+00:00",
+  "sourceHead": "b2a787cd7abfb6904d42c94041154f1f3ba5de22",
+  "sourceInputs": 355,
+  "sourceFingerprint": "a2282aad850ef0783dc0f3fb6a1fa072651efbbf0d07b96ada659287d81dc252",
+  "unitPassed": 18,
+  "unitFiles": [
+    "model.test.ts",
+    "useWayfinderHistory.test.ts"
+  ],
+  "nativePassed": 35,
+  "nativeAttempts": 35,
+  "workers": 1,
+  "retries": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "caseFiles": {
+    "discovery.spec.ts": 16,
+    "wayfinder-arrival.spec.ts": 11,
+    "wayfinder.spec.ts": 8
+  },
+  "readmeMediaPreserved": [
+    "README.md",
+    "scripts/capture-readme-graph.mjs",
+    "docs/README-MEDIA.md",
+    "docs/images/readme-graph.gif",
+    "docs/images/readme-graph-still.png",
+    "docs/images/readme-wordmark.png"
+  ],
+  "domainSchemaJournalFocusDependenciesWorkflowUnchanged": true,
+  "userPreviewCurrentSourceVerified": true,
+  "ownerBrowserAccessed": false,
+  "newImageViews": 0,
+  "publication": "Local only; no staging/commit/push/deployment.",
+  "implementation": {
+    "storageKey": "careerhq.wayfinder-view.v1",
+    "stores": "Versioned first qualifying source-record anchor and acknowledged presentation EXP only.",
+    "workspaceSchemaChanged": false,
+    "automaticArrival": "Every unseen crossing in ascending order, independent of expiring notice/button.",
+    "acknowledgement": "Each visible reward, then exact run EXP endpoint; explicit dismiss/skip acknowledges the catch-up.",
+    "readiness": "First actual viewer paint or explicit fallback, foreground and character-screen intersection.",
+    "inactiveTime": "Retained active elapsed time, not hidden/offscreen wall time.",
+    "practice": "No personal history reads/writes; manual tutorial presentation.",
+    "errors": "Visible cosmetic-history warning; invalid preference and real records preserved."
+  },
+  "earlierNativeDiagnostics": [
+    {
+      "passed": 31,
+      "failed": 1,
+      "cause": "Reload fixture changed to normal clock before a full page reload; original exact timing not claimed as a runtime defect."
+    },
+    {
+      "passed": 9,
+      "failed": 1,
+      "cause": "Trace showed the narrow viewer offscreen; establish actual screen visibility before expecting its first paint."
+    }
+  ],
+  "humanApproval": "Not inferred; no additional manual image inspection."
+}

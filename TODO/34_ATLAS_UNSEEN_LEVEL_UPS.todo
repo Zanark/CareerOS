@@ -1,0 +1,75 @@
+Workstream ID: atlas-unseen-level-ups
+Title: Automatically present unseen Atlas level-ups on arrival
+Status: IN_REVIEW
+Milestone: Celebrate every newly earned chapter on the next Atlas visit
+Dependencies: discovery-atlas, atlas-progression-redesign, atlas-living-motion
+GitHub issue: https://github.com/Zanark/CareerOS/issues/33
+Purpose: Automatically play each earned but unseen Wayfinder level-up in order
+  when the user returns to Discovery Atlas, including gains made on other pages
+  or before a reload. Remember presentation separately from real progress.
+
+Tasks:
+  [x] Trace existing notification, timeline, source and tutorial boundaries.
+  [x] Track seen chapter presentation without changing workspace/backup formats.
+  [x] Start after the visible renderer or explicit fallback is ready.
+  [x] Preserve every crossed level, interruptions, replay, skip and reduced motion.
+  [x] Qualify persistence, source replacement, errors and tutorial isolation.
+  [x] Update focused documentation, original tracking and owned continuity.
+
+Acceptance criteria:
+  The first Atlas arrival automatically presents all unseen crossed thresholds
+    in ascending order, not only the latest or a clicked notification.
+  Already presented chapters do not automatically repeat after route changes
+    or reloads; interrupted playback retains later unseen chapters.
+  Loading or hidden/offscreen time cannot consume automatic ceremonies.
+    Explicit skip/dismiss and authoritative reduced motion remain available.
+  A small browser-local presentation preference is not EXP, a progress writer,
+    a backup/journal field or a second reward ledger. Errors are visible.
+  Tutorial practice neither reads nor writes the personal presentation marker.
+    Source replacement cannot turn an old sequence into unearned rewards.
+  Existing replay, unearned preview, actual records, criteria and rendering
+    budgets remain intact. Preserve the preceding local README/media work.
+  This is a local review candidate, not new Git publication or human approval.
+
+Completion evidence:
+  READY LOCAL REVIEW. Current published app remains bb43aa3/Pages45924551922,
+    evidence/main b2a787c. The preceding README revision remains local/exact.
+  Root cause: DiscoveryNotice holds only a transient in-memory notification;
+    Wayfinder starts a recorded run only from the explicit notice button.
+    No seen-level arrival cursor survives a route return or browser reload.
+  Strict TypeScript/build,18focused history/model tests and35native cases in
+    35attempts/one worker/zero retries,skips,flaky pass on355unchanged inputs:
+    a2282aad850ef0783dc0f3fb6a1fa072651efbbf0d07b96ada659287d81dc252.
+  Eleven new native cases cover automatic2/3and all six earned level-ups,
+    route return/reload, partial acknowledgement, next gain, skip/replay,
+    reduced motion, source mismatch, hidden time, invalid/blocked preference,
+    narrow light mode and screen-only visibility inside an intersecting panel.
+    Existing24cases retain renderer budgets, touch/camera, explicit imports,
+    source data, both themes/layouts and two full isolated tutorial chapters.
+  An18-case unit result was initially guarded by an incorrect guessed minimum
+    count; source preflight also guessed nonexistent split tsconfig files.
+    Both were metadata-only diagnostics before browser execution, not failures
+    of the unit tests/build. Use actual inventory instead of guessed counts.
+  Preserve first31-pass/one-fail reload fixture and later9-pass/one-fail narrow
+    fixture. The former resumes the real clock before full reload; the latter
+    explicitly scrolls the viewer into view. Trace confirms narrow data-visible
+    false. No runtime readiness/visibility threshold or test deadline weakened.
+    The final35-case full selected gate is a fresh single successful run.
+  Sources: useWayfinderHistory.ts, Wayfinder.tsx and viewer-ready callbacks.
+    Guide/privacy/architecture document the isolated cosmetic marker.
+    Exact public proof: docs/tracking/2026-11-27-atlas-arrival-local-review.json.
+  Original issue33/itemMSLfg is retained. Reviewed final preview/apply/no-op
+    and independent verification record the same body/backlink/status/Kanban,
+    no pending mutation and32unchanged prior mappings.
+  No domain/schema/journal/focus/package/workflow or prior README/media changes,
+    source publication, owner-profile automation or new image inspection.
+    Technical readiness is separate from human aesthetic approval.
+
+Completion log:
+  2026-11-27 - Qualify ordered automatic catch-up and per-reward presentation
+    acknowledgement with explicit storage errors, actual-screen/renderer
+    readiness and inactive-time suspension. Preserve manual/tutoring/data
+    authority and all earlier diagnostics; hand off the local Atlas for review.
+  2026-11-27 - Owner requests automatic playback of each missed level-up on
+    the first Atlas visit after earning it. Start one bounded local workstream,
+    preserving earned-data authority, motion controls and prior local work.

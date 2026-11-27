@@ -1,0 +1,159 @@
+{
+  "status": "technically-ready-for-local-review",
+  "observedAt": "2026-11-27T03:19:54.683905+00:00",
+  "sourceCommit": "b2a787cd7abfb6904d42c94041154f1f3ba5de22",
+  "producer": "scripts/capture-readme-graph.mjs",
+  "producerSha256": "02f5028ed11f35725044552e594ceb49dbc690189eec1f667a4655eaa6b985ab",
+  "readmeSha256WorkingTree": "9ecceab999d6dfb58ff1d333a0a36643e1ae067b60341dd52a4730d61efa599a",
+  "oldReadmeIllustrationEmbedsRemoved": 4,
+  "oldIllustrationFilesPreserved": true,
+  "graphGifEmbeds": 1,
+  "wordmarkEmbeds": 1,
+  "staticReducedMotionSource": true,
+  "actualGitHubGfmPreservesPictureAndMotionQuery": true,
+  "nativeWidths": [
+    1440,
+    390
+  ],
+  "nativeImagesDecodeAndFit": true,
+  "gif": {
+    "width": 800,
+    "height": 466,
+    "frames": 600,
+    "durationMs": 40000,
+    "infiniteLoop": true,
+    "uniqueFrames": 600,
+    "frameDelayMs": [
+      60,
+      70
+    ],
+    "boundaryMeanAbsolutePixelDifference": 1.525886087267525,
+    "adjacent95thPercentile": 1.7998173283261818,
+    "boundaryNeighborhoodMaximum": 2.433876967095851,
+    "join": "4-second circular cross-dissolve; no reversal or black fade",
+    "coreMeanBrightnessRange": [
+      93.82552083333333,
+      99.63715277777777
+    ]
+  },
+  "activeMissions": 12,
+  "ringSpeeds": [
+    {
+      "id": "orbit:mission:pattern",
+      "percent": 60,
+      "radiansPerAnimationSecond": -0.03600400678506375
+    },
+    {
+      "id": "orbit:mission:system",
+      "percent": 90,
+      "radiansPerAnimationSecond": 0.07412661887522769
+    },
+    {
+      "id": "orbit:mission:escape",
+      "percent": 120,
+      "radiansPerAnimationSecond": 0.038004501707650275
+    },
+    {
+      "id": "orbit:mission:fabric",
+      "percent": 150,
+      "radiansPerAnimationSecond": -0.06346036042805099
+    },
+    {
+      "id": "orbit:mission:blueprint",
+      "percent": 180,
+      "radiansPerAnimationSecond": 0.18483018893442624
+    },
+    {
+      "id": "orbit:mission:credential",
+      "percent": 210,
+      "radiansPerAnimationSecond": 0.08994126668943533
+    },
+    {
+      "id": "orbit:mission:neural",
+      "percent": 240,
+      "radiansPerAnimationSecond": -0.19393246839708558
+    },
+    {
+      "id": "orbit:mission:algorithm",
+      "percent": 270,
+      "radiansPerAnimationSecond": 0.1768212996812386
+    },
+    {
+      "id": "orbit:mission:income",
+      "percent": 300,
+      "radiansPerAnimationSecond": 0.2792499114981785
+    },
+    {
+      "id": "orbit:mission:fde",
+      "percent": 80,
+      "radiansPerAnimationSecond": -0.12264200359744991
+    },
+    {
+      "id": "orbit:mission:omscs",
+      "percent": 140,
+      "radiansPerAnimationSecond": 0.15551793185336973
+    },
+    {
+      "id": "orbit:mission:gamedev",
+      "percent": 200,
+      "radiansPerAnimationSecond": 0.221532268784153
+    }
+  ],
+  "sparkDots": 40,
+  "sparkLines": 20,
+  "heartbeat": {
+    "periodMs": 10000,
+    "actualCompletedCycles": 4,
+    "meshRippleAndEncodedCoreChangeVerified": true
+  },
+  "wordmark": {
+    "width": 2400,
+    "height": 400,
+    "font": "Cormorant Garamond",
+    "weight": 600,
+    "fontSha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+    "logoSha256": "b9c8e494f36011102323a832adf0a478a59dbf4e590cea639ebe3bbe279f8046",
+    "titleBounds": {
+      "x": 460.578125,
+      "y": 43.5,
+      "width": 437.84375,
+      "height": 108
+    }
+  },
+  "assets": [
+    {
+      "file": "readme-graph.gif",
+      "bytes": 22195578,
+      "sha256": "08b170b69c265e2dbbf624e36eb2408d12950e22a4ae1b1fbd93c2c32c0e4cfe"
+    },
+    {
+      "file": "readme-graph-still.png",
+      "bytes": 181486,
+      "sha256": "f30db721fadd27f0657040ee8b93fb92ffef8f673f408399a80a940f014a3dc8"
+    },
+    {
+      "file": "readme-wordmark.png",
+      "bytes": 94902,
+      "sha256": "c41c2fd405de8bd3c9bd5bd550ac183619c8894b8be828be4705b79964d7b9e5"
+    }
+  ],
+  "sourceFrames": 880,
+  "sourceSeconds": 44,
+  "encodingRecovery": {
+    "initialBytes": 101426598,
+    "finalBytes": 22195578,
+    "recaptured": false,
+    "change": "Fixed palette, transparent frame deltas, no spatial dither, 800px/15fps encoding; retain the 40-second length and actual requested presentation."
+  },
+  "fontLicense": "docs/images/licenses/CormorantGaramond-OFL.txt",
+  "applicationDefaultsSchemaDependenciesAndWorkflowChanged": false,
+  "fictionalWorkspace": true,
+  "sourceEvidenceAndEvents": 0,
+  "academicProfilePresent": false,
+  "sourceWorkspaceUnchanged": true,
+  "ownerBrowserAccessed": false,
+  "newManualImageViews": 0,
+  "visualReview": "No new manual image inspection: continuous-chat forty-view budget exhausted. Technical checks do not establish aesthetic or human approval.",
+  "humanApproval": "Not inferred; local review candidate.",
+  "publication": "No commit/push/deployment requested or performed for this revision."
+}

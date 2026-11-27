@@ -1,0 +1,46 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "b2a787cd7abfb6904d42c94041154f1f3ba5de22",
+  "observedAt": "2026-11-27T04:02:50.381Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "atlas-unseen-level-ups",
+      "path": "TODO/34_ATLAS_UNSEEN_LEVEL_UPS.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/33",
+      "issueState": "open",
+      "stateReason": null,
+      "projectStatus": "In review",
+      "managedSha256": "bbbe218778a81852807fa2daf85097d0af282d30ae61cf759149a6cd259ea93a",
+      "actions": [],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMSLfg",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 33,
+    "selected": 1,
+    "excluded": 2,
+    "created": 0,
+    "reused": 1,
+    "verified": 1,
+    "open": 1,
+    "closed": 0,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

@@ -4,6 +4,31 @@
 Daylight**, its warm-paper and sea-glass light companion, with a brief sunrise or
 sunset. Reduced-motion preferences suppress that animation.
 
+## Frosted-glass material and motion
+
+The website's material direction is **frosted glass**. New animations and
+special effects must follow it: translucent layers, static background blur,
+fine light-catching borders and restrained highlights. DeepSeaFoam and Harbor
+Daylight remain the palette authority; frost is a material treatment, not a
+replacement color scheme or a reason to shrink text.
+
+Atlas celebration chrome uses this treatment in
+[`src/discovery/frosted-glass.css`](../src/discovery/frosted-glass.css):
+the console, chapter/reward cards, banner and camera controls share softly
+rounded translucent surfaces. The original seven chapter worlds, equipment,
+pixel artwork and meaningful colors remain content, not blurred decoration.
+The inverse deep-water console stays readable in either outer theme, like the
+existing graph stage; collection cards follow their surrounding theme.
+
+Blur and saturation remain static. The new finite celebration highlight moves
+only transform/opacity, without a flash, bouncing text or animated blur.
+Pause, system reduced motion, actual screen visibility and native-dialog draft
+protection remain authoritative. Browsers without backdrop filtering receive
+intentional opaque material rather than unreadable transparent text. No
+additional WebGL context, idle render loop or external effect service is added.
+
+## Appearance switch
+
 The north-up scene uses **east on the right and west on the left**. The sun rises
 from the right and sets on the left, continuing counter-clockwise over successive
 days. Retargeting uses the actual current angle and the next matching phase, so

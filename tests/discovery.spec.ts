@@ -6,13 +6,18 @@ import { getDiscoverySnapshot } from '../src/discovery/model';
 import { discoverySteps } from '../src/tutorial/discoverySteps';
 import type { AppState } from '../src/domain/types';
 import { createCompleteDiscoveryFixture } from './discovery-fixture';
+import { WAYFINDER_HISTORY_KEY, wayfinderSourceId } from '../src/discovery/useWayfinderHistory';
 
 const key = 'careerhq.workspace.v1';
 
 async function seed(page: Page, state: AppState) {
-  await page.addInitScript(({ storage, value }) => {
+  const snapshot = getDiscoverySnapshot(state);
+  const sourceId = wayfinderSourceId(snapshot);
+  await page.addInitScript(({ storage, value, historyKey, history }) => {
     if (!localStorage.getItem(storage)) localStorage.setItem(storage, JSON.stringify(value));
-  }, { storage: key, value: state });
+    if (history && !localStorage.getItem(historyKey)) localStorage.setItem(historyKey, JSON.stringify(history));
+  }, { storage: key, value: state, historyKey: WAYFINDER_HISTORY_KEY,
+    history: sourceId ? { version: 1, sourceId, xp: snapshot.journey.xp } : null });
 }
 
 async function storage(page: Page) {

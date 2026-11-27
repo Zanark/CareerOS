@@ -1,0 +1,20 @@
+{
+  "status": "original-review-tracking-independently-verified",
+  "observedAt": "2026-11-27T04:02:56.934Z",
+  "id": "atlas-unseen-level-ups",
+  "issue": 33,
+  "issueUrl": "https://github.com/Zanark/CareerOS/issues/33",
+  "issueId": "I_kwDOU6lJns8AAAABi77-1A",
+  "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMSLfg",
+  "state": "OPEN",
+  "projectStatus": "In review",
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "managedSha256": "bbbe218778a81852807fa2daf85097d0af282d30ae61cf759149a6cd259ea93a",
+  "exactManagedBody": true,
+  "exactOriginalIdentities": true,
+  "previousMappingsUnchanged": 32,
+  "localBacklinkVerified": true,
+  "pending": false
+}

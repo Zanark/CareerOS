@@ -5,15 +5,17 @@ import type { DiscoverySnapshot, WayfinderRun } from './model';
 import { getWayfinderCrossings, getWayfinderProgress, wayfinderRewards, wayfinderStages } from './model';
 import { WayfinderRelic, WayfinderScene } from './WayfinderArt';
 import { useAtlasVisibility } from './motion';
+import { useWayfinderHistory } from './useWayfinderHistory';
 import './wayfinder.css';
 
 type Phase = 'ready' | 'fill' | 'threshold' | 'ascend' | 'reward' | 'complete';
 
-function useSequence(run: WayfinderRun | null, motionAllowed: boolean) {
+function useSequence(run: WayfinderRun | null, motionAllowed: boolean, active: boolean) {
   const reduced = !motionAllowed;
   const [skippedId, setSkippedId] = useState<string | null>(null);
   const [frame, setFrame] = useState<{ id: string | null; index: number; phase: Phase }>({ id: null, index: 0, phase: 'ready' });
   const settled = useRef<string | null>(null);
+  const clock = useRef({ id: '', elapsed: 0 });
   const stages = useMemo(() => {
     if (!run) return [];
     const crossings = getWayfinderCrossings(run.from, run.to);
@@ -23,6 +25,8 @@ function useSequence(run: WayfinderRun | null, motionAllowed: boolean) {
 
   useEffect(() => {
     if (!run) return;
+    if (clock.current.id !== run.id) clock.current = { id: run.id, elapsed: 0 };
+    if (!active) return;
     if (reduced || skipped) {
       settled.current = run.id;
       setFrame({ id: run.id, index: stages.length - 1, phase: 'complete' });
@@ -34,21 +38,31 @@ function useSequence(run: WayfinderRun | null, motionAllowed: boolean) {
     const show = (index: number, phase: Phase) => {
       if (!cancelled) setFrame({ id: run.id, index, phase });
     };
+    const elapsed = clock.current.elapsed;
+    const started = performance.now();
+    let current: { index: number; phase: Phase } = { index: 0, phase: 'ready' };
     for (let index = 0; index < stages.length; index++) {
       for (const [offset, phase] of [[0, 'ready'], [60, 'fill'], [650, 'threshold'], [1050, 'ascend'], [1650, 'reward']] as const) {
-        timers.push(window.setTimeout(() => show(index, phase), index * 2200 + offset));
+        const at = index * 2200 + offset;
+        if (at <= elapsed) current = { index, phase };
+        else timers.push(window.setTimeout(() => show(index, phase), at - elapsed));
       }
     }
+    show(current.index, current.phase);
     timers.push(window.setTimeout(() => {
       if (cancelled) return;
       settled.current = run.id;
       show(stages.length - 1, 'complete');
-    }, stages.length * 2200));
-    return () => { cancelled = true; timers.forEach(timer => window.clearTimeout(timer)); };
-  }, [run, reduced, skipped, stages]);
+    }, Math.max(0, stages.length * 2200 - elapsed)));
+    return () => {
+      cancelled = true;
+      clock.current.elapsed = Math.min(stages.length * 2200, elapsed + performance.now() - started);
+      timers.forEach(timer => window.clearTimeout(timer));
+    };
+  }, [run, reduced, skipped, stages, active]);
 
   if (!run) return null;
-  const phase = reduced || skipped ? 'complete' : frame.id === run.id ? frame.phase : 'ready';
+  const phase = active && (reduced || skipped) ? 'complete' : frame.id === run.id ? frame.phase : 'ready';
   const index = phase === 'complete' ? stages.length - 1 : frame.id === run.id ? frame.index : 0;
   const stage = stages[index];
   const arrived = phase === 'ascend' || phase === 'reward' || phase === 'complete';
@@ -83,24 +97,36 @@ function SequenceDetails({ sequence }: { sequence: NonNullable<ReturnType<typeof
   </>;
 }
 
-export function Wayfinder({ snapshot, request, onRequestViewed, children, motionAllowed }: {
-  snapshot: DiscoverySnapshot; request: WayfinderRun | null; onRequestViewed: () => void; children: ReactNode; motionAllowed: boolean;
+export function Wayfinder({ snapshot, request, onRequestViewed, children, motionAllowed, foreground, practice }: {
+  snapshot: DiscoverySnapshot; request: WayfinderRun | null; onRequestViewed: () => void; children: ReactNode; motionAllowed: boolean; foreground: boolean; practice: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
   const visibility = useAtlasVisibility(ref);
+  const screenRef = useRef<HTMLDivElement>(null);
+  const screenVisibility = useAtlasVisibility(screenRef);
   const progress = getWayfinderProgress(snapshot.journey.xp);
   const [replay, setReplay] = useState(0);
   const [peek, setPeek] = useState<number | null>(null);
   const [preview, setPreview] = useState<{ level: number; xp: number } | null>(null);
-  const [run, setRun] = useState<WayfinderRun | null>(null);
+  const [run, setRun] = useState<(WayfinderRun & { sourceId: string | null }) | null>(null);
+  const [viewerReady, setViewerReady] = useState(false);
+  const history = useWayfinderHistory(snapshot, practice);
+  const arrivalId = useRef(0);
   const seenRequest = useRef<string | null>(null);
   const next = wayfinderStages[progress.level];
   const previewing = !!preview && preview.xp === progress.xp && preview.level === progress.level + 1 && !!next;
   const viewingLevel = previewing ? preview.level : peek !== null && peek <= progress.level ? peek : progress.level;
   const stage = wayfinderStages[viewingLevel - 1];
   const memory = viewingLevel < progress.level;
-  const activeRun = run && run.to <= progress.xp ? run : null;
-  const sequence = useSequence(activeRun, motionAllowed);
+  const activeRun = run && run.sourceId === history.sourceId && run.to <= progress.xp ? run : null;
+  const presenting = viewerReady && foreground && (screenVisibility.visible || typeof IntersectionObserver === 'undefined');
+  const sequence = useSequence(activeRun, motionAllowed, presenting);
+
+  useEffect(() => {
+    if (!presenting || !activeRun || activeRun.replay) return;
+    if (sequence?.phase === 'reward') history.markViewed(sequence.stage.at);
+    else if (sequence?.phase === 'complete') history.markViewed(activeRun.to);
+  }, [activeRun, sequence?.phase, sequence?.stage.at, presenting, history.markViewed]);
 
   useEffect(() => {
     if (!request || request.id === seenRequest.current) return;
@@ -108,27 +134,44 @@ export function Wayfinder({ snapshot, request, onRequestViewed, children, motion
     if (request.to <= progress.xp && getWayfinderCrossings(request.from, request.to).length) {
       setPeek(null);
       setPreview(null);
-      setRun(request);
+      setRun({ ...request, from: practice ? request.from : Math.min(request.from, history.from), sourceId: history.sourceId });
     }
     onRequestViewed();
-  }, [request, progress.xp, onRequestViewed]);
+  }, [request, progress.xp, onRequestViewed, practice, history.from, history.sourceId]);
+
+  useEffect(() => {
+    if (practice || request || !presenting || (activeRun && sequence?.phase !== 'complete')) return;
+    const from = sequence?.phase === 'complete' && activeRun && !activeRun.replay
+      ? Math.max(history.from, activeRun.to) : history.from;
+    if (!getWayfinderCrossings(from, progress.xp).length) return;
+    setPeek(null);
+    setPreview(null);
+    setRun({ id: `arrival-${++arrivalId.current}`, from, to: progress.xp, sourceId: history.sourceId });
+  }, [practice, request, presenting, activeRun, sequence?.phase, history.from, history.sourceId, progress.xp]);
+
+  function dismissSequence() {
+    history.markViewed(progress.xp);
+    setRun(null);
+  }
 
   function replayChapter() {
     const count = replay + 1;
     setReplay(count);
-    setRun({ id: `replay-${count}`, from: Math.max(0, stage.at - 1), to: stage.at, replay: true });
+    history.markViewed(progress.xp);
+    setRun({ id: `replay-${count}`, from: Math.max(0, stage.at - 1), to: stage.at, replay: true, sourceId: history.sourceId });
   }
 
-  return <section ref={ref} className="wayfinder-panel" data-tour="wayfinder-panel" data-level={progress.level} data-view-level={viewingLevel} data-preview={previewing} data-replay-count={replay} data-atlas-visible={visibility.visible}>
+  return <section ref={ref} className="wayfinder-panel" data-tour="wayfinder-panel" data-level={progress.level} data-view-level={viewingLevel} data-preview={previewing} data-replay-count={replay} data-atlas-visible={visibility.visible} data-presentation-active={presenting}>
     <header className="wayfinder-panel-head"><div className="atlas-ambient atlas-panel-gleam" aria-hidden="true" /><span><span className="wayfinder-save-light" />REAL WORK. UNCHARTED WATER.</span><strong>WAYFINDER</strong><span>JOURNEY LV {String(progress.level).padStart(2, '0')}</span></header>
+    {history.notice && <p className="form-error" role="status">{history.notice}</p>}
     <div className="wayfinder-console">
       <div className={`wayfinder-screen-column${sequence ? ' wayfinder-sequence' : ''}`}
         data-tour={sequence ? 'wayfinder-sequence' : undefined} data-phase={sequence?.phase} data-sequence-level={sequence?.stage.level}
         data-skipped={sequence?.skipped} data-from={activeRun?.from} data-to={activeRun?.to}
         data-sequence-kind={sequence ? sequence.prologue ? 'prologue' : activeRun?.replay ? 'replay' : 'recorded' : undefined}>
-        <div className="wayfinder-sequence-label" hidden={!sequence}>{sequence && <><span>{sequence.prologue ? 'PROLOGUE' : activeRun?.replay ? 'MEMORY REPLAY' : 'RECORDED LEVEL-UP'}</span><button aria-label="Close level-up sequence" onClick={() => setRun(null)}><X size={15} /></button></>}</div>
-        <div className="wayfinder-sequence-screen">
-          <WayfinderScene level={sequence?.shownLevel ?? viewingLevel} phase={sequence?.phase ?? 'still'} />
+        <div className="wayfinder-sequence-label" hidden={!sequence}>{sequence && <><span>{sequence.prologue ? 'PROLOGUE' : activeRun?.replay ? 'MEMORY REPLAY' : 'RECORDED LEVEL-UP'}</span><button aria-label="Close level-up sequence" onClick={dismissSequence}><X size={15} /></button></>}</div>
+        <div ref={screenRef} className="wayfinder-sequence-screen">
+          <WayfinderScene level={sequence?.shownLevel ?? viewingLevel} phase={sequence?.phase ?? 'still'} onReady={setViewerReady} />
           {previewing && !sequence && <span className="wayfinder-preview-label"><Eye size={14} />NEXT REWARD PREVIEW / NOT EARNED</span>}
           {sequence && <div className="wayfinder-levelup-banner" aria-hidden="true">
             <span>{sequence.prologue ? 'THE JOURNEY BEGINS' : sequence.arrived ? sequence.stage.title.toUpperCase() : 'A NEW SIGNAL'}</span>
@@ -139,7 +182,7 @@ export function Wayfinder({ snapshot, request, onRequestViewed, children, motion
         {sequence ? <SequenceDetails sequence={sequence} /> : <div className="wayfinder-scene-caption"><span>{previewing ? 'NOT EARNED / PREVIEW' : memory ? 'UNLOCKED MEMORY' : 'CURRENT CHAPTER'} / LV {String(viewingLevel).padStart(2, '0')}</span><h2>{stage.title}</h2><span>{stage.chapter}</span></div>}
         <div className="wayfinder-actions">
           {!previewing && <button data-tour="wayfinder-replay" onClick={replayChapter}><Play size={14} />{viewingLevel === 1 ? 'Play prologue' : 'Replay level-up'}</button>}
-          {(memory || previewing) && <button className="wayfinder-return" data-tour="wayfinder-current" onClick={() => { setPeek(null); setPreview(null); setRun(null); }}>Current chapter<ArrowRight size={14} /></button>}
+          {(memory || previewing) && <button className="wayfinder-return" data-tour="wayfinder-current" onClick={() => { setPeek(null); setPreview(null); dismissSequence(); }}>Current chapter<ArrowRight size={14} /></button>}
         </div>
         <details className="wayfinder-kit"><summary>{previewing ? 'Preview equipment & story' : memory ? "This memory's equipment & story" : 'Your equipment & story'}</summary>
           <p className="wayfinder-description">{stage.description}</p>
@@ -159,7 +202,7 @@ export function Wayfinder({ snapshot, request, onRequestViewed, children, motion
         {next && <div className="wayfinder-next-reward" data-tour="wayfinder-next-reward">
           <span className="atlas-ambient atlas-reward-token"><WayfinderRelic level={progress.level + 1} /></span><div><span>NEXT CHAPTER / LV {String(progress.level + 1).padStart(2, '0')}</span><strong>{next.form} + {next.relic}</strong><small>{next.realm}</small></div>
           <button data-tour="wayfinder-preview" aria-pressed={previewing} onClick={() => {
-            setPeek(null); setRun(null);
+            setPeek(null); dismissSequence();
             setPreview(previewing ? null : { level: progress.level + 1, xp: progress.xp });
           }}><Eye size={14} />{previewing ? 'End preview' : 'Preview reward'}</button>
         </div>}
@@ -171,7 +214,7 @@ export function Wayfinder({ snapshot, request, onRequestViewed, children, motion
         const unlocked = level <= progress.level;
         return <button key={chapter.at} disabled={!unlocked} aria-pressed={!previewing && viewingLevel === level}
           data-chapter-level={level} data-unlocked={unlocked} data-tour={level === 1 ? 'wayfinder-first-chapter' : undefined}
-          onClick={() => { setRun(null); setPreview(null); setPeek(level === progress.level ? null : level); }}
+          onClick={() => { dismissSequence(); setPreview(null); setPeek(level === progress.level ? null : level); }}
           aria-label={unlocked ? `View level ${level}: ${chapter.title}` : `Level ${level}, uncharted; ${chapter.at} journey EXP`}>
           <span>LV {String(level).padStart(2, '0')}</span>{unlocked ? <WayfinderRelic level={level} /> : <LockKeyhole size={18} />}
           <small>{unlocked ? chapter.title : 'Uncharted'}</small><span className="wayfinder-chapter-exp">{chapter.at.toLocaleString()} EXP</span>

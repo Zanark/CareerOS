@@ -100,8 +100,16 @@ recorded local days and discoveries. No points are saved separately or awarded
 for viewing, route selection, timers or academic self-reports.
 Camera, expedition selection, explicitly unearned next-reward previews and
 level-up replay are temporary view state, not new
-localStorage fields, exports or analytics. Character geometry and the licensed
-display font are bundled locally; no avatar, model or font service receives data.
+localStorage fields, exports or analytics. A separate
+`careerhq.wayfinder-view.v1` presentation preference remembers only the first
+qualifying source-record ID and the EXP boundary already shown. It suppresses
+duplicate arrival animations; it is not earned credit, a second score, a record
+of individual visits or a progress writer. It stays in this browser, is not
+exported/journaled, and is ignored for a different source collection. Tutorial
+practice neither reads nor writes it. Invalid or unavailable storage produces
+a visible warning instead of resetting personal progress.
+Character geometry and the licensed display font are bundled locally; no
+avatar, model or font service receives data.
 The animated revision also keeps motion pause, system-motion preference
 and visible-region observations only in transient presentation state. Visibility
 is used to stop decoration, not stored as viewing analytics. Weather, twinkling,
