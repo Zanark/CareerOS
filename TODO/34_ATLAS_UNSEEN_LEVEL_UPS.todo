@@ -1,6 +1,6 @@
 Workstream ID: atlas-unseen-level-ups
 Title: Automatically present unseen Atlas level-ups on arrival
-Status: IN_REVIEW
+Status: DONE
 Milestone: Celebrate every newly earned chapter on the next Atlas visit
 Dependencies: discovery-atlas, atlas-progression-redesign, atlas-living-motion
 GitHub issue: https://github.com/Zanark/CareerOS/issues/33
@@ -29,9 +29,19 @@ Acceptance criteria:
     Source replacement cannot turn an old sequence into unearned rewards.
   Existing replay, unearned preview, actual records, criteria and rendering
     budgets remain intact. Preserve the preceding local README/media work.
-  This is a local review candidate, not new Git publication or human approval.
+  Implementation starts as a local review candidate. Publication requires
+    separate explicit authority and is not independent human approval.
 
 Completion evidence:
+  COMPLETE PUBLIC under the owner's later explicit update/PUSH authority.
+    Source740bc34940c0cfe63b938ce87d7790eb25d65047/Pages45970100313SUCCESS.
+    Actual786domain/57files/613browser pass with no retry/skip/flaky markers;
+    all31actual runtime files/5212019bytes and17actual public glass/arrival
+    cases verify, one worker/no retries. Original source records/schema and
+    tutorial isolation remain authoritative. Proof:
+    docs/tracking/2026-11-27-frosted-atlas-publication.json.
+    Earlier local-only checkpoints below remain historical, not queued work
+    or permission to infer independent aesthetic/physical-device acceptance.
   READY LOCAL REVIEW. Current published app remains bb43aa3/Pages45924551922,
     evidence/main b2a787c. The preceding README revision remains local/exact.
   Root cause: DiscoveryNotice holds only a transient in-memory notification;
@@ -66,6 +76,9 @@ Completion evidence:
     Technical readiness is separate from human aesthetic approval.
 
 Completion log:
+  2026-11-27 - Publish automatic unseen arrivals with separately authorized
+    frosted-glass framing. Exact CI/artifact/public behavior verifies; complete
+    this original issue/item without changing real work or prior failure history.
   2026-11-27 - Qualify ordered automatic catch-up and per-reward presentation
     acknowledgement with explicit storage errors, actual-screen/renderer
     readiness and inactive-time suspension. Preserve manual/tutoring/data

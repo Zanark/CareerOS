@@ -1,0 +1,51 @@
+{
+  "status": "original-publication-tracking-independently-verified",
+  "observedAt": "2026-11-27T09:40:20.904Z",
+  "rows": [
+    {
+      "id": "readme-graph-showcase",
+      "issue": 32,
+      "issueId": "I_kwDOU6lJns8AAAABi7fF7g",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMRtsA",
+      "state": "CLOSED",
+      "status": "Done",
+      "managedSha256": "5207b8963a904497047898b362f06854994646a67a3f58267b2640665c9ba19d"
+    },
+    {
+      "id": "atlas-unseen-level-ups",
+      "issue": 33,
+      "issueId": "I_kwDOU6lJns8AAAABi77-1A",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMSLfg",
+      "state": "CLOSED",
+      "status": "Done",
+      "managedSha256": "05fef68b72b8a4f53d5dc074316dabbf0d395f4c7b54910a9d6b663b944c3b04"
+    },
+    {
+      "id": "frosted-atlas-publication",
+      "issue": 34,
+      "issueId": "I_kwDOU6lJns8AAAABi_TsTA",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMVfVo",
+      "state": "CLOSED",
+      "status": "Done",
+      "managedSha256": "687babb771d72cbbef4a39049fb46b636ecbd9f45ce927f04df294792548511e"
+    }
+  ],
+  "unrelatedMappingsUnchanged": 31,
+  "privateGates": [
+    {
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "exactManagedBodiesAndBacklinks": true,
+  "pending": false
+}

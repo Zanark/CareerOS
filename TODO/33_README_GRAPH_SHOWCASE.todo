@@ -1,6 +1,6 @@
 Workstream ID: readme-graph-showcase
 Title: Replace README illustrations with a looping graph and academic wordmark
-Status: IN_REVIEW
+Status: DONE
 Milestone: Present the actual graph in one polished long-loop showcase
 Dependencies: career-graph, appearance-and-identity
 GitHub issue: https://github.com/Zanark/CareerOS/issues/32
@@ -36,6 +36,15 @@ Acceptance criteria:
   Maintain the same configured Project/Kanban and stable workstream identity.
 
 Completion evidence:
+  COMPLETE PUBLIC under the owner's separate explicit PUSH/update authority.
+    Runtime740bc34940c0cfe63b938ce87d7790eb25d65047/Pages45970100313SUCCESS.
+    Actual786domain/57files and613browser pass with zero retry/skip/flaky
+    markers; all31runtime files/5212019bytes and17actual public cases verify.
+    Pinned README/GIF/poster/wordmark/OFL/media-guide bytes match Git exactly.
+    Proof: docs/tracking/2026-11-27-frosted-atlas-publication.json.
+    The published OFL notice removes one trailing line-end space only; all
+    license wording is unchanged. Earlier local-only evidence below is
+    historical, not a remaining execution restriction or aesthetic approval.
   READY LOCAL REVIEW. Current published app remains bb43aa3 / Pages45924551922,
     evidence/main b2a787c; no new commit/push/deployment was performed.
   Real graph: all12missions active,12distinct actual ring velocities,40%dots,
@@ -67,6 +76,10 @@ Completion evidence:
     exhausted. Technical/media checks do not imply aesthetic/human approval.
 
 Completion log:
+  2026-11-27 - Publish the exact qualified README/media under explicit later
+    owner authority, verify actual public bytes and complete the original
+    issue/Project identity. No recapture, new manual image review or new claim
+    of artistic acceptance follows from publication.
   2026-11-27 - Prepare the qualified local README/real-graph loop/academic
     wordmark, preserving original assets and all browser/app defaults.
     Record actual native/GitHub-rendering/output/source evidence, exact

@@ -1,0 +1,308 @@
+{
+  "status": "verified-public-frosted-atlas-and-readme",
+  "observedAt": "2026-11-27T09:38:29.614627+00:00",
+  "website": "https://zanark.github.io/CareerOS/",
+  "deployedSource": "740bc34940c0cfe63b938ce87d7790eb25d65047",
+  "workflowRun": 45970100313,
+  "workflowURL": "https://github.com/Zanark/CareerOS/actions/runs/45970100313",
+  "artifactId": 15185944653,
+  "ci": {
+    "domainFiles": 57,
+    "domainCases": 786,
+    "browserCases": 613,
+    "build": "success",
+    "deploy": "success",
+    "retryMarkers": 0,
+    "flaky": 0,
+    "skipped": 0
+  },
+  "actualHosted": {
+    "status": "actual-public-atlas-and-glass-qualified",
+    "passed": 17,
+    "attempts": 17,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "cases": [
+      {
+        "file": "atlas-glass.spec.ts",
+        "title": "Atlas celebrations use readable frosted-glass surfaces in dark at 1440px"
+      },
+      {
+        "file": "atlas-glass.spec.ts",
+        "title": "Atlas celebrations use readable frosted-glass surfaces in dark at 320px"
+      },
+      {
+        "file": "atlas-glass.spec.ts",
+        "title": "Atlas celebrations use readable frosted-glass surfaces in light at 1440px"
+      },
+      {
+        "file": "atlas-glass.spec.ts",
+        "title": "Atlas celebrations use readable frosted-glass surfaces in light at 320px"
+      },
+      {
+        "file": "atlas-glass.spec.ts",
+        "title": "the glass celebration highlight uses only bounded transform and opacity motion"
+      },
+      {
+        "file": "atlas-glass.spec.ts",
+        "title": "the authored no-blur fallback stays opaque and readable when its declarations are forced"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "first arrival automatically celebrates both earned levels in order, then remains quiet on return and reload"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "leaving during the first reward retains only the later unseen chapter for the next arrival"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "a large unseen gain presents all six earned level-ups in order on one arrival"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "a later arrival plays only a newly crossed level, preserving carryover EXP"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "skip acknowledges the catch-up while manual replay remains available without new work"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "reduced motion presents all missed rewards and a replacement source does not inherit another collection cursor"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "hidden time does not consume unseen levels or restart the current chapter"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "invalid presentation history is reported and preserved without preventing real progress or rewards"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "scrolling to chapter controls cannot consume ceremonies while only the bottom of the panel is visible"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "a blocked presentation save reports its limit without changing progress or looping in the current visit"
+      },
+      {
+        "file": "wayfinder-arrival.spec.ts",
+        "title": "automatic catch-up remains usable on a narrow light-theme Atlas"
+      }
+    ]
+  },
+  "runtime": {
+    "files": 31,
+    "bytes": 5212019,
+    "bareIndexMatches": true,
+    "explicitIndexMatches": true,
+    "manifest": [
+      {
+        "path": "assets/CareerGraphScene-FeYkuFag.js",
+        "bytes": 97651,
+        "sha256": "7e52c98258ffd519d97c740d980e85e9f6d55902070fe0ce2ca0b938944f46c6"
+      },
+      {
+        "path": "assets/CareerGraphScene-zyMgeFMo.css",
+        "bytes": 3135,
+        "sha256": "bacc86166df56dfea142258d5712448aea72fc734994eb498668a851e7567c4b"
+      },
+      {
+        "path": "assets/OmscsPathsPage-BUvCVWoS.js",
+        "bytes": 65697,
+        "sha256": "f6314f8616b570f9c28b9e9a4dda9734004aa5d2bb0812d375ec0e93fa6bb80c"
+      },
+      {
+        "path": "assets/OmscsPathsPage-U6SBbXCY.css",
+        "bytes": 5536,
+        "sha256": "906605f9716d1adb0f0d2199812b290396f78f3a3896072dc9ab63aedb07c4c5"
+      },
+      {
+        "path": "assets/Silkscreen-Regular-CXGsBV3a.ttf",
+        "bytes": 31320,
+        "sha256": "734e6faa40fb5566327330d5b9b6e52fcc5d52ee91f0da1fe696ca33c5f7d258"
+      },
+      {
+        "path": "assets/WayfinderViewer-B4L0DQhH.js",
+        "bytes": 18573,
+        "sha256": "2b1f987b463e1a2c3ff2cbc3736162676da77c69291ebe3b3b9d85d521e21079"
+      },
+      {
+        "path": "assets/algorithm-CuhCfIhf.js",
+        "bytes": 208240,
+        "sha256": "b4159c464a427002759b6cca616291ffc2e2e829b1fc900c51218a53bcdbec0f"
+      },
+      {
+        "path": "assets/blueprint-gARdarTg.js",
+        "bytes": 263877,
+        "sha256": "7041022b2daf72e5c0c49603008935d1144ec527d34492c76c5f5eaf7ef72d24"
+      },
+      {
+        "path": "assets/career-3d-DfBp6M2W.js",
+        "bytes": 597425,
+        "sha256": "23cca696e8d05bc83f5cae8f868755550da3cccbf0844548d2230066e669969c"
+      },
+      {
+        "path": "assets/careerhq-mark-SpwMT6dT.svg",
+        "bytes": 3410,
+        "sha256": "13e76364513e6f52dabf6fdf223d297765d1dd618042e29d71208d874b1f5194"
+      },
+      {
+        "path": "assets/content-B7uxXW8_.js",
+        "bytes": 51559,
+        "sha256": "54523561500efe432e3de8f53e5b8a7b7810f3dc034656318fd3086067c7052f"
+      },
+      {
+        "path": "assets/content-Cm01Daar.js",
+        "bytes": 21223,
+        "sha256": "8f1f6a587c053868b0f411c3cdde1a842181c4cd070d29966adc47ea2d64976f"
+      },
+      {
+        "path": "assets/content-DWmwf2fW.js",
+        "bytes": 20485,
+        "sha256": "dae69f4793e5907d8069d41f728a8643d29dea35854432b3cf9dbbb832485945"
+      },
+      {
+        "path": "assets/content-XoovXJjv.js",
+        "bytes": 131381,
+        "sha256": "31cb74b6b6c6fb49426a92fd0e2676da6a5a072b45a26b96d634dda2fb8f3154"
+      },
+      {
+        "path": "assets/credential-CGNB5Nxf.js",
+        "bytes": 273444,
+        "sha256": "eca217c2420a486b3c8f5e99e501dd58758b8b53571ee9e4441f687f56bed98f"
+      },
+      {
+        "path": "assets/escape-DB2Phemg.js",
+        "bytes": 237579,
+        "sha256": "b999b303bf0e3b2a4120a8e184073d51a9603527ed430767b164d6b566575dde"
+      },
+      {
+        "path": "assets/fabric-qiX6oW2L.js",
+        "bytes": 198454,
+        "sha256": "1f3de31de903584066db3c8b106e053bc88f082a736bd60462660895bbc8b81e"
+      },
+      {
+        "path": "assets/focus-study-cafe-w0phhzat.webp",
+        "bytes": 61336,
+        "sha256": "4329ae339fa5a4af7cc208e368eaed8ee0640f58739e36812a92b6fea62be6ee"
+      },
+      {
+        "path": "assets/income-CV5Mp2Qv.js",
+        "bytes": 257858,
+        "sha256": "dd2a69c5646d5b0be5d97168c568793e50d6af9f0546c45f113a53f7954210b7"
+      },
+      {
+        "path": "assets/index-C9je41Ir.css",
+        "bytes": 288371,
+        "sha256": "b2c212c286ae2ed26832c3a8aa054263556ba330a6597540617d7aa757b38227"
+      },
+      {
+        "path": "assets/index-lmGSEG_p.js",
+        "bytes": 1036253,
+        "sha256": "626b22e6a8b0bed0040600b627e99e26930b1b5feeba4c32e1a48fb3a8dd7e42"
+      },
+      {
+        "path": "assets/neural-GeZIzQSS.js",
+        "bytes": 193148,
+        "sha256": "f97750eb82721e403aa92311d79ad081468e2eabb5f118f5efd6d68c5dafaece"
+      },
+      {
+        "path": "assets/practice-reference-data-CMOP5gpI.js",
+        "bytes": 227826,
+        "sha256": "0337a5aa68cae98c49a85e8fae5bd09a5003fa8f6c0a4a687e274f39a1be5b78"
+      },
+      {
+        "path": "assets/roadmap-pack-outlines-CwMnuF_X.js",
+        "bytes": 591291,
+        "sha256": "88ebcca0d0d3d49077c71df1932bd26b12202247de33899a8833c51baa58336b"
+      },
+      {
+        "path": "assets/vendor-u0XaNmIq.js",
+        "bytes": 318377,
+        "sha256": "43e8821dfd678d086463c0af71fb561b29e02f495b4203cd36696c4ee82e55f0"
+      },
+      {
+        "path": "careeros-progress.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1356,
+        "sha256": "009e7edc041d29b6ec5d2e1667f8c18b9dcb524aecf34b0dc1b1b53295a8e752"
+      },
+      {
+        "path": "licenses/DeepSeaFoam-MIT.txt",
+        "bytes": 1081,
+        "sha256": "ee32b4435eeccc87bb7d5b77e6c18e2e75d32ce9221a26022bd9c44273c4d329"
+      },
+      {
+        "path": "licenses/Silkscreen-OFL.txt",
+        "bytes": 4393,
+        "sha256": "0c0defe44c565904cdd3037f41254b55cb93e5999d4ff13c6c682f69d4c1c0a4"
+      },
+      {
+        "path": "licenses/Three-MIT.txt",
+        "bytes": 1081,
+        "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+      },
+      {
+        "path": "theme-init.js",
+        "bytes": 659,
+        "sha256": "cc829058537c5fc2bbdb7c7a96dd4132813e513282ad45d6d01b6387943db32d"
+      }
+    ]
+  },
+  "readmeAndMedia": [
+    {
+      "path": "README.md",
+      "bytes": 5735,
+      "sha256": "c694b0a9cf4691e0a166633912087ca81f704921ec203f32f2527e65695a1a18"
+    },
+    {
+      "path": "docs/images/readme-graph.gif",
+      "bytes": 22195578,
+      "sha256": "08b170b69c265e2dbbf624e36eb2408d12950e22a4ae1b1fbd93c2c32c0e4cfe"
+    },
+    {
+      "path": "docs/images/readme-graph-still.png",
+      "bytes": 181486,
+      "sha256": "f30db721fadd27f0657040ee8b93fb92ffef8f673f408399a80a940f014a3dc8"
+    },
+    {
+      "path": "docs/images/readme-wordmark.png",
+      "bytes": 94902,
+      "sha256": "c41c2fd405de8bd3c9bd5bd550ac183619c8894b8be828be4705b79964d7b9e5"
+    },
+    {
+      "path": "docs/images/licenses/CormorantGaramond-OFL.txt",
+      "bytes": 4386,
+      "sha256": "6f5a41d57400577a50aae88475b11f292f3d7de78ee7d5113c69577331d8ad31"
+    },
+    {
+      "path": "docs/README-MEDIA.md",
+      "bytes": 3303,
+      "sha256": "a091093cf695a447fdf097273ee41f4fc546caf605cecfa01633c916f3fa3295"
+    }
+  ],
+  "includedWorkstreams": [
+    "readme-graph-showcase",
+    "atlas-unseen-level-ups",
+    "frosted-atlas-publication"
+  ],
+  "frostedGlassContract": "Translucent static-blur material/fine borders/soft bounded transform-opacity highlights; original artwork/type and motion controls retained.",
+  "workspaceSchemaChanged": false,
+  "workflowChanged": false,
+  "ownerBrowserAccessed": false,
+  "newImageViews": 0,
+  "limits": [
+    "Explicit publication is not independent aesthetic, physical-device or screen-reader-user approval.",
+    "Fallback declarations were forced in a supporting browser, not claimed as native unsupported hardware."
+  ],
+  "followThrough": "Any later documentation/tracking-only main commit must retain identical protected runtime/tests/README/workflow/public/media source trees; its exact ref is independently retained in the final completion receipt."
+}

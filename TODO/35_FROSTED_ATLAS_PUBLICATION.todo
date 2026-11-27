@@ -1,6 +1,6 @@
 Workstream ID: frosted-atlas-publication
 Title: Align Atlas effects with frosted glass and publish the current changes
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Ship coherent frosted-glass effects, the README showcase and Atlas arrivals
 Dependencies: readme-graph-showcase, atlas-unseen-level-ups, atlas-living-motion, appearance-and-identity
 GitHub issue: https://github.com/Zanark/CareerOS/issues/34
@@ -14,10 +14,10 @@ Tasks:
   [x] Apply translucent, blurred, softly lit glass styling to affected effects.
   [x] Retain palettes, content, type sizes, motion controls and readable fallback.
   [x] Qualify both themes, narrow layouts and coupled Atlas behavior.
-  [ ] Review the exact public-safe staging set and verify both Git identities.
-  [ ] Normally commit/push and monitor the exact source's Pages deployment.
-  [ ] Verify actual deployed bytes, README/media and hosted Atlas workflows.
-  [ ] Complete original issue/Project identities and seal owned continuity.
+  [x] Review the exact public-safe staging set and verify both Git identities.
+  [x] Normally commit/push and monitor the exact source's Pages deployment.
+  [x] Verify actual deployed bytes, README/media and hosted Atlas workflows.
+  [x] Complete original issue/Project identities and seal owned continuity.
 
 Acceptance criteria:
   Animations and special effects follow the CareerOS frosted-glass theme:
@@ -37,6 +37,23 @@ Acceptance criteria:
     authority is separate from independent aesthetic or human acceptance.
 
 Completion evidence:
+  COMPLETE PUBLIC: source740bc34940c0cfe63b938ce87d7790eb25d65047 normally
+    pushed fromb2a787c,56reviewed files, both effective Zanark identities and
+    current required trailers independently verified. Exact remote ref matches.
+    Exact Pages45970100313build/deploy SUCCESS; actual786domain/57files and
+    613browser passes, zero observed retry/skipped/flaky markers.
+  Exact artifact15185944653contains31actual runtime files/5212019bytes.
+    Every actual hosted file, bare/explicit index and pinned source README/
+    GIF/poster/wordmark/OFL/media guide byte-matches. Actual17hosted cases
+    pass in17attempts/one worker/no retries/skips/flaky, including all new
+    frosted materials, finite motion, forced fallback and unseen-level arrivals.
+  Proof: docs/tracking/2026-11-27-frosted-atlas-publication.json.
+    Original33/34/35issue/item completion is separately read back; private
+    review gates remain open. Any evidence-only follow-through proves
+    protected runtime/README/workflow/public/media equality to deployed740.
+    Its exact final main ref and owned continuity seal are separate receipts.
+  Earlier preparation text below is historical. Publication does not claim
+    independent aesthetic, physical-device, screen-reader or learning approval.
   In progress. Owner expressly requests website update then push, with no questions.
   Main/origin b2a787c match normally; prior355-input Atlas qualification and
     README/media bytes are unchanged before this styling work.
@@ -61,9 +78,13 @@ Completion evidence:
   Proof: docs/tracking/2026-11-27-frosted-atlas-local-review.json.
   Original issue34/itemMVfVo verifies Open/In Progress and zero-action no-op.
     All33earlier mappings remain untouched before publication completion.
-  CI, hosted and completion gates are pending; no source is published yet.
+  Exact CI, artifact, README/media and hosted qualification are now complete.
 
 Completion log:
+  2026-11-27 - Exact740source is published by successful Pages45970100313.
+    Verify actual786/613CI and31runtime/17public cases plus README/media bytes.
+    Complete original tracking identities, retain all baseline/scope diagnostics
+    and finish an unchanged-runtime evidence-only/owned-continuity follow-through.
   2026-11-27 - Qualify the frosted Atlas material and directly coupled
     behavior. Preserve source, fixture/scope diagnostics and readable type;
     no application-data, artwork, workflow or retry-budget change. Prepare
