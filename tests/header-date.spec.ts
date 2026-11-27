@@ -165,6 +165,63 @@ test('header date leaves the career graph fitted below the actual responsive hea
   }
 });
 
+for (const theme of ['dark', 'light']) {
+  test(`compact header preserves date type and operable controls without consuming the page in ${theme}`, async ({ page }) => {
+    await page.clock.setFixedTime(new Date('2026-09-30T06:30:00Z'));
+    await page.addInitScript(theme => localStorage.setItem('careerhq.theme.v1', theme), theme);
+    await page.goto('./#/mission/fde');
+    const before = await page.evaluate(key => localStorage.getItem(key), workspaceKey);
+    for (const viewport of [
+      { width: 320, height: 568 }, { width: 568, height: 320 },
+      { width: 320, height: 844 }, { width: 390, height: 844 },
+      { width: 768, height: 768 }, { width: 1050, height: 768 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await expectDate(page, '2026-09-30', 'September', '30', 'Wednesday');
+      const geometry = await page.locator('.topbar').evaluate(header => {
+        const box = (element: Element) => {
+          const r = element.getBoundingClientRect();
+          return { left: r.left, right: r.right, top: r.top, bottom: r.bottom, height: r.height };
+        };
+        const date = header.querySelector('.topbar-date')!;
+        const parts = ['.topbar-date-month', 'strong', '.topbar-date-weekday'].map(selector => date.querySelector(selector)!);
+        const controls = ['.mobile-menu', '.theme-toggle', '.tutorial-launch', '.search-wrap'].map(selector => header.querySelector(selector)!);
+        if (innerWidth > 480) controls.push(header.querySelector('.breadcrumbs strong')!);
+        const overlap = (a: Element, b: Element) => {
+          const x = box(a), y = box(b);
+          return Math.max(0, Math.min(x.right, y.right) - Math.max(x.left, y.left))
+            * Math.max(0, Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top));
+        };
+        return { header: box(header), date: box(date),
+          overlaps: parts.flatMap(part => controls.map(control => overlap(part, control))),
+          fonts: parts.map(part => Number.parseFloat(getComputedStyle(part).fontSize)),
+          overflow: document.documentElement.scrollWidth - innerWidth };
+      });
+      expect(geometry.header.height).toBeLessThanOrEqual(102);
+      expect(geometry.date.top).toBeGreaterThanOrEqual(geometry.header.top);
+      expect(geometry.date.bottom).toBeLessThanOrEqual(geometry.header.bottom);
+      expect(geometry.overlaps.every(area => area === 0)).toBe(true);
+      expect(geometry.fonts[0]).toBeGreaterThanOrEqual(21);
+      expect(geometry.fonts[1]).toBeGreaterThanOrEqual(48);
+      expect(geometry.fonts[2]).toBeGreaterThanOrEqual(21);
+      expect(geometry.overflow).toBe(0);
+      await expect(page.getByRole('switch', { name: 'Dark theme', exact: true })).toBeInViewport({ ratio: 1 });
+      await expect(page.locator('header').getByRole('button', { name: 'Start tutorial', exact: true })).toBeInViewport({ ratio: 1 });
+      const search = page.getByRole('textbox', { name: 'Search missions and evidence', exact: true });
+      await search.focus();
+      await expect(search).toBeFocused();
+      const panelTop = await page.locator('.search-wrap').evaluate(element => element.getBoundingClientRect().top);
+      expect(panelTop).toBeGreaterThanOrEqual(geometry.header.bottom);
+      await page.keyboard.press('Escape');
+    }
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.locator('header').getByRole('button', { name: 'Start tutorial', exact: true }).click();
+    await expect(page.locator('.app')).toHaveAttribute('data-workspace', 'practice');
+    await page.locator('.tutorial-panel').getByRole('button', { name: 'Exit tutorial', exact: true }).click();
+    expect(await page.evaluate(key => localStorage.getItem(key), workspaceKey)).toBe(before);
+  });
+}
+
 test('Daily plan immediately follows Overview in desktop and compact navigation', async ({ page }) => {
   await page.goto('./#/hq');
   const before = await page.evaluate(key => localStorage.getItem(key), workspaceKey);
@@ -203,6 +260,9 @@ test('header date has one brief paper turn and then stays still across navigatio
   expect(first.equals(await calendar.screenshot({ animations: 'allow' }))).toBe(true);
   await page.evaluate(() => { location.hash = '/plan'; });
   await expect(page.locator('.breadcrumbs strong')).toHaveText('Daily plan');
+  expect(await original!.evaluate(element => element.isConnected)).toBe(true);
+  expect(await animations()).toEqual(settled);
+  await page.getByRole('switch', { name: 'Dark theme', exact: true }).click();
   expect(await original!.evaluate(element => element.isConnected)).toBe(true);
   expect(await animations()).toEqual(settled);
   await expect(calendar.getByRole('button')).toHaveCount(0);

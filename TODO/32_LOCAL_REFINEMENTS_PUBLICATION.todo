@@ -13,8 +13,8 @@ Purpose: Update the illustrated README, publish the four technically qualified
 Tasks:
   [x] Reconcile the current source, workflow, branch, credential and attribution.
   [x] Refresh README and release-facing guide without replacing illustrations.
-  [ ] Validate the release candidate and review an explicit public-safe allowlist.
-  [ ] Commit with both verified Zanark identities and normally push exact main.
+  [x] Validate the release candidate and review an explicit public-safe allowlist.
+  [x] Commit with both verified Zanark identities and normally push exact main.
   [ ] Monitor the exact CI/deploy run and repair actual failures if necessary.
   [ ] Verify deployed artifact bytes and actual hosted refinement workflows.
   [ ] Complete original tracking identities and evidence-only follow-through.
@@ -49,9 +49,28 @@ Completion evidence:
   Local/remote main initially78816c618a767b4613140acb45974cd19fd7fd56.
     Verified effective author/committer and authenticated GitHub account Zanark.
   Approved four README illustration hashes retained in private release intake.
-  Full release validation, push, CI, artifact and live-site checks pending.
+  Full local validation passes782cases/56files; strict build passes. Original
+    source6294bd0984f14c83fa168f0900fe13e12b635b9f normally pushed/read back,
+    85explicit reviewed files with verified Zanark identities/current trailers.
+  Initial exact CI45918344442passes validation/build and589browser cases,
+    but5browser cases fail and deployment is skipped. Keep original logs and
+    diagnostics; this is not a successful publication or a retry-free594pass.
+  Root repair preserves calendar text/tile sizes while reclaiming compact
+    vertical space. Existing graph visibility/action bounds remain strict.
+    Theme motion now measures effects actually created by the theme change,
+    retaining its seven-effect ceiling and transform/opacity scope guard.
+  Strict repair build and39native cases/39attempts/one worker/no retries pass,
+    covering17header,13search,4graph,2adoption,2touch-help and1theme case.
+    All352inputs remain0fe64f6a77ce5eb37cc1d99a0420a2d9327ece15b35292b45b6f5b1c6941e3ce.
+    Preserve the intervening38/1repair diagnostic and its15attachments.
+  Corrective CI, artifact and actual live-site verification remain pending.
 
 Completion log:
+  2026-11-27 - Initial CI correctly blocks publication on compact header
+    footprint regressions and an outdated global-animation assumption.
+    Repair responsive layout, not font sizes/viewport thresholds; distinguish
+    independent calendar arrival from theme-triggered motion without raising
+    the existing effect budget. All39focused cases pass with no retries.
   2026-11-27 - Owner explicitly requests README refresh, latest push and
     deployment monitoring. Begin one bounded publication workstream; preserve
     previous local-only receipts as historical source-bound evidence.

@@ -1,0 +1,57 @@
+{
+  "status": "qualified-corrective-candidate-not-yet-deployed",
+  "failedSource": "6294bd0984f14c83fa168f0900fe13e12b635b9f",
+  "failedRun": 45918344442,
+  "initialCi": {
+    "domainPassed": 782,
+    "browserPassed": 589,
+    "browserFailed": 5,
+    "deployment": "skipped"
+  },
+  "failures": [
+    "Landscape roadmap-adoption action was below the initial viewport.",
+    "Narrow touch first-subject selector was slightly clipped.",
+    "320x568 and 568x320 graph viewports lost too much height to the shared header.",
+    "Global theme animation inventory included an independent calendar arrival effect."
+  ],
+  "repair": {
+    "compactHeaderPixels": 102,
+    "shortLandscapeHeaderPixels": 94,
+    "calendarTileHeightPreserved": 86,
+    "dayFontPixelsPreserved": 48,
+    "labelFontPixelsPreserved": [21, 24],
+    "controlsRetained": true,
+    "originalGraphVisibilityAndActionBoundsRetained": true,
+    "themeEffectBudgetRetained": 7,
+    "themePropertyScopeRetained": true,
+    "newCompactRegressionCases": 2
+  },
+  "qualification": {
+    "strictBuildPassed": true,
+    "nativeCasesPassed": 39,
+    "attempts": 39,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "byFile": {
+      "header-date.spec.ts": 17,
+      "search.spec.ts": 13,
+      "graph-layout.spec.ts": 4,
+      "bulk-roadmap-adoption.spec.ts": 2,
+      "calm-interface.spec.ts": 2,
+      "theme.spec.ts": 1
+    },
+    "sourceInputs": 352,
+    "sourceFingerprint": "0fe64f6a77ce5eb37cc1d99a0420a2d9327ece15b35292b45b6f5b1c6941e3ce"
+  },
+  "intermediateDiagnostic": {
+    "passed": 38,
+    "failed": 1,
+    "retainedAttachments": 15,
+    "followup": "Reclaim eight more header pixels on very short landscape screens; keep text sizes and the strict graph threshold."
+  },
+  "workflowTimeoutRetryOrThresholdRelaxation": false,
+  "newImageViews": 0,
+  "published": false
+}

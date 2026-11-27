@@ -44,6 +44,10 @@ The paper calendar's top strip is red on Saturday and Sunday, teal on weekdays,
 following your local date.
 
 Daily plan sits immediately below Overview in the sidebar.
+On shorter compact screens, controls and the outer date labels share space
+around the same full-size paper tile instead of taking a second full row.
+The date type stays readable; search, navigation and tutorial controls remain
+available, leaving more room for the graph and first-page actions.
 
 ### Saved blocker status
 

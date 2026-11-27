@@ -429,7 +429,7 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/31",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMQT_Q",
       "baseline": {
-        "managed": "f4338e924371b14834b11f484fb9ca3c54ed74691c707b509106b4a87cae33bb",
+        "managed": "c7844c3be78db757fd523867bc47ea98854fadc208a864740b7b253f7206e9ff",
         "title": "Publish the current navigation and mission refinements with deployment proof",
         "state": "open",
         "reason": null,

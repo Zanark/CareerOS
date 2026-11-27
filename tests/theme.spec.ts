@@ -401,8 +401,9 @@ test('a late sunrise request continues past the west horizon and returns from th
 
 test('theme motion uses only the tiny control and one page fade', async ({ page }) => {
   await frozenMotionPage(page);
+  const existing = await page.evaluateHandle(() => document.getAnimations());
   await themeSwitch(page).click();
-  const effects = await page.evaluate(() => document.getAnimations().map(animation => {
+  const effects = await page.evaluate(previous => document.getAnimations().filter(animation => !previous.includes(animation)).map(animation => {
     const target = animation.effect instanceof KeyframeEffect ? animation.effect.target : null;
     animation.pause();
     return {
@@ -410,7 +411,8 @@ test('theme motion uses only the tiny control and one page fade', async ({ page 
       property: animation instanceof CSSTransition ? animation.transitionProperty : null,
       pageFade: target instanceof Element && target.matches('.palette-veil'),
     };
-  }));
+  }), existing);
+  await existing.dispose();
   expect(effects.length).toBeGreaterThan(0);
   expect(effects.length).toBeLessThanOrEqual(7);
   expect(effects.every(effect => effect.pageFade || (effect.local && ['transform', 'opacity'].includes(effect.property ?? '')))).toBe(true);

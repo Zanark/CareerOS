@@ -55,6 +55,36 @@
   .calendar-label-full { display: none; }
   .calendar-label-short { display: inline; }
 }
+@media (max-width: 1050px) and (max-height: 850px) {
+  html:root { --topbar-height: 102px; }
+  .main-shell > .topbar {
+    position: relative; grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "trail actions"; align-content: start; padding-block: 8px;
+  }
+  .topbar .header-calendar {
+    position: absolute; grid-area: auto; top: 8px; left: 0; right: 0;
+    width: 20rem; max-width: calc(100% - 24px); margin-inline: auto;
+  }
+  .topbar .topbar-date-month, .topbar .topbar-date-weekday { align-self: end; }
+  .topbar .breadcrumbs { position: relative; z-index: 1; max-width: calc(50vw - 76px); pointer-events: none; }
+  .topbar .breadcrumbs button { pointer-events: auto; }
+  .topbar .top-actions { position: static; z-index: 1; }
+}
+@media (max-width: 480px) and (max-height: 850px) {
+  .topbar .breadcrumbs strong {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap;
+  }
+  .topbar .tutorial-launch { position: absolute; left: 54px; top: 10px; }
+}
+@media (max-width: 1050px) and (max-height: 500px) {
+  html:root { --topbar-height: 94px; }
+  .main-shell > .topbar { padding-block: 4px; }
+  .topbar .header-calendar { top: 4px; }
+}
+@media (max-width: 480px) and (max-height: 500px) {
+  .topbar .tutorial-launch { top: 6px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .header-calendar *, .header-calendar *::before, .header-calendar *::after { animation: none !important; transition: none !important; }
   .calendar-core:hover { transform: none; }
