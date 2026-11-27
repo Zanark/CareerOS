@@ -1,13 +1,14 @@
 Workstream ID: navigation-refinements
 Title: Add a shared current-date display and refine navigation order
-Status: IN_REVIEW
+Status: DONE
 Milestone: Provide a locally reviewable, readable navigation refinement
 Dependencies: None
 GitHub issue: https://github.com/Zanark/CareerOS/issues/27
 Purpose: Show the browser-local current month, centered day number and weekday
   in the persistent header. Place Daily plan immediately below Overview.
   Preserve existing controls, readable typography and saved records.
-  The owner explicitly requests local review before publication.
+  The owner initially requested local review; later publication was explicitly
+  authorized and verified through local-refinements-publication.
 
 Tasks:
   [x] Inspect the shared shell, local-date lifecycle and responsive layout.
@@ -45,9 +46,17 @@ Acceptance criteria:
   No new progress/reward, schema, dependency, workflow or browser-record change.
   Tests use disposable fictional browser contexts, never the owner's profile.
   Local technical verification is separate from pending human review.
-  No staging, commit, push or deployment; the published website stays unchanged.
+  Initial review did not publish source. The later authorized publication is
+    separately verified through workstream32, not inferred from a local pass.
 
 Completion evidence:
+  PUBLISHED sourcebb43aa3f68b6a1dc74df9a29513b1521cb7de451/
+    Pages45924551922SUCCESS. Actual782domain/596browser and50hosted cases pass
+    with no observed retries/skips/flaky. All31runtime files/5204041bytes match.
+    Compact102/94pxheaders preserve date typography and restore page space.
+    Proof: docs/tracking/2026-11-27-refinements-publication.json.
+  Historical local-review entries below retain their original scope/date;
+    their no-publication statements do not override the later owner request.
   Shared header and navigation are owned by src/App.tsx::Workspace/mainNav.
   Existing useWorkspace/usePracticeWorkspace date values update locally every
     30 seconds; display formatting must not parse date-only strings as UTC.
@@ -117,6 +126,10 @@ Completion evidence:
     current paper revision. No source is committed, pushed or deployed.
 
 Completion log:
+  2026-11-27 - Owner authorizes latest README/push/deployment. Published exact
+    corrective sourcebb43aa3/Pages45924551922and verified artifact/live flows.
+    Retain original issue27/item and all local/rejected/failed editions.
+    Publication does not claim independent visual/device/learning approval.
   2026-11-27 - Weekend-aware final source passes all15header cases/15attempts,
     one worker/no retries and strict build, with343inputs35dac420unchanged.
     Retain the13/2snapshot-fixture diagnostic; no app timer workaround.

@@ -1,0 +1,90 @@
+{
+  "status": "independently-verified-published-workstreams",
+  "observedAt": "2026-11-27T02:27:54.178Z",
+  "rows": [
+    {
+      "id": "navigation-refinements",
+      "issue": 27,
+      "issueId": "I_kwDOU6lJns8AAAABi2_0Fg",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMNXnY",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "projectStatus": "Done",
+      "managedSha256": "743da53a3e247cd0b6c750a3eafcd297cd7ae602f20e0ca8974b6b785fb8196c",
+      "bodyAndBacklinkVerified": true
+    },
+    {
+      "id": "blocker-card-status",
+      "issue": 28,
+      "issueId": "I_kwDOU6lJns8AAAABi4LBXw",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMOjkQ",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "projectStatus": "Done",
+      "managedSha256": "f9985a3f8ae42ebb63ad1f61aa1a5429a0085eed6373db592f47de935a1f9e26",
+      "bodyAndBacklinkVerified": true
+    },
+    {
+      "id": "focus-playlist-link",
+      "issue": 29,
+      "issueId": "I_kwDOU6lJns8AAAABi4vyVw",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPGQs",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "projectStatus": "Done",
+      "managedSha256": "e48a2df2b2bc582d07a4ade9fab7a032e34ba0580028fc4729e4dcd19f2f081f",
+      "bodyAndBacklinkVerified": true
+    },
+    {
+      "id": "mission-clarity",
+      "issue": 30,
+      "issueId": "I_kwDOU6lJns8AAAABi5WunQ",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPrYo",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "projectStatus": "Done",
+      "managedSha256": "c6e4ec896b4f97c76011b655dd0ff0591cdc732cab40b42fca06ae8f25433e38",
+      "bodyAndBacklinkVerified": true
+    },
+    {
+      "id": "local-refinements-publication",
+      "issue": 31,
+      "issueId": "I_kwDOU6lJns8AAAABi6C1bA",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMQT_Q",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "projectStatus": "Done",
+      "managedSha256": "1dd1028a812eaab265467453bf9d5831218195ef45de1933a7ec9523c0341bd4",
+      "bodyAndBacklinkVerified": true
+    }
+  ],
+  "unrelatedLocalMappingsUnchanged": 26,
+  "privateReviewGates": [
+    {
+      "id": "omscs-ml-vs-ai",
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "id": "calm-change-guide",
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "view": {
+    "id": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+    "name": "Kanban",
+    "layout": "BOARD_LAYOUT"
+  },
+  "pendingMutations": 0,
+  "noOpActions": 0,
+  "newObjectsCreatedDuringCompletion": 0,
+  "remoteMain": {
+    "name": "main",
+    "target": {
+      "oid": "bb43aa3f68b6a1dc74df9a29513b1521cb7de451"
+    }
+  }
+}

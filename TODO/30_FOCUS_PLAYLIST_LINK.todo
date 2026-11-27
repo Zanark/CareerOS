@@ -1,13 +1,14 @@
 Workstream ID: focus-playlist-link
 Title: Add an optional thumbnail link to the supplied focus playlist
-Status: IN_REVIEW
+Status: DONE
 Milestone: Let users choose external study music without disturbing focus work
 Dependencies: focus-room
 GitHub issue: https://github.com/Zanark/CareerOS/issues/29
 Purpose: Add the user-supplied thumbnail and YouTube playlist to the compact
   focus-session card and full focus room. Clicking opens the playlist in a
   new tab. Do not embed a player, start audio, upload data or change sessions.
-  Keep the feature local for review; do not publish source or the image.
+  Initially kept local for review; the later latest-push request authorizes
+  publication of the implemented feature and supplied-image derivative.
 
 Tasks:
   [x] Read compact/full focus controls and current runtime/privacy boundaries.
@@ -33,10 +34,16 @@ Acceptance criteria:
   The local supplied-image derivative has reserved dimensions and no retained
     source metadata. No third-party artwork or audio is generated or fetched.
   Existing schemas, focus controller, safeguards and prior local work remain.
-  No owner profile, new image inspection, source commit/push/deployment.
+  No owner profile, new image inspection or unauthorized publication.
   Technical verification remains separate from human review and media rights.
 
 Completion evidence:
+  PUBLISHEDbb43aa3/Pages45924551922SUCCESS. Actual782domain/596browser and
+    50hosted pass, including all5playlist cases. All31runtime files/5204041
+    bytes match, including the supplied local WebP. Publication permission
+    does not establish independent media-rights review or provider playback.
+    Proof: docs/tracking/2026-11-27-refinements-publication.json.
+  Earlier local-only evidence below retains its historical execution scope.
   Shared FocusPlaylist is a plain anchor with a locally bundled image.
   Supplied PNG1672x941/2023761bytes becomes WebP720x405/61336bytes locally.
   Public URL fetch returned the title DeepWorkCrossing; this is not listening,
@@ -50,9 +57,13 @@ Completion evidence:
     fixed with scroll clearance; retained short-room scrolling fixed by
     resetting only the center panel on opening. Strict assertions are unchanged.
   Proof: docs/tracking/2026-11-27-focus-playlist-local-review.json.
-  Human review and supplied-image publication rights remain unverified.
+  Independent human/media-rights review remains unclaimed; current owner
+    publication authority is recorded in workstream32.
 
 Completion log:
+  2026-11-27 - Latest-push request supersedes the earlier local-only limit.
+    Publish only the metadata-stripped supplied derivative, verify live safe
+    click-through/timer/tutorial behavior, and complete original issue29/item.
   2026-11-27 - Optional compact/full playlist is technically qualified locally.
     Safe click-only navigation leaves the countdown and saved reports intact.
     Keep the supplied thumbnail local and the original issue/item In review;

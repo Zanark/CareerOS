@@ -1,0 +1,296 @@
+{
+  "status": "verified-public-runtime",
+  "observedAt": "2026-11-27T02:24:13.879847+00:00",
+  "website": "https://zanark.github.io/CareerOS/",
+  "deployedSource": "bb43aa3f68b6a1dc74df9a29513b1521cb7de451",
+  "workflowRun": 45924551922,
+  "workflowURL": "https://github.com/Zanark/CareerOS/actions/runs/45924551922",
+  "artifactId": 15167555280,
+  "sourceAncestry": [
+    "78816c618a767b4613140acb45974cd19fd7fd56",
+    "6294bd0984f14c83fa168f0900fe13e12b635b9f",
+    "bb43aa3f68b6a1dc74df9a29513b1521cb7de451"
+  ],
+  "ci": {
+    "domainFilesPassed": 56,
+    "domainCasesPassed": 782,
+    "browserCasesPassed": 596,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "retryMarkersObserved": 0,
+    "build": "success",
+    "deploy": "success"
+  },
+  "actualHosted": {
+    "casesPassed": 50,
+    "attempts": 50,
+    "workers": 1,
+    "retries": 0,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "byFile": {
+      "background-evidence.spec.ts": 2,
+      "blocker-card.spec.ts": 6,
+      "bulk-roadmap-adoption.spec.ts": 1,
+      "calm-interface.spec.ts": 1,
+      "dsa-expanded.spec.ts": 3,
+      "focus-playlist.spec.ts": 5,
+      "game-development.spec.ts": 1,
+      "graph-layout.spec.ts": 2,
+      "header-date.spec.ts": 17,
+      "mission-clarity.spec.ts": 10,
+      "theme.spec.ts": 1,
+      "tutorial-features.spec.ts": 1
+    }
+  },
+  "deployedBytes": {
+    "files": 31,
+    "bytes": 5204041,
+    "bareIndexMatches": true,
+    "explicitIndexMatches": true,
+    "readmeAtPublishedCommitMatches": true,
+    "manifest": [
+      {
+        "path": "assets/CareerGraphScene-ClY3_Lm8.js",
+        "bytes": 97651,
+        "sha256": "3627000bccee9d8afcdc382e7fbc6f963273a6f3836ca5e2742c1185f46ea82c",
+        "status": 200
+      },
+      {
+        "path": "assets/CareerGraphScene-zyMgeFMo.css",
+        "bytes": 3135,
+        "sha256": "bacc86166df56dfea142258d5712448aea72fc734994eb498668a851e7567c4b",
+        "status": 200
+      },
+      {
+        "path": "assets/OmscsPathsPage-SPUNT8pW.js",
+        "bytes": 65697,
+        "sha256": "ece8410461ed3b91ef1df75a30d6dd06963ae48a7b6757588c0fce63794c662a",
+        "status": 200
+      },
+      {
+        "path": "assets/OmscsPathsPage-U6SBbXCY.css",
+        "bytes": 5536,
+        "sha256": "906605f9716d1adb0f0d2199812b290396f78f3a3896072dc9ab63aedb07c4c5",
+        "status": 200
+      },
+      {
+        "path": "assets/Silkscreen-Regular-CXGsBV3a.ttf",
+        "bytes": 31320,
+        "sha256": "734e6faa40fb5566327330d5b9b6e52fcc5d52ee91f0da1fe696ca33c5f7d258",
+        "status": 200
+      },
+      {
+        "path": "assets/WayfinderViewer-BFJ0CEl_.js",
+        "bytes": 18474,
+        "sha256": "0f6e143664b772b6259f76ca6807e6497e3b53eb40d2ab4bc5c166149e73b837",
+        "status": 200
+      },
+      {
+        "path": "assets/algorithm-CuhCfIhf.js",
+        "bytes": 208240,
+        "sha256": "b4159c464a427002759b6cca616291ffc2e2e829b1fc900c51218a53bcdbec0f",
+        "status": 200
+      },
+      {
+        "path": "assets/blueprint-gARdarTg.js",
+        "bytes": 263877,
+        "sha256": "7041022b2daf72e5c0c49603008935d1144ec527d34492c76c5f5eaf7ef72d24",
+        "status": 200
+      },
+      {
+        "path": "assets/career-3d-DfBp6M2W.js",
+        "bytes": 597425,
+        "sha256": "23cca696e8d05bc83f5cae8f868755550da3cccbf0844548d2230066e669969c",
+        "status": 200
+      },
+      {
+        "path": "assets/careerhq-mark-SpwMT6dT.svg",
+        "bytes": 3410,
+        "sha256": "13e76364513e6f52dabf6fdf223d297765d1dd618042e29d71208d874b1f5194",
+        "status": 200
+      },
+      {
+        "path": "assets/content-Dfp5loDO.js",
+        "bytes": 20485,
+        "sha256": "87dda8b6eb65a039f3793d74bee9d0c3bac88475a8bda5c7e73e03ce4d971bd4",
+        "status": 200
+      },
+      {
+        "path": "assets/content-Di1UczfY.js",
+        "bytes": 51559,
+        "sha256": "9a9594d8e8384553f9916654081f6ed82b7c2a6ed5608efe13295c714aa295e0",
+        "status": 200
+      },
+      {
+        "path": "assets/content-DsToro1U.js",
+        "bytes": 131381,
+        "sha256": "7a5e30c3f3ddf908d2955957e0d34300629d40bf7414a10a389a944885fade0d",
+        "status": 200
+      },
+      {
+        "path": "assets/content-KCjNr5ZG.js",
+        "bytes": 21223,
+        "sha256": "690ca95f748f27492d29f21f87b6a1cbd06e1e6f9c9eec1068ee7c6cf2b19ce8",
+        "status": 200
+      },
+      {
+        "path": "assets/credential-CGNB5Nxf.js",
+        "bytes": 273444,
+        "sha256": "eca217c2420a486b3c8f5e99e501dd58758b8b53571ee9e4441f687f56bed98f",
+        "status": 200
+      },
+      {
+        "path": "assets/escape-DB2Phemg.js",
+        "bytes": 237579,
+        "sha256": "b999b303bf0e3b2a4120a8e184073d51a9603527ed430767b164d6b566575dde",
+        "status": 200
+      },
+      {
+        "path": "assets/fabric-qiX6oW2L.js",
+        "bytes": 198454,
+        "sha256": "1f3de31de903584066db3c8b106e053bc88f082a736bd60462660895bbc8b81e",
+        "status": 200
+      },
+      {
+        "path": "assets/focus-study-cafe-w0phhzat.webp",
+        "bytes": 61336,
+        "sha256": "4329ae339fa5a4af7cc208e368eaed8ee0640f58739e36812a92b6fea62be6ee",
+        "status": 200
+      },
+      {
+        "path": "assets/income-CV5Mp2Qv.js",
+        "bytes": 257858,
+        "sha256": "dd2a69c5646d5b0be5d97168c568793e50d6af9f0546c45f113a53f7954210b7",
+        "status": 200
+      },
+      {
+        "path": "assets/index-B1EuFBI-.js",
+        "bytes": 1033642,
+        "sha256": "ee6af3031e06672f121c0763d6f6bb9c5f28226fcca4bc8ab3c51824d41c5a93",
+        "status": 200
+      },
+      {
+        "path": "assets/index-Yhusdu-M.css",
+        "bytes": 283103,
+        "sha256": "272fda8654e804739273bc5346af2ea68fc2edafe253efaa5179d7a021b088b5",
+        "status": 200
+      },
+      {
+        "path": "assets/neural-GeZIzQSS.js",
+        "bytes": 193148,
+        "sha256": "f97750eb82721e403aa92311d79ad081468e2eabb5f118f5efd6d68c5dafaece",
+        "status": 200
+      },
+      {
+        "path": "assets/practice-reference-data-CMOP5gpI.js",
+        "bytes": 227826,
+        "sha256": "0337a5aa68cae98c49a85e8fae5bd09a5003fa8f6c0a4a687e274f39a1be5b78",
+        "status": 200
+      },
+      {
+        "path": "assets/roadmap-pack-outlines-CwMnuF_X.js",
+        "bytes": 591291,
+        "sha256": "88ebcca0d0d3d49077c71df1932bd26b12202247de33899a8833c51baa58336b",
+        "status": 200
+      },
+      {
+        "path": "assets/vendor-u0XaNmIq.js",
+        "bytes": 318377,
+        "sha256": "43e8821dfd678d086463c0af71fb561b29e02f495b4203cd36696c4ee82e55f0",
+        "status": 200
+      },
+      {
+        "path": "careeros-progress.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": 200
+      },
+      {
+        "path": "index.html",
+        "bytes": 1356,
+        "sha256": "1984bc8f8f4c205e76a4d39e40f145810518ab66fcf4426ac8495421b33859c9",
+        "status": 200
+      },
+      {
+        "path": "licenses/DeepSeaFoam-MIT.txt",
+        "bytes": 1081,
+        "sha256": "ee32b4435eeccc87bb7d5b77e6c18e2e75d32ce9221a26022bd9c44273c4d329",
+        "status": 200
+      },
+      {
+        "path": "licenses/Silkscreen-OFL.txt",
+        "bytes": 4393,
+        "sha256": "0c0defe44c565904cdd3037f41254b55cb93e5999d4ff13c6c682f69d4c1c0a4",
+        "status": 200
+      },
+      {
+        "path": "licenses/Three-MIT.txt",
+        "bytes": 1081,
+        "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+        "status": 200
+      },
+      {
+        "path": "theme-init.js",
+        "bytes": 659,
+        "sha256": "cc829058537c5fc2bbdb7c7a96dd4132813e513282ad45d6d01b6387943db32d",
+        "status": 200
+      }
+    ]
+  },
+  "readme": {
+    "sha256": "927b776e616cfb49adabdda404ffb5df007bc56f088271b115d025e7a9b232b5",
+    "fourOriginalIllustrationsPreserved": true,
+    "images": [
+      {
+        "path": "docs/images/readme-cover.png",
+        "sha256": "9fe8a02b8b57221a49f31d6489921c1b371496fc3af717eb8907921ce0626b4d"
+      },
+      {
+        "path": "docs/images/readme-roadmaps.png",
+        "sha256": "1a7323475fdb1d56063cdf4b1b730c2cde2aec258f2e536bb1448c266ed4669b"
+      },
+      {
+        "path": "docs/images/readme-routine.png",
+        "sha256": "f26c88253f93f592c5d595f7e2c2a4ff0ae755bf11efed13ae99613e117d54e0"
+      },
+      {
+        "path": "docs/images/readme-storage.png",
+        "sha256": "40f55dfdcf32c1622917029d9e12fbf39e709b4aa0fd9fcad32f510ca2e9de7f"
+      }
+    ]
+  },
+  "includedWorkstreams": [
+    "navigation-refinements",
+    "blocker-card-status",
+    "focus-playlist-link",
+    "mission-clarity"
+  ],
+  "firstCiPreserved": {
+    "source": "6294bd0984f14c83fa168f0900fe13e12b635b9f",
+    "run": 45918344442,
+    "browserPassed": 589,
+    "browserFailed": 5,
+    "deployment": "skipped"
+  },
+  "repair": {
+    "sourceFingerprint": "0fe64f6a77ce5eb37cc1d99a0420a2d9327ece15b35292b45b6f5b1c6941e3ce",
+    "localCasesPassed": 39,
+    "attempts": 39,
+    "workers": 1,
+    "retries": 0,
+    "calendarTypeAndTileSizesPreserved": true,
+    "originalVisibilityThresholdsAndThemeBudgetPreserved": true,
+    "workflowChanged": false
+  },
+  "evidenceFollowThrough": "Any later documentation/tracking-only main commit must retain byte-identical runtime, tests, README, workflow and public files; its exact ref is independently retained in the final completion receipt.",
+  "limitations": [
+    "Publication was explicitly authorized; independent aesthetic, physical-device, screen-reader-user, provider-playback and learning outcomes are not inferred.",
+    "Only the supplied metadata-stripped thumbnail is added; no original private PNG/PDF/browser profile/context is published."
+  ],
+  "workspaceSchemaChanged": false,
+  "browserDataResetOrImported": false,
+  "newImageViews": 0
+}

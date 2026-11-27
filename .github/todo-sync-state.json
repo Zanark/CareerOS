@@ -373,11 +373,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/27",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMNXnY",
       "baseline": {
-        "managed": "1aeecfde1f672c254cf333d4df45ffab21968c2075671cc6c8ab4837ad3b2483",
+        "managed": "743da53a3e247cd0b6c750a3eafcd297cd7ae602f20e0ca8974b6b785fb8196c",
         "title": "Add a shared current-date display and refine navigation order",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -387,11 +387,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/28",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMOjkQ",
       "baseline": {
-        "managed": "01aed7e9194a14482bdc702bbd2bbdfda539c59991248bbd2d07f4549d7eac2e",
+        "managed": "f9985a3f8ae42ebb63ad1f61aa1a5429a0085eed6373db592f47de935a1f9e26",
         "title": "Show saved blocker status with red and green mission cards",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -401,11 +401,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/29",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPGQs",
       "baseline": {
-        "managed": "2adae46648a0ef5800c7145c98ff0b02d40d3088d081a887e0b3b781c48a10a5",
+        "managed": "e48a2df2b2bc582d07a4ade9fab7a032e34ba0580028fc4729e4dcd19f2f081f",
         "title": "Add an optional thumbnail link to the supplied focus playlist",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -415,11 +415,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/30",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPrYo",
       "baseline": {
-        "managed": "e26fcac8aee5cf593ba86c4d884255a15afc48676ebd4344c735351f8ac4b162",
+        "managed": "c6e4ec896b4f97c76011b655dd0ff0591cdc732cab40b42fca06ae8f25433e38",
         "title": "Make mission checkpoints distinct and explain the hierarchy interactively",
-        "state": "open",
-        "reason": null,
-        "status": "a7bd2df9",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     },
@@ -429,11 +429,11 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/31",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMQT_Q",
       "baseline": {
-        "managed": "c7844c3be78db757fd523867bc47ea98854fadc208a864740b7b253f7206e9ff",
+        "managed": "1dd1028a812eaab265467453bf9d5831218195ef45de1933a7ec9523c0341bd4",
         "title": "Publish the current navigation and mission refinements with deployment proof",
-        "state": "open",
-        "reason": null,
-        "status": "47fc9ee4",
+        "state": "closed",
+        "reason": "completed",
+        "status": "98236657",
         "archived": false
       }
     }

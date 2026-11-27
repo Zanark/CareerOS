@@ -35,11 +35,11 @@ DONE - 24_KEEP_GOING_JOURNAL_PUBLICATION.todo (keep-going-journal-publication)
 DONE - 25_ATLAS_PROGRESSION_REDESIGN.todo (atlas-progression-redesign)
 DONE - 26_ATLAS_LIVING_MOTION.todo (atlas-living-motion)
 DONE - 27_ATLAS_PUBLICATION.todo (atlas-publication)
-IN_REVIEW - 28_NAVIGATION_REFINEMENTS.todo (navigation-refinements)
-IN_REVIEW - 29_BLOCKER_CARD_STATUS.todo (blocker-card-status)
-IN_REVIEW - 30_FOCUS_PLAYLIST_LINK.todo (focus-playlist-link)
-IN_REVIEW - 31_MISSION_CLARITY.todo (mission-clarity)
-IN_PROGRESS - 32_LOCAL_REFINEMENTS_PUBLICATION.todo (local-refinements-publication)
+DONE - 28_NAVIGATION_REFINEMENTS.todo (navigation-refinements)
+DONE - 29_BLOCKER_CARD_STATUS.todo (blocker-card-status)
+DONE - 30_FOCUS_PLAYLIST_LINK.todo (focus-playlist-link)
+DONE - 31_MISSION_CLARITY.todo (mission-clarity)
+DONE - 32_LOCAL_REFINEMENTS_PUBLICATION.todo (local-refinements-publication)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

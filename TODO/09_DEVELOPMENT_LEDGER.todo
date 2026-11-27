@@ -17,6 +17,15 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-27 - PUBLIC correctivebb43aa3/Pages45924551922SUCCESS, artifact
+    15167555280. Actual782domain/56files and596browser pass with no observed
+    retry/skip/flaky; all31runtime files/5204041bytes plus bare/explicit index
+    and pinned README match. Actual50hosted cases/50attempts/one worker/no
+    retries pass, including all5original CI regressions. README's four PNG/SVG
+    illustrations, schemas and real browser data are preserved. Complete
+    original28-32/issues27-31on existing items, not inferred human aesthetics/
+    device/learning outcomes. Source/public proof:
+    docs/tracking/2026-11-27-refinements-publication.json.
   2026-11-27 - Exact first publication run45918344442/6294bd0fails5of594
     browser cases after full validation/build;589pass, deploy skipped.
     Compact150pxheader consumed graph/action height; responsive102px/94px

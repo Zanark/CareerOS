@@ -1,0 +1,126 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "bb43aa3f68b6a1dc74df9a29513b1521cb7de451",
+  "observedAt": "2026-11-27T02:26:04.178Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "navigation-refinements",
+      "path": "TODO/28_NAVIGATION_REFINEMENTS.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/27",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "743da53a3e247cd0b6c750a3eafcd297cd7ae602f20e0ca8974b6b785fb8196c",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMNXnY",
+      "backlink": "verified"
+    },
+    {
+      "id": "blocker-card-status",
+      "path": "TODO/29_BLOCKER_CARD_STATUS.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/28",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "f9985a3f8ae42ebb63ad1f61aa1a5429a0085eed6373db592f47de935a1f9e26",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMOjkQ",
+      "backlink": "verified"
+    },
+    {
+      "id": "focus-playlist-link",
+      "path": "TODO/30_FOCUS_PLAYLIST_LINK.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/29",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "e48a2df2b2bc582d07a4ade9fab7a032e34ba0580028fc4729e4dcd19f2f081f",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPGQs",
+      "backlink": "verified"
+    },
+    {
+      "id": "mission-clarity",
+      "path": "TODO/31_MISSION_CLARITY.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/30",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "c6e4ec896b4f97c76011b655dd0ff0591cdc732cab40b42fca06ae8f25433e38",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMPrYo",
+      "backlink": "verified"
+    },
+    {
+      "id": "local-refinements-publication",
+      "path": "TODO/32_LOCAL_REFINEMENTS_PUBLICATION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/31",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "1dd1028a812eaab265467453bf9d5831218195ef45de1933a7ec9523c0341bd4",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMQT_Q",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 31,
+    "selected": 5,
+    "excluded": 2,
+    "created": 0,
+    "reused": 5,
+    "verified": 5,
+    "open": 0,
+    "closed": 5,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

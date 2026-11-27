@@ -1,6 +1,6 @@
 Workstream ID: local-refinements-publication
 Title: Publish the current navigation and mission refinements with deployment proof
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Ship the latest static app and verify the exact hosted artifact
 Dependencies: navigation-refinements, blocker-card-status, focus-playlist-link, mission-clarity
 GitHub issue: https://github.com/Zanark/CareerOS/issues/31
@@ -15,10 +15,10 @@ Tasks:
   [x] Refresh README and release-facing guide without replacing illustrations.
   [x] Validate the release candidate and review an explicit public-safe allowlist.
   [x] Commit with both verified Zanark identities and normally push exact main.
-  [ ] Monitor the exact CI/deploy run and repair actual failures if necessary.
-  [ ] Verify deployed artifact bytes and actual hosted refinement workflows.
-  [ ] Complete original tracking identities and evidence-only follow-through.
-  [ ] Preserve the live preview and seal owned continuity with actual results.
+  [x] Monitor the exact CI/deploy run and repair actual failures if necessary.
+  [x] Verify deployed artifact bytes and actual hosted refinement workflows.
+  [x] Reconcile original tracking and prepare verified evidence-only follow-through.
+  [x] Preserve the live preview and write owned continuity for final read-back.
 
 Acceptance criteria:
   README describes current navigation, checkpoint hierarchy, blocker feedback
@@ -42,6 +42,17 @@ Acceptance criteria:
     No force push, unrelated workflow activation, scheduler or secret setup.
 
 Completion evidence:
+  COMPLETE PUBLIC runtimebb43aa3f68b6a1dc74df9a29513b1521cb7de451/
+    Pages45924551922SUCCESS, artifact15167555280. Actual CI782domain/56files
+    and596browser pass with zero failure/skip/flaky/retry markers.
+  Every31hosted runtime file/5204041bytes, bare/explicit index and pinned raw
+    README match the successful source/artifact. All4illustration hashes match.
+    Actual50public browser cases pass in50attempts/one worker/no retries.
+  Proof: docs/tracking/2026-11-27-refinements-publication.json.
+  Any later documentation-only main preserves identical runtime/tests/README/
+    workflow/public; the exact final ref is separately read back. Publication
+    does not imply independent aesthetics, physical-device, playback or learning.
+  Earlier candidate/failure stages below remain historical, not pending work.
   Intake source equals the prior352-input local candidate at
     492e3f9e089a438f039971d39a2efdc0aa40b7e924137c520789732951beef0e.
   Its strict build,13tutorial units and26selected native cases passed. Earlier
@@ -63,9 +74,13 @@ Completion evidence:
     covering17header,13search,4graph,2adoption,2touch-help and1theme case.
     All352inputs remain0fe64f6a77ce5eb37cc1d99a0420a2d9327ece15b35292b45b6f5b1c6941e3ce.
     Preserve the intervening38/1repair diagnostic and its15attachments.
-  Corrective CI, artifact and actual live-site verification remain pending.
+  Corrective CI, artifact and actual live-site verification are now complete.
 
 Completion log:
+  2026-11-27 - Verified exact corrective CI/build/deploy and all31live runtime
+    files plus50actual-hosted cases. Complete original28-32tracking identities,
+    retain first failed6294/45918344442and all local scopes. Final source/main
+    equality and owned context receipts are recorded without another code run.
   2026-11-27 - Initial CI correctly blocks publication on compact header
     footprint regressions and an outdated global-animation assumption.
     Repair responsive layout, not font sizes/viewport thresholds; distinguish
