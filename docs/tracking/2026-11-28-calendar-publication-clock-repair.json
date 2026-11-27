@@ -1,0 +1,44 @@
+{
+  "status": "test-only-calendar-publication-clock-repair-qualified-locally",
+  "base": "0f390f9fcec153d8c75b473ed1677679d4df2737",
+  "failedRun": 46058438578,
+  "productionIdentical": true,
+  "strictBuild": true,
+  "inputs": [
+    {
+      "path": "tests/game-development.spec.ts",
+      "sha256": "060c14a606381603edcd8e6debbac19d7ad42b04f7940f07362c4a20374d5f2d"
+    },
+    {
+      "path": "tests/mission-clarity.spec.ts",
+      "sha256": "4c51513f887eff9765c1bc0ce6e3c45fb40f0a7e4ba96c4b04bbbe03d8b23dc0"
+    }
+  ],
+  "utcHostKolkataBrowser": {
+    "cases": 22,
+    "attempts": 22,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "kolkataHostKolkataBrowser": {
+    "cases": 2,
+    "attempts": 2,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "originalSameReasonFailuresReproduced": 2,
+  "changes": [
+    "Keep the migration snapshot on one fixed instant and seed its daily plan using the browser localDate, not the Node host day.",
+    "Align only newly created default mission-fixture updatedAt with its fixed browser instant; preserve supplied workspaces and production monotonicity."
+  ],
+  "unchanged": [
+    "All production source/public/media/dependencies/workflow and calendar artwork",
+    "Exact workspace-preservation and actual streak assertions",
+    "Per-case timeouts, retries and all motion/resource guards"
+  ],
+  "publication": "Corrected commit/workflow/artifact/hosted proof still pending."
+}

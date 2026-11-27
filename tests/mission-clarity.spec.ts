@@ -13,7 +13,7 @@ test.use({ timezoneId: 'Asia/Kolkata', reducedMotion: 'reduce', launchOptions: {
 async function prepare(page: Page, options: {
   state?: AppState; theme?: 'dark' | 'light'; clock?: boolean; motion?: 'reduce' | 'no-preference'; route?: string;
 } = {}) {
-  const state = options.state ?? createInitialState(false);
+  const state = options.state ?? { ...createInitialState(false), updatedAt: now.toISOString() };
   state.plans[today] = generatePlan(state, today);
   await page.emulateMedia({ reducedMotion: options.motion ?? 'reduce' });
   if (options.clock) {

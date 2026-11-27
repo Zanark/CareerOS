@@ -81,6 +81,7 @@ test('a genuinely fresh workspace offers the complete game mission as Planned wi
 });
 
 test('a true previous eleven-mission workspace gains only the missing Planned lane', async ({ page }) => {
+  await page.clock.setFixedTime(new Date());
   let state = fixture();
   state = recordEvidence(state, {
     missionId: 'pattern', checkpointId: state.missions.pattern.checkpointId,
@@ -91,7 +92,8 @@ test('a true previous eleven-mission workspace gains only the missing Planned la
   state.missions.fabric.mode = 'active';
   state.missions.pattern.mode = 'background';
   state.missions.escape.blocker = 'Synthetic retained approval blocker';
-  state.plans[localDate()] = generatePlan(state);
+  const browserDate = await page.evaluate(localDate, undefined);
+  state.plans[browserDate] = generatePlan(state, browserDate);
   const { gamedev: _game, ...oldMissions } = state.missions;
   expect(Object.keys(oldMissions)).toHaveLength(11);
   await seed(page, { ...state, missions: oldMissions });

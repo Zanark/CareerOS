@@ -1,0 +1,45 @@
+{
+  "status": "calendar-publication-original-tracking-independently-verified",
+  "stage": "prepared",
+  "observedAt": "2026-11-27T20:30:25.136Z",
+  "rows": [
+    {
+      "id": "calendar-fire-backdrop",
+      "issue": 38,
+      "issueId": "I_kwDOU6lJns8AAAABjIXQYQ",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMeOTI",
+      "state": "CLOSED",
+      "stateReason": "COMPLETED",
+      "status": "Done",
+      "managedSha256": "5603eaf820aec1620a0ac0bac2407e7114588793d4327f5a743dd089bd603b9e"
+    },
+    {
+      "id": "calendar-backdrop-publication",
+      "issue": 39,
+      "issueId": "I_kwDOU6lJns8AAAABjJH3ow",
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMfAAM",
+      "state": "OPEN",
+      "stateReason": null,
+      "status": "In Progress",
+      "managedSha256": "e59ed27a8aa9ac17bdf3c9e876fd7d0fcf636c89059f22d0248d2b82fd8d2ec4"
+    }
+  ],
+  "unrelatedMappingsUnchanged": 37,
+  "privateGates": [
+    {
+      "issue": 16,
+      "state": "OPEN",
+      "status": "In review"
+    },
+    {
+      "issue": 17,
+      "state": "OPEN",
+      "status": "In review"
+    }
+  ],
+  "project": "PVT_kwHOAe2wCs4BqeZy",
+  "view": "PVTV_lAHOAe2wCs4BqeZyzgMb1BU",
+  "layout": "BOARD_LAYOUT",
+  "exactManagedBodyAndBacklinks": true,
+  "pending": false
+}

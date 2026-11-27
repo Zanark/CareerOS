@@ -10,8 +10,8 @@ Purpose: The owner separately authorizes pushing the completed local calendar
 
 Tasks:
   [x] Reconcile the intended worktree and exact prior local qualification.
-  [ ] Review and commit only the intended source with both Zanark identities.
-  [ ] Push normally to the canonical main branch and read back its exact SHA.
+  [x] Review and commit only the intended source with both Zanark identities.
+  [x] Push normally to the canonical main branch and read back its exact SHA.
   [ ] Monitor the exact existing validation/deployment workflow and repair failures.
   [ ] Verify actual deployed artifact bytes and affected hosted browser contracts.
   [ ] Complete original tracking, final publication evidence and owned continuity.
@@ -33,6 +33,26 @@ Acceptance criteria:
     Do not bypass product CI or manufacture unrelated commits/deployments.
 
 Completion evidence:
+  TEST-ONLY repair qualifies locally: strict production build and all22cases
+    in the two affected files pass under UTC Node/Kolkata browser in22attempts/
+    one worker/zero retries/skips/flaky. Both original cases also pass under a
+    Kolkata Node host/Kolkata browser in2attempts/zero retries.
+  Production src/public/dependencies/workflow/README/media remain identical
+    to0f390f9. Existing exact equality, actual streak and all motion/resource
+    assertions remain; no timeout, retry, skip or runtime-clock workaround.
+    Proof: docs/tracking/2026-11-28-calendar-publication-clock-repair.json.
+    Corrected source commit/push and actual successful delivery remain pending.
+  Exact source0f390f9/Pages46058438578fails:789domain/57files and629browser
+    cases pass,2date-authority fixtures fail on all attempts; deployment skipped.
+    All final calendar compositing cases pass in this actual full run.
+  Failure proof: docs/tracking/2026-11-28-calendar-publication-ci-failure.json.
+    Both original failures reproduce locally with UTC Node/Kolkata browser.
+    Seed the old-wire daily plan from browserDate and the default mission fixture
+    updatedAt from its frozen clock. Keep all original preservation/streak
+    assertions and all production code, clock rules and budgets unchanged.
+  The test-only correction still requires focused local qualification and an
+    exact successful source workflow/artifact/hosted result. No new deployment
+    success is inferred from the629passing cases or source push.
   Prior local build and all28affected browser cases pass in28attempts/one worker/
     zero retries. The final two compositing tests fail for the intended paper
     mismatch on the previous public foreground implementation.
@@ -43,6 +63,15 @@ Completion evidence:
   Source commit/push, exact workflow and actual public verification are pending.
 
 Completion log:
+  2026-11-28 - Both fixture corrections pass strict build/all22affected cases
+    under UTC Node/Kolkata browser and both original cases under matching
+    Kolkata timezones, one worker/no retries. Preserve exact0fproduction
+    equality and prepare the bounded test-only publication repair.
+  2026-11-28 - Preserve failed0f390f9/Pages46058438578and all six traces.
+    Reproduce both fixture failures under UTC Node/Kolkata browser: a host-day
+    plan misses the browser's new day, and real updatedAt outruns a frozen
+    browser clock through the correct monotonic writer. Repair fixture inputs,
+    not production behavior or exact assertions; successful delivery is pending.
   2026-11-28 - Owner explicitly requests push after local work39completed.
     Begin a separate publication milestone without reopening its completed
     implementation or relabelling previous local evidence as deployed.

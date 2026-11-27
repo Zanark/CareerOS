@@ -1,0 +1,37 @@
+{
+  "status": "exact-source-ci-failed-deployment-skipped",
+  "source": "0f390f9fcec153d8c75b473ed1677679d4df2737",
+  "run": 46058438578,
+  "url": "https://github.com/Zanark/CareerOS/actions/runs/46058438578",
+  "build": "failure",
+  "deploy": "skipped",
+  "domainFiles": 57,
+  "domainCases": 789,
+  "browserPassed": 629,
+  "browserFailed": 2,
+  "browserInventory": 631,
+  "failureArtifact": 15229127867,
+  "diagnosis": [
+    {
+      "file": "tests/game-development.spec.ts",
+      "case": "a true previous eleven-mission workspace gains only the missing Planned lane",
+      "observation": "All three traces seed plan-2026-11-27 from the UTC Node host while the Kolkata browser is on November 28; the existing application correctly adds its missing current-day plan.",
+      "correction": "Keep the preservation snapshot on one fixed instant, then reuse the existing Fieldcraft test pattern: read localDate in the browser and pass that exact date to generatePlan."
+    },
+    {
+      "file": "tests/mission-clarity.spec.ts",
+      "case": "the redesigned checkpoint still separates saved evidence from confirmed advancement",
+      "observation": "All three traces freeze browser time at 2026-11-27T06:30:00Z but seed updatedAt at real 20:04Z. The monotonic writer preserves that later timestamp, whose Kolkata day is November 28, beyond the frozen browser date; the actual current streak is therefore zero.",
+      "correction": "Align only newly created default fixture updatedAt with the fixed browser instant; preserve explicitly supplied workspaces and all production timestamp rules."
+    }
+  ],
+  "originalFailuresReproducedLocally": {
+    "fixtureHostTimezone": "UTC",
+    "browserTimezone": "Asia/Kolkata",
+    "cases": 2,
+    "failedForSameReasons": 2
+  },
+  "repairScope": "Test-fixture date authority only; retain exact equality, actual streak assertion, workflow/timeouts/retries and unchanged production code/media.",
+  "newSuccessfulDeploymentClaimed": false,
+  "newManualImageViews": 0
+}

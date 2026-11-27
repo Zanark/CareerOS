@@ -17,6 +17,17 @@ Completion evidence:
   Historical implementation evidence lives in retrospective workstreams 01-07.
 
 Completion log:
+  2026-11-28 - The bounded test-fixture correction passes strict build/all22
+    affected cases/22attempts under UTC Node/Kolkata browser, plus both original
+    cases/2attempts under matching Kolkata host/browser. One worker/no retries/
+    skips/flaky. Production, assertions and workflow budgets remain unchanged.
+  2026-11-28 - Exact calendar source0f390f9/Pages46058438578fails629pass/
+    2date-fixture failures after789domain/57files; deployment skipped. Both
+    final paper/fire compositing cases pass. All six traces and a UTC-host
+    local reproduction confirm host-day versus browser-day planning and a
+    real fixture updatedAt beyond the frozen browser instant. Reuse browserDate
+    for the old-wire plan and align only default fixture time; preserve exact
+    equality/streak checks, production monotonicity and workflow budgets.
   2026-11-28 - Publication tracking initially stops after returning the newly
     created issue39/itemMfAAMidentity because membership is not visible to its
     immediate inventory. Preserve the partial record and original failure.

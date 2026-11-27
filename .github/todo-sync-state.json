@@ -541,7 +541,7 @@
       "issueUrl": "https://github.com/Zanark/CareerOS/issues/39",
       "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMfAAM",
       "baseline": {
-        "managed": "f7ea0e055324d2b20c1a44dcdcac2f3e5c725e827f92b9e246c83f6270beecb0",
+        "managed": "e59ed27a8aa9ac17bdf3c9e876fd7d0fcf636c89059f22d0248d2b82fd8d2ec4",
         "title": "Publish the calendar fire backdrop correction",
         "state": "open",
         "reason": null,
