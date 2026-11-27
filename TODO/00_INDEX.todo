@@ -47,7 +47,7 @@ DONE - 36_COMPACT_SQUARE_CHROME.todo (compact-square-chrome)
 DONE - 37_STREAK_FIRE_AND_HISTORY.todo (streak-fire-history)
 DONE - 38_BLUE_STREAK_FIRE.todo (blue-streak-fire)
 DONE - 39_CALENDAR_FIRE_BACKDROP.todo (calendar-fire-backdrop)
-IN_PROGRESS - 40_CALENDAR_BACKDROP_PUBLICATION.todo (calendar-backdrop-publication)
+DONE - 40_CALENDAR_BACKDROP_PUBLICATION.todo (calendar-backdrop-publication)
 
 Tracking configuration: .github/todo-sync.json
 Persistent recovery/baselines: .github/todo-sync-state.json

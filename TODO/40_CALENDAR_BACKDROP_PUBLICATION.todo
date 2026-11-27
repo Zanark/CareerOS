@@ -1,6 +1,6 @@
 Workstream ID: calendar-backdrop-publication
 Title: Publish the calendar fire backdrop correction
-Status: IN_PROGRESS
+Status: DONE
 Milestone: Deliver the qualified behind-calendar blue fire to GitHub Pages
 Dependencies: calendar-fire-backdrop
 GitHub issue: https://github.com/Zanark/CareerOS/issues/39
@@ -12,9 +12,9 @@ Tasks:
   [x] Reconcile the intended worktree and exact prior local qualification.
   [x] Review and commit only the intended source with both Zanark identities.
   [x] Push normally to the canonical main branch and read back its exact SHA.
-  [ ] Monitor the exact existing validation/deployment workflow and repair failures.
-  [ ] Verify actual deployed artifact bytes and affected hosted browser contracts.
-  [ ] Complete original tracking, final publication evidence and owned continuity.
+  [x] Monitor the exact existing validation/deployment workflow and repair failures.
+  [x] Verify actual deployed artifact bytes and affected hosted browser contracts.
+  [x] Complete original tracking, final publication evidence and owned continuity.
 
 Acceptance criteria:
   Source contains only the qualified calendar backdrop change and its directly
@@ -33,6 +33,23 @@ Acceptance criteria:
     Do not bypass product CI or manufacture unrelated commits/deployments.
 
 Completion evidence:
+  COMPLETE PUBLIC: source78cee7d384534e74f3fa5d914e5ec2a0e06107dd/
+    exact Pages46064263640build/deploySUCCESS. Actual789domain/57files
+    and631browser cases pass with zero observed retry/skipped/flaky markers.
+  Exact artifact15232640383matches all31runtime files/5241200bytes plus
+    bare/explicit index and pinned source README. All six approved README/media
+    Git objects remain unchanged. Actual28hosted cases pass in28attempts/
+    one worker/zero retries/skips/flaky, including exact composed paper/fire
+    pixels and original local-day/weekend/geometry/motion/data contracts.
+  Proof: docs/tracking/2026-11-28-calendar-backdrop-publication.json.
+    Original local issue38/itemMeOTIand publication issue39/itemMfAAMretain
+    their identities; separate completion receipts verify managed bodies,
+    backlinks/status/Kanban and37other mappings/private review gates.
+  Production is identical to original calendar source0f390f9. The corrected
+    successor changes only fixture clock inputs and evidence, not application
+    behavior or validation budgets. No new manual images or independent human
+    beauty/device/mastery approval is inferred. Older pending/local statements
+    below are source-bound historical editions, not remaining release work.
   TEST-ONLY repair qualifies locally: strict production build and all22cases
     in the two affected files pass under UTC Node/Kolkata browser in22attempts/
     one worker/zero retries/skips/flaky. Both original cases also pass under a
@@ -63,6 +80,11 @@ Completion evidence:
   Source commit/push, exact workflow and actual public verification are pending.
 
 Completion log:
+  2026-11-28 - COMPLETE PUBLIC through exact78cee7d/Pages46064263640:
+    actual789/631CI,31runtime files/5241200bytes and28hosted cases/
+    28attempts/one worker/no retries pass. Preserve initial0ffailure/traces,
+    correct chronology and exact assertions; complete original publication
+    issue39and local issue38follow-through without changing other identities.
   2026-11-28 - Both fixture corrections pass strict build/all22affected cases
     under UTC Node/Kolkata browser and both original cases under matching
     Kolkata timezones, one worker/no retries. Preserve exact0fproduction

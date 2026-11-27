@@ -32,6 +32,13 @@ Acceptance criteria:
     explicit push is tracked separately in calendar-backdrop-publication.
 
 Completion evidence:
+  Subsequent publication COMPLETE through work40: exact source78cee7d/
+    Pages46064263640build/deploySUCCESS, actual789domain/631browserCI/
+    zero retry/skip/flaky markers. All31runtime files/5241200bytes and
+    actual28hosted cases/28attempts/one worker/no retries verify.
+    Proof: docs/tracking/2026-11-28-calendar-backdrop-publication.json.
+    Original issue38/itemMeOTIstays Done; prior local evidence is retained
+    below without relabelling it as a new run or aesthetic approval.
   Subsequent publication is separately authorized and tracked in
     TODO/40_CALENDAR_BACKDROP_PUBLICATION.todo. Original local evidence below
     describes the completed implementation before that publication request.
@@ -66,6 +73,9 @@ Completion evidence:
   No new manual images are viewed; technical checks are not aesthetic approval.
 
 Completion log:
+  2026-11-28 - Separately authorized work40publishes the correction through
+    exact78cee7d/Pages46064263640with actual artifact/hosted proof. Keep
+    this original implementation identity and its completed local qualification.
   2026-11-28 - Complete the bounded local backdrop correction. Both final
     compositing cases fail on unchanged public foreground fire, then all28
     affected cases pass locally with strict build/28attempts/one worker/

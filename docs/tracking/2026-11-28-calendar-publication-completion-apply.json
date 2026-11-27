@@ -1,0 +1,67 @@
+{
+  "mode": "apply",
+  "repository": "Zanark/CareerOS",
+  "project": "https://github.com/users/Zanark/projects/4",
+  "sourceRevision": "78cee7d384534e74f3fa5d914e5ec2a0e06107dd",
+  "observedAt": "2026-11-27T21:23:16.439Z",
+  "excluded": [
+    {
+      "path": "TODO/00_INDEX.todo",
+      "reason": "Navigation index, not an actual feature workstream."
+    },
+    {
+      "path": "TODO/09_DEVELOPMENT_LEDGER.todo",
+      "reason": "Perpetual development history, not a feature issue."
+    }
+  ],
+  "rows": [
+    {
+      "id": "calendar-fire-backdrop",
+      "path": "TODO/39_CALENDAR_FIRE_BACKDROP.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/38",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "57960dd7aa511ed641c1d1996a6145557d4f867dacbe00d43c1f5d4c4ecd4f1d",
+      "actions": [
+        "update managed description"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMeOTI",
+      "backlink": "verified"
+    },
+    {
+      "id": "calendar-backdrop-publication",
+      "path": "TODO/40_CALENDAR_BACKDROP_PUBLICATION.todo",
+      "outcome": "verified",
+      "created": false,
+      "reused": true,
+      "issue": "https://github.com/Zanark/CareerOS/issues/39",
+      "issueState": "closed",
+      "stateReason": "completed",
+      "projectStatus": "Done",
+      "managedSha256": "b9bad3eb6935635675dc1a9267e4aaf6bf97626f130c300d7fc746af2acbb27b",
+      "actions": [
+        "update managed description",
+        "set issue closed/completed",
+        "set Project Done"
+      ],
+      "itemId": "PVTI_lAHOAe2wCs4BqeZyzhMfAAM",
+      "backlink": "verified"
+    }
+  ],
+  "counts": {
+    "included": 39,
+    "selected": 2,
+    "excluded": 2,
+    "created": 0,
+    "reused": 2,
+    "verified": 2,
+    "open": 0,
+    "closed": 2,
+    "conflicts": 0,
+    "failed": 0
+  }
+}

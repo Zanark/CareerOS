@@ -1,0 +1,64 @@
+{
+  "status": "exact-calendar-backdrop-source-deployed-and-publicly-verified",
+  "observedAt": "2026-11-27T21:22:04.622987+00:00",
+  "source": "78cee7d384534e74f3fa5d914e5ec2a0e06107dd",
+  "initialCalendarSource": "0f390f9fcec153d8c75b473ed1677679d4df2737",
+  "productionIdenticalToInitialCalendarSource": true,
+  "run": 46064263640,
+  "url": "https://github.com/Zanark/CareerOS/actions/runs/46064263640",
+  "ci": {
+    "build": "success",
+    "deploy": "success",
+    "domainFiles": 57,
+    "domainCases": 789,
+    "browserCases": 631,
+    "observedRetryMarkers": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "workflowChanged": false
+  },
+  "artifact": {
+    "id": 15232640383,
+    "files": 31,
+    "bytes": 5241200,
+    "bareIndexMatches": true,
+    "explicitIndexMatches": true,
+    "readmeAtExactSourceMatches": true,
+    "readmeMediaObjectsUnchanged": 6
+  },
+  "hosted": {
+    "cases": 28,
+    "attempts": 28,
+    "workers": 1,
+    "retries": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "unexpected": 0,
+    "ownerBrowserAccessed": false,
+    "newImageViews": 0
+  },
+  "preserved": [
+    "Opaque calendar paper/bindings in front of bounded blue fire",
+    "40x50px tile, 69/60px header, readable date/weekend/turn/hover",
+    "Actual work/history and original cold-zero/motion/resource controls",
+    "Production chronology, supplied workspaces, exact assertions and CI budgets",
+    "Frozen curricula and approved README/media"
+  ],
+  "originalTrackingIdentities": {
+    "localWorkstream": "calendar-fire-backdrop",
+    "localIssue": 38,
+    "localItem": "PVTI_lAHOAe2wCs4BqeZyzhMeOTI",
+    "publicationWorkstream": "calendar-backdrop-publication",
+    "publicationIssue": 39,
+    "publicationItem": "PVTI_lAHOAe2wCs4BqeZyzhMfAAM"
+  },
+  "retainedFailure": {
+    "source": "0f390f9fcec153d8c75b473ed1677679d4df2737",
+    "run": 46058438578,
+    "browserPassed": 629,
+    "browserFailed": 2,
+    "deploy": "skipped",
+    "correction": "Only fixture clock/date inputs changed; original failures reproduced, exact assertions retained."
+  },
+  "humanAestheticAndPhysicalDeviceApproval": "not inferred"
+}
